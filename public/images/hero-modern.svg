@@ -1,0 +1,80 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sky Gradient Background -->
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="solarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E40AF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E3A8A;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="600" fill="url(#skyGradient)"/>
+
+  <!-- Sun with rays -->
+  <g opacity="0.8">
+    <circle cx="480" cy="100" r="50" fill="#FCD34D" opacity="0.3"/>
+    <circle cx="480" cy="100" r="35" fill="#FCD34D"/>
+    <!-- Sun rays -->
+    <line x1="480" y1="50" x2="480" y2="20" stroke="#FCD34D" stroke-width="4" stroke-linecap="round"/>
+    <line x1="530" y1="100" x2="560" y2="100" stroke="#FCD34D" stroke-width="4" stroke-linecap="round"/>
+    <line x1="515" y1="135" x2="535" y2="155" stroke="#FCD34D" stroke-width="4" stroke-linecap="round"/>
+    <line x1="445" y1="135" x2="425" y2="155" stroke="#FCD34D" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- Modern House -->
+  <g transform="translate(150, 200)">
+    <!-- House base -->
+    <rect x="0" y="120" width="300" height="220" fill="#F1F5F9"/>
+    <rect x="0" y="120" width="300" height="220" stroke="#CBD5E1" stroke-width="3"/>
+
+    <!-- Roof with solar panels -->
+    <polygon points="-30,120 150,30 330,120" fill="#64748B"/>
+
+    <!-- Solar Panels on Roof (3 panels with gradient) -->
+    <g opacity="0.95">
+      <!-- Panel 1 -->
+      <rect x="35" y="65" width="75" height="65" fill="url(#solarGradient)" stroke="#0EA5E9" stroke-width="2" rx="2"/>
+      <line x1="72.5" y1="65" x2="72.5" y2="130" stroke="#0EA5E9" stroke-width="1" opacity="0.5"/>
+      <line x1="35" y1="97.5" x2="110" y2="97.5" stroke="#0EA5E9" stroke-width="1" opacity="0.5"/>
+
+      <!-- Panel 2 -->
+      <rect x="120" y="65" width="75" height="65" fill="url(#solarGradient)" stroke="#0EA5E9" stroke-width="2" rx="2"/>
+      <line x1="157.5" y1="65" x2="157.5" y2="130" stroke="#0EA5E9" stroke-width="1" opacity="0.5"/>
+      <line x1="120" y1="97.5" x2="195" y2="97.5" stroke="#0EA5E9" stroke-width="1" opacity="0.5"/>
+
+      <!-- Panel 3 -->
+      <rect x="205" y="65" width="60" height="65" fill="url(#solarGradient)" stroke="#0EA5E9" stroke-width="2" rx="2"/>
+      <line x1="235" y1="65" x2="235" y2="130" stroke="#0EA5E9" stroke-width="1" opacity="0.5"/>
+      <line x1="205" y1="97.5" x2="265" y2="97.5" stroke="#0EA5E9" stroke-width="1" opacity="0.5"/>
+    </g>
+
+    <!-- Windows -->
+    <rect x="30" y="160" width="70" height="80" fill="#93C5FD" opacity="0.7" rx="4"/>
+    <rect x="115" y="160" width="70" height="80" fill="#93C5FD" opacity="0.7" rx="4"/>
+    <rect x="200" y="160" width="70" height="80" fill="#93C5FD" opacity="0.7" rx="4"/>
+
+    <!-- Door -->
+    <rect x="125" y="260" width="50" height="80" fill="#6366F1" rx="4"/>
+    <circle cx="165" cy="300" r="4" fill="#FCD34D"/>
+  </g>
+
+  <!-- Energy/Power Symbol -->
+  <g transform="translate(450, 350)">
+    <circle cx="50" cy="50" r="45" fill="#10B981" opacity="0.9"/>
+    <path d="M40 55 L50 30 L50 45 L60 45 L50 70 L50 55 Z" fill="white"/>
+  </g>
+
+  <!-- Decorative Clouds -->
+  <g opacity="0.3">
+    <ellipse cx="100" cy="80" rx="40" ry="25" fill="#CBD5E1"/>
+    <ellipse cx="130" cy="80" rx="35" ry="20" fill="#CBD5E1"/>
+    <ellipse cx="80" cy="90" rx="30" ry="18" fill="#CBD5E1"/>
+  </g>
+
+  <!-- Green Grass Base -->
+  <rect x="0" y="550" width="600" height="50" fill="#10B981" opacity="0.2"/>
+</svg>

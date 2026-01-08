@@ -1,0 +1,15 @@
+{
+  "totalSessions": 0,
+  "totalUsers": 0,
+  "totalPageViews": 0,
+  "avgSessionDuration": 0,
+  "avgBounceRate": 0,
+  "totalConversions": 0,
+  "realtimeUsers": 0,
+  "lastUpdated": "2025-12-21T11:54:23.148168",
+  "dateRange": {
+    "start": "2025-11-21",
+    "end": "2025-12-21",
+    "days": 30
+  }
+}

@@ -1,0 +1,8 @@
+<svg width="120" height="60" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Proven Expert Badge -->
+  <circle cx="30" cy="30" r="25" fill="#00B8D4" stroke="#0097A7" stroke-width="2"/>
+  <path d="M20 30 L27 37 L42 22" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="65" y="25" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">PROVEN</text>
+  <text x="65" y="37" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">EXPERT</text>
+  <text x="65" y="48" font-family="Arial, sans-serif" font-size="7" fill="#666">100% Empfehlungen</text>
+</svg>

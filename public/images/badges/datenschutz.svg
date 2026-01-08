@@ -1,0 +1,21 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="#3B82F6" stroke="#2563EB" stroke-width="2"/>
+
+  <!-- Inner Circle -->
+  <circle cx="100" cy="100" r="85" fill="#1D4ED8" opacity="0.2"/>
+
+  <!-- Shield Icon with Checkmark -->
+  <g transform="translate(65, 55)">
+    <!-- Shield Shape -->
+    <path d="M35 10 L10 20 L10 40 Q10 60, 35 75 Q60 60, 60 40 L60 20 Z" fill="white" stroke="none"/>
+    <!-- Checkmark inside shield -->
+    <path d="M25 38 L32 45 L48 29" stroke="#3B82F6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+
+  <!-- DATENSCHUTZ Text -->
+  <text x="100" y="140" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">DATENSCHUTZ</text>
+
+  <!-- KONFORM Text -->
+  <text x="100" y="157" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="white" text-anchor="middle">KONFORM</text>
+</svg>

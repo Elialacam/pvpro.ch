@@ -1,0 +1,31 @@
+{
+  "containerId": "GTM-N8MRNGXQ",
+  "containerName": "pvpro.ch - Conversion Tracking",
+  "ga4MeasurementId": "G-P4N661CGHM",
+  "domain": "pvpro.ch",
+  "status": "partial_setup",
+  "createdAt": "2025-11-07T00:00:00.000Z",
+  "notes": "GTM container created with GA4 Config tag and triggers. Event tags need to be added manually in GTM UI due to API limitations with measurementIdOverride parameter.",
+  "manualSteps": [
+    "1. Go to https://tagmanager.google.com/#/container/accounts/6319600105/containers/N8MRNGXQ/workspaces",
+    "2. Create GA4 event tags for each trigger (14 total)",
+    "3. Click Submit → Publish to publish the container",
+    "4. Test in GTM Preview mode"
+  ],
+  "events": [
+    { "name": "form_start", "label": "FORM_START" },
+    { "name": "calculator_used", "label": "CALCULATOR_USED" },
+    { "name": "form_step_1_complete", "label": "FORM_STEP_1" },
+    { "name": "form_step_2_complete", "label": "FORM_STEP_2" },
+    { "name": "form_step_3_complete", "label": "FORM_STEP_3" },
+    { "name": "form_step_4_complete", "label": "FORM_STEP_4" },
+    { "name": "generate_lead", "label": "LEAD_COMPLETE" },
+    { "name": "scroll_25", "label": "SCROLL_25" },
+    { "name": "scroll_50", "label": "SCROLL_50" },
+    { "name": "scroll_75", "label": "SCROLL_75" },
+    { "name": "scroll_100", "label": "SCROLL_100" },
+    { "name": "phone_click", "label": "PHONE_CLICK" },
+    { "name": "email_click", "label": "EMAIL_CLICK" },
+    { "name": "cta_click", "label": "CTA_CLICK" }
+  ]
+}

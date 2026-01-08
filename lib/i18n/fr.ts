@@ -1,0 +1,138 @@
+// French translations for pvpro.ch
+import { TranslationKeys } from './de';
+
+export const fr: TranslationKeys = {
+  common: {
+    getQuote: 'Demander un devis',
+    freeQuote: 'Devis gratuit',
+    compare: 'Comparer',
+    save: 'Économiser',
+    learnMore: 'En savoir plus',
+    contactUs: 'Nous contacter',
+    readMore: 'Lire la suite',
+    getStarted: 'Commencer',
+    phone: 'Téléphone',
+    email: 'E-mail',
+    address: 'Adresse',
+  },
+  nav: {
+    home: 'Accueil',
+    solarCalculator: 'Calculateur solaire',
+    costs: 'Coûts',
+    storage: 'Avec stockage',
+    aboutUs: 'À propos',
+    contact: 'Contact',
+    cities: 'Villes',
+  },
+  hero: {
+    title: 'Comparer les installations solaires en Suisse',
+    subtitle: 'Recevez des devis gratuits d\'installateurs certifiés',
+    description: 'Comparez gratuitement les offres d\'installations solaires d\'installateurs certifiés en Suisse. Économisez jusqu\'à 30% grâce à la comparaison.',
+    cta: 'Demander un devis gratuit maintenant',
+    free: '100% gratuit',
+    nonBinding: '100% sans engagement',
+    certified: 'Installateurs certifiés',
+  },
+  form: {
+    title: 'Commencez votre comparaison gratuite maintenant',
+    subtitle: 'Obtenez une offre personnalisée en seulement 2 minutes',
+    name: 'Nom',
+    email: 'E-mail',
+    phone: 'Téléphone',
+    postalCode: 'Code postal',
+    city: 'Ville',
+    message: 'Message',
+    submit: 'Demander un devis',
+    sending: 'Envoi en cours...',
+    success: 'Merci! Nous vous contacterons bientôt.',
+    error: 'Une erreur s\'est produite. Veuillez réessayer.',
+  },
+  usp: {
+    title: 'Pourquoi PVPro?',
+    compare: {
+      title: 'Jusqu\'à 3 devis à comparer',
+      description: 'Recevez plusieurs offres d\'installateurs certifiés et choisissez la meilleure.',
+    },
+    save: {
+      title: 'Économisez jusqu\'à 30%',
+      description: 'En comparant plusieurs offres, vous économisez en moyenne 30% sur les coûts d\'installation.',
+    },
+    certified: {
+      title: 'Installateurs certifiés uniquement',
+      description: 'Tous nos partenaires sont certifiés et ont une expérience prouvée avec les installations solaires suisses.',
+    },
+    free: {
+      title: '100% gratuit et sans engagement',
+      description: 'Notre service est entièrement gratuit. Vous ne payez que l\'installateur de votre choix.',
+    },
+  },
+  howItWorks: {
+    title: 'Comment ça marche',
+    step1: {
+      title: 'Remplir le formulaire',
+      description: 'Indiquez vos besoins en seulement 2 minutes',
+    },
+    step2: {
+      title: 'Recevoir les devis',
+      description: 'Jusqu\'à 3 offres personnalisées d\'installateurs locaux',
+    },
+    step3: {
+      title: 'Comparer et économiser',
+      description: 'Choisissez la meilleure offre et économisez jusqu\'à 30%',
+    },
+  },
+  faq: {
+    title: 'Questions fréquentes',
+    seeAll: 'Voir toutes les FAQ',
+  },
+  footer: {
+    company: 'Entreprise',
+    aboutUs: 'À propos',
+    contact: 'Contact',
+    privacy: 'Confidentialité',
+    imprint: 'Mentions légales',
+    terms: 'CGV',
+    legal: 'Juridique',
+    followUs: 'Suivez-nous',
+    copyright: '© 2024 PVPro. Tous droits réservés.',
+  },
+  testimonials: {
+    title: 'Ce que disent nos clients',
+  },
+  cities: {
+    title: 'Installations solaires dans toute la Suisse',
+    description: 'Nous mettons en relation avec des installateurs dans toutes les grandes villes suisses',
+    solarIn: 'Installation solaire',
+  },
+  pricing: {
+    title: 'Coûts d\'installation solaire',
+    typical: 'Installation typique',
+    withStorage: 'Avec stockage',
+    afterSubsidy: 'Après subventions',
+    roi: 'Amortissement',
+    years: 'ans',
+  },
+  incentives: {
+    title: 'Subventions en Suisse',
+    federal: 'Subvention fédérale',
+    cantonal: 'Subvention cantonale',
+    tax: 'Déductions fiscales',
+  },
+  solarTerms: {
+    solarSystem: 'Installation solaire',
+    photovoltaic: 'Photovoltaïque',
+    solarInstaller: 'Installateur solaire',
+    solarPanel: 'Panneau solaire',
+    inverter: 'Onduleur',
+    battery: 'Batterie de stockage',
+    sunHours: 'Heures d\'ensoleillement',
+    subsidy: 'Subvention',
+    quote: 'Devis',
+    installation: 'Installation',
+    costs: 'Coûts',
+  },
+  meta: {
+    homeTitle: 'PVPro - Comparer les installations solaires en Suisse | Devis gratuits',
+    homeDescription: 'Comparez gratuitement les offres d\'installations solaires d\'installateurs certifiés en Suisse. Économisez jusqu\'à 30% grâce à la comparaison. 100% sans engagement.',
+  },
+};

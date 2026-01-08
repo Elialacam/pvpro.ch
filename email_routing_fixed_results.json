@@ -1,0 +1,1665 @@
+{
+  "results": [
+    {
+      "domain": "surfcampuluwatu.com",
+      "zone_id": "734367c731d2116ba547dbe8e79b1b67",
+      "catchall_response": {
+        "result": {
+          "id": "8128876060e14504a3ee31766730433b",
+          "tag": "8128876060e14504a3ee31766730433b",
+          "name": "",
+          "matchers": [
+            {
+              "type": "all"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 2147483647
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "specific_response": {
+        "result": {
+          "id": "9f19b9edbc9d4e5ab1b8dd2a6ad13084",
+          "tag": "9f19b9edbc9d4e5ab1b8dd2a6ad13084",
+          "name": "info@surfcampuluwatu.com",
+          "matchers": [
+            {
+              "type": "literal",
+              "field": "to",
+              "value": "info@surfcampuluwatu.com"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 0
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "verify_response": {
+        "result": [
+          {
+            "id": "9f19b9edbc9d4e5ab1b8dd2a6ad13084",
+            "tag": "9f19b9edbc9d4e5ab1b8dd2a6ad13084",
+            "name": "info@surfcampuluwatu.com",
+            "matchers": [
+              {
+                "type": "literal",
+                "field": "to",
+                "value": "info@surfcampuluwatu.com"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 0
+          },
+          {
+            "id": "8128876060e14504a3ee31766730433b",
+            "tag": "8128876060e14504a3ee31766730433b",
+            "name": "",
+            "matchers": [
+              {
+                "type": "all"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 2147483647
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result_info": {
+          "page": 1,
+          "per_page": 20,
+          "count": 2,
+          "total_count": 2
+        }
+      },
+      "dns_response": {
+        "result": [
+          {
+            "name": "surfcampuluwatu.com",
+            "content": "route1.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 96,
+            "ttl": 1
+          },
+          {
+            "name": "surfcampuluwatu.com",
+            "content": "route2.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 36,
+            "ttl": 1
+          },
+          {
+            "name": "surfcampuluwatu.com",
+            "content": "route3.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 43,
+            "ttl": 1
+          },
+          {
+            "name": "cf2024-1._domainkey.surfcampuluwatu.com",
+            "content": "\"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB\"",
+            "type": "TXT",
+            "ttl": 1
+          },
+          {
+            "name": "surfcampuluwatu.com",
+            "content": "\"v=spf1 include:_spf.mx.cloudflare.net ~all\"",
+            "type": "TXT",
+            "ttl": 1
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+    },
+    {
+      "domain": "surflessonsbali.id",
+      "zone_id": "cf73fce4bdf036e52027b6af87686b86",
+      "catchall_response": {
+        "result": {
+          "id": "0e1e9d54a2b34ed2800aefc1fd183a96",
+          "tag": "0e1e9d54a2b34ed2800aefc1fd183a96",
+          "name": "",
+          "matchers": [
+            {
+              "type": "all"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 2147483647
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "specific_response": {
+        "result": {
+          "id": "a67af1798c8b4109a1cff7a1b3d22273",
+          "tag": "a67af1798c8b4109a1cff7a1b3d22273",
+          "name": "info@surflessonsbali.id",
+          "matchers": [
+            {
+              "type": "literal",
+              "field": "to",
+              "value": "info@surflessonsbali.id"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 0
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "verify_response": {
+        "result": [
+          {
+            "id": "a67af1798c8b4109a1cff7a1b3d22273",
+            "tag": "a67af1798c8b4109a1cff7a1b3d22273",
+            "name": "info@surflessonsbali.id",
+            "matchers": [
+              {
+                "type": "literal",
+                "field": "to",
+                "value": "info@surflessonsbali.id"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 0
+          },
+          {
+            "id": "0e1e9d54a2b34ed2800aefc1fd183a96",
+            "tag": "0e1e9d54a2b34ed2800aefc1fd183a96",
+            "name": "",
+            "matchers": [
+              {
+                "type": "all"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 2147483647
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result_info": {
+          "page": 1,
+          "per_page": 20,
+          "count": 2,
+          "total_count": 2
+        }
+      },
+      "dns_response": {
+        "result": [
+          {
+            "name": "surflessonsbali.id",
+            "content": "route1.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 70,
+            "ttl": 1
+          },
+          {
+            "name": "surflessonsbali.id",
+            "content": "route2.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 43,
+            "ttl": 1
+          },
+          {
+            "name": "surflessonsbali.id",
+            "content": "route3.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 93,
+            "ttl": 1
+          },
+          {
+            "name": "cf2024-1._domainkey.surflessonsbali.id",
+            "content": "\"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB\"",
+            "type": "TXT",
+            "ttl": 1
+          },
+          {
+            "name": "surflessonsbali.id",
+            "content": "\"v=spf1 include:_spf.mx.cloudflare.net ~all\"",
+            "type": "TXT",
+            "ttl": 1
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+    },
+    {
+      "domain": "surflessonscanggu.com",
+      "zone_id": "93634b4517ec67720d33cb6c3c0d5955",
+      "catchall_response": {
+        "result": {
+          "id": "2d1ab1ff0b1d4c348a224671e50799a9",
+          "tag": "2d1ab1ff0b1d4c348a224671e50799a9",
+          "name": "",
+          "matchers": [
+            {
+              "type": "all"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 2147483647
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "specific_response": {
+        "result": {
+          "id": "89df46a4ef0d4a118bdc5fdadd0e2f27",
+          "tag": "89df46a4ef0d4a118bdc5fdadd0e2f27",
+          "name": "info@surflessonscanggu.com",
+          "matchers": [
+            {
+              "type": "literal",
+              "field": "to",
+              "value": "info@surflessonscanggu.com"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 0
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "verify_response": {
+        "result": [
+          {
+            "id": "89df46a4ef0d4a118bdc5fdadd0e2f27",
+            "tag": "89df46a4ef0d4a118bdc5fdadd0e2f27",
+            "name": "info@surflessonscanggu.com",
+            "matchers": [
+              {
+                "type": "literal",
+                "field": "to",
+                "value": "info@surflessonscanggu.com"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 0
+          },
+          {
+            "id": "2d1ab1ff0b1d4c348a224671e50799a9",
+            "tag": "2d1ab1ff0b1d4c348a224671e50799a9",
+            "name": "",
+            "matchers": [
+              {
+                "type": "all"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 2147483647
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result_info": {
+          "page": 1,
+          "per_page": 20,
+          "count": 2,
+          "total_count": 2
+        }
+      },
+      "dns_response": {
+        "result": [
+          {
+            "name": "surflessonscanggu.com",
+            "content": "route1.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 47,
+            "ttl": 1
+          },
+          {
+            "name": "surflessonscanggu.com",
+            "content": "route2.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 56,
+            "ttl": 1
+          },
+          {
+            "name": "surflessonscanggu.com",
+            "content": "route3.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 82,
+            "ttl": 1
+          },
+          {
+            "name": "cf2024-1._domainkey.surflessonscanggu.com",
+            "content": "\"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB\"",
+            "type": "TXT",
+            "ttl": 1
+          },
+          {
+            "name": "surflessonscanggu.com",
+            "content": "\"v=spf1 include:_spf.mx.cloudflare.net ~all\"",
+            "type": "TXT",
+            "ttl": 1
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+    },
+    {
+      "domain": "surflessonscangguvibes.com",
+      "zone_id": "8d6a4a726015173706d765216df4b36f",
+      "catchall_response": {
+        "result": {
+          "id": "067cba18c1c64b1fb8ddcc5580f82df8",
+          "tag": "067cba18c1c64b1fb8ddcc5580f82df8",
+          "name": "",
+          "matchers": [
+            {
+              "type": "all"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 2147483647
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "specific_response": {
+        "result": {
+          "id": "3e63a5bc6b704c098b257ffb5b367283",
+          "tag": "3e63a5bc6b704c098b257ffb5b367283",
+          "name": "info@surflessonscangguvibes.com",
+          "matchers": [
+            {
+              "type": "literal",
+              "field": "to",
+              "value": "info@surflessonscangguvibes.com"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 0
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "verify_response": {
+        "result": [
+          {
+            "id": "3e63a5bc6b704c098b257ffb5b367283",
+            "tag": "3e63a5bc6b704c098b257ffb5b367283",
+            "name": "info@surflessonscangguvibes.com",
+            "matchers": [
+              {
+                "type": "literal",
+                "field": "to",
+                "value": "info@surflessonscangguvibes.com"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 0
+          },
+          {
+            "id": "067cba18c1c64b1fb8ddcc5580f82df8",
+            "tag": "067cba18c1c64b1fb8ddcc5580f82df8",
+            "name": "",
+            "matchers": [
+              {
+                "type": "all"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 2147483647
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result_info": {
+          "page": 1,
+          "per_page": 20,
+          "count": 2,
+          "total_count": 2
+        }
+      },
+      "dns_response": {
+        "result": [
+          {
+            "name": "surflessonscangguvibes.com",
+            "content": "route1.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 41,
+            "ttl": 1
+          },
+          {
+            "name": "surflessonscangguvibes.com",
+            "content": "route2.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 27,
+            "ttl": 1
+          },
+          {
+            "name": "surflessonscangguvibes.com",
+            "content": "route3.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 79,
+            "ttl": 1
+          },
+          {
+            "name": "cf2024-1._domainkey.surflessonscangguvibes.com",
+            "content": "\"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB\"",
+            "type": "TXT",
+            "ttl": 1
+          },
+          {
+            "name": "surflessonscangguvibes.com",
+            "content": "\"v=spf1 include:_spf.mx.cloudflare.net ~all\"",
+            "type": "TXT",
+            "ttl": 1
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+    },
+    {
+      "domain": "surflessonsuluwatu.com",
+      "zone_id": "7860020be302e89b425c30fee8a5c1c7",
+      "catchall_response": {
+        "result": {
+          "id": "7f78f2ce750146cc966198958f86ade3",
+          "tag": "7f78f2ce750146cc966198958f86ade3",
+          "name": "",
+          "matchers": [
+            {
+              "type": "all"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 2147483647
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "specific_response": {
+        "result": {
+          "id": "9b5b906b51f34b86be608ba971ac4107",
+          "tag": "9b5b906b51f34b86be608ba971ac4107",
+          "name": "info@surflessonsuluwatu.com",
+          "matchers": [
+            {
+              "type": "literal",
+              "field": "to",
+              "value": "info@surflessonsuluwatu.com"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 0
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "verify_response": {
+        "result": [
+          {
+            "id": "9b5b906b51f34b86be608ba971ac4107",
+            "tag": "9b5b906b51f34b86be608ba971ac4107",
+            "name": "info@surflessonsuluwatu.com",
+            "matchers": [
+              {
+                "type": "literal",
+                "field": "to",
+                "value": "info@surflessonsuluwatu.com"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 0
+          },
+          {
+            "id": "7f78f2ce750146cc966198958f86ade3",
+            "tag": "7f78f2ce750146cc966198958f86ade3",
+            "name": "",
+            "matchers": [
+              {
+                "type": "all"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 2147483647
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result_info": {
+          "page": 1,
+          "per_page": 20,
+          "count": 2,
+          "total_count": 2
+        }
+      },
+      "dns_response": {
+        "result": [
+          {
+            "name": "surflessonsuluwatu.com",
+            "content": "route1.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 97,
+            "ttl": 1
+          },
+          {
+            "name": "surflessonsuluwatu.com",
+            "content": "route2.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 7,
+            "ttl": 1
+          },
+          {
+            "name": "surflessonsuluwatu.com",
+            "content": "route3.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 29,
+            "ttl": 1
+          },
+          {
+            "name": "cf2024-1._domainkey.surflessonsuluwatu.com",
+            "content": "\"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB\"",
+            "type": "TXT",
+            "ttl": 1
+          },
+          {
+            "name": "surflessonsuluwatu.com",
+            "content": "\"v=spf1 include:_spf.mx.cloudflare.net ~all\"",
+            "type": "TXT",
+            "ttl": 1
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+    },
+    {
+      "domain": "textclark.com",
+      "zone_id": "2f8fb67f375601d8660aa4b87d8d8713",
+      "catchall_response": {
+        "result": {
+          "id": "27db014794b8478ba7f7d0520745bc1d",
+          "tag": "27db014794b8478ba7f7d0520745bc1d",
+          "name": "",
+          "matchers": [
+            {
+              "type": "all"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 2147483647
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "specific_response": {
+        "result": {
+          "id": "e2a4e9218a5546368254ea31cb804889",
+          "tag": "e2a4e9218a5546368254ea31cb804889",
+          "name": "info@textclark.com",
+          "matchers": [
+            {
+              "type": "literal",
+              "field": "to",
+              "value": "info@textclark.com"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 0
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "verify_response": {
+        "result": [
+          {
+            "id": "e2a4e9218a5546368254ea31cb804889",
+            "tag": "e2a4e9218a5546368254ea31cb804889",
+            "name": "info@textclark.com",
+            "matchers": [
+              {
+                "type": "literal",
+                "field": "to",
+                "value": "info@textclark.com"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 0
+          },
+          {
+            "id": "27db014794b8478ba7f7d0520745bc1d",
+            "tag": "27db014794b8478ba7f7d0520745bc1d",
+            "name": "",
+            "matchers": [
+              {
+                "type": "all"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 2147483647
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result_info": {
+          "page": 1,
+          "per_page": 20,
+          "count": 2,
+          "total_count": 2
+        }
+      },
+      "dns_response": {
+        "result": [
+          {
+            "name": "textclark.com",
+            "content": "route1.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 4,
+            "ttl": 1
+          },
+          {
+            "name": "textclark.com",
+            "content": "route2.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 67,
+            "ttl": 1
+          },
+          {
+            "name": "textclark.com",
+            "content": "route3.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 43,
+            "ttl": 1
+          },
+          {
+            "name": "cf2024-1._domainkey.textclark.com",
+            "content": "\"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB\"",
+            "type": "TXT",
+            "ttl": 1
+          },
+          {
+            "name": "textclark.com",
+            "content": "\"v=spf1 include:_spf.mx.cloudflare.net ~all\"",
+            "type": "TXT",
+            "ttl": 1
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+    },
+    {
+      "domain": "textclark.xyz",
+      "zone_id": "d25a082e1090676ed83e2106599f234a",
+      "catchall_response": {
+        "result": {
+          "id": "727aa61cee0744aabeb3184a874ff1fb",
+          "tag": "727aa61cee0744aabeb3184a874ff1fb",
+          "name": "",
+          "matchers": [
+            {
+              "type": "all"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 2147483647
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "specific_response": {
+        "result": {
+          "id": "db1dc4c1e89b4d7882a03b785905b9f5",
+          "tag": "db1dc4c1e89b4d7882a03b785905b9f5",
+          "name": "info@textclark.xyz",
+          "matchers": [
+            {
+              "type": "literal",
+              "field": "to",
+              "value": "info@textclark.xyz"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 0
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "verify_response": {
+        "result": [
+          {
+            "id": "db1dc4c1e89b4d7882a03b785905b9f5",
+            "tag": "db1dc4c1e89b4d7882a03b785905b9f5",
+            "name": "info@textclark.xyz",
+            "matchers": [
+              {
+                "type": "literal",
+                "field": "to",
+                "value": "info@textclark.xyz"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 0
+          },
+          {
+            "id": "727aa61cee0744aabeb3184a874ff1fb",
+            "tag": "727aa61cee0744aabeb3184a874ff1fb",
+            "name": "",
+            "matchers": [
+              {
+                "type": "all"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 2147483647
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result_info": {
+          "page": 1,
+          "per_page": 20,
+          "count": 2,
+          "total_count": 2
+        }
+      },
+      "dns_response": {
+        "result": [
+          {
+            "name": "textclark.xyz",
+            "content": "route1.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 94,
+            "ttl": 1
+          },
+          {
+            "name": "textclark.xyz",
+            "content": "route2.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 80,
+            "ttl": 1
+          },
+          {
+            "name": "textclark.xyz",
+            "content": "route3.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 75,
+            "ttl": 1
+          },
+          {
+            "name": "cf2024-1._domainkey.textclark.xyz",
+            "content": "\"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB\"",
+            "type": "TXT",
+            "ttl": 1
+          },
+          {
+            "name": "textclark.xyz",
+            "content": "\"v=spf1 include:_spf.mx.cloudflare.net ~all\"",
+            "type": "TXT",
+            "ttl": 1
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+    },
+    {
+      "domain": "thereconquista.com",
+      "zone_id": "82ec03840a8bb002ae7db24413b80c98",
+      "catchall_response": {
+        "result": {
+          "id": "3861c66d435a436cb51945401081a3b5",
+          "tag": "3861c66d435a436cb51945401081a3b5",
+          "name": "",
+          "matchers": [
+            {
+              "type": "all"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 2147483647
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "specific_response": {
+        "result": {
+          "id": "b3a1b7072aca4e2e879968ec73673e4c",
+          "tag": "b3a1b7072aca4e2e879968ec73673e4c",
+          "name": "info@thereconquista.com",
+          "matchers": [
+            {
+              "type": "literal",
+              "field": "to",
+              "value": "info@thereconquista.com"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 0
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "verify_response": {
+        "result": [
+          {
+            "id": "b3a1b7072aca4e2e879968ec73673e4c",
+            "tag": "b3a1b7072aca4e2e879968ec73673e4c",
+            "name": "info@thereconquista.com",
+            "matchers": [
+              {
+                "type": "literal",
+                "field": "to",
+                "value": "info@thereconquista.com"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 0
+          },
+          {
+            "id": "3861c66d435a436cb51945401081a3b5",
+            "tag": "3861c66d435a436cb51945401081a3b5",
+            "name": "",
+            "matchers": [
+              {
+                "type": "all"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 2147483647
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result_info": {
+          "page": 1,
+          "per_page": 20,
+          "count": 2,
+          "total_count": 2
+        }
+      },
+      "dns_response": {
+        "result": [
+          {
+            "name": "thereconquista.com",
+            "content": "route1.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 42,
+            "ttl": 1
+          },
+          {
+            "name": "thereconquista.com",
+            "content": "route2.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 6,
+            "ttl": 1
+          },
+          {
+            "name": "thereconquista.com",
+            "content": "route3.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 64,
+            "ttl": 1
+          },
+          {
+            "name": "cf2024-1._domainkey.thereconquista.com",
+            "content": "\"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB\"",
+            "type": "TXT",
+            "ttl": 1
+          },
+          {
+            "name": "thereconquista.com",
+            "content": "\"v=spf1 include:_spf.mx.cloudflare.net ~all\"",
+            "type": "TXT",
+            "ttl": 1
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+    },
+    {
+      "domain": "saunakøbenhavn.dk",
+      "zone_id": "54b7f502d0262da9c74aa65673048461",
+      "catchall_response": {
+        "result": {
+          "id": "0acd535020a2408d951feca3211fdb3a",
+          "tag": "0acd535020a2408d951feca3211fdb3a",
+          "name": "",
+          "matchers": [
+            {
+              "type": "all"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 2147483647
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "specific_response": {
+        "result": {
+          "id": "e093009886f34a68b5f9d27d05adb6ba",
+          "tag": "e093009886f34a68b5f9d27d05adb6ba",
+          "name": "info@saunakøbenhavn.dk",
+          "matchers": [
+            {
+              "type": "literal",
+              "field": "to",
+              "value": "info@saunakøbenhavn.dk"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 0
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "verify_response": {
+        "result": [
+          {
+            "id": "e093009886f34a68b5f9d27d05adb6ba",
+            "tag": "e093009886f34a68b5f9d27d05adb6ba",
+            "name": "info@saunakøbenhavn.dk",
+            "matchers": [
+              {
+                "type": "literal",
+                "field": "to",
+                "value": "info@saunakøbenhavn.dk"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 0
+          },
+          {
+            "id": "0acd535020a2408d951feca3211fdb3a",
+            "tag": "0acd535020a2408d951feca3211fdb3a",
+            "name": "",
+            "matchers": [
+              {
+                "type": "all"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 2147483647
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result_info": {
+          "page": 1,
+          "per_page": 20,
+          "count": 2,
+          "total_count": 2
+        }
+      },
+      "dns_response": {
+        "result": [
+          {
+            "name": "saunakøbenhavn.dk",
+            "content": "route1.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 71,
+            "ttl": 1
+          },
+          {
+            "name": "saunakøbenhavn.dk",
+            "content": "route2.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 54,
+            "ttl": 1
+          },
+          {
+            "name": "saunakøbenhavn.dk",
+            "content": "route3.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 2,
+            "ttl": 1
+          },
+          {
+            "name": "cf2024-1._domainkey.saunakøbenhavn.dk",
+            "content": "\"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB\"",
+            "type": "TXT",
+            "ttl": 1
+          },
+          {
+            "name": "saunakøbenhavn.dk",
+            "content": "\"v=spf1 include:_spf.mx.cloudflare.net ~all\"",
+            "type": "TXT",
+            "ttl": 1
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+    },
+    {
+      "domain": "schlüsseldienstzug.ch",
+      "zone_id": "acefd117e18e57933a1fa90087365afd",
+      "catchall_response": {
+        "result": {
+          "id": "273f111ffc124f9f81dad8265088d7aa",
+          "tag": "273f111ffc124f9f81dad8265088d7aa",
+          "name": "",
+          "matchers": [
+            {
+              "type": "all"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 2147483647
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "specific_response": {
+        "result": {
+          "id": "bcab53592aa94758bdd79d47e7ef4749",
+          "tag": "bcab53592aa94758bdd79d47e7ef4749",
+          "name": "info@schlüsseldienstzug.ch",
+          "matchers": [
+            {
+              "type": "literal",
+              "field": "to",
+              "value": "info@schlüsseldienstzug.ch"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 0
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "verify_response": {
+        "result": [
+          {
+            "id": "bcab53592aa94758bdd79d47e7ef4749",
+            "tag": "bcab53592aa94758bdd79d47e7ef4749",
+            "name": "info@schlüsseldienstzug.ch",
+            "matchers": [
+              {
+                "type": "literal",
+                "field": "to",
+                "value": "info@schlüsseldienstzug.ch"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 0
+          },
+          {
+            "id": "273f111ffc124f9f81dad8265088d7aa",
+            "tag": "273f111ffc124f9f81dad8265088d7aa",
+            "name": "",
+            "matchers": [
+              {
+                "type": "all"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 2147483647
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result_info": {
+          "page": 1,
+          "per_page": 20,
+          "count": 2,
+          "total_count": 2
+        }
+      },
+      "dns_response": {
+        "result": [
+          {
+            "name": "schlüsseldienstzug.ch",
+            "content": "route1.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 60,
+            "ttl": 1
+          },
+          {
+            "name": "schlüsseldienstzug.ch",
+            "content": "route2.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 29,
+            "ttl": 1
+          },
+          {
+            "name": "schlüsseldienstzug.ch",
+            "content": "route3.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 40,
+            "ttl": 1
+          },
+          {
+            "name": "cf2024-1._domainkey.schlüsseldienstzug.ch",
+            "content": "\"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB\"",
+            "type": "TXT",
+            "ttl": 1
+          },
+          {
+            "name": "schlüsseldienstzug.ch",
+            "content": "\"v=spf1 include:_spf.mx.cloudflare.net ~all\"",
+            "type": "TXT",
+            "ttl": 1
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+    },
+    {
+      "domain": "yourgptva.com",
+      "zone_id": "6ce5f29ac70aa179f05fbc667727990d",
+      "catchall_response": {
+        "result": {
+          "id": "6222e18cb14042cf932d798e9a23d629",
+          "tag": "6222e18cb14042cf932d798e9a23d629",
+          "name": "",
+          "matchers": [
+            {
+              "type": "all"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 2147483647
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "specific_response": {
+        "result": {
+          "id": "dabcb6f47eff4b4697a39138f6e553ea",
+          "tag": "dabcb6f47eff4b4697a39138f6e553ea",
+          "name": "info@yourgptva.com",
+          "matchers": [
+            {
+              "type": "literal",
+              "field": "to",
+              "value": "info@yourgptva.com"
+            }
+          ],
+          "actions": [
+            {
+              "type": "forward",
+              "value": [
+                "localclark@gmail.com"
+              ]
+            }
+          ],
+          "enabled": true,
+          "priority": 0
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      },
+      "verify_response": {
+        "result": [
+          {
+            "id": "dabcb6f47eff4b4697a39138f6e553ea",
+            "tag": "dabcb6f47eff4b4697a39138f6e553ea",
+            "name": "info@yourgptva.com",
+            "matchers": [
+              {
+                "type": "literal",
+                "field": "to",
+                "value": "info@yourgptva.com"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 0
+          },
+          {
+            "id": "6222e18cb14042cf932d798e9a23d629",
+            "tag": "6222e18cb14042cf932d798e9a23d629",
+            "name": "",
+            "matchers": [
+              {
+                "type": "all"
+              }
+            ],
+            "actions": [
+              {
+                "type": "forward",
+                "value": [
+                  "localclark@gmail.com"
+                ]
+              }
+            ],
+            "enabled": true,
+            "priority": 2147483647
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result_info": {
+          "page": 1,
+          "per_page": 20,
+          "count": 2,
+          "total_count": 2
+        }
+      },
+      "dns_response": {
+        "result": [
+          {
+            "name": "yourgptva.com",
+            "content": "route1.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 3,
+            "ttl": 1
+          },
+          {
+            "name": "yourgptva.com",
+            "content": "route2.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 30,
+            "ttl": 1
+          },
+          {
+            "name": "yourgptva.com",
+            "content": "route3.mx.cloudflare.net.",
+            "type": "MX",
+            "priority": 77,
+            "ttl": 1
+          },
+          {
+            "name": "cf2024-1._domainkey.yourgptva.com",
+            "content": "\"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB\"",
+            "type": "TXT",
+            "ttl": 1
+          },
+          {
+            "name": "yourgptva.com",
+            "content": "\"v=spf1 include:_spf.mx.cloudflare.net ~all\"",
+            "type": "TXT",
+            "ttl": 1
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+    }
+  ]
+}

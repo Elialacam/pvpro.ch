@@ -1,0 +1,101 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Realistic Solar Panel Array -->
+  <defs>
+    <linearGradient id="panel1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#93c5fd;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:0.2" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky background -->
+  <rect width="800" height="600" fill="url(#skyGrad)"/>
+
+  <!-- Sun -->
+  <circle cx="650" cy="120" r="60" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="650" cy="120" r="45" fill="#fbbf24"/>
+
+  <!-- Solar Panel Array (3x3 grid - realistic) -->
+  <g transform="translate(150, 100)">
+    <!-- Row 1 -->
+    <g>
+      <!-- Panel 1 -->
+      <rect x="0" y="0" width="140" height="110" fill="url(#panel1)" stroke="#0ea5e9" stroke-width="3" rx="2"/>
+      <!-- Grid lines -->
+      <line x1="47" y1="0" x2="47" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="93" y1="0" x2="93" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="0" y1="37" x2="140" y2="37" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="0" y1="73" x2="140" y2="73" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <!-- Reflection -->
+      <rect x="10" y="10" width="40" height="25" fill="white" opacity="0.15"/>
+
+      <!-- Panel 2 -->
+      <rect x="150" y="0" width="140" height="110" fill="url(#panel1)" stroke="#0ea5e9" stroke-width="3" rx="2"/>
+      <line x1="197" y1="0" x2="197" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="243" y1="0" x2="243" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="150" y1="37" x2="290" y2="37" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="150" y1="73" x2="290" y2="73" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <rect x="160" y="10" width="40" height="25" fill="white" opacity="0.15"/>
+
+      <!-- Panel 3 -->
+      <rect x="300" y="0" width="140" height="110" fill="url(#panel1)" stroke="#0ea5e9" stroke-width="3" rx="2"/>
+      <line x1="347" y1="0" x2="347" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="393" y1="0" x2="393" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="300" y1="37" x2="440" y2="37" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="300" y1="73" x2="440" y2="73" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <rect x="310" y="10" width="40" height="25" fill="white" opacity="0.15"/>
+    </g>
+
+    <!-- Row 2 -->
+    <g transform="translate(0, 120)">
+      <rect x="0" y="0" width="140" height="110" fill="url(#panel1)" stroke="#0ea5e9" stroke-width="3" rx="2"/>
+      <line x1="47" y1="0" x2="47" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="93" y1="0" x2="93" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="0" y1="37" x2="140" y2="37" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="0" y1="73" x2="140" y2="73" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+
+      <rect x="150" y="0" width="140" height="110" fill="url(#panel1)" stroke="#0ea5e9" stroke-width="3" rx="2"/>
+      <line x1="197" y1="0" x2="197" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="243" y1="0" x2="243" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="150" y1="37" x2="290" y2="37" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="150" y1="73" x2="290" y2="73" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+
+      <rect x="300" y="0" width="140" height="110" fill="url(#panel1)" stroke="#0ea5e9" stroke-width="3" rx="2"/>
+      <line x1="347" y1="0" x2="347" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="393" y1="0" x2="393" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="300" y1="37" x2="440" y2="37" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="300" y1="73" x2="440" y2="73" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+    </g>
+
+    <!-- Row 3 -->
+    <g transform="translate(0, 240)">
+      <rect x="0" y="0" width="140" height="110" fill="url(#panel1)" stroke="#0ea5e9" stroke-width="3" rx="2"/>
+      <line x1="47" y1="0" x2="47" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="93" y1="0" x2="93" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="0" y1="37" x2="140" y2="37" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="0" y1="73" x2="140" y2="73" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+
+      <rect x="150" y="0" width="140" height="110" fill="url(#panel1)" stroke="#0ea5e9" stroke-width="3" rx="2"/>
+      <line x1="197" y1="0" x2="197" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="243" y1="0" x2="243" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="150" y1="37" x2="290" y2="37" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="150" y1="73" x2="290" y2="73" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+
+      <rect x="300" y="0" width="140" height="110" fill="url(#panel1)" stroke="#0ea5e9" stroke-width="3" rx="2"/>
+      <line x1="347" y1="0" x2="347" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="393" y1="0" x2="393" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="300" y1="37" x2="440" y2="37" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+      <line x1="300" y1="73" x2="440" y2="73" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- Energy indicator -->
+  <g transform="translate(620, 400)">
+    <circle cx="50" cy="50" r="45" fill="#10b981"/>
+    <path d="M38 52 L50 28 L50 42 L62 42 L50 72 L50 52 Z" fill="white"/>
+  </g>
+</svg>

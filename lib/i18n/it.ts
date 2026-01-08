@@ -1,0 +1,138 @@
+// Italian translations for pvpro.ch
+import { TranslationKeys } from './de';
+
+export const it: TranslationKeys = {
+  common: {
+    getQuote: 'Richiedi preventivo',
+    freeQuote: 'Preventivo gratuito',
+    compare: 'Confronta',
+    save: 'Risparmia',
+    learnMore: 'Scopri di più',
+    contactUs: 'Contattaci',
+    readMore: 'Leggi di più',
+    getStarted: 'Inizia ora',
+    phone: 'Telefono',
+    email: 'E-mail',
+    address: 'Indirizzo',
+  },
+  nav: {
+    home: 'Home',
+    solarCalculator: 'Calcolatore solare',
+    costs: 'Costi',
+    storage: 'Con accumulo',
+    aboutUs: 'Chi siamo',
+    contact: 'Contatto',
+    cities: 'Città',
+  },
+  hero: {
+    title: 'Confronta impianti fotovoltaici in Svizzera',
+    subtitle: 'Ricevi preventivi gratuiti da installatori certificati',
+    description: 'Confronta gratuitamente le offerte di impianti fotovoltaici da installatori certificati in Svizzera. Risparmia fino al 30% con il confronto.',
+    cta: 'Richiedi ora un preventivo gratuito',
+    free: '100% gratuito',
+    nonBinding: '100% senza impegno',
+    certified: 'Installatori certificati',
+  },
+  form: {
+    title: 'Inizia ora il tuo confronto gratuito',
+    subtitle: 'Ottieni un\'offerta personalizzata in soli 2 minuti',
+    name: 'Nome',
+    email: 'E-mail',
+    phone: 'Telefono',
+    postalCode: 'CAP',
+    city: 'Città',
+    message: 'Messaggio',
+    submit: 'Richiedi preventivo',
+    sending: 'Invio in corso...',
+    success: 'Grazie! Ti contatteremo presto.',
+    error: 'Si è verificato un errore. Riprova.',
+  },
+  usp: {
+    title: 'Perché PVPro?',
+    compare: {
+      title: 'Fino a 3 preventivi da confrontare',
+      description: 'Ricevi diverse offerte da installatori certificati e scegli la migliore.',
+    },
+    save: {
+      title: 'Risparmia fino al 30%',
+      description: 'Confrontando più offerte, risparmierai in media il 30% sui costi di installazione.',
+    },
+    certified: {
+      title: 'Solo installatori certificati',
+      description: 'Tutti i nostri partner sono certificati e hanno esperienza comprovata con impianti fotovoltaici svizzeri.',
+    },
+    free: {
+      title: '100% gratuito e senza impegno',
+      description: 'Il nostro servizio è completamente gratuito. Paghi solo l\'installatore che scegli.',
+    },
+  },
+  howItWorks: {
+    title: 'Come funziona',
+    step1: {
+      title: 'Compila il modulo',
+      description: 'Indica le tue esigenze in soli 2 minuti',
+    },
+    step2: {
+      title: 'Ricevi i preventivi',
+      description: 'Fino a 3 offerte personalizzate da installatori locali',
+    },
+    step3: {
+      title: 'Confronta e risparmia',
+      description: 'Scegli l\'offerta migliore e risparmia fino al 30%',
+    },
+  },
+  faq: {
+    title: 'Domande frequenti',
+    seeAll: 'Vedi tutte le FAQ',
+  },
+  footer: {
+    company: 'Azienda',
+    aboutUs: 'Chi siamo',
+    contact: 'Contatto',
+    privacy: 'Privacy',
+    imprint: 'Impressum',
+    terms: 'Termini',
+    legal: 'Legale',
+    followUs: 'Seguici',
+    copyright: '© 2024 PVPro. Tutti i diritti riservati.',
+  },
+  testimonials: {
+    title: 'Cosa dicono i nostri clienti',
+  },
+  cities: {
+    title: 'Impianti fotovoltaici in tutta la Svizzera',
+    description: 'Mettiamo in contatto con installatori in tutte le principali città svizzere',
+    solarIn: 'Impianto fotovoltaico',
+  },
+  pricing: {
+    title: 'Costi impianto fotovoltaico',
+    typical: 'Impianto tipico',
+    withStorage: 'Con accumulo',
+    afterSubsidy: 'Dopo sovvenzioni',
+    roi: 'Ammortamento',
+    years: 'anni',
+  },
+  incentives: {
+    title: 'Sovvenzioni in Svizzera',
+    federal: 'Sovvenzione federale',
+    cantonal: 'Sovvenzione cantonale',
+    tax: 'Deduzioni fiscali',
+  },
+  solarTerms: {
+    solarSystem: 'Impianto fotovoltaico',
+    photovoltaic: 'Fotovoltaico',
+    solarInstaller: 'Installatore solare',
+    solarPanel: 'Pannello solare',
+    inverter: 'Inverter',
+    battery: 'Batteria di accumulo',
+    sunHours: 'Ore di sole',
+    subsidy: 'Sovvenzione',
+    quote: 'Preventivo',
+    installation: 'Installazione',
+    costs: 'Costi',
+  },
+  meta: {
+    homeTitle: 'PVPro - Confronta impianti fotovoltaici in Svizzera | Preventivi gratuiti',
+    homeDescription: 'Confronta gratuitamente le offerte di impianti fotovoltaici da installatori certificati in Svizzera. Risparmia fino al 30% con il confronto. 100% senza impegno.',
+  },
+};

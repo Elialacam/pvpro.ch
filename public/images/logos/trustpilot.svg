@@ -1,0 +1,13 @@
+<svg width="120" height="30" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Trustpilot Logo Simplified -->
+  <!-- Stars -->
+  <g>
+    <polygon points="8,3 10,9 16,9 11,13 13,19 8,15 3,19 5,13 0,9 6,9" fill="#00B67A"/>
+    <polygon points="28,3 30,9 36,9 31,13 33,19 28,15 23,19 25,13 20,9 26,9" fill="#00B67A"/>
+    <polygon points="48,3 50,9 56,9 51,13 53,19 48,15 43,19 45,13 40,9 46,9" fill="#00B67A"/>
+    <polygon points="68,3 70,9 76,9 71,13 73,19 68,15 63,19 65,13 60,9 66,9" fill="#00B67A"/>
+    <polygon points="88,3 90,9 96,9 91,13 93,19 88,15 83,19 85,13 80,9 86,9" fill="#00B67A"/>
+  </g>
+  <!-- Text -->
+  <text x="10" y="27" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#333">Trustpilot</text>
+</svg>

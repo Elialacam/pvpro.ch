@@ -1,0 +1,138 @@
+// English translations for pvpro.ch
+import { TranslationKeys } from './de';
+
+export const en: TranslationKeys = {
+  common: {
+    getQuote: 'Get Quote',
+    freeQuote: 'Free Quote',
+    compare: 'Compare',
+    save: 'Save',
+    learnMore: 'Learn More',
+    contactUs: 'Contact Us',
+    readMore: 'Read More',
+    getStarted: 'Get Started',
+    phone: 'Phone',
+    email: 'Email',
+    address: 'Address',
+  },
+  nav: {
+    home: 'Home',
+    solarCalculator: 'Solar Calculator',
+    costs: 'Costs',
+    storage: 'With Storage',
+    aboutUs: 'About Us',
+    contact: 'Contact',
+    cities: 'Cities',
+  },
+  hero: {
+    title: 'Compare Solar Systems in Switzerland',
+    subtitle: 'Get free quotes from certified installers',
+    description: 'Compare solar system offers from certified installers in Switzerland for free. Save up to 30% by comparing.',
+    cta: 'Request a Free Quote Now',
+    free: '100% Free',
+    nonBinding: 'No Obligation',
+    certified: 'Certified Installers',
+  },
+  form: {
+    title: 'Start Your Free Comparison Now',
+    subtitle: 'Get a personalized offer in just 2 minutes',
+    name: 'Name',
+    email: 'Email',
+    phone: 'Phone',
+    postalCode: 'Postal Code',
+    city: 'City',
+    message: 'Message',
+    submit: 'Request Quote',
+    sending: 'Sending...',
+    success: 'Thank you! We will contact you soon.',
+    error: 'An error occurred. Please try again.',
+  },
+  usp: {
+    title: 'Why PVPro?',
+    compare: {
+      title: 'Up to 3 Quotes to Compare',
+      description: 'Receive multiple offers from certified installers and choose the best one.',
+    },
+    save: {
+      title: 'Save Up to 30%',
+      description: 'By comparing multiple offers, you will save an average of 30% on installation costs.',
+    },
+    certified: {
+      title: 'Only Certified Installers',
+      description: 'All our partners are certified and have proven experience with Swiss solar systems.',
+    },
+    free: {
+      title: '100% Free and No Obligation',
+      description: 'Our service is completely free. You only pay the installer you choose.',
+    },
+  },
+  howItWorks: {
+    title: 'How It Works',
+    step1: {
+      title: 'Fill Out the Form',
+      description: 'Enter your requirements in just 2 minutes',
+    },
+    step2: {
+      title: 'Receive Quotes',
+      description: 'Up to 3 personalized offers from local installers',
+    },
+    step3: {
+      title: 'Compare and Save',
+      description: 'Choose the best offer and save up to 30%',
+    },
+  },
+  faq: {
+    title: 'Frequently Asked Questions',
+    seeAll: 'See All FAQs',
+  },
+  footer: {
+    company: 'Company',
+    aboutUs: 'About Us',
+    contact: 'Contact',
+    privacy: 'Privacy',
+    imprint: 'Imprint',
+    terms: 'Terms',
+    legal: 'Legal',
+    followUs: 'Follow Us',
+    copyright: '© 2024 PVPro. All rights reserved.',
+  },
+  testimonials: {
+    title: 'What Our Customers Say',
+  },
+  cities: {
+    title: 'Solar Systems Across Switzerland',
+    description: 'We connect you with installers in all major Swiss cities',
+    solarIn: 'Solar System',
+  },
+  pricing: {
+    title: 'Solar System Costs',
+    typical: 'Typical System',
+    withStorage: 'With Storage',
+    afterSubsidy: 'After Subsidies',
+    roi: 'Payback Period',
+    years: 'years',
+  },
+  incentives: {
+    title: 'Subsidies in Switzerland',
+    federal: 'Federal Subsidy',
+    cantonal: 'Cantonal Subsidy',
+    tax: 'Tax Deductions',
+  },
+  solarTerms: {
+    solarSystem: 'Solar System',
+    photovoltaic: 'Photovoltaic',
+    solarInstaller: 'Solar Installer',
+    solarPanel: 'Solar Panel',
+    inverter: 'Inverter',
+    battery: 'Battery Storage',
+    sunHours: 'Sun Hours',
+    subsidy: 'Subsidy',
+    quote: 'Quote',
+    installation: 'Installation',
+    costs: 'Costs',
+  },
+  meta: {
+    homeTitle: 'PVPro - Compare Solar Systems in Switzerland | Free Quotes',
+    homeDescription: 'Compare solar system offers from certified installers in Switzerland for free. Save up to 30% by comparing. No obligation.',
+  },
+};

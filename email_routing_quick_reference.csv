@@ -1,0 +1,12 @@
+Domain,Zone ID,Status,Info Rule,Catch-All Rule,MX Records,SPF,DKIM
+surfcampuluwatu.com,734367c731d2116ba547dbe8e79b1b67,✓ Configured,info@surfcampuluwatu.com → localclark@gmail.com,*@surfcampuluwatu.com → localclark@gmail.com,"route1/2/3.mx.cloudflare.net",Configured,Configured
+surflessonsbali.id,cf73fce4bdf036e52027b6af87686b86,✓ Configured,info@surflessonsbali.id → localclark@gmail.com,*@surflessonsbali.id → localclark@gmail.com,"route1/2/3.mx.cloudflare.net",Configured,Configured
+surflessonscanggu.com,93634b4517ec67720d33cb6c3c0d5955,✓ Configured,info@surflessonscanggu.com → localclark@gmail.com,*@surflessonscanggu.com → localclark@gmail.com,"route1/2/3.mx.cloudflare.net",Configured,Configured
+surflessonscangguvibes.com,8d6a4a726015173706d765216df4b36f,✓ Configured,info@surflessonscangguvibes.com → localclark@gmail.com,*@surflessonscangguvibes.com → localclark@gmail.com,"route1/2/3.mx.cloudflare.net",Configured,Configured
+surflessonsuluwatu.com,7860020be302e89b425c30fee8a5c1c7,✓ Configured,info@surflessonsuluwatu.com → localclark@gmail.com,*@surflessonsuluwatu.com → localclark@gmail.com,"route1/2/3.mx.cloudflare.net",Configured,Configured
+textclark.com,2f8fb67f375601d8660aa4b87d8d8713,✓ Configured,info@textclark.com → localclark@gmail.com,*@textclark.com → localclark@gmail.com,"route1/2/3.mx.cloudflare.net",Configured,Configured
+textclark.xyz,d25a082e1090676ed83e2106599f234a,✓ Configured,info@textclark.xyz → localclark@gmail.com,*@textclark.xyz → localclark@gmail.com,"route1/2/3.mx.cloudflare.net",Configured,Configured
+thereconquista.com,82ec03840a8bb002ae7db24413b80c98,✓ Configured,info@thereconquista.com → localclark@gmail.com,*@thereconquista.com → localclark@gmail.com,"route1/2/3.mx.cloudflare.net",Configured,Configured
+saunakøbenhavn.dk,54b7f502d0262da9c74aa65673048461,✓ Configured,info@saunakøbenhavn.dk → localclark@gmail.com,*@saunakøbenhavn.dk → localclark@gmail.com,"route1/2/3.mx.cloudflare.net",Configured,Configured
+schlüsseldienstzug.ch,acefd117e18e57933a1fa90087365afd,✓ Configured,info@schlüsseldienstzug.ch → localclark@gmail.com,*@schlüsseldienstzug.ch → localclark@gmail.com,"route1/2/3.mx.cloudflare.net",Configured,Configured
+yourgptva.com,6ce5f29ac70aa179f05fbc667727990d,✓ Configured,info@yourgptva.com → localclark@gmail.com,*@yourgptva.com → localclark@gmail.com,"route1/2/3.mx.cloudflare.net",Configured,Configured

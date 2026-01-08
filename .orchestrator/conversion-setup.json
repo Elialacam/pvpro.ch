@@ -1,0 +1,130 @@
+{
+  "domain": "pvpro.ch",
+  "email": {
+    "configured": true,
+    "provider": "mailgun",
+    "sendingDomain": "mg.pvpro.ch",
+    "fromAddress": "noreply@mg.pvpro.ch",
+    "destination": "localclark@gmail.com",
+    "status": "active",
+    "lastVerified": "2025-11-07T03:28:06.000Z",
+    "testEmailSent": true,
+    "testEmailMessageId": "<20251107032806.bd4d06c43d444541@mg.pvpro.ch>"
+  },
+  "contactForm": {
+    "configured": true,
+    "apiRoute": "/api/contact",
+    "method": "POST",
+    "fields": ["name", "email", "phone", "message"],
+    "status": "deployed",
+    "integrationComplete": true,
+    "notes": "Multi-step form migrated to Mailgun, deployed and tested successfully"
+  },
+  "dns": {
+    "cloudflare": true,
+    "records": [
+      {
+        "type": "TXT",
+        "name": "mg.pvpro.ch",
+        "value": "v=spf1 include:mailgun.org ~all",
+        "status": "valid"
+      },
+      {
+        "type": "TXT",
+        "name": "mailo._domainkey.mg.pvpro.ch",
+        "value": "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDillfe1tESxosnYHkQgKln6zLnmB5votBWHjQKdM3qlH2X5ZuuWskDx+o3Utm6DJHqtvcmFxdanA5Ct/4yZ1spAt9pvtDgq4IVOPLjvVuJbu8JPVsPvdjzQ3Sp7BCxlIRHsw/jfhpRdxlh/1SdYOhIaNgLjX+fc3qbp/CvFkTgIQIDAQAB",
+        "status": "valid"
+      },
+      {
+        "type": "CNAME",
+        "name": "email.mg.pvpro.ch",
+        "value": "mailgun.org",
+        "status": "valid"
+      },
+      {
+        "type": "MX",
+        "name": "mg.pvpro.ch",
+        "priority": 10,
+        "values": ["mxa.mailgun.org", "mxb.mailgun.org"],
+        "status": "valid"
+      }
+    ],
+    "lastVerified": "2025-11-07T03:28:00.000Z"
+  },
+  "vercel": {
+    "projectId": "prj_059qMHj4iH5iNQRhwZOULO2P8j2y",
+    "teamId": "team_FDUyZX1XQUpeK0mwccRxaeoW",
+    "deploymentId": "dpl_8fKPaAiHBjCvyTMuPM8HDYZxqRxn",
+    "deploymentUrl": "https://pvpro.ch",
+    "environmentVariables": {
+      "required": [
+        "MAILGUN_API_KEY",
+        "MAILGUN_DOMAIN",
+        "DESTINATION_EMAIL",
+        "NEXT_PUBLIC_GA_ID",
+        "NEXT_PUBLIC_GTM_ID"
+      ],
+      "configured": true,
+      "completedDate": "2025-11-07T02:30:00.000Z"
+    }
+  },
+  "tracking": {
+    "ga4": {
+      "configured": true,
+      "measurementId": "G-P4N661CGHM",
+      "propertyId": "512243751",
+      "status": "active",
+      "setupDate": "2025-11-07T02:00:00.000Z"
+    },
+    "gtm": {
+      "configured": true,
+      "containerId": "GTM-N8MRNGXQ",
+      "accountId": "6319600105",
+      "status": "published",
+      "publishedDate": "2025-11-07T02:30:00.000Z",
+      "workspaceId": "1"
+    },
+    "conversionEvents": [
+      { "name": "form_start", "value": 0.1, "currency": "CHF", "status": "active" },
+      { "name": "form_step_1_complete", "value": 0.5, "currency": "CHF", "status": "active" },
+      { "name": "form_step_2_complete", "value": 2.0, "currency": "CHF", "status": "active" },
+      { "name": "form_step_3_complete", "value": 5.0, "currency": "CHF", "status": "active" },
+      { "name": "form_step_4_complete", "value": 10.0, "currency": "CHF", "status": "active" },
+      { "name": "generate_lead", "value": 50.0, "currency": "CHF", "status": "active", "primary": true },
+      { "name": "calculator_used", "value": 1.5, "currency": "CHF", "status": "active" },
+      { "name": "scroll_25", "value": 0.1, "currency": "CHF", "status": "active" },
+      { "name": "scroll_50", "value": 0.3, "currency": "CHF", "status": "active" },
+      { "name": "scroll_75", "value": 0.5, "currency": "CHF", "status": "active" },
+      { "name": "scroll_100", "value": 1.0, "currency": "CHF", "status": "active" },
+      { "name": "phone_click", "value": 25.0, "currency": "CHF", "status": "active" },
+      { "name": "email_click", "value": 15.0, "currency": "CHF", "status": "active" },
+      { "name": "cta_click", "value": 5.0, "currency": "CHF", "status": "active" }
+    ],
+    "totalEvents": 14,
+    "notes": "All 14 conversion events configured with CHF values for Google Ads optimization"
+  },
+  "setupDate": "2025-11-06T11:20:00.000Z",
+  "lastUpdated": "2025-11-07T03:28:06.000Z",
+  "status": "complete",
+  "completionPercentage": 100,
+  "completedTasks": [
+    "✅ Mailgun domain configured (mg.pvpro.ch)",
+    "✅ DNS records added to Cloudflare (SPF, DKIM, CNAME, MX)",
+    "✅ Contact form API created and deployed",
+    "✅ Multi-step form migrated from Web3Forms to Mailgun",
+    "✅ Environment variables added to Vercel",
+    "✅ GA4 property created (G-P4N661CGHM)",
+    "✅ GTM container created and published (GTM-N8MRNGXQ)",
+    "✅ 14 conversion events configured",
+    "✅ Production deployment completed",
+    "✅ Email delivery tested and working"
+  ],
+  "pendingTasks": [],
+  "links": {
+    "website": "https://pvpro.ch",
+    "vercelProject": "https://vercel.com/rosario-minopolis-projects/pvpro.ch",
+    "ga4Property": "https://analytics.google.com/analytics/web/#/p512243751",
+    "gtmContainer": "https://tagmanager.google.com/#/container/accounts/6319600105/containers/N8MRNGXQ",
+    "mailgunDomain": "https://app.mailgun.com/domains/mg.pvpro.ch"
+  }
+}

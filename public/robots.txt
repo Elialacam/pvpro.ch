@@ -1,0 +1,8 @@
+# Robots.txt for pvpro.ch
+# Allow all search engines to index all content
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://pvpro.ch/sitemap.xml

@@ -1,0 +1,138 @@
+// German translations for pvpro.ch
+export const de = {
+  common: {
+    getQuote: 'Offerte anfordern',
+    freeQuote: 'Kostenlose Offerte',
+    compare: 'Vergleichen',
+    save: 'Sparen',
+    learnMore: 'Mehr erfahren',
+    contactUs: 'Kontaktieren Sie uns',
+    readMore: 'Weiterlesen',
+    getStarted: 'Jetzt starten',
+    phone: 'Telefon',
+    email: 'E-Mail',
+    address: 'Adresse',
+  },
+  nav: {
+    home: 'Home',
+    solarCalculator: 'Solarrechner',
+    costs: 'Kosten',
+    storage: 'Mit Speicher',
+    aboutUs: 'Über uns',
+    contact: 'Kontakt',
+    cities: 'Städte',
+  },
+  hero: {
+    title: 'Solaranlagen in der Schweiz vergleichen',
+    subtitle: 'Kostenlos Offerten von geprüften Installateuren erhalten',
+    description: 'Vergleichen Sie kostenlos Solaranlagen-Angebote von geprüften Installateuren in der Schweiz. Bis zu 30% sparen durch Angebotsvergleich.',
+    cta: 'Jetzt kostenlose Offerte anfordern',
+    free: '100% kostenlos',
+    nonBinding: '100% unverbindlich',
+    certified: 'Geprüfte Solarteure',
+  },
+  form: {
+    title: 'Starten Sie jetzt Ihren kostenlosen Vergleich',
+    subtitle: 'In nur 2 Minuten zum individuellen Solaranlagen-Angebot',
+    name: 'Name',
+    email: 'E-Mail',
+    phone: 'Telefon',
+    postalCode: 'Postleitzahl',
+    city: 'Stadt',
+    message: 'Nachricht',
+    submit: 'Offerte anfordern',
+    sending: 'Wird gesendet...',
+    success: 'Vielen Dank! Wir melden uns bald.',
+    error: 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.',
+  },
+  usp: {
+    title: 'Warum PVPro?',
+    compare: {
+      title: 'Bis zu 3 Offerten vergleichen',
+      description: 'Erhalten Sie mehrere Angebote von geprüften Solarteure und wählen Sie das beste aus.',
+    },
+    save: {
+      title: 'Bis zu 30% sparen',
+      description: 'Durch den Vergleich mehrerer Angebote sparen Sie durchschnittlich 30% der Installationskosten.',
+    },
+    certified: {
+      title: 'Nur geprüfte Solarteure',
+      description: 'Alle Partner sind zertifiziert und haben nachgewiesene Erfahrung mit Schweizer Solaranlagen.',
+    },
+    free: {
+      title: '100% kostenlos & unverbindlich',
+      description: 'Unser Service ist komplett kostenlos. Sie zahlen nur den Solarteur Ihrer Wahl.',
+    },
+  },
+  howItWorks: {
+    title: 'So funktioniert es',
+    step1: {
+      title: 'Formular ausfüllen',
+      description: 'In nur 2 Minuten Ihre Anforderungen angeben',
+    },
+    step2: {
+      title: 'Offerten erhalten',
+      description: 'Bis zu 3 individuelle Angebote von lokalen Solarteuren',
+    },
+    step3: {
+      title: 'Vergleichen & sparen',
+      description: 'Bestes Angebot auswählen und bis zu 30% sparen',
+    },
+  },
+  faq: {
+    title: 'Häufig gestellte Fragen',
+    seeAll: 'Alle FAQs anzeigen',
+  },
+  footer: {
+    company: 'Unternehmen',
+    aboutUs: 'Über uns',
+    contact: 'Kontakt',
+    privacy: 'Datenschutz',
+    imprint: 'Impressum',
+    terms: 'AGB',
+    legal: 'Rechtliches',
+    followUs: 'Folgen Sie uns',
+    copyright: '© 2024 PVPro. Alle Rechte vorbehalten.',
+  },
+  testimonials: {
+    title: 'Das sagen unsere Kunden',
+  },
+  cities: {
+    title: 'Solaranlagen in der ganzen Schweiz',
+    description: 'Wir vermitteln Solarteure in allen grösseren Schweizer Städten',
+    solarIn: 'Solaranlage',
+  },
+  pricing: {
+    title: 'Solaranlage Kosten',
+    typical: 'Typische Anlage',
+    withStorage: 'Mit Batteriespeicher',
+    afterSubsidy: 'Nach Förderung',
+    roi: 'Amortisation',
+    years: 'Jahre',
+  },
+  incentives: {
+    title: 'Förderungen in der Schweiz',
+    federal: 'Bundesförderung',
+    cantonal: 'Kantonale Förderung',
+    tax: 'Steuerliche Abzüge',
+  },
+  solarTerms: {
+    solarSystem: 'Solaranlage',
+    photovoltaic: 'Photovoltaik',
+    solarInstaller: 'Solarteur',
+    solarPanel: 'Solarmodul',
+    inverter: 'Wechselrichter',
+    battery: 'Batteriespeicher',
+    sunHours: 'Sonnenstunden',
+    subsidy: 'Förderung',
+    quote: 'Offerte',
+    installation: 'Installation',
+    costs: 'Kosten',
+  },
+  meta: {
+    homeTitle: 'PVPro - Solaranlagen in der Schweiz vergleichen | Kostenlose Offerten',
+    homeDescription: 'Vergleichen Sie kostenlos Solaranlagen-Angebote von geprüften Installateuren in der Schweiz. Bis zu 30% sparen durch Angebotsvergleich. 100% unverbindlich.',
+  },
+};
+
+export type TranslationKeys = typeof de;

@@ -1,0 +1,9 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Swiss Flag Square -->
+  <rect width="60" height="60" fill="#FF0000"/>
+  <!-- White Cross -->
+  <rect x="22" y="12" width="16" height="36" fill="white"/>
+  <rect x="12" y="22" width="36" height="16" fill="white"/>
+  <!-- Label below -->
+  <text x="30" y="70" text-anchor="middle" font-family="Arial" font-size="8" font-weight="bold" fill="#333">SWISS QUALITY</text>
+</svg>

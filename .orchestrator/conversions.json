@@ -1,0 +1,50 @@
+{
+  "ga4": {
+    "measurement_id": "",
+    "property_id": "",
+    "stream_id": "",
+    "events": {
+      "whatsapp_click": 0,
+      "form_submission": 0,
+      "email_click": 0,
+      "phone_click": 0,
+      "3cx_chat_interaction": 0
+    },
+    "total": 0
+  },
+  "gtm": {
+    "container_id": "",
+    "container_public_id": "",
+    "account_id": "",
+    "workspace_id": "1",
+    "published": false,
+    "submit_url": ""
+  },
+  "contact_methods": {
+    "phone": "",
+    "phone_valid": false,
+    "whatsapp": "",
+    "whatsapp_link": "",
+    "whatsapp_valid": false,
+    "email": "",
+    "email_valid": false,
+    "form": false,
+    "form_destination": "",
+    "3cx": {
+      "account": "",
+      "group_id": "",
+      "url": "",
+      "authorized": false
+    }
+  },
+  "setup_status": {
+    "mailgun": false,
+    "cloudflare_routing": false,
+    "ga4_installed": false,
+    "gtm_installed": false,
+    "tracking_verified": false
+  },
+  "health_score": 0,
+  "business_name": "",
+  "last_updated": "2025-11-09T06:06:54.911Z"
+}
