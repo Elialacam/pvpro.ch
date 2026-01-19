@@ -82,3 +82,4 @@ async function captureMapSection() {
 captureMapSection().then(result => {
   console.log(JSON.stringify(result, null, 2));
 });
+ 
