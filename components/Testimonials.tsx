@@ -258,8 +258,18 @@ export default function Testimonials() {
                 className="flex-shrink-0 w-[300px] bg-white rounded-xl p-5 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-semibold text-lg">
-                    {review.name.charAt(0).toUpperCase()}
+                  <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-100 flex items-center justify-center">
+                    {index === 0 ? (
+                      <img 
+                        src="/images/testimonials/tobias.png" 
+                        alt={review.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-semibold text-lg">
+                        {review.name.charAt(0).toUpperCase()}
+                      </div>
+                    )}
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-1">
