@@ -265,6 +265,12 @@ export default function Testimonials() {
                         alt={review.name}
                         className="w-full h-full object-cover"
                       />
+                    ) : index === 1 ? (
+                      <img 
+                        src="/images/testimonials/octo.png" 
+                        alt={review.name}
+                        className="w-full h-full object-cover"
+                      />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-semibold text-lg">
                         {review.name.charAt(0).toUpperCase()}
