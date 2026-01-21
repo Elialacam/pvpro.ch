@@ -169,25 +169,31 @@ const reviewsContent: Record<Locale, {
 export default function Testimonials() {
   const locale = useLocale();
   const content = reviewsContent[locale];
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const checkScrollButtons = () => {
+  const checkScrollStatus = () => {
     if (scrollContainerRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
       setCanScrollLeft(scrollLeft > 0);
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+      
+      // Update active dot based on scroll position
+      const scrollPercentage = scrollLeft / (scrollWidth - clientWidth);
+      const dotCount = 3;
+      const index = Math.min(Math.floor(scrollPercentage * dotCount + 0.5), dotCount - 1);
+      setActiveIndex(index);
     }
   };
 
   useEffect(() => {
-    checkScrollButtons();
+    checkScrollStatus();
     const container = scrollContainerRef.current;
     if (container) {
-      container.addEventListener('scroll', checkScrollButtons);
-      return () => container.removeEventListener('scroll', checkScrollButtons);
+      container.addEventListener('scroll', checkScrollStatus);
+      return () => container.removeEventListener('scroll', checkScrollStatus);
     }
   }, []);
 
@@ -198,6 +204,14 @@ export default function Testimonials() {
         ? scrollContainerRef.current.scrollLeft - scrollAmount
         : scrollContainerRef.current.scrollLeft + scrollAmount;
       scrollContainerRef.current.scrollTo({ left: newPosition, behavior: 'smooth' });
+    }
+  };
+
+  const scrollToDot = (index: number) => {
+    if (scrollContainerRef.current) {
+      const { scrollWidth, clientWidth } = scrollContainerRef.current;
+      const targetScroll = (index / (3 - 1)) * (scrollWidth - clientWidth);
+      scrollContainerRef.current.scrollTo({ left: targetScroll, behavior: 'smooth' });
     }
   };
 
@@ -347,11 +361,13 @@ export default function Testimonials() {
 
           <div className="flex justify-center gap-2 mt-4">
             {[0, 1, 2].map((dotIndex) => (
-              <div
+              <button
                 key={dotIndex}
+                onClick={() => scrollToDot(dotIndex)}
                 className={`w-2 h-2 rounded-full transition-colors ${
-                  dotIndex === 0 ? 'bg-gray-800' : 'bg-gray-300'
+                  dotIndex === activeIndex ? 'bg-gray-800' : 'bg-gray-300'
                 }`}
+                aria-label={`Go to testimonial slide ${dotIndex + 1}`}
               />
             ))}
           </div>
