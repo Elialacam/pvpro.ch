@@ -49,7 +49,7 @@ export default function TeamSection() {
           <div className="order-1 lg:order-2">
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/team-photo.png"
+                src="/team-new.png"
                 alt={content.imageAlt}
                 width={800}
                 height={450}
