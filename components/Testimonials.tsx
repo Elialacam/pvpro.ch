@@ -271,6 +271,12 @@ export default function Testimonials() {
                         alt={review.name}
                         className="w-full h-full object-cover"
                       />
+                    ) : index === 2 ? (
+                      <img 
+                        src="/images/testimonials/mtb.png" 
+                        alt={review.name}
+                        className="w-full h-full object-cover"
+                      />
                     ) : index === 3 ? (
                       <img 
                         src="/images/testimonials/josef.png" 
