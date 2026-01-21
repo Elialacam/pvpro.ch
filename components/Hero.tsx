@@ -110,12 +110,12 @@ export default function Hero() {
           <div>
             <SolarForm />
             {/* Trustpilot under form, outside white background */}
-            <div className="flex justify-center mt-4">
+            <div className="flex justify-center mt-6">
               <Image
                 src="/badges/trustpilot.svg"
                 alt="Trustpilot - Hervorragend"
-                width={150}
-                height={40}
+                width={220}
+                height={60}
                 className="object-contain"
               />
             </div>
