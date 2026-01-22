@@ -260,6 +260,15 @@ export default function SolarForm() {
     }
   };
 
+  const handleSelection = async (field: keyof FormData, value: any) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    
+    // Auto-advance after a small delay for better UX
+    setTimeout(() => {
+      nextStep();
+    }, 300);
+  };
+
   const nextStep = async () => {
     if (step === 1 && formData.isOwner === 'no') {
       showNotification(t.renterError, 'warning');
@@ -356,7 +365,7 @@ export default function SolarForm() {
             </h3>
             <div className="flex gap-6 justify-center">
               <button
-                onClick={() => setFormData({ ...formData, isOwner: 'yes' })}
+                onClick={() => handleSelection('isOwner', 'yes')}
                 className={`flex flex-col items-center justify-center w-40 h-40 rounded-2xl border-2 transition-all shadow-md hover:shadow-lg hover:scale-105 ${
                   formData.isOwner === 'yes'
                     ? 'border-green-500 bg-green-50 ring-2 ring-green-200'
@@ -371,7 +380,7 @@ export default function SolarForm() {
                 <span className="font-bold text-lg text-gray-900">{t.yes}</span>
               </button>
               <button
-                onClick={() => setFormData({ ...formData, isOwner: 'no' })}
+                onClick={() => handleSelection('isOwner', 'no')}
                 className={`flex flex-col items-center justify-center w-40 h-40 rounded-2xl border-2 transition-all shadow-md hover:shadow-lg hover:scale-105 ${
                   formData.isOwner === 'no'
                     ? 'border-red-500 bg-red-50 ring-2 ring-red-200'
@@ -412,7 +421,7 @@ export default function SolarForm() {
                 return (
                   <button
                     key={option.value}
-                    onClick={() => setFormData({ ...formData, propertyType: option.value as FormData['propertyType'] })}
+                    onClick={() => handleSelection('propertyType', option.value as FormData['propertyType'])}
                     className={`flex flex-col items-center justify-center w-36 h-36 px-3 rounded-2xl border-2 transition-all shadow-md hover:shadow-lg hover:scale-105 ${
                       isSelected
                         ? `${colorClasses.border} ${colorClasses.bgCard} ring-2 ${colorClasses.ring}`
@@ -453,7 +462,7 @@ export default function SolarForm() {
                 return (
                   <button
                     key={option.value}
-                    onClick={() => setFormData({ ...formData, wantsBattery: option.value as FormData['wantsBattery'] })}
+                    onClick={() => handleSelection('wantsBattery', option.value as FormData['wantsBattery'])}
                     className={`flex flex-col items-center justify-center w-36 h-36 rounded-2xl border-2 transition-all shadow-md hover:shadow-lg hover:scale-105 ${
                       isSelected
                         ? `${colorClasses.border} ${colorClasses.bgCard} ring-2 ${colorClasses.ring}`
@@ -695,7 +704,7 @@ export default function SolarForm() {
           <div />
         )}
 
-        {step < totalSteps ? (
+        {step === 4 ? (
           <button
             onClick={nextStep}
             disabled={!canProceed()}
@@ -706,7 +715,7 @@ export default function SolarForm() {
             {t.next}
             <ChevronRight className="w-5 h-5" />
           </button>
-        ) : (
+        ) : step === 5 ? (
           <button
             onClick={handleSubmit}
             disabled={!canProceed() || isSubmitting}
@@ -721,7 +730,7 @@ export default function SolarForm() {
               t.submit
             )}
           </button>
-        )}
+        ) : null}
       </div>
     </div>
   );
