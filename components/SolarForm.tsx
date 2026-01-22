@@ -268,10 +268,18 @@ export default function SolarForm() {
 
     // Show loading transition when moving from address (step 4) to contact (step 5)
     if (step === 4) {
+      if (window.fbq) {
+        window.fbq('track', 'Lead', {
+          content_category: 'Solar Installation',
+          content_name: 'Step 4 Address Completed'
+        });
+      }
       setIsLoadingTransition(true);
       // Simulate analysis time
       await new Promise(resolve => setTimeout(resolve, 2500));
       setIsLoadingTransition(false);
+    } else if (window.fbq) {
+      window.fbq('track', 'Step' + step + 'Completed');
     }
 
     setStep(step + 1);
@@ -310,6 +318,12 @@ export default function SolarForm() {
       });
 
       if (response.ok) {
+        if (window.fbq) {
+          window.fbq('track', 'SubmitApplication', {
+            value: 15999,
+            currency: 'CHF'
+          });
+        }
         router.push('/danke');
       } else {
         const errorData = await response.json();
