@@ -39,14 +39,18 @@ export async function POST(request: NextRequest) {
 
     const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+      },
       body: JSON.stringify({
         access_key: WEB3FORMS_KEY,
         subject: `Neue Solaranfrage - ${firstName} ${lastName}`,
         from_name: 'PVPro.ch',
         name: `${firstName} ${lastName}`,
-        email,
-        phone,
+        email: email,
+        phone: phone,
         address: address || 'Nicht angegeben',
         property_type: propertyTypeLabels[propertyType] || propertyType,
         owner: ownershipStatus === 'eigentuemer' ? 'Ja' : 'Nein',
@@ -54,10 +58,24 @@ export async function POST(request: NextRequest) {
       })
     })
 
-    const result = await response.json()
+    const contentType = response.headers.get('content-type')
+    let result
+    if (contentType && contentType.includes('application/json')) {
+      result = await response.json()
+    } else {
+      const text = await response.text()
+      console.error('Web3Forms returned non-JSON response:', text)
+      throw new Error('Web3Forms returned invalid response format')
+    }
+
+    console.log('Web3Forms response:', result)
 
     if (!result.success) {
-      throw new Error('Web3Forms error')
+      console.error('Web3Forms submission failed:', result)
+      return NextResponse.json(
+        { error: result.message || 'Web3Forms error' },
+        { status: 400 }
+      )
     }
 
     return NextResponse.json({
