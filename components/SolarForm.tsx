@@ -305,15 +305,24 @@ export default function SolarForm() {
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      // Send form data to API
-      const response = await fetch('/api/form', {
+      // Send form data directly to Web3Forms to bypass CORS and backend issues
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify({
-          ...formData,
-          propertyType: formData.propertyType,
-          ownershipStatus: formData.isOwner === 'yes' ? 'eigentuemer' : 'mieter',
-          batteryInterest: formData.wantsBattery,
+          access_key: 'e5917515-5373-450c-963d-d6dcb976be42',
+          subject: `Neue Solaranfrage - ${formData.firstName} ${formData.lastName}`,
+          from_name: 'PVPro.ch',
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          phone: formData.phone,
+          address: formData.address || 'Nicht angegeben',
+          property_type: formData.propertyType,
+          owner: formData.isOwner === 'yes' ? 'Ja' : 'Nein',
+          battery_interest: formData.wantsBattery,
         }),
       });
 
@@ -327,7 +336,7 @@ export default function SolarForm() {
         router.push('/danke');
       } else {
         const errorData = await response.json();
-        showNotification(errorData.error || 'Fehler beim Senden. Bitte versuchen Sie es erneut.');
+        showNotification(errorData.message || 'Fehler beim Senden. Bitte versuchen Sie es erneut.');
       }
     } catch (error) {
       console.error('Form submission error:', error);
