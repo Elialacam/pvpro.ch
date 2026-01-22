@@ -7,6 +7,7 @@ import ScrollTracking from "@/components/ScrollTracking";
 import { Suspense } from "react";
 
 import GoogleTagManager from '../components/GoogleTagManager';
+import MetaPixel from '../components/MetaPixel';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -50,6 +51,7 @@ export default function RootLayout({
       </Script>
       <body className={inter.className}>
         <GoogleTagManager />
+        <MetaPixel />
         <Suspense fallback={null}>
           <Analytics />
         </Suspense>
