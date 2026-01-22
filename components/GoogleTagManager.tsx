@@ -1,22 +1,12 @@
 'use client';
 
 import Script from 'next/script';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
 
-declare global {
-  interface Window {
-    dataLayer: any[];
-    gtag?: (...args: any[]) => void;
-  }
-}
-
-/**
- * GoogleTagManager - Componente per tracking GTM + GA4
- *
- * GA4 ID: G-XXXXXXXXXX
- * GTM ID: GTM-XXXXXXXX
- */
-export default function GoogleTagManager() {
+function GTMContent() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const gtmId = 'GTM-XXXXXXXX';
   const ga4Id = 'G-XXXXXXXXXX';
 
@@ -38,7 +28,7 @@ export default function GoogleTagManager() {
         timestamp: new Date().toISOString()
       });
     }
-  }, []);
+  }, [pathname, searchParams]);
 
   return (
     <>
@@ -80,5 +70,13 @@ export default function GoogleTagManager() {
         />
       </noscript>
     </>
+  );
+}
+
+export default function GoogleTagManager() {
+  return (
+    <Suspense fallback={null}>
+      <GTMContent />
+    </Suspense>
   );
 }

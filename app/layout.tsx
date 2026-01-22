@@ -51,7 +51,9 @@ export default function RootLayout({
       </Script>
       <body className={inter.className}>
         <GoogleTagManager />
-        <MetaPixel />
+        <Suspense fallback={null}>
+          <MetaPixel />
+        </Suspense>
         <Suspense fallback={null}>
           <Analytics />
         </Suspense>
