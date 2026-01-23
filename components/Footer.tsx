@@ -2,27 +2,9 @@
 
 import Link from 'next/link';
 import { Mail, Clock, MapPin, Instagram } from 'lucide-react';
-import { Locale } from '@/lib/i18n';
 import { useLocale } from '@/lib/LocaleContext';
 
-// Footer content per locale
-const footerContent: Record<Locale, {
-  tagline: string;
-  features: string[];
-  contact: {
-    title: string;
-    email: string;
-    hours: string;
-    address: string;
-  };
-  followUs: string;
-  copyright: string;
-  privacy: string;
-  imprint: string;
-  privacyText: string;
-  imprintText: string;
-  home: string;
-}> = {
+const footerContent: any = {
   de: {
     tagline: 'PVPro.ch ist eine unabhängige Schweizer Plattform, die Immobilieneigentümer mit geprüften Photovoltaik-Installateuren und Speicherlösungen verbindet.',
     features: [
@@ -47,7 +29,7 @@ const footerContent: Record<Locale, {
     home: '/',
   },
   fr: {
-    tagline: 'PVPro.ch est une plateforme suisse indépendante qui met en relation les propriétaires immobiliers con installateurs fotovoltaïques certifiés et solutions de stockage.',
+    tagline: 'PVPro.ch est une plateforme suisse indépendante qui met en relation les propriétaires immobiliers avec des installateurs photovoltaïques certifiés et des solutions de stockage.',
     features: [
       'Installateurs suisses certifiés',
       'Offres réelles au lieu de prix indicatifs',
@@ -115,7 +97,7 @@ const footerContent: Record<Locale, {
     imprintText: 'Note legali',
     home: '/it',
   },
-} as Record<Locale, any>;
+};
 
 export default function Footer() {
   const locale = useLocale();
@@ -125,7 +107,6 @@ export default function Footer() {
     <footer className="bg-gray-900 text-gray-300">
       <div className="container-custom py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
-          {/* Column 1 - Logo & Tagline */}
           <div>
             <Link href={content.home} className="flex items-center gap-2 mb-4">
               <span className="text-2xl font-bold">
@@ -140,10 +121,9 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Column 2 - Features */}
           <div>
             <ul className="space-y-2">
-              {content.features.map((feature, index) => (
+              {content.features.map((feature: string, index: number) => (
                 <li key={index} className="flex items-center gap-2 text-sm text-gray-400">
                   <span className="text-primary">✓</span>
                   {feature}
@@ -152,7 +132,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3 - Contact */}
           <div>
             <h3 className="text-white font-bold mb-4">{content.contact.title}</h3>
             <ul className="space-y-3">
@@ -173,7 +152,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4 - Follow Us */}
           <div>
             <h3 className="text-white font-bold mb-4">{content.followUs}</h3>
             <div className="flex gap-4">
@@ -201,7 +179,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-400">
           <p>&copy; 2026 PV Pro. {content.copyright} <Link href={content.privacy} className="hover:text-white">{content.privacyText}</Link> | <Link href={content.imprint} className="hover:text-white">{content.imprintText}</Link></p>
         </div>
