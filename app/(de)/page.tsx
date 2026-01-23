@@ -116,9 +116,9 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {cities.map((city) => (
-              <a
+              <Link
                 key={city.slug}
-                href="#formular"
+                href={`/solaranlage-${city.slug}`}
                 className="group flex items-center gap-2 p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary-50 transition-all duration-200 cursor-pointer"
               >
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
@@ -130,7 +130,7 @@ export default function HomePage() {
                     {city.canton}
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
