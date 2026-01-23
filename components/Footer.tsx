@@ -16,6 +16,7 @@ const footerContent: Record<Locale, {
     address: string;
   };
   followUs: string;
+  copyright: string;
   privacy: string;
   imprint: string;
   privacyText: string;
