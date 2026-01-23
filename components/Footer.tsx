@@ -115,7 +115,7 @@ const footerContent: Record<Locale, {
     imprintText: 'Note legali',
     home: '/it',
   },
-};
+} as Record<Locale, any>;
 
 export default function Footer() {
   const locale = useLocale();
