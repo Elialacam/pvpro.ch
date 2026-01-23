@@ -203,7 +203,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; 2026 PV Pro. {content.copyright} <Link href={content.privacy} className="hover:text-white ml-2">{content.privacyText}</Link> | <Link href={content.imprint} className="hover:text-white">{content.imprintText}</Link></p>
+          <p>&copy; 2026 PV Pro. {content.copyright} <Link href={content.privacy} className="hover:text-white">{content.privacyText}</Link> | <Link href={content.imprint} className="hover:text-white">{content.imprintText}</Link></p>
         </div>
       </div>
     </footer>
