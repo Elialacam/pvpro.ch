@@ -24,7 +24,7 @@ const footerContent: Record<Locale, {
   home: string;
 }> = {
   de: {
-    tagline: 'Die beste Entscheidung für Ihr Dach beginnt hier.',
+    tagline: 'PVPro.ch ist eine unabhängige Schweizer Plattform, die Immobilieneigentümer mit geprüften Photovoltaik-Installateuren und Speicherlösungen verbindet.',
     features: [
       'Geprüfte Schweizer Solarteure',
       'Echte Offerten statt Richtpreise',
