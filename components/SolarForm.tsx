@@ -168,6 +168,7 @@ export default function SolarForm() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [notification, setNotification] = useState<{ message: string; type: 'error' | 'warning' } | null>(null);
   const [isLoadingTransition, setIsLoadingTransition] = useState(false);
+  const [selectedAddress, setSelectedAddress] = useState<string | null>(null);
   const [selectedPlaceCoords, setSelectedPlaceCoords] = useState<{ lat: number; lng: number } | null>(null);
   const autocompleteService = useRef<google.maps.places.AutocompleteService | null>(null);
   const placesService = useRef<google.maps.places.PlacesService | null>(null);
@@ -241,6 +242,7 @@ export default function SolarForm() {
 
   const selectAddress = (prediction: AddressPrediction) => {
     setFormData({ ...formData, address: prediction.description });
+    setSelectedAddress(prediction.description);
     setShowSuggestions(false);
     setAddressSuggestions([]);
 
@@ -303,7 +305,7 @@ export default function SolarForm() {
       case 3:
         return formData.wantsBattery !== null;
       case 4:
-        return formData.address.length > 5;
+        return formData.address.length > 5 && selectedAddress === formData.address;
       case 5:
         return formData.firstName && formData.lastName && formData.email && formData.phone;
       default:
