@@ -36,11 +36,10 @@ export default function RootLayout({
   return (
     <html lang="de-CH" className="scroll-smooth">
       <head>
-        <script
-          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}&libraries=places`}
-          async
-          defer
-        ></script>
+        <Script
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
+          strategy="beforeInteractive"
+        />
       </head>
       <body className={inter.className}>
         <GoogleTagManager />

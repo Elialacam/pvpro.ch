@@ -224,26 +224,26 @@ export default function SolarForm() {
     setSelectedAddress(null);
 
     // Use window.google directly to ensure we use the globally loaded script
-    if (value.length > 1 && window.google?.maps?.places) {
-      try {
-        const service = new window.google.maps.places.AutocompleteService();
-        service.getPlacePredictions({
-          input: value,
-          componentRestrictions: { country: 'ch' },
-          types: ['address'],
-        }, (predictions, status) => {
-          if (status === window.google?.maps?.places?.PlacesServiceStatus?.OK && predictions) {
-            console.log('Autocomplete predictions received:', predictions.length);
-            setAddressSuggestions(predictions);
-            setShowSuggestions(true);
-          } else {
-            console.warn('Autocomplete status not OK:', status);
-            setAddressSuggestions([]);
-            setShowSuggestions(false);
-          }
-        });
-      } catch (error) {
-        console.error('Address autocomplete error:', error);
+    if (value.length > 1) {
+      if (typeof window !== 'undefined' && window.google?.maps?.places) {
+        try {
+          const service = new window.google.maps.places.AutocompleteService();
+          service.getPlacePredictions({
+            input: value,
+            componentRestrictions: { country: 'ch' },
+            types: ['address'],
+          }, (predictions, status) => {
+            if (status === window.google?.maps?.places?.PlacesServiceStatus?.OK && predictions) {
+              setAddressSuggestions(predictions);
+              setShowSuggestions(true);
+            } else {
+              setAddressSuggestions([]);
+              setShowSuggestions(false);
+            }
+          });
+        } catch (error) {
+          console.error('Address autocomplete error:', error);
+        }
       }
     } else {
       setAddressSuggestions([]);
