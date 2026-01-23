@@ -47,7 +47,7 @@ const footerContent: Record<Locale, {
     home: '/',
   },
   fr: {
-    tagline: 'La meilleure décision pour votre toit commence ici.',
+    tagline: 'PVPro.ch est une plateforme suisse indépendante qui met en relation les propriétaires immobiliers con installateurs fotovoltaïques certifiés et solutions de stockage.',
     features: [
       'Installateurs suisses certifiés',
       'Offres réelles au lieu de prix indicatifs',
@@ -70,7 +70,7 @@ const footerContent: Record<Locale, {
     home: '/fr',
   },
   en: {
-    tagline: 'The best decision for your roof starts here.',
+    tagline: 'PVPro.ch is an independent Swiss platform that connects property owners with certified photovoltaic installers and storage solutions.',
     features: [
       'Certified Swiss Solar Installers',
       'Real Quotes Instead of Price Estimates',
@@ -93,7 +93,7 @@ const footerContent: Record<Locale, {
     home: '/en',
   },
   it: {
-    tagline: 'La migliore decisione per il tuo tetto inizia qui.',
+    tagline: 'PVPro.ch è una piattaforma svizzera indipendente che mette in relazione i proprietari di immobili con installatori fotovoltaici certificati e soluzioni di stoccaggio.',
     features: [
       'Installatori solari svizzeri certificati',
       'Offerte reali invece di stime di prezzo',
