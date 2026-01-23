@@ -16,7 +16,10 @@ const footerContent: Record<Locale, {
     address: string;
   };
   followUs: string;
-  copyright: string;
+  privacy: string;
+  imprint: string;
+  privacyText: string;
+  imprintText: string;
   home: string;
 }> = {
   de: {
@@ -36,6 +39,10 @@ const footerContent: Record<Locale, {
     },
     followUs: 'Folge Uns',
     copyright: 'Alle Rechte vorbehalten.',
+    privacy: '/datenschutz',
+    imprint: '/impressum',
+    privacyText: 'Datenschutz',
+    imprintText: 'Impressum',
     home: '/',
   },
   fr: {
@@ -55,6 +62,10 @@ const footerContent: Record<Locale, {
     },
     followUs: 'Suivez-nous',
     copyright: 'Tous droits réservés.',
+    privacy: '/fr/protection-des-donnees',
+    imprint: '/fr/mentions-legales',
+    privacyText: 'Protection des données',
+    imprintText: 'Mentions légales',
     home: '/fr',
   },
   en: {
@@ -74,13 +85,40 @@ const footerContent: Record<Locale, {
     },
     followUs: 'Follow Us',
     copyright: 'All rights reserved.',
+    privacy: '/en/privacy',
+    imprint: '/en/imprint',
+    privacyText: 'Privacy Policy',
+    imprintText: 'Imprint',
     home: '/en',
+  },
+  it: {
+    tagline: 'La migliore decisione per il tuo tetto inizia qui.',
+    features: [
+      'Installatori solari svizzeri certificati',
+      'Offerte reali invece di stime di prezzo',
+      'Ogni richiesta verificata personalmente',
+      'Fornitori regionali',
+      'Piattaforma svizzera',
+    ],
+    contact: {
+      title: 'Siamo qui per voi',
+      email: 'info@pvpro.ch',
+      hours: 'Lun-Sab: 8:00 - 19:00',
+      address: 'Culmannstrasse 37, 8006 Zurigo, Svizzera',
+    },
+    followUs: 'Seguici',
+    copyright: 'Tutti i diritti riservati.',
+    privacy: '/it/protezione-dati',
+    imprint: '/it/note-legali',
+    privacyText: 'Protezione dei dati',
+    imprintText: 'Note legali',
+    home: '/it',
   },
 };
 
 export default function Footer() {
   const locale = useLocale();
-  const content = footerContent[locale];
+  const content = footerContent[locale] || footerContent.de;
 
   return (
     <footer className="bg-gray-900 text-gray-300">
@@ -164,7 +202,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} PV Pro. {content.copyright}</p>
+          <p>&copy; 2026 PV Pro. {content.copyright} <Link href={content.privacy} className="hover:text-white ml-2">{content.privacyText}</Link> | <Link href={content.imprint} className="hover:text-white">{content.imprintText}</Link></p>
         </div>
       </div>
     </footer>
