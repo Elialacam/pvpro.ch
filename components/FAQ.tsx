@@ -118,11 +118,43 @@ const faqContent: Record<Locale, {
       },
     ],
   },
+  it: {
+    title: 'Domande frequenti',
+    subtitle: 'Tutto quello che devi sapere sugli impianti solari',
+    moreQuestions: 'Hai altre domande? Siamo felici di aiutarti!',
+    cta: 'Richiedi una consulenza gratuita',
+    faqs: [
+      {
+        question: 'Quanto costa un impianto solare in Svizzera?',
+        answer: 'Un tipico impianto solare per una casa unifamiliare costa tra CHF 9.500 e CHF 25.000. Il prezzo esatto dipende dalle dimensioni dell\'impianto, dalle caratteristiche del tetto e dai componenti utilizzati. Con un sistema di accumulo a batteria, i costi sono più elevati, tra CHF 19.500 e CHF 35.000.',
+      },
+      {
+        question: 'Come funziona il servizio di PVPro?',
+        answer: 'Compili il nostro breve modulo indicando le tue esigenze. Inoltriamo la tua richiesta a un massimo di 3 installatori certificati nella tua regione. Questi prepareranno preventivi personalizzati per te. Tu confronti le offerte e scegli la migliore - completamente senza impegno.',
+      },
+      {
+        question: 'Esistono sovvenzioni per gli impianti solari in Svizzera?',
+        answer: 'Sì! La Svizzera offre diverse sovvenzioni: la Rimunerazione Unica (RU) della Confederazione copre fino al 30% dei costi di investimento. Inoltre, esistono programmi di incentivi cantonali e comunali, oltre a deduzioni fiscali. I nostri installatori partner ti aiutano a richiedere tutte le sovvenzioni disponibili.',
+      },
+      {
+        question: 'Quanto tempo richiede l\'installazione di un impianto solare?',
+        answer: 'Dalla richiesta all\'installazione, di solito passano 2-4 mesi. Il montaggio effettivo sul tetto richiede solitamente solo 1-3 giorni, a seconda delle dimensioni dell\'impianto. Dopo l\'installazione, seguono la messa in servizio e l\'accettazione da parte del gestore della rete.',
+      },
+      {
+        question: 'Un impianto solare vale la pena anche con poco sole?',
+        answer: 'Sì! Anche nelle regioni meno soleggiate della Svizzera, gli impianti solari producono abbastanza elettricità per ammortizzarsi. I moderni moduli solari funzionano in modo efficiente anche con luce diffusa. Il periodo medio di ammortamento in Svizzera è di 10-15 anni, con una durata di vita di 25-30 anni.',
+      },
+      {
+        question: 'Il servizio di PVPro è davvero gratuito?',
+        answer: 'Sì, il nostro servizio è al 100% gratuito e non vincolante per te. Ci finanziamo tramite commissioni dai nostri installatori partner. Non paghi nulla per l\'intermediazione e ricevi comunque gli stessi prezzi come se contattassi direttamente l\'installatore.',
+      },
+    ],
+  },
 };
 
 export default function FAQ({ items }: FAQProps) {
   const locale = useLocale();
-  const content = faqContent[locale];
+  const content = faqContent[locale] || faqContent.de;
   const faqItems = items || content.faqs;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
