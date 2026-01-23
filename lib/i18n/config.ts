@@ -1,8 +1,8 @@
 // i18n configuration for pvpro.ch
 
-export type Locale = 'de' | 'fr' | 'en';
+export type Locale = 'de' | 'fr' | 'en' | 'it';
 
-export const locales: Locale[] = ['de', 'fr', 'en'];
+export const locales: Locale[] = ['de', 'fr', 'en', 'it'];
 
 export const defaultLocale: Locale = 'de';
 
@@ -10,12 +10,14 @@ export const localeNames: Record<Locale, string> = {
   de: 'DE',
   fr: 'FR',
   en: 'EN',
+  it: 'IT',
 };
 
 export const localeRegions: Record<Locale, string> = {
   de: 'de-CH',
   fr: 'fr-CH',
   en: 'en-CH',
+  it: 'it-CH',
 };
 
 export function isValidLocale(locale: string): locale is Locale {
