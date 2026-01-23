@@ -55,11 +55,21 @@ const mapContent: Record<Locale, {
     ],
     cta: 'Compare Quotes Now',
   },
+  it: {
+    title: 'Non paghi più del necessario per il tuo impianto solare',
+    description: 'Troviamo per te il partner più affidabile nella tua regione confrontando i prezzi reali e la qualità certificata.',
+    features: [
+      'Prezzi medi basati su offerte reali',
+      'Prezzi per un tipico impianto solare da 10 kWp',
+      'Inclusa installazione e registrazione',
+    ],
+    cta: 'Confronta preventivi ora',
+  },
 };
 
 export default function SwissMap() {
   const locale = useLocale();
-  const content = mapContent[locale];
+  const content = mapContent[locale] || mapContent.de;
 
   const scrollToForm = () => {
     const formElement = document.getElementById('formular');

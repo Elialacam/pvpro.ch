@@ -47,11 +47,22 @@ const heroContent: Record<Locale, {
       'Free & no obligation',
     ],
   },
+  it: {
+    title: 'PVPro Svizzera',
+    subtitle: 'Confronta impianti solari.',
+    subtitleHighlight: 'Chiaro. Indipendente.',
+    description: 'Analizziamo il tuo tetto e ti mettiamo in contatto con installatori certificati della tua regione.',
+    checkmarks: [
+      'Installatori svizzeri certificati',
+      'Prezzi trasparenti',
+      'Gratuito e senza impegno',
+    ],
+  },
 };
 
 export default function Hero() {
   const locale = useLocale();
-  const content = heroContent[locale];
+  const content = heroContent[locale] || heroContent.de;
 
   return (
     <section className="bg-gradient-to-b from-primary-50 to-white section-padding">

@@ -164,11 +164,59 @@ const reviewsContent: Record<Locale, {
     readMore: 'Read more',
     at: 'at',
   },
+  it: {
+    reviews: [
+      {
+        name: 'tores mohsen',
+        time: '1 mese fa',
+        rating: 5,
+        text: 'Competente, affidabile e professionale - ideale per soluzioni solari ed energie rinnovabili. Consulenza trasparente con un servizio eccellente!',
+        verified: true,
+      },
+      {
+        name: 'Octo HD',
+        time: '1 mese fa',
+        rating: 5,
+        text: 'Sono totalmente affascinato dal servizio offerto qui. Tutto è andato benissimo.',
+        verified: true,
+      },
+      {
+        name: 'Mtb-marv',
+        time: '2 mesi fa',
+        rating: 5,
+        text: 'Servizio al top, qualità al top. Gli installatori hanno fatto un lavoro molto pulito e hanno spiegato tutto chiaramente. Posso solo raccomandare!',
+        verified: true,
+      },
+      {
+        name: 'Josef Berber',
+        time: '3 mesi fa',
+        rating: 5,
+        text: 'Installazione eseguita in modo pulito, i ragazzi erano amichevoli. L\'impianto produce davvero bene, anche più del previsto. Sono soddisfatto!',
+        verified: true,
+      },
+      {
+        name: 'Famiglia Weber',
+        time: '3 mesi fa',
+        rating: 5,
+        text: 'Siamo molto felici del nostro nuovo impianto solare. PVPro ci ha consigliato perfettamente e ci ha messo in contatto con uno specialista locale.',
+        verified: true,
+      },
+      {
+        name: 'Andreas Brunner',
+        time: '4 mesi fa',
+        rating: 5,
+        text: 'Il processo è stato così facile! Compilato il modulo, ricevuto tre offerte, scelto la migliore. Ora produciamo la nostra elettricità.',
+        verified: true,
+      },
+    ],
+    readMore: 'Leggi di più',
+    at: 'presso',
+  },
 };
 
 export default function Testimonials() {
   const locale = useLocale();
-  const content = reviewsContent[locale];
+  const content = reviewsContent[locale] || reviewsContent.de;
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);

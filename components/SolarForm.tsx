@@ -131,6 +131,35 @@ const formTranslations: Record<Locale, {
     loadingStep3: "3x quotes from 15'999.- found",
     renterError: 'Unfortunately, we can only help property owners. Please contact your landlord.',
   },
+  it: {
+    step1Title: 'È il proprietario dell\'immobile?',
+    yes: 'Sì',
+    no: 'No',
+    step2Title: 'Che tipo di edificio è?',
+    singleFamily: 'Casa\nunifamiliare',
+    multiFamily: 'Casa\nplurifamiliare',
+    other: 'Altro',
+    step3Title: 'Abita nell\'immobile in cui verrà installato l\'impianto fotovoltaico?',
+    sonstiges: 'Altro',
+    step4Title: 'Indirizzo',
+    addressLabel: 'Indirizzo',
+    addressPlaceholder: 'es. Via Stazione 10, 8001 Zurigo',
+    step5Title: 'I tuoi dati di contatto',
+    firstName: 'Nome',
+    lastName: 'Cognome',
+    email: 'E-mail',
+    phone: 'Telefono',
+    privacyText: 'Inviando, accetti la nostra politica sulla privacy',
+    back: 'Indietro',
+    next: 'Avanti',
+    submit: 'Preventivo gratuito',
+    submitting: 'Invio in corso...',
+    loadingTitle: 'Un momento per favore...',
+    loadingStep1: 'Analisi dei tuoi dati',
+    loadingStep2: 'Confronto con diversi fornitori',
+    loadingStep3: "Trovate 3x offerte a partire da 15'999.-",
+    renterError: 'Purtroppo possiamo aiutare solo i proprietari di immobili. Si prega di contattare il proprietario.',
+  },
 };
 
 interface AddressPrediction {
@@ -175,7 +204,7 @@ export default function SolarForm() {
   const mapRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const locale = useLocale();
-  const t = formTranslations[locale];
+  const t = formTranslations[locale] || formTranslations.de;
 
   // Auto-hide notification after 5 seconds
   useEffect(() => {

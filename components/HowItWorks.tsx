@@ -81,13 +81,35 @@ const howItWorksContent: Record<Locale, {
       },
     ],
   },
+  it: {
+    title: 'Come funziona',
+    subtitle: 'In tre semplici passi verso l\'impianto solare perfetto',
+    cta: 'Inizia ora',
+    steps: [
+      {
+        step: '1',
+        title: 'Compila il modulo',
+        description: 'In soli 2 minuti inserisci le tue esigenze – gratuito e senza impegno.',
+      },
+      {
+        step: '2',
+        title: 'Confronta i preventivi',
+        description: 'Ricevi fino a 3 preventivi personalizzati da installatori certificati nella tua regione.',
+      },
+      {
+        step: '3',
+        title: 'Scegli il tuo installatore',
+        description: 'Confronta le offerte e scegli il miglior installatore per il tuo progetto. Risparmia denaro!',
+      },
+    ],
+  },
 };
 
 const icons = [FileText, Search, CheckCircle];
 
 export default function HowItWorks() {
   const locale = useLocale();
-  const content = howItWorksContent[locale];
+  const content = howItWorksContent[locale] || howItWorksContent.de;
 
   return (
     <section className="section-padding bg-gray-50">

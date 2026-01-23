@@ -25,11 +25,16 @@ const teamContent: Record<Locale, {
     description: 'More than 10,000 satisfied customers and a network of over 500 selected partner installers throughout Switzerland – for reliable, transparent and no-obligation solutions.',
     imageAlt: 'The PVPro Team - Your Partner for Solar Systems in Switzerland',
   },
+  it: {
+    title: 'Oltre 15 anni di esperienza al servizio del fotovoltaico svizzero',
+    description: 'Più di 10.000 clienti soddisfatti e una rete di oltre 500 installatori partner selezionati in tutta la Svizzera – per soluzioni affidabili, trasparenti e senza impegno.',
+    imageAlt: 'Il team PVPro - Il tuo partner per gli impianti solari in Svizzera',
+  },
 };
 
 export default function TeamSection() {
   const locale = useLocale();
-  const content = teamContent[locale];
+  const content = teamContent[locale] || teamContent.de;
 
   return (
     <section className="section-padding bg-white">
