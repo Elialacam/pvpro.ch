@@ -221,24 +221,22 @@ export default function SolarForm() {
 
   const handleAddressChange = async (value: string) => {
     setFormData({ ...formData, address: value });
-    setSelectedAddress(null); // Reset selected address when user types
+    setSelectedAddress(null);
 
-    if (value.length > 2 && autocompleteService.current) {
+    if (value.length > 1 && window.google?.maps?.places) {
+      if (!autocompleteService.current) {
+        autocompleteService.current = new window.google.maps.places.AutocompleteService();
+      }
       try {
         const response = await autocompleteService.current.getPlacePredictions({
           input: value,
           componentRestrictions: { country: 'ch' },
           types: ['address'],
         });
-        console.log('Autocomplete predictions:', response.predictions);
         setAddressSuggestions(response.predictions || []);
         setShowSuggestions(true);
       } catch (error) {
         console.error('Address autocomplete error:', error);
-        // Fallback: try to re-initialize if it failed
-        if (window.google?.maps?.places) {
-          autocompleteService.current = new window.google.maps.places.AutocompleteService();
-        }
       }
     } else {
       setAddressSuggestions([]);

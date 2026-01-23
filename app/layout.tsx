@@ -41,18 +41,6 @@ export default function RootLayout({
           strategy="beforeInteractive"
         />
       </head>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-G0VT0Y9P6Q"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-G0VT0Y9P6Q');
-        `}
-      </Script>
       <body className={inter.className}>
         <GoogleTagManager />
         <Suspense fallback={null}>
@@ -78,6 +66,19 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* Google Analytics 4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-G0VT0Y9P6Q"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-G0VT0Y9P6Q');
+          `}
+        </Script>
       </body>
     </html>
   );
