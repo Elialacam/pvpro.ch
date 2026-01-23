@@ -60,11 +60,9 @@ export default function RootLayout({
         <ScrollTracking />
         {children}
 
-        {/* Google Maps Places API for address autocomplete */}
         <Script
-          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}&libraries=places&callback=Function.prototype`}
-          strategy="afterInteractive"
-          async
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}&libraries=places`}
+          strategy="beforeInteractive"
         />
         {/* Microsoft Clarity */}
         <Script

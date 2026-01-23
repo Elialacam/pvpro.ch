@@ -229,10 +229,15 @@ export default function SolarForm() {
           componentRestrictions: { country: 'ch' },
           types: ['address'],
         });
+        console.log('Autocomplete predictions:', response.predictions);
         setAddressSuggestions(response.predictions || []);
         setShowSuggestions(true);
       } catch (error) {
         console.error('Address autocomplete error:', error);
+        // Fallback: try to re-initialize if it failed
+        if (window.google?.maps?.places) {
+          autocompleteService.current = new window.google.maps.places.AutocompleteService();
+        }
       }
     } else {
       setAddressSuggestions([]);
@@ -499,7 +504,7 @@ export default function SolarForm() {
                   loading="lazy"
                   allowFullScreen
                   referrerPolicy="no-referrer-when-downgrade"
-                  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(formData.address)}&zoom=17&maptype=satellite`}
+                  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(formData.address)}&zoom=19&maptype=satellite`}
                 />
               </div>
             )}
@@ -512,20 +517,28 @@ export default function SolarForm() {
                   type="text"
                   value={formData.address}
                   onChange={(e) => handleAddressChange(e.target.value)}
-                  onFocus={() => formData.address.length > 2 && setShowSuggestions(true)}
+                  onFocus={() => {
+                    if (formData.address.length > 2) {
+                      handleAddressChange(formData.address);
+                    }
+                  }}
                   placeholder={t.addressPlaceholder}
                   className="flex-1 bg-transparent outline-none text-gray-900"
                 />
                 {showSuggestions && addressSuggestions.length > 0 && (
-                  <div className="absolute z-10 left-0 right-0 top-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-auto">
+                  <div className="absolute z-[9999] left-0 right-0 top-full mt-1 bg-white border border-gray-200 rounded-lg shadow-xl max-h-60 overflow-auto">
                     {addressSuggestions.map((suggestion) => (
                       <button
                         key={suggestion.place_id}
-                        onClick={() => selectAddress(suggestion)}
-                        className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b border-gray-100 last:border-b-0 flex items-center gap-2"
+                        type="button"
+                        onMouseDown={(e) => {
+                          e.preventDefault(); // Prevent focus loss before selection
+                          selectAddress(suggestion);
+                        }}
+                        className="w-full px-4 py-3 text-left hover:bg-blue-50 border-b border-gray-100 last:border-b-0 flex items-center gap-2 transition-colors"
                       >
-                        <MapPin className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                        <span className="text-sm">{suggestion.description}</span>
+                        <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span className="text-sm text-gray-700 font-medium">{suggestion.description}</span>
                       </button>
                     ))}
                   </div>
