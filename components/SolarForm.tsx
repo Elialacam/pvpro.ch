@@ -221,6 +221,7 @@ export default function SolarForm() {
 
   const handleAddressChange = async (value: string) => {
     setFormData({ ...formData, address: value });
+    setSelectedAddress(null); // Reset selected address when user types
 
     if (value.length > 2 && autocompleteService.current) {
       try {

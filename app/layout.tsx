@@ -35,8 +35,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de-CH" className="scroll-smooth">
-      
-      {/* Google Analytics 4 */}
+      <head>
+        <Script
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}&libraries=places`}
+          strategy="beforeInteractive"
+        />
+      </head>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-G0VT0Y9P6Q"
         strategy="afterInteractive"
@@ -60,10 +64,6 @@ export default function RootLayout({
         <ScrollTracking />
         {children}
 
-        <Script
-          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}&libraries=places`}
-          strategy="beforeInteractive"
-        />
         {/* Microsoft Clarity */}
         <Script
           id="clarity-script"
