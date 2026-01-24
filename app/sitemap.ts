@@ -77,41 +77,49 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // German city pages - critical for SEO (weekly crawl)
-  const citySlugs = getAllCitySlugs();
-  const cityPages = citySlugs.map((slug) => ({
-    url: `${baseUrl}/solaranlage-${slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.85,
-  }));
-
-  // Italian city pages
-  const italianCityPages = [
-    {
-      url: `${baseUrl}/it/impianto-fotovoltaico-lugano`,
+  // German city pages
+  const germanCityPages = cities
+    .filter(city => city.language === 'de')
+    .map((city) => ({
+      url: `${baseUrl}/solaranlage-${city.slug}`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
-      priority: 0.90, // High priority for Lugano (best solar location)
-    },
-  ];
+      priority: 0.85,
+    }));
 
   // French city pages
-  const frenchCityPages = [
-    {
-      url: `${baseUrl}/fr/installation-solaire-geneve`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.88,
-    },
-  ];
+  const frenchCityPages = cities
+    .filter(city => city.language === 'fr')
+    .map((city) => {
+      let frenchSlug = `installation-solaire-${city.slug}`;
+      if (city.slug === 'genf') frenchSlug = 'installation-solaire-geneve';
+      return {
+        url: `${baseUrl}/fr/${frenchSlug}`,
+        lastModified: currentDate,
+        changeFrequency: 'weekly' as const,
+        priority: 0.85,
+      };
+    });
+
+  // Italian city pages
+  const italianCityPages = cities
+    .filter(city => city.language === 'it')
+    .map((city) => {
+      let italianSlug = `impianto-fotovoltaico-${city.slug}`;
+      return {
+        url: `${baseUrl}/it/${italianSlug}`,
+        lastModified: currentDate,
+        changeFrequency: 'weekly' as const,
+        priority: 0.90,
+      };
+    });
 
   return [
     ...staticPages,
     ...frenchPages,
     ...italianPages,
-    ...cityPages,
-    ...italianCityPages,
-    ...frenchCityPages
+    ...germanCityPages,
+    ...frenchCityPages,
+    ...italianCityPages
   ];
 }
