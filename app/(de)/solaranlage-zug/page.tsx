@@ -1,3 +1,7 @@
-import CantonPageTemplate from '@/components/CantonPageTemplate';
-export const metadata = { title: 'Solaranlage Zug', description: 'Solaranlage im Kanton Zug.' };
-export default function Page() { return <CantonPageTemplate slug="zug" title="Solaranlage Zug" description="Offerten im Kanton Zug." lang="de" />; }
+import CityPage from '../solaranlage-[city]/page';
+
+export default function Page() {
+  return <CityPage params={{ city: 'zug' }} />;
+}
+
+export { generateMetadata } from '../solaranlage-[city]/page';

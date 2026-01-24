@@ -5,7 +5,7 @@ import TeamSection from '@/components/TeamSection';
 import SwissMap from '@/components/SwissMap';
 import FAQ from '@/components/FAQ';
 import Link from 'next/link';
-import { cantons } from '@/lib/cities';
+import { cities } from '@/lib/cities';
 import { MapPin } from 'lucide-react';
 
 export default function HomePage() {
@@ -38,6 +38,7 @@ export default function HomePage() {
 
   return (
     <>
+      {/* FAQPage Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -55,11 +56,53 @@ export default function HomePage() {
           })
         }}
       />
+
+      {/* Service Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Solar Installation",
+            "provider": {
+              "@type": "Electrician",
+              "name": "Solar Installation City"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "City"
+            }
+          })
+        }}
+      />
+
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://pvpro.ch"
+              }
+            ]
+          })
+        }}
+      />
+
       <Hero />
       <Testimonials />
       <TeamSection />
       <SwissMap />
       <HowItWorks />
+
+      {/* Cities Section - Internal Linking */}
       <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">
           <div className="text-center mb-12">
@@ -67,23 +110,24 @@ export default function HomePage() {
               Solaranlagen in der ganzen Schweiz
             </h2>
             <p className="text-xl text-gray-600">
-              Wir vermitteln Solarteure in allen Schweizer Kantonen
+              Wir vermitteln Solarteure in allen grösseren Schweizer Städten
             </p>
           </div>
+
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {cantons.map((canton) => (
+            {cities.map((city) => (
               <Link
-                key={canton.slug}
-                href={canton.baseUrl}
+                key={city.slug}
+                href={`/solaranlage-${city.slug}`}
                 className="group flex items-center gap-2 p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary-50 transition-all duration-200 cursor-pointer"
               >
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
                 <div className="flex-1 min-w-0">
                   <div className="font-semibold text-gray-900 group-hover:text-primary transition-colors truncate">
-                    {canton.name}
+                    {city.name}
                   </div>
                   <div className="text-xs text-gray-500">
-                    {canton.abbreviation}
+                    {city.canton}
                   </div>
                 </div>
               </Link>
@@ -91,6 +135,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
       <FAQ />
     </>
   );

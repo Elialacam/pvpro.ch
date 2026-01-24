@@ -7,34 +7,34 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const citySlug = 'basel';
+const citySlug = 'zuerich';
 
 export async function generateMetadata(): Promise<Metadata> {
   const city = getCityBySlug(citySlug);
   if (!city) return { title: 'Stadt nicht gefunden' };
 
   return {
-    title: `Solaranlage Basel BS - Klimaziel 2030 | IWB Green Power Förderung`,
-    description: `Solaranlage Basel: Grosszügigste Förderung der Nordwestschweiz bis 45%. IWB Green Power Programm, Kanton BS Energieförderung. CHF 9.200-24.500, netto ab 5.700 CHF. Basel wird Solarstadt!`,
+    title: `Solaranlage Zürich ZH - Über 40 Solarteure vergleichen | Photovoltaik Offerte`,
+    description: `Solaranlage Zürich: Grösster Solarmarkt der Schweiz. Vergleichen Sie kostenlos Offerten von über 40 geprüften Zürcher Solarteuren. Kanton ZH Förderung bis 50%. CHF 9.500-25.000, netto ab 6.500 CHF. Sparen Sie 4.500-7.000 CHF!`,
     keywords: [
-      'Solaranlage Basel',
-      'Photovoltaik Basel',
-      'Solarteur Basel',
-      'IWB Solarstrom Basel',
-      'Kanton Basel-Stadt Energieförderung',
-      'Solaranlage Kosten Basel',
-      'PV Anlage Basel',
-      'Klimaziel Basel 2030',
-      'Basel Solarstadt',
-      'Förderung Solar Basel BS',
+      'Solaranlage Zürich',
+      'Photovoltaik Zürich',
+      'Solarteur Zürich',
+      'Solaranlage Kosten Zürich',
+      'Kanton Zürich Energieförderung',
+      'PV Anlage Zürich',
+      'Photovoltaik Offerte Zürich',
+      'Solaranlage mit Speicher Zürich',
+      'Energie Zürich Solar',
+      'Solarteure Zürich vergleichen',
     ],
     alternates: {
-      canonical: 'https://pvpro.ch/solaranlage-basel',
+      canonical: 'https://pvpro.ch/solaranlage-zuerich',
     },
     openGraph: {
-      title: 'Solaranlage Basel - Grosszügigste Förderung Nordwestschweiz',
-      description: 'Bis 45% Förderung! IWB Green Power + Kanton BS. Basel wird Solarstadt, Klimaziel 2030. Amortisation 4-5 Jahre.',
-      url: 'https://pvpro.ch/solaranlage-basel',
+      title: 'Solaranlage Zürich - Über 40 Solarteure vergleichen',
+      description: 'Grösster Solarmarkt: Über 40 Zürcher Solarteure im Vergleich. Kanton ZH Förderung bis 50%. Sparen Sie 4.500-7.000 CHF durch Vergleich.',
+      url: 'https://pvpro.ch/solaranlage-zuerich',
       type: 'website',
       locale: 'de_CH',
       siteName: 'PVPro',
@@ -42,7 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function BaselPage() {
+export default function ZurichPage() {
   const city = getCityBySlug(citySlug);
   const content = getCityContent(citySlug);
 
@@ -59,8 +59,8 @@ export default function BaselPage() {
             "@context": "https://schema.org",
             "@type": "Service",
             "serviceType": "Photovoltaik Installation",
-            "name": "Solaranlage Installation Basel",
-            "description": "Professionelle Solaranlagen-Installation in Basel. Grosszügigste Förderung der Nordwestschweiz bis 45%.",
+            "name": "Solaranlage Installation Zürich",
+            "description": "Professionelle Solaranlagen-Installation in Zürich. Über 40 Solarteure im Vergleich.",
             "provider": {
               "@type": "LocalBusiness",
               "name": "PVPro",
@@ -70,22 +70,22 @@ export default function BaselPage() {
             },
             "areaServed": {
               "@type": "City",
-              "name": "Basel",
-              "addressRegion": "BS",
+              "name": "Zürich",
+              "addressRegion": "ZH",
               "addressCountry": "CH"
             },
             "offers": {
               "@type": "AggregateOffer",
               "priceCurrency": "CHF",
-              "lowPrice": "9200",
-              "highPrice": "24500",
+              "lowPrice": "9500",
+              "highPrice": "25000",
               "offerCount": "3",
               "availability": "https://schema.org/InStock"
             },
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "4.7",
-              "reviewCount": "215"
+              "reviewCount": "342"
             }
           })
         }}
@@ -107,7 +107,7 @@ export default function BaselPage() {
           })
         }}
       />
-      <UniqueCityPage city={city} content={content} accentColor="red" />
+      <UniqueCityPage city={city} content={content} accentColor="blue" />
     </>
   );
 }
