@@ -768,7 +768,13 @@ export const cityContents: Record<string, CityContent> = {
 
 // Helper function to get content for a city
 export function getCityContent(slug: string): CityContent | undefined {
-  return cityContents[slug];
+  const content = cityContents[slug];
+  if (content) return content;
+  
+  // Fallback for slugs that might vary by language but point to same data
+  if (slug === 'geneve' || slug === 'genf') return cityContents['genf'];
+  
+  return undefined;
 }
 
 // Helper to check if city has custom content

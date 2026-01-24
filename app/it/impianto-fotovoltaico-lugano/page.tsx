@@ -20,7 +20,6 @@ export default function Page() {
   const city = getCityBySlug(citySlug);
   const content = getCityContent(citySlug);
   if (!city || !content) notFound();
-
   return (
     <>
       <section className="bg-gradient-to-br from-orange-50 to-primary-50 section-padding text-center">
@@ -33,7 +32,7 @@ export default function Page() {
       <section id="formular" className="section-padding">
         <div className="container-custom max-w-4xl"><FormContainer /></div>
       </section>
-      <FAQ />
+      <FAQ items={content.faqs} />
     </>
   );
 }
