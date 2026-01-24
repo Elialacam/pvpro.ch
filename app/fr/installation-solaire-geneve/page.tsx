@@ -5,10 +5,10 @@ import { notFound } from 'next/navigation';
 import FormContainer from '@/components/MultiStepForm/FormContainer';
 import FAQ from '@/components/FAQ';
 
-const citySlug = 'genf';
+const citySlug = 'geneve';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const city = getCityBySlug(citySlug);
+  const city = getCityBySlug('genf'); // Logic data is under 'genf'
   if (!city) return { title: 'Ville non trouvée' };
   return {
     title: `Installation Solaire Genève - Devis Gratuits | PVPro`,
@@ -17,8 +17,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Page() {
-  const city = getCityBySlug(citySlug);
-  const content = getCityContent(citySlug);
+  const city = getCityBySlug('genf');
+  const content = getCityContent('genf');
   if (!city || !content) notFound();
   return (
     <>
