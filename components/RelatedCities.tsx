@@ -1,74 +1,69 @@
 import Link from 'next/link';
-import { cities, City } from '@/lib/cities';
 import { MapPin } from 'lucide-react';
 
+const CANTONS = [
+  { name: 'Zürich', abbr: 'ZH', slug: 'solaranlage-zurich', lang: 'de' },
+  { name: 'Bern', abbr: 'BE', slug: 'solaranlage-bern', lang: 'de' },
+  { name: 'Luzern', abbr: 'LU', slug: 'solaranlage-luzern', lang: 'de' },
+  { name: 'Basel', abbr: 'BS', slug: 'solaranlage-basel', lang: 'de' },
+  { name: 'Aargau', abbr: 'AG', slug: 'solaranlage-aargau', lang: 'de' },
+  { name: 'St. Gallen', abbr: 'SG', slug: 'solaranlage-st-gallen', lang: 'de' },
+  { name: 'Thurgau', abbr: 'TG', slug: 'solaranlage-thurgau', lang: 'de' },
+  { name: 'Solothurn', abbr: 'SO', slug: 'solaranlage-solothurn', lang: 'de' },
+  { name: 'Schwyz', abbr: 'SZ', slug: 'solaranlage-schwyz', lang: 'de' },
+  { name: 'Zug', abbr: 'ZG', slug: 'solaranlage-zug', lang: 'de' },
+  { name: 'Graubünden', abbr: 'GR', slug: 'solaranlage-graubunden', lang: 'de' },
+  { name: 'Glarus', abbr: 'GL', slug: 'solaranlage-glarus', lang: 'de' },
+  { name: 'Schaffhausen', abbr: 'SH', slug: 'solaranlage-schaffhausen', lang: 'de' },
+  { name: 'Ticino', abbr: 'TI', slug: 'fotovoltaico-ticino', lang: 'it' },
+  { name: 'Genève', abbr: 'GE', slug: 'solaire-geneve', lang: 'fr' },
+  { name: 'Vaud', abbr: 'VD', slug: 'solaire-vaud', lang: 'fr' },
+  { name: 'Fribourg', abbr: 'FR', slug: 'solaire-fribourg', lang: 'fr' },
+  { name: 'Valais', abbr: 'VS', slug: 'solaire-valais', lang: 'fr' },
+  { name: 'Appenzell', abbr: 'AI/AR', slug: 'solaranlage-appenzell', lang: 'de' },
+  { name: 'Unterwalden', abbr: 'OW/NW', slug: 'solaranlage-unterwalden', lang: 'de' },
+];
+
 interface RelatedCitiesProps {
-  currentCitySlug: string;
-  currentCanton: string;
+  currentCitySlug?: string;
+  currentCanton?: string;
 }
 
 export default function RelatedCities({ currentCitySlug, currentCanton }: RelatedCitiesProps) {
-  const sameCanton = cities.filter(
-    city => city.canton === currentCanton && city.slug !== currentCitySlug
-  );
-
-  const otherCities = cities.filter(
-    city => city.canton !== currentCanton && city.slug !== currentCitySlug
-  );
-
-  const relatedCities = [
-    ...sameCanton.slice(0, 3),
-    ...otherCities.slice(0, 6 - Math.min(sameCanton.length, 3))
-  ].slice(0, 6);
-
-  if (relatedCities.length === 0) return null;
-
   return (
-    <section className="section-padding bg-gray-50">
-      <div className="container-custom max-w-6xl">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-          Solaranlagen in weiteren Schweizer Staedten
-        </h2>
+    <section className="section-padding bg-gray-900 overflow-hidden">
+      <div className="container-custom">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Regionale Photovoltaik-Angebote
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Finden Sie spezialisierte Installateure in Ihrem Kanton per Klick.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {relatedCities.map((city) => (
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          {CANTONS.map((canton) => (
             <Link
-              key={city.slug}
-              href={`/solaranlage-${city.slug}`}
-              className="group card hover:shadow-lg hover:border-primary-200 transition-all duration-200"
+              key={canton.abbr}
+              href={`/${canton.slug}`}
+              className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
             >
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary-100 transition-colors">
-                  <MapPin className="w-5 h-5 text-primary" />
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <MapPin className="w-4 h-4 text-primary" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors mb-1">
-                    {city.name}
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Kanton {city.canton}
-                  </p>
-                  {city.sunshineHours && (
-                    <p className="text-xs text-gray-500 mt-1">
-                      {city.sunshineHours} Sonnenstunden/Jahr
-                    </p>
-                  )}
+                <div>
+                  <div className="text-white font-semibold group-hover:text-primary transition-colors">
+                    {canton.name}
+                  </div>
+                  <div className="text-xs text-gray-500 font-medium">
+                    {canton.abbr}
+                  </div>
                 </div>
               </div>
             </Link>
           ))}
-        </div>
-
-        <div className="text-center mt-8">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-primary hover:text-primary-600 font-semibold transition-colors"
-          >
-            Alle Schweizer Staedte anzeigen
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
         </div>
       </div>
     </section>
