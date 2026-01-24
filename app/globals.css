@@ -16,12 +16,12 @@
   }
 
   body {
-    @apply bg-white text-gray-700;
+    @apply bg-white text-gray-700 antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply text-gray-900 font-bold;
+    @apply text-gray-900 font-bold tracking-tight;
   }
 }
 
