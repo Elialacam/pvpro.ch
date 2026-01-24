@@ -768,20 +768,7 @@ export const cityContents: Record<string, CityContent> = {
 
 // Helper function to get content for a city
 export function getCityContent(slug: string): CityContent | undefined {
-  const content = cityContents[slug];
-  if (content) return content;
-  
-  // Handled language variants
-  if (slug === 'geneve' || slug === 'genf') return cityContents['genf'];
-  if (slug === 'lausanne') return cityContents['lausanne'];
-  if (slug === 'fribourg') return cityContents['fribourg'];
-  if (slug === 'neuchatel') return cityContents['neuchatel'];
-  if (slug === 'lugano') return cityContents['lugano'];
-  
-  // Extra mapping for Neuchâtel with special character
-  if (slug === 'neuchâtel') return cityContents['neuchatel'];
-  
-  return undefined;
+  return cityContents[slug];
 }
 
 // Helper to check if city has custom content

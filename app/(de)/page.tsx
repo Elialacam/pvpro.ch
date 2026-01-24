@@ -115,32 +115,23 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {cities.map((city) => {
-              const href = 
-                city.slug === 'genf' ? '/fr/installation-solaire-geneve' :
-                city.slug === 'lausanne' ? '/fr/installation-solaire-lausanne' :
-                city.slug === 'fribourg' ? '/fr/installation-solaire-fribourg' :
-                city.slug === 'neuchatel' ? '/fr/installation-solaire-neuchatel' :
-                city.slug === 'lugano' ? '/it/impianto-fotovoltaico-lugano' :
-                `/solaranlage-${city.slug}`;
-              return (
-                <Link
-                  key={city.slug}
-                  href={href}
-                  className="group flex items-center gap-2 p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary-50 transition-all duration-200 cursor-pointer"
-                >
-                  <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                  <div className="flex-1 min-w-0">
-                    <div className="font-semibold text-gray-900 group-hover:text-primary transition-colors truncate">
-                      {city.name}
-                    </div>
-                    <div className="text-xs text-gray-500">
-                      {city.canton}
-                    </div>
+            {cities.map((city) => (
+              <Link
+                key={city.slug}
+                href={`/solaranlage-${city.slug}`}
+                className="group flex items-center gap-2 p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary-50 transition-all duration-200 cursor-pointer"
+              >
+                <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <div className="font-semibold text-gray-900 group-hover:text-primary transition-colors truncate">
+                    {city.name}
                   </div>
-                </Link>
-              );
-            })}
+                  <div className="text-xs text-gray-500">
+                    {city.canton}
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
