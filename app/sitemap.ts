@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getAllCitySlugs } from '@/lib/cities';
+import { getAllCitySlugs, cities } from '@/lib/cities';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://pvpro.ch';
