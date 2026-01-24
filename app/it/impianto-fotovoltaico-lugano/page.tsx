@@ -1,15 +1,8 @@
 import { Metadata } from 'next';
-import { getCityBySlug } from '@/lib/cities';
-import { getCityContent } from '@/lib/city-content';
-import { notFound } from 'next/navigation';
 import FormContainer from '@/components/MultiStepForm/FormContainer';
 import FAQ from '@/components/FAQ';
 
-const citySlug = 'lugano';
-
 export async function generateMetadata(): Promise<Metadata> {
-  const city = getCityBySlug(citySlug);
-  if (!city) return { title: 'Città non trovata' };
   return {
     title: `Impianto Fotovoltaico Lugano - Preventivi Gratuiti | PVPro`,
     description: `Impianto fotovoltaico a Lugano: Confronta gratuitamente i preventivi di installatori certificati.`,
@@ -17,9 +10,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Page() {
-  const city = getCityBySlug(citySlug);
-  const content = getCityContent(citySlug);
-  if (!city || !content) notFound();
+  const faqs = [
+    {
+      question: "Perché installare pannelli solari a Lugano ?",
+      answer: "Lugano è la città più soleggiata della Svizzera. Con oltre 2100 ore di sole l'anno, il rendimento dei pannelli fotovoltaici è ai massimi livelli nazionali."
+    }
+  ];
+
   return (
     <>
       <section className="bg-gradient-to-br from-orange-50 to-primary-50 section-padding text-center">
@@ -32,7 +29,7 @@ export default function Page() {
       <section id="formular" className="section-padding">
         <div className="container-custom max-w-4xl"><FormContainer /></div>
       </section>
-      <FAQ items={content.faqs} />
+      <FAQ items={faqs} />
     </>
   );
 }

@@ -1,15 +1,8 @@
 import { Metadata } from 'next';
-import { getCityBySlug } from '@/lib/cities';
-import { getCityContent } from '@/lib/city-content';
-import { notFound } from 'next/navigation';
 import FormContainer from '@/components/MultiStepForm/FormContainer';
 import FAQ from '@/components/FAQ';
 
-const citySlug = 'genf';
-
 export async function generateMetadata(): Promise<Metadata> {
-  const city = getCityBySlug(citySlug);
-  if (!city) return { title: 'Ville non trouvée' };
   return {
     title: `Installation Solaire Genève - Devis Gratuits | PVPro`,
     description: `Installation solaire à Genève: Comparez gratuitement les devis d'installateurs certifiés.`,
@@ -17,9 +10,17 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Page() {
-  const city = getCityBySlug(citySlug);
-  const content = getCityContent(citySlug);
-  if (!city || !content) notFound();
+  const faqs = [
+    {
+      question: "Pourquoi choisir l'énergie solaire a Genève ?",
+      answer: "Genève est l'un des cantons les plus ensoleillés de Suisse. Produire votre propre électricité vous permet de devenir plus indépendant face aux hausses de prix."
+    },
+    {
+      question: "Quelles aides financières pour le solaire à Genève ?",
+      answer: "En plus de la PRU fédérale, Genève propose des programmes d'accompagnement spécifiques pour la transition énergétique."
+    }
+  ];
+
   return (
     <>
       <section className="bg-gradient-to-br from-blue-50 to-primary-50 section-padding text-center">
@@ -32,7 +33,7 @@ export default function Page() {
       <section id="formular" className="section-padding">
         <div className="container-custom max-w-4xl"><FormContainer /></div>
       </section>
-      <FAQ items={content.faqs} />
+      <FAQ items={faqs} />
     </>
   );
 }

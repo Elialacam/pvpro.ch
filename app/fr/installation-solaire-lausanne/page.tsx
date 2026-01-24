@@ -1,15 +1,8 @@
 import { Metadata } from 'next';
-import { getCityBySlug } from '@/lib/cities';
-import { getCityContent } from '@/lib/city-content';
-import { notFound } from 'next/navigation';
 import FormContainer from '@/components/MultiStepForm/FormContainer';
 import FAQ from '@/components/FAQ';
 
-const citySlug = 'lausanne';
-
 export async function generateMetadata(): Promise<Metadata> {
-  const city = getCityBySlug(citySlug);
-  if (!city) return { title: 'Ville non trouvée' };
   return {
     title: `Installation Solaire Lausanne - Devis Gratuits | PVPro`,
     description: `Installation solaire à Lausanne: Comparez gratuitement les devis d'installateurs certifiés.`,
@@ -17,9 +10,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Page() {
-  const city = getCityBySlug(citySlug);
-  const content = getCityContent(citySlug);
-  if (!city || !content) notFound();
+  const faqs = [
+    {
+      question: "Quelle est la rentabilité d'une installation solaire à Lausanne ?",
+      answer: "À Lausanne, une installation solaire s'amortit généralement en 10 à 12 ans, avec une durée de vie de plus de 25 ans."
+    }
+  ];
+
   return (
     <>
       <section className="bg-gradient-to-br from-blue-50 to-primary-50 section-padding text-center">
@@ -32,7 +29,7 @@ export default function Page() {
       <section id="formular" className="section-padding">
         <div className="container-custom max-w-4xl"><FormContainer /></div>
       </section>
-      <FAQ items={content.faqs} />
+      <FAQ items={faqs} />
     </>
   );
 }

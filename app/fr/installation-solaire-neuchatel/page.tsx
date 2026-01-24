@@ -1,15 +1,8 @@
 import { Metadata } from 'next';
-import { getCityBySlug } from '@/lib/cities';
-import { getCityContent } from '@/lib/city-content';
-import { notFound } from 'next/navigation';
 import FormContainer from '@/components/MultiStepForm/FormContainer';
 import FAQ from '@/components/FAQ';
 
-const citySlug = 'neuchatel';
-
 export async function generateMetadata(): Promise<Metadata> {
-  const city = getCityBySlug(citySlug);
-  if (!city) return { title: 'Ville non trouvée' };
   return {
     title: `Installation Solaire Neuchâtel - Devis Gratuits | PVPro`,
     description: `Installation solaire à Neuchâtel: Comparez gratuitement les devis d'installateurs certifiés.`,
@@ -17,13 +10,16 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Page() {
-  const city = getCityBySlug(citySlug);
-  const content = getCityContent(citySlug);
-  
-  if (!city || !content) {
-    console.error('City or content not found for:', citySlug);
-    notFound();
-  }
+  const faqs = [
+    {
+      question: "Pourquoi installer des panneaux solaires à Neuchâtel ?",
+      answer: "Neuchâtel bénéficie d'un excellent ensoleillement. L'installation de panneaux solaires permet de réduire vos factures d'électricité tout en valorisant votre patrimoine immobilier."
+    },
+    {
+      question: "Quelles sont les subventions disponibles à Neuchâtel ?",
+      answer: "Les propriétaires à Neuchâtel peuvent bénéficier de la rétribution unique (PRU) de la Confédération, couvrant jusqu'à 30% de l'investissement."
+    }
+  ];
 
   return (
     <>
@@ -37,7 +33,7 @@ export default function Page() {
       <section id="formular" className="section-padding">
         <div className="container-custom max-w-4xl"><FormContainer /></div>
       </section>
-      <FAQ items={content.faqs} />
+      <FAQ items={faqs} />
     </>
   );
 }
