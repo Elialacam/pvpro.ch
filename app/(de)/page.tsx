@@ -4,7 +4,9 @@ import Testimonials from '@/components/Testimonials';
 import TeamSection from '@/components/TeamSection';
 import SwissMap from '@/components/SwissMap';
 import FAQ from '@/components/FAQ';
-import RelatedCities from '@/components/RelatedCities';
+import Link from 'next/link';
+import { cities } from '@/lib/cities';
+import { MapPin } from 'lucide-react';
 
 export default function HomePage() {
   const defaultFAQs = [
@@ -99,7 +101,41 @@ export default function HomePage() {
       <TeamSection />
       <SwissMap />
       <HowItWorks />
-      <RelatedCities />
+
+      {/* Cities Section - Internal Linking */}
+      <section className="section-padding bg-white">
+        <div className="container-custom max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Solaranlagen in der ganzen Schweiz
+            </h2>
+            <p className="text-xl text-gray-600">
+              Wir vermitteln Solarteure in allen grösseren Schweizer Städten
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {cities.map((city) => (
+              <Link
+                key={city.slug}
+                href={`/solaranlage-${city.slug}`}
+                className="group flex items-center gap-2 p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary-50 transition-all duration-200 cursor-pointer"
+              >
+                <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <div className="font-semibold text-gray-900 group-hover:text-primary transition-colors truncate">
+                    {city.name}
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    {city.canton}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <FAQ />
     </>
   );
