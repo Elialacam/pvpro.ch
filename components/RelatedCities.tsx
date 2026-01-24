@@ -21,15 +21,6 @@ export default function RelatedCities({ currentCitySlug, currentCanton }: Relate
     ...otherCities.slice(0, 6 - Math.min(sameCanton.length, 3))
   ].slice(0, 6);
 
-  const getCityUrl = (city: City) => {
-    if (city.language === 'fr') {
-      const slug = city.slug === 'genf' ? 'geneve' : city.slug;
-      return `/fr/installation-solaire-${slug}`;
-    }
-    if (city.language === 'it') return `/it/impianto-fotovoltaico-${city.slug}`;
-    return `/solaranlage-${city.slug}`;
-  };
-
   if (relatedCities.length === 0) return null;
 
   return (
@@ -43,7 +34,7 @@ export default function RelatedCities({ currentCitySlug, currentCanton }: Relate
           {relatedCities.map((city) => (
             <Link
               key={city.slug}
-              href={getCityUrl(city)}
+              href={`/solaranlage-${city.slug}`}
               className="group card hover:shadow-lg hover:border-primary-200 transition-all duration-200"
             >
               <div className="flex items-start gap-3">
