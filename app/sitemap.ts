@@ -63,6 +63,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly' as const,
       priority: 0.95,
     },
+    {
+      url: `${baseUrl}/it/note-legali`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/it/protezione-dati`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
   ];
 
   // German city pages - critical for SEO (weekly crawl)
