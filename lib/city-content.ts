@@ -778,6 +778,9 @@ export function getCityContent(slug: string): CityContent | undefined {
   if (slug === 'neuchatel') return cityContents['neuchatel'];
   if (slug === 'lugano') return cityContents['lugano'];
   
+  // Extra mapping for Neuchâtel with special character
+  if (slug === 'neuchâtel') return cityContents['neuchatel'];
+  
   return undefined;
 }
 
