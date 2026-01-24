@@ -29,8 +29,11 @@ export function middleware(request: NextRequest) {
     '/solaranlage-lugano': '/it/impianto-fotovoltaico-lugano',
   };
 
-  if (cityRedirects[pathname]) {
-    return NextResponse.redirect(new URL(cityRedirects[pathname], request.url), 301);
+  // Handle both /slug and /de/slug cases if they exist
+  const normalizedPath = pathname.startsWith('/de/') ? pathname.slice(3) : pathname;
+
+  if (cityRedirects[normalizedPath]) {
+    return NextResponse.redirect(new URL(cityRedirects[normalizedPath], request.url), 301);
   }
 
   // Check if the pathname already has a valid locale
