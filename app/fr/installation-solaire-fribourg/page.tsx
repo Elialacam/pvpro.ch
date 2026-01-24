@@ -25,7 +25,7 @@ export default function Page() {
       <section className="bg-gradient-to-br from-blue-50 to-primary-50 section-padding text-center">
         <div className="container-custom">
           <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 mb-6">Installation Solaire Fribourg</h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">Comparez gratuitement les offres d'installateurs certifiés nella regione di Friburgo.</p>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">Comparez gratuitement les offres d'installateurs certifiés dans la région de Fribourg.</p>
           <a href="#formular" className="btn-primary text-lg px-8 py-4">Demander un devis gratuit</a>
         </div>
       </section>

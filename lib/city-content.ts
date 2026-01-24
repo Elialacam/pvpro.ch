@@ -771,8 +771,12 @@ export function getCityContent(slug: string): CityContent | undefined {
   const content = cityContents[slug];
   if (content) return content;
   
-  // Fallback for slugs that might vary by language but point to same data
+  // Handled language variants
   if (slug === 'geneve' || slug === 'genf') return cityContents['genf'];
+  if (slug === 'lausanne') return cityContents['lausanne'];
+  if (slug === 'fribourg') return cityContents['fribourg'];
+  if (slug === 'neuchatel') return cityContents['neuchatel'];
+  if (slug === 'lugano') return cityContents['lugano'];
   
   return undefined;
 }
