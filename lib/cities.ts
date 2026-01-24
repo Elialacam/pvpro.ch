@@ -1,39 +1,49 @@
-export interface City {
+export interface Location {
   name: string;
   slug: string;
   canton: string;
   language: 'de' | 'fr' | 'it' | 'en';
   sunshineHours?: number;
   population?: number;
+  type: 'city' | 'canton';
+  url: string;
 }
 
-export const cities: City[] = [
-  { name: 'Zürich', slug: 'zuerich', canton: 'ZH', language: 'de', sunshineHours: 1566, population: 421878 },
-  { name: 'Basel', slug: 'basel', canton: 'BS', language: 'de', sunshineHours: 1631, population: 177654 },
-  { name: 'Bern', slug: 'bern', canton: 'BE', language: 'de', sunshineHours: 1694, population: 133883 },
-  { name: 'Genf', slug: 'genf', canton: 'GE', language: 'fr', sunshineHours: 1849, population: 201813 },
-  { name: 'Lausanne', slug: 'lausanne', canton: 'VD', language: 'fr', sunshineHours: 1821, population: 138905 },
-  { name: 'Winterthur', slug: 'winterthur', canton: 'ZH', language: 'de', sunshineHours: 1566, population: 111851 },
-  { name: 'Luzern', slug: 'luzern', canton: 'LU', language: 'de', sunshineHours: 1598, population: 81691 },
-  { name: 'St. Gallen', slug: 'st-gallen', canton: 'SG', language: 'de', sunshineHours: 1522, population: 75833 },
-  { name: 'Lugano', slug: 'lugano', canton: 'TI', language: 'it', sunshineHours: 2157, population: 62315 },
-  { name: 'Biel', slug: 'biel', canton: 'BE', language: 'de', sunshineHours: 1694, population: 55206 },
-  { name: 'Thun', slug: 'thun', canton: 'BE', language: 'de', sunshineHours: 1694, population: 43476 },
-  { name: 'Köniz', slug: 'koeniz', canton: 'BE', language: 'de', sunshineHours: 1694, population: 41705 },
-  { name: 'Schaffhausen', slug: 'schaffhausen', canton: 'SH', language: 'de', sunshineHours: 1644, population: 36952 },
-  { name: 'Fribourg', slug: 'fribourg', canton: 'FR', language: 'fr', sunshineHours: 1720, population: 38039 },
-  { name: 'Chur', slug: 'chur', canton: 'GR', language: 'de', sunshineHours: 1803, population: 36336 },
-  { name: 'Aarau', slug: 'aarau', canton: 'AG', language: 'de', sunshineHours: 1605, population: 21501 },
-  { name: 'Zug', slug: 'zug', canton: 'ZG', language: 'de', sunshineHours: 1598, population: 30542 },
-  { name: 'Neuchâtel', slug: 'neuchatel', canton: 'NE', language: 'fr', sunshineHours: 1739, population: 33455 },
-  { name: 'Solothurn', slug: 'solothurn', canton: 'SO', language: 'de', sunshineHours: 1631, population: 16777 },
-  { name: 'Baden', slug: 'baden', canton: 'AG', language: 'de', sunshineHours: 1605, population: 19755 },
+export type City = Location;
+
+export const locations: Location[] = [
+  // Cantons (New Primary Targets)
+  { name: 'Zürich', slug: 'zurich', canton: 'ZH', language: 'de', sunshineHours: 1566, type: 'canton', url: '/solaranlage-zurich' },
+  { name: 'Bern', slug: 'bern', canton: 'BE', language: 'de', sunshineHours: 1694, type: 'canton', url: '/solaranlage-bern' },
+  { name: 'Luzern', slug: 'luzern', canton: 'LU', language: 'de', sunshineHours: 1598, type: 'canton', url: '/solaranlage-luzern' },
+  { name: 'Basel', slug: 'basel', canton: 'BS', language: 'de', sunshineHours: 1631, type: 'canton', url: '/solaranlage-basel' },
+  { name: 'Aargau', slug: 'aargau', canton: 'AG', language: 'de', sunshineHours: 1605, type: 'canton', url: '/solaranlage-aargau' },
+  { name: 'St. Gallen', slug: 'st-gallen', canton: 'SG', language: 'de', sunshineHours: 1522, type: 'canton', url: '/solaranlage-st-gallen' },
+  { name: 'Thurgau', slug: 'thurgau', canton: 'TG', language: 'de', sunshineHours: 1644, type: 'canton', url: '/solaranlage-thurgau' },
+  { name: 'Solothurn', slug: 'solothurn', canton: 'SO', language: 'de', sunshineHours: 1631, type: 'canton', url: '/solaranlage-solothurn' },
+  { name: 'Schwyz', slug: 'schwyz', canton: 'SZ', language: 'de', sunshineHours: 1566, type: 'canton', url: '/solaranlage-schwyz' },
+  { name: 'Zug', slug: 'zug', canton: 'ZG', language: 'de', sunshineHours: 1598, type: 'canton', url: '/solaranlage-zug' },
+  { name: 'Graubünden', slug: 'graubunden', canton: 'GR', language: 'de', sunshineHours: 1803, type: 'canton', url: '/solaranlage-graubunden' },
+  { name: 'Glarus', slug: 'glarus', canton: 'GL', language: 'de', sunshineHours: 1566, type: 'canton', url: '/solaranlage-glarus' },
+  { name: 'Schaffhausen', slug: 'schaffhausen', canton: 'SH', language: 'de', sunshineHours: 1644, type: 'canton', url: '/solaranlage-schaffhausen' },
+  { name: 'Ticino', slug: 'ticino', canton: 'TI', language: 'it', sunshineHours: 2157, type: 'canton', url: '/it/fotovoltaico-ticino' },
+  { name: 'Genève', slug: 'geneve', canton: 'GE', language: 'fr', sunshineHours: 1849, type: 'canton', url: '/fr/solaire-geneve' },
+  { name: 'Vaud', slug: 'vaud', canton: 'VD', language: 'fr', sunshineHours: 1821, type: 'canton', url: '/fr/solaire-vaud' },
+  { name: 'Fribourg', slug: 'fribourg', canton: 'FR', language: 'fr', sunshineHours: 1720, type: 'canton', url: '/fr/solaire-fribourg' },
+  { name: 'Valais', slug: 'valais', canton: 'VS', language: 'fr', sunshineHours: 1803, type: 'canton', url: '/fr/solaire-valais' },
+  { name: 'Appenzell', slug: 'appenzell', canton: 'AI/AR', language: 'de', sunshineHours: 1522, type: 'canton', url: '/solaranlage-appenzell' },
+  { name: 'Unterwalden', slug: 'unterwalden', canton: 'OW/NW', language: 'de', sunshineHours: 1598, type: 'canton', url: '/solaranlage-unterwalden' }
 ];
 
-export function getCityBySlug(slug: string): City | undefined {
-  return cities.find(city => city.slug === slug);
+export function getLocationBySlug(slug: string): Location | undefined {
+  return locations.find(loc => loc.slug === slug);
 }
 
-export function getAllCitySlugs(): string[] {
-  return cities.map(city => city.slug);
+export function getAllLocationSlugs(): string[] {
+  return locations.map(loc => loc.slug);
 }
+
+// Keep backward compatibility for existing code using "cities"
+export const cities = locations;
+export const getCityBySlug = getLocationBySlug;
+export const getAllCitySlugs = getAllLocationSlugs;
