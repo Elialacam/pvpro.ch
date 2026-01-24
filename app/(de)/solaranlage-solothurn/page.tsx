@@ -1,7 +1,3 @@
-import CityPage from '../solaranlage-[city]/page';
-
-export default function Page() {
-  return <CityPage params={{ city: 'solothurn' }} />;
-}
-
-export { generateMetadata } from '../solaranlage-[city]/page';
+import CantonPageTemplate from '@/components/CantonPageTemplate';
+export const metadata = { title: 'Solaranlage Solothurn', description: 'Solaranlage im Kanton Solothurn.' };
+export default function Page() { return <CantonPageTemplate slug="solothurn" title="Solaranlage Solothurn" description="Offerten im Kanton Solothurn." lang="de" />; }

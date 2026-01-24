@@ -1,0 +1,3 @@
+import CantonPageTemplate from '@/components/CantonPageTemplate';
+export const metadata = { title: 'Solaranlage Zürich - Devis Gratuits', description: 'Solaranlage im Kanton Zürich: Vergleichen Sie kostenlos Offerten.' };
+export default function Page() { return <CantonPageTemplate slug="zurich" title="Solaranlage Zürich" description="Vergleichen Sie kostenlos Offerten von geprüften Solarteuren im Kanton Zürich." lang="de" />; }
