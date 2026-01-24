@@ -19,6 +19,20 @@ export function middleware(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname;
 
+  // Redirections for cities that changed language (Legacy German URLs to translated regional URLs)
+  const cityRedirects: Record<string, string> = {
+    '/solaranlage-geneve': '/fr/installation-solaire-geneve',
+    '/solaranlage-genf': '/fr/installation-solaire-geneve',
+    '/solaranlage-lausanne': '/fr/installation-solaire-lausanne',
+    '/solaranlage-fribourg': '/fr/installation-solaire-fribourg',
+    '/solaranlage-neuchatel': '/fr/installation-solaire-neuchatel',
+    '/solaranlage-lugano': '/it/impianto-fotovoltaico-lugano',
+  };
+
+  if (cityRedirects[pathname]) {
+    return NextResponse.redirect(new URL(cityRedirects[pathname], request.url), 301);
+  }
+
   // Check if the pathname already has a valid locale
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
