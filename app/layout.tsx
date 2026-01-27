@@ -13,6 +13,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 // Base metadata - specific language pages override this
 export const metadata: Metadata = {
+  title: 'PV Pro - Solaranlagen in der Schweiz vergleichen',
+  description: 'Vergleichen Sie kostenlos bis zu 3 Offerten für Ihre Photovoltaikanlage in der Schweiz.',
   metadataBase: new URL('https://pvpro.ch'),
   icons: {
     icon: [

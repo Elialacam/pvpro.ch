@@ -8,6 +8,13 @@ import FAQ from '@/components/FAQ';
 import { cities } from '@/lib/cities';
 import { MapPin } from 'lucide-react';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'PV Pro - Confronta impianti fotovoltaici in Svizzera | Preventivi gratuiti',
+  description: 'Confronta gratuitamente fino a 3 preventivi per il tuo impianto fotovoltaico in Svizzera. Risparmia tempo e denaro con PV Pro.',
+};
+
 export default function ItalianHomePage() {
   const defaultFAQs = [
     {

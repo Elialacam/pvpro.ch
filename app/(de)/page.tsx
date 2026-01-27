@@ -8,6 +8,13 @@ import Link from 'next/link';
 import { cities } from '@/lib/cities';
 import { MapPin } from 'lucide-react';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'PV Pro - Solaranlagen in der Schweiz vergleichen | Kostenlose Offerten',
+  description: 'Vergleichen Sie kostenlos bis zu 3 Offerten für Ihre Photovoltaikanlage in der Schweiz. Sparen Sie Zeit und Geld mit PV Pro.',
+};
+
 export default function HomePage() {
   const defaultFAQs = [
     {
