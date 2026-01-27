@@ -31,32 +31,41 @@ export default function RelatedCities({ currentCitySlug, currentCanton }: Relate
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {relatedCities.map((city) => (
-            <Link
-              key={city.slug}
-              href={`/solaranlage-${city.slug}`}
-              className="group card hover:shadow-lg hover:border-primary-200 transition-all duration-200"
-            >
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary-100 transition-colors">
-                  <MapPin className="w-5 h-5 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors mb-1">
-                    {city.name}
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Kanton {city.canton}
-                  </p>
-                  {city.sunshineHours && (
-                    <p className="text-xs text-gray-500 mt-1">
-                      {city.sunshineHours} Sonnenstunden/Jahr
+          {relatedCities.map((city) => {
+            let href = `/solaranlage-${city.slug}`;
+            if (city.language === 'fr') {
+              href = `/solaire-${city.slug}`;
+            } else if (city.language === 'it') {
+              href = `/fotovoltaico-${city.slug}`;
+            }
+
+            return (
+              <Link
+                key={city.slug}
+                href={href}
+                className="group card hover:shadow-lg hover:border-primary-200 transition-all duration-200"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary-100 transition-colors">
+                    <MapPin className="w-5 h-5 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors mb-1">
+                      {city.name}
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      Kanton {city.canton}
                     </p>
-                  )}
+                    {city.sunshineHours && (
+                      <p className="text-xs text-gray-500 mt-1">
+                        {city.sunshineHours} Sonnenstunden/Jahr
+                      </p>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
 
         <div className="text-center mt-8">
