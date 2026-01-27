@@ -127,6 +127,8 @@ export default function HomePage() {
               if (city.slug === 'geneve') href = '/fr/solaire-geneve';
               if (city.slug === 'vaud') href = '/fr/solaire-vaud';
               if (city.slug === 'zurich') href = '/solaranlage-zuerich';
+              
+              return (
                 <Link
                   key={city.slug}
                   href={href}
