@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { getCityBySlug, getAllCitySlugs, City } from '@/lib/cities';
 import { notFound } from 'next/navigation';
-import FormContainer from '@/components/MultiStepForm/FormContainer';
+import SolarForm from '@/components/SolarForm';
 import USPSection from '@/components/USPSection';
 import TrustBadges from '@/components/TrustBadges';
 import FAQ from '@/components/FAQ';
@@ -377,7 +377,7 @@ export default function CityPage({ params }: PageProps) {
               Erhalten Sie bis zu 3 Angebote von lokalen Solarteuren
             </p>
           </div>
-          <FormContainer />
+          <SolarForm />
         </div>
       </section>
 
