@@ -1,6 +1,6 @@
 import { City } from '@/lib/cities';
 import { CityContent } from '@/lib/city-content';
-import FormContainer from '@/components/MultiStepForm/FormContainer';
+import SolarForm from '@/components/SolarForm';
 import USPSection from '@/components/USPSection';
 import TrustBadges from '@/components/TrustBadges';
 import FAQ from '@/components/FAQ';
@@ -319,7 +319,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             <p className="text-xl text-white mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
               {city.language === 'it' 
                 ? `Installatori esperti a ${city.name} installano il tuo impianto su misura` 
-                : `Erfahrene Solarteure aus ${city.name} installieren Ihre massgeschneiderte Anlage`}
+                : `Erfahrene Solarteure aus ${city.name} installano Ihre massgeschneiderte Anlage`}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
@@ -394,10 +394,10 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             <p className="text-xl text-gray-600">
               {city.language === 'it' 
                 ? 'Ricevi fino a 3 offerte da installatori locali' 
-                : 'Erhalten Sie bis zu 3 Angebote von lokalen Solarteuren'}
+                : 'Erhalten Sie bis zu 3 Angebote von lokalen Solarteure'}
             </p>
           </div>
-          <FormContainer />
+          <SolarForm />
         </div>
       </section>
 
