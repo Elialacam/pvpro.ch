@@ -154,22 +154,22 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
 
       {/* Form Section immediately after Hero */}
       <section id="formular" className="section-padding bg-white pt-0">
-        <div className="container-custom max-w-[500px]">
-          <div className="card shadow-2xl border border-gray-100 p-0 overflow-hidden bg-[#F9F9F9]">
-            <div className="py-8 px-4">
-              <div className="text-center mb-6">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                  {city.language === 'it' ? 'Ottieni i tuoi preventivi gratuiti' : 'Erhalten Sie Ihre kostenlosen Offerten'}
-                </h2>
-                <p className="text-sm text-gray-500">
-                  {city.language === 'it' 
-                    ? 'In soli 2 minuti - gratuito e senza impegno' 
-                    : 'In nur 2 Minuten – kostenlos und unverbindlich'}
-                </p>
-              </div>
-              <div className="bg-white rounded-2xl shadow-sm p-4 sm:p-6 border border-gray-100 mx-2 sm:mx-4">
-                <SolarForm />
-              </div>
+        <div className="container-custom max-w-[800px]">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              {city.language === 'it' ? 'Ottieni i tuoi preventivi gratuiti' : 'Erhalten Sie Ihre kostenlosen Offerten'}
+            </h2>
+            <p className="text-lg text-gray-600">
+              {city.language === 'it' 
+                ? 'In soli 2 minuti – gratuito e senza impegno' 
+                : 'In nur 2 Minuten – kostenlos und unverbindlich'}
+            </p>
+          </div>
+          
+          <div className="max-w-[550px] mx-auto relative">
+            <div className="absolute inset-0 bg-gray-100/50 rounded-[2rem] transform translate-y-4 translate-x-2 -z-10"></div>
+            <div className="bg-white rounded-[2rem] shadow-xl border border-gray-100 p-8 sm:p-10 relative">
+              <SolarForm />
             </div>
           </div>
         </div>

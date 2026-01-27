@@ -406,31 +406,31 @@ export default function SolarForm() {
         <div className="flex gap-4 justify-center">
           <button
             onClick={() => handleSelection('isOwner', 'yes')}
-            className={`flex flex-col items-center justify-center w-36 h-36 rounded-2xl border-2 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
+            className={`flex flex-col items-center justify-center w-36 h-36 rounded-2xl border border-gray-100 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
               formData.isOwner === 'yes'
-                ? 'border-green-500 bg-green-50 ring-2 ring-green-200'
-                : 'border-gray-100 hover:border-green-300 bg-white'
+                ? 'bg-white ring-2 ring-green-500 border-transparent'
+                : 'bg-white'
             }`}
           >
-            <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-2 ${
-              formData.isOwner === 'yes' ? 'bg-green-500' : 'bg-green-100'
+            <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${
+              formData.isOwner === 'yes' ? 'bg-green-100' : 'bg-green-50'
             }`}>
-              <Check className={`w-8 h-8 ${formData.isOwner === 'yes' ? 'text-white' : 'text-green-600'}`} strokeWidth={3} />
+              <Check className="w-8 h-8 text-green-600" strokeWidth={3} />
             </div>
             <span className="font-bold text-lg text-gray-900">{t.yes}</span>
           </button>
           <button
             onClick={() => handleSelection('isOwner', 'no')}
-            className={`flex flex-col items-center justify-center w-36 h-36 rounded-2xl border-2 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
+            className={`flex flex-col items-center justify-center w-36 h-36 rounded-2xl border border-gray-100 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
               formData.isOwner === 'no'
-                ? 'border-red-500 bg-red-50 ring-2 ring-red-200'
-                : 'border-gray-200 hover:border-red-300 bg-white'
+                ? 'bg-white ring-2 ring-red-500 border-transparent'
+                : 'bg-white'
             }`}
           >
-            <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-2 ${
-              formData.isOwner === 'no' ? 'bg-red-500' : 'bg-red-100'
+            <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${
+              formData.isOwner === 'no' ? 'bg-red-100' : 'bg-red-50'
             }`}>
-              <X className={`w-8 h-8 ${formData.isOwner === 'no' ? 'text-white' : 'text-red-600'}`} strokeWidth={3} />
+              <X className="w-8 h-8 text-red-600" strokeWidth={3} />
             </div>
             <span className="font-bold text-lg text-gray-900">{t.no}</span>
           </button>
