@@ -154,21 +154,21 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
 
       {/* Form Section immediately after Hero */}
       <section id="formular" className="section-padding bg-white pt-0">
-        <div className="container-custom max-w-[1000px]">
+        <div className="container-custom max-w-[500px]">
           <div className="card shadow-2xl border-2 border-primary/20 p-0 overflow-hidden">
-            <div className="bg-gray-50/50 py-10 px-4 border-b border-gray-100">
+            <div className="bg-gray-50/50 py-6 px-4 border-b border-gray-100">
               <div className="text-center">
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
                   {city.language === 'it' ? 'Ottieni i tuoi preventivi gratuiti' : 'Erhalten Sie Ihre kostenlosen Offerten'}
                 </h2>
-                <p className="text-xl text-gray-600">
+                <p className="text-sm text-gray-600">
                   {city.language === 'it' 
                     ? 'In soli 2 minuti - gratuito e senza impegno' 
                     : 'In nur 2 Minuten – kostenlos und unverbindlich'}
                 </p>
               </div>
             </div>
-            <div className="p-6 sm:p-12">
+            <div className="p-4 sm:p-6">
               <SolarForm />
             </div>
           </div>
