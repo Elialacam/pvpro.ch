@@ -75,6 +75,45 @@ export interface CityContent {
 }
 
 export const cityContents: Record<string, CityContent> = {
+  // TICINO
+  ticino: {
+    slug: 'ticino',
+    heroHeadline: 'Impianto Fotovoltaico Ticino',
+    heroSubheadline: 'Energia solare nel Cantone più soleggiato della Svizzera',
+    heroDescription: 'Con oltre 2.157 ore di sole all'anno, il Ticino offre le condizioni ideali per il fotovoltaico. Risparmia sui costi energetici e contribuisci alla svolta ecologica. Confronta ora 3 preventivi gratuiti.',
+    whySolarTitle: 'Perché il fotovoltaico conviene in Ticino?',
+    whySolarIntro: 'Il Canton Ticino gode del miglior irraggiamento solare della Svizzera, garantendo rendimenti superiori e un ammortamento rapido dell'investimento.',
+    whySolarReasons: [
+      { title: 'Record di Sole', description: 'Oltre 2.157 ore di sole annue rendono ogni metro quadro di pannelli estremamente produttivo, fino al 30% in più rispetto al nord.' },
+      { title: 'Incentivi Cantonali', description: 'Il Cantone Ticino promuove attivamente il solare con sussidi specifici e agevolazioni fiscali per chi investe in energie rinnovabili.' },
+      { title: 'Efficienza Energetica', description: 'Grazie alle temperature miti e all'ottimo orientamento, gli impianti in Ticino lavorano a pieno regime quasi tutto l'anno.' }
+    ],
+    cityFactsTitle: 'Fotovoltaico in Ticino: Dati e Rendimento',
+    cityFactsParagraphs: [
+      'Il Ticino non è solo la regione più soleggiata della Svizzera, ma è anche all'avanguardia nella tecnologia solare. Un impianto da 5 kWp qui può produrre fino a 6.500 kWh all'anno.',
+      'Il tempo di ammortamento medio per un impianto residenziale in Ticino è di circa 4-5 anni, il più basso del paese, grazie all'alta produzione e agli incentivi.',
+      'Investire nel solare in Ticino significa valorizzare il proprio immobile e proteggersi dall'aumento dei costi dell'elettricità per i prossimi 25-30 anni.'
+    ],
+    pricing: { min: 8500, max: 22000, typical5kw: { min: 8500, max: 11000 }, afterSubsidy5kw: { min: 6000, max: 7500 }, roiYears: '4-5' },
+    incentives: {
+      title: 'Incentivi e Sussidi in Ticino',
+      description: 'Ecco i principali vantaggi economici per chi installa pannelli solari nel Cantone:',
+      programs: [
+        { name: 'Rimunerazione Unica (RU)', amount: 'Fino al 30%', description: 'Contributo federale una tantum corrisposto per ogni nuovo impianto fotovoltaico.' },
+        { name: 'Deduzioni Fiscali', amount: '100%', description: 'L'intero costo dell'installazione è deducibile dal reddito imponibile nel Canton Ticino.' },
+        { name: 'Programmi Comunali', amount: 'Variabile', description: 'Molti comuni ticinesi offrono incentivi extra per promuovere la sostenibilità locale.' }
+      ]
+    },
+    caseStudies: [
+      { name: 'Famiglia Bernasconi', location: 'Lugano', systemSize: '6.5 kWp', cost: '11.000 CHF', savings: '2.400 CHF/anno', payback: '4.5 anni', quote: 'L'impianto produce più di quanto sperassimo. La miglior scelta fatta per la nostra casa.' }
+    ],
+    faqs: [
+      { question: 'Quanto produce un impianto in Ticino?', answer: 'In media, 1.200-1.300 kWh per ogni kWp installato, grazie alle 2.157 ore di sole.' },
+      { question: 'Ci sono vincoli architettonici?', answer: 'Nella maggior parte dei casi basta una notifica. Per i nuclei storici serve un occhio di riguardo all'estetica.' },
+      { question: 'Quanto costa un impianto da 5 kWp?', answer: 'Il costo netto dopo i sussidi si aggira tra i 6.000 e i 7.500 CHF.' }
+    ],
+    testimonial: { initials: 'MB', name: 'M. Bernasconi', quote: 'Professionalità e risparmio garantiti. Finalmente indipendenti dal punto di vista energetico.' }
+  },
   // LUGANO - Italian-speaking Ticino, highest sunshine hours
   lugano: {
     slug: 'lugano',
