@@ -23,7 +23,7 @@ export const cities: City[] = [
   { name: 'Schaffhausen', slug: 'schaffhausen', canton: 'SH', language: 'de', sunshineHours: 1644, population: 36952 },
   { name: 'Fribourg', slug: 'fribourg', canton: 'FR', language: 'fr', sunshineHours: 1720, population: 38039 },
   { name: 'Chur', slug: 'chur', canton: 'GR', language: 'de', sunshineHours: 1803, population: 36336 },
-  { name: 'Aarau', slug: 'aarau', canton: 'AG', language: 'de', sunshineHours: 1605, population: 21501 },
+  { name: 'Aargau', slug: 'aarau', canton: 'AG', language: 'de', sunshineHours: 1605, population: 21501 },
   { name: 'Zug', slug: 'zug', canton: 'ZG', language: 'de', sunshineHours: 1598, population: 30542 },
   { name: 'Neuchâtel', slug: 'neuchatel', canton: 'NE', language: 'fr', sunshineHours: 1739, population: 33455 },
   { name: 'Solothurn', slug: 'solothurn', canton: 'SO', language: 'de', sunshineHours: 1631, population: 16777 },
