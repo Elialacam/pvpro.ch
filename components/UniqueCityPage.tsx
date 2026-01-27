@@ -179,20 +179,6 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               </div>
             ))}
           </div>
-
-          {/* Detailed City Facts - UNIQUE CONTENT */}
-          <div className={`bg-gradient-to-br from-gray-50 to-${accentColor}-50 rounded-2xl p-8 md:p-10`}>
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-              {content.cityFactsTitle}
-            </h3>
-            <div className="prose prose-lg prose-gray max-w-none space-y-5">
-              {content.cityFactsParagraphs.map((paragraph, index) => (
-                <p key={index} className="text-gray-700 leading-relaxed text-lg">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -421,7 +407,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             {city.language === 'it' 
               ? `Inizia ora il tuo progetto solare a ${city.name}!` 
-              : `Starten Sie jetzt Ihr Solarprojekt in {city.name}!`}
+              : `Starten Sie jetzt Ihr Solarprojekt in ${city.name}!`}
           </h2>
           <p className="text-xl mb-8 opacity-90">
             {city.language === 'it' 
