@@ -12,7 +12,7 @@ export const cities: City[] = [
   { name: 'Basel', slug: 'basel', canton: 'BS', language: 'de', sunshineHours: 1631, population: 177654 },
   { name: 'Bern', slug: 'bern', canton: 'BE', language: 'de', sunshineHours: 1694, population: 133883 },
   { name: 'Genf', slug: 'genf', canton: 'GE', language: 'fr', sunshineHours: 1849, population: 201813 },
-  { name: 'Lausanne', slug: 'lausanne', canton: 'VD', language: 'fr', sunshineHours: 1821, population: 138905 },
+  { name: 'Vaud', slug: 'lausanne', canton: 'VD', language: 'fr', sunshineHours: 1821, population: 138905 },
   { name: 'Winterthur', slug: 'winterthur', canton: 'ZH', language: 'de', sunshineHours: 1566, population: 111851 },
   { name: 'Luzern', slug: 'luzern', canton: 'LU', language: 'de', sunshineHours: 1598, population: 81691 },
   { name: 'St. Gallen', slug: 'st-gallen', canton: 'SG', language: 'de', sunshineHours: 1522, population: 75833 },
