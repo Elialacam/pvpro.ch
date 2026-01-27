@@ -403,38 +403,38 @@ export default function SolarForm() {
             <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 text-center">
               {t.step1Title}
             </h3>
-            <div className="flex gap-6 justify-center">
-              <button
-                onClick={() => handleSelection('isOwner', 'yes')}
-                className={`flex flex-col items-center justify-center w-40 h-40 rounded-2xl border-2 transition-all shadow-md hover:shadow-lg hover:scale-105 ${
-                  formData.isOwner === 'yes'
-                    ? 'border-green-500 bg-green-50 ring-2 ring-green-200'
-                    : 'border-gray-200 hover:border-green-300 bg-white'
-                }`}
-              >
-                <div className={`w-20 h-20 rounded-full flex items-center justify-center mb-3 ${
-                  formData.isOwner === 'yes' ? 'bg-green-500' : 'bg-green-100'
-                }`}>
-                  <Check className={`w-12 h-12 ${formData.isOwner === 'yes' ? 'text-white' : 'text-green-600'}`} strokeWidth={3} />
-                </div>
-                <span className="font-bold text-lg text-gray-900">{t.yes}</span>
-              </button>
-              <button
-                onClick={() => handleSelection('isOwner', 'no')}
-                className={`flex flex-col items-center justify-center w-40 h-40 rounded-2xl border-2 transition-all shadow-md hover:shadow-lg hover:scale-105 ${
-                  formData.isOwner === 'no'
-                    ? 'border-red-500 bg-red-50 ring-2 ring-red-200'
-                    : 'border-gray-200 hover:border-red-300 bg-white'
-                }`}
-              >
-                <div className={`w-20 h-20 rounded-full flex items-center justify-center mb-3 ${
-                  formData.isOwner === 'no' ? 'bg-red-500' : 'bg-red-100'
-                }`}>
-                  <X className={`w-12 h-12 ${formData.isOwner === 'no' ? 'text-white' : 'text-red-600'}`} strokeWidth={3} />
-                </div>
-                <span className="font-bold text-lg text-gray-900">{t.no}</span>
-              </button>
+        <div className="flex gap-4 justify-center">
+          <button
+            onClick={() => handleSelection('isOwner', 'yes')}
+            className={`flex flex-col items-center justify-center w-32 h-32 rounded-2xl border-2 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
+              formData.isOwner === 'yes'
+                ? 'border-green-500 bg-green-50 ring-2 ring-green-200'
+                : 'border-gray-200 hover:border-green-300 bg-white'
+            }`}
+          >
+            <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-2 ${
+              formData.isOwner === 'yes' ? 'bg-green-500' : 'bg-green-100'
+            }`}>
+              <Check className={`w-8 h-8 ${formData.isOwner === 'yes' ? 'text-white' : 'text-green-600'}`} strokeWidth={3} />
             </div>
+            <span className="font-bold text-base text-gray-900">{t.yes}</span>
+          </button>
+          <button
+            onClick={() => handleSelection('isOwner', 'no')}
+            className={`flex flex-col items-center justify-center w-32 h-32 rounded-2xl border-2 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
+              formData.isOwner === 'no'
+                ? 'border-red-500 bg-red-50 ring-2 ring-red-200'
+                : 'border-gray-200 hover:border-red-300 bg-white'
+            }`}
+          >
+            <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-2 ${
+              formData.isOwner === 'no' ? 'bg-red-500' : 'bg-red-100'
+            }`}>
+              <X className={`w-8 h-8 ${formData.isOwner === 'no' ? 'text-white' : 'text-red-600'}`} strokeWidth={3} />
+            </div>
+            <span className="font-bold text-base text-gray-900">{t.no}</span>
+          </button>
+        </div>
           </div>
         );
 
@@ -444,38 +444,38 @@ export default function SolarForm() {
             <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 text-center">
               {t.step2Title}
             </h3>
-            <div className="flex gap-4 justify-center flex-wrap">
-              {[
-                { value: 'einfamilienhaus', label: t.singleFamily, icon: Home, color: 'amber' as const },
-                { value: 'mehrfamilienhaus', label: t.multiFamily, icon: Building2, color: 'blue' as const },
-                { value: 'sonstiges', label: t.other, icon: Warehouse, color: 'purple' as const },
-              ].map((option) => {
-                const Icon = option.icon;
-                const isSelected = formData.propertyType === option.value;
-                const colorMap = {
-                  amber: { bg: isSelected ? 'bg-amber-500' : 'bg-amber-100', text: isSelected ? 'text-white' : 'text-amber-600', border: 'border-amber-500', ring: 'ring-amber-200', bgCard: 'bg-amber-50' },
-                  blue: { bg: isSelected ? 'bg-blue-500' : 'bg-blue-100', text: isSelected ? 'text-white' : 'text-blue-600', border: 'border-blue-500', ring: 'ring-blue-200', bgCard: 'bg-blue-50' },
-                  purple: { bg: isSelected ? 'bg-purple-500' : 'bg-purple-100', text: isSelected ? 'text-white' : 'text-purple-600', border: 'border-purple-500', ring: 'ring-purple-200', bgCard: 'bg-purple-50' },
-                };
-                const colorClasses = colorMap[option.color];
-                return (
-                  <button
-                    key={option.value}
-                    onClick={() => handleSelection('propertyType', option.value as FormData['propertyType'])}
-                    className={`flex flex-col items-center justify-center w-36 h-36 px-3 rounded-2xl border-2 transition-all shadow-md hover:shadow-lg hover:scale-105 ${
-                      isSelected
-                        ? `${colorClasses.border} ${colorClasses.bgCard} ring-2 ${colorClasses.ring}`
-                        : 'border-gray-200 hover:border-gray-300 bg-white'
-                    }`}
-                  >
-                    <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-3 ${colorClasses.bg}`}>
-                      <Icon className={`w-9 h-9 ${colorClasses.text}`} strokeWidth={2} />
-                    </div>
-                    <span className="font-bold text-sm text-center whitespace-pre-line leading-tight text-gray-900">{option.label}</span>
-                  </button>
-                );
-              })}
-            </div>
+        <div className="flex gap-4 justify-center flex-wrap">
+          {[
+            { value: 'einfamilienhaus', label: t.singleFamily, icon: Home, color: 'amber' as const },
+            { value: 'mehrfamilienhaus', label: t.multiFamily, icon: Building2, color: 'blue' as const },
+            { value: 'sonstiges', label: t.other, icon: Warehouse, color: 'purple' as const },
+          ].map((option) => {
+            const Icon = option.icon;
+            const isSelected = formData.propertyType === option.value;
+            const colorMap = {
+              amber: { bg: isSelected ? 'bg-amber-500' : 'bg-amber-100', text: isSelected ? 'text-white' : 'text-amber-600', border: 'border-amber-500', ring: 'ring-amber-200', bgCard: 'bg-amber-50' },
+              blue: { bg: isSelected ? 'bg-blue-500' : 'bg-blue-100', text: isSelected ? 'text-white' : 'text-blue-600', border: 'border-blue-500', ring: 'ring-blue-200', bgCard: 'bg-blue-50' },
+              purple: { bg: isSelected ? 'bg-purple-500' : 'bg-purple-100', text: isSelected ? 'text-white' : 'text-purple-600', border: 'border-purple-500', ring: 'ring-purple-200', bgCard: 'bg-purple-50' },
+            };
+            const colorClasses = colorMap[option.color];
+            return (
+              <button
+                key={option.value}
+                onClick={() => handleSelection('propertyType', option.value as FormData['propertyType'])}
+                className={`flex flex-col items-center justify-center w-28 h-28 px-2 rounded-2xl border-2 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
+                  isSelected
+                    ? `${colorClasses.border} ${colorClasses.bgCard} ring-2 ${colorClasses.ring}`
+                    : 'border-gray-200 hover:border-gray-300 bg-white'
+                }`}
+              >
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${colorClasses.bg}`}>
+                  <Icon className={`w-7 h-7 ${colorClasses.text}`} strokeWidth={2} />
+                </div>
+                <span className="font-bold text-xs text-center whitespace-pre-line leading-tight text-gray-900">{option.label}</span>
+              </button>
+            );
+          })}
+        </div>
           </div>
         );
 
@@ -485,38 +485,38 @@ export default function SolarForm() {
             <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 text-center px-2">
               {t.step3Title}
             </h3>
-            <div className="flex gap-4 justify-center flex-wrap">
-              {[
-                { value: 'yes', label: t.yes, icon: Check, color: 'green' as const },
-                { value: 'no', label: t.no, icon: X, color: 'red' as const },
-                { value: 'unknown', label: t.sonstiges, icon: HelpCircle, color: 'gray' as const },
-              ].map((option) => {
-                const Icon = option.icon;
-                const isSelected = formData.wantsBattery === option.value;
-                const colorMap = {
-                  green: { bg: isSelected ? 'bg-green-500' : 'bg-green-100', text: isSelected ? 'text-white' : 'text-green-600', border: 'border-green-500', ring: 'ring-green-200', bgCard: 'bg-green-50' },
-                  red: { bg: isSelected ? 'bg-red-500' : 'bg-red-100', text: isSelected ? 'text-white' : 'text-red-600', border: 'border-red-500', ring: 'ring-red-200', bgCard: 'bg-red-50' },
-                  gray: { bg: isSelected ? 'bg-gray-500' : 'bg-gray-100', text: isSelected ? 'text-white' : 'text-gray-600', border: 'border-gray-500', ring: 'ring-gray-200', bgCard: 'bg-gray-50' },
-                };
-                const colorClasses = colorMap[option.color];
-                return (
-                  <button
-                    key={option.value}
-                    onClick={() => handleSelection('wantsBattery', option.value as FormData['wantsBattery'])}
-                    className={`flex flex-col items-center justify-center w-36 h-36 rounded-2xl border-2 transition-all shadow-md hover:shadow-lg hover:scale-105 ${
-                      isSelected
-                        ? `${colorClasses.border} ${colorClasses.bgCard} ring-2 ${colorClasses.ring}`
-                        : 'border-gray-200 hover:border-gray-300 bg-white'
-                    }`}
-                  >
-                    <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-3 ${colorClasses.bg}`}>
-                      <Icon className={`w-9 h-9 ${colorClasses.text}`} strokeWidth={2.5} />
-                    </div>
-                    <span className="font-bold text-gray-900">{option.label}</span>
-                  </button>
-                );
-              })}
-            </div>
+        <div className="flex gap-4 justify-center flex-wrap">
+          {[
+            { value: 'yes', label: t.yes, icon: Check, color: 'green' as const },
+            { value: 'no', label: t.no, icon: X, color: 'red' as const },
+            { value: 'unknown', label: t.sonstiges, icon: HelpCircle, color: 'gray' as const },
+          ].map((option) => {
+            const Icon = option.icon;
+            const isSelected = formData.wantsBattery === option.value;
+            const colorMap = {
+              green: { bg: isSelected ? 'bg-green-500' : 'bg-green-100', text: isSelected ? 'text-white' : 'text-green-600', border: 'border-green-500', ring: 'ring-green-200', bgCard: 'bg-green-50' },
+              red: { bg: isSelected ? 'bg-red-500' : 'bg-red-100', text: isSelected ? 'text-white' : 'text-red-600', border: 'border-red-500', ring: 'red-200', bgCard: 'bg-red-50' },
+              gray: { bg: isSelected ? 'bg-gray-500' : 'bg-gray-100', text: isSelected ? 'text-white' : 'text-gray-600', border: 'border-gray-500', ring: 'ring-gray-200', bgCard: 'bg-gray-50' },
+            };
+            const colorClasses = colorMap[option.color];
+            return (
+              <button
+                key={option.value}
+                onClick={() => handleSelection('wantsBattery', option.value as FormData['wantsBattery'])}
+                className={`flex flex-col items-center justify-center w-28 h-28 rounded-2xl border-2 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
+                  isSelected
+                    ? `${colorClasses.border} ${colorClasses.bgCard} ring-2 ${colorClasses.ring}`
+                    : 'border-gray-200 hover:border-gray-300 bg-white'
+                }`}
+              >
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${colorClasses.bg}`}>
+                  <Icon className={`w-7 h-7 ${colorClasses.text}`} strokeWidth={2.5} />
+                </div>
+                <span className="font-bold text-gray-900 text-sm">{option.label}</span>
+              </button>
+            );
+          })}
+        </div>
           </div>
         );
 
