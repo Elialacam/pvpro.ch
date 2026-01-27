@@ -118,12 +118,15 @@ export default function HomePage() {
             {cities.map((city) => {
               let href = `/solaranlage-${city.slug}`;
               if (city.language === 'fr') {
-                href = `/solaire-${city.slug}`;
+                href = `/fr/solaire-${city.slug}`;
               } else if (city.language === 'it') {
-                href = `/fotovoltaico-${city.slug}`;
+                href = `/it/fotovoltaico-${city.slug}`;
               }
               
-              return (
+              if (city.slug === 'ticino') href = '/it/fotovoltaico-ticino';
+              if (city.slug === 'geneve') href = '/fr/solaire-geneve';
+              if (city.slug === 'vaud') href = '/fr/solaire-vaud';
+              if (city.slug === 'zurich') href = '/solaranlage-zuerich';
                 <Link
                   key={city.slug}
                   href={href}
