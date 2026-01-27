@@ -207,6 +207,51 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
         </div>
       </section>
 
+      {/* Incentives Section - NEW */}
+      <section className="section-padding bg-white">
+        <div className="container-custom max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+                {city.language === 'it' ? 'Incentivi Solari in Svizzera: Come Funzionano' : 'Solarförderung in der Schweiz: So funktioniert es wirklich'}
+              </h2>
+              <div className="prose prose-lg text-gray-600 space-y-4">
+                <p>
+                  {city.language === 'it' 
+                    ? 'In Svizzera, l\'installazione di un impianto fotovoltaico è supportata da schemi di incentivi federali ufficiali progettati per ridurre significativamente i costi iniziali.' 
+                    : 'In der Schweiz wird die Installation einer Photovoltaikanlage durch offizielle Bundesförderprogramme unterstützt, die die Investitionskosten deutlich senken.'}
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex gap-2">
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                    <span>{city.language === 'it' ? 'Copertura fino al 30% dei costi di investimento' : 'Abdeckung von bis zu 30% der Investitionskosten'}</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                    <span>{city.language === 'it' ? 'Rimunerazione unica pagata dopo la messa in servizio' : 'Einmalvergütung (EIV) nach Inbetriebnahme'}</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                    <span>{city.language === 'it' ? 'Bonus per altitudine e superfici inclinate' : 'Zusatzboni für Höhenlagen und steile Flächen'}</span>
+                  </li>
+                </ul>
+                <p className="font-semibold text-gray-900">
+                  {city.language === 'it' 
+                    ? 'PVPro.ch ti aiuta a navigare tra incentivi, cantoni e offerte, connettendoti con installatori qualificati aggiornati sulle normative 2026.' 
+                    : 'PVPro.ch hilft Ihnen, sich bei Förderungen, Kantonen und Offerten zurechtzufinden und verbindet Sie mit Fachpartnern, die auf dem neuesten Stand von 2026 sind.'}
+                </p>
+              </div>
+            </div>
+            <div className="bg-primary/5 rounded-3xl p-8 border border-primary/10">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                {city.language === 'it' ? 'Calcola il tuo incentivo' : 'Berechnen Sie Ihre Förderung'}
+              </h3>
+              <SolarForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section - UNIQUE */}
       <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">
