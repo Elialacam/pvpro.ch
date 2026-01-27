@@ -84,7 +84,7 @@ export default function SwissMap() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Map */}
           <div className="relative -mx-4 sm:mx-0" style={{ padding: '10px 0' }}>
-            <div className="scale-115 sm:scale-100 transform-gpu origin-center">
+            <div className="scale-150 sm:scale-100 transform-gpu origin-center my-12 sm:my-0">
               <ComposableMap
                 projection="geoMercator"
                 projectionConfig={{
