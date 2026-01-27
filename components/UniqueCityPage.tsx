@@ -96,7 +96,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             {/* City-specific Stats */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 max-w-3xl mx-auto">
               <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className={`text-3xl font-bold ${theme.stats} mb-2`}>{city.sunshineHours}</div>
+                <div className={`text-3xl font-bold ${theme.stats} mb-2`}>{city.sunshineHours || '1560'}</div>
                 <div className="text-sm text-gray-600">
                   {city.language === 'it' ? 'Ore di sole/anno' : 'Sonnenstunden/Jahr'}
                 </div>
