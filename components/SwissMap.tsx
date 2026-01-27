@@ -79,80 +79,82 @@ export default function SwissMap() {
   };
 
   return (
-    <section className="section-padding bg-gray-50">
+    <section className="section-padding bg-gray-50 overflow-hidden">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Map */}
-          <div className="relative" style={{ padding: '20px 0' }}>
-            <ComposableMap
-              projection="geoMercator"
-              projectionConfig={{
-                center: [8.2, 46.8],
-                scale: 6800,
-              }}
-              width={700}
-              height={500}
-              style={{ width: '100%', height: 'auto' }}
-            >
-              <Geographies geography={geoUrl}>
-                {({ geographies }) =>
-                  geographies.map((geo) => (
-                    <Geography
-                      key={geo.rsmKey}
-                      geography={geo}
-                      fill="#F97316"
-                      stroke="#FFFFFF"
-                      strokeWidth={1}
-                      onClick={scrollToForm}
-                      style={{
-                        default: { outline: 'none', cursor: 'pointer' },
-                        hover: { fill: '#EA580C', outline: 'none', cursor: 'pointer' },
-                        pressed: { fill: '#C2410C', outline: 'none' },
-                      }}
-                    />
-                  ))
-                }
-              </Geographies>
+          <div className="relative -mx-4 sm:mx-0" style={{ padding: '10px 0' }}>
+            <div className="scale-115 sm:scale-100 transform-gpu origin-center">
+              <ComposableMap
+                projection="geoMercator"
+                projectionConfig={{
+                  center: [8.2, 46.8],
+                  scale: 6800,
+                }}
+                width={700}
+                height={500}
+                style={{ width: '100%', height: 'auto' }}
+              >
+                <Geographies geography={geoUrl}>
+                  {({ geographies }) =>
+                    geographies.map((geo) => (
+                      <Geography
+                        key={geo.rsmKey}
+                        geography={geo}
+                        fill="#F97316"
+                        stroke="#FFFFFF"
+                        strokeWidth={1}
+                        onClick={scrollToForm}
+                        style={{
+                          default: { outline: 'none', cursor: 'pointer' },
+                          hover: { fill: '#EA580C', outline: 'none', cursor: 'pointer' },
+                          pressed: { fill: '#C2410C', outline: 'none' },
+                        }}
+                      />
+                    ))
+                  }
+                </Geographies>
 
-              {/* Price Labels - also clickable */}
-              {priceLabels.map((label, index) => (
-                <Annotation
-                  key={index}
-                  subject={label.coordinates as [number, number]}
-                  dx={0}
-                  dy={0}
-                  connectorProps={{}}
-                >
-                  <g
-                    transform="translate(-45, -16)"
-                    onClick={scrollToForm}
-                    style={{ cursor: 'pointer' }}
+                {/* Price Labels - also clickable */}
+                {priceLabels.map((label, index) => (
+                  <Annotation
+                    key={index}
+                    subject={label.coordinates as [number, number]}
+                    dx={0}
+                    dy={0}
+                    connectorProps={{}}
                   >
-                    <rect
-                      width="90"
-                      height="28"
-                      fill="white"
-                      rx="4"
-                      style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }}
-                    />
-                    <text
-                      x="45"
-                      y="18"
-                      textAnchor="middle"
-                      fontSize="12"
-                      fontWeight="bold"
-                      fill="#1F2937"
+                    <g
+                      transform="translate(-45, -16)"
+                      onClick={scrollToForm}
+                      style={{ cursor: 'pointer' }}
                     >
-                      {label.price}
-                    </text>
-                  </g>
-                </Annotation>
-              ))}
-            </ComposableMap>
+                      <rect
+                        width="90"
+                        height="28"
+                        fill="white"
+                        rx="4"
+                        style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }}
+                      />
+                      <text
+                        x="45"
+                        y="18"
+                        textAnchor="middle"
+                        fontSize="12"
+                        fontWeight="bold"
+                        fill="#1F2937"
+                      >
+                        {label.price}
+                      </text>
+                    </g>
+                  </Annotation>
+                ))}
+              </ComposableMap>
+            </div>
           </div>
 
           {/* Text Content */}
-          <div>
+          <div className="relative z-10">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
               {content.title}
             </h2>
