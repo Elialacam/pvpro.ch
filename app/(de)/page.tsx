@@ -123,12 +123,12 @@ export default function HomePage() {
                 href = `/it/fotovoltaico-${city.slug}`;
               }
               
+              // Custom redirects for priority cantons/cities if slugs don't match pattern
               if (city.slug === 'ticino') href = '/it/fotovoltaico-ticino';
-              else if (city.slug === 'geneve') href = '/fr/solaire-geneve';
-              else if (city.slug === 'vaud') href = '/fr/solaire-vaud';
-              else if (city.slug === 'valais') href = '/fr/solaire-valais';
-              else if (city.slug === 'zurich') href = '/solaranlage-zuerich';
-              
+              if (city.slug === 'geneve') href = '/fr/solaire-geneve';
+              if (city.slug === 'vaud') href = '/fr/solaire-vaud';
+              if (city.slug === 'zurich') href = '/solaranlage-zuerich';
+
               return (
                 <Link
                   key={city.slug}
