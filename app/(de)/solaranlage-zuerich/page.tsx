@@ -37,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: 'https://pvpro.ch/solaranlage-zuerich',
       type: 'website',
       locale: 'de_CH',
-      siteName: 'PVPro',
+      siteName: 'PV Pro',
     },
   };
 }
@@ -63,7 +63,7 @@ export default function ZurichPage() {
             "description": "Professionelle Solaranlagen-Installation in Zürich. Über 40 Solarteure im Vergleich.",
             "provider": {
               "@type": "LocalBusiness",
-              "name": "PVPro",
+              "name": "PV Pro",
               "url": "https://pvpro.ch",
               "telephone": "+41774420059",
               "email": "info@pvpro.ch"

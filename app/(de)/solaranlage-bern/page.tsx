@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
   if (!city) return { title: 'Stadt nicht gefunden' };
 
   return {
-    title: `Solaranlage Bern BE - Förderungen bis 5.000 CHF | PVPro`,
+    title: `Solaranlage Bern BE - Förderungen bis 5.000 CHF | PV Pro`,
     description: `Solaranlage Bern: Profitieren Sie von der EWB-Förderung bis 5.000 CHF und der neuen Solarpflicht 2026. Vergleichen Sie 3 Offerten von Berner Solarteuren. Kostenlos & unabhängig.`,
     alternates: {
       canonical: 'https://pvpro.ch/solaranlage-bern',
