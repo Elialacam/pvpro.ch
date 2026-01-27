@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: `Impianto Fotovoltaico Ticino TI - Preventivi Gratuiti | PVPro`,
-    description: `Impianto fotovoltaico in Ticino: Confronta gratuitamente i preventivi di installatori certificati.`,
+    description: `Impianto fotovoltaico in Ticino: Confronta gratuitamente i preventivi di installatori certificati nel Canton Ticino. Risparmia fino al 30%.`,
   };
 }
 
