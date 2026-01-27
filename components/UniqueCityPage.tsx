@@ -432,27 +432,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
         </div>
       </section>
 
-      {/* FAQ Section - UNIQUE 8 QUESTIONS */}
-      <section className="section-padding bg-white">
-        <div className="container-custom max-w-4xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center">
-            {city.language === 'it' ? 'Domande Frequenti (FAQ)' : 'Häufig gestellte Fragen (FAQ)'}
-          </h2>
-          <div className="space-y-6">
-            {content.faqs.map((faq, index) => (
-              <div key={index} className="border-b border-gray-200 pb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-start gap-3">
-                  <span className="text-primary font-serif text-2xl leading-none">?</span>
-                  {faq.question}
-                </h3>
-                <div className="text-gray-700 leading-relaxed pl-7">
-                  {faq.answer}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQ items={content.faqs} />
 
       <RelatedCities currentCitySlug={content.slug} currentCanton={city.canton} />
 
