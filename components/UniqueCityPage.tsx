@@ -80,7 +80,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm mb-6">
               <Sun className={`w-4 h-4 ${theme.badgeBg}`} />
               <span className={`text-sm font-bold ${theme.badge}`}>
-                {city.sunshineHours} Sonnenstunden - {content.heroSubheadline}
+                {city.sunshineHours} {city.language === 'it' ? 'Ore di sole' : 'Sonnenstunden'} - {content.heroSubheadline}
               </span>
             </div>
 
@@ -197,10 +197,15 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               </div>
             ))}
           </div>
+          <div className="flex justify-center mt-12">
+            <a href="#formular" className="btn-primary px-8 py-3">
+              {city.language === 'it' ? 'Torna al modulo' : 'Zurück zum Formular'}
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Incentives Section - NEW */}
+      {/* Incentives Section */}
       <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -416,7 +421,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
       </section>
 
       {/* Google Maps */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
@@ -447,15 +452,20 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               </div>
             </div>
           </div>
+          <div className="flex justify-center mt-12">
+            <a href="#formular" className="btn-primary px-8 py-3">
+              {city.language === 'it' ? 'Inizia ora' : 'Jetzt starten'}
+            </a>
+          </div>
         </div>
       </section>
 
       <USPSection />
 
       {/* Testimonial - UNIQUE */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-gray-50">
         <div className="container-custom max-w-4xl">
-          <div className={`card bg-gradient-to-br from-${accentColor}-50 to-yellow-50`}>
+          <div className={`card bg-white shadow-lg`}>
             <div className="flex items-start gap-4">
               <div className={`w-16 h-16 bg-${accentColor}-600 rounded-full flex items-center justify-center flex-shrink-0`}>
                 <span className="text-2xl font-bold text-white">{content.testimonial.initials}</span>
@@ -477,6 +487,11 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 </div>
               </div>
             </div>
+          </div>
+          <div className="flex justify-center mt-8">
+            <a href="#formular" className="btn-primary px-8 py-3">
+              {city.language === 'it' ? 'Richiedi preventivo' : 'Offerte anfordern'}
+            </a>
           </div>
         </div>
       </section>
