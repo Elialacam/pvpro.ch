@@ -16,7 +16,7 @@ export const cities: City[] = [
   { name: 'Winterthur', slug: 'winterthur', canton: 'ZH', language: 'de', sunshineHours: 1566, population: 111851 },
   { name: 'Luzern', slug: 'luzern', canton: 'LU', language: 'de', sunshineHours: 1598, population: 81691 },
   { name: 'St. Gallen', slug: 'st-gallen', canton: 'SG', language: 'de', sunshineHours: 1522, population: 75833 },
-  { name: 'Lugano', slug: 'lugano', canton: 'TI', language: 'it', sunshineHours: 2157, population: 62315 },
+  { name: 'Ticino', slug: 'lugano', canton: 'TI', language: 'it', sunshineHours: 2157, population: 62315 },
   { name: 'Biel', slug: 'biel', canton: 'BE', language: 'de', sunshineHours: 1694, population: 55206 },
   { name: 'Thun', slug: 'thun', canton: 'BE', language: 'de', sunshineHours: 1694, population: 43476 },
   { name: 'Köniz', slug: 'koeniz', canton: 'BE', language: 'de', sunshineHours: 1694, population: 41705 },

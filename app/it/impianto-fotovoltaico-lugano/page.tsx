@@ -11,8 +11,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const city = getCityBySlug(citySlug);
   if (!city) return { title: 'Città non trovata' };
   return {
-    title: `Impianto Fotovoltaico Lugano - Preventivi Gratuiti | PVPro`,
-    description: `Impianto fotovoltaico a Lugano: Confronta gratuitamente i preventivi di installatori certificati.`,
+    title: `Impianto Fotovoltaico Ticino - Preventivi Gratuiti | PVPro`,
+    description: `Impianto fotovoltaico in Ticino: Confronta gratuitamente i preventivi di installatori certificati.`,
   };
 }
 
@@ -25,8 +25,8 @@ export default function Page() {
     <>
       <section className="bg-gradient-to-br from-orange-50 to-primary-50 section-padding text-center">
         <div className="container-custom">
-          <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 mb-6">Impianto Fotovoltaico Lugano</h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">Confronta gratuitamente le offerte di installatori certificati nella regione di Lugano.</p>
+          <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 mb-6">Impianto Fotovoltaico Ticino</h1>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">Confronta gratuitamente le offerte di installatori certificati nella regione del Ticino.</p>
           <a href="#formular" className="btn-primary text-lg px-8 py-4">Richiedi un preventivo gratuito</a>
         </div>
       </section>
