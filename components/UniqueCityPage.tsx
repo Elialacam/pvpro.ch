@@ -197,11 +197,6 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               </div>
             ))}
           </div>
-          <div className="flex justify-center mt-12">
-            <a href="#formular" className="btn-primary px-8 py-3">
-              {city.language === 'it' ? 'Torna al modulo' : 'Zurück zum Formular'}
-            </a>
-          </div>
         </div>
       </section>
 
@@ -242,18 +237,13 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             </div>
             <div className="bg-primary/5 rounded-3xl p-8 border border-primary/10">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                {city.language === 'it' ? 'Calcola il tuo incentivo' : 'Berechnen Sie Ihre Förderung'}
+                {city.language === 'it' ? 'Incentivi 2026' : 'Förderung 2026'}
               </h3>
-              <p className="text-center text-gray-600 mb-6">
+              <p className="text-center text-gray-600">
                 {city.language === 'it' 
-                  ? 'Compila il modulo per una consulenza gratuita' 
-                  : 'Füllen Sie das Formular für eine kostenlose Beratung aus'}
+                  ? 'Gli incentivi Pronovo coprono fino al 30% dell\'investimento per i nuovi impianti.' 
+                  : 'Pronovo-EIV deckt bis zu 30% der Investitionskosten für Neuanlagen ab.'}
               </p>
-              <div className="flex justify-center">
-                <a href="#formular" className="btn-primary px-8 py-3">
-                  {city.language === 'it' ? 'Calcola ora' : 'Jetzt berechnen'}
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -266,7 +256,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             {city.language === 'it' ? `Costi impianto fotovoltaico a ${city.name}` : `Solaranlage Kosten in ${city.name}`}
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="card bg-white">
               <div className="flex items-center gap-3 mb-4">
                 <Euro className="w-8 h-8 text-primary" />
@@ -358,12 +348,6 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               </div>
             </div>
           </div>
-
-          <div className="flex justify-center">
-            <a href="#formular" className="btn-primary px-10 py-4 text-lg">
-              {city.language === 'it' ? 'Ottieni un preventivo personalizzato' : 'Individuelle Offerte anfordern'}
-            </a>
-          </div>
         </div>
       </section>
 
@@ -390,7 +374,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 ? `Installatori esperti a ${city.name} installano il tuo impianto su misura` 
                 : `Erfahrene Solarteure aus ${city.name} installano Ihre massgeschneiderte Anlage`}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                 <div className="text-4xl font-bold text-white mb-2 drop-shadow-lg">{city.sunshineHours}</div>
                 <div className="text-sm text-white/90 font-medium">
@@ -409,12 +393,6 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                   {city.language === 'it' ? 'Anni ROI' : 'Jahre ROI'}
                 </div>
               </div>
-            </div>
-
-            <div className="flex justify-center">
-              <a href="#formular" className="bg-white text-gray-900 hover:bg-gray-100 font-bold py-4 px-10 rounded-full transition-all duration-200 shadow-xl hover:scale-105">
-                {city.language === 'it' ? 'Richiedi ora gratuitamente' : 'Jetzt kostenlos anfragen'}
-              </a>
             </div>
           </div>
         </div>
@@ -452,11 +430,6 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               </div>
             </div>
           </div>
-          <div className="flex justify-center mt-12">
-            <a href="#formular" className="btn-primary px-8 py-3">
-              {city.language === 'it' ? 'Inizia ora' : 'Jetzt starten'}
-            </a>
-          </div>
         </div>
       </section>
 
@@ -487,11 +460,6 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 </div>
               </div>
             </div>
-          </div>
-          <div className="flex justify-center mt-8">
-            <a href="#formular" className="btn-primary px-8 py-3">
-              {city.language === 'it' ? 'Richiedi preventivo' : 'Offerte anfordern'}
-            </a>
           </div>
         </div>
       </section>
