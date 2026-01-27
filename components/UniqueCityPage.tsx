@@ -239,15 +239,29 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 </p>
               </div>
             </div>
-            <div className="bg-primary/5 rounded-3xl p-8 border border-primary/10">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+            <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 flex flex-col items-center text-center justify-center relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700"></div>
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 relative">
+                <Zap className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4 relative">
                 {city.language === 'it' ? 'Incentivi 2026' : 'Förderung 2026'}
               </h3>
-              <p className="text-center text-gray-600">
-                {city.language === 'it' 
-                  ? 'Gli incentivi Pronovo coprono fino al 30% dell\'investimento per i nuovi impianti.' 
-                  : 'Pronovo-EIV deckt bis zu 30% der Investitionskosten für Neuanlagen ab.'}
-              </p>
+              <div className="space-y-4 relative">
+                <p className="text-lg text-gray-600 font-medium">
+                  {city.language === 'it' 
+                    ? 'Risparmia fino al 30% immediatamente' 
+                    : 'Sparen Sie bis zu 30% sofort'}
+                </p>
+                <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-bold text-sm">
+                  {city.language === 'it' ? 'Pronovo EIV Disponibile' : 'Pronovo-EIV verfügbar'}
+                </div>
+                <p className="text-sm text-gray-500">
+                  {city.language === 'it' 
+                    ? 'Incentivi federali per nuovi impianti garantiti per tutto il 2026.' 
+                    : 'Bundesförderung für Neuanlagen für das gesamte Jahr 2026 garantiert.'}
+                </p>
+              </div>
             </div>
           </div>
         </div>
