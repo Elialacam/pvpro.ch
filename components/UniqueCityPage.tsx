@@ -154,7 +154,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
 
       {/* Form Section immediately after Hero */}
       <section id="formular" className="section-padding bg-white pt-0">
-        <div className="container-custom max-w-4xl">
+        <div className="container-custom max-w-[800px]">
           <div className="card shadow-2xl border-2 border-primary/20">
             <div className="text-center mb-8">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
