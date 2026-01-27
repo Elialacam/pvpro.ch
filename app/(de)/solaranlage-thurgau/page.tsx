@@ -9,7 +9,7 @@ export const revalidate = false;
 
 // This is a template for the city pages.
 // We will use a script to populate all 20 pages with this logic.
-const citySlug = 'ticino';
+const citySlug = 'thurgau';
 
 export async function generateMetadata(): Promise<Metadata> {
   const city = getCityBySlug(citySlug);

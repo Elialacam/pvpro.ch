@@ -116,19 +116,15 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {cities.map((city) => {
-              let href = `/solaranlage-${city.slug}`;
+              let href = '';
               if (city.language === 'fr') {
                 href = `/fr/solaire-${city.slug}`;
               } else if (city.language === 'it') {
                 href = `/it/fotovoltaico-${city.slug}`;
+              } else {
+                href = `/solaranlage-${city.slug}`;
               }
               
-              // Custom redirects for priority cantons/cities if slugs don't match pattern
-              if (city.slug === 'ticino') href = '/it/fotovoltaico-ticino';
-              if (city.slug === 'geneve') href = '/fr/solaire-geneve';
-              if (city.slug === 'vaud') href = '/fr/solaire-vaud';
-              if (city.slug === 'zurich') href = '/solaranlage-zuerich';
-
               return (
                 <Link
                   key={city.slug}
