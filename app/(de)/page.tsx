@@ -124,9 +124,10 @@ export default function HomePage() {
               }
               
               if (city.slug === 'ticino') href = '/it/fotovoltaico-ticino';
-              if (city.slug === 'geneve') href = '/fr/solaire-geneve';
-              if (city.slug === 'vaud') href = '/fr/solaire-vaud';
-              if (city.slug === 'zurich') href = '/solaranlage-zuerich';
+              else if (city.slug === 'geneve') href = '/fr/solaire-geneve';
+              else if (city.slug === 'vaud') href = '/fr/solaire-vaud';
+              else if (city.slug === 'valais') href = '/fr/solaire-valais';
+              else if (city.slug === 'zurich') href = '/solaranlage-zuerich';
               
               return (
                 <Link
