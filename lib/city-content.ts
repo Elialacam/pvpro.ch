@@ -208,3 +208,7 @@ export const cityContents: Record<string, CityContent> = {
   solothurn: generateGenericContent('solothurn', 'Solothurn', 'de', 'SO'),
   aargau: generateGenericContent('aargau', 'Aargau', 'de', 'AG')
 };
+
+export const getCityContent = (slug: string): CityContent | undefined => {
+  return cityContents[slug];
+};

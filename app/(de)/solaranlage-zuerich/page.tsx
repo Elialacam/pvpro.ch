@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { getCityBySlug } from '@/lib/cities';
-import { getCityContent } from '@/lib/city-content';
+import { CityContent, cityContents } from '@/lib/city-content';
 import { notFound } from 'next/navigation';
 import UniqueCityPage from '@/components/UniqueCityPage';
 
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function ZurichPage() {
   const city = getCityBySlug(citySlug);
-  const content = getCityContent(citySlug);
+  const content = cityContents[citySlug];
 
   if (!city || !content) {
     notFound();
