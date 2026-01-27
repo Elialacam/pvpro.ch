@@ -382,27 +382,6 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
 
       <USPSection />
 
-      {/* Form Section */}
-      <section id="formular" className="section-padding bg-gradient-to-b from-gray-50 to-white">
-        <div className="container-custom max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              {city.language === 'it' 
-                ? `Richiedi preventivi gratuiti per ${city.name}` 
-                : `Kostenlose Offerten für ${city.name} anfordern`}
-            </h2>
-            <p className="text-xl text-gray-600">
-              {city.language === 'it' 
-                ? 'Ricevi fino a 3 offerte da installatori locali' 
-                : 'Erhalten Sie bis zu 3 Angebote von lokalen Solarteure'}
-            </p>
-          </div>
-          <SolarForm />
-        </div>
-      </section>
-
-      <TrustBadges />
-
       {/* Testimonial - UNIQUE */}
       <section className="section-padding bg-white">
         <div className="container-custom max-w-4xl">
