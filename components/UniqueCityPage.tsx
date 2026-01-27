@@ -152,8 +152,27 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
         </div>
       </section>
 
+      {/* Form Section immediately after Hero */}
+      <section id="formular" className="section-padding bg-white pt-0">
+        <div className="container-custom max-w-4xl">
+          <div className="card shadow-2xl border-2 border-primary/20">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                {city.language === 'it' ? 'Ottieni i tuoi preventivi gratuiti' : 'Erhalten Sie Ihre kostenlosen Offerten'}
+              </h2>
+              <p className="text-gray-600">
+                {city.language === 'it' 
+                  ? 'In soli 2 minuti - gratuito e senza impegno' 
+                  : 'In nur 2 Minuten – kostenlos und unverbindlich'}
+              </p>
+            </div>
+            <SolarForm />
+          </div>
+        </div>
+      </section>
+
       {/* Why Solar in City - UNIQUE CONTENT */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-gray-50">
         <div className="container-custom max-w-6xl">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-center">
             {content.whySolarTitle}
@@ -164,7 +183,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {content.whySolarReasons.map((reason, index) => (
-              <div key={index} className="card hover:shadow-xl transition-shadow">
+              <div key={index} className="card hover:shadow-xl transition-shadow bg-white">
                 <div className={`w-12 h-12 bg-${accentColor}-50 rounded-lg flex items-center justify-center mb-4`}>
                   {index === 0 && <Sun className={`w-6 h-6 ${theme.icon}`} />}
                   {index === 1 && <TrendingUp className="w-6 h-6 text-green-600" />}
@@ -179,11 +198,17 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               </div>
             ))}
           </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="card bg-white shadow-xl border-2 border-primary/10">
+              <SolarForm />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Pricing Section - UNIQUE */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center">
             {city.language === 'it' ? `Costi impianto fotovoltaico a ${city.name}` : `Solaranlage Kosten in ${city.name}`}
@@ -281,6 +306,12 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               </div>
             </div>
           </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="card bg-gray-50 shadow-xl border-2 border-primary/10">
+              <SolarForm />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -307,7 +338,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 ? `Installatori esperti a ${city.name} installano il tuo impianto su misura` 
                 : `Erfahrene Solarteure aus ${city.name} installano Ihre massgeschneiderte Anlage`}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                 <div className="text-4xl font-bold text-white mb-2 drop-shadow-lg">{city.sunshineHours}</div>
                 <div className="text-sm text-white/90 font-medium">
@@ -325,6 +356,12 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 <div className="text-sm text-white/90 font-medium">
                   {city.language === 'it' ? 'Anni ROI' : 'Jahre ROI'}
                 </div>
+              </div>
+            </div>
+
+            <div className="max-w-2xl mx-auto">
+              <div className="bg-white rounded-2xl p-8 shadow-2xl text-left">
+                <SolarForm />
               </div>
             </div>
           </div>

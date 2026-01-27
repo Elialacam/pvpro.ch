@@ -1,0 +1,59 @@
+Solar incentives in Switzerland: how they really work
+
+In Switzerland, installing a photovoltaic (PV) system is supported by official federal incentive schemes designed to significantly reduce upfront costs and shorten the payback period.
+
+The main support mechanism is the one-time remuneration, a single federal contribution paid after the PV system has been commissioned. This incentive is valid throughout Switzerland and is administered by Pronovo, the federal authority responsible for evaluating applications and paying out subsidies.
+
+How much do incentives cover?
+
+The one-time remuneration can cover up to around 30% of the investment costs of a reference photovoltaic system. The exact amount depends mainly on:
+
+installed capacity (kWp)
+
+type of PV system
+
+whether self-consumption is used
+
+Types of federal incentives
+
+Depending on system size and usage, different incentive schemes apply:
+
+Small residential systems: standard one-time remuneration after commissioning
+
+Large systems (commercial, industrial, multi-family buildings): dedicated schemes with specific procedures
+
+Systems without self-consumption: may qualify for a higher one-time remuneration or, above certain thresholds, participate in federal auctions
+
+Bonuses and special cases
+
+Additional bonuses may apply in specific situations, such as:
+
+installations at high altitude
+
+steeply inclined surfaces
+
+building-integrated PV systems
+
+installations on car parks or special infrastructure
+
+Cantonal and municipal incentives
+
+In addition to federal support, some cantons and municipalities offer extra subsidies or tax benefits. Conditions and amounts vary depending on the region and building type.
+
+Official sources and updates
+
+Incentive frameworks are explained and regularly updated by reference organisations such as Swissolar, which provides guidance on PV profitability, and by Pronovo, which manages all federal promotion schemes in practice.
+
+In recent years, new support instruments and updated mechanisms have been introduced, with further developments expected in 2026, particularly for large-scale systems and market-based models.
+
+In summary
+
+Solar incentives in Switzerland are real, regulated and federally backed
+
+They can significantly reduce the initial cost of a PV system
+
+The process is standardised and handled by an official authority
+
+Additional regional incentives may further improve profitability
+
+PVPro.ch helps homeowners and businesses navigate incentives, cantons and offers, connecting them with qualified installers who are up to date with current regulations.
