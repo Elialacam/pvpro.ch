@@ -11,16 +11,24 @@ const citySlug = 'geneve';
 
 export async function generateMetadata(): Promise<Metadata> {
   const city = getCityBySlug(citySlug);
-  if (!city) return { title: 'Canton non trouvé' };
+  if (!city) return { title: 'Ville non trouvée' };
+
   return {
-    title: `Installation Solaire Genève GE - Devis Gratuits | PVPro`,
-    description: `Installation solaire à Genève: Comparez gratuitement les devis d'installateurs certifiés.`,
+    title: `Installation Solaire Genève GE - Subventions SIG 2026 | PVPro`,
+    description: `Installation Solaire Genève: Profitez de la nouvelle prime SIG 2026 (25% bonus). Comparez 3 devis d'installateurs genevois certifiés. Amortissement en 8-12 ans.`,
+    alternates: {
+      canonical: 'https://pvpro.ch/solaire-geneve',
+    },
   };
 }
 
-export default function Page() {
+export default function GenevePage() {
   const city = getCityBySlug(citySlug);
   const content = cityContents[citySlug];
-  if (!city || !content) notFound();
+
+  if (!city || !content) {
+    notFound();
+  }
+
   return <UniqueCityPage city={city} content={content} accentColor="blue" />;
 }

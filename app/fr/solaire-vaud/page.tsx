@@ -7,20 +7,28 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const citySlug = 'aargau';
+const citySlug = 'vaud';
 
 export async function generateMetadata(): Promise<Metadata> {
   const city = getCityBySlug(citySlug);
-  if (!city) return { title: 'Kanton nicht gefunden' };
+  if (!city) return { title: 'Ville non trouvée' };
+
   return {
-    title: `Solaranlage Aargau AG - Kostenlose Offerten | PVPro`,
-    description: `Solaranlage nel Aargau: Vergleichen Sie kostenlos Offerten von geprüften Solarteuren.`,
+    title: `Installation Solaire Vaud VD - Bonus Isolation 2026 | PVPro`,
+    description: `Solaire Vaud: Bénéficiez du bonus isolation M-01 et des subventions S04 pour le patrimoine. Comparez les meilleurs installateurs vaudois. Devis gratuits.`,
+    alternates: {
+      canonical: 'https://pvpro.ch/solaire-vaud',
+    },
   };
 }
 
-export default function Page() {
+export default function VaudPage() {
   const city = getCityBySlug(citySlug);
   const content = cityContents[citySlug];
-  if (!city || !content) notFound();
+
+  if (!city || !content) {
+    notFound();
+  }
+
   return <UniqueCityPage city={city} content={content} accentColor="green" />;
 }

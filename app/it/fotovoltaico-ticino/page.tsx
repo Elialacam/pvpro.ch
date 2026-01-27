@@ -7,20 +7,28 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const citySlug = 'solothurn';
+const citySlug = 'ticino';
 
 export async function generateMetadata(): Promise<Metadata> {
   const city = getCityBySlug(citySlug);
-  if (!city) return { title: 'Kanton nicht gefunden' };
+  if (!city) return { title: 'Cantone non trovato' };
+
   return {
-    title: `Solaranlage Solothurn SO - Kostenlose Offerten | PVPro`,
-    description: `Solaranlage in Solothurn: Vergleichen Sie kostenlos Offerten von geprüften Solarteuren.`,
+    title: `Impianto Fotovoltaico Ticino TI - Preventivi Gratuiti | PVPro`,
+    description: `Impianto fotovoltaico in Ticino: Confronta gratuitamente i preventivi di installatori certificati nel Canton Ticino. Risparmia fino al 30%.`,
+    alternates: {
+      canonical: 'https://pvpro.ch/fotovoltaico-ticino',
+    },
   };
 }
 
-export default function Page() {
+export default function TicinoPage() {
   const city = getCityBySlug(citySlug);
   const content = cityContents[citySlug];
-  if (!city || !content) notFound();
+
+  if (!city || !content) {
+    notFound();
+  }
+
   return <UniqueCityPage city={city} content={content} accentColor="orange" />;
 }

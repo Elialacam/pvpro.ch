@@ -7,20 +7,28 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const citySlug = 'bern';
+const citySlug = 'aargau';
 
 export async function generateMetadata(): Promise<Metadata> {
   const city = getCityBySlug(citySlug);
   if (!city) return { title: 'Kanton nicht gefunden' };
+
   return {
-    title: `Solaranlage Bern BE - Kostenlose Offerten | PVPro`,
-    description: `Solaranlage in Bern: Vergleichen Sie gratuitamente Offerten von geprüften Solarteuren.`,
+    title: `Solaranlage Aargau AG - Stadt Aarau Bonus & Solaroffensive | PVPro`,
+    description: `Solaranlage Aargau: Sichern Sie sich bis zu 8.000 CHF Förderung (Bund + Stadt Aarau). Vergleichen Sie 3 geprüfte Solarteure aus Ihrer Region. Kostenlos & unabhängig.`,
+    alternates: {
+      canonical: 'https://pvpro.ch/solaranlage-aargau',
+    },
   };
 }
 
-export default function Page() {
+export default function AargauPage() {
   const city = getCityBySlug(citySlug);
   const content = cityContents[citySlug];
-  if (!city || !content) notFound();
-  return <UniqueCityPage city={city} content={content} accentColor="green" />;
+
+  if (!city || !content) {
+    notFound();
+  }
+
+  return <UniqueCityPage city={city} content={content} accentColor="red" />;
 }

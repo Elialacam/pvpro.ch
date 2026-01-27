@@ -7,7 +7,7 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const citySlug = 'zuerich';
+const citySlug = 'zurich';
 
 export async function generateMetadata(): Promise<Metadata> {
   const city = getCityBySlug(citySlug);
