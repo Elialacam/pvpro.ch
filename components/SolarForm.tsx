@@ -406,7 +406,7 @@ export default function SolarForm() {
         <div className="flex gap-4 justify-center">
           <button
             onClick={() => handleSelection('isOwner', 'yes')}
-            className={`flex flex-col items-center justify-center w-36 h-36 rounded-2xl border border-gray-100 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
+            className={`flex flex-col items-center justify-center w-40 h-40 rounded-2xl border border-gray-100 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
               formData.isOwner === 'yes'
                 ? 'bg-white ring-2 ring-green-500 border-transparent'
                 : 'bg-white'
@@ -417,11 +417,11 @@ export default function SolarForm() {
             }`}>
               <Check className="w-8 h-8 text-green-600" strokeWidth={3} />
             </div>
-            <span className="font-bold text-lg text-gray-900">{t.yes}</span>
+            <span className="font-bold text-xl text-gray-900">{t.yes}</span>
           </button>
           <button
             onClick={() => handleSelection('isOwner', 'no')}
-            className={`flex flex-col items-center justify-center w-36 h-36 rounded-2xl border border-gray-100 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
+            className={`flex flex-col items-center justify-center w-40 h-40 rounded-2xl border border-gray-100 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
               formData.isOwner === 'no'
                 ? 'bg-white ring-2 ring-red-500 border-transparent'
                 : 'bg-white'
@@ -432,7 +432,7 @@ export default function SolarForm() {
             }`}>
               <X className="w-8 h-8 text-red-600" strokeWidth={3} />
             </div>
-            <span className="font-bold text-lg text-gray-900">{t.no}</span>
+            <span className="font-bold text-xl text-gray-900">{t.no}</span>
           </button>
         </div>
           </div>
@@ -462,16 +462,16 @@ export default function SolarForm() {
               <button
                 key={option.value}
                 onClick={() => handleSelection('propertyType', option.value as FormData['propertyType'])}
-                className={`flex flex-col items-center justify-center w-28 h-28 px-2 rounded-xl border-2 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
+                className={`flex flex-col items-center justify-center w-32 h-32 px-2 rounded-2xl border border-gray-100 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
                   isSelected
                     ? `${colorClasses.border} ${colorClasses.bgCard} ring-2 ${colorClasses.ring}`
-                    : 'border-gray-200 hover:border-gray-300 bg-white'
+                    : 'bg-white'
                 }`}
               >
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${colorClasses.bg}`}>
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${colorClasses.bg}`}>
                   <Icon className={`w-6 h-6 ${colorClasses.text}`} strokeWidth={2} />
                 </div>
-                <span className="font-bold text-[10px] text-center whitespace-pre-line leading-tight text-gray-900">{option.label}</span>
+                <span className="font-bold text-xs text-center whitespace-pre-line leading-tight text-gray-900">{option.label}</span>
               </button>
             );
           })}
@@ -503,16 +503,16 @@ export default function SolarForm() {
               <button
                 key={option.value}
                 onClick={() => handleSelection('wantsBattery', option.value as FormData['wantsBattery'])}
-                className={`flex flex-col items-center justify-center w-28 h-28 rounded-xl border-2 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
+                className={`flex flex-col items-center justify-center w-32 h-32 rounded-2xl border border-gray-100 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
                   isSelected
                     ? `${colorClasses.border} ${colorClasses.bgCard} ring-2 ${colorClasses.ring}`
-                    : 'border-gray-200 hover:border-gray-300 bg-white'
+                    : 'bg-white'
                 }`}
               >
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${colorClasses.bg}`}>
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${colorClasses.bg}`}>
                   <Icon className={`w-6 h-6 ${colorClasses.text}`} strokeWidth={2.5} />
                 </div>
-                <span className="font-bold text-gray-900 text-sm">{option.label}</span>
+                <span className="font-bold text-gray-900 text-base">{option.label}</span>
               </button>
             );
           })}
