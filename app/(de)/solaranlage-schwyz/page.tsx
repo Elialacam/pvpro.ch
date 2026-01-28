@@ -4,8 +4,6 @@ import { cityContents, CityContent } from '@/lib/city-content';
 import { notFound } from 'next/navigation';
 import UniqueCityPage from '@/components/UniqueCityPage';
 
-export const dynamic = 'force-static';
-export const revalidate = false;
 
 // This is a template for the city pages.
 // We will use a script to populate all 20 pages with this logic.

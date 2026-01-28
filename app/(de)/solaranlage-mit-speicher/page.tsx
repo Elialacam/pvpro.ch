@@ -2,8 +2,6 @@ import { Metadata } from 'next';
 import SolarForm from '@/components/SolarForm';
 import { CheckCircle, Battery, Zap, Sun, Moon, TrendingUp, PiggyBank, Shield } from 'lucide-react';
 
-export const dynamic = 'force-static';
-export const revalidate = false;
 
 export const metadata: Metadata = {
   title: 'Solaranlage mit Speicher Schweiz - Kosten & Vorteile 2025 | PVPro',

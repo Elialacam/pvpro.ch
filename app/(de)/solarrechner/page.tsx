@@ -3,8 +3,6 @@ import SolarCalculator from '@/components/SolarCalculator';
 import SolarForm from '@/components/SolarForm';
 import { CheckCircle, Calculator, Zap, TrendingUp, PiggyBank } from 'lucide-react';
 
-export const dynamic = 'force-static';
-export const revalidate = false;
 
 export const metadata: Metadata = {
   title: 'Solarrechner Schweiz - Kosten & Ertrag berechnen | PVPro',

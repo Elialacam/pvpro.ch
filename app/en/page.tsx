@@ -4,9 +4,14 @@ import Testimonials from '@/components/Testimonials';
 import TeamSection from '@/components/TeamSection';
 import SwissMap from '@/components/SwissMap';
 import FAQ from '@/components/FAQ';
-import Link from 'next/link';
 import { cities } from '@/lib/cities';
-import { MapPin } from 'lucide-react';
+import CityGrid from '@/components/CityGrid';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'PV Pro - Compare solar systems in Switzerland | Free Quotes',
+  description: 'Compare up to 3 free quotes for your solar system in Switzerland. Save time and money with PV Pro.',
+};
 
 export default function EnglishHomePage() {
   const defaultFAQs = [
@@ -38,7 +43,6 @@ export default function EnglishHomePage() {
 
   return (
     <>
-      {/* FAQPage Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -63,7 +67,6 @@ export default function EnglishHomePage() {
       <SwissMap />
       <HowItWorks />
 
-      {/* Cities Section - Internal Linking */}
       <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">
           <div className="text-center mb-12">
@@ -75,32 +78,7 @@ export default function EnglishHomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {cities.map((city) => (
-              <button
-                key={city.slug}
-                onClick={() => {
-                  const formElement = document.getElementById('formular');
-                  if (formElement) {
-                    const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - (window.innerHeight / 2) + (formElement.offsetHeight / 2);
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                  }
-                }}
-                className="group flex items-center gap-2 p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary-50 transition-all duration-200 cursor-pointer text-left w-full"
-              >
-                <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-gray-900 group-hover:text-primary transition-colors truncate">
-                    {city.name}
-                  </div>
-                  <div className="text-xs text-gray-500">
-                    {city.canton}
-                  </div>
-                </div>
-              </button>
-            ))}
-          </div>
+          <CityGrid cities={cities} />
         </div>
       </section>
 

@@ -3,8 +3,6 @@ import SolarForm from '@/components/SolarForm';
 import FAQ from '@/components/FAQ';
 import { CheckCircle, Calculator, Sun, Zap, PiggyBank, TrendingUp, Home, Building2 } from 'lucide-react';
 
-export const dynamic = 'force-static';
-export const revalidate = false;
 
 export const metadata: Metadata = {
   title: 'Solaranlage Kosten Schweiz 2025 - Preise, Förderung & Rechner | PVPro',
