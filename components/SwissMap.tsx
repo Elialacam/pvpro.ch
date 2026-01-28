@@ -179,9 +179,12 @@ export default function SwissMap() {
                 </div>
               ))}
             </div>
-            <a href="#formular" className="btn-primary inline-block mt-8">
+            <button 
+              onClick={scrollToForm}
+              className="btn-primary inline-block mt-8"
+            >
               {content.cta}
-            </a>
+            </button>
           </div>
         </div>
       </div>

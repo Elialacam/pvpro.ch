@@ -77,10 +77,17 @@ export default function EnglishHomePage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {cities.map((city) => (
-              <a
+              <button
                 key={city.slug}
-                href="#formular"
-                className="group flex items-center gap-2 p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary-50 transition-all duration-200 cursor-pointer"
+                onClick={() => {
+                  const formElement = document.getElementById('formular');
+                  if (formElement) {
+                    const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - (window.innerHeight / 2) + (formElement.offsetHeight / 2);
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }
+                }}
+                className="group flex items-center gap-2 p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary-50 transition-all duration-200 cursor-pointer text-left w-full"
               >
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
                 <div className="flex-1 min-w-0">
@@ -91,7 +98,7 @@ export default function EnglishHomePage() {
                     {city.canton}
                   </div>
                 </div>
-              </a>
+              </button>
             ))}
           </div>
         </div>

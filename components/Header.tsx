@@ -55,9 +55,19 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             <LanguageSwitcher />
-            <a href="#formular" className="btn-primary">
+            <button 
+              onClick={() => {
+                const formElement = document.getElementById('formular');
+                if (formElement) {
+                  const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
+                  const offsetPosition = elementPosition - (window.innerHeight / 2) + (formElement.offsetHeight / 2);
+                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+              }}
+              className="btn-primary"
+            >
               {links.cta}
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -77,13 +87,20 @@ export default function Header() {
               <div className="pb-2">
                 <LanguageSwitcher />
               </div>
-              <a
-                href="#formular"
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  const formElement = document.getElementById('formular');
+                  if (formElement) {
+                    const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - (window.innerHeight / 2) + (formElement.offsetHeight / 2);
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }
+                }}
                 className="btn-primary text-center"
-                onClick={() => setMobileMenuOpen(false)}
               >
                 {links.cta}
-              </a>
+              </button>
             </div>
           </div>
         )}

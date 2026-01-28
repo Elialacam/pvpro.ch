@@ -137,9 +137,19 @@ export default function SolarCalculator() {
             </p>
           </div>
 
-          <a href="#formular" className="btn-primary w-full mt-6">
+          <button 
+            onClick={() => {
+              const formElement = document.getElementById('formular');
+              if (formElement) {
+                const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - (window.innerHeight / 2) + (formElement.offsetHeight / 2);
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+              }
+            }}
+            className="btn-primary w-full mt-6"
+          >
             Jetzt individuelle Offerte einholen
-          </a>
+          </button>
         </div>
       )}
     </div>
