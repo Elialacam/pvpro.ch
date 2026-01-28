@@ -74,9 +74,8 @@ export default function SwissMap() {
   const scrollToForm = () => {
     const formElement = document.getElementById('formular');
     if (formElement) {
-      const offset = 100; // Offset to center the form better
-      const elementPosition = formElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - (window.innerHeight / 2) + (formElement.offsetHeight / 2) - offset;
+      const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - (window.innerHeight / 2) + (formElement.offsetHeight / 2);
       
       window.scrollTo({
         top: offsetPosition,

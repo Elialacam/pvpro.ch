@@ -1,3 +1,5 @@
+'use client';
+
 import { City } from '@/lib/cities';
 import { CityContent } from '@/lib/city-content';
 import SolarForm from '@/components/SolarForm';
@@ -149,9 +151,8 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               onClick={() => {
                 const formElement = document.getElementById('formular');
                 if (formElement) {
-                  const offset = 100; // Offset to center the form better
-                  const elementPosition = formElement.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - (window.innerHeight / 2) + (formElement.offsetHeight / 2) - offset;
+                  const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
+                  const offsetPosition = elementPosition - (window.innerHeight / 2) + (formElement.offsetHeight / 2);
                   window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                 }
               }} 
