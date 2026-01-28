@@ -145,9 +145,20 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               </div>
             </div>
 
-            <a href="#formular" className="btn-primary text-lg px-8 py-4">
+            <button 
+              onClick={() => {
+                const formElement = document.getElementById('formular');
+                if (formElement) {
+                  const offset = 100; // Offset to center the form better
+                  const elementPosition = formElement.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - (window.innerHeight / 2) + (formElement.offsetHeight / 2) - offset;
+                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+              }} 
+              className="btn-primary text-lg px-8 py-4"
+            >
               {city.language === 'it' ? 'Richiedi preventivo gratuito' : 'Jetzt kostenlose Offerte anfordern'}
-            </a>
+            </button>
           </div>
         </div>
       </section>

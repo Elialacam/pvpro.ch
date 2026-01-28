@@ -74,7 +74,14 @@ export default function SwissMap() {
   const scrollToForm = () => {
     const formElement = document.getElementById('formular');
     if (formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth' });
+      const offset = 100; // Offset to center the form better
+      const elementPosition = formElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - (window.innerHeight / 2) + (formElement.offsetHeight / 2) - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -83,8 +90,8 @@ export default function SwissMap() {
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Map */}
-          <div className="relative -mx-2 sm:mx-0" style={{ padding: '10px 0' }}>
-            <div className="scale-[1.12] sm:scale-100 transform-gpu origin-center">
+          <div className="relative -mx-1 sm:mx-0" style={{ padding: '10px 0' }}>
+            <div className="scale-[1.14] sm:scale-100 transform-gpu origin-center">
               <ComposableMap
                 projection="geoMercator"
                 projectionConfig={{
