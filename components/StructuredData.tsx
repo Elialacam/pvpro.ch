@@ -6,9 +6,9 @@ export default function StructuredData() {
     "name": "PVPro",
     "alternateName": "Solar Heim",
     "url": "https://pvpro.ch",
-    "logo": "https://pvpro.ch/logo.png",
+    "logo": "https://pvpro.ch/logo-pvpro.png",
     "image": [
-      "https://pvpro.ch/logo.png",
+      "https://pvpro.ch/logo-pvpro.png",
       "https://pvpro.ch/og-image.jpg"
     ],
     "description": "PVPro ist die führende Vergleichsplattform für Solaranlagen in der Schweiz. Wir vermitteln kostenlos Angebote von geprüften Solarteu ren und helfen Hausbesitzern, bis zu 30% zu sparen.",

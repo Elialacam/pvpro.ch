@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://pvpro.ch'),
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/logo-pvpro.png', sizes: 'any' },
       { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
       { url: '/logo-pvpro.png', sizes: '192x192', type: 'image/png' },

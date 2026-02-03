@@ -73,7 +73,7 @@ export default function ItalianLayout({
             "@type": "Organization",
             "name": "PV Pro",
             "url": "https://pvpro.ch",
-            "logo": "https://pvpro.ch/logo.png",
+            "logo": "https://pvpro.ch/logo-pvpro.png",
             "sameAs": [
               "https://www.facebook.com/pvpro",
               "https://www.linkedin.com/company/pvpro"
