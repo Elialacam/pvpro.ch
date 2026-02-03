@@ -38,15 +38,18 @@ export default function Header() {
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link href={links.home} className="flex items-center">
+          <Link href={links.home} className="flex items-center group">
             <Image
               src="/logo-pvpro.png"
               alt="PVPro"
-              width={180}
-              height={60}
-              className="h-10 sm:h-12 w-auto"
-              priority
+              width={44}
+              height={44}
+              className="h-9 sm:h-11 w-auto"
             />
+            <span className="text-2xl sm:text-3xl font-bold -ml-1">
+              <span className="text-gray-900">Pro</span>
+              <span className="text-gray-400 text-lg">.ch</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
