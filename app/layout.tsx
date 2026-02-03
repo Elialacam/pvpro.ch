@@ -37,6 +37,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de-CH" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+      </head>
       <body>
         <Script
           src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
