@@ -18,11 +18,12 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://pvpro.ch'),
   icons: {
     icon: [
-      { url: '/favicon.ico?v=2' },
-      { url: '/icon.png?v=2', type: 'image/png' },
+      { url: '/favicon.ico?v=3' },
+      { url: '/icon.png?v=3', type: 'image/png' },
+      { url: '/logo.png?v=3', type: 'image/png' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png?v=2' },
+      { url: '/apple-touch-icon.png?v=3' },
     ],
   },
 };
