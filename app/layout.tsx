@@ -1,6 +1,6 @@
 import Script from 'next/script'
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@/components/Analytics";
 import ScrollTracking from "@/components/ScrollTracking";
@@ -9,7 +9,11 @@ import { Suspense } from "react";
 import GoogleTagManager from '../components/GoogleTagManager';
 import MetaPixel from '../components/MetaPixel';
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({ 
+  subsets: ["latin"],
+  variable: '--font-montserrat',
+  display: 'swap',
+});
 
 // Base metadata - specific language pages override this
 export const metadata: Metadata = {
@@ -35,8 +39,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de-CH" className="scroll-smooth" suppressHydrationWarning>
-      <body>
+    <html lang="de-CH" className={`scroll-smooth ${montserrat.variable}`} suppressHydrationWarning>
+      <body className={montserrat.className}>
         <Script
           src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
           strategy="afterInteractive"

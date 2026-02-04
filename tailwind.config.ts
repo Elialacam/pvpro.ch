@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-montserrat)', 'Inter', 'sans-serif'],
+      },
       colors: {
         primary: {
           DEFAULT: '#D4AF37',
