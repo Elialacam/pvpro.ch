@@ -11,6 +11,7 @@ interface RealisticButtonProps {
   imageSrc?: string;
   color?: 'green' | 'red' | 'amber' | 'blue' | 'purple' | 'gray';
   subLabel?: string;
+  forceStep1Style?: boolean;
 }
 
 const GOLD = '#c8a415';
@@ -25,9 +26,10 @@ export default function RealisticButton({
   icon: Icon,
   imageSrc,
   color = 'amber',
-  subLabel 
+  subLabel,
+  forceStep1Style = false
 }: RealisticButtonProps) {
-  const isStep1Style = color === 'green' || color === 'red';
+  const isStep1Style = forceStep1Style || color === 'green' || color === 'red';
 
   const colorMap = {
     green: { bg: '#ecfdf5', border: '#10b981', icon: '#059669', shadow: 'rgba(16,185,129,0.25)' },
