@@ -39,10 +39,11 @@ export default function RealisticButton({
       className={`relative group flex flex-col items-center justify-center w-40 h-48 rounded-3xl transition-all duration-300 ${
         isSelected 
           ? 'bg-white shadow-[0_20px_40px_rgba(0,0,0,0.1)] border-2' 
-          : 'bg-gray-50/50 border border-gray-100 hover:bg-white hover:shadow-xl'
+          : 'hover:bg-white hover:shadow-xl'
       }`}
       style={{
-        borderColor: isSelected ? theme.primary : 'transparent'
+        borderColor: isSelected ? theme.primary : 'transparent',
+        backgroundColor: isSelected ? 'white' : theme.light,
       }}
     >
       {/* Decorative background element for selection */}
@@ -59,22 +60,19 @@ export default function RealisticButton({
         <motion.div
           animate={isSelected ? { rotateY: 360 } : {}}
           transition={{ duration: 1, ease: "easeInOut" }}
-          className={`w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-500 ${
-            isSelected ? 'shadow-lg rotate-[-5deg]' : 'shadow-sm'
+          className={`w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-500 shadow-lg ${
+            isSelected ? 'rotate-[-5deg] scale-110' : ''
           }`}
           style={{ 
-            background: isSelected 
-              ? `linear-gradient(135deg, ${theme.light} 0%, white 100%)` 
-              : 'white'
+            background: `linear-gradient(135deg, white 0%, ${theme.light} 100%)`,
+            border: `2px solid ${theme.primary}20`
           }}
         >
-          <Icon 
-            className={`w-10 h-10 transition-colors duration-300 ${
-              isSelected ? '' : 'text-gray-400'
-            }`}
-            style={{ color: isSelected ? theme.primary : undefined }}
-            strokeWidth={1.5}
-          />
+        <Icon 
+          className="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
+          style={{ color: theme.primary }}
+          strokeWidth={2}
+        />
         </motion.div>
         
         {/* Reflection effect */}
@@ -88,9 +86,9 @@ export default function RealisticButton({
       </div>
 
       <div className="text-center px-2">
-        <span className={`block font-sans font-bold text-lg leading-tight transition-colors duration-300 ${
-          isSelected ? 'text-gray-900' : 'text-gray-500'
-        }`}>
+        <span className={`block font-sans font-extrabold text-xl leading-tight transition-colors duration-300`}
+          style={{ color: theme.dark }}
+        >
           {label.split('\n').map((line, i) => (
             <span key={i} className="block">{line}</span>
           ))}
