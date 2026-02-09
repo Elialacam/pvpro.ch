@@ -14,8 +14,7 @@ export default function MetaPixel() {
 
     // Track PageView on route change
     if (window.fbq) {
-      console.log('📊 Meta Pixel Test Code: TEST92815');
-      window.fbq('track', 'PageView');
+      window.fbq('track', 'PageView', {}, { eventID: 'TEST81166' });
     }
   }, [pathname, searchParams, pixelId]);
 
