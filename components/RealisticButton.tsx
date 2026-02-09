@@ -50,7 +50,7 @@ export default function RealisticButton({
         whileHover={{ scale: 1.03, y: -4 }}
         whileTap={{ scale: 0.97 }}
         onClick={onClick}
-        className="relative group flex flex-col items-center justify-center w-full min-h-[110px] sm:min-h-[160px] rounded-2xl transition-all duration-300 p-1.5 sm:p-3"
+        className="relative group flex flex-col items-center justify-center w-full min-h-[120px] sm:min-h-[170px] rounded-2xl transition-all duration-300 p-2 sm:p-3"
         style={{
           backgroundColor: isSelected ? 'white' : theme.bg,
           border: isSelected ? `2px solid ${theme.border}` : '2px solid transparent',
@@ -111,7 +111,7 @@ export default function RealisticButton({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative group flex flex-col items-center justify-center w-full min-h-[110px] sm:min-h-[160px] rounded-2xl transition-all duration-300 p-1.5 sm:p-3"
+      className="relative group flex flex-col items-center justify-center w-full min-h-[120px] sm:min-h-[170px] rounded-2xl transition-all duration-300 p-2 sm:p-3"
       style={{
         backgroundColor: isSelected ? 'white' : 'white',
         border: isSelected ? `3px solid ${GOLD}` : isHovered ? `2px solid ${GOLD}` : '2px solid #e5e7eb',
@@ -126,7 +126,7 @@ export default function RealisticButton({
           <motion.div
             animate={isSelected ? { scale: 1.05 } : {}}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="w-[4.5rem] h-[4.5rem] sm:w-24 sm:h-24 flex items-center justify-center"
+            className="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center"
           >
             <img 
               src={imageSrc} 
@@ -150,7 +150,7 @@ export default function RealisticButton({
       </div>
 
       <div className="text-center px-1">
-        <span className="block font-semibold text-[12px] sm:text-[15px] leading-tight text-gray-900">
+        <span className="block font-semibold text-[13px] sm:text-[15px] leading-tight text-gray-900">
           {label}
         </span>
         {subLabel && (
