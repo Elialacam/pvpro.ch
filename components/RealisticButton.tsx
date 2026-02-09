@@ -134,12 +134,20 @@ export default function RealisticButton({
           </motion.div>
         ) : Icon ? (
           <motion.div
-            animate={isSelected ? { scale: 1.05 } : {}}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="w-20 h-20 flex items-center justify-center"
+            animate={isSelected ? { rotateY: 360 } : {}}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="w-24 h-24 rounded-2xl flex items-center justify-center shadow-md"
+            style={{ 
+              background: isSelected 
+                ? `linear-gradient(135deg, white 0%, ${GOLD_BG} 100%)`
+                : isHovered 
+                  ? `linear-gradient(135deg, white 0%, ${GOLD_BG} 100%)`
+                  : 'linear-gradient(135deg, white 0%, #f3f4f6 100%)',
+              border: isSelected ? `2px solid ${GOLD}30` : '2px solid #e5e7eb30'
+            }}
           >
             <Icon 
-              className="w-14 h-14 transition-all duration-300"
+              className="w-12 h-12 transition-all duration-300"
               style={{ color: isSelected ? GOLD : isHovered ? GOLD : '#9ca3af' }}
               strokeWidth={1.5}
             />
