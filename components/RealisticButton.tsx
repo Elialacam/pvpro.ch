@@ -21,36 +21,71 @@ export default function RealisticButton({
   color = 'amber',
   subLabel 
 }: RealisticButtonProps) {
+  const colorMap = {
+    green: { bg: '#ecfdf5', border: '#10b981', icon: '#059669', shadow: 'rgba(16,185,129,0.25)' },
+    red: { bg: '#fef2f2', border: '#ef4444', icon: '#dc2626', shadow: 'rgba(239,68,68,0.25)' },
+    amber: { bg: '#fffbeb', border: '#f59e0b', icon: '#d97706', shadow: 'rgba(245,158,11,0.25)' },
+    blue: { bg: '#eff6ff', border: '#3b82f6', icon: '#2563eb', shadow: 'rgba(59,130,246,0.25)' },
+    purple: { bg: '#faf5ff', border: '#a855f7', icon: '#9333ea', shadow: 'rgba(168,85,247,0.25)' },
+    gray: { bg: '#f9fafb', border: '#6b7280', icon: '#4b5563', shadow: 'rgba(107,114,128,0.25)' },
+  };
+
+  const theme = colorMap[color];
+
   return (
     <motion.button
       whileHover={{ scale: 1.03, y: -4 }}
       whileTap={{ scale: 0.97 }}
       onClick={onClick}
-      className={`relative group flex flex-col items-center justify-center w-[160px] min-h-[180px] rounded-2xl transition-all duration-300 border-2 p-4 ${
-        isSelected 
-          ? 'bg-white shadow-[0_8px_30px_rgba(0,0,0,0.12)] border-primary' 
-          : 'bg-white hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] border-gray-100 hover:border-gray-200'
-      }`}
+      className="relative group flex flex-col items-center justify-center w-[160px] min-h-[180px] rounded-2xl transition-all duration-300 p-4"
+      style={{
+        backgroundColor: isSelected ? 'white' : theme.bg,
+        border: isSelected ? `2px solid ${theme.border}` : '2px solid transparent',
+        boxShadow: isSelected 
+          ? `0 20px 40px ${theme.shadow}, 0 0 0 4px ${theme.bg}` 
+          : `0 4px 15px rgba(0,0,0,0.04)`,
+      }}
     >
       <div className="relative mb-4 flex items-center justify-center h-20">
         {imageSrc ? (
-          <img 
-            src={imageSrc} 
-            alt={label} 
-            className="w-20 h-20 object-contain transition-transform duration-300 group-hover:scale-110"
-          />
+          <motion.div
+            animate={isSelected ? { rotateY: 360 } : {}}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg"
+            style={{ 
+              background: `linear-gradient(135deg, white 0%, ${theme.bg} 100%)`,
+              border: `2px solid ${theme.border}20`
+            }}
+          >
+            <img 
+              src={imageSrc} 
+              alt={label} 
+              className="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
+            />
+          </motion.div>
         ) : Icon ? (
-          <Icon 
-            className={`w-14 h-14 transition-transform duration-300 group-hover:scale-110 ${isSelected ? 'text-primary' : 'text-primary/70'}`}
-            strokeWidth={1.5}
-          />
+          <motion.div
+            animate={isSelected ? { rotateY: 360 } : {}}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg"
+            style={{ 
+              background: `linear-gradient(135deg, white 0%, ${theme.bg} 100%)`,
+              border: `2px solid ${theme.border}20`
+            }}
+          >
+            <Icon 
+              className="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
+              style={{ color: theme.icon }}
+              strokeWidth={2}
+            />
+          </motion.div>
         ) : null}
       </div>
 
       <div className="text-center px-1">
-        <span className={`block font-semibold text-sm leading-tight transition-colors duration-300 ${
-          isSelected ? 'text-gray-900' : 'text-gray-600'
-        }`}>
+        <span className="block font-extrabold text-lg leading-tight transition-colors duration-300"
+          style={{ color: theme.icon }}
+        >
           {label}
         </span>
         {subLabel && (
@@ -62,9 +97,10 @@ export default function RealisticButton({
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="absolute -top-2 -right-2 w-7 h-7 rounded-full border-2 border-white shadow-md flex items-center justify-center bg-primary"
+          className="absolute -top-2 -right-2 w-8 h-8 rounded-full border-4 border-white shadow-lg flex items-center justify-center"
+          style={{ backgroundColor: theme.border }}
         >
-          <Check className="w-4 h-4 text-white" strokeWidth={3} />
+          <Check className="w-4 h-4 text-white" strokeWidth={4} />
         </motion.div>
       )}
     </motion.button>
