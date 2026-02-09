@@ -313,10 +313,10 @@ export default function SolarForm() {
         return (
           <div className="space-y-8">
             <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center">{t.step2Title}</h3>
-            <div className="flex gap-6 justify-center flex-wrap">
-              <RealisticButton label={t.singleFamily} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelection('propertyType', 'einfamilienhaus')} icon={Home} color="amber" />
-              <RealisticButton label={t.multiFamily} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelection('propertyType', 'mehrfamilienhaus')} icon={Building2} color="blue" />
-              <RealisticButton label={t.other} isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelection('propertyType', 'sonstiges')} icon={Warehouse} color="purple" />
+            <div className="flex gap-4 sm:gap-6 justify-center flex-wrap">
+              <RealisticButton label={t.singleFamily} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelection('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.png" />
+              <RealisticButton label={t.multiFamily} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelection('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.png" />
+              <RealisticButton label={t.other} isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelection('propertyType', 'sonstiges')} imageSrc="/icons/other-building.png" />
             </div>
           </div>
         );
@@ -324,11 +324,11 @@ export default function SolarForm() {
         return (
           <div className="space-y-8">
             <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center">{t.step3Title}</h3>
-            <div className="flex gap-6 justify-center flex-wrap">
-              <RealisticButton label={t.pitchedRoof} isSelected={formData.roofType === 'pitched'} onClick={() => handleSelection('roofType', 'pitched')} icon={ArrowUpRight} color="amber" />
-              <RealisticButton label={t.monopitchRoof} isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelection('roofType', 'monopitch')} icon={Maximize2} color="blue" />
-              <RealisticButton label={t.flatRoof} isSelected={formData.roofType === 'flat'} onClick={() => handleSelection('roofType', 'flat')} icon={Minimize2} color="purple" />
-              <RealisticButton label={t.other} isSelected={formData.roofType === 'other'} onClick={() => handleSelection('roofType', 'other')} icon={HelpCircle} color="gray" />
+            <div className="flex gap-4 sm:gap-6 justify-center flex-wrap">
+              <RealisticButton label={t.pitchedRoof} isSelected={formData.roofType === 'pitched'} onClick={() => handleSelection('roofType', 'pitched')} imageSrc="/icons/pitched-roof.png" />
+              <RealisticButton label={t.monopitchRoof} isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelection('roofType', 'monopitch')} imageSrc="/icons/monopitch-roof.png" />
+              <RealisticButton label={t.flatRoof} isSelected={formData.roofType === 'flat'} onClick={() => handleSelection('roofType', 'flat')} imageSrc="/icons/flat-roof.png" />
+              <RealisticButton label={t.other} isSelected={formData.roofType === 'other'} onClick={() => handleSelection('roofType', 'other')} imageSrc="/icons/other-building.png" />
             </div>
           </div>
         );
@@ -336,9 +336,9 @@ export default function SolarForm() {
         return (
           <div className="space-y-8">
             <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center">{t.step4Title}</h3>
-            <div className="flex gap-6 justify-center flex-wrap">
-              <RealisticButton label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelection('wantsBattery', 'yes')} icon={Battery} color="green" />
-              <RealisticButton label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelection('wantsBattery', 'no')} icon={BatteryLow} color="red" />
+            <div className="flex gap-4 sm:gap-6 justify-center flex-wrap">
+              <RealisticButton label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelection('wantsBattery', 'yes')} imageSrc="/icons/battery-storage.png" />
+              <RealisticButton label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelection('wantsBattery', 'no')} icon={X} color="red" />
               <RealisticButton label={t.unknown} isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelection('wantsBattery', 'unknown')} icon={HelpCircle} color="gray" />
             </div>
           </div>
