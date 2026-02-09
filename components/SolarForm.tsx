@@ -313,10 +313,16 @@ export default function SolarForm() {
         return (
           <div className="space-y-8">
             <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center">{t.step2Title}</h3>
-            <div className="flex flex-row gap-2 sm:gap-4 w-full mx-auto">
-              <RealisticButton label={t.singleFamily} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelection('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.png" />
-              <RealisticButton label={t.multiFamily} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelection('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.png" />
-              <RealisticButton label={t.other} isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelection('propertyType', 'sonstiges')} icon={HelpCircle} color="amber" />
+            <div className="w-full mx-auto">
+              <div className="grid grid-cols-2 gap-2 sm:gap-4 mb-2 sm:mb-4">
+                <RealisticButton label={t.singleFamily} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelection('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.png" />
+                <RealisticButton label={t.multiFamily} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelection('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.png" />
+              </div>
+              <div className="flex justify-center">
+                <div className="w-1/2 sm:w-1/3">
+                  <RealisticButton label={t.other} isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelection('propertyType', 'sonstiges')} icon={HelpCircle} color="amber" />
+                </div>
+              </div>
             </div>
           </div>
         );
@@ -336,10 +342,16 @@ export default function SolarForm() {
         return (
           <div className="space-y-8">
             <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center">{t.step4Title}</h3>
-            <div className="flex flex-row gap-2 sm:gap-4 w-full mx-auto">
-              <RealisticButton label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelection('wantsBattery', 'yes')} icon={Check} color="green" />
-              <RealisticButton label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelection('wantsBattery', 'no')} icon={X} color="red" />
-              <RealisticButton label={t.unknown} isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelection('wantsBattery', 'unknown')} icon={HelpCircle} color="gray" forceStep1Style />
+            <div className="w-full mx-auto">
+              <div className="grid grid-cols-2 gap-2 sm:gap-4 mb-2 sm:mb-4">
+                <RealisticButton label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelection('wantsBattery', 'yes')} icon={Check} color="green" />
+                <RealisticButton label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelection('wantsBattery', 'no')} icon={X} color="red" />
+              </div>
+              <div className="flex justify-center">
+                <div className="w-1/2 sm:w-1/3">
+                  <RealisticButton label={t.unknown} isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelection('wantsBattery', 'unknown')} icon={HelpCircle} color="gray" forceStep1Style />
+                </div>
+              </div>
             </div>
           </div>
         );
