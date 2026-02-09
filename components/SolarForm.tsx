@@ -3,8 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, X, HelpCircle, MapPin, Home, Building2, Warehouse, BarChart2 } from 'lucide-react';
-import { Locale } from '@/lib/i18n';
+import { Check, X, HelpCircle, MapPin, Home, Building2, Warehouse, BarChart2, Search } from 'lucide-react';
 import { useLocale } from '@/lib/LocaleContext';
 import RealisticButton from './RealisticButton';
 
@@ -187,6 +186,47 @@ export default function SolarForm() {
     }
   }, []);
 
+  const handleAddressChange = async (value: string) => {
+    setFormData({ ...formData, address: value });
+    setSelectedAddress(null);
+    setSelectedPlaceCoords(null);
+
+    if (value.length > 2 && autocompleteService.current) {
+      autocompleteService.current.getPlacePredictions({
+        input: value,
+        componentRestrictions: { country: 'ch' },
+        types: ['address'],
+      }, (predictions: any, status: any) => {
+        if (status === 'OK' && predictions) {
+          setAddressSuggestions(predictions);
+          setShowSuggestions(true);
+        }
+      });
+    } else {
+      setShowSuggestions(false);
+    }
+  };
+
+  const selectAddress = (prediction: any) => {
+    setFormData({ ...formData, address: prediction.description });
+    setSelectedAddress(prediction.description);
+    setShowSuggestions(false);
+    
+    if (placesService.current) {
+      placesService.current.getDetails({
+        placeId: prediction.place_id,
+        fields: ['geometry']
+      }, (place: any, status: any) => {
+        if (status === 'OK' && place?.geometry?.location) {
+          setSelectedPlaceCoords({
+            lat: place.geometry.location.lat(),
+            lng: place.geometry.location.lng()
+          });
+        }
+      });
+    }
+  };
+
   const handleSelection = (field: string, value: any) => {
     setFormData((prev: any) => ({ ...prev, [field]: value }));
     setTimeout(() => nextStep(), 300);
@@ -198,6 +238,10 @@ export default function SolarForm() {
       return;
     }
     if (step === 4) {
+      if (!selectedAddress) {
+        setNotification({ message: 'Bitte wählen Sie eine Adresse aus der Liste aus.', type: 'error' });
+        return;
+      }
       setIsLoadingTransition(true);
       await new Promise(r => setTimeout(r, 2500));
       setIsLoadingTransition(false);
@@ -258,15 +302,52 @@ export default function SolarForm() {
         );
       case 4:
         return (
-          <div className="space-y-4">
+          <div className="space-y-6">
             <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center">{t.step4Title}</h3>
-            <input 
-              className="w-full p-4 border rounded-xl"
-              value={formData.address}
-              onChange={(e) => setFormData({...formData, address: e.target.value})}
-              placeholder={t.addressPlaceholder}
-            />
-            <button onClick={nextStep} className="w-full btn-primary mt-4">Weiter</button>
+            
+            {selectedPlaceCoords && (
+              <div className="w-full h-48 rounded-2xl overflow-hidden border-2 border-primary/20 shadow-inner">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(formData.address)}&zoom=19&maptype=satellite`}
+                />
+              </div>
+            )}
+
+            <div className="relative group">
+              <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                <Search className="w-5 h-5 text-gray-400" />
+              </div>
+              <input 
+                className="w-full pl-12 pr-4 py-4 border-2 border-gray-100 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none text-lg"
+                value={formData.address}
+                onChange={(e) => handleAddressChange(e.target.value)}
+                placeholder={t.addressPlaceholder}
+              />
+              {showSuggestions && addressSuggestions.length > 0 && (
+                <div className="absolute z-50 left-0 right-0 top-full mt-2 bg-white border-2 border-gray-100 rounded-2xl shadow-2xl overflow-hidden">
+                  {addressSuggestions.map((s) => (
+                    <button
+                      key={s.place_id}
+                      onClick={() => selectAddress(s)}
+                      className="w-full p-4 text-left hover:bg-gray-50 flex items-center gap-3 border-b border-gray-50 last:border-0"
+                    >
+                      <MapPin className="w-5 h-5 text-primary" />
+                      <span className="text-gray-700">{s.description}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            <button 
+              onClick={nextStep} 
+              className={`w-full py-4 rounded-2xl font-bold text-lg transition-all ${selectedAddress ? 'btn-primary' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
+            >
+              {t.next}
+            </button>
           </div>
         );
       case 5:
@@ -274,12 +355,12 @@ export default function SolarForm() {
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-center">{t.step5Title}</h3>
             <div className="grid grid-cols-2 gap-4">
-              <input placeholder={t.firstName} className="p-3 border rounded" onChange={e => setFormData({...formData, firstName: e.target.value})} />
-              <input placeholder={t.lastName} className="p-3 border rounded" onChange={e => setFormData({...formData, lastName: e.target.value})} />
+              <input placeholder={t.firstName} className="p-4 border-2 border-gray-100 rounded-xl focus:border-primary outline-none" onChange={e => setFormData({...formData, firstName: e.target.value})} />
+              <input placeholder={t.lastName} className="p-4 border-2 border-gray-100 rounded-xl focus:border-primary outline-none" onChange={e => setFormData({...formData, lastName: e.target.value})} />
             </div>
-            <input placeholder={t.email} className="w-full p-3 border rounded" onChange={e => setFormData({...formData, email: e.target.value})} />
-            <input placeholder={t.phone} className="w-full p-3 border rounded" onChange={e => setFormData({...formData, phone: e.target.value})} />
-            <button onClick={handleSubmit} className="w-full btn-primary" disabled={isSubmitting}>{isSubmitting ? t.submitting : t.submit}</button>
+            <input placeholder={t.email} className="w-full p-4 border-2 border-gray-100 rounded-xl focus:border-primary outline-none" onChange={e => setFormData({...formData, email: e.target.value})} />
+            <input placeholder={t.phone} className="w-full p-4 border-2 border-gray-100 rounded-xl focus:border-primary outline-none" onChange={e => setFormData({...formData, phone: e.target.value})} />
+            <button onClick={handleSubmit} className="w-full btn-primary py-4 rounded-xl text-lg font-bold" disabled={isSubmitting}>{isSubmitting ? t.submitting : t.submit}</button>
           </div>
         );
       default: return null;
@@ -288,25 +369,26 @@ export default function SolarForm() {
 
   if (isLoadingTransition) {
     return (
-      <div className="p-8 text-center space-y-4">
-        <h2 className="text-2xl font-bold">{t.loadingTitle}</h2>
-        <div className="flex justify-center"><BarChart2 className="w-12 h-12 text-primary animate-pulse" /></div>
-        <p>{t.loadingStep1}</p>
+      <div className="p-12 text-center space-y-6">
+        <h2 className="text-2xl font-bold text-gray-900">{t.loadingTitle}</h2>
+        <div className="flex justify-center"><BarChart2 className="w-20 h-20 text-primary animate-pulse" /></div>
+        <p className="text-gray-600 font-medium">{t.loadingStep1}</p>
       </div>
     );
   }
 
   return (
-    <div id="formular" className="max-w-2xl mx-auto p-6 bg-white rounded-3xl shadow-2xl border border-gray-100">
+    <div id="formular" className="max-w-2xl mx-auto p-8 bg-white rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100">
       <AnimatePresence mode="wait">
-        <motion.div key={step} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
+        <motion.div key={step} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}>
           {renderStep()}
         </motion.div>
       </AnimatePresence>
       {notification && (
-        <div className={`mt-4 p-4 rounded-xl ${notification.type === 'error' ? 'bg-red-50 text-red-700' : 'bg-amber-50 text-amber-700'}`}>
-          {notification.message}
-        </div>
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className={`mt-6 p-4 rounded-2xl flex items-center gap-3 ${notification.type === 'error' ? 'bg-red-50 text-red-700' : 'bg-amber-50 text-amber-700'}`}>
+          <MapPin className="w-5 h-5" />
+          <span className="font-medium">{notification.message}</span>
+        </motion.div>
       )}
     </div>
   );
