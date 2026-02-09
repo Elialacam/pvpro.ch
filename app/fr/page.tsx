@@ -5,7 +5,8 @@ import TeamSection from '@/components/TeamSection';
 import SwissMap from '@/components/SwissMap';
 import FAQ from '@/components/FAQ';
 import { cities } from '@/lib/cities';
-import CityGrid from '@/components/CityGrid';
+import Link from 'next/link';
+import { MapPin } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -78,7 +79,35 @@ export default function FrenchHomePage() {
             </p>
           </div>
 
-          <CityGrid cities={cities} />
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {cities.map((city) => {
+              let href = '';
+              if (city.language === 'fr') {
+                href = `/fr/solaire-${city.slug}`;
+              } else if (city.language === 'it') {
+                href = `/it/fotovoltaico-${city.slug}`;
+              } else {
+                href = `/solaranlage-${city.slug}`;
+              }
+              return (
+                <Link
+                  key={city.slug}
+                  href={href}
+                  className="group flex items-center gap-2 p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary-50 transition-all duration-200 cursor-pointer"
+                >
+                  <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <div className="font-sans font-bold text-gray-900 group-hover:text-primary transition-colors truncate">
+                      {city.name}
+                    </div>
+                    <div className="text-xs text-gray-500">
+                      {city.canton}
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </section>
 
