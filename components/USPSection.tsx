@@ -23,7 +23,7 @@ export default function USPSection() {
     <section className="section-padding bg-white">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-4">
             Warum PVPro?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -40,7 +40,7 @@ export default function USPSection() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-50 rounded-2xl mb-6 group-hover:bg-primary-100 transition-colors">
                 <usp.icon className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl font-display font-bold text-gray-900 mb-3">
                 {usp.title}
               </h3>
               <p className="text-gray-600 leading-relaxed">

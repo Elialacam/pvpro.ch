@@ -144,7 +144,7 @@ export default function SolaranlageMitSpeicherPage() {
       <section className="bg-gradient-to-b from-primary-50 to-white section-padding">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl sm:text-5xl font-display font-bold text-gray-900 mb-6">
               Solaranlage mit Speicher
             </h1>
             <p className="text-xl text-gray-600 mb-8">
@@ -172,12 +172,12 @@ export default function SolaranlageMitSpeicherPage() {
       {/* Comparison: With vs Without Storage */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-display font-bold text-center text-gray-900 mb-12">
             Mit oder ohne Speicher?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="border-2 border-gray-200 rounded-2xl p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <h3 className="text-xl font-display font-bold text-gray-900 mb-4 flex items-center gap-2">
                 <Sun className="w-6 h-6 text-yellow-500" />
                 Ohne Speicher
               </h3>
@@ -200,7 +200,7 @@ export default function SolaranlageMitSpeicherPage() {
                 </li>
               </ul>
               <div className="mt-6 pt-4 border-t border-gray-200">
-                <div className="text-2xl font-bold text-gray-900">
+                <div className="text-2xl font-display font-bold text-gray-900">
                   CHF 9.500 - 25.000
                 </div>
                 <p className="text-sm text-gray-500">Nur Solaranlage</p>
@@ -211,7 +211,7 @@ export default function SolaranlageMitSpeicherPage() {
               <div className="bg-primary text-white text-sm font-medium px-3 py-1 rounded-full inline-block mb-4">
                 Empfohlen
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <h3 className="text-xl font-display font-bold text-gray-900 mb-4 flex items-center gap-2">
                 <Battery className="w-6 h-6 text-primary" />
                 Mit Speicher
               </h3>
@@ -234,7 +234,7 @@ export default function SolaranlageMitSpeicherPage() {
                 </li>
               </ul>
               <div className="mt-6 pt-4 border-t border-primary/20">
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-display font-bold text-primary">
                   CHF 19.500 - 40.000
                 </div>
                 <p className="text-sm text-gray-600">Solaranlage + Speicher</p>
@@ -247,7 +247,7 @@ export default function SolaranlageMitSpeicherPage() {
       {/* Storage Options */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+          <h2 className="text-3xl font-display font-bold text-center text-gray-900 mb-4">
             Speichergrössen im Vergleich
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
@@ -267,9 +267,9 @@ export default function SolaranlageMitSpeicherPage() {
                 )}
                 <div className="flex items-center gap-3 mb-4">
                   <Battery className={`w-8 h-8 ${option.popular ? 'text-primary' : 'text-gray-400'}`} />
-                  <div className="text-2xl font-bold text-gray-900">{option.capacity}</div>
+                  <div className="text-2xl font-display font-bold text-gray-900">{option.capacity}</div>
                 </div>
-                <div className="text-xl font-bold text-gray-900 mb-4">
+                <div className="text-xl font-display font-bold text-gray-900 mb-4">
                   CHF {option.price}
                 </div>
                 <ul className="space-y-2 text-sm text-gray-600">
@@ -285,7 +285,7 @@ export default function SolaranlageMitSpeicherPage() {
       {/* Benefits */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-display font-bold text-center text-gray-900 mb-12">
             Vorteile eines Batteriespeichers
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -294,7 +294,7 @@ export default function SolaranlageMitSpeicherPage() {
                 <div className="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center mx-auto mb-4">
                   <benefit.icon className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                <h3 className="text-lg font-display font-bold text-gray-900 mb-2">{benefit.title}</h3>
                 <p className="text-gray-600 text-sm">{benefit.description}</p>
               </div>
             ))}
@@ -306,7 +306,7 @@ export default function SolaranlageMitSpeicherPage() {
       <section id="formular" className="section-padding bg-primary-50">
         <div className="container-custom">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-3xl font-display font-bold text-center text-gray-900 mb-4">
               Jetzt Offerten mit Speicher vergleichen
             </h2>
             <p className="text-center text-gray-600 mb-8">
@@ -321,14 +321,14 @@ export default function SolaranlageMitSpeicherPage() {
       {/* FAQ Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-display font-bold text-center text-gray-900 mb-12">
             Häufige Fragen zu Solaranlagen mit Speicher
           </h2>
           <div className="max-w-3xl mx-auto">
             <div className="space-y-4">
               {faqs.map((faq, index) => (
                 <div key={index} className="bg-gray-50 rounded-xl p-6">
-                  <h3 className="font-bold text-gray-900 mb-2">{faq.question}</h3>
+                  <h3 className="font-display font-bold text-gray-900 mb-2">{faq.question}</h3>
                   <p className="text-gray-600">{faq.answer}</p>
                 </div>
               ))}

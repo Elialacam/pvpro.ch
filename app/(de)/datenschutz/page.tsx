@@ -9,14 +9,14 @@ export default function DatenschutzPage() {
   return (
     <section className="section-padding bg-white">
       <div className="container-custom max-w-4xl">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Datenschutzerklärung</h1>
+        <h1 className="text-4xl font-display font-bold text-gray-900 mb-8">Datenschutzerklärung</h1>
 
         <div className="prose prose-gray max-w-none">
           <p className="text-gray-600 leading-relaxed mb-6">
             Stand: {new Date().toLocaleDateString('de-CH', { year: 'numeric', month: 'long', day: 'numeric' })}
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Verantwortlicher</h2>
+          <h2 className="text-2xl font-display font-bold text-gray-900 mt-8 mb-4">1. Verantwortlicher</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             Verantwortlich für die Datenverarbeitung auf dieser Website ist:
           </p>
@@ -30,13 +30,13 @@ export default function DatenschutzPage() {
             Telefon: +41 77 442 00 59
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Erhebung und Verarbeitung personenbezogener Daten</h2>
+          <h2 className="text-2xl font-display font-bold text-gray-900 mt-8 mb-4">2. Erhebung und Verarbeitung personenbezogener Daten</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             Wir erheben und verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung unserer Dienstleistungen
             erforderlich ist oder Sie uns Ihre Einwilligung erteilt haben.
           </p>
 
-          <h3 className="text-xl font-bold text-gray-900 mt-6 mb-3">2.1 Kontaktformular</h3>
+          <h3 className="text-xl font-display font-bold text-gray-900 mt-6 mb-3">2.1 Kontaktformular</h3>
           <p className="text-gray-600 leading-relaxed mb-6">
             Bei der Nutzung unseres Kontaktformulars erheben wir folgende Daten:
           </p>
@@ -52,7 +52,7 @@ export default function DatenschutzPage() {
             ist Ihre Einwilligung gemäss Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 6 DSG (Schweiz).
           </p>
 
-          <h3 className="text-xl font-bold text-gray-900 mt-6 mb-3">2.2 Server-Logdateien</h3>
+          <h3 className="text-xl font-display font-bold text-gray-900 mt-6 mb-3">2.2 Server-Logdateien</h3>
           <p className="text-gray-600 leading-relaxed mb-6">
             Unser Webhosting-Provider erhebt und speichert automatisch Informationen in Server-Logdateien, die Ihr Browser
             automatisch übermittelt. Dies sind:
@@ -70,7 +70,7 @@ export default function DatenschutzPage() {
             eines störungsfreien Betriebs der Website.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">3. Weitergabe von Daten</h2>
+          <h2 className="text-2xl font-display font-bold text-gray-900 mt-8 mb-4">3. Weitergabe von Daten</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             Wir geben Ihre personenbezogenen Daten nur an Dritte weiter, wenn:
           </p>
@@ -85,14 +85,14 @@ export default function DatenschutzPage() {
             Ihrer ausdrücklichen Einwilligung.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">4. Speicherdauer</h2>
+          <h2 className="text-2xl font-display font-bold text-gray-900 mt-8 mb-4">4. Speicherdauer</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             Wir speichern Ihre personenbezogenen Daten nur so lange, wie dies zur Erfüllung des jeweiligen Zwecks erforderlich
             ist oder gesetzliche Aufbewahrungsfristen bestehen. Nach Zweckfortfall oder Ablauf der Aufbewahrungsfristen werden
             die Daten routinemässig gelöscht.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">5. Ihre Rechte</h2>
+          <h2 className="text-2xl font-display font-bold text-gray-900 mt-8 mb-4">5. Ihre Rechte</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:
           </p>
@@ -112,21 +112,21 @@ export default function DatenschutzPage() {
             Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">6. SSL-Verschlüsselung</h2>
+          <h2 className="text-2xl font-display font-bold text-gray-900 mt-8 mb-4">6. SSL-Verschlüsselung</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL-Verschlüsselung.
             Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von "http://" auf "https://"
             wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">7. Cookies</h2>
+          <h2 className="text-2xl font-display font-bold text-gray-900 mt-8 mb-4">7. Cookies</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             Unsere Website verwendet lokale Speicherfunktionen (LocalStorage), um Ihre Formulareingaben zwischenzuspeichern,
             damit diese bei versehentlichem Schliessen des Browsers nicht verloren gehen. Diese Daten werden nur lokal auf
             Ihrem Gerät gespeichert und nicht an unsere Server übertragen.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">8. Änderungen der Datenschutzerklärung</h2>
+          <h2 className="text-2xl font-display font-bold text-gray-900 mt-8 mb-4">8. Änderungen der Datenschutzerklärung</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen
             entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen. Für Ihren erneuten Besuch

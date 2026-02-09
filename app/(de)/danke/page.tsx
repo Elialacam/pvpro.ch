@@ -83,7 +83,7 @@ export default function ThankYouPage() {
             <CheckCircle className="w-12 h-12 text-white" />
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-4">
             Vielen Dank für Ihre Anfrage!
           </h1>
 
@@ -93,17 +93,17 @@ export default function ThankYouPage() {
 
           {/* What Happens Next */}
           <div className="text-left mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+            <h2 className="text-2xl font-display font-bold text-gray-900 mb-6 text-center">
               Was passiert als Nächstes?
             </h2>
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-lg font-bold text-primary">1</span>
+                  <span className="text-lg font-display font-bold text-primary">1</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 mb-1">Wir prüfen Ihre Angaben</h3>
+                  <h3 className="font-display font-bold text-gray-900 mb-1">Wir prüfen Ihre Angaben</h3>
                   <p className="text-gray-600">
                     Unser Team überprüft Ihre Anfrage und sucht die passenden Solarteure in Ihrer Region.
                   </p>
@@ -112,10 +112,10 @@ export default function ThankYouPage() {
 
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-lg font-bold text-primary">2</span>
+                  <span className="text-lg font-display font-bold text-primary">2</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 mb-1">Wir kontaktieren lokale Installateure</h3>
+                  <h3 className="font-display font-bold text-gray-900 mb-1">Wir kontaktieren lokale Installateure</h3>
                   <p className="text-gray-600">
                     Bis zu 3 geprüfte Fachbetriebe erstellen individuelle Angebote für Ihr Solarprojekt.
                   </p>
@@ -124,10 +124,10 @@ export default function ThankYouPage() {
 
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-lg font-bold text-primary">3</span>
+                  <span className="text-lg font-display font-bold text-primary">3</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 mb-1">Sie erhalten Ihre Offerten</h3>
+                  <h3 className="font-display font-bold text-gray-900 mb-1">Sie erhalten Ihre Offerten</h3>
                   <p className="text-gray-600">
                     Innerhalb von 2-5 Werktagen erhalten Sie bis zu 3 kostenlose Offerten per E-Mail.
                   </p>
@@ -138,7 +138,7 @@ export default function ThankYouPage() {
 
           {/* Contact Info */}
           <div className="bg-gray-50 rounded-xl p-6 mb-8">
-            <h3 className="font-bold text-gray-900 mb-4">Fragen? Wir sind für Sie da</h3>
+            <h3 className="font-display font-bold text-gray-900 mb-4">Fragen? Wir sind für Sie da</h3>
             <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm">
               <a href="mailto:info@pvpro.ch" className="flex items-center justify-center gap-2 text-gray-700 hover:text-primary transition-colors">
                 <Mail className="w-4 h-4" />

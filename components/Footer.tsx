@@ -126,7 +126,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           <div>
             <Link href={content.home} className="flex items-center gap-2 mb-4">
-              <span className="text-2xl font-bold">
+              <span className="text-2xl font-display font-bold">
                 <span className="text-white">P</span>
                 <span className="text-primary">V</span>
                 <span className="text-white">Pro</span>
@@ -150,7 +150,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-bold mb-4">{content.contact.title}</h3>
+            <h3 className="text-white font-display font-bold mb-4">{content.contact.title}</h3>
             <ul className="space-y-3">
               <li>
                 <a href={`mailto:${content.contact.email}`} className="flex items-center gap-2 text-sm hover:text-primary transition-colors">
@@ -170,7 +170,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-bold mb-4">{content.followUs}</h3>
+            <h3 className="text-white font-display font-bold mb-4">{content.followUs}</h3>
             <div className="flex gap-4">
               <a
                 href="https://www.instagram.com/pvpro.ch/"

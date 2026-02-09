@@ -32,7 +32,7 @@ export default function CityGrid({ cities }: CityGridProps) {
         >
           <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
           <div className="flex-1 min-w-0">
-            <div className="font-semibold text-gray-900 group-hover:text-primary transition-colors truncate">
+            <div className="font-display font-semibold text-gray-900 group-hover:text-primary transition-colors truncate">
               {city.name}
             </div>
             <div className="text-xs text-gray-500">

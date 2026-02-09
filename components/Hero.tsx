@@ -70,10 +70,10 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Text */}
           <div className="lg:pt-8">
-            <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-gray-900 mb-2 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-5xl font-display font-bold text-gray-900 mb-2 leading-tight">
               {content.title}
             </h1>
-            <p className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">
+            <p className="text-2xl sm:text-3xl font-display font-semibold text-gray-800 mb-4">
               {content.subtitle}{' '}
               <span className="text-primary">{content.subtitleHighlight}</span>
             </p>

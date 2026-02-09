@@ -39,7 +39,7 @@ export default function SolarCalculator() {
         <div className="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center">
           <Calculator className="w-6 h-6 text-primary" />
         </div>
-        <h2 className="text-2xl font-bold text-gray-900">Solarrechner</h2>
+        <h2 className="text-2xl font-display font-bold text-gray-900">Solarrechner</h2>
       </div>
 
       <p className="text-gray-600 mb-8">
@@ -62,7 +62,7 @@ export default function SolarCalculator() {
           />
           <div className="flex justify-between text-sm text-gray-600 mt-1">
             <span>20 m²</span>
-            <span className="font-bold text-primary">{roofSize} m²</span>
+            <span className="font-display font-bold text-primary">{roofSize} m²</span>
             <span>200 m²</span>
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function SolarCalculator() {
           />
           <div className="flex justify-between text-sm text-gray-600 mt-1">
             <span>1.000 kWh</span>
-            <span className="font-bold text-primary">{consumption.toLocaleString('de-CH')} kWh</span>
+            <span className="font-display font-bold text-primary">{consumption.toLocaleString('de-CH')} kWh</span>
             <span>10.000 kWh</span>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function SolarCalculator() {
 
       {results && (
         <div className="border-t border-gray-200 pt-8">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Ihre Ergebnisse</h3>
+          <h3 className="text-xl font-display font-bold text-gray-900 mb-6">Ihre Ergebnisse</h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             <div className="bg-primary-50 rounded-xl p-4">
@@ -102,7 +102,7 @@ export default function SolarCalculator() {
                 <Zap className="w-4 h-4 text-primary" />
                 <span className="text-sm text-gray-600">Anlagengrösse</span>
               </div>
-              <div className="text-2xl font-bold text-primary">{results.systemSize} kWp</div>
+              <div className="text-2xl font-display font-bold text-primary">{results.systemSize} kWp</div>
             </div>
 
             <div className="bg-trust-50 rounded-xl p-4">
@@ -110,24 +110,24 @@ export default function SolarCalculator() {
                 <TrendingUp className="w-4 h-4 text-trust" />
                 <span className="text-sm text-gray-600">Jährliche Produktion</span>
               </div>
-              <div className="text-2xl font-bold text-trust">{results.annualProduction.toLocaleString('de-CH')} kWh</div>
+              <div className="text-2xl font-display font-bold text-trust">{results.annualProduction.toLocaleString('de-CH')} kWh</div>
             </div>
           </div>
 
           <div className="bg-gray-50 rounded-xl p-6 space-y-4">
             <div className="flex justify-between items-center">
               <span className="text-gray-700">Geschätzte Kosten</span>
-              <span className="font-bold text-gray-900">
+              <span className="font-display font-bold text-gray-900">
                 {results.costs.min.toLocaleString('de-CH')} - {results.costs.max.toLocaleString('de-CH')} CHF
               </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-700">Jährliche Einsparung</span>
-              <span className="font-bold text-primary">{results.savings.toLocaleString('de-CH')} CHF</span>
+              <span className="font-display font-bold text-primary">{results.savings.toLocaleString('de-CH')} CHF</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-700">Amortisationszeit</span>
-              <span className="font-bold text-gray-900">ca. {results.paybackYears} Jahre</span>
+              <span className="font-display font-bold text-gray-900">ca. {results.paybackYears} Jahre</span>
             </div>
           </div>
 

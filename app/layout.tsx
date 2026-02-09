@@ -1,6 +1,6 @@
 import Script from 'next/script'
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Plus_Jakarta_Sans, Syne } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@/components/Analytics";
 import ScrollTracking from "@/components/ScrollTracking";
@@ -9,9 +9,15 @@ import { Suspense } from "react";
 import GoogleTagManager from '../components/GoogleTagManager';
 import MetaPixel from '../components/MetaPixel';
 
-const montserrat = Montserrat({ 
+const plusJakartaSans = Plus_Jakarta_Sans({ 
   subsets: ["latin"],
-  variable: '--font-montserrat',
+  variable: '--font-plus-jakarta',
+  display: 'swap',
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: '--font-syne',
   display: 'swap',
 });
 
@@ -39,8 +45,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de-CH" className={`scroll-smooth ${montserrat.variable}`} suppressHydrationWarning>
-      <body className={montserrat.className}>
+    <html lang="de-CH" className={`scroll-smooth ${plusJakartaSans.variable} ${syne.variable}`} suppressHydrationWarning>
+      <body className={plusJakartaSans.className}>
         <Script
           src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
           strategy="afterInteractive"

@@ -60,7 +60,7 @@ export default function LanguageSwitcher() {
               onClick={() => setIsOpen(false)}
               className={`block px-4 py-2 text-sm hover:bg-gray-100 transition-colors ${
                 currentLocale === locale
-                  ? 'bg-primary-50 text-primary font-semibold'
+                  ? 'bg-primary-50 text-primary font-display font-semibold'
                   : 'text-gray-700'
               }`}
             >
