@@ -430,8 +430,12 @@ export default function SolarForm() {
               </div>
               <div className="relative group">
                 <div className="flex items-center w-full border-2 border-gray-300 rounded-2xl focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10 transition-all bg-white overflow-hidden">
-                  <div className="flex items-center gap-2 pl-4 pr-2 py-4 border-r border-gray-200 select-none shrink-0">
-                    <span className="text-lg leading-none">🇨🇭</span>
+                  <div className="flex items-center gap-2 pl-4 pr-3 py-4 border-r border-gray-200 select-none shrink-0">
+                    <svg width="20" height="20" viewBox="0 0 32 32" className="shrink-0">
+                      <rect width="32" height="32" rx="4" fill="#D52B1E"/>
+                      <rect x="13" y="6" width="6" height="20" rx="1" fill="white"/>
+                      <rect x="6" y="13" width="20" height="6" rx="1" fill="white"/>
+                    </svg>
                     <span className="text-gray-700 font-medium">+41</span>
                   </div>
                   <input 
