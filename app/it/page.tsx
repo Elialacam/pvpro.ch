@@ -1,5 +1,4 @@
 import Hero from '@/components/Hero';
-import SolarForm from '@/components/SolarForm';
 import HowItWorks from '@/components/HowItWorks';
 import SwissMap from '@/components/SwissMap';
 import Testimonials from '@/components/Testimonials';
@@ -63,9 +62,6 @@ export default function ItalianHomePage() {
       />
 
       <Hero />
-      <div id="formular">
-        <SolarForm />
-      </div>
       <HowItWorks />
       <SwissMap />
       <Testimonials />
