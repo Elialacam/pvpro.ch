@@ -162,10 +162,10 @@ export default function RealisticButton({
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="absolute -top-2 -right-2 w-7 h-7 rounded-full border-3 border-white shadow-md flex items-center justify-center"
+          className="absolute -top-2 -right-2 w-8 h-8 rounded-full border-4 border-white shadow-lg flex items-center justify-center"
           style={{ backgroundColor: GOLD }}
         >
-          <Check className="w-3.5 h-3.5 text-white" strokeWidth={4} />
+          <Check className="w-4 h-4 text-white" strokeWidth={4} />
         </motion.div>
       )}
     </motion.button>
