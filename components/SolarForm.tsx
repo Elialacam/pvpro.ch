@@ -406,10 +406,10 @@ export default function SolarForm() {
         <div className="flex gap-4 justify-center">
           <button
             onClick={() => handleSelection('isOwner', 'yes')}
-            className={`flex flex-col items-center justify-center w-40 h-40 rounded-2xl border border-gray-100 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
+            className={`flex flex-col items-center justify-center w-40 h-40 rounded-2xl border transition-all shadow-sm hover:shadow-md hover:scale-105 ${
               formData.isOwner === 'yes'
-                ? 'bg-white ring-2 ring-green-500 border-transparent'
-                : 'bg-white'
+                ? 'bg-white ring-2 ring-green-500 border-transparent shadow-green-100'
+                : 'bg-white border-gray-200'
             }`}
           >
             <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${
@@ -421,10 +421,10 @@ export default function SolarForm() {
           </button>
           <button
             onClick={() => handleSelection('isOwner', 'no')}
-            className={`flex flex-col items-center justify-center w-40 h-40 rounded-2xl border border-gray-100 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
+            className={`flex flex-col items-center justify-center w-40 h-40 rounded-2xl border transition-all shadow-sm hover:shadow-md hover:scale-105 ${
               formData.isOwner === 'no'
-                ? 'bg-white ring-2 ring-red-500 border-transparent'
-                : 'bg-white'
+                ? 'bg-white ring-2 ring-red-500 border-transparent shadow-red-100'
+                : 'bg-white border-gray-200'
             }`}
           >
             <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${
@@ -462,10 +462,10 @@ export default function SolarForm() {
               <button
                 key={option.value}
                 onClick={() => handleSelection('propertyType', option.value as FormData['propertyType'])}
-                className={`flex flex-col items-center justify-center w-32 h-32 px-2 rounded-2xl border border-gray-100 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
+                className={`flex flex-col items-center justify-center w-32 h-32 px-2 rounded-2xl border transition-all shadow-sm hover:shadow-md hover:scale-105 ${
                   isSelected
                     ? `${colorClasses.border} ${colorClasses.bgCard} ring-2 ${colorClasses.ring}`
-                    : 'bg-white'
+                    : 'bg-white border-gray-200'
                 }`}
               >
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${colorClasses.bg}`}>
@@ -503,10 +503,10 @@ export default function SolarForm() {
               <button
                 key={option.value}
                 onClick={() => handleSelection('wantsBattery', option.value as FormData['wantsBattery'])}
-                className={`flex flex-col items-center justify-center w-32 h-32 rounded-2xl border border-gray-100 transition-all shadow-sm hover:shadow-md hover:scale-105 ${
+                className={`flex flex-col items-center justify-center w-32 h-32 rounded-2xl border transition-all shadow-sm hover:shadow-md hover:scale-105 ${
                   isSelected
                     ? `${colorClasses.border} ${colorClasses.bgCard} ring-2 ${colorClasses.ring}`
-                    : 'bg-white'
+                    : 'bg-white border-gray-200'
                 }`}
               >
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${colorClasses.bg}`}>
