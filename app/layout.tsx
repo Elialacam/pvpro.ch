@@ -1,6 +1,6 @@
 import Script from 'next/script'
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@/components/Analytics";
 import ScrollTracking from "@/components/ScrollTracking";
@@ -12,12 +12,6 @@ import MetaPixel from '../components/MetaPixel';
 const inter = Inter({ 
   subsets: ["latin"],
   variable: '--font-inter',
-  display: 'swap',
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: '--font-playfair',
   display: 'swap',
 });
 
@@ -45,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de-CH" className={`scroll-smooth ${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+    <html lang="de-CH" className={`scroll-smooth ${inter.variable}`} suppressHydrationWarning>
       <body className={inter.className}>
         <Script
           src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}

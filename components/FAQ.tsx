@@ -166,7 +166,7 @@ export default function FAQ({ items }: FAQProps) {
     <section className="section-padding bg-gray-50">
       <div className="container-custom max-w-4xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-display font-medium tracking-tight text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-4">
             {content.title}
           </h2>
           <p className="text-xl text-gray-600">
@@ -184,7 +184,7 @@ export default function FAQ({ items }: FAQProps) {
                 onClick={() => toggleFAQ(index)}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
               >
-                <span className="font-display font-medium tracking-tight text-gray-900 pr-8">
+                <span className="font-sans font-semibold tracking-tight text-gray-900 pr-8">
                   {item.question}
                 </span>
                 <ChevronDown

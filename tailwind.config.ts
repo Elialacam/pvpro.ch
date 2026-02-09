@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui'],
-        display: ['var(--font-playfair)', 'serif'],
+        display: ['var(--font-inter)', 'ui-sans-serif', 'system-ui'],
       },
       colors: {
         primary: {

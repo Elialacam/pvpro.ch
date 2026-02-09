@@ -112,7 +112,7 @@ export default function SolarrechnerPage() {
       <section className="bg-gradient-to-b from-primary-50 to-white section-padding">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl font-display font-medium tracking-normal text-gray-900 mb-6">
+            <h1 className="text-4xl sm:text-5xl font-sans font-semibold tracking-normal text-gray-900 mb-6">
               Solarrechner Schweiz
             </h1>
             <p className="text-xl text-gray-600 mb-8">
@@ -149,7 +149,7 @@ export default function SolarrechnerPage() {
       {/* Benefits */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <h2 className="text-3xl font-display font-medium tracking-normal text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-12">
             Warum unseren Solarrechner nutzen?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -158,7 +158,7 @@ export default function SolarrechnerPage() {
                 <div className="w-14 h-14 bg-primary-50 rounded-full flex items-center justify-center mx-auto mb-4">
                   <benefit.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-lg font-display font-medium tracking-normal text-gray-900 mb-2">{benefit.title}</h3>
+                <h3 className="text-lg font-sans font-semibold tracking-normal text-gray-900 mb-2">{benefit.title}</h3>
                 <p className="text-gray-600 text-sm">{benefit.description}</p>
               </div>
             ))}
@@ -170,33 +170,33 @@ export default function SolarrechnerPage() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-display font-medium tracking-normal text-center text-gray-900 mb-12">
+            <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-12">
               So funktioniert die Berechnung
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-display font-medium tracking-normal">
+                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-sans font-semibold tracking-normal">
                   1
                 </div>
-                <h3 className="font-display font-medium tracking-normal text-gray-900 mb-2">Dachfläche eingeben</h3>
+                <h3 className="font-sans font-semibold tracking-normal text-gray-900 mb-2">Dachfläche eingeben</h3>
                 <p className="text-gray-600 text-sm">
                   Schätzen Sie Ihre verfügbare Dachfläche in m². Tipp: Länge x Breite.
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-display font-medium tracking-normal">
+                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-sans font-semibold tracking-normal">
                   2
                 </div>
-                <h3 className="font-display font-medium tracking-normal text-gray-900 mb-2">Verbrauch angeben</h3>
+                <h3 className="font-sans font-semibold tracking-normal text-gray-900 mb-2">Verbrauch angeben</h3>
                 <p className="text-gray-600 text-sm">
                   Ihr jährlicher Stromverbrauch steht auf der Stromrechnung (kWh/Jahr).
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-display font-medium tracking-normal">
+                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-sans font-semibold tracking-normal">
                   3
                 </div>
-                <h3 className="font-display font-medium tracking-normal text-gray-900 mb-2">Ergebnis erhalten</h3>
+                <h3 className="font-sans font-semibold tracking-normal text-gray-900 mb-2">Ergebnis erhalten</h3>
                 <p className="text-gray-600 text-sm">
                   Sehen Sie sofort Kosten, Ertrag und wann sich die Anlage amortisiert.
                 </p>
@@ -210,7 +210,7 @@ export default function SolarrechnerPage() {
       <section id="formular" className="section-padding bg-primary-50">
         <div className="container-custom">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-display font-medium tracking-normal text-center text-gray-900 mb-4">
+            <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-4">
               Bereit für konkrete Offerten?
             </h2>
             <p className="text-center text-gray-600 mb-8">
@@ -225,14 +225,14 @@ export default function SolarrechnerPage() {
       {/* FAQ Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <h2 className="text-3xl font-display font-medium tracking-normal text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-12">
             Häufige Fragen zum Solarrechner
           </h2>
           <div className="max-w-3xl mx-auto">
             <div className="space-y-4">
               {faqs.map((faq, index) => (
                 <div key={index} className="bg-gray-50 rounded-xl p-6">
-                  <h3 className="font-display font-medium tracking-normal text-gray-900 mb-2">{faq.question}</h3>
+                  <h3 className="font-sans font-semibold tracking-normal text-gray-900 mb-2">{faq.question}</h3>
                   <p className="text-gray-600">{faq.answer}</p>
                 </div>
               ))}

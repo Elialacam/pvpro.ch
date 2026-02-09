@@ -113,7 +113,7 @@ export default function HomePage() {
       <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-display font-medium tracking-tight text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-4">
               Solaranlagen in der ganzen Schweiz
             </h2>
             <p className="text-xl text-gray-600">
@@ -140,7 +140,7 @@ export default function HomePage() {
                 >
                   <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
                   <div className="flex-1 min-w-0">
-                    <div className="font-display font-semibold text-gray-900 group-hover:text-primary transition-colors truncate">
+                    <div className="font-sans font-bold text-gray-900 group-hover:text-primary transition-colors truncate">
                       {city.name}
                     </div>
                     <div className="text-xs text-gray-500">

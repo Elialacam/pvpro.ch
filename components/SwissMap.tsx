@@ -161,7 +161,7 @@ export default function SwissMap() {
 
           {/* Text Content */}
           <div className="relative z-10">
-            <h2 className="text-3xl sm:text-4xl font-display font-medium tracking-tight text-gray-900 mb-6">
+            <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-6">
               {content.title}
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed">
