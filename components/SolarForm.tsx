@@ -417,7 +417,7 @@ export default function SolarForm() {
             }`}>
               <Check className="w-8 h-8 text-green-600" strokeWidth={3} />
             </div>
-            <span className="font-display font-extrabold uppercase tracking-tight text-xl text-gray-900">{t.yes}</span>
+            <span className="font-display font-medium tracking-tight text-xl text-gray-900">{t.yes}</span>
           </button>
           <button
             onClick={() => handleSelection('isOwner', 'no')}
@@ -432,7 +432,7 @@ export default function SolarForm() {
             }`}>
               <X className="w-8 h-8 text-red-600" strokeWidth={3} />
             </div>
-            <span className="font-display font-extrabold uppercase tracking-tight text-xl text-gray-900">{t.no}</span>
+            <span className="font-display font-medium tracking-tight text-xl text-gray-900">{t.no}</span>
           </button>
         </div>
           </div>
@@ -471,7 +471,7 @@ export default function SolarForm() {
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${colorClasses.bg}`}>
                   <Icon className={`w-6 h-6 ${colorClasses.text}`} strokeWidth={2} />
                 </div>
-                <span className="font-display font-extrabold uppercase tracking-tight text-xs text-center whitespace-pre-line leading-tight text-gray-900">{option.label}</span>
+                <span className="font-display font-medium tracking-tight text-xs text-center whitespace-pre-line leading-tight text-gray-900">{option.label}</span>
               </button>
             );
           })}
@@ -512,7 +512,7 @@ export default function SolarForm() {
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${colorClasses.bg}`}>
                   <Icon className={`w-6 h-6 ${colorClasses.text}`} strokeWidth={2.5} />
                 </div>
-                <span className="font-display font-extrabold uppercase tracking-tight text-gray-900 text-base">{option.label}</span>
+                <span className="font-display font-medium tracking-tight text-gray-900 text-base">{option.label}</span>
               </button>
             );
           })}
@@ -523,7 +523,7 @@ export default function SolarForm() {
       case 4:
         return (
           <div className="space-y-4">
-            <h3 className="text-xl sm:text-2xl font-display font-extrabold uppercase tracking-tight text-gray-900 text-center">
+            <h3 className="text-xl sm:text-2xl font-display font-medium tracking-tight text-gray-900 text-center">
               {t.step4Title}
             </h3>
 
@@ -635,7 +635,7 @@ export default function SolarForm() {
     return (
       <div id="formular" className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 relative">
         <div className="flex flex-col items-center justify-center py-8 space-y-8">
-          <h2 className="text-2xl font-display font-extrabold uppercase tracking-tight text-gray-900">{t.loadingTitle}</h2>
+          <h2 className="text-2xl font-display font-medium tracking-tight text-gray-900">{t.loadingTitle}</h2>
 
           <div className="space-y-6 w-full max-w-xs">
             {/* Step 1: Analyzing */}

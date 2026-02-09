@@ -115,7 +115,7 @@ export default function HowItWorks() {
     <section className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-display font-medium tracking-tight text-gray-900 mb-4">
             {content.title}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -138,12 +138,12 @@ export default function HowItWorks() {
                     <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-primary-100 relative z-20">
                       <Icon className="w-10 h-10 text-primary" />
                     </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-display font-extrabold uppercase tracking-tight text-sm shadow-md z-30">
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-display font-medium tracking-tight text-sm shadow-md z-30">
                       {item.step}
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-3">
+                  <h3 className="text-xl font-display font-medium tracking-tight text-gray-900 mb-3">
                     {item.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">

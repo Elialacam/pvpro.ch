@@ -113,7 +113,7 @@ export default function HomePage() {
       <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-display font-medium tracking-tight text-gray-900 mb-4">
               Solaranlagen in der ganzen Schweiz
             </h2>
             <p className="text-xl text-gray-600">

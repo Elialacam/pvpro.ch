@@ -81,12 +81,12 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm mb-6">
               <Sun className={`w-4 h-4 ${theme.badgeBg}`} />
-              <span className={`text-sm font-display font-extrabold uppercase tracking-tight ${theme.badge}`}>
+              <span className={`text-sm font-display font-medium tracking-tight ${theme.badge}`}>
                 {city.sunshineHours} {city.language === 'it' ? 'Ore di sole' : 'Sonnenstunden'} - {content.heroSubheadline}
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-medium tracking-tight text-gray-900 mb-6 leading-tight">
               {content.heroHeadline} –{' '}
               <span className={theme.heading}>{content.heroSubheadline}</span>
             </h1>
@@ -98,7 +98,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             {/* City-specific Stats */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 max-w-3xl mx-auto">
               <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className={`text-3xl font-display font-extrabold uppercase tracking-tight ${theme.stats} mb-2`}>{city.sunshineHours || '1560'}</div>
+                <div className={`text-3xl font-display font-medium tracking-tight ${theme.stats} mb-2`}>{city.sunshineHours || '1560'}</div>
                 <div className="text-sm text-gray-600">
                   {city.language === 'it' ? 'Ore di sole/anno' : 'Sonnenstunden/Jahr'}
                 </div>
@@ -107,7 +107,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 </div>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-3xl font-display font-extrabold uppercase tracking-tight text-green-600 mb-2">{content.pricing.roiYears}</div>
+                <div className="text-3xl font-display font-medium tracking-tight text-green-600 mb-2">{content.pricing.roiYears}</div>
                 <div className="text-sm text-gray-600">
                   {city.language === 'it' ? 'Anni di ammortamento' : 'Jahre Amortisation'}
                 </div>
@@ -116,7 +116,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 </div>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-3xl font-display font-extrabold uppercase tracking-tight text-primary mb-2">45%</div>
+                <div className="text-3xl font-display font-medium tracking-tight text-primary mb-2">45%</div>
                 <div className="text-sm text-gray-600">
                   {city.language === 'it' ? 'Sussidi possibili' : 'Förderung möglich'}
                 </div>
@@ -168,7 +168,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
       <section id="formular" className="section-padding bg-white pt-0">
         <div className="container-custom max-w-[800px]">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-display font-medium tracking-tight text-gray-900 mb-4">
               {city.language === 'it' ? 'Ottieni i tuoi preventivi gratuiti' : 'Erhalten Sie Ihre kostenlosen Offerten'}
             </h2>
             <p className="text-lg text-gray-600">
@@ -190,7 +190,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
       {/* Why Solar in City - UNIQUE CONTENT */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom max-w-6xl">
-          <h2 className="text-3xl sm:text-4xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-4 text-center">
+          <h2 className="text-3xl sm:text-4xl font-display font-medium tracking-tight text-gray-900 mb-4 text-center">
             {content.whySolarTitle}
           </h2>
           <p className="text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto">
@@ -204,7 +204,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                   {index === 1 && <TrendingUp className="w-6 h-6 text-green-600" />}
                   {index === 2 && <Award className="w-6 h-6 text-primary" />}
                 </div>
-                <h3 className="text-xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-3">
+                <h3 className="text-xl font-display font-medium tracking-tight text-gray-900 mb-3">
                   {reason.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -221,7 +221,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
         <div className="container-custom max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-display font-medium tracking-tight text-gray-900 mb-6">
                 {city.language === 'it' ? 'Incentivi Solari in Svizzera: Come Funzionano' : 'Solarförderung in der Schweiz: So funktioniert es wirklich'}
               </h2>
               <div className="prose prose-lg text-gray-600 space-y-4">
@@ -256,7 +256,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 relative">
                 <Zap className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-3xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-4 relative">
+              <h3 className="text-3xl font-display font-medium tracking-tight text-gray-900 mb-4 relative">
                 {city.language === 'it' ? 'Incentivi 2026' : 'Förderung 2026'}
               </h3>
               <div className="space-y-4 relative">
@@ -265,7 +265,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                     ? 'Risparmia fino al 30% immediatamente' 
                     : 'Sparen Sie bis zu 30% sofort'}
                 </p>
-                <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-display font-extrabold uppercase tracking-tight text-sm">
+                <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-display font-medium tracking-tight text-sm">
                   {city.language === 'it' ? 'Pronovo EIV Disponibile' : 'Pronovo-EIV verfügbar'}
                 </div>
                 <p className="text-sm text-gray-500">
@@ -282,7 +282,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
       {/* Pricing Section - UNIQUE */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom max-w-6xl">
-          <h2 className="text-3xl sm:text-4xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-12 text-center">
+          <h2 className="text-3xl sm:text-4xl font-display font-medium tracking-tight text-gray-900 mb-12 text-center">
             {city.language === 'it' ? `Costi impianto fotovoltaico a ${city.name}` : `Solaranlage Kosten in ${city.name}`}
           </h2>
 
@@ -290,7 +290,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             <div className="card bg-white">
               <div className="flex items-center gap-3 mb-4">
                 <Euro className="w-8 h-8 text-primary" />
-                <h3 className="text-2xl font-display font-extrabold uppercase tracking-tight text-gray-900">
+                <h3 className="text-2xl font-display font-medium tracking-tight text-gray-900">
                   {city.language === 'it' ? 'Costi di investimento' : 'Investitionskosten'}
                 </h3>
               </div>
@@ -300,7 +300,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                     <span className="text-gray-600">
                       {city.language === 'it' ? 'Impianto 5 kWp (tipico)' : '5 kWp Anlage (typisch)'}
                     </span>
-                    <span className="text-2xl font-display font-extrabold uppercase tracking-tight text-gray-900">
+                    <span className="text-2xl font-display font-medium tracking-tight text-gray-900">
                       {content.pricing.typical5kw.min.toLocaleString()}-{content.pricing.typical5kw.max.toLocaleString()} CHF
                     </span>
                   </div>
@@ -313,7 +313,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                     <span className="text-gray-600">
                       {city.language === 'it' ? 'Dopo i sussidi' : 'Nach Förderung'}
                     </span>
-                    <span className="text-2xl font-display font-extrabold uppercase tracking-tight text-green-600">
+                    <span className="text-2xl font-display font-medium tracking-tight text-green-600">
                       {content.pricing.afterSubsidy5kw.min.toLocaleString()}-{content.pricing.afterSubsidy5kw.max.toLocaleString()} CHF
                     </span>
                   </div>
@@ -326,7 +326,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                     <span className="text-gray-700 font-display font-semibold">
                       {city.language === 'it' ? 'Ammortamento' : 'Amortisation'}
                     </span>
-                    <span className="text-xl font-display font-extrabold uppercase tracking-tight text-primary">
+                    <span className="text-xl font-display font-medium tracking-tight text-primary">
                       {content.pricing.roiYears} {city.language === 'it' ? 'anni' : 'Jahre'}
                     </span>
                   </div>
@@ -337,7 +337,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             <div className={`card bg-gradient-to-br from-${accentColor}-50 to-yellow-50`}>
               <div className="flex items-center gap-3 mb-4">
                 <Zap className={`w-8 h-8 ${theme.icon}`} />
-                <h3 className="text-2xl font-display font-extrabold uppercase tracking-tight text-gray-900">
+                <h3 className="text-2xl font-display font-medium tracking-tight text-gray-900">
                   {city.language === 'it' ? `Vantaggio ${city.name}` : `${city.name}-Vorteil`}
                 </h3>
               </div>
@@ -345,7 +345,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-display font-extrabold uppercase tracking-tight text-gray-900">
+                    <div className="font-display font-medium tracking-tight text-gray-900">
                       {city.language === 'it' ? 'Risparmia fino al 30%' : 'Bis 30% sparen'}
                     </div>
                     <div className="text-sm text-gray-600">
@@ -356,7 +356,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-display font-extrabold uppercase tracking-tight text-gray-900">
+                    <div className="font-display font-medium tracking-tight text-gray-900">
                       {city.language === 'it' ? 'Sussidi locali' : 'Lokale Förderung'}
                     </div>
                     <div className="text-sm text-gray-600">
@@ -367,7 +367,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-display font-extrabold uppercase tracking-tight text-gray-900">
+                    <div className="font-display font-medium tracking-tight text-gray-900">
                       {city.language === 'it' ? 'Installatori esperti' : 'Erfahrene Installateure'}
                     </div>
                     <div className="text-sm text-gray-600">
@@ -396,7 +396,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
 
         <div className="container-custom max-w-4xl relative z-10">
           <div className="text-center text-white">
-            <h2 className="text-3xl sm:text-4xl font-display font-extrabold uppercase tracking-tight mb-4 text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+            <h2 className="text-3xl sm:text-4xl font-display font-medium tracking-tight mb-4 text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
               {city.language === 'it' ? `Installazione professionale a ${city.name}` : `Professionelle Installation in ${city.name}`}
             </h2>
             <p className="text-xl text-white mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
@@ -406,19 +406,19 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <div className="text-4xl font-display font-extrabold uppercase tracking-tight text-white mb-2 drop-shadow-lg">{city.sunshineHours}</div>
+                <div className="text-4xl font-display font-medium tracking-tight text-white mb-2 drop-shadow-lg">{city.sunshineHours}</div>
                 <div className="text-sm text-white/90 font-medium">
                   {city.language === 'it' ? 'Ore di sole' : 'Sonnenstunden'}
                 </div>
               </div>
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <div className="text-4xl font-display font-extrabold uppercase tracking-tight text-white mb-2 drop-shadow-lg">45%</div>
+                <div className="text-4xl font-display font-medium tracking-tight text-white mb-2 drop-shadow-lg">45%</div>
                 <div className="text-sm text-white/90 font-medium">
                   {city.language === 'it' ? 'Sussidi' : 'Förderung'}
                 </div>
               </div>
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <div className="text-4xl font-display font-extrabold uppercase tracking-tight text-white mb-2 drop-shadow-lg">{content.pricing.roiYears}</div>
+                <div className="text-4xl font-display font-medium tracking-tight text-white mb-2 drop-shadow-lg">{content.pricing.roiYears}</div>
                 <div className="text-sm text-white/90 font-medium">
                   {city.language === 'it' ? 'Anni ROI' : 'Jahre ROI'}
                 </div>
@@ -432,7 +432,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
       <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">
           <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-3">
+            <h2 className="text-2xl sm:text-3xl font-display font-medium tracking-tight text-gray-900 mb-3">
               {city.language === 'it' ? `Installatori a ${city.name} e dintorni` : `Solarteure in ${city.name} und Umgebung`}
             </h2>
             <p className="text-gray-600">
@@ -471,7 +471,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
           <div className={`card bg-white shadow-lg`}>
             <div className="flex items-start gap-4">
               <div className={`w-16 h-16 bg-${accentColor}-600 rounded-full flex items-center justify-center flex-shrink-0`}>
-                <span className="text-2xl font-display font-extrabold uppercase tracking-tight text-white">{content.testimonial.initials}</span>
+                <span className="text-2xl font-display font-medium tracking-tight text-white">{content.testimonial.initials}</span>
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-2">
@@ -485,7 +485,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                   "{content.testimonial.quote}"
                 </p>
                 <div>
-                  <div className="font-display font-extrabold uppercase tracking-tight text-gray-900">{content.testimonial.name}</div>
+                  <div className="font-display font-medium tracking-tight text-gray-900">{content.testimonial.name}</div>
                   <div className="text-sm text-gray-600">{city.name}</div>
                 </div>
               </div>
@@ -501,7 +501,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
       {/* Final CTA */}
       <section className={`section-padding bg-gradient-to-r ${theme.cta} text-white`}>
         <div className="container-custom text-center">
-          <h2 className="text-3xl sm:text-4xl font-display font-extrabold uppercase tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-display font-medium tracking-tight mb-4">
             {city.language === 'it' 
               ? `Inizia ora il tuo progetto solare a ${city.name}!` 
               : `Starten Sie jetzt Ihr Solarprojekt in ${city.name}!`}

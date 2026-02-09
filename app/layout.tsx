@@ -1,6 +1,6 @@
 import Script from 'next/script'
 import type { Metadata } from "next";
-import { Sora, Space_Grotesk } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@/components/Analytics";
 import ScrollTracking from "@/components/ScrollTracking";
@@ -9,15 +9,15 @@ import { Suspense } from "react";
 import GoogleTagManager from '../components/GoogleTagManager';
 import MetaPixel from '../components/MetaPixel';
 
-const sora = Sora({ 
+const inter = Inter({ 
   subsets: ["latin"],
-  variable: '--font-sora',
+  variable: '--font-inter',
   display: 'swap',
 });
 
-const spaceGrotesk = Space_Grotesk({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: '--font-space',
+  variable: '--font-playfair',
   display: 'swap',
 });
 
@@ -45,8 +45,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de-CH" className={`scroll-smooth ${sora.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
-      <body className={sora.className}>
+    <html lang="de-CH" className={`scroll-smooth ${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+      <body className={inter.className}>
         <Script
           src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
           strategy="afterInteractive"
