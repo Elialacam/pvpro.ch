@@ -264,10 +264,7 @@ export default function SolarForm() {
       window.fbq('trackCustom', `Step${completedStep}Completed`, {
         step_number: completedStep,
         step_name: stepNames[completedStep] || `Step${completedStep}`,
-      }, {eventID: `step${completedStep}_${Date.now()}`});
-      console.log(`[Meta Pixel] Step${completedStep}Completed event fired`);
-    } else {
-      console.warn('[Meta Pixel] fbq not available - pixel may not be loaded');
+      });
     }
   };
 
@@ -318,8 +315,7 @@ export default function SolarForm() {
             content_category: 'Lead Generation',
             value: 50.0,
             currency: 'CHF',
-          }, {eventID: `lead_${Date.now()}`});
-          console.log('[Meta Pixel] Lead event fired');
+          });
         }
         fetch('/api/send-confirmation', {
           method: 'POST',

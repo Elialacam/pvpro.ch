@@ -5,7 +5,6 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useRef, Suspense } from 'react';
 
 const PIXEL_ID = '1848326999213371';
-const TEST_EVENT_CODE = 'TEST81166';
 
 function MetaPixelContent() {
   const pathname = usePathname();
@@ -30,8 +29,8 @@ function MetaPixelContent() {
   return (
     <>
       <Script
-        id="meta-pixel-base"
-        strategy="beforeInteractive"
+        id="meta-pixel"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -42,17 +41,8 @@ function MetaPixelContent() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '${PIXEL_ID}');
+            fbq('init', '1848326999213371');
             fbq('track', 'PageView');
-          `,
-        }}
-      />
-      <Script
-        id="meta-pixel-test"
-        strategy="beforeInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.fbq && fbq('set', 'agent', '${TEST_EVENT_CODE}', '${PIXEL_ID}');
           `,
         }}
       />
@@ -61,7 +51,7 @@ function MetaPixelContent() {
           height="1"
           width="1"
           style={{ display: 'none' }}
-          src={`https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1`}
+          src={'https://www.facebook.com/tr?id=1848326999213371&ev=PageView&noscript=1'}
           alt=""
         />
       </noscript>
