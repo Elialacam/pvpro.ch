@@ -33,7 +33,7 @@ const footerContent: Record<Locale, {
     ],
     contact: {
       title: 'Wir sind für Sie da',
-      email: 'info@pvpro.ch',
+      email: 'anfrage@pvpro.ch',
       hours: 'Mon-Sam: 8:00 - 19:00 Uhr',
       address: 'Culmannstrasse 37, 8006 Zürich, Schweiz',
     },
@@ -56,7 +56,7 @@ const footerContent: Record<Locale, {
     ],
     contact: {
       title: 'Nous sommes là pour vous',
-      email: 'info@pvpro.ch',
+      email: 'anfrage@pvpro.ch',
       hours: 'Lun-Sam: 8:00 - 19:00',
       address: 'Culmannstrasse 37, 8006 Zürich, Suisse',
     },
@@ -79,7 +79,7 @@ const footerContent: Record<Locale, {
     ],
     contact: {
       title: 'We are here for you',
-      email: 'info@pvpro.ch',
+      email: 'anfrage@pvpro.ch',
       hours: 'Mon-Sat: 8:00 - 19:00',
       address: 'Culmannstrasse 37, 8006 Zurich, Switzerland',
     },
@@ -102,7 +102,7 @@ const footerContent: Record<Locale, {
     ],
     contact: {
       title: 'Siamo qui per voi',
-      email: 'info@pvpro.ch',
+      email: 'anfrage@pvpro.ch',
       hours: 'Lun-Sab: 8:00 - 19:00',
       address: 'Culmannstrasse 37, 8006 Zurigo, Svizzera',
     },

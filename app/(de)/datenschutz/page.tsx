@@ -26,7 +26,7 @@ export default function DatenschutzPage() {
             8000 Zürich<br />
             Schweiz<br />
             <br />
-            E-Mail: info@pvpro.ch<br />
+            E-Mail: anfrage@pvpro.ch<br />
             Telefon: +41 77 442 00 59
           </p>
 
@@ -106,7 +106,7 @@ export default function DatenschutzPage() {
             <li>Recht auf Widerruf der Einwilligung (Art. 7 Abs. 3 DSGVO)</li>
           </ul>
           <p className="text-gray-600 leading-relaxed mb-6">
-            Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: info@pvpro.ch
+            Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: anfrage@pvpro.ch
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
             Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.

@@ -13,7 +13,7 @@ export default function StructuredData() {
     ],
     "description": "PVPro ist die führende Vergleichsplattform für Solaranlagen in der Schweiz. Wir vermitteln kostenlos Angebote von geprüften Solarteu ren und helfen Hausbesitzern, bis zu 30% zu sparen.",
     "telephone": "+41774420059",
-    "email": "info@pvpro.ch",
+    "email": "anfrage@pvpro.ch",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Culmannstrasse 37",

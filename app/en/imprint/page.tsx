@@ -19,7 +19,7 @@ export default function ImprintPage() {
             <p className="text-gray-600 mb-2">8006 Zurich</p>
             <p className="text-gray-600 mb-2">Switzerland</p>
             <p className="text-gray-600 mb-2"><strong>Phone:</strong> +41 77 442 00 59</p>
-            <p className="text-gray-600 mb-2"><strong>Email:</strong> info@pvpro.ch</p>
+            <p className="text-gray-600 mb-2"><strong>Email:</strong> anfrage@pvpro.ch</p>
           </div>
         </div>
       </div>

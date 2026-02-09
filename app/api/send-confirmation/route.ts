@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
     };
 
     const { data, error } = await resend.emails.send({
-      from: fromEmail || 'PVPro <noreply@pvpro.ch>',
+      from: fromEmail || 'PVPro <anfrage@pvpro.ch>',
       to: [email],
       subject: 'Vielen Dank für Ihre Anfrage – PVPro.ch',
       html: `

@@ -81,7 +81,7 @@ export default function EnglishLayout({
               "@type": "ContactPoint",
               "telephone": "+41774420059",
               "contactType": "customer service",
-              "email": "info@pvpro.ch",
+              "email": "anfrage@pvpro.ch",
               "areaServed": "CH",
               "availableLanguage": ["de", "fr", "en"]
             }

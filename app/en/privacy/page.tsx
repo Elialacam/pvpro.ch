@@ -26,7 +26,7 @@ export default function PrivacyPage() {
             8006 Zurich<br />
             Switzerland<br />
             <br />
-            Email: info@pvpro.ch<br />
+            Email: anfrage@pvpro.ch<br />
             Phone: +41 77 442 00 59
           </p>
 
