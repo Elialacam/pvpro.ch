@@ -337,8 +337,8 @@ export default function SolarForm() {
           <div className="space-y-8">
             <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center">{t.step4Title}</h3>
             <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-[520px] mx-auto">
-              <RealisticButton label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelection('wantsBattery', 'yes')} imageSrc="/icons/battery-full.png" />
-              <RealisticButton label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelection('wantsBattery', 'no')} imageSrc="/icons/battery-empty.png" />
+              <RealisticButton label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelection('wantsBattery', 'yes')} icon={Check} color="green" />
+              <RealisticButton label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelection('wantsBattery', 'no')} icon={X} color="red" />
               <RealisticButton label={t.unknown} isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelection('wantsBattery', 'unknown')} icon={HelpCircle} color="amber" />
             </div>
           </div>
