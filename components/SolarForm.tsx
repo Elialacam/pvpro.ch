@@ -365,7 +365,7 @@ export default function SolarForm() {
                 <Search className="w-5 h-5 text-gray-400" />
               </div>
               <input 
-                className="w-full pl-12 pr-4 py-4 border-2 border-gray-100 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none text-lg"
+                className="w-full pl-12 pr-4 py-4 border-2 border-gray-800 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none text-lg"
                 value={formData.address}
                 onChange={(e) => handleAddressChange(e.target.value)}
                 placeholder={t.addressPlaceholder}
