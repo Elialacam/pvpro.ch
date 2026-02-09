@@ -128,7 +128,7 @@ export default function SolaranlageKostenPage() {
       <section className="bg-gradient-to-b from-primary-50 to-white section-padding">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl font-display font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl sm:text-5xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-6">
               Solaranlage Kosten Schweiz 2025
             </h1>
             <p className="text-xl text-gray-600 mb-8">
@@ -156,7 +156,7 @@ export default function SolaranlageKostenPage() {
       {/* Price Overview */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <h2 className="text-3xl font-display font-bold text-center text-gray-900 mb-4">
+          <h2 className="text-3xl font-display font-extrabold uppercase tracking-tight text-center text-gray-900 mb-4">
             Aktuelle Preise für Solaranlagen
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
@@ -177,11 +177,11 @@ export default function SolaranlageKostenPage() {
                 <div className="flex items-center gap-3 mb-4">
                   <item.icon className={`w-8 h-8 ${index === 1 ? 'text-primary' : 'text-gray-400'}`} />
                   <div>
-                    <h3 className="text-xl font-display font-bold text-gray-900">{item.type}</h3>
+                    <h3 className="text-xl font-display font-extrabold uppercase tracking-tight text-gray-900">{item.type}</h3>
                     <p className="text-gray-600">{item.size}</p>
                   </div>
                 </div>
-                <div className="text-3xl font-display font-bold text-gray-900 mb-2">
+                <div className="text-3xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-2">
                   CHF {item.priceRange}
                 </div>
                 <p className="text-gray-600 mb-4">Dachfläche: {item.area}</p>
@@ -203,35 +203,35 @@ export default function SolaranlageKostenPage() {
       {/* Cost Factors */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <h2 className="text-3xl font-display font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-display font-extrabold uppercase tracking-tight text-center text-gray-900 mb-12">
             Was beeinflusst die Kosten?
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <Sun className="w-10 h-10 text-primary mb-4" />
-              <h3 className="text-lg font-display font-bold text-gray-900 mb-2">Anlagengrösse</h3>
+              <h3 className="text-lg font-display font-extrabold uppercase tracking-tight text-gray-900 mb-2">Anlagengrösse</h3>
               <p className="text-gray-600 text-sm">
                 Grössere Anlagen sind pro kWp günstiger. Ab 10 kWp sinken die Kosten pro kWp deutlich.
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <Zap className="w-10 h-10 text-primary mb-4" />
-              <h3 className="text-lg font-display font-bold text-gray-900 mb-2">Modulqualität</h3>
+              <h3 className="text-lg font-display font-extrabold uppercase tracking-tight text-gray-900 mb-2">Modulqualität</h3>
               <p className="text-gray-600 text-sm">
                 Premium-Module kosten mehr, bieten aber höhere Effizienz und längere Garantien.
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <Home className="w-10 h-10 text-primary mb-4" />
-              <h3 className="text-lg font-display font-bold text-gray-900 mb-2">Dachtyp</h3>
+              <h3 className="text-lg font-display font-extrabold uppercase tracking-tight text-gray-900 mb-2">Dachtyp</h3>
               <p className="text-gray-600 text-sm">
                 Flachdächer und komplexe Dachformen erhöhen die Montagekosten um 10-20%.
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <PiggyBank className="w-10 h-10 text-primary mb-4" />
-              <h3 className="text-lg font-display font-bold text-gray-900 mb-2">Speicher</h3>
+              <h3 className="text-lg font-display font-extrabold uppercase tracking-tight text-gray-900 mb-2">Speicher</h3>
               <p className="text-gray-600 text-sm">
                 Ein Batteriespeicher erhöht die Kosten um CHF 8.000-15.000, steigert aber den Eigenverbrauch.
               </p>
@@ -244,7 +244,7 @@ export default function SolaranlageKostenPage() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-display font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-3xl font-display font-extrabold uppercase tracking-tight text-center text-gray-900 mb-4">
               Förderungen reduzieren Ihre Kosten
             </h2>
             <p className="text-center text-gray-600 mb-12">
@@ -254,22 +254,22 @@ export default function SolaranlageKostenPage() {
             <div className="bg-primary-50 rounded-2xl p-8 mb-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div>
-                  <div className="text-4xl font-display font-bold text-primary mb-2">30%</div>
+                  <div className="text-4xl font-display font-extrabold uppercase tracking-tight text-primary mb-2">30%</div>
                   <p className="text-gray-700">Einmalvergütung (EIV) vom Bund</p>
                 </div>
                 <div>
-                  <div className="text-4xl font-display font-bold text-primary mb-2">+10-20%</div>
+                  <div className="text-4xl font-display font-extrabold uppercase tracking-tight text-primary mb-2">+10-20%</div>
                   <p className="text-gray-700">Kantonale Förderungen (variiert)</p>
                 </div>
                 <div>
-                  <div className="text-4xl font-display font-bold text-primary mb-2">100%</div>
+                  <div className="text-4xl font-display font-extrabold uppercase tracking-tight text-primary mb-2">100%</div>
                   <p className="text-gray-700">Steuerlich absetzbar</p>
                 </div>
               </div>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="font-display font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <h3 className="font-display font-extrabold uppercase tracking-tight text-gray-900 mb-4 flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-primary" />
                 Rechenbeispiel: 10 kWp Anlage
               </h3>
@@ -287,8 +287,8 @@ export default function SolaranlageKostenPage() {
                   <span className="font-medium">- CHF 3.300</span>
                 </div>
                 <div className="border-t border-gray-300 pt-3 flex justify-between">
-                  <span className="font-display font-bold text-gray-900">Effektive Kosten</span>
-                  <span className="font-display font-bold text-xl text-primary">CHF 13.300</span>
+                  <span className="font-display font-extrabold uppercase tracking-tight text-gray-900">Effektive Kosten</span>
+                  <span className="font-display font-extrabold uppercase tracking-tight text-xl text-primary">CHF 13.300</span>
                 </div>
               </div>
             </div>
@@ -300,7 +300,7 @@ export default function SolaranlageKostenPage() {
       <section id="formular" className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-display font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-3xl font-display font-extrabold uppercase tracking-tight text-center text-gray-900 mb-4">
               Jetzt kostenlose Offerten erhalten
             </h2>
             <p className="text-center text-gray-600 mb-8">
@@ -314,14 +314,14 @@ export default function SolaranlageKostenPage() {
       {/* FAQ Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <h2 className="text-3xl font-display font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-display font-extrabold uppercase tracking-tight text-center text-gray-900 mb-12">
             Häufige Fragen zu Solaranlage Kosten
           </h2>
           <div className="max-w-3xl mx-auto">
             <div className="space-y-4">
               {faqs.map((faq, index) => (
                 <div key={index} className="bg-gray-50 rounded-xl p-6">
-                  <h3 className="font-display font-bold text-gray-900 mb-2">{faq.question}</h3>
+                  <h3 className="font-display font-extrabold uppercase tracking-tight text-gray-900 mb-2">{faq.question}</h3>
                   <p className="text-gray-600">{faq.answer}</p>
                 </div>
               ))}

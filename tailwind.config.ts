@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-plus-jakarta)', 'Inter', 'sans-serif'],
-        display: ['var(--font-syne)', 'sans-serif'],
+        sans: ['var(--font-sora)', 'Inter', 'sans-serif'],
+        display: ['var(--font-space)', 'sans-serif'],
       },
       colors: {
         primary: {

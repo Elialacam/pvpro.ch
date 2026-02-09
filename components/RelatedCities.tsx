@@ -26,7 +26,7 @@ export default function RelatedCities({ currentCitySlug, currentCanton }: Relate
   return (
     <section className="section-padding bg-gray-50">
       <div className="container-custom max-w-6xl">
-        <h2 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-8 text-center">
+        <h2 className="text-2xl sm:text-3xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-8 text-center">
           Solaranlagen in weiteren Schweizer Staedten
         </h2>
 
@@ -50,7 +50,7 @@ export default function RelatedCities({ currentCitySlug, currentCanton }: Relate
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-display font-bold text-gray-900 group-hover:text-primary transition-colors mb-1">
+                    <h3 className="font-display font-extrabold uppercase tracking-tight text-gray-900 group-hover:text-primary transition-colors mb-1">
                       {city.name}
                     </h3>
                     <p className="text-sm text-gray-600">

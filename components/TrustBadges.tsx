@@ -28,7 +28,7 @@ export default function TrustBadges() {
     <section className="section-padding bg-white">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4 text-gray-900">
+          <h2 className="text-3xl sm:text-4xl font-display font-extrabold uppercase tracking-tight mb-4 text-gray-900">
             Ihr Vertrauen ist uns wichtig
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -51,7 +51,7 @@ export default function TrustBadges() {
                   className="w-32 h-32 md:w-36 md:h-36 object-contain"
                 />
               </div>
-              <h3 className="font-display font-bold text-gray-900 text-lg mb-2">
+              <h3 className="font-display font-extrabold uppercase tracking-tight text-gray-900 text-lg mb-2">
                 {badge.title}
               </h3>
               <p className="text-sm text-gray-600">
@@ -64,19 +64,19 @@ export default function TrustBadges() {
         {/* Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="text-4xl font-display font-bold text-primary mb-2">10.000+</div>
+            <div className="text-4xl font-display font-extrabold uppercase tracking-tight text-primary mb-2">10.000+</div>
             <div className="text-gray-600">Zufriedene Kunden</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-display font-bold text-primary mb-2">500+</div>
+            <div className="text-4xl font-display font-extrabold uppercase tracking-tight text-primary mb-2">500+</div>
             <div className="text-gray-600">Partner-Installateure</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-display font-bold text-primary mb-2">15+</div>
+            <div className="text-4xl font-display font-extrabold uppercase tracking-tight text-primary mb-2">15+</div>
             <div className="text-gray-600">Jahre Erfahrung</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-display font-bold text-primary mb-2">100%</div>
+            <div className="text-4xl font-display font-extrabold uppercase tracking-tight text-primary mb-2">100%</div>
             <div className="text-gray-600">Kostenlos</div>
           </div>
         </div>

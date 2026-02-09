@@ -9,14 +9,14 @@ export default function PrivacyPage() {
   return (
     <section className="section-padding bg-white">
       <div className="container-custom max-w-4xl">
-        <h1 className="text-4xl font-display font-bold text-gray-900 mb-8">Privacy Policy</h1>
+        <h1 className="text-4xl font-display font-extrabold uppercase tracking-tight text-gray-900 mb-8">Privacy Policy</h1>
 
         <div className="prose prose-gray max-w-none">
           <p className="text-gray-600 leading-relaxed mb-6">
             Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           </p>
 
-          <h2 className="text-2xl font-display font-bold text-gray-900 mt-8 mb-4">1. Data Controller</h2>
+          <h2 className="text-2xl font-display font-extrabold uppercase tracking-tight text-gray-900 mt-8 mb-4">1. Data Controller</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             The controller responsible for data processing on this website is:
           </p>
@@ -30,12 +30,12 @@ export default function PrivacyPage() {
             Phone: +41 77 442 00 59
           </p>
 
-          <h2 className="text-2xl font-display font-bold text-gray-900 mt-8 mb-4">2. Collection and Processing of Personal Data</h2>
+          <h2 className="text-2xl font-display font-extrabold uppercase tracking-tight text-gray-900 mt-8 mb-4">2. Collection and Processing of Personal Data</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             We collect and process personal data only to the extent necessary to provide our services or if you have given us your consent.
           </p>
 
-          <h3 className="text-xl font-display font-bold text-gray-900 mt-6 mb-3">2.1 Contact Form</h3>
+          <h3 className="text-xl font-display font-extrabold uppercase tracking-tight text-gray-900 mt-6 mb-3">2.1 Contact Form</h3>
           <p className="text-gray-600 leading-relaxed mb-6">
             When using our contact form, we collect the following data:
           </p>

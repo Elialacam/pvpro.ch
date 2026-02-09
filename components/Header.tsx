@@ -46,7 +46,7 @@ export default function Header() {
               height={44}
               className="h-9 sm:h-11 w-auto"
             />
-            <span className="text-2xl sm:text-3xl font-display font-bold -ml-1">
+            <span className="text-2xl sm:text-3xl font-display font-extrabold uppercase tracking-tight -ml-1">
               <span className="text-gray-900">Pro</span>
               <span className="text-gray-400 text-lg">.ch</span>
             </span>
