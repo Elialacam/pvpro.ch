@@ -13,6 +13,11 @@ interface RealisticButtonProps {
   subLabel?: string;
 }
 
+const GOLD = '#c8a415';
+const GOLD_LIGHT = 'rgba(200,164,21,0.12)';
+const GOLD_SHADOW = 'rgba(200,164,21,0.3)';
+const GOLD_BG = '#fdf9e8';
+
 export default function RealisticButton({ 
   label, 
   isSelected, 
@@ -104,12 +109,13 @@ export default function RealisticButton({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative group flex flex-col items-center justify-center w-full min-h-[190px] rounded-2xl transition-all duration-300 p-4 bg-white"
+      className="relative group flex flex-col items-center justify-center w-full min-h-[190px] rounded-2xl transition-all duration-300 p-4"
       style={{
-        border: isSelected ? '3px solid #f59e0b' : isHovered ? '2px solid #f59e0b' : '2px solid #e5e7eb',
+        backgroundColor: isSelected ? 'white' : 'white',
+        border: isSelected ? `3px solid ${GOLD}` : isHovered ? `2px solid ${GOLD}` : '2px solid #e5e7eb',
         boxShadow: isSelected 
-          ? '0 8px 25px rgba(245,158,11,0.2), 0 0 0 3px rgba(245,158,11,0.1)' 
-          : isHovered ? '0 8px 20px rgba(245,158,11,0.12)' : '0 2px 8px rgba(0,0,0,0.04)',
+          ? `0 20px 40px ${GOLD_SHADOW}, 0 0 0 4px ${GOLD_BG}` 
+          : isHovered ? `0 8px 20px ${GOLD_LIGHT}` : '0 2px 8px rgba(0,0,0,0.04)',
       }}
     >
 
@@ -133,8 +139,8 @@ export default function RealisticButton({
             className="w-20 h-20 flex items-center justify-center"
           >
             <Icon 
-              className="w-14 h-14 transition-all duration-300 group-hover:text-amber-500"
-              style={{ color: isSelected ? '#f59e0b' : '#9ca3af' }}
+              className="w-14 h-14 transition-all duration-300"
+              style={{ color: isSelected ? GOLD : isHovered ? GOLD : '#9ca3af' }}
               strokeWidth={1.5}
             />
           </motion.div>
@@ -154,7 +160,8 @@ export default function RealisticButton({
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="absolute -top-2 -right-2 w-7 h-7 rounded-full border-3 border-white shadow-md flex items-center justify-center bg-amber-500"
+          className="absolute -top-2 -right-2 w-7 h-7 rounded-full border-3 border-white shadow-md flex items-center justify-center"
+          style={{ backgroundColor: GOLD }}
         >
           <Check className="w-3.5 h-3.5 text-white" strokeWidth={4} />
         </motion.div>
