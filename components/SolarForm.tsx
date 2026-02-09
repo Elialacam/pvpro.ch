@@ -250,6 +250,24 @@ export default function SolarForm() {
     setTimeout(() => nextStep(), 300);
   };
 
+  const stepNames: Record<number, string> = {
+    1: 'Ownership',
+    2: 'BuildingType',
+    3: 'RoofShape',
+    4: 'BatteryStorage',
+    5: 'Address',
+    6: 'ContactDetails',
+  };
+
+  const trackStepCompleted = (completedStep: number) => {
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('trackCustom', `Step${completedStep}Completed`, {
+        step_number: completedStep,
+        step_name: stepNames[completedStep] || `Step${completedStep}`,
+      });
+    }
+  };
+
   const nextStep = async () => {
     if (step === 1 && formData.isOwner === 'no') {
       setNotification({ message: t.renterError, type: 'warning' });
@@ -263,20 +281,18 @@ export default function SolarForm() {
       }
       setIsLoadingTransition(true);
       
-      // Step 1: Analyse (1.5s)
       setLoadingStep(1);
       await new Promise(r => setTimeout(r, 1500));
       
-      // Step 2: Vergleich (1.5s)
       setLoadingStep(2);
       await new Promise(r => setTimeout(r, 1500));
       
-      // Step 3: Gefunden (1.5s)
       setLoadingStep(3);
       await new Promise(r => setTimeout(r, 1500));
       
       setIsLoadingTransition(false);
     }
+    trackStepCompleted(step);
     setStep(step + 1);
   };
 
@@ -292,6 +308,15 @@ export default function SolarForm() {
         }),
       });
       if (res.ok) {
+        trackStepCompleted(6);
+        if (typeof window !== 'undefined' && window.fbq) {
+          window.fbq('track', 'Lead', {
+            content_name: 'Solar Quote Request',
+            content_category: 'Lead Generation',
+            value: 50.0,
+            currency: 'CHF',
+          });
+        }
         fetch('/api/send-confirmation', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
