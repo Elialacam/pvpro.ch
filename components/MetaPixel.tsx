@@ -4,14 +4,14 @@ import Script from 'next/script';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useRef, Suspense } from 'react';
 
+const PIXEL_ID = '1848326999213371';
+
 function MetaPixelContent() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
   const isFirstRender = useRef(true);
 
   useEffect(() => {
-    if (!pixelId) return;
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
@@ -24,9 +24,7 @@ function MetaPixelContent() {
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [pathname, searchParams, pixelId]);
-
-  if (!pixelId) return null;
+  }, [pathname, searchParams]);
 
   return (
     <>
@@ -43,8 +41,8 @@ function MetaPixelContent() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '${pixelId}');
-            fbq('track', 'PageView', {}, {eventID: 'pv_' + Date.now()});
+            fbq('init', '${PIXEL_ID}');
+            fbq('track', 'PageView');
           `,
         }}
       />
@@ -53,7 +51,7 @@ function MetaPixelContent() {
           height="1"
           width="1"
           style={{ display: 'none' }}
-          src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
+          src={`https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1`}
           alt=""
         />
       </noscript>
