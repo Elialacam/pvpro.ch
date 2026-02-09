@@ -2,20 +2,28 @@
 
 import Script from 'next/script';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useRef, Suspense } from 'react';
 
-export default function MetaPixel() {
+function MetaPixelContent() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
     if (!pixelId) return;
-
-    // Track PageView on route change
-    if (window.fbq) {
-      window.fbq('track', 'PageView', {}, { eventID: 'TEST81166' });
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
     }
+
+    const timer = setTimeout(() => {
+      if (window.fbq) {
+        window.fbq('track', 'PageView');
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, [pathname, searchParams, pixelId]);
 
   if (!pixelId) return null;
@@ -50,6 +58,14 @@ export default function MetaPixel() {
         />
       </noscript>
     </>
+  );
+}
+
+export default function MetaPixel() {
+  return (
+    <Suspense fallback={null}>
+      <MetaPixelContent />
+    </Suspense>
   );
 }
 
