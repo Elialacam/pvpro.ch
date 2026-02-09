@@ -429,12 +429,19 @@ export default function SolarForm() {
                 />
               </div>
               <div className="relative group">
-                <input 
-                  type="tel"
-                  placeholder={t.phone} 
-                  className="w-full p-4 border-2 border-gray-300 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-white" 
-                  onChange={e => setFormData({...formData, phone: e.target.value})} 
-                />
+                <div className="flex items-center w-full border-2 border-gray-300 rounded-2xl focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10 transition-all bg-white overflow-hidden">
+                  <div className="flex items-center gap-2 pl-4 pr-2 py-4 border-r border-gray-200 select-none shrink-0">
+                    <span className="text-lg leading-none">🇨🇭</span>
+                    <span className="text-gray-700 font-medium">+41</span>
+                  </div>
+                  <input 
+                    type="tel"
+                    placeholder={t.phone} 
+                    className="w-full p-4 outline-none bg-transparent" 
+                    value={formData.phone.replace(/^\+41\s?/, '')}
+                    onChange={e => setFormData({...formData, phone: '+41 ' + e.target.value.replace(/^\+41\s?/, '')})} 
+                  />
+                </div>
               </div>
             </div>
 
