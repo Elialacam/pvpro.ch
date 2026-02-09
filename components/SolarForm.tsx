@@ -444,7 +444,7 @@ export default function SolarForm() {
         </div>
 
         <div className="pt-8 opacity-50">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Trustpilot_logo.svg" alt="Trustpilot" className="h-8 mx-auto" />
+          {/* Trustpilot logo line removed as requested */}
         </div>
       </div>
     );
