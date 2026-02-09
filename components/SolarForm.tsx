@@ -316,7 +316,7 @@ export default function SolarForm() {
             <div className="flex gap-4 sm:gap-6 justify-center flex-wrap">
               <RealisticButton label={t.singleFamily} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelection('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.png" />
               <RealisticButton label={t.multiFamily} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelection('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.png" />
-              <RealisticButton label={t.other} isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelection('propertyType', 'sonstiges')} imageSrc="/icons/other-building.png" />
+              <RealisticButton label={t.other} isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelection('propertyType', 'sonstiges')} icon={HelpCircle} color="gray" />
             </div>
           </div>
         );
@@ -328,7 +328,7 @@ export default function SolarForm() {
               <RealisticButton label={t.pitchedRoof} isSelected={formData.roofType === 'pitched'} onClick={() => handleSelection('roofType', 'pitched')} imageSrc="/icons/pitched-roof.png" />
               <RealisticButton label={t.monopitchRoof} isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelection('roofType', 'monopitch')} imageSrc="/icons/monopitch-roof.png" />
               <RealisticButton label={t.flatRoof} isSelected={formData.roofType === 'flat'} onClick={() => handleSelection('roofType', 'flat')} imageSrc="/icons/flat-roof.png" />
-              <RealisticButton label={t.other} isSelected={formData.roofType === 'other'} onClick={() => handleSelection('roofType', 'other')} imageSrc="/icons/other-building.png" />
+              <RealisticButton label={t.other} isSelected={formData.roofType === 'other'} onClick={() => handleSelection('roofType', 'other')} icon={HelpCircle} color="gray" />
             </div>
           </div>
         );

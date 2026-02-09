@@ -46,21 +46,17 @@ export default function RealisticButton({
           : `0 4px 15px rgba(0,0,0,0.04)`,
       }}
     >
-      <div className="relative mb-4 flex items-center justify-center h-20">
+      <div className="relative mb-3 flex items-center justify-center">
         {imageSrc ? (
           <motion.div
-            animate={isSelected ? { rotateY: 360 } : {}}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg"
-            style={{ 
-              background: `linear-gradient(135deg, white 0%, ${theme.bg} 100%)`,
-              border: `2px solid ${theme.border}20`
-            }}
+            animate={isSelected ? { scale: 1.05 } : {}}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="w-24 h-24 flex items-center justify-center"
           >
             <img 
               src={imageSrc} 
               alt={label} 
-              className="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
+              className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
             />
           </motion.div>
         ) : Icon ? (
