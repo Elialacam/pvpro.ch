@@ -2,8 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { Check, LucideIcon } from 'lucide-react';
-import Image from 'next/image';
-
 interface RealisticButtonProps {
   label: string;
   isSelected: boolean;
@@ -36,12 +34,10 @@ export default function RealisticButton({
     >
       <div className="relative mb-4 flex items-center justify-center h-20">
         {imageSrc ? (
-          <Image 
+          <img 
             src={imageSrc} 
             alt={label} 
-            width={80} 
-            height={80} 
-            className="object-contain transition-transform duration-300 group-hover:scale-110"
+            className="w-20 h-20 object-contain transition-transform duration-300 group-hover:scale-110"
           />
         ) : Icon ? (
           <Icon 
