@@ -43,7 +43,7 @@ export default function RealisticButton({
         whileHover={{ scale: 1.03, y: -4 }}
         whileTap={{ scale: 0.97 }}
         onClick={onClick}
-        className="relative group flex flex-col items-center justify-center w-[160px] min-h-[180px] rounded-2xl transition-all duration-300 p-4"
+        className="relative group flex flex-col items-center justify-center w-full min-h-[180px] rounded-2xl transition-all duration-300 p-4"
         style={{
           backgroundColor: isSelected ? 'white' : theme.bg,
           border: isSelected ? `2px solid ${theme.border}` : '2px solid transparent',
@@ -104,7 +104,7 @@ export default function RealisticButton({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative group flex flex-col items-center justify-center w-[160px] min-h-[190px] rounded-2xl transition-all duration-300 p-4 bg-white"
+      className="relative group flex flex-col items-center justify-center w-full min-h-[190px] rounded-2xl transition-all duration-300 p-4 bg-white"
       style={{
         border: isSelected ? '3px solid #f59e0b' : isHovered ? '2px solid #f59e0b' : '2px solid #e5e7eb',
         boxShadow: isSelected 
