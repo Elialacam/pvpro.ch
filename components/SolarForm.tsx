@@ -480,13 +480,12 @@ export default function SolarForm() {
 
   if (isLoadingTransition) {
     return (
-      <div className="p-12 text-center space-y-12">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">{t.loadingTitle}</h2>
+      <div className="p-6 sm:p-12 text-center space-y-6 sm:space-y-10">
+        <h2 className="text-xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-8">{t.loadingTitle}</h2>
         
-        <div className="space-y-12 max-w-sm mx-auto">
-          {/* Step 1: Analyse */}
+        <div className="space-y-6 sm:space-y-10 max-w-sm mx-auto">
           <motion.div 
-            className="flex flex-col items-center gap-3"
+            className="flex flex-col items-center gap-2"
             initial={{ opacity: 0.3, y: 10 }}
             animate={{ 
               opacity: loadingStep >= 1 ? 1 : 0.3,
@@ -494,18 +493,17 @@ export default function SolarForm() {
               scale: loadingStep === 1 ? 1.05 : 1
             }}
           >
-            <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-all ${loadingStep >= 1 ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-400'}`}>
-              <BarChart2 className={`w-10 h-10 ${loadingStep === 1 ? 'animate-pulse' : ''}`} />
+            <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all ${loadingStep >= 1 ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-400'}`}>
+              <BarChart2 className={`w-7 h-7 sm:w-10 sm:h-10 ${loadingStep === 1 ? 'animate-pulse' : ''}`} />
             </div>
-            <span className={`text-lg font-bold transition-all ${loadingStep >= 1 ? 'text-gray-900' : 'text-gray-400'}`}>
+            <span className={`text-sm sm:text-lg font-bold transition-all ${loadingStep >= 1 ? 'text-gray-900' : 'text-gray-400'}`}>
               {t.loadingStep1}
             </span>
-            {loadingStep > 1 && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}><CheckCircle2 className="w-6 h-6 text-green-500" /></motion.div>}
+            {loadingStep > 1 && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}><CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-green-500" /></motion.div>}
           </motion.div>
 
-          {/* Step 2: Vergleich */}
           <motion.div 
-            className="flex flex-col items-center gap-3"
+            className="flex flex-col items-center gap-2"
             initial={{ opacity: 0.3, y: 10 }}
             animate={{ 
               opacity: loadingStep >= 2 ? 1 : 0.3,
@@ -513,18 +511,17 @@ export default function SolarForm() {
               scale: loadingStep === 2 ? 1.05 : 1
             }}
           >
-            <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-all ${loadingStep >= 2 ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-400'}`}>
-              <SearchIcon className={`w-10 h-10 ${loadingStep === 2 ? 'animate-pulse' : ''}`} />
+            <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all ${loadingStep >= 2 ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-400'}`}>
+              <SearchIcon className={`w-7 h-7 sm:w-10 sm:h-10 ${loadingStep === 2 ? 'animate-pulse' : ''}`} />
             </div>
-            <span className={`text-lg font-bold transition-all ${loadingStep >= 2 ? 'text-gray-900' : 'text-gray-400'}`}>
+            <span className={`text-sm sm:text-lg font-bold transition-all ${loadingStep >= 2 ? 'text-gray-900' : 'text-gray-400'}`}>
               {t.loadingStep2}
             </span>
-            {loadingStep > 2 && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}><CheckCircle2 className="w-6 h-6 text-green-500" /></motion.div>}
+            {loadingStep > 2 && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}><CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-green-500" /></motion.div>}
           </motion.div>
 
-          {/* Step 3: Gefunden */}
           <motion.div 
-            className="flex flex-col items-center gap-3"
+            className="flex flex-col items-center gap-2"
             initial={{ opacity: 0.3, y: 10 }}
             animate={{ 
               opacity: loadingStep >= 3 ? 1 : 0.3,
@@ -532,17 +529,13 @@ export default function SolarForm() {
               scale: loadingStep === 3 ? 1.1 : 1
             }}
           >
-            <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-all ${loadingStep >= 3 ? 'bg-green-100 text-green-600 shadow-lg shadow-green-100' : 'bg-gray-100 text-gray-400'}`}>
-              <Check className="w-10 h-10" />
+            <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all ${loadingStep >= 3 ? 'bg-green-100 text-green-600 shadow-lg shadow-green-100' : 'bg-gray-100 text-gray-400'}`}>
+              <Check className="w-7 h-7 sm:w-10 sm:h-10" />
             </div>
-            <span className={`text-xl font-extrabold transition-all ${loadingStep >= 3 ? 'text-green-600' : 'text-gray-400'}`}>
+            <span className={`text-base sm:text-xl font-extrabold transition-all ${loadingStep >= 3 ? 'text-green-600' : 'text-gray-400'}`}>
               {t.loadingStep3}
             </span>
           </motion.div>
-        </div>
-
-        <div className="pt-8 opacity-50">
-          {/* Trustpilot logo line removed as requested */}
         </div>
       </div>
     );
