@@ -111,7 +111,7 @@ export default function RealisticButton({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative group flex flex-col items-center justify-center w-full min-h-[110px] sm:min-h-[160px] rounded-2xl transition-all duration-300 p-1.5 sm:p-3 overflow-hidden"
+      className="relative group flex flex-col items-center justify-center w-full min-h-[110px] sm:min-h-[160px] rounded-2xl transition-all duration-300 p-1.5 sm:p-3"
       style={{
         backgroundColor: isSelected ? 'white' : 'white',
         border: isSelected ? `3px solid ${GOLD}` : isHovered ? `2px solid ${GOLD}` : '2px solid #e5e7eb',
