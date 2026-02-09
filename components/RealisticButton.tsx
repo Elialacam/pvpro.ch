@@ -117,7 +117,7 @@ export default function RealisticButton({
         border: isSelected ? `3px solid ${GOLD}` : isHovered ? `2px solid ${GOLD}` : '2px solid #e5e7eb',
         boxShadow: isSelected 
           ? `0 20px 40px ${GOLD_SHADOW}, 0 0 0 4px ${GOLD_BG}` 
-          : isHovered ? `0 8px 20px ${GOLD_LIGHT}` : '0 2px 8px rgba(0,0,0,0.04)',
+          : isHovered ? `0 8px 20px ${GOLD_LIGHT}` : 'none',
       }}
     >
 
