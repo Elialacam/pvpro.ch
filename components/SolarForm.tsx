@@ -368,9 +368,9 @@ export default function SolarForm() {
           <div className="space-y-6">
             <div className="text-center space-y-2">
               <h3 className="text-2xl font-extrabold text-gray-900 flex items-center justify-center gap-2">
-                {t.step5Title} 🚀
+                {t.step5Title}
               </h3>
-              <p className="text-gray-500 text-sm">Fast geschafft! Nur ancora un paio di dettagli.</p>
+              <p className="text-gray-500 text-sm">Fast geschafft! Nur noch ein paar Details.</p>
             </div>
             
             <div className="space-y-4">
@@ -378,14 +378,14 @@ export default function SolarForm() {
                 <div className="relative group">
                   <input 
                     placeholder={t.firstName} 
-                    className="w-full p-4 border-2 border-gray-100 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-gray-50/30 group-hover:bg-white" 
+                    className="w-full p-4 border-2 border-gray-300 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-white" 
                     onChange={e => setFormData({...formData, firstName: e.target.value})} 
                   />
                 </div>
                 <div className="relative group">
                   <input 
                     placeholder={t.lastName} 
-                    className="w-full p-4 border-2 border-gray-100 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-gray-50/30 group-hover:bg-white" 
+                    className="w-full p-4 border-2 border-gray-300 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-white" 
                     onChange={e => setFormData({...formData, lastName: e.target.value})} 
                   />
                 </div>
@@ -394,7 +394,7 @@ export default function SolarForm() {
                 <input 
                   type="email"
                   placeholder={t.email} 
-                  className="w-full p-4 border-2 border-gray-100 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-gray-50/30 group-hover:bg-white" 
+                  className="w-full p-4 border-2 border-gray-300 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-white" 
                   onChange={e => setFormData({...formData, email: e.target.value})} 
                 />
               </div>
@@ -402,7 +402,7 @@ export default function SolarForm() {
                 <input 
                   type="tel"
                   placeholder={t.phone} 
-                  className="w-full p-4 border-2 border-gray-100 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-gray-50/30 group-hover:bg-white" 
+                  className="w-full p-4 border-2 border-gray-300 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-white" 
                   onChange={e => setFormData({...formData, phone: e.target.value})} 
                 />
               </div>
@@ -429,7 +429,7 @@ export default function SolarForm() {
             </motion.button>
             
             <p className="text-[10px] uppercase tracking-widest text-gray-400 text-center font-bold">
-              🔒 {t.privacyText}
+              {t.privacyText}
             </p>
           </div>
         );
