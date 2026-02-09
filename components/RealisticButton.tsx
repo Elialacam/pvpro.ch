@@ -48,7 +48,7 @@ export default function RealisticButton({
         whileHover={{ scale: 1.03, y: -4 }}
         whileTap={{ scale: 0.97 }}
         onClick={onClick}
-        className="relative group flex flex-col items-center justify-center w-full min-h-[180px] rounded-2xl transition-all duration-300 p-4"
+        className="relative group flex flex-col items-center justify-center w-full min-h-[140px] sm:min-h-[180px] rounded-2xl transition-all duration-300 p-2 sm:p-4"
         style={{
           backgroundColor: isSelected ? 'white' : theme.bg,
           border: isSelected ? `2px solid ${theme.border}` : '2px solid transparent',
@@ -109,7 +109,7 @@ export default function RealisticButton({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative group flex flex-col items-center justify-center w-full min-h-[190px] rounded-2xl transition-all duration-300 p-4"
+      className="relative group flex flex-col items-center justify-center w-full min-h-[140px] sm:min-h-[190px] rounded-2xl transition-all duration-300 p-2 sm:p-4 overflow-hidden"
       style={{
         backgroundColor: isSelected ? 'white' : 'white',
         border: isSelected ? `3px solid ${GOLD}` : isHovered ? `2px solid ${GOLD}` : '2px solid #e5e7eb',
@@ -124,7 +124,7 @@ export default function RealisticButton({
           <motion.div
             animate={isSelected ? { scale: 1.05 } : {}}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="w-28 h-28 flex items-center justify-center"
+            className="w-16 h-16 sm:w-28 sm:h-28 flex items-center justify-center"
           >
             <img 
               src={imageSrc} 
@@ -136,10 +136,10 @@ export default function RealisticButton({
           <motion.div
             animate={isSelected ? { scale: 1.1 } : {}}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="w-24 h-24 flex items-center justify-center"
+            className="w-14 h-14 sm:w-24 sm:h-24 flex items-center justify-center"
           >
             <Icon 
-              className="w-14 h-14 transition-all duration-300"
+              className="w-10 h-10 sm:w-14 sm:h-14 transition-all duration-300"
               style={{ color: isSelected ? GOLD : isHovered ? GOLD : '#b0b0b0' }}
               strokeWidth={1.5}
             />
@@ -148,7 +148,7 @@ export default function RealisticButton({
       </div>
 
       <div className="text-center px-1">
-        <span className="block font-semibold text-[15px] leading-tight text-gray-900">
+        <span className="block font-semibold text-[12px] sm:text-[15px] leading-tight text-gray-900">
           {label}
         </span>
         {subLabel && (
