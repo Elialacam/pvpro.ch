@@ -31,6 +31,8 @@ const formTranslations: Record<string, any> = {
     unknown: 'Weiss nicht',
     step5Title: 'Adresse',
     step6Title: 'Ihre Kontaktdaten',
+    addressPlaceholder: 'z.B. Bahnhofstrasse 10, 8001 Zürich',
+    almostDone: 'Fast geschafft! Nur noch ein paar Details.',
     firstName: 'Vorname',
     lastName: 'Nachname',
     email: 'E-Mail',
@@ -51,15 +53,18 @@ const formTranslations: Record<string, any> = {
     yes: 'Oui',
     no: 'Non',
     step2Title: 'De quel type de bâtiment s\'agit-il?',
-    singleFamily: 'Maison\nindividuelle',
-    multiFamily: 'Immeuble\ncollectif',
+    singleFamily: 'Maison individuelle',
+    multiFamily: 'Immeuble collectif',
     other: 'Autre',
-    step3Title: 'Habitez-vous le bien où l\'installation PV sera installée?',
-    sonstiges: 'Autre',
-    step4Title: 'Adresse',
-    addressLabel: 'Adresse',
+    step3Title: 'Quelle forme de toit se rapproche le plus de la vôtre?',
+    pitchedRoof: 'À deux pans',
+    monopitchRoof: 'Monopente',
+    flatRoof: 'Plat',
+    step4Title: 'Souhaitez-vous intégrer un système de stockage?',
+    unknown: 'Je ne sais pas',
+    step5Title: 'Adresse',
+    step6Title: 'Vos coordonnées',
     addressPlaceholder: 'p.ex. Rue de la Gare 10, 1201 Genève',
-    step5Title: 'Vos coordonnées',
     firstName: 'Prénom',
     lastName: 'Nom',
     email: 'E-mail',
@@ -74,6 +79,7 @@ const formTranslations: Record<string, any> = {
     loadingStep2: 'Comparaison avec différents fournisseurs',
     loadingStep3: "3x devis à partir de 15'999.- trouvés",
     renterError: 'Malheureusement, nous ne pouvons aider que les propriétaires. Veuillez contacter votre bailleur.',
+    almostDone: 'Presque terminé! Plus que quelques détails.',
   },
   en: {
     step1Title: 'Are you the property owner?',
@@ -83,14 +89,15 @@ const formTranslations: Record<string, any> = {
     singleFamily: 'Single family house',
     multiFamily: 'Multi family house',
     other: 'Other',
-    step3Title: 'Which of these roof shapes is closest to yours?',
-    pitchedRoof: 'À pans',
-    monopitchRoof: 'Monopente',
-    flatRoof: 'Plat',
-    step4Title: 'Souhaitez-vous intégrer un système de stockage?',
-    unknown: 'Je ne sais pas',
-    step5Title: 'Adresse',
-    step6Title: 'Vos coordonnées',
+    step3Title: 'Which roof shape is closest to yours?',
+    pitchedRoof: 'Pitched',
+    monopitchRoof: 'Monopitch',
+    flatRoof: 'Flat',
+    step4Title: 'Would you like to integrate a battery storage system?',
+    unknown: 'I don\'t know',
+    step5Title: 'Address',
+    step6Title: 'Your contact details',
+    addressPlaceholder: 'e.g. Bahnhofstrasse 10, 8001 Zurich',
     firstName: 'First name',
     lastName: 'Last name',
     email: 'Email',
@@ -105,6 +112,7 @@ const formTranslations: Record<string, any> = {
     loadingStep2: 'Comparing with different providers',
     loadingStep3: "3x quotes from 15'999.- found",
     renterError: 'Unfortunately, we can only help property owners. Please contact your landlord.',
+    almostDone: 'Almost done! Just a few more details.',
   },
   it: {
     step1Title: 'È il proprietario dell\'immobile?',
@@ -121,7 +129,9 @@ const formTranslations: Record<string, any> = {
     step4Title: 'Desidera integrare un impianto di accumulo?',
     unknown: 'Non lo so',
     step5Title: 'Indirizzo',
-    step6Title: 'I tuoi dati di contatto',
+    step6Title: 'I suoi dati di contatto',
+    addressPlaceholder: 'es. Via Stazione 10, 8001 Zurigo',
+    almostDone: 'Quasi fatto! Solo ancora qualche dettaglio.',
     firstName: 'Nome',
     lastName: 'Cognome',
     email: 'E-mail',
@@ -144,6 +154,7 @@ export default function SolarForm() {
   const [formData, setFormData] = useState<any>({
     isOwner: null,
     propertyType: null,
+    roofType: null,
     wantsBattery: null,
     address: '',
     firstName: '',
@@ -246,7 +257,8 @@ export default function SolarForm() {
     }
     if (step === 5) {
       if (!selectedAddress) {
-        setNotification({ message: 'Bitte wählen Sie eine Adresse aus der Liste aus.', type: 'error' });
+        const addressErrorMsg = locale === 'it' ? 'Seleziona un indirizzo dalla lista.' : locale === 'fr' ? 'Veuillez sélectionner une adresse dans la liste.' : locale === 'en' ? 'Please select an address from the list.' : 'Bitte wählen Sie eine Adresse aus der Liste aus.';
+        setNotification({ message: addressErrorMsg, type: 'error' });
         return;
       }
       setIsLoadingTransition(true);
@@ -388,7 +400,7 @@ export default function SolarForm() {
               <h3 className="text-2xl font-extrabold text-gray-900 flex items-center justify-center gap-2">
                 {t.step6Title}
               </h3>
-              <p className="text-gray-500 text-sm">Fast geschafft! Nur noch ein paar Details.</p>
+              <p className="text-gray-500 text-sm">{t.almostDone}</p>
             </div>
             
             <div className="space-y-4">
