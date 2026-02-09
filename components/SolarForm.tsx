@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, X, HelpCircle, MapPin, Home, Building2, Warehouse, BarChart2, Search, SearchIcon, CheckCircle2 } from 'lucide-react';
+import { Check, X, HelpCircle, MapPin, Home, Building2, Warehouse, BarChart2, Search, SearchIcon, CheckCircle2, ChevronRight } from 'lucide-react';
 import { useLocale } from '@/lib/LocaleContext';
 import RealisticButton from './RealisticButton';
 
@@ -365,15 +365,72 @@ export default function SolarForm() {
         );
       case 5:
         return (
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold text-center">{t.step5Title}</h3>
-            <div className="grid grid-cols-2 gap-4">
-              <input placeholder={t.firstName} className="p-4 border-2 border-gray-100 rounded-xl focus:border-primary outline-none" onChange={e => setFormData({...formData, firstName: e.target.value})} />
-              <input placeholder={t.lastName} className="p-4 border-2 border-gray-100 rounded-xl focus:border-primary outline-none" onChange={e => setFormData({...formData, lastName: e.target.value})} />
+          <div className="space-y-6">
+            <div className="text-center space-y-2">
+              <h3 className="text-2xl font-extrabold text-gray-900 flex items-center justify-center gap-2">
+                {t.step5Title} 🚀
+              </h3>
+              <p className="text-gray-500 text-sm">Fast geschafft! Nur ancora un paio di dettagli.</p>
             </div>
-            <input placeholder={t.email} className="w-full p-4 border-2 border-gray-100 rounded-xl focus:border-primary outline-none" onChange={e => setFormData({...formData, email: e.target.value})} />
-            <input placeholder={t.phone} className="w-full p-4 border-2 border-gray-100 rounded-xl focus:border-primary outline-none" onChange={e => setFormData({...formData, phone: e.target.value})} />
-            <button onClick={handleSubmit} className="w-full btn-primary py-4 rounded-xl text-lg font-bold" disabled={isSubmitting}>{isSubmitting ? t.submitting : t.submit}</button>
+            
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative group">
+                  <input 
+                    placeholder={t.firstName} 
+                    className="w-full p-4 border-2 border-gray-100 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-gray-50/30 group-hover:bg-white" 
+                    onChange={e => setFormData({...formData, firstName: e.target.value})} 
+                  />
+                </div>
+                <div className="relative group">
+                  <input 
+                    placeholder={t.lastName} 
+                    className="w-full p-4 border-2 border-gray-100 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-gray-50/30 group-hover:bg-white" 
+                    onChange={e => setFormData({...formData, lastName: e.target.value})} 
+                  />
+                </div>
+              </div>
+              <div className="relative group">
+                <input 
+                  type="email"
+                  placeholder={t.email} 
+                  className="w-full p-4 border-2 border-gray-100 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-gray-50/30 group-hover:bg-white" 
+                  onChange={e => setFormData({...formData, email: e.target.value})} 
+                />
+              </div>
+              <div className="relative group">
+                <input 
+                  type="tel"
+                  placeholder={t.phone} 
+                  className="w-full p-4 border-2 border-gray-100 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-gray-50/30 group-hover:bg-white" 
+                  onChange={e => setFormData({...formData, phone: e.target.value})} 
+                />
+              </div>
+            </div>
+
+            <motion.button 
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={handleSubmit} 
+              className="w-full btn-primary py-5 rounded-2xl text-xl font-black shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 transition-all flex items-center justify-center gap-3"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <BarChart2 className="animate-spin w-6 h-6" />
+                  {t.submitting}
+                </>
+              ) : (
+                <>
+                  {t.submit}
+                  <ChevronRight className="w-6 h-6" />
+                </>
+              )}
+            </motion.button>
+            
+            <p className="text-[10px] uppercase tracking-widest text-gray-400 text-center font-bold">
+              🔒 {t.privacyText}
+            </p>
           </div>
         );
       default: return null;
