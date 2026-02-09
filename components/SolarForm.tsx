@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, X, HelpCircle, MapPin, Home, Building2, Warehouse, BarChart2, Search, SearchIcon, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Check, X, HelpCircle, MapPin, Home, Building2, Warehouse, BarChart2, Search, SearchIcon, CheckCircle2, ChevronRight, ArrowUpRight, Maximize2, Minimize2, Battery, BatteryLow } from 'lucide-react';
 import { useLocale } from '@/lib/LocaleContext';
 import RealisticButton from './RealisticButton';
 
@@ -20,15 +20,17 @@ const formTranslations: Record<string, any> = {
     yes: 'Ja',
     no: 'Nein',
     step2Title: 'Um welchen Gebäudetyp handelt es sich?',
-    singleFamily: 'Einfamilien-\nhaus',
-    multiFamily: 'Mehrfamilien-\nhaus',
+    singleFamily: 'Einfamilienhaus',
+    multiFamily: 'Mehrfamilienhaus',
     other: 'Sonstiges',
-    step3Title: 'Bewohnen Sie die Immobilie, auf der die PV-Anlage installiert werden soll?',
-    sonstiges: 'Sonstiges',
-    step4Title: 'Adresse',
-    addressLabel: 'Adresse',
-    addressPlaceholder: 'z.B. Bahnhofstrasse 10, 8001 Zürich',
-    step5Title: 'Ihre Kontaktdaten',
+    step3Title: 'Welche Dachform kommt Ihrer am nächsten?',
+    pitchedRoof: 'Satteldach',
+    monopitchRoof: 'Pultdach',
+    flatRoof: 'Flachdach',
+    step4Title: 'Möchten Sie einen Stromspeicher integrieren?',
+    unknown: 'Weiss nicht',
+    step5Title: 'Adresse',
+    step6Title: 'Ihre Kontaktdaten',
     firstName: 'Vorname',
     lastName: 'Nachname',
     email: 'E-Mail',
@@ -78,15 +80,17 @@ const formTranslations: Record<string, any> = {
     yes: 'Yes',
     no: 'No',
     step2Title: 'What type of building is it?',
-    singleFamily: 'Single\nfamily',
-    multiFamily: 'Multi\nfamily',
+    singleFamily: 'Single family house',
+    multiFamily: 'Multi family house',
     other: 'Other',
-    step3Title: 'Do you live in the property where the PV system will be installed?',
-    sonstiges: 'Other',
-    step4Title: 'Address',
-    addressLabel: 'Address',
-    addressPlaceholder: 'e.g. Bahnhofstrasse 10, 8001 Zurich',
-    step5Title: 'Your contact details',
+    step3Title: 'Which of these roof shapes is closest to yours?',
+    pitchedRoof: 'À pans',
+    monopitchRoof: 'Monopente',
+    flatRoof: 'Plat',
+    step4Title: 'Souhaitez-vous intégrer un système de stockage?',
+    unknown: 'Je ne sais pas',
+    step5Title: 'Adresse',
+    step6Title: 'Vos coordonnées',
     firstName: 'First name',
     lastName: 'Last name',
     email: 'Email',
@@ -106,16 +110,18 @@ const formTranslations: Record<string, any> = {
     step1Title: 'È il proprietario dell\'immobile?',
     yes: 'Sì',
     no: 'No',
-    step2Title: 'Che tipo di edificio è?',
-    singleFamily: 'Casa\nunifamiliare',
-    multiFamily: 'Casa\nplurifamiliare',
+    step2Title: 'Di che tipo di edificio si tratta?',
+    singleFamily: 'Casa unifamiliare',
+    multiFamily: 'Casa plurifamiliare',
     other: 'Altro',
-    step3Title: 'Abita nell\'immobile in cui verrà installato l\'impianto fotovoltaico?',
-    sonstiges: 'Altro',
-    step4Title: 'Indirizzo',
-    addressLabel: 'Indirizzo',
-    addressPlaceholder: 'es. Via Stazione 10, 8001 Zurigo',
-    step5Title: 'I tuoi dati di contatto',
+    step3Title: 'Quale di queste forme si avvicina di più alla sua?',
+    pitchedRoof: 'A falde',
+    monopitchRoof: 'Monopendenza',
+    flatRoof: 'Piatto',
+    step4Title: 'Desidera integrare un impianto di accumulo?',
+    unknown: 'Non lo so',
+    step5Title: 'Indirizzo',
+    step6Title: 'I tuoi dati di contatto',
     firstName: 'Nome',
     lastName: 'Cognome',
     email: 'E-mail',
@@ -238,7 +244,7 @@ export default function SolarForm() {
       setNotification({ message: t.renterError, type: 'warning' });
       return;
     }
-    if (step === 4) {
+    if (step === 5) {
       if (!selectedAddress) {
         setNotification({ message: 'Bitte wählen Sie eine Adresse aus der Liste aus.', type: 'error' });
         return;
@@ -307,16 +313,28 @@ export default function SolarForm() {
           <div className="space-y-8">
             <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center">{t.step3Title}</h3>
             <div className="flex gap-6 justify-center flex-wrap">
-              <RealisticButton label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelection('wantsBattery', 'yes')} icon={Check} color="green" />
-              <RealisticButton label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelection('wantsBattery', 'no')} icon={X} color="red" />
-              <RealisticButton label={t.sonstiges} isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelection('wantsBattery', 'unknown')} icon={HelpCircle} color="gray" />
+              <RealisticButton label={t.pitchedRoof} isSelected={formData.roofType === 'pitched'} onClick={() => handleSelection('roofType', 'pitched')} icon={ArrowUpRight} color="amber" />
+              <RealisticButton label={t.monopitchRoof} isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelection('roofType', 'monopitch')} icon={Maximize2} color="blue" />
+              <RealisticButton label={t.flatRoof} isSelected={formData.roofType === 'flat'} onClick={() => handleSelection('roofType', 'flat')} icon={Minimize2} color="purple" />
+              <RealisticButton label={t.other} isSelected={formData.roofType === 'other'} onClick={() => handleSelection('roofType', 'other')} icon={HelpCircle} color="gray" />
             </div>
           </div>
         );
       case 4:
         return (
-          <div className="space-y-6">
+          <div className="space-y-8">
             <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center">{t.step4Title}</h3>
+            <div className="flex gap-6 justify-center flex-wrap">
+              <RealisticButton label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelection('wantsBattery', 'yes')} icon={Battery} color="green" />
+              <RealisticButton label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelection('wantsBattery', 'no')} icon={BatteryLow} color="red" />
+              <RealisticButton label={t.unknown} isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelection('wantsBattery', 'unknown')} icon={HelpCircle} color="gray" />
+            </div>
+          </div>
+        );
+      case 5:
+        return (
+          <div className="space-y-6">
+            <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center">{t.step5Title}</h3>
             
             {selectedPlaceCoords && (
               <div className="w-full h-48 rounded-2xl overflow-hidden border-2 border-primary/20 shadow-inner">
@@ -363,12 +381,12 @@ export default function SolarForm() {
             </button>
           </div>
         );
-      case 5:
+      case 6:
         return (
           <div className="space-y-6">
             <div className="text-center space-y-2">
               <h3 className="text-2xl font-extrabold text-gray-900 flex items-center justify-center gap-2">
-                {t.step5Title}
+                {t.step6Title}
               </h3>
               <p className="text-gray-500 text-sm">Fast geschafft! Nur noch ein paar Details.</p>
             </div>
