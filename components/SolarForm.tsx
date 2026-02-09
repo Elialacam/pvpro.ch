@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, X, HelpCircle, MapPin, Home, Building2, Warehouse, BarChart2, Search } from 'lucide-react';
+import { Check, X, HelpCircle, MapPin, Home, Building2, Warehouse, BarChart2, Search, SearchIcon, CheckCircle2 } from 'lucide-react';
 import { useLocale } from '@/lib/LocaleContext';
 import RealisticButton from './RealisticButton';
 
@@ -150,6 +150,7 @@ export default function SolarForm() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [notification, setNotification] = useState<any>(null);
   const [isLoadingTransition, setIsLoadingTransition] = useState(false);
+  const [loadingStep, setLoadingStep] = useState(1);
   const [selectedAddress, setSelectedAddress] = useState<string | null>(null);
   const [selectedPlaceCoords, setSelectedPlaceCoords] = useState<any>(null);
   const autocompleteService = useRef<any>(null);
@@ -243,7 +244,19 @@ export default function SolarForm() {
         return;
       }
       setIsLoadingTransition(true);
-      await new Promise(r => setTimeout(r, 2500));
+      
+      // Step 1: Analyse (1.5s)
+      setLoadingStep(1);
+      await new Promise(r => setTimeout(r, 1500));
+      
+      // Step 2: Vergleich (1.5s)
+      setLoadingStep(2);
+      await new Promise(r => setTimeout(r, 1500));
+      
+      // Step 3: Gefunden (1.5s)
+      setLoadingStep(3);
+      await new Promise(r => setTimeout(r, 1500));
+      
       setIsLoadingTransition(false);
     }
     setStep(step + 1);
@@ -333,7 +346,7 @@ export default function SolarForm() {
                     <button
                       key={s.place_id}
                       onClick={() => selectAddress(s)}
-                      className="w-full p-4 text-left hover:bg-gray-50 flex items-center gap-3 border-b border-gray-50 last:border-0"
+                      className="w-full p-4 text-left hover:bg-gray-50 flex items-center gap-3 border-b border-gray-100 last:border-0"
                     >
                       <MapPin className="w-5 h-5 text-primary" />
                       <span className="text-gray-700">{s.description}</span>
@@ -369,10 +382,70 @@ export default function SolarForm() {
 
   if (isLoadingTransition) {
     return (
-      <div className="p-12 text-center space-y-6">
-        <h2 className="text-2xl font-bold text-gray-900">{t.loadingTitle}</h2>
-        <div className="flex justify-center"><BarChart2 className="w-20 h-20 text-primary animate-pulse" /></div>
-        <p className="text-gray-600 font-medium">{t.loadingStep1}</p>
+      <div className="p-12 text-center space-y-12">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">{t.loadingTitle}</h2>
+        
+        <div className="space-y-12 max-w-sm mx-auto">
+          {/* Step 1: Analyse */}
+          <motion.div 
+            className="flex flex-col items-center gap-3"
+            initial={{ opacity: 0.3, y: 10 }}
+            animate={{ 
+              opacity: loadingStep >= 1 ? 1 : 0.3,
+              y: 0,
+              scale: loadingStep === 1 ? 1.05 : 1
+            }}
+          >
+            <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-all ${loadingStep >= 1 ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-400'}`}>
+              <BarChart2 className={`w-10 h-10 ${loadingStep === 1 ? 'animate-pulse' : ''}`} />
+            </div>
+            <span className={`text-lg font-bold transition-all ${loadingStep >= 1 ? 'text-gray-900' : 'text-gray-400'}`}>
+              {t.loadingStep1}
+            </span>
+            {loadingStep > 1 && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}><CheckCircle2 className="w-6 h-6 text-green-500" /></motion.div>}
+          </motion.div>
+
+          {/* Step 2: Vergleich */}
+          <motion.div 
+            className="flex flex-col items-center gap-3"
+            initial={{ opacity: 0.3, y: 10 }}
+            animate={{ 
+              opacity: loadingStep >= 2 ? 1 : 0.3,
+              y: 0,
+              scale: loadingStep === 2 ? 1.05 : 1
+            }}
+          >
+            <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-all ${loadingStep >= 2 ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-400'}`}>
+              <SearchIcon className={`w-10 h-10 ${loadingStep === 2 ? 'animate-pulse' : ''}`} />
+            </div>
+            <span className={`text-lg font-bold transition-all ${loadingStep >= 2 ? 'text-gray-900' : 'text-gray-400'}`}>
+              {t.loadingStep2}
+            </span>
+            {loadingStep > 2 && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}><CheckCircle2 className="w-6 h-6 text-green-500" /></motion.div>}
+          </motion.div>
+
+          {/* Step 3: Gefunden */}
+          <motion.div 
+            className="flex flex-col items-center gap-3"
+            initial={{ opacity: 0.3, y: 10 }}
+            animate={{ 
+              opacity: loadingStep >= 3 ? 1 : 0.3,
+              y: 0,
+              scale: loadingStep === 3 ? 1.1 : 1
+            }}
+          >
+            <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-all ${loadingStep >= 3 ? 'bg-green-100 text-green-600 shadow-lg shadow-green-100' : 'bg-gray-100 text-gray-400'}`}>
+              <Check className="w-10 h-10" />
+            </div>
+            <span className={`text-xl font-extrabold transition-all ${loadingStep >= 3 ? 'text-green-600' : 'text-gray-400'}`}>
+              {t.loadingStep3}
+            </span>
+          </motion.div>
+        </div>
+
+        <div className="pt-8 opacity-50">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Trustpilot_logo.svg" alt="Trustpilot" className="h-8 mx-auto" />
+        </div>
       </div>
     );
   }
