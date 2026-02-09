@@ -24,10 +24,11 @@ export default function LanguageSwitcher() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Get the path without locale prefix
+  const isCityPage = /\/(solaranlage-|solaire-|fotovoltaico-)/.test(pathname);
+  if (isCityPage) return null;
+
   const pathWithoutLocale = removeLocaleFromPathname(pathname);
 
-  // Generate link for each locale
   function getLocalizedPath(locale: Locale): string {
     // If it's the default locale (de), don't add prefix
     if (locale === defaultLocale) {
