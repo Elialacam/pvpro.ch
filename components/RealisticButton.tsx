@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, LucideIcon } from 'lucide-react';
 interface RealisticButtonProps {
@@ -21,6 +22,8 @@ export default function RealisticButton({
   color = 'amber',
   subLabel 
 }: RealisticButtonProps) {
+  const isStep1Style = color === 'green' || color === 'red';
+
   const colorMap = {
     green: { bg: '#ecfdf5', border: '#10b981', icon: '#059669', shadow: 'rgba(16,185,129,0.25)' },
     red: { bg: '#fef2f2', border: '#ef4444', icon: '#dc2626', shadow: 'rgba(239,68,68,0.25)' },
@@ -32,56 +35,114 @@ export default function RealisticButton({
 
   const theme = colorMap[color];
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  if (isStep1Style) {
+    return (
+      <motion.button
+        whileHover={{ scale: 1.03, y: -4 }}
+        whileTap={{ scale: 0.97 }}
+        onClick={onClick}
+        className="relative group flex flex-col items-center justify-center w-[160px] min-h-[180px] rounded-2xl transition-all duration-300 p-4"
+        style={{
+          backgroundColor: isSelected ? 'white' : theme.bg,
+          border: isSelected ? `2px solid ${theme.border}` : '2px solid transparent',
+          boxShadow: isSelected 
+            ? `0 20px 40px ${theme.shadow}, 0 0 0 4px ${theme.bg}` 
+            : `0 4px 15px rgba(0,0,0,0.04)`,
+        }}
+      >
+        <div className="relative mb-3 flex items-center justify-center">
+          {Icon && (
+            <motion.div
+              animate={isSelected ? { rotateY: 360 } : {}}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg"
+              style={{ 
+                background: `linear-gradient(135deg, white 0%, ${theme.bg} 100%)`,
+                border: `2px solid ${theme.border}20`
+              }}
+            >
+              <Icon 
+                className="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
+                style={{ color: theme.icon }}
+                strokeWidth={2}
+              />
+            </motion.div>
+          )}
+        </div>
+
+        <div className="text-center px-1">
+          <span className="block font-extrabold text-lg leading-tight transition-colors duration-300"
+            style={{ color: theme.icon }}
+          >
+            {label}
+          </span>
+          {subLabel && (
+            <span className="text-[10px] text-gray-400 mt-1 block uppercase tracking-widest">{subLabel}</span>
+          )}
+        </div>
+
+        {isSelected && (
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="absolute -top-2 -right-2 w-8 h-8 rounded-full border-4 border-white shadow-lg flex items-center justify-center"
+            style={{ backgroundColor: theme.border }}
+          >
+            <Check className="w-4 h-4 text-white" strokeWidth={4} />
+          </motion.div>
+        )}
+      </motion.button>
+    );
+  }
+
   return (
     <motion.button
-      whileHover={{ scale: 1.03, y: -4 }}
-      whileTap={{ scale: 0.97 }}
+      whileHover={{ scale: 1.02, y: -2 }}
+      whileTap={{ scale: 0.98 }}
       onClick={onClick}
-      className="relative group flex flex-col items-center justify-center w-[160px] min-h-[180px] rounded-2xl transition-all duration-300 p-4"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="relative group flex flex-col items-center justify-center w-[160px] min-h-[190px] rounded-2xl transition-all duration-300 p-4 bg-white"
       style={{
-        backgroundColor: isSelected ? 'white' : theme.bg,
-        border: isSelected ? `2px solid ${theme.border}` : '2px solid transparent',
+        border: isSelected ? '3px solid #f59e0b' : isHovered ? '2px solid #f59e0b' : '2px solid #e5e7eb',
         boxShadow: isSelected 
-          ? `0 20px 40px ${theme.shadow}, 0 0 0 4px ${theme.bg}` 
-          : `0 4px 15px rgba(0,0,0,0.04)`,
+          ? '0 8px 25px rgba(245,158,11,0.2), 0 0 0 3px rgba(245,158,11,0.1)' 
+          : isHovered ? '0 8px 20px rgba(245,158,11,0.12)' : '0 2px 8px rgba(0,0,0,0.04)',
       }}
     >
-      <div className="relative mb-3 flex items-center justify-center">
+
+      <div className="relative mb-2 flex items-center justify-center">
         {imageSrc ? (
           <motion.div
             animate={isSelected ? { scale: 1.05 } : {}}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="w-24 h-24 flex items-center justify-center"
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="w-28 h-28 flex items-center justify-center"
           >
             <img 
               src={imageSrc} 
               alt={label} 
-              className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+              className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </motion.div>
         ) : Icon ? (
           <motion.div
-            animate={isSelected ? { rotateY: 360 } : {}}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg"
-            style={{ 
-              background: `linear-gradient(135deg, white 0%, ${theme.bg} 100%)`,
-              border: `2px solid ${theme.border}20`
-            }}
+            animate={isSelected ? { scale: 1.05 } : {}}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="w-20 h-20 flex items-center justify-center"
           >
             <Icon 
-              className="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
-              style={{ color: theme.icon }}
-              strokeWidth={2}
+              className="w-14 h-14 transition-all duration-300 group-hover:text-amber-500"
+              style={{ color: isSelected ? '#f59e0b' : '#9ca3af' }}
+              strokeWidth={1.5}
             />
           </motion.div>
         ) : null}
       </div>
 
       <div className="text-center px-1">
-        <span className="block font-extrabold text-lg leading-tight transition-colors duration-300"
-          style={{ color: theme.icon }}
-        >
+        <span className="block font-semibold text-[15px] leading-tight text-gray-900">
           {label}
         </span>
         {subLabel && (
@@ -93,10 +154,9 @@ export default function RealisticButton({
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="absolute -top-2 -right-2 w-8 h-8 rounded-full border-4 border-white shadow-lg flex items-center justify-center"
-          style={{ backgroundColor: theme.border }}
+          className="absolute -top-2 -right-2 w-7 h-7 rounded-full border-3 border-white shadow-md flex items-center justify-center bg-amber-500"
         >
-          <Check className="w-4 h-4 text-white" strokeWidth={4} />
+          <Check className="w-3.5 h-3.5 text-white" strokeWidth={4} />
         </motion.div>
       )}
     </motion.button>
