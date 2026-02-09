@@ -131,7 +131,7 @@ export default function RealisticButton({
             <img 
               src={imageSrc} 
               alt={label} 
-              className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+              className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 mix-blend-multiply"
             />
           </motion.div>
         ) : Icon ? (
