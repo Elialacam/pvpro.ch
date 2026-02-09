@@ -23,7 +23,7 @@ const formTranslations: Record<string, any> = {
     singleFamily: 'Einfamilien-\nhaus',
     multiFamily: 'Mehrfamilien-\nhaus',
     other: 'Sonstiges',
-    step3Title: 'Bewohnen Sie die Immobilie, auf della die PV-Anlage installiert werden soll?',
+    step3Title: 'Bewohnen Sie die Immobilie, auf der die PV-Anlage installiert werden soll?',
     sonstiges: 'Sonstiges',
     step4Title: 'Adresse',
     addressLabel: 'Adresse',
@@ -286,8 +286,8 @@ export default function SolarForm() {
           <div className="space-y-8">
             <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center">{t.step1Title}</h3>
             <div className="flex gap-6 justify-center flex-wrap">
-              <RealisticButton label={t.yes} isSelected={formData.isOwner === 'yes'} onClick={() => handleSelection('isOwner', 'yes')} icon={Check} color="green" subLabel="Eigentümer" />
-              <RealisticButton label={t.no} isSelected={formData.isOwner === 'no'} onClick={() => handleSelection('isOwner', 'no')} icon={X} color="red" subLabel="Mieter" />
+              <RealisticButton label={t.yes} isSelected={formData.isOwner === 'yes'} onClick={() => handleSelection('isOwner', 'yes')} icon={Check} color="green" subLabel={locale === 'it' ? 'Proprietario' : locale === 'fr' ? 'Propriétaire' : locale === 'en' ? 'Owner' : 'Eigentümer'} />
+              <RealisticButton label={t.no} isSelected={formData.isOwner === 'no'} onClick={() => handleSelection('isOwner', 'no')} icon={X} color="red" subLabel={locale === 'it' ? 'Inquilino' : locale === 'fr' ? 'Locataire' : locale === 'en' ? 'Renter' : 'Mieter'} />
             </div>
           </div>
         );
