@@ -291,7 +291,14 @@ export default function SolarForm() {
           ...formData
         }),
       });
-      if (res.ok) router.push('/danke');
+      if (res.ok) {
+        fetch('/api/send-confirmation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        }).catch(err => console.error('Confirmation email error:', err));
+        router.push('/danke');
+      }
     } finally {
       setIsSubmitting(false);
     }
