@@ -317,6 +317,13 @@ export default function SolarForm() {
             currency: 'CHF',
           });
         }
+        if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+          window.gtag('event', 'conversion', {
+            'send_to': 'AW-17901154625/LyaGCIXE-fUbEMHi99dC',
+            'value': 1.0,
+            'currency': 'CHF'
+          });
+        }
         fetch('/api/send-confirmation', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
