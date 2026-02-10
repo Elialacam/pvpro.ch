@@ -44,5 +44,21 @@ npm run start -- -p 5000
 - French (FR)
 - Italian (IT)
 
+## Tracking & Cookie Consent
+- **Cookie Banner**: GDPR/nLPD-compliant cookie consent banner (components/CookieConsent.tsx)
+  - Categories: Necessary (always on), Analytics (Google Analytics, Clarity), Marketing (Meta Pixel, Google Ads)
+  - 4 languages: DE/FR/IT/EN, auto-detected from URL path
+  - Consent persisted in localStorage, shared across language changes
+  - Tracking scripts (components/TrackingScripts.tsx) only load after user consent
+- **Google Analytics**: G-ZE1BS0ZGK9
+- **Google Ads**: AW-17901154625 (conversion: AW-17901154625/LyaGCIXE-fUbEMHi99dC)
+- **Meta Pixel**: 1848326999213371
+- **Microsoft Clarity**: u1ur4kb2kq
+- **Consent logic**: lib/cookieConsent.ts (getConsent, setConsent, acceptAll, rejectAll, saveCustomConsent)
+- **Analytics helpers**: lib/analytics.ts (all event dispatches check consent before firing)
+
 ## Recent Changes
+- 2026-02-10: Added GDPR/nLPD cookie consent banner with conditional tracking script loading
+- 2026-02-10: Added Google Analytics (G-ZE1BS0ZGK9) and Google Ads (AW-17901154625) tracking
+- 2026-02-10: Cleaned up duplicate/placeholder tracking scripts
 - 2026-01-21: Imported project to Replit, configured for development and deployment

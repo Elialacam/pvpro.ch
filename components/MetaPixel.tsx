@@ -67,8 +67,3 @@ export default function MetaPixel() {
   );
 }
 
-declare global {
-  interface Window {
-    fbq: any;
-  }
-}

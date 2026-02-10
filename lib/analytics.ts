@@ -8,12 +8,24 @@
  * - Page views
  */
 
-// Type definitions for GTM data layer
+import { getConsent } from '@/lib/cookieConsent';
+
 declare global {
   interface Window {
     dataLayer: any[];
     gtag?: (...args: any[]) => void;
+    fbq?: any;
   }
+}
+
+function hasAnalyticsConsent(): boolean {
+  const consent = getConsent();
+  return consent?.analytics === true;
+}
+
+function hasMarketingConsent(): boolean {
+  const consent = getConsent();
+  return consent?.marketing === true;
 }
 
 /**
@@ -32,7 +44,7 @@ export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || 'GTM-XXXXXXX';
  * Automatically tracks page views in GA4
  */
 export const pageview = (url: string) => {
-  if (typeof window !== 'undefined' && window.gtag) {
+  if (typeof window !== 'undefined' && window.gtag && hasAnalyticsConsent()) {
     window.gtag('config', GA_MEASUREMENT_ID, {
       page_path: url,
     });
@@ -48,7 +60,7 @@ export const event = ({ action, category, label, value }: {
   label?: string;
   value?: number;
 }) => {
-  if (typeof window !== 'undefined' && window.gtag) {
+  if (typeof window !== 'undefined' && window.gtag && hasAnalyticsConsent()) {
     window.gtag('event', action, {
       event_category: category,
       event_label: label,
@@ -69,8 +81,7 @@ export const trackFormStart = () => {
     label: 'User started the multi-step form',
   });
 
-  // Also push to GTM dataLayer for advanced tracking
-  if (typeof window !== 'undefined' && window.dataLayer) {
+  if (typeof window !== 'undefined' && window.dataLayer && (hasAnalyticsConsent() || hasMarketingConsent())) {
     window.dataLayer.push({
       event: 'form_interaction',
       formName: 'solar_lead_form',
@@ -113,8 +124,7 @@ export const trackFormStep = (step: number, stepName: string) => {
     value: step,
   });
 
-  // GTM tracking
-  if (typeof window !== 'undefined' && window.dataLayer) {
+  if (typeof window !== 'undefined' && window.dataLayer && (hasAnalyticsConsent() || hasMarketingConsent())) {
     window.dataLayer.push({
       event: 'form_interaction',
       formName: 'solar_lead_form',
@@ -178,7 +188,7 @@ export const trackFormComplete = (formData: {
   });
 
   // Detailed GTM tracking with form data (anonymized)
-  if (typeof window !== 'undefined' && window.dataLayer) {
+  if (typeof window !== 'undefined' && window.dataLayer && (hasAnalyticsConsent() || hasMarketingConsent())) {
     window.dataLayer.push({
       event: 'form_submission',
       formName: 'solar_lead_form',
@@ -214,7 +224,7 @@ export const trackFormAbandonment = (step: number, stepName: string) => {
     value: step,
   });
 
-  if (typeof window !== 'undefined' && window.dataLayer) {
+  if (typeof window !== 'undefined' && window.dataLayer && (hasAnalyticsConsent() || hasMarketingConsent())) {
     window.dataLayer.push({
       event: 'form_interaction',
       formName: 'solar_lead_form',
@@ -235,7 +245,7 @@ export const trackCTAClick = (ctaLocation: string, ctaText: string) => {
     label: `${ctaLocation} - ${ctaText}`,
   });
 
-  if (typeof window !== 'undefined' && window.dataLayer) {
+  if (typeof window !== 'undefined' && window.dataLayer && (hasAnalyticsConsent() || hasMarketingConsent())) {
     window.dataLayer.push({
       event: 'cta_interaction',
       ctaLocation: ctaLocation,
@@ -263,7 +273,7 @@ export const trackCalculatorUse = (roofSize?: number, consumption?: number) => {
     label: 'Solar Calculator',
   });
 
-  if (typeof window !== 'undefined' && window.dataLayer) {
+  if (typeof window !== 'undefined' && window.dataLayer && (hasAnalyticsConsent() || hasMarketingConsent())) {
     window.dataLayer.push({
       event: 'tool_interaction',
       toolName: 'solar_calculator',
@@ -293,7 +303,7 @@ export const trackCityPageView = (cityName: string) => {
     label: cityName,
   });
 
-  if (typeof window !== 'undefined' && window.dataLayer) {
+  if (typeof window !== 'undefined' && window.dataLayer && (hasAnalyticsConsent() || hasMarketingConsent())) {
     window.dataLayer.push({
       event: 'page_interaction',
       pageType: 'city_landing',
@@ -312,7 +322,7 @@ export const trackError = (errorType: string, errorMessage: string) => {
     label: `${errorType}: ${errorMessage}`,
   });
 
-  if (typeof window !== 'undefined' && window.dataLayer) {
+  if (typeof window !== 'undefined' && window.dataLayer && (hasAnalyticsConsent() || hasMarketingConsent())) {
     window.dataLayer.push({
       event: 'error',
       errorType: errorType,
@@ -331,7 +341,7 @@ export const trackContactClick = (contactType: 'phone' | 'email') => {
     label: `User clicked ${contactType} link`,
   });
 
-  if (typeof window !== 'undefined' && window.dataLayer) {
+  if (typeof window !== 'undefined' && window.dataLayer && (hasAnalyticsConsent() || hasMarketingConsent())) {
     window.dataLayer.push({
       event: 'contact_interaction',
       contactType: contactType,
@@ -360,7 +370,7 @@ export const trackScrollDepth = (depth: number) => {
       value: depth,
     });
 
-    if (typeof window !== 'undefined' && window.dataLayer) {
+    if (typeof window !== 'undefined' && window.dataLayer && (hasAnalyticsConsent() || hasMarketingConsent())) {
       window.dataLayer.push({
         event: 'scroll_tracking',
         scrollDepth: depth,

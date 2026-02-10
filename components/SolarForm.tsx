@@ -10,7 +10,6 @@ import RealisticButton from './RealisticButton';
 declare global {
   interface Window {
     google?: typeof google;
-    fbq?: any;
   }
 }
 

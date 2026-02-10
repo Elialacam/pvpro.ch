@@ -2,12 +2,8 @@ import Script from 'next/script'
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@/components/Analytics";
-import ScrollTracking from "@/components/ScrollTracking";
 import { Suspense } from "react";
-
-import GoogleTagManager from '../components/GoogleTagManager';
-import MetaPixel from '../components/MetaPixel';
+import TrackingScripts from '@/components/TrackingScripts';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -15,7 +11,6 @@ const inter = Inter({
   display: 'swap',
 });
 
-// Base metadata - specific language pages override this
 export const metadata: Metadata = {
   title: 'PV Pro - Solaranlagen in der Schweiz vergleichen',
   description: 'Vergleichen Sie kostenlos bis zu 3 Offerten für Ihre Photovoltaikanlage in der Schweiz.',
@@ -40,84 +35,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de-CH" className={`scroll-smooth ${inter.variable}`} suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '1848326999213371');
-              fbq('track', 'PageView');
-            `,
-          }}
-        />
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=1848326999213371&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17901154625"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-17901154625');
-              gtag('config', 'G-ZE1BS0ZGK9');
-            `,
-          }}
-        />
-      </head>
+      <head />
       <body className={inter.className}>
         <Script
           src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
           strategy="afterInteractive"
         />
-        <GoogleTagManager />
         <Suspense fallback={null}>
-          <Analytics />
+          <TrackingScripts />
         </Suspense>
-        <ScrollTracking />
         {children}
-
-        {/* Microsoft Clarity */}
-        <Script
-          id="clarity-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "u1ur4kb2kq");
-            `,
-          }}
-        />
-        {/* Google Analytics 4 */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-G0VT0Y9P6Q"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-G0VT0Y9P6Q');
-          `}
-        </Script>
       </body>
     </html>
   );
