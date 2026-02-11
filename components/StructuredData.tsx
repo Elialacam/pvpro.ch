@@ -16,16 +16,16 @@ export default function StructuredData() {
     "email": "anfrage@pvpro.ch",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Culmannstrasse 37",
-      "addressLocality": "Zürich",
-      "postalCode": "8006",
-      "addressRegion": "ZH",
+      "streetAddress": "Via Santi Pietro e Paolo 16",
+      "addressLocality": "Lugaggia",
+      "postalCode": "6953",
+      "addressRegion": "TI",
       "addressCountry": "CH"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "47.3769",
-      "longitude": "8.5417"
+      "latitude": "46.0815",
+      "longitude": "8.9755"
     },
     "areaServed": {
       "@type": "Country",

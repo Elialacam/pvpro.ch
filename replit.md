@@ -57,7 +57,17 @@ npm run start -- -p 5000
 - **Consent logic**: lib/cookieConsent.ts (getConsent, setConsent, acceptAll, rejectAll, saveCustomConsent)
 - **Analytics helpers**: lib/analytics.ts (all event dispatches check consent before firing)
 
+## Company Data
+- **Company**: NOBA Media Sagl
+- **Address**: Via Santi Pietro e Paolo 16, 6953 Lugaggia, Switzerland
+- **Contact**: anfrage@pvpro.ch, +41 77 442 00 59
+- **Managing Director**: Elia Alacam (individual signatory)
+- **Commercial Register**: CH-501.4.029.665-0, Canton of Ticino, Seat: Capriasca
+- **UID**: CHE-236.020.113
+
 ## Recent Changes
+- 2026-02-11: Updated all legal/privacy pages (DE/FR/EN/IT) with real NOBA Media Sagl company data, full tracking disclosure, and nLPD/GDPR compliance
+- 2026-02-11: Updated Footer and StructuredData with correct Lugaggia address
 - 2026-02-10: Added GDPR/nLPD cookie consent banner with conditional tracking script loading
 - 2026-02-10: Added Google Analytics (G-ZE1BS0ZGK9) and Google Ads (AW-17901154625) tracking
 - 2026-02-10: Cleaned up duplicate/placeholder tracking scripts
