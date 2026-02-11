@@ -144,9 +144,9 @@ export default function ThankYouPage() {
                 <Mail className="w-4 h-4" />
                 anfrage@pvpro.ch
               </a>
-              <PhoneLink phone="+41774420059" location="content" className="flex items-center justify-center gap-2 text-gray-700 hover:text-primary transition-colors">
+              <PhoneLink phone="+41779770750" location="content" className="flex items-center justify-center gap-2 text-gray-700 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
-                +41 77 442 00 59
+                +41 77 977 07 50
               </PhoneLink>
             </div>
           </div>

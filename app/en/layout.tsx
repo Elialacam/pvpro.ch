@@ -79,7 +79,7 @@ export default function EnglishLayout({
             ],
             "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+41774420059",
+              "telephone": "+41779770750",
               "contactType": "customer service",
               "email": "anfrage@pvpro.ch",
               "areaServed": "CH",

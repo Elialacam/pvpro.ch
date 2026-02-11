@@ -27,7 +27,7 @@ export default function DatenschutzPage() {
             Schweiz<br />
             <br />
             E-Mail: anfrage@pvpro.ch<br />
-            Telefon: +41 77 442 00 59
+            Telefon: +41 77 977 07 50
           </p>
 
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">2. Erhebung und Verarbeitung personenbezogener Daten</h2>

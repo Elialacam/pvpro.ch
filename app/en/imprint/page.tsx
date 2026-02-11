@@ -20,7 +20,7 @@ export default function ImprintPage() {
             <p className="text-gray-600 mb-2">6953 Lugaggia</p>
             <p className="text-gray-600 mb-2">Switzerland</p>
             <p className="text-gray-600 mb-2"><strong>Email:</strong> anfrage@pvpro.ch</p>
-            <p className="text-gray-600 mb-2"><strong>Phone:</strong> +41 77 442 00 59</p>
+            <p className="text-gray-600 mb-2"><strong>Phone:</strong> +41 77 977 07 50</p>
             <p className="text-gray-600"><strong>Website:</strong> www.pvpro.ch</p>
           </div>
 

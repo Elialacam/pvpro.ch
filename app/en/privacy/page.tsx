@@ -21,7 +21,7 @@ export default function PrivacyPage() {
             6953 Lugaggia<br />
             Switzerland<br /><br />
             Email: anfrage@pvpro.ch<br />
-            Phone: +41 77 442 00 59
+            Phone: +41 77 977 07 50
           </p>
 
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">2. Collection and Processing of Personal Data</h2>

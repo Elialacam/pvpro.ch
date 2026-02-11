@@ -60,7 +60,7 @@ npm run start -- -p 5000
 ## Company Data
 - **Company**: NOBA Media Sagl
 - **Address**: Via Santi Pietro e Paolo 16, 6953 Lugaggia, Switzerland
-- **Contact**: anfrage@pvpro.ch, +41 77 442 00 59
+- **Contact**: anfrage@pvpro.ch, +41 77 977 07 50
 - **Managing Director**: Elia Alacam (individual signatory)
 - **Commercial Register**: CH-501.4.029.665-0, Canton of Ticino, Seat: Capriasca
 - **UID**: CHE-236.020.113

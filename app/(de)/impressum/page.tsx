@@ -23,7 +23,7 @@ export default function ImpressumPage() {
               <strong>E-Mail:</strong> anfrage@pvpro.ch
             </p>
             <p className="text-gray-600 mb-2">
-              <strong>Telefon:</strong> +41 77 442 00 59
+              <strong>Telefon:</strong> +41 77 977 07 50
             </p>
             <p className="text-gray-600">
               <strong>Website:</strong> www.pvpro.ch

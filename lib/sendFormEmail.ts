@@ -113,7 +113,7 @@ Kontakt: ${data.email} | ${data.phone}
 Haben Sie Fragen? Kontaktieren Sie uns gerne:
 
 📧 E-Mail: info@${domain}
-📞 Telefon: +41 77 442 00 59
+📞 Telefon: +41 77 977 07 50
 🌐 Website: https://${domain}
 
 Mit sonnigen Grüssen
