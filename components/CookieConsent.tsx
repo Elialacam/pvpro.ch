@@ -15,7 +15,7 @@ import {
 const translations = {
   de: {
     title: 'Cookie-Einstellungen',
-    description: 'Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung zu bieten. Einige sind notwendig, andere helfen uns, die Website zu verbessern und Ihnen relevante Inhalte anzuzeigen.',
+    description: 'Wir nutzen Cookies, um Ihre Erfahrung zu verbessern.',
     accept: 'Alle akzeptieren',
     reject: 'Nur notwendige',
     customize: 'Anpassen',
@@ -28,12 +28,11 @@ const translations = {
     marketingDesc: 'Für personalisierte Werbung und Reichweitenmessung.',
     always: 'Immer aktiv',
     privacyLink: '/datenschutz',
-    privacyText: 'Datenschutz',
-    legalBasis: 'Gemäss nDSG (Schweiz) und DSGVO (EU/EWR).',
+    privacyText: 'Mehr erfahren',
   },
   fr: {
     title: 'Paramètres des cookies',
-    description: 'Nous utilisons des cookies pour vous offrir la meilleure expérience possible. Certains sont nécessaires, d\'autres nous aident à améliorer le site et à vous montrer du contenu pertinent.',
+    description: 'Nous utilisons des cookies pour améliorer votre expérience.',
     accept: 'Tout accepter',
     reject: 'Nécessaires uniquement',
     customize: 'Personnaliser',
@@ -46,12 +45,11 @@ const translations = {
     marketingDesc: 'Pour la publicité personnalisée et la mesure d\'audience.',
     always: 'Toujours actif',
     privacyLink: '/fr/protection-des-donnees',
-    privacyText: 'Protection des données',
-    legalBasis: 'Conformément à la nLPD (Suisse) et au RGPD (UE/EEE).',
+    privacyText: 'En savoir plus',
   },
   en: {
     title: 'Cookie Settings',
-    description: 'We use cookies to provide you with the best experience. Some are necessary, others help us improve the site and show you relevant content.',
+    description: 'We use cookies to improve your experience.',
     accept: 'Accept All',
     reject: 'Necessary Only',
     customize: 'Customize',
@@ -64,12 +62,11 @@ const translations = {
     marketingDesc: 'For personalized advertising and audience measurement.',
     always: 'Always active',
     privacyLink: '/en/privacy',
-    privacyText: 'Privacy Policy',
-    legalBasis: 'In accordance with nFADP (Switzerland) and GDPR (EU/EEA).',
+    privacyText: 'Learn more',
   },
   it: {
     title: 'Impostazioni cookie',
-    description: 'Utilizziamo cookie per offrirti la migliore esperienza. Alcuni sono necessari, altri ci aiutano a migliorare il sito e mostrarti contenuti pertinenti.',
+    description: 'Utilizziamo cookie per migliorare la tua esperienza.',
     accept: 'Accetta tutti',
     reject: 'Solo necessari',
     customize: 'Personalizza',
@@ -82,8 +79,7 @@ const translations = {
     marketingDesc: 'Per pubblicità personalizzata e misurazione del pubblico.',
     always: 'Sempre attivo',
     privacyLink: '/it/protezione-dati',
-    privacyText: 'Protezione dei dati',
-    legalBasis: 'In conformità con la nLPD (Svizzera) e il GDPR (UE/SEE).',
+    privacyText: 'Scopri di più',
   },
 };
 
@@ -139,55 +135,60 @@ export default function CookieConsentBanner({ onConsentChange }: { onConsentChan
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[9999] bg-white border-t border-gray-200 shadow-2xl">
-      <div className="max-w-7xl mx-auto px-4 py-4">
+    <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 z-[9999] sm:max-w-sm w-auto">
+      <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 overflow-hidden">
         {!showCustomize ? (
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div className="flex-1 text-sm text-gray-600">
-              <p>{t.description}</p>
-              <p className="mt-1 text-xs text-gray-400">
-                {t.legalBasis}{' '}
-                <Link href={t.privacyLink} className="underline hover:text-gray-600">
-                  {t.privacyText}
-                </Link>
-              </p>
+          <div className="p-5">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-2xl">&#127850;</span>
+              <p className="text-sm text-gray-700 font-medium leading-snug">{t.description}</p>
             </div>
-            <div className="flex flex-wrap gap-2 shrink-0">
-              <button
-                onClick={() => setShowCustomize(true)}
-                className="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-gray-700"
-              >
-                {t.customize}
-              </button>
-              <button
-                onClick={handleReject}
-                className="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-gray-700"
-              >
-                {t.reject}
-              </button>
+            <div className="flex flex-col gap-2">
               <button
                 onClick={handleAccept}
-                className="px-4 py-2 text-sm bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors font-medium"
+                className="w-full px-4 py-2.5 text-sm bg-yellow-500 text-white rounded-xl hover:bg-yellow-600 transition-all font-semibold shadow-sm hover:shadow-md"
               >
                 {t.accept}
               </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={handleReject}
+                  className="flex-1 px-4 py-2 text-sm border border-gray-200 rounded-xl hover:bg-gray-50 transition-all text-gray-600 font-medium"
+                >
+                  {t.reject}
+                </button>
+                <button
+                  onClick={() => setShowCustomize(true)}
+                  className="flex-1 px-4 py-2 text-sm border border-gray-200 rounded-xl hover:bg-gray-50 transition-all text-gray-600 font-medium"
+                >
+                  {t.customize}
+                </button>
+              </div>
+            </div>
+            <div className="mt-3 text-center">
+              <Link href={t.privacyLink} className="text-xs text-gray-400 hover:text-gray-600 transition-colors">
+                {t.privacyText}
+              </Link>
             </div>
           </div>
         ) : (
-          <div className="space-y-4">
-            <h3 className="font-semibold text-gray-800">{t.title}</h3>
-            <div className="space-y-3">
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+          <div className="p-5">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-xl">&#9881;&#65039;</span>
+              <h3 className="font-semibold text-gray-800 text-sm">{t.title}</h3>
+            </div>
+            <div className="space-y-2.5">
+              <div className="flex items-center justify-between p-3 bg-green-50 rounded-xl border border-green-100">
                 <div>
                   <p className="font-medium text-sm text-gray-800">{t.necessary}</p>
-                  <p className="text-xs text-gray-500">{t.necessaryDesc}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">{t.necessaryDesc}</p>
                 </div>
-                <span className="text-xs text-green-600 font-medium">{t.always}</span>
+                <span className="text-xs text-green-600 font-semibold bg-green-100 px-2 py-1 rounded-full">{t.always}</span>
               </div>
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
                 <div>
                   <p className="font-medium text-sm text-gray-800">{t.analytics}</p>
-                  <p className="text-xs text-gray-500">{t.analyticsDesc}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">{t.analyticsDesc}</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input
@@ -196,13 +197,13 @@ export default function CookieConsentBanner({ onConsentChange }: { onConsentChan
                     onChange={(e) => setAnalyticsChecked(e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-9 h-5 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-yellow-500"></div>
+                  <div className="w-10 h-[22px] bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-[18px] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-[18px] after:w-[18px] after:transition-all after:shadow-sm peer-checked:bg-yellow-500"></div>
                 </label>
               </div>
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
                 <div>
                   <p className="font-medium text-sm text-gray-800">{t.marketing}</p>
-                  <p className="text-xs text-gray-500">{t.marketingDesc}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">{t.marketingDesc}</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input
@@ -211,28 +212,23 @@ export default function CookieConsentBanner({ onConsentChange }: { onConsentChan
                     onChange={(e) => setMarketingChecked(e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-9 h-5 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-yellow-500"></div>
+                  <div className="w-10 h-[22px] bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-[18px] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-[18px] after:w-[18px] after:transition-all after:shadow-sm peer-checked:bg-yellow-500"></div>
                 </label>
               </div>
             </div>
-            <div className="flex justify-between items-center">
-              <Link href={t.privacyLink} className="text-xs text-gray-400 underline hover:text-gray-600">
-                {t.privacyText}
-              </Link>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setShowCustomize(false)}
-                  className="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-gray-700"
-                >
-                  ←
-                </button>
-                <button
-                  onClick={handleSaveCustom}
-                  className="px-4 py-2 text-sm bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors font-medium"
-                >
-                  {t.save}
-                </button>
-              </div>
+            <div className="flex gap-2 mt-4">
+              <button
+                onClick={() => setShowCustomize(false)}
+                className="px-4 py-2.5 text-sm border border-gray-200 rounded-xl hover:bg-gray-50 transition-all text-gray-600"
+              >
+                &#8592;
+              </button>
+              <button
+                onClick={handleSaveCustom}
+                className="flex-1 px-4 py-2.5 text-sm bg-yellow-500 text-white rounded-xl hover:bg-yellow-600 transition-all font-semibold shadow-sm hover:shadow-md"
+              >
+                {t.save}
+              </button>
             </div>
           </div>
         )}
