@@ -46,6 +46,9 @@ const formTranslations: Record<string, any> = {
     loadingStep2: 'Vergleich mit verschiedenen Anbietern',
     loadingStep3: "3x Offerten ab 15'999.- gefunden",
     renterError: 'Leider können wir nur Eigentümern helfen. Bitte kontaktieren Sie Ihren Vermieter.',
+    requiredFields: 'Bitte füllen Sie alle Felder aus.',
+    invalidEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+    invalidPhone: 'Bitte geben Sie eine gültige Telefonnummer ein.',
   },
   fr: {
     step1Title: 'Êtes-vous propriétaire du bien?',
@@ -79,6 +82,9 @@ const formTranslations: Record<string, any> = {
     loadingStep3: "3x devis à partir de 15'999.- trouvés",
     renterError: 'Malheureusement, nous ne pouvons aider que les propriétaires. Veuillez contacter votre bailleur.',
     almostDone: 'Presque terminé! Plus que quelques détails.',
+    requiredFields: 'Veuillez remplir tous les champs.',
+    invalidEmail: 'Veuillez entrer une adresse e-mail valide.',
+    invalidPhone: 'Veuillez entrer un numéro de téléphone valide.',
   },
   en: {
     step1Title: 'Are you the property owner?',
@@ -112,6 +118,9 @@ const formTranslations: Record<string, any> = {
     loadingStep3: "3x quotes from 15'999.- found",
     renterError: 'Unfortunately, we can only help property owners. Please contact your landlord.',
     almostDone: 'Almost done! Just a few more details.',
+    requiredFields: 'Please fill in all fields.',
+    invalidEmail: 'Please enter a valid email address.',
+    invalidPhone: 'Please enter a valid phone number.',
   },
   it: {
     step1Title: 'È il proprietario dell\'immobile?',
@@ -145,6 +154,9 @@ const formTranslations: Record<string, any> = {
     loadingStep2: 'Confronto con diversi fornitori',
     loadingStep3: "Trovate 3x offerte a partire da 15'999.-",
     renterError: 'Purtroppo possiamo aiutare solo i proprietari di immobili. Si prega di contattare il proprietario.',
+    requiredFields: 'Per favore, compilare tutti i campi.',
+    invalidEmail: 'Per favore, inserire un indirizzo e-mail valido.',
+    invalidPhone: 'Per favore, inserire un numero di telefono valido.',
   },
 };
 
@@ -169,6 +181,7 @@ export default function SolarForm() {
   const [loadingStep, setLoadingStep] = useState(1);
   const [selectedAddress, setSelectedAddress] = useState<string | null>(null);
   const [selectedPlaceCoords, setSelectedPlaceCoords] = useState<any>(null);
+  const [validationErrors, setValidationErrors] = useState<Record<string, boolean>>({});
   const autocompleteService = useRef<any>(null);
   const placesService = useRef<any>(null);
   const router = useRouter();
@@ -295,7 +308,43 @@ export default function SolarForm() {
     setStep(step + 1);
   };
 
+  const validateContactFields = (): boolean => {
+    const errors: Record<string, boolean> = {};
+    const trimmedFirst = formData.firstName.trim();
+    const trimmedLast = formData.lastName.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedPhone = formData.phone.replace(/^\+41\s?/, '').trim();
+
+    if (!trimmedFirst) errors.firstName = true;
+    if (!trimmedLast) errors.lastName = true;
+    if (!trimmedEmail) errors.email = true;
+    if (!trimmedPhone) errors.phone = true;
+
+    setValidationErrors(errors);
+
+    if (Object.keys(errors).length > 0) {
+      setNotification({ message: t.requiredFields, type: 'error' });
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmedEmail)) {
+      setValidationErrors({ email: true });
+      setNotification({ message: t.invalidEmail, type: 'error' });
+      return false;
+    }
+
+    if (trimmedPhone.replace(/\s/g, '').length < 7) {
+      setValidationErrors({ phone: true });
+      setNotification({ message: t.invalidPhone, type: 'error' });
+      return false;
+    }
+
+    return true;
+  };
+
   const handleSubmit = async () => {
+    if (!validateContactFields()) return;
     setIsSubmitting(true);
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
@@ -457,29 +506,32 @@ export default function SolarForm() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative group">
                   <input 
-                    placeholder={t.firstName} 
-                    className="w-full p-4 border-2 border-gray-300 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-white" 
-                    onChange={e => setFormData({...formData, firstName: e.target.value})} 
+                    placeholder={`${t.firstName} *`}
+                    required
+                    className={`w-full p-4 border-2 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-white ${validationErrors.firstName ? 'border-red-400 ring-2 ring-red-100' : 'border-gray-300'}`}
+                    onChange={e => { setFormData({...formData, firstName: e.target.value}); setValidationErrors(prev => ({...prev, firstName: false})); }}
                   />
                 </div>
                 <div className="relative group">
                   <input 
-                    placeholder={t.lastName} 
-                    className="w-full p-4 border-2 border-gray-300 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-white" 
-                    onChange={e => setFormData({...formData, lastName: e.target.value})} 
+                    placeholder={`${t.lastName} *`}
+                    required
+                    className={`w-full p-4 border-2 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-white ${validationErrors.lastName ? 'border-red-400 ring-2 ring-red-100' : 'border-gray-300'}`}
+                    onChange={e => { setFormData({...formData, lastName: e.target.value}); setValidationErrors(prev => ({...prev, lastName: false})); }}
                   />
                 </div>
               </div>
               <div className="relative group">
                 <input 
                   type="email"
-                  placeholder={t.email} 
-                  className="w-full p-4 border-2 border-gray-300 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-white" 
-                  onChange={e => setFormData({...formData, email: e.target.value})} 
+                  placeholder={`${t.email} *`}
+                  required
+                  className={`w-full p-4 border-2 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none bg-white ${validationErrors.email ? 'border-red-400 ring-2 ring-red-100' : 'border-gray-300'}`}
+                  onChange={e => { setFormData({...formData, email: e.target.value}); setValidationErrors(prev => ({...prev, email: false})); }}
                 />
               </div>
               <div className="relative group">
-                <div className="flex items-center w-full border-2 border-gray-300 rounded-2xl focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10 transition-all bg-white overflow-hidden">
+                <div className={`flex items-center w-full border-2 rounded-2xl focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10 transition-all bg-white overflow-hidden ${validationErrors.phone ? 'border-red-400 ring-2 ring-red-100' : 'border-gray-300'}`}>
                   <div className="flex items-center gap-2 pl-4 pr-3 py-4 border-r border-gray-200 select-none shrink-0">
                     <svg width="20" height="20" viewBox="0 0 32 32" className="shrink-0">
                       <rect width="32" height="32" rx="4" fill="#D52B1E"/>
@@ -490,10 +542,11 @@ export default function SolarForm() {
                   </div>
                   <input 
                     type="tel"
-                    placeholder={t.phone} 
+                    placeholder={`${t.phone} *`}
+                    required
                     className="w-full p-4 outline-none bg-transparent" 
                     value={formData.phone.replace(/^\+41\s?/, '')}
-                    onChange={e => setFormData({...formData, phone: '+41 ' + e.target.value.replace(/^\+41\s?/, '')})} 
+                    onChange={e => { setFormData({...formData, phone: '+41 ' + e.target.value.replace(/^\+41\s?/, '')}); setValidationErrors(prev => ({...prev, phone: false})); }}
                   />
                 </div>
               </div>
