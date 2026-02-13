@@ -347,13 +347,22 @@ export default function SolarForm() {
     if (!validateContactFields()) return;
     setIsSubmitting(true);
     try {
+      const fullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
+      const submitData = {
+        access_key: 'e5917515-5373-450c-963d-d6dcb976be42',
+        subject: `Neue Solaranfrage - ${fullName}`,
+        from_name: 'PVPro.ch',
+        Name: fullName,
+        'First Name': formData.firstName.trim(),
+        'Last Name': formData.lastName.trim(),
+        Phone: formData.phone.trim(),
+        Email: formData.email.trim(),
+        Address: formData.address,
+      };
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: 'e5917515-5373-450c-963d-d6dcb976be42',
-          ...formData
-        }),
+        body: JSON.stringify(submitData),
       });
       if (res.ok) {
         trackStepCompleted(6);
