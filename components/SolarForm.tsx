@@ -352,12 +352,10 @@ export default function SolarForm() {
         access_key: 'e5917515-5373-450c-963d-d6dcb976be42',
         subject: `Neue Solaranfrage - ${fullName}`,
         from_name: 'PVPro.ch',
-        Name: fullName,
-        'First Name': formData.firstName.trim(),
-        'Last Name': formData.lastName.trim(),
-        Phone: formData.phone.trim(),
-        Email: formData.email.trim(),
-        Address: formData.address,
+        NAME: fullName,
+        'PHONE NUMBER': formData.phone.trim(),
+        EMAIL: formData.email.trim(),
+        CITY: formData.address,
       };
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
