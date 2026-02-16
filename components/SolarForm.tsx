@@ -652,7 +652,7 @@ export default function SolarForm() {
   }
 
   return (
-    <div id="formular" className="max-w-2xl mx-auto px-3 py-6 sm:p-8 bg-white rounded-2xl sm:rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100">
+    <div id="formular" className="max-w-2xl mx-auto px-3 pt-6 pb-3 sm:pt-8 sm:px-8 sm:pb-4 bg-white rounded-2xl sm:rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100">
       <AnimatePresence mode="wait">
         <motion.div key={step} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}>
           {renderStep()}
