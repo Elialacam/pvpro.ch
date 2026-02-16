@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { Locale } from '@/lib/i18n';
 import { useLocale } from '@/lib/LocaleContext';
@@ -29,12 +30,19 @@ const navLinks: Record<Locale, { cta: string; home: string }> = {
 export default function Header() {
   const locale = useLocale();
   const links = navLinks[locale] || navLinks.de;
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth >= 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo */}
           <Link href={links.home} className="flex items-center group">
             <Image
               src="/logo-pvpro.png"
@@ -45,22 +53,23 @@ export default function Header() {
             />
           </Link>
 
-          {/* Navigation */}
           <div className="flex items-center gap-3 sm:gap-6">
             <LanguageSwitcher />
-            <button 
-              onClick={() => {
-                const formElement = document.getElementById('formular');
-                if (formElement) {
-                  const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
-                  const offsetPosition = elementPosition - (window.innerHeight / 2) + (formElement.offsetHeight / 2);
-                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                }
-              }}
-              className="btn-primary hidden md:inline-flex"
-            >
-              {links.cta}
-            </button>
+            {isDesktop && (
+              <button 
+                onClick={() => {
+                  const formElement = document.getElementById('formular');
+                  if (formElement) {
+                    const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - (window.innerHeight / 2) + (formElement.offsetHeight / 2);
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }
+                }}
+                className="btn-primary"
+              >
+                {links.cta}
+              </button>
+            )}
           </div>
         </div>
       </nav>
