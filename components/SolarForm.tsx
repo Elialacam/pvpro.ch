@@ -259,7 +259,7 @@ export default function SolarForm() {
 
   const handleSelection = (field: string, value: any) => {
     setFormData((prev: any) => ({ ...prev, [field]: value }));
-    setTimeout(() => nextStep(), 100);
+    setTimeout(() => nextStep(), 50);
   };
 
   const stepNames: Record<number, string> = {
@@ -294,13 +294,13 @@ export default function SolarForm() {
       setIsLoadingTransition(true);
       
       setLoadingStep(1);
-      await new Promise(r => setTimeout(r, 1500));
+      await new Promise(r => setTimeout(r, 500));
       
       setLoadingStep(2);
-      await new Promise(r => setTimeout(r, 1500));
+      await new Promise(r => setTimeout(r, 500));
       
       setLoadingStep(3);
-      await new Promise(r => setTimeout(r, 1500));
+      await new Promise(r => setTimeout(r, 500));
       
       setIsLoadingTransition(false);
     }
@@ -596,48 +596,48 @@ export default function SolarForm() {
         <div className="space-y-6 sm:space-y-10 max-w-sm mx-auto">
           <motion.div 
             className="flex flex-col items-center gap-2"
-            initial={{ opacity: 0.3, y: 10 }}
+            initial={{ opacity: 0.3 }}
             animate={{ 
               opacity: loadingStep >= 1 ? 1 : 0.3,
-              y: 0,
               scale: loadingStep === 1 ? 1.05 : 1
             }}
+            transition={{ duration: 0.15 }}
           >
-            <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all ${loadingStep >= 1 ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-400'}`}>
+            <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all duration-150 ${loadingStep >= 1 ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-400'}`}>
               <BarChart2 className={`w-7 h-7 sm:w-10 sm:h-10 ${loadingStep === 1 ? 'animate-pulse' : ''}`} />
             </div>
-            <span className={`text-sm sm:text-lg font-bold transition-all ${loadingStep >= 1 ? 'text-gray-900' : 'text-gray-400'}`}>
+            <span className={`text-sm sm:text-lg font-bold transition-all duration-150 ${loadingStep >= 1 ? 'text-gray-900' : 'text-gray-400'}`}>
               {t.loadingStep1}
             </span>
-            {loadingStep > 1 && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}><CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-green-500" /></motion.div>}
+            {loadingStep > 1 && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.1 }}><CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-green-500" /></motion.div>}
           </motion.div>
 
           <motion.div 
             className="flex flex-col items-center gap-2"
-            initial={{ opacity: 0.3, y: 10 }}
+            initial={{ opacity: 0.3 }}
             animate={{ 
               opacity: loadingStep >= 2 ? 1 : 0.3,
-              y: 0,
               scale: loadingStep === 2 ? 1.05 : 1
             }}
+            transition={{ duration: 0.15 }}
           >
-            <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all ${loadingStep >= 2 ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-400'}`}>
+            <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all duration-150 ${loadingStep >= 2 ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-400'}`}>
               <SearchIcon className={`w-7 h-7 sm:w-10 sm:h-10 ${loadingStep === 2 ? 'animate-pulse' : ''}`} />
             </div>
-            <span className={`text-sm sm:text-lg font-bold transition-all ${loadingStep >= 2 ? 'text-gray-900' : 'text-gray-400'}`}>
+            <span className={`text-sm sm:text-lg font-bold transition-all duration-150 ${loadingStep >= 2 ? 'text-gray-900' : 'text-gray-400'}`}>
               {t.loadingStep2}
             </span>
-            {loadingStep > 2 && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}><CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-green-500" /></motion.div>}
+            {loadingStep > 2 && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.1 }}><CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-green-500" /></motion.div>}
           </motion.div>
 
           <motion.div 
             className="flex flex-col items-center gap-2"
-            initial={{ opacity: 0.3, y: 10 }}
+            initial={{ opacity: 0.3 }}
             animate={{ 
               opacity: loadingStep >= 3 ? 1 : 0.3,
-              y: 0,
               scale: loadingStep === 3 ? 1.1 : 1
             }}
+            transition={{ duration: 0.15 }}
           >
             <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all ${loadingStep >= 3 ? 'bg-green-100 text-green-600 shadow-lg shadow-green-100' : 'bg-gray-100 text-gray-400'}`}>
               <Check className="w-7 h-7 sm:w-10 sm:h-10" />
@@ -654,7 +654,7 @@ export default function SolarForm() {
   return (
     <div id="formular" className="max-w-2xl mx-auto px-3 pt-6 pb-3 sm:pt-8 sm:px-8 sm:pb-4 bg-white rounded-2xl sm:rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100">
       <AnimatePresence mode="wait">
-        <motion.div key={step} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}>
+        <motion.div key={step} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.15, ease: 'easeOut' }}>
           {renderStep()}
         </motion.div>
       </AnimatePresence>
