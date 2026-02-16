@@ -2,8 +2,6 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { Locale } from '@/lib/i18n';
 import { useLocale } from '@/lib/LocaleContext';
@@ -29,7 +27,6 @@ const navLinks: Record<Locale, { cta: string; home: string }> = {
 };
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const locale = useLocale();
   const links = navLinks[locale] || navLinks.de;
 
@@ -48,8 +45,8 @@ export default function Header() {
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          {/* Navigation */}
+          <div className="flex items-center gap-3 sm:gap-6">
             <LanguageSwitcher />
             <button 
               onClick={() => {
@@ -65,41 +62,7 @@ export default function Header() {
               {links.cta}
             </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-gray-700"
-            aria-label="Menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
-
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
-            <div className="flex flex-col gap-4">
-              <div className="pb-2">
-                <LanguageSwitcher />
-              </div>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  const formElement = document.getElementById('formular');
-                  if (formElement) {
-                    const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - (window.innerHeight / 2) + (formElement.offsetHeight / 2);
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                  }
-                }}
-                className="btn-primary text-center"
-              >
-                {links.cta}
-              </button>
-            </div>
-          </div>
-        )}
       </nav>
     </header>
   );
