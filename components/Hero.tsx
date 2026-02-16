@@ -16,7 +16,7 @@ const heroContent: Record<Locale, {
 }> = {
   de: {
     title: 'Solaranlagen in der Schweiz vergleichen:',
-    subtitle: 'geprüfte Anbieter & Angebote',
+    subtitle: 'geprüfte Anbieter & Förder-Check',
     description: 'Wir analysieren Ihr Dach, prüfen verfügbare Förderungen und vermitteln geprüfte Solarteure aus Ihrer Region.',
     checkmarks: [
       'Geprüfte Schweizer Solarteure',
@@ -28,7 +28,7 @@ const heroContent: Record<Locale, {
   },
   fr: {
     title: 'Comparer les installations solaires en Suisse :',
-    subtitle: 'fournisseurs certifiés & offres',
+    subtitle: 'fournisseurs certifiés & vérification des subventions',
     description: 'Nous analysons votre toit, vérifions les subventions disponibles et vous mettons en relation avec des installateurs certifiés de votre région.',
     checkmarks: [
       'Installateurs suisses certifiés',
@@ -39,8 +39,8 @@ const heroContent: Record<Locale, {
     cta: 'Comparer les offres maintenant',
   },
   en: {
-    title: 'Compare solar systems in Switzerland:',
-    subtitle: 'certified providers & quotes',
+    title: 'Compare solar panels in Switzerland:',
+    subtitle: 'certified providers & subsidy check',
     description: 'We analyze your roof, check available subsidies and connect you with certified solar installers from your region.',
     checkmarks: [
       'Certified Swiss installers',
@@ -52,7 +52,7 @@ const heroContent: Record<Locale, {
   },
   it: {
     title: 'Confronta impianti solari in Svizzera:',
-    subtitle: 'fornitori certificati & offerte',
+    subtitle: 'fornitori certificati & verifica incentivi',
     description: 'Analizziamo il tuo tetto, verifichiamo i sussidi disponibili e ti mettiamo in contatto con installatori certificati della tua regione.',
     checkmarks: [
       'Installatori svizzeri certificati',
