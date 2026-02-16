@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, Clock, MapPin, Instagram } from 'lucide-react';
 import { Locale } from '@/lib/i18n';
 import { useLocale } from '@/lib/LocaleContext';
@@ -125,13 +126,14 @@ export default function Footer() {
       <div className="container-custom py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           <div>
-            <Link href={content.home} className="flex items-center gap-2 mb-4">
-              <span className="text-2xl font-sans font-semibold tracking-tight">
-                <span className="text-white">P</span>
-                <span className="text-primary">V</span>
-                <span className="text-white">Pro</span>
-                <span className="text-gray-500 text-lg">.ch</span>
-              </span>
+            <Link href={content.home} className="flex items-center mb-4">
+              <Image
+                src="/logo-pvpro.png"
+                alt="PVPro.ch"
+                width={140}
+                height={35}
+                className="h-8 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="text-sm text-gray-400">
               {content.tagline}

@@ -41,15 +41,11 @@ export default function Header() {
           <Link href={links.home} className="flex items-center group">
             <Image
               src="/logo-pvpro.png"
-              alt="PVPro"
-              width={44}
-              height={44}
-              className="h-9 sm:h-11 w-auto"
+              alt="PVPro.ch"
+              width={200}
+              height={56}
+              className="h-10 sm:h-14 w-auto"
             />
-            <span className="text-2xl sm:text-3xl font-sans font-semibold tracking-tight -ml-1">
-              <span className="text-gray-900">Pro</span>
-              <span className="text-gray-400 text-lg">.ch</span>
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
