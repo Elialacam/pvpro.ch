@@ -23,7 +23,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '1',
         title: 'Formular ausfüllen',
-        description: 'In nur 2 Minuten geben Sie Ihre Anforderungen ein – kostenlos und unverbindlich.',
+        description: 'Formular ausfüllen (2 Minuten) — kostenlos und unverbindlich.',
       },
       {
         step: '2',
@@ -45,7 +45,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '1',
         title: 'Remplir le formulaire',
-        description: 'En seulement 2 minutes, indiquez vos besoins – gratuit et sans engagement.',
+        description: 'Remplissez le formulaire (2 minutes) — gratuit et sans engagement.',
       },
       {
         step: '2',
@@ -67,7 +67,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '1',
         title: 'Fill Out the Form',
-        description: 'In just 2 minutes, enter your requirements – free and no obligation.',
+        description: 'Fill out the form (2 minutes) — free and no obligation.',
       },
       {
         step: '2',
@@ -89,7 +89,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '1',
         title: 'Compila il modulo',
-        description: 'In soli 2 minuti inserisci le tue esigenze – gratuito e senza impegno.',
+        description: 'Compila il modulo (2 minuti) — gratuito e senza impegno.',
       },
       {
         step: '2',
