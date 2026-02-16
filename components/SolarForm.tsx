@@ -259,7 +259,7 @@ export default function SolarForm() {
 
   const handleSelection = (field: string, value: any) => {
     setFormData((prev: any) => ({ ...prev, [field]: value }));
-    setTimeout(() => nextStep(), 300);
+    setTimeout(() => nextStep(), 100);
   };
 
   const stepNames: Record<number, string> = {
