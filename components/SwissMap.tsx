@@ -26,7 +26,7 @@ const mapContent: Record<Locale, {
   cta: string;
 }> = {
   de: {
-    title: 'Zahlen Sie nicht mehr als nötig für Ihre Solaranlage',
+    title: 'Ihre Photovoltaikanlage zum richtigen Preis',
     description: 'Wir finden für Sie den zuverlässigsten Partner in Ihrer Region, indem wir reale Preise und zertifizierte Qualität vergleichen.',
     features: [
       'Durchschnittliche Preise basierend auf echten Angeboten',
@@ -36,7 +36,7 @@ const mapContent: Record<Locale, {
     cta: 'Jetzt Offerten vergleichen',
   },
   fr: {
-    title: 'Ne payez pas plus que nécessaire pour votre installation solaire',
+    title: 'Votre installation photovoltaïque au juste prix',
     description: 'Nous trouvons pour vous le partenaire le plus fiable de votre région en comparant les prix réels et la qualité certifiée.',
     features: [
       'Prix moyens basés sur des offres réelles',
@@ -46,7 +46,7 @@ const mapContent: Record<Locale, {
     cta: 'Comparer les devis maintenant',
   },
   en: {
-    title: 'Don\'t pay more than necessary for your solar system',
+    title: 'Your photovoltaic system at the right price',
     description: 'We find the most reliable partner in your region for you by comparing real prices and certified quality.',
     features: [
       'Average prices based on real quotes',
@@ -56,7 +56,7 @@ const mapContent: Record<Locale, {
     cta: 'Compare Quotes Now',
   },
   it: {
-    title: 'Non paghi più del necessario per il tuo impianto solare',
+    title: 'Il tuo impianto fotovoltaico al prezzo giusto',
     description: 'Troviamo per te il partner più affidabile nella tua regione confrontando i prezzi reali e la qualità certificata.',
     features: [
       'Prezzi medi basati su offerte reali',
