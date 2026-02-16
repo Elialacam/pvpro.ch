@@ -57,7 +57,7 @@ export default function Header() {
                   window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                 }
               }}
-              className="btn-primary"
+              className="btn-primary hidden sm:inline-flex"
             >
               {links.cta}
             </button>
