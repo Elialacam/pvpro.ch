@@ -31,7 +31,7 @@ const mapContent: Record<Locale, {
     features: [
       'Durchschnittliche Preise basierend auf echten Angeboten',
       'Preise für typische 10 kWp Solaranlage',
-      'Inklusive Installation und Anmeldung',
+      'Installation und Formalitäten inklusive',
     ],
     cta: 'Jetzt Offerten vergleichen',
   },
@@ -41,7 +41,7 @@ const mapContent: Record<Locale, {
     features: [
       'Prix moyens basés sur des offres réelles',
       'Prix pour une installation solaire typique de 10 kWp',
-      'Installation et enregistrement inclus',
+      'Installation et démarches incluses',
     ],
     cta: 'Comparer les devis maintenant',
   },
@@ -51,7 +51,7 @@ const mapContent: Record<Locale, {
     features: [
       'Average prices based on real quotes',
       'Prices for typical 10 kWp solar system',
-      'Including installation and registration',
+      'Installation and paperwork included',
     ],
     cta: 'Compare Quotes Now',
   },
@@ -61,7 +61,7 @@ const mapContent: Record<Locale, {
     features: [
       'Prezzi medi basati su offerte reali',
       'Prezzi per un tipico impianto solare da 10 kWp',
-      'Inclusa installazione e registrazione',
+      'Installazione e pratiche incluse',
     ],
     cta: 'Confronta preventivi ora',
   },
