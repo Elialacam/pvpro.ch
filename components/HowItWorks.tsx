@@ -28,7 +28,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '2',
         title: 'Angebote vergleichen',
-        description: 'Sie erhalten bis zu 3 massgeschneiderte Offerten von geprüften Solarteuren aus Ihrer Region.',
+        description: 'Erhalten Sie bis zu 3 massgeschneiderte Offerten von zertifizierten Installateuren in Ihrem Kanton.',
       },
       {
         step: '3',
@@ -50,7 +50,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '2',
         title: 'Comparer les offres',
-        description: 'Recevez jusqu\'à 3 devis personnalisés d\'installateurs certifiés de votre région.',
+        description: 'Recevez jusqu\'à 3 devis personnalisés d\'installateurs certifiés dans votre canton.',
       },
       {
         step: '3',
@@ -72,7 +72,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '2',
         title: 'Compare Quotes',
-        description: 'Receive up to 3 customized quotes from certified installers in your region.',
+        description: 'Receive up to 3 customized quotes from certified installers in your canton.',
       },
       {
         step: '3',
@@ -94,7 +94,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '2',
         title: 'Confronta i preventivi',
-        description: 'Ricevi fino a 3 preventivi personalizzati da installatori certificati nella tua regione.',
+        description: 'Ricevi fino a 3 preventivi personalizzati da installatori certificati nel tuo cantone.',
       },
       {
         step: '3',
