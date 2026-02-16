@@ -33,7 +33,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '3',
         title: 'Installateur wählen',
-        description: 'Vergleichen Sie die Angebote und wählen Sie den besten Solarteur für Ihr Projekt. Sparen Sie Geld!',
+        description: 'Wir vergleichen echte Preise und zertifizierte Installateure in Ihrer Region — Sie wählen das beste Angebot.',
       },
     ],
   },
@@ -55,7 +55,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '3',
         title: 'Choisir l\'installateur',
-        description: 'Comparez les offres et choisissez le meilleur installateur pour votre projet. Économisez!',
+        description: 'Nous comparons les prix réels et les installateurs certifiés dans votre région — vous choisissez la meilleure offre.',
       },
     ],
   },
@@ -77,7 +77,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '3',
         title: 'Choose Your Installer',
-        description: 'Compare offers and choose the best installer for your project. Save money!',
+        description: 'We compare real prices and certified installers in your region — you choose the best offer.',
       },
     ],
   },
@@ -99,7 +99,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '3',
         title: 'Scegli il tuo installatore',
-        description: 'Confronta le offerte e scegli il miglior installatore per il tuo progetto. Risparmia denaro!',
+        description: 'Confrontiamo prezzi reali e installatori certificati nella tua regione — tu scegli l\'offerta migliore.',
       },
     ],
   },
