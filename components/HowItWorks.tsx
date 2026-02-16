@@ -17,7 +17,7 @@ const howItWorksContent: Record<Locale, {
 }> = {
   de: {
     title: 'So funktioniert\'s',
-    subtitle: 'In drei einfachen Schritten zur perfekten Solaranlage',
+    subtitle: 'In 3 einfachen Schritten vergleichen Sie die Angebote und wählen die günstigste Lösung',
     cta: 'Jetzt starten',
     steps: [
       {
@@ -39,7 +39,7 @@ const howItWorksContent: Record<Locale, {
   },
   fr: {
     title: 'Comment ça marche',
-    subtitle: 'En trois étapes simples vers l\'installation solaire parfaite',
+    subtitle: 'En 3 étapes simples, comparez les offres et choisissez la solution la plus avantageuse',
     cta: 'Commencer maintenant',
     steps: [
       {
@@ -61,7 +61,7 @@ const howItWorksContent: Record<Locale, {
   },
   en: {
     title: 'How It Works',
-    subtitle: 'In three simple steps to the perfect solar system',
+    subtitle: 'In 3 simple steps, compare offers and choose the most affordable solution',
     cta: 'Get Started',
     steps: [
       {
@@ -83,7 +83,7 @@ const howItWorksContent: Record<Locale, {
   },
   it: {
     title: 'Come funziona',
-    subtitle: 'In tre semplici passi verso l\'impianto solare perfetto',
+    subtitle: 'In 3 semplici passi confronti le offerte e scegli la soluzione più conveniente',
     cta: 'Inizia ora',
     steps: [
       {
