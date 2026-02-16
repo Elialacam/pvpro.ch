@@ -30,7 +30,7 @@ const mapContent: Record<Locale, {
     description: 'Wir finden für Sie den zuverlässigsten Partner in Ihrer Region, indem wir reale Preise und zertifizierte Qualität vergleichen.',
     features: [
       'Durchschnittliche Preise basierend auf echten Angeboten',
-      'Preise für typische 10 kWp Solaranlage',
+      'Referenz: Standard-Anlage mit 10 kWp',
       'Installation und Formalitäten inklusive',
     ],
     cta: 'Jetzt Offerten vergleichen',
@@ -40,7 +40,7 @@ const mapContent: Record<Locale, {
     description: 'Nous trouvons pour vous le partenaire le plus fiable de votre région en comparant les prix réels et la qualité certifiée.',
     features: [
       'Prix moyens basés sur des offres réelles',
-      'Prix pour une installation solaire typique de 10 kWp',
+      'Référence : installation standard de 10 kWp',
       'Installation et démarches incluses',
     ],
     cta: 'Comparer les devis maintenant',
@@ -50,7 +50,7 @@ const mapContent: Record<Locale, {
     description: 'We find the most reliable partner in your region for you by comparing real prices and certified quality.',
     features: [
       'Average prices based on real quotes',
-      'Prices for typical 10 kWp solar system',
+      'Reference: standard 10 kWp system',
       'Installation and paperwork included',
     ],
     cta: 'Compare Quotes Now',
@@ -60,7 +60,7 @@ const mapContent: Record<Locale, {
     description: 'Troviamo per te il partner più affidabile nella tua regione confrontando i prezzi reali e la qualità certificata.',
     features: [
       'Prezzi medi basati su offerte reali',
-      'Prezzi per un tipico impianto solare da 10 kWp',
+      'Riferimento: impianto standard da 10 kWp',
       'Installazione e pratiche incluse',
     ],
     cta: 'Confronta preventivi ora',
