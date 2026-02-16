@@ -131,10 +131,10 @@ export default function Hero() {
               <Image
                 src="/badges/trust-badges.png"
                 alt="100% Kostenlos - Förderungen Geprüft - DSGVO-Konform - Keine Werbeanrufe"
-                width={280}
-                height={35}
+                width={400}
+                height={50}
                 className="object-contain"
-                style={{ width: 'auto', height: '35px' }}
+                style={{ width: 'auto', height: '50px' }}
               />
             </div>
           </div>
