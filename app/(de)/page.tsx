@@ -104,10 +104,10 @@ export default function HomePage() {
       />
 
       <Hero />
+      <HowItWorks />
       <Testimonials />
       <TeamSection />
       <SwissMap />
-      <HowItWorks />
 
       {/* Cities Section - Internal Linking */}
       <section className="section-padding bg-white">
