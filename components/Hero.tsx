@@ -101,25 +101,28 @@ export default function Hero() {
 
             <div className="flex items-center gap-4 flex-wrap">
               <Image
-                src="/badges/swiss-quality.webp"
-                alt="Swiss Quality"
+                src="/badges/premium-solar-quality.png"
+                alt="Premium Solar Quality - Certified Trust"
                 width={70}
                 height={70}
                 className="object-contain"
+                style={{ width: '70px', height: 'auto' }}
               />
               <Image
-                src="/badges/proven-expert.webp"
-                alt="Proven Expert"
+                src="/badges/swiss-made.png"
+                alt="Swiss Made 100% Quality"
                 width={70}
                 height={70}
                 className="object-contain"
+                style={{ width: '70px', height: 'auto' }}
               />
               <Image
-                src="/badges/datenschutz.webp"
-                alt="Qualitätssiegel Datenschutz"
-                width={70}
-                height={70}
+                src="/badges/trustpilot.png"
+                alt="Trustpilot"
+                width={140}
+                height={40}
                 className="object-contain"
+                style={{ width: '100px', height: 'auto' }}
               />
             </div>
           </div>
