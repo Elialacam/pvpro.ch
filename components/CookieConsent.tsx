@@ -135,7 +135,7 @@ export default function CookieConsentBanner({ onConsentChange }: { onConsentChan
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 z-[9999] sm:max-w-sm w-auto">
+    <div className="fixed bottom-4 left-4 right-4 sm:right-auto sm:left-6 sm:bottom-6 z-[9999] sm:max-w-sm w-auto">
       <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 overflow-hidden">
         {!showCustomize ? (
           <div className="p-5">
