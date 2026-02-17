@@ -87,12 +87,12 @@ export default function LiveBar() {
   return (
     <div className="bg-[#d4af37] text-white text-xs sm:text-sm py-1.5 overflow-hidden">
       <div className="container-custom flex items-center justify-center gap-4 sm:gap-8 whitespace-nowrap">
-        <span className="flex items-center gap-1.5 font-semibold">
+        <span className="hidden sm:flex items-center gap-1.5 font-semibold">
           <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-none stroke-current stroke-2"><path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
           {t.noSpam}
         </span>
 
-        <span className="hidden sm:flex items-center gap-1.5">
+        <span className="flex items-center gap-1.5">
           <span className="relative flex h-2 w-2">
             <span className="wa-online-ping absolute h-full w-full rounded-full bg-green-400" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
@@ -100,7 +100,7 @@ export default function LiveBar() {
           {t.lastRequest} {dateStr}
         </span>
 
-        <span className="flex items-center gap-1.5">
+        <span className="hidden sm:flex items-center gap-1.5">
           <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-none stroke-current stroke-2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           {count} {t.requestsCount}
         </span>
