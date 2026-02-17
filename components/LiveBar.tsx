@@ -47,12 +47,22 @@ function formatDate(locale: string): string {
   return `${t.today} ${day}.${month}.${year} ${t.at} ${String(hours).padStart(2, '0')}:${String(fakeMinutes).padStart(2, '0')}`;
 }
 
+const LAUNCH_DATE = new Date('2026-02-17T00:00:00');
+const BASE_COUNT = 11733;
+
 function getCount(): string {
-  const base = 4832;
   const now = new Date();
-  const startOfYear = new Date(now.getFullYear(), 0, 1);
-  const dayOfYear = Math.floor((now.getTime() - startOfYear.getTime()) / (1000 * 60 * 60 * 24));
-  const total = base + dayOfYear * 7 + now.getHours();
+  const minutesSinceLaunch = Math.max(0, (now.getTime() - LAUNCH_DATE.getTime()) / (1000 * 60));
+  const seed = Math.floor(minutesSinceLaunch / 7);
+  let extra = 0;
+  for (let i = 0; i < seed; i++) {
+    const hash = Math.sin(i * 9301 + 49297) * 49271;
+    const rand = hash - Math.floor(hash);
+    if (rand < 0.27) {
+      extra++;
+    }
+  }
+  const total = BASE_COUNT + extra;
   return total.toLocaleString('de-CH');
 }
 
@@ -68,24 +78,24 @@ export default function LiveBar() {
     const interval = setInterval(() => {
       setDateStr(formatDate(locale));
       setCount(getCount());
-    }, 60000);
+    }, 30000);
     return () => clearInterval(interval);
   }, [locale]);
 
   if (!dateStr) return null;
 
   return (
-    <div className="bg-[#1a5c3a] text-white text-xs sm:text-sm py-1.5 overflow-hidden">
+    <div className="bg-[#d4af37] text-white text-xs sm:text-sm py-1.5 overflow-hidden">
       <div className="container-custom flex items-center justify-center gap-4 sm:gap-8 whitespace-nowrap">
-        <span className="flex items-center gap-1.5">
+        <span className="flex items-center gap-1.5 font-semibold">
           <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-none stroke-current stroke-2"><path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
           {t.noSpam}
         </span>
 
         <span className="hidden sm:flex items-center gap-1.5">
           <span className="relative flex h-2 w-2">
-            <span className="wa-online-ping absolute h-full w-full rounded-full bg-green-400" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+            <span className="wa-online-ping absolute h-full w-full rounded-full bg-white/70" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
           </span>
           {t.lastRequest} {dateStr}
         </span>
