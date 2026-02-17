@@ -69,9 +69,9 @@ export default function Hero() {
   const content = heroContent[locale] || heroContent.de;
 
   return (
-    <section className="bg-gradient-to-b from-primary-50 to-white section-padding">
+    <section className="bg-gradient-to-b from-primary-50 to-white py-6 sm:py-8 md:py-20">
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Left Column - Text */}
           <div className="lg:pt-8">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-semibold tracking-tight text-gray-900 mb-2 leading-tight">
