@@ -99,30 +99,14 @@ export default function Hero() {
               <ChevronRight className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-4 flex-wrap">
+            <div className="flex items-center">
               <Image
-                src="/badges/premium-solar-quality.png"
-                alt="Premium Solar Quality - Certified Trust"
-                width={70}
-                height={70}
+                src="/badges/logos-row.png"
+                alt="Premium Solar Quality - Swiss Made - Trustpilot"
+                width={320}
+                height={60}
                 className="object-contain"
-                style={{ width: '70px', height: 'auto' }}
-              />
-              <Image
-                src="/badges/swiss-made.png"
-                alt="Swiss Made 100% Quality"
-                width={70}
-                height={70}
-                className="object-contain"
-                style={{ width: '70px', height: 'auto' }}
-              />
-              <Image
-                src="/badges/trustpilot.png"
-                alt="Trustpilot"
-                width={140}
-                height={40}
-                className="object-contain"
-                style={{ width: '100px', height: 'auto' }}
+                style={{ width: '280px', height: 'auto' }}
               />
             </div>
           </div>
