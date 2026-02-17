@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useLocale } from '@/lib/LocaleContext';
@@ -38,12 +38,7 @@ const WHATSAPP_NUMBER = '+41779770750';
 export default function WhatsAppFloating() {
   const locale = useLocale();
   const t = translations[locale] || translations.de;
-  const [showBubble, setShowBubble] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowBubble(true), 3000);
-    return () => clearTimeout(timer);
-  }, []);
+  const [showBubble, setShowBubble] = useState(true);
 
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
