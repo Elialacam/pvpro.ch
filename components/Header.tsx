@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
+import LiveBar from './LiveBar';
 import { Locale } from '@/lib/i18n';
 import { useLocale } from '@/lib/LocaleContext';
 
@@ -41,6 +42,7 @@ export default function Header() {
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+      <LiveBar />
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <Link href={links.home} className="flex items-center group">
