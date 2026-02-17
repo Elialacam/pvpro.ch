@@ -397,7 +397,7 @@ export default function SolarForm() {
         return (
           <div className="space-y-8">
             <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center leading-tight">{t.step1Title}</h3>
-            <div className="flex flex-row gap-2 sm:gap-4 w-full max-w-[350px] mx-auto">
+            <div className="flex flex-row gap-3 sm:gap-4 w-full max-w-[380px] mx-auto">
               <RealisticButton label={t.yes} isSelected={formData.isOwner === 'yes'} onClick={() => handleSelection('isOwner', 'yes')} icon={Check} color="green" subLabel={locale === 'it' ? 'Proprietario' : locale === 'fr' ? 'Propriétaire' : locale === 'en' ? 'Owner' : 'Eigentümer'} />
               <RealisticButton label={t.no} isSelected={formData.isOwner === 'no'} onClick={() => handleSelection('isOwner', 'no')} icon={X} color="red" subLabel={locale === 'it' ? 'Inquilino' : locale === 'fr' ? 'Locataire' : locale === 'en' ? 'Renter' : 'Mieter'} />
             </div>
@@ -408,7 +408,7 @@ export default function SolarForm() {
           <div className="space-y-8">
             <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center leading-tight">{t.step2Title}</h3>
             <div className="w-full mx-auto">
-              <div className="grid grid-cols-2 gap-2 sm:gap-4 mb-2 sm:mb-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4">
                 <RealisticButton label={t.singleFamily} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelection('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.png" />
                 <RealisticButton label={t.multiFamily} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelection('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.png" />
               </div>
@@ -424,7 +424,7 @@ export default function SolarForm() {
         return (
           <div className="space-y-8">
             <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center leading-tight">{t.step3Title}</h3>
-            <div className="grid grid-cols-2 gap-2 sm:gap-4 w-full mx-auto">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full mx-auto">
               <RealisticButton label={t.pitchedRoof} isSelected={formData.roofType === 'pitched'} onClick={() => handleSelection('roofType', 'pitched')} imageSrc="/icons/pitched-roof.png" />
               <RealisticButton label={t.monopitchRoof} isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelection('roofType', 'monopitch')} imageSrc="/icons/monopitch-roof.png" />
               <RealisticButton label={t.flatRoof} isSelected={formData.roofType === 'flat'} onClick={() => handleSelection('roofType', 'flat')} imageSrc="/icons/flat-roof.png" />
@@ -437,7 +437,7 @@ export default function SolarForm() {
           <div className="space-y-8">
             <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center leading-tight">{t.step4Title}</h3>
             <div className="w-full mx-auto">
-              <div className="grid grid-cols-2 gap-2 sm:gap-4 mb-2 sm:mb-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4">
                 <RealisticButton label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelection('wantsBattery', 'yes')} icon={Check} color="green" />
                 <RealisticButton label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelection('wantsBattery', 'no')} icon={X} color="red" />
               </div>
