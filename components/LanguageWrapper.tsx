@@ -3,6 +3,7 @@
 import { LocaleProvider } from '@/lib/LocaleContext';
 import Header from './Header';
 import Footer from './Footer';
+import WhatsAppFloating from './WhatsAppFloating';
 import { Locale } from '@/lib/i18n';
 
 interface LanguageWrapperProps {
@@ -16,6 +17,7 @@ export default function LanguageWrapper({ children, locale }: LanguageWrapperPro
       <Header />
       <main>{children}</main>
       <Footer />
+      <WhatsAppFloating />
     </LocaleProvider>
   );
 }
