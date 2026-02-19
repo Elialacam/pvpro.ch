@@ -352,7 +352,8 @@ export default function SolarForm() {
         let p = raw.trim().replace(/\s+/g, '').replace(/[^\d+]/g, '');
         if (p.startsWith('+41')) p = '0' + p.slice(3);
         else if (p.startsWith('0041')) p = '0' + p.slice(4);
-        else if (p.length === 9 && !p.startsWith('0')) p = '0' + p;
+        while (p.startsWith('00')) p = p.slice(1);
+        if (p.length === 9 && !p.startsWith('0')) p = '0' + p;
         if (p.length === 10 && p.startsWith('0')) {
           return `${p.slice(0,3)} ${p.slice(3,6)} ${p.slice(6,8)} ${p.slice(8,10)}`;
         }
