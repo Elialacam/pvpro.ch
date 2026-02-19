@@ -65,7 +65,19 @@ npm run start -- -p 5000
 - **Commercial Register**: CH-501.4.029.665-0, Canton of Ticino, Seat: Capriasca
 - **UID**: CHE-236.020.113
 
+## Form Submission (Web3Forms)
+- **Key**: e5917515-5373-450c-963d-d6dcb976be42
+- **Fields sent in EXACT order** (no property/roof/battery selections):
+  1. DATE TIME - Swiss timezone (Europe/Zurich)
+  2. FULL NAME - First + Last name
+  3. PHONE NUMBER
+  4. EMAIL
+  5. COMPLETE ADDRESS - Full address from form
+- **Subject**: "Neue Solaranfrage - {Full Name}"
+- **From**: PVPro.ch
+
 ## Recent Changes
+- 2026-02-19: Updated form submission to send exactly 5 fields: Date/Time, Full Name, Phone, Email, Complete Address (removed property/roof/battery data)
 - 2026-02-11: Updated all legal/privacy pages (DE/FR/EN/IT) with real NOBA Media Sagl company data, full tracking disclosure, and nLPD/GDPR compliance
 - 2026-02-11: Updated Footer and StructuredData with correct Lugaggia address
 - 2026-02-10: Added GDPR/nLPD cookie consent banner with conditional tracking script loading
