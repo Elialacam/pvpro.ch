@@ -349,29 +349,24 @@ export default function SolarForm() {
     try {
       const fullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
       const now = new Date();
-      const dateTime = now.toLocaleString('en-US', {
-        timeZone: 'Europe/Zurich',
-        month: 'short',
-        day: '2-digit',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true,
-      });
+      const pad = (n: number) => n.toString().padStart(2, '0');
+      const zurich = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Zurich' }));
+      const dateTime = `${pad(zurich.getDate())}.${pad(zurich.getMonth() + 1)}.${zurich.getFullYear()} ${pad(zurich.getHours())}:${pad(zurich.getMinutes())}:${pad(zurich.getSeconds())}`;
+      const formatPhone = (raw: string) => {
+        let p = raw.trim().replace(/\s+/g, '').replace(/[^\d+]/g, '');
+        if (p.startsWith('+41')) p = '0' + p.slice(3);
+        else if (p.startsWith('0041')) p = '0' + p.slice(4);
+        else if (p.length === 9 && !p.startsWith('0')) p = '0' + p;
+        if (p.length === 10 && p.startsWith('0')) {
+          return `${p.slice(0,3)} ${p.slice(3,6)} ${p.slice(6,8)} ${p.slice(8,10)}`;
+        }
+        return p;
+      };
       const submitData = {
         access_key: 'e5917515-5373-450c-963d-d6dcb976be42',
         'DATE TIME': dateTime,
         'FULL NAME': fullName,
-        'PHONE NUMBER': (() => {
-          let p = formData.phone.trim().replace(/\s+/g, '').replace(/[^\d+]/g, '');
-          if (p.startsWith('+41')) p = '0' + p.slice(3);
-          else if (p.startsWith('0041')) p = '0' + p.slice(4);
-          if (p.length === 10 && p.startsWith('0')) {
-            return `${p.slice(0,3)} ${p.slice(3,6)} ${p.slice(6,8)} ${p.slice(8,10)}`;
-          }
-          return p;
-        })(),
+        'PHONE NUMBER': formatPhone(formData.phone),
         EMAIL: formData.email.trim(),
         'COMPLETE ADDRESS': formData.address,
       };
