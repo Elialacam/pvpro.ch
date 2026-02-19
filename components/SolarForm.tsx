@@ -363,7 +363,15 @@ export default function SolarForm() {
         access_key: 'e5917515-5373-450c-963d-d6dcb976be42',
         'DATE TIME': dateTime,
         'FULL NAME': fullName,
-        'PHONE NUMBER': formData.phone.trim(),
+        'PHONE NUMBER': (() => {
+          let p = formData.phone.trim().replace(/\s+/g, '').replace(/[^\d+]/g, '');
+          if (p.startsWith('+41')) p = '0' + p.slice(3);
+          else if (p.startsWith('0041')) p = '0' + p.slice(4);
+          if (p.length === 10 && p.startsWith('0')) {
+            return `${p.slice(0,3)} ${p.slice(3,6)} ${p.slice(6,8)} ${p.slice(8,10)}`;
+          }
+          return p;
+        })(),
         EMAIL: formData.email.trim(),
         'COMPLETE ADDRESS': formData.address,
       };
