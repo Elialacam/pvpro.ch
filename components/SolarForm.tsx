@@ -348,10 +348,6 @@ export default function SolarForm() {
     setIsSubmitting(true);
     try {
       const fullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
-      const now = new Date();
-      const pad = (n: number) => n.toString().padStart(2, '0');
-      const zurich = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Zurich' }));
-      const dateTime = `${pad(zurich.getDate())}.${pad(zurich.getMonth() + 1)}.${zurich.getFullYear()} ${pad(zurich.getHours())}:${pad(zurich.getMinutes())}:${pad(zurich.getSeconds())}`;
       const formatPhone = (raw: string) => {
         let p = raw.trim().replace(/\s+/g, '').replace(/[^\d+]/g, '');
         if (p.startsWith('+41')) p = '0' + p.slice(3);
@@ -364,7 +360,6 @@ export default function SolarForm() {
       };
       const submitData = {
         access_key: 'e5917515-5373-450c-963d-d6dcb976be42',
-        'DATE TIME': dateTime,
         'FULL NAME': fullName,
         'PHONE NUMBER': formatPhone(formData.phone),
         EMAIL: formData.email.trim(),
