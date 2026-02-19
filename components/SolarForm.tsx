@@ -361,8 +361,6 @@ export default function SolarForm() {
       });
       const submitData = {
         access_key: 'e5917515-5373-450c-963d-d6dcb976be42',
-        subject: `Neue Solaranfrage - ${fullName}`,
-        from_name: 'PVPro.ch',
         'DATE TIME': dateTime,
         'FULL NAME': fullName,
         'PHONE NUMBER': formData.phone.trim(),
