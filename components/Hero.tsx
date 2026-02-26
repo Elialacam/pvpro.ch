@@ -16,15 +16,15 @@ const heroContent: Record<Locale, {
 }> = {
   de: {
     title: 'Was kostet eine Solaranlage in der Schweiz?',
-    subtitle: 'Durchschnittlich 18\'000–32\'000 CHF – abhängig von Dach, Leistung & Speicher.',
-    description: 'Jetzt individuelle Offerten kostenlos berechnen',
+    subtitle: '14\'000–27\'000 CHF im Durchschnitt.',
+    description: 'Wir analysieren Ihr Dach, prüfen verfügbare Förderungen und vermitteln geprüfte Solarteure aus Ihrer Region.',
     checkmarks: [
       'Geprüfte Schweizer Solarteure',
       'Kantonale Angebote vergleichen',
       'Kostenlos & unverbindlich',
       'Keine Werbeanrufe',
     ],
-    cta: 'Jetzt Angebote vergleichen',
+    cta: 'Individuelle Offerten berechnen',
   },
   fr: {
     title: 'Comparer les installations solaires en Suisse :',
