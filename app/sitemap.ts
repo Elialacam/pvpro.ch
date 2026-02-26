@@ -90,28 +90,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // French city pages
   const frenchCityPages = cities
     .filter(city => city.language === 'fr')
-    .map((city) => {
-      let frenchSlug = `solaire-${city.slug}`;
-      return {
-        url: `${baseUrl}/${frenchSlug}`,
-        lastModified: currentDate,
-        changeFrequency: 'weekly' as const,
-        priority: 0.85,
-      };
-    });
+    .map((city) => ({
+      url: `${baseUrl}/fr/solaire-${city.slug}`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.85,
+    }));
 
   // Italian city pages
   const italianCityPages = cities
     .filter(city => city.language === 'it')
-    .map((city) => {
-      let italianSlug = `fotovoltaico-${city.slug}`;
-      return {
-        url: `${baseUrl}/${italianSlug}`,
-        lastModified: currentDate,
-        changeFrequency: 'weekly' as const,
-        priority: 0.90,
-      };
-    });
+    .map((city) => ({
+      url: `${baseUrl}/it/fotovoltaico-${city.slug}`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.90,
+    }));
 
   return [
     ...staticPages,
