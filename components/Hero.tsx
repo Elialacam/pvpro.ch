@@ -15,8 +15,8 @@ const heroContent: Record<Locale, {
   cta: string;
 }> = {
   de: {
-    title: 'Was kostet eine Solaranlage in der Schweiz?',
-    subtitle: '14\'000 – 27\'000 CHF im Durchschnitt.',
+    title: 'Solaranlagen in der Schweiz vergleichen:',
+    subtitle: 'geprüfte Anbieter & Förder-Check',
     description: 'Wir analysieren Ihr Dach, prüfen verfügbare Förderungen und vermitteln geprüfte Solarteure aus Ihrer Region.',
     checkmarks: [
       'Geprüfte Schweizer Solarteure',
@@ -24,7 +24,7 @@ const heroContent: Record<Locale, {
       'Kostenlos & unverbindlich',
       'Keine Werbeanrufe',
     ],
-    cta: 'Individuelle Offerten berechnen',
+    cta: 'Jetzt Angebote vergleichen',
   },
   fr: {
     title: 'Comparer les installations solaires en Suisse :',
@@ -75,8 +75,7 @@ export default function Hero() {
           {/* Left Column - Text */}
           <div className="lg:pt-8">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-semibold tracking-tight text-gray-900 mb-2 leading-tight">
-              {content.title}
-              <br />
+              {content.title}{' '}
               <span className="text-primary">{content.subtitle}</span>
             </h1>
             <p className="text-lg text-gray-600 mb-8 mt-4">
