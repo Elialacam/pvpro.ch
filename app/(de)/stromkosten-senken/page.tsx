@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import SolarForm from '@/components/SolarForm';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, TrendingUp, Zap, Shield, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: '80% weniger Stromkosten mit Solarenergie | PVPro.ch',
@@ -98,23 +98,165 @@ export default function StromkostenSenkenPage() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-8">
-            Zahlen Sie auch zu viel für Strom?
-          </h2>
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mb-10 text-sm sm:text-base">
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+              Das Problem: Strompreise steigen jedes Jahr
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Die Strompreise in der Schweiz sind in den letzten Jahren um über 30% gestiegen. Viele Hausbesitzer zahlen jeden Monat mehr, ohne etwas dagegen tun zu können. Gleichzeitig produzieren immer mehr Schweizer Haushalte ihren eigenen Strom und sparen dabei Hunderte Franken pro Jahr.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
             {[
-              'Bis zu 80% Stromkosten sparen',
-              'Geld verdienen mit Einspeisung',
-              'Unabhängig von steigenden Preisen',
+              {
+                icon: TrendingUp,
+                title: 'Steigende Preise',
+                text: 'Die Stromtarife steigen kontinuierlich. Was heute CHF 967 kostet, wird morgen noch teurer.',
+              },
+              {
+                icon: Zap,
+                title: 'Verpasste Einnahmen',
+                text: 'Ohne Solaranlage verschenken Sie jeden Tag Geld, das Ihr eigenes Dach für Sie verdienen könnte.',
+              },
+              {
+                icon: Shield,
+                title: 'Keine Kontrolle',
+                text: 'Als Stromkunde sind Sie den Preiserhöhungen Ihres Anbieters ausgeliefert.',
+              },
             ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                <span className="text-gray-200">{item}</span>
+              <div key={i} className="bg-gray-50 rounded-xl p-6 text-center">
+                <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-6 h-6 text-red-500" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-600">{item.text}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+              So funktioniert PVPro
+            </h2>
+            <p className="text-lg text-gray-600">
+              In 3 einfachen Schritten zu tieferen Stromkosten.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                step: '1',
+                title: 'Dach prüfen',
+                text: 'Beantworten Sie ein paar einfache Fragen zu Ihrem Haus und Dach. Dauert nur 30 Sekunden.',
+              },
+              {
+                step: '2',
+                title: 'Offerten erhalten',
+                text: 'Geprüfte Installateure aus Ihrer Region erstellen Ihnen unverbindliche Angebote.',
+              },
+              {
+                step: '3',
+                title: 'Sparen ab Tag 1',
+                text: 'Vergleichen Sie die Offerten, wählen Sie die beste Option und produzieren Sie Ihren eigenen Strom.',
+              },
+            ].map((item, i) => (
+              <div key={i} className="relative">
+                <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 h-full">
+                  <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mb-4">
+                    {item.step}
+                  </div>
+                  <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-600">{item.text}</p>
+                </div>
+                {i < 2 && (
+                  <div className="hidden md:flex absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                    <ArrowRight className="w-6 h-6 text-green-600" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+                Warum Schweizer Hausbesitzer auf Solar umsteigen
+              </h2>
+              <div className="space-y-4">
+                {[
+                  {
+                    icon: TrendingUp,
+                    title: 'Bis zu 80% tiefere Stromkosten',
+                    text: 'Produzieren Sie Ihren eigenen Strom und reduzieren Sie Ihre monatliche Rechnung massiv.',
+                  },
+                  {
+                    icon: Zap,
+                    title: 'Geld verdienen mit Einspeisung',
+                    text: 'Überschüssigen Strom speisen Sie ins Netz ein und erhalten dafür bis zu CHF 200 pro Monat.',
+                  },
+                  {
+                    icon: Shield,
+                    title: 'Schutz vor Preiserhöhungen',
+                    text: 'Ihr eigener Strom bleibt immer gleich günstig, egal wie stark die Tarife steigen.',
+                  },
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <item.icon className="w-5 h-5 text-green-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900">{item.title}</h3>
+                      <p className="text-sm text-gray-600">{item.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <Image
+                src="/images/team-roof-1.png"
+                alt="Solarinstallation auf dem Dach"
+                width={300}
+                height={400}
+                className="rounded-xl shadow-lg w-full object-cover h-[250px]"
+              />
+              <Image
+                src="/images/team-install-1.png"
+                alt="Installateur bei der Arbeit"
+                width={300}
+                height={400}
+                className="rounded-xl shadow-lg w-full object-cover h-[250px]"
+              />
+              <Image
+                src="/images/team-collage.png"
+                alt="PVPro Team und Projekte"
+                width={620}
+                height={300}
+                className="rounded-xl shadow-lg w-full object-cover h-[200px] col-span-2"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+            Zahlen Sie auch zu viel für Strom?
+          </h2>
+          <p className="text-lg text-gray-300 mb-8">
+            Prüfen Sie jetzt kostenlos, ob Ihr Dach für eine Solaranlage geeignet ist und wie viel Sie sparen können.
+          </p>
           <a
             href="#formular"
             className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-10 py-4 rounded-xl text-lg transition-colors shadow-lg shadow-green-600/20"
@@ -122,7 +264,14 @@ export default function StromkostenSenkenPage() {
             Jetzt Ersparnis berechnen
             <ArrowRight className="w-5 h-5" />
           </a>
-          <p className="mt-4 text-gray-500 text-sm">Kostenlos & unverbindlich in 30 Sekunden</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6 text-sm text-gray-400">
+            {['Kostenlos', 'Unverbindlich', '30 Sekunden'].map((item, i) => (
+              <div key={i} className="flex items-center gap-1.5">
+                <CheckCircle className="w-4 h-4 text-green-500" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>
