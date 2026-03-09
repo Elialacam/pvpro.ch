@@ -69,9 +69,6 @@ export default function LokaleInstallateurePage() {
                   </div>
                 ))}
               </div>
-              <p className="text-sm text-primary font-semibold tracking-wide uppercase">
-                Jetzt kostenlos prüfen
-              </p>
             </div>
 
             <div className="lg:sticky lg:top-24 flex flex-col items-center">
