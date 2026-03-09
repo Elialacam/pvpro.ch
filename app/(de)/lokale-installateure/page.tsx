@@ -227,6 +227,13 @@ export default function LokaleInstallateurePage() {
                 height={400}
                 className="rounded-xl shadow-lg w-full object-cover h-[250px]"
               />
+              <Image
+                src="/images/team-collage.png"
+                alt="PVPro Team und Projekte"
+                width={620}
+                height={300}
+                className="rounded-xl shadow-lg w-full object-cover h-[200px] col-span-2"
+              />
             </div>
           </div>
         </div>
