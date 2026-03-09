@@ -24,6 +24,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'de_CH',
     siteName: 'PVPro',
+    images: [
+      {
+        url: '/og-installateure.png',
+        width: 1200,
+        height: 630,
+        alt: 'Zuverlässige lokale Installateure finden',
+      },
+    ],
   },
 };
 

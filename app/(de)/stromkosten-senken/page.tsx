@@ -23,6 +23,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'de_CH',
     siteName: 'PVPro',
+    images: [
+      {
+        url: '/og-stromkosten.png',
+        width: 1200,
+        height: 630,
+        alt: '80% weniger Stromkosten mit Solarenergie',
+      },
+    ],
   },
 };
 
