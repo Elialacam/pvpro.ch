@@ -87,13 +87,13 @@ export default function LokaleInstallateurePage() {
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               In der Schweiz gibt es Hunderte von Solarfirmen. Die Preise variieren stark, die Qualität ist schwer einzuschätzen, und unverbindliche Richtpreise helfen selten weiter. Viele Hausbesitzer verschwenden Wochen mit Recherche und erhalten trotzdem kein gutes Gefühl.
             </p>
-            <div className="mt-8">
+            <div className="mt-8 max-w-md mx-auto">
               <Image
                 src="/images/team-project.png"
                 alt="PVPro Team bei der Arbeit"
-                width={1000}
-                height={500}
-                className="rounded-xl shadow-lg w-full object-cover max-h-[400px]"
+                width={500}
+                height={300}
+                className="rounded-xl shadow-lg w-full object-cover"
               />
             </div>
           </div>
