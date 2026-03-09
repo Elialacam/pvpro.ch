@@ -80,6 +80,9 @@ npm run start -- -p 5000
 - `/lokale-installateure` - Angle: "Zuverlässige lokale Installateure" (German)
   - Hero with form, problem section, how it works, trust section with team photos
   - Footer first checkmark links to this page
+- `/stromkosten-senken` - Angle: "Stromkosten mit Solarenergie reduzieren" (German)
+  - Hero with form, rising costs section, own energy section, roof check CTA
+  - Footer second checkmark links to this page
 
 ## Recent Changes
 - 2026-03-09: Created /lokale-installateure landing page for Facebook Ads (message match angle: local installers)

@@ -1,0 +1,67 @@
+Create a new landing page for PVPro.ch based on the advertising angle electricity cost reduction with solar energy.
+
+Everything must be written in German.
+
+The page must focus on homeowners who want to reduce their electricity bills by producing their own energy with solar panels.
+
+Use the same visual direction, colors and tone as the ads so the landing page matches the advertising creatives.
+
+Hero
+
+Headline
+
+Stromkosten mit Solarenergie deutlich reduzieren.
+
+Subheadline
+
+Viele Hausbesitzer in der Schweiz produzieren bereits ihren eigenen Strom. Prüfen Sie in weniger als 30 Sekunden, ob Ihr Dach dafür geeignet ist.
+
+Benefits
+
+Stromkosten deutlich reduzieren
+
+Eigenen Strom produzieren
+
+Kostenlos & unverbindlich prüfen
+
+Ergebnis in 30 Sekunden
+
+Section – Stromkosten steigen
+
+Die Strompreise in der Schweiz sind in den letzten Jahren deutlich gestiegen.
+
+Viele Hausbesitzer zahlen jeden Monat mehr für Energie und suchen nach Möglichkeiten, ihre Stromkosten langfristig zu senken.
+
+Eine Lösung, die immer mehr Haushalte nutzen, ist eine eigene Solaranlage.
+
+Damit kann ein Haus einen Teil seines Stroms selbst produzieren und die Stromrechnung deutlich reduzieren.
+
+Section – Eigenen Strom produzieren
+
+Mit einer Solaranlage wird das Dach eines Hauses zu einer eigenen Energiequelle.
+
+Ein Teil des Stroms, den Sie täglich nutzen, kann direkt auf Ihrem eigenen Dach produziert werden.
+
+Das kann helfen, die Abhängigkeit vom Stromanbieter zu reduzieren und langfristig Kosten zu sparen.
+
+Section – Prüfen Sie Ihr Dach
+
+Der erste Schritt ist herauszufinden, ob Ihr Dach für eine Solaranlage geeignet ist.
+
+Beantworten Sie ein paar kurze Fragen zu Ihrer Immobilie und prüfen Sie in weniger als 30 Sekunden, ob Ihr Dach Strom produzieren kann.
+
+Die Prüfung ist kostenlos und unverbindlich.
+
+CTA
+
+Jetzt prüfen, ob Ihr Haus Strom produzieren kann.
+
+Footer modification
+
+In the footer there are five benefit lines with check icons.
+
+Replace the second line with:
+
+Stromkosten bis zu 80% reduzieren
+
+When users click this text, it must open this new landing page.

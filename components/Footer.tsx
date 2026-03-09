@@ -27,7 +27,7 @@ const footerContent: Record<Locale, {
     tagline: 'PVPro.ch ist eine unabhängige Schweizer Plattform, die Immobilieneigentümer mit geprüften Photovoltaik-Installateuren und Speicherlösungen verbindet.',
     features: [
       { text: 'Zuverlässige lokale Installateure', href: '/lokale-installateure' },
-      { text: 'Echte Offerten statt Richtpreise', href: null },
+      { text: 'Stromkosten bis zu 80% reduzieren', href: '/stromkosten-senken' },
       { text: 'Jede Anfrage persönlich geprüft', href: null },
       { text: 'Regionale Anbieter', href: null },
       { text: 'Schweizer Plattform', href: null },
