@@ -87,18 +87,47 @@ export default function StromkostenSenkenPage() {
               Stromkosten steigen
             </h2>
           </div>
-          <div className="max-w-3xl mx-auto space-y-6 text-lg text-gray-600 leading-relaxed">
+
+          <div className="max-w-3xl mx-auto space-y-6 text-lg text-gray-600 leading-relaxed mb-12">
             <p>
-              Die Strompreise in der Schweiz sind in den letzten Jahren deutlich gestiegen.
+              Die Strompreise in der Schweiz sind in den letzten Jahren deutlich gestiegen. Viele Hausbesitzer zahlen jeden Monat mehr für Energie und suchen nach Möglichkeiten, ihre Stromkosten langfristig zu senken.
             </p>
             <p>
-              Viele Hausbesitzer zahlen jeden Monat mehr für Energie und suchen nach Möglichkeiten, ihre Stromkosten langfristig zu senken.
+              Eine Lösung, die immer mehr Haushalte nutzen, ist eine eigene Solaranlage. Damit kann ein Haus einen Teil seines Stroms selbst produzieren und die Stromrechnung deutlich reduzieren.
             </p>
-            <p>
-              Eine Lösung, die immer mehr Haushalte nutzen, ist eine eigene Solaranlage.
-            </p>
-            <p>
-              Damit kann ein Haus einen Teil seines Stroms selbst produzieren und die Stromrechnung deutlich reduzieren.
+          </div>
+
+          <div className="max-w-lg mx-auto bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 shadow-xl">
+            <div className="text-center mb-6">
+              <p className="text-sm text-gray-400 uppercase tracking-wider font-medium">Beispiel: Monatliche Stromkosten</p>
+            </div>
+            <div className="flex items-center justify-center gap-6 sm:gap-10">
+              <div className="text-center">
+                <p className="text-xs text-gray-400 uppercase tracking-wider mb-2">Vorher</p>
+                <div className="bg-red-500/20 rounded-xl px-5 py-4">
+                  <p className="text-2xl sm:text-3xl font-bold text-red-400">CHF 967</p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-1">
+                <ArrowRight className="w-6 h-6 text-primary" />
+              </div>
+              <div className="text-center">
+                <p className="text-xs text-gray-400 uppercase tracking-wider mb-2">Jetzt</p>
+                <div className="bg-green-500/20 rounded-xl px-5 py-4">
+                  <p className="text-2xl sm:text-3xl font-bold text-green-400">CHF 180</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-6 text-center">
+              <span className="inline-block bg-green-600 text-white font-bold text-lg px-6 py-2 rounded-full">
+                -80% weniger Stromkosten
+              </span>
+            </div>
+            <div className="mt-4 text-center">
+              <p className="text-green-400 text-sm font-medium">+ CHF 200 für eingespeisten Strom</p>
+            </div>
+            <p className="text-xs text-gray-500 text-center mt-4">
+              Beispiel einer echten Stromrechnung. Die tatsächliche Ersparnis hängt vom Haus und Verbrauch ab.
             </p>
           </div>
         </div>
@@ -183,9 +212,9 @@ export default function StromkostenSenkenPage() {
           </p>
           <a
             href="#formular"
-            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-xl text-lg transition-colors"
+            className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-4 rounded-xl text-lg transition-colors"
           >
-            Jetzt Dach prüfen
+            Jetzt Ersparnis berechnen
             <ArrowRight className="w-5 h-5" />
           </a>
         </div>
