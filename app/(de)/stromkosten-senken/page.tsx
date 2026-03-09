@@ -59,9 +59,8 @@ export default function StromkostenSenkenPage() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className="space-y-5">
               <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] tracking-tight drop-shadow-lg">
-                80% WENIGER
-                <br />
-                <span className="text-green-400">STROMKOSTEN</span>
+                Bis zu 80% weniger Stromkosten für{' '}
+                <span className="text-green-400">Ihr Zuhause.</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-white/90 font-medium drop-shadow-md">
