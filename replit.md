@@ -76,7 +76,15 @@ npm run start -- -p 5000
 - **Subject**: "Neue Solaranfrage - {Full Name}"
 - **From**: PVPro.ch
 
+## Landing Pages (Facebook Ads - Message Match)
+- `/lokale-installateure` - Angle: "Zuverlässige lokale Installateure" (German)
+  - Hero with form, problem section, how it works, trust section with team photos
+  - Footer first checkmark links to this page
+
 ## Recent Changes
+- 2026-03-09: Created /lokale-installateure landing page for Facebook Ads (message match angle: local installers)
+- 2026-03-09: Updated footer first checkmark to "Zuverlässige lokale Installateure" with link to landing page
+- 2026-03-09: Added team images to public/images/
 - 2026-02-19: Updated form submission to send exactly 5 fields: Date/Time, Full Name, Phone, Email, Complete Address (removed property/roof/battery data)
 - 2026-02-11: Updated all legal/privacy pages (DE/FR/EN/IT) with real NOBA Media Sagl company data, full tracking disclosure, and nLPD/GDPR compliance
 - 2026-02-11: Updated Footer and StructuredData with correct Lugaggia address

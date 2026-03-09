@@ -8,7 +8,7 @@ import { useLocale } from '@/lib/LocaleContext';
 
 const footerContent: Record<Locale, {
   tagline: string;
-  features: string[];
+  features: { text: string; href: string | null }[];
   contact: {
     title: string;
     email: string;
@@ -26,11 +26,11 @@ const footerContent: Record<Locale, {
   de: {
     tagline: 'PVPro.ch ist eine unabhängige Schweizer Plattform, die Immobilieneigentümer mit geprüften Photovoltaik-Installateuren und Speicherlösungen verbindet.',
     features: [
-      'Geprüfte Schweizer Solarteure',
-      'Echte Offerten statt Richtpreise',
-      'Jede Anfrage persönlich geprüft',
-      'Regionale Anbieter',
-      'Schweizer Plattform',
+      { text: 'Zuverlässige lokale Installateure', href: '/lokale-installateure' },
+      { text: 'Echte Offerten statt Richtpreise', href: null },
+      { text: 'Jede Anfrage persönlich geprüft', href: null },
+      { text: 'Regionale Anbieter', href: null },
+      { text: 'Schweizer Plattform', href: null },
     ],
     contact: {
       title: 'Wir sind für Sie da',
@@ -49,11 +49,11 @@ const footerContent: Record<Locale, {
   fr: {
     tagline: 'PVPro.ch est une plateforme suisse indépendante qui met en relation les propriétaires immobiliers avec des installateurs photovoltaïques certifiés et des solutions de stockage.',
     features: [
-      'Installateurs suisses certifiés',
-      'Offres réelles au lieu de prix indicatifs',
-      'Chaque demande vérifiée personnellement',
-      'Fournisseurs régionaux',
-      'Plateforme suisse',
+      { text: 'Installateurs suisses certifiés', href: null },
+      { text: 'Offres réelles au lieu de prix indicatifs', href: null },
+      { text: 'Chaque demande vérifiée personnellement', href: null },
+      { text: 'Fournisseurs régionaux', href: null },
+      { text: 'Plateforme suisse', href: null },
     ],
     contact: {
       title: 'Nous sommes là pour vous',
@@ -72,11 +72,11 @@ const footerContent: Record<Locale, {
   en: {
     tagline: 'PVPro.ch is an independent Swiss platform that connects property owners with certified photovoltaic installers and storage solutions.',
     features: [
-      'Certified Swiss Solar Installers',
-      'Real Quotes Instead of Price Estimates',
-      'Every Request Personally Reviewed',
-      'Regional Providers',
-      'Swiss Platform',
+      { text: 'Certified Swiss Solar Installers', href: null },
+      { text: 'Real Quotes Instead of Price Estimates', href: null },
+      { text: 'Every Request Personally Reviewed', href: null },
+      { text: 'Regional Providers', href: null },
+      { text: 'Swiss Platform', href: null },
     ],
     contact: {
       title: 'We are here for you',
@@ -95,11 +95,11 @@ const footerContent: Record<Locale, {
   it: {
     tagline: 'PVPro.ch è una piattaforma svizzera indipendente che mette in relazione i proprietari di immobili con installatori fotovoltaici certificati e soluzioni di stoccaggio.',
     features: [
-      'Installatori solari svizzeri certificati',
-      'Offerte reali invece di stime di prezzo',
-      'Ogni richiesta verificata personalmente',
-      'Fornitori regionali',
-      'Piattaforma svizzera',
+      { text: 'Installatori solari svizzeri certificati', href: null },
+      { text: 'Offerte reali invece di stime di prezzo', href: null },
+      { text: 'Ogni richiesta verificata personalmente', href: null },
+      { text: 'Fornitori regionali', href: null },
+      { text: 'Piattaforma svizzera', href: null },
     ],
     contact: {
       title: 'Siamo qui per voi',
@@ -145,7 +145,13 @@ export default function Footer() {
               {content.features.map((feature, index) => (
                 <li key={index} className="flex items-center gap-2 text-sm text-gray-400">
                   <span className="text-primary">✓</span>
-                  {feature}
+                  {feature.href ? (
+                    <Link href={feature.href} className="hover:text-primary transition-colors">
+                      {feature.text}
+                    </Link>
+                  ) : (
+                    feature.text
+                  )}
                 </li>
               ))}
             </ul>

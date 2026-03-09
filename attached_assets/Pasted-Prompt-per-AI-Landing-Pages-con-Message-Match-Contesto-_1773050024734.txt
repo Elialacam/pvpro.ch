@@ -1,0 +1,95 @@
+Prompt per AI – Landing Pages con Message Match
+Contesto generale
+
+Stiamo creando campagne Facebook Ads per PVPro.ch, una piattaforma che mette in contatto proprietari di casa con installatori fotovoltaici locali affidabili in Svizzera.
+
+Per migliorare le conversioni vogliamo applicare il principio del message match:
+
+Ogni annuncio Facebook deve portare a una landing page che continua esattamente il messaggio dell’annuncio.
+
+La struttura della landing può essere la stessa, ma devono cambiare:
+
+titolo principale
+
+introduzione
+
+primi paragrafi
+
+microcopy
+
+in modo che il messaggio sia coerente con l’angolo dell’annuncio.
+
+La landing ha l’obiettivo di far compilare un questionario rapido (30 secondi) per verificare se la casa è adatta al fotovoltaico.
+
+ANGLE 1 — Installatori locali affidabili
+Obiettivo dell’angle
+
+Molti proprietari di casa vorrebbero installare il fotovoltaico ma non sanno quale azienda scegliere.
+
+Ci sono troppe aziende, offerte diverse e prezzi diversi.
+
+PVPro risolve questo problema selezionando installatori locali affidabili e mettendo in contatto il proprietario di casa con aziende verificate nella sua regione.
+
+Il beneficio principale è:
+
+risparmiare tempo
+
+evitare aziende poco affidabili
+
+trovare installatori locali verificati
+
+Messaggio principale della landing
+
+La landing deve far capire che:
+
+trovare l’azienda giusta è difficile
+
+PVPro fa il lavoro di selezione
+
+l’utente deve solo rispondere a poche domande
+
+Il tono deve essere:
+
+umano
+
+semplice
+
+credibile
+
+non troppo commerciale
+
+Elementi chiave della landing
+
+Hero section:
+
+Titolo forte sul problema:
+
+esempio:
+
+"Trovare un installatore fotovoltaico affidabile non è facile."
+
+Sottotitolo:
+
+PVPro seleziona installatori locali verificati nella tua regione.
+
+CTA:
+
+Verifica ora se la tua casa è adatta.
+
+Sezioni successive:
+
+Il problema: troppe aziende e offerte confuse
+
+Come funziona PVPro
+
+Installatori locali verificati
+
+Processo semplice (30 secondi)
+
+Call to action
+
+URL da creare
+
+La landing deve avere un URL dedicato, ad esempio:
+
+/installatori-locali
