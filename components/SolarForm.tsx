@@ -405,7 +405,10 @@ export default function SolarForm() {
       case 1:
         return (
           <div className="space-y-8">
-            <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 text-center leading-tight">{t.step1Title}</h3>
+            <div className="text-center">
+              <h3 className="text-xl sm:text-2xl font-sans font-bold text-gray-900 leading-tight">{t.step1Title}</h3>
+              <p className="text-xs text-gray-400 mt-1">{locale === 'it' ? 'Solo i proprietari possono verificare l\'idoneità.' : locale === 'fr' ? 'Seuls les propriétaires peuvent vérifier leur éligibilité.' : locale === 'en' ? 'Only owners can check their eligibility.' : 'Nur Eigentümer können ihre Eignung prüfen.'}</p>
+            </div>
             <div className="flex flex-row gap-3 sm:gap-4 w-full max-w-[380px] mx-auto">
               <RealisticButton label={t.yes} isSelected={formData.isOwner === 'yes'} onClick={() => handleSelection('isOwner', 'yes')} icon={Check} color="green" subLabel={locale === 'it' ? 'Proprietario' : locale === 'fr' ? 'Propriétaire' : locale === 'en' ? 'Owner' : 'Eigentümer'} />
               <RealisticButton label={t.no} isSelected={formData.isOwner === 'no'} onClick={() => handleSelection('isOwner', 'no')} icon={X} color="red" subLabel={locale === 'it' ? 'Inquilino' : locale === 'fr' ? 'Locataire' : locale === 'en' ? 'Renter' : 'Mieter'} />

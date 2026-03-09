@@ -46,32 +46,35 @@ export default function LokaleInstallateurePage() {
 
       <section className="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-20 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-            <div className="space-y-6">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                Einen zuverlässigen Solarinstallateur zu finden
-                <span className="text-primary"> ist nicht einfach.</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-24 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="space-y-8">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
+                Einen zuverlässigen Solarinstallateur zu finden, ist{' '}
+                <span className="text-primary">nicht einfach.</span>
               </h1>
-              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
-                Zu viele Anbieter, unterschiedliche Offerten, unklare Preise. Woher wissen Sie, wem Sie vertrauen können? PVPro übernimmt die Auswahl: Wir verbinden Sie mit geprüften, lokalen Installateuren aus Ihrer Region.
+              <p className="text-lg text-gray-300 leading-relaxed max-w-xl">
+                Zu viele Anbieter, unterschiedliche Offerten und unklare Preise. PVPro übernimmt die Auswahl und verbindet Sie mit geprüften lokalen Solarinstallateuren aus Ihrer Region.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   'Geprüfte lokale Installateure',
                   'Keine unseriösen Anbieter',
                   'Kostenlos & unverbindlich',
-                  'In 30 Sekunden prüfen',
+                  'Prüfung in 30 Sekunden',
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2">
+                  <div key={i} className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-sm text-gray-200">{item}</span>
+                    <span className="text-sm font-medium text-gray-200">{item}</span>
                   </div>
                 ))}
               </div>
+              <p className="text-sm text-primary font-semibold tracking-wide uppercase">
+                Jetzt kostenlos prüfen
+              </p>
             </div>
 
-            <div className="lg:sticky lg:top-24">
+            <div className="lg:sticky lg:top-24 flex flex-col items-center">
               <SolarForm />
             </div>
           </div>
