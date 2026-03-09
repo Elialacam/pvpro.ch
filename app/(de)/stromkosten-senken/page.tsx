@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import SolarForm from '@/components/SolarForm';
 import { CheckCircle, ArrowRight, TrendingDown, Zap, Shield, Clock } from 'lucide-react';
 
@@ -42,44 +43,37 @@ export default function StromkostenSenkenPage() {
         }}
       />
 
-      <section className="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-green-900/30 via-transparent to-transparent" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20 relative z-10">
+      <section className="relative text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/solar-house-hero.png"
+            alt="Haus mit Solaranlage in den Schweizer Bergen"
+            fill
+            className="object-cover object-[center_20%]"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/30" />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className="space-y-6">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight">
                 Bis zu 80% weniger{' '}
                 <span className="text-green-400">Stromkosten.</span>
               </h1>
-              <p className="text-xl text-gray-300 max-w-lg">
+              <p className="text-xl sm:text-2xl text-white/90 font-medium">
                 Mit einer eigenen Solaranlage.
               </p>
 
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 max-w-md">
-                <div className="flex items-center gap-4 sm:gap-6">
-                  <div className="text-center">
-                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Vorher</p>
-                    <p className="text-2xl sm:text-3xl font-bold text-red-400 line-through decoration-red-500/60">CHF 967</p>
-                  </div>
-                  <div className="text-2xl text-gray-500">→</div>
-                  <div className="text-center">
-                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Jetzt</p>
-                    <p className="text-2xl sm:text-3xl font-bold text-green-400">CHF 180</p>
-                  </div>
-                  <div className="ml-auto">
-                    <span className="bg-green-600 text-white font-bold text-sm px-3 py-1.5 rounded-full whitespace-nowrap">
-                      -80%
-                    </span>
-                  </div>
-                </div>
-                <div className="mt-3 pt-3 border-t border-white/10 flex items-center gap-2">
-                  <span className="text-green-400 font-semibold text-sm">+ CHF 200/Mt.</span>
-                  <span className="text-gray-400 text-sm">für eingespeisten Strom</span>
-                </div>
+              <div className="inline-flex items-center gap-3 sm:gap-5 bg-black/40 backdrop-blur-md border border-white/15 rounded-2xl px-5 py-4">
+                <span className="text-2xl sm:text-3xl font-bold text-red-400 line-through decoration-red-500/60 decoration-2">CHF 967</span>
+                <span className="text-2xl text-white/50">→</span>
+                <span className="text-2xl sm:text-3xl font-bold text-green-400">CHF 180</span>
+                <span className="bg-green-600 text-white font-bold text-sm px-3 py-1.5 rounded-full">-80%</span>
               </div>
 
-              <p className="text-xs text-gray-500 max-w-md">
-                Beispiel einer echten Stromrechnung. Die tatsächliche Ersparnis hängt vom Haus und Verbrauch ab.
+              <p className="text-xs text-white/40">
+                Beispiel einer echten Stromrechnung. Ersparnis variiert je nach Haus und Verbrauch.
               </p>
             </div>
 
@@ -93,7 +87,7 @@ export default function StromkostenSenkenPage() {
       <section className="py-14 md:py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
               Warum Hausbesitzer auf Solar umsteigen
             </h2>
           </div>
@@ -136,7 +130,7 @@ export default function StromkostenSenkenPage() {
       <section className="py-14 md:py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
               In 3 Schritten zur Solaranlage
             </h2>
           </div>
