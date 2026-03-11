@@ -223,63 +223,73 @@ interface BigCardProps {
 }
 
 function BigCard({ label, subLabel, isSelected, onClick, icon, imageSrc }: BigCardProps) {
-  const iconColor = isSelected ? '#fff' : PRIMARY;
-  const bg = isSelected ? PRIMARY : PRIMARY_LIGHT;
-  const border = PRIMARY;
-  const textColor = isSelected ? '#fff' : '#1a1a1a';
-  const subColor = isSelected ? 'rgba(255,255,255,0.7)' : '#9ca3af';
-
   return (
     <motion.button
-      whileHover={{ scale: 1.04, y: -3 }}
-      whileTap={{ scale: 0.96 }}
+      whileHover={{ x: 4 }}
+      whileTap={{ scale: 0.98 }}
       onClick={onClick}
-      className="relative flex flex-col items-center justify-center w-full rounded-2xl transition-all duration-200"
+      className="relative flex items-center gap-4 w-full rounded-2xl px-4 py-4 transition-all duration-150 text-left"
       style={{
-        aspectRatio: '1 / 1',
-        backgroundColor: bg,
-        border: `2.5px solid ${border}`,
-        boxShadow: isSelected
-          ? `0 8px 24px ${PRIMARY}55`
-          : `0 2px 8px ${PRIMARY}22`,
+        backgroundColor: isSelected ? PRIMARY : '#fff',
+        border: `2px solid ${isSelected ? PRIMARY : '#e5e7eb'}`,
+        boxShadow: isSelected ? `0 4px 16px ${PRIMARY}44` : '0 1px 3px rgba(0,0,0,0.06)',
       }}
     >
-      {imageSrc ? (
-        <div className="w-2/5 flex items-center justify-center mb-3">
+      {/* Icon area */}
+      <div
+        className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
+        style={{
+          backgroundColor: isSelected ? 'rgba(255,255,255,0.2)' : PRIMARY_LIGHT,
+        }}
+      >
+        {imageSrc ? (
           <img
             src={imageSrc}
             alt={label}
-            className="w-full h-full object-contain"
+            className="w-8 h-8 object-contain"
             style={{ filter: isSelected ? 'brightness(0) invert(1)' : 'none' }}
           />
-        </div>
-      ) : icon === 'check' ? (
-        <Check style={{ color: iconColor, width: 52, height: 52, marginBottom: 12 }} strokeWidth={2.5} />
-      ) : icon === 'x' ? (
-        <X style={{ color: iconColor, width: 52, height: 52, marginBottom: 12 }} strokeWidth={2.5} />
-      ) : (
-        <HelpCircle style={{ color: iconColor, width: 52, height: 52, marginBottom: 12 }} strokeWidth={2} />
-      )}
+        ) : icon === 'check' ? (
+          <Check style={{ color: isSelected ? '#fff' : PRIMARY, width: 24, height: 24 }} strokeWidth={3} />
+        ) : icon === 'x' ? (
+          <X style={{ color: isSelected ? '#fff' : PRIMARY, width: 24, height: 24 }} strokeWidth={3} />
+        ) : (
+          <HelpCircle style={{ color: isSelected ? '#fff' : PRIMARY, width: 24, height: 24 }} strokeWidth={2.5} />
+        )}
+      </div>
 
-      <span className="text-base font-black leading-tight px-2 text-center" style={{ color: textColor }}>
-        {label}
-      </span>
-      {subLabel && (
-        <span className="text-[9px] font-bold tracking-widest mt-1" style={{ color: subColor }}>
-          {subLabel}
-        </span>
-      )}
-
-      {isSelected && (
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          className="absolute -top-2.5 -right-2.5 w-6 h-6 rounded-full flex items-center justify-center shadow-md"
-          style={{ backgroundColor: '#fff', border: `2px solid ${PRIMARY}` }}
+      {/* Text */}
+      <div className="flex-1 min-w-0">
+        <span
+          className="block text-base font-bold leading-tight"
+          style={{ color: isSelected ? '#fff' : '#111827' }}
         >
-          <Check className="w-3 h-3" style={{ color: PRIMARY }} strokeWidth={4} />
-        </motion.div>
-      )}
+          {label}
+        </span>
+        {subLabel && (
+          <span
+            className="text-[10px] font-semibold tracking-widest mt-0.5 block"
+            style={{ color: isSelected ? 'rgba(255,255,255,0.65)' : '#9ca3af' }}
+          >
+            {subLabel}
+          </span>
+        )}
+      </div>
+
+      {/* Right indicator */}
+      <div
+        className="shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center"
+        style={{
+          borderColor: isSelected ? '#fff' : '#d1d5db',
+          backgroundColor: isSelected ? '#fff' : 'transparent',
+        }}
+      >
+        {isSelected && (
+          <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}>
+            <Check style={{ color: PRIMARY, width: 13, height: 13 }} strokeWidth={4} />
+          </motion.div>
+        )}
+      </div>
     </motion.button>
   );
 }
@@ -501,7 +511,7 @@ export default function SolarForm() {
               <h3 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">{t.step1Title}</h3>
               <p className="text-sm text-gray-400">{t.step1Sub}</p>
             </div>
-            <div className="grid grid-cols-2 gap-4 pt-2">
+            <div className="flex flex-col gap-3 pt-2">
               <BigCard label={t.yes} subLabel={t.ownerSub} isSelected={formData.isOwner === 'yes'} onClick={() => handleSelection('isOwner', 'yes')} icon="check" />
               <BigCard label={t.no} subLabel={t.renterSub} isSelected={formData.isOwner === 'no'} onClick={() => handleSelection('isOwner', 'no')} icon="x" />
             </div>
@@ -515,14 +525,10 @@ export default function SolarForm() {
               <h3 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">{t.step2Title}</h3>
               <p className="text-sm text-gray-400">{t.step2Sub}</p>
             </div>
-            <div className="grid grid-cols-2 gap-4 pt-2">
+            <div className="flex flex-col gap-3 pt-2">
               <BigCard label={t.singleFamily} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelection('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.png" />
               <BigCard label={t.multiFamily} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelection('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.png" />
-            </div>
-            <div className="flex justify-center">
-              <div className="w-1/2">
-                <BigCard label={t.other} isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelection('propertyType', 'sonstiges')} icon="question" />
-              </div>
+              <BigCard label={t.other} isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelection('propertyType', 'sonstiges')} icon="question" />
             </div>
             <TrustBadges />
           </div>
@@ -534,7 +540,7 @@ export default function SolarForm() {
               <h3 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">{t.step3Title}</h3>
               <p className="text-sm text-gray-400">{t.step3Sub}</p>
             </div>
-            <div className="grid grid-cols-2 gap-4 pt-2">
+            <div className="flex flex-col gap-3 pt-2">
               <BigCard label={t.pitchedRoof} isSelected={formData.roofType === 'pitched'} onClick={() => handleSelection('roofType', 'pitched')} imageSrc="/icons/pitched-roof.png" />
               <BigCard label={t.monopitchRoof} isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelection('roofType', 'monopitch')} imageSrc="/icons/monopitch-roof.png" />
               <BigCard label={t.flatRoof} isSelected={formData.roofType === 'flat'} onClick={() => handleSelection('roofType', 'flat')} imageSrc="/icons/flat-roof.png" />
