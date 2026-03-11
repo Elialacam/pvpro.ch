@@ -212,50 +212,49 @@ interface BigCardProps {
 }
 
 function BigCard({ label, subLabel, isSelected, onClick, icon, imageSrc }: BigCardProps) {
+  const iconColor = isSelected ? '#fff' : PRIMARY;
+  const bg = isSelected ? PRIMARY : PRIMARY_LIGHT;
+  const border = PRIMARY;
+  const textColor = isSelected ? '#fff' : '#1a1a1a';
+  const subColor = isSelected ? 'rgba(255,255,255,0.7)' : '#9ca3af';
+
   return (
     <motion.button
-      whileHover={{ scale: 1.03, y: -3 }}
-      whileTap={{ scale: 0.97 }}
+      whileHover={{ scale: 1.04, y: -3 }}
+      whileTap={{ scale: 0.96 }}
       onClick={onClick}
-      className="relative flex flex-col items-center justify-center w-full rounded-2xl transition-all duration-200 py-8 px-4"
+      className="relative flex flex-col items-center justify-center w-full rounded-2xl transition-all duration-200"
       style={{
-        backgroundColor: isSelected ? PRIMARY_LIGHT : 'white',
-        border: `2px solid ${isSelected ? PRIMARY : '#e5e7eb'}`,
-        boxShadow: isSelected ? `0 6px 20px ${PRIMARY}28` : '0 1px 4px rgba(0,0,0,0.05)',
+        aspectRatio: '1 / 1',
+        backgroundColor: bg,
+        border: `2.5px solid ${border}`,
+        boxShadow: isSelected
+          ? `0 8px 24px ${PRIMARY}55`
+          : `0 2px 8px ${PRIMARY}22`,
       }}
     >
       {imageSrc ? (
-        <div className="w-20 h-20 flex items-center justify-center mb-3">
-          <img src={imageSrc} alt={label} className="w-full h-full object-contain mix-blend-multiply" />
+        <div className="w-2/5 flex items-center justify-center mb-3">
+          <img
+            src={imageSrc}
+            alt={label}
+            className="w-full h-full object-contain"
+            style={{ filter: isSelected ? 'brightness(0) invert(1)' : 'none' }}
+          />
         </div>
       ) : icon === 'check' ? (
-        <Check
-          className="mb-3"
-          style={{ color: isSelected ? PRIMARY : '#9ca3af', width: 48, height: 48 }}
-          strokeWidth={2.5}
-        />
+        <Check style={{ color: iconColor, width: 52, height: 52, marginBottom: 12 }} strokeWidth={2.5} />
       ) : icon === 'x' ? (
-        <X
-          className="mb-3"
-          style={{ color: isSelected ? PRIMARY : '#9ca3af', width: 48, height: 48 }}
-          strokeWidth={2.5}
-        />
+        <X style={{ color: iconColor, width: 52, height: 52, marginBottom: 12 }} strokeWidth={2.5} />
       ) : (
-        <HelpCircle
-          className="mb-3"
-          style={{ color: isSelected ? PRIMARY : '#9ca3af', width: 48, height: 48 }}
-          strokeWidth={2}
-        />
+        <HelpCircle style={{ color: iconColor, width: 52, height: 52, marginBottom: 12 }} strokeWidth={2} />
       )}
 
-      <span
-        className="text-base font-black leading-tight"
-        style={{ color: isSelected ? PRIMARY : '#374151' }}
-      >
+      <span className="text-base font-black leading-tight px-2 text-center" style={{ color: textColor }}>
         {label}
       </span>
       {subLabel && (
-        <span className="text-[10px] font-bold tracking-widest mt-1 text-gray-400">
+        <span className="text-[9px] font-bold tracking-widest mt-1" style={{ color: subColor }}>
           {subLabel}
         </span>
       )}
@@ -264,10 +263,10 @@ function BigCard({ label, subLabel, isSelected, onClick, icon, imageSrc }: BigCa
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          className="absolute -top-2.5 -right-2.5 w-6 h-6 rounded-full flex items-center justify-center shadow"
-          style={{ backgroundColor: PRIMARY, border: '2px solid white' }}
+          className="absolute -top-2.5 -right-2.5 w-6 h-6 rounded-full flex items-center justify-center shadow-md"
+          style={{ backgroundColor: '#fff', border: `2px solid ${PRIMARY}` }}
         >
-          <Check className="w-3 h-3 text-white" strokeWidth={4} />
+          <Check className="w-3 h-3" style={{ color: PRIMARY }} strokeWidth={4} />
         </motion.div>
       )}
     </motion.button>
