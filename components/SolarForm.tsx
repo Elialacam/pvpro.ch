@@ -189,29 +189,40 @@ const formTranslations: Record<string, any> = {
 
 const TOTAL_STEPS = 6;
 
-const BADGES = [
-  { icon: '✓', text: '100% Kostenlos' },
-  { icon: '🔍', text: 'Förderungen Geprüft' },
-  { icon: '🔒', text: 'DSGVO-Konform' },
-  { icon: '🚫', text: 'Keine Werbeanrufe' },
-];
-
 const TrustBadges = () => (
-  <div className="grid grid-cols-2 gap-2 pt-3 pb-1">
-    {BADGES.map((b) => (
-      <div
-        key={b.text}
-        className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2"
-      >
-        <span className="text-base leading-none">{b.icon}</span>
-        <span className="text-xs font-bold text-gray-700 leading-tight">{b.text}</span>
+  <div className="flex items-center justify-center gap-3 sm:gap-4 pt-6 pb-2 flex-wrap">
+    <div className="flex flex-col items-center gap-1">
+      <div className="w-12 h-12 rounded-full bg-green-50 border-2 border-green-200 flex items-center justify-center">
+        <Check className="w-6 h-6 text-green-600" strokeWidth={3} />
       </div>
-    ))}
+      <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wide text-center leading-tight">100%<br/>Kostenlos</span>
+    </div>
+    <div className="flex flex-col items-center gap-1">
+      <div className="w-12 h-12 rounded-full bg-blue-50 border-2 border-blue-200 flex items-center justify-center">
+        <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+      </div>
+      <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wide text-center leading-tight">SSL<br/>Sicher</span>
+    </div>
+    <div className="flex flex-col items-center gap-1">
+      <div className="w-12 h-12 rounded-full bg-indigo-50 border-2 border-indigo-200 flex items-center justify-center">
+        <svg className="w-6 h-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      </div>
+      <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wide text-center leading-tight">DSGVO<br/>Konform</span>
+    </div>
+    <div className="flex flex-col items-center gap-1">
+      <div className="w-12 h-12 rounded-full bg-amber-50 border-2 border-amber-200 flex items-center justify-center">
+        <svg className="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      </div>
+      <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wide text-center leading-tight">Keine<br/>Werbeanrufe</span>
+    </div>
   </div>
 );
-
-const PRIMARY = '#c8a415';
-const PRIMARY_LIGHT = '#fef9e8';
 
 interface BigCardProps {
   label: string;
@@ -220,76 +231,88 @@ interface BigCardProps {
   onClick: () => void;
   icon?: 'check' | 'x' | 'question';
   imageSrc?: string;
+  color?: 'green' | 'red' | 'amber' | 'gray';
 }
 
-function BigCard({ label, subLabel, isSelected, onClick, icon, imageSrc }: BigCardProps) {
+function BigCard({ label, subLabel, isSelected, onClick, icon, imageSrc, color = 'amber' }: BigCardProps) {
+  const colorStyles = {
+    green: {
+      bg: isSelected ? '#dcfce7' : '#f0fdf4',
+      border: isSelected ? '#16a34a' : '#bbf7d0',
+      iconColor: '#16a34a',
+      labelColor: '#15803d',
+    },
+    red: {
+      bg: isSelected ? '#fee2e2' : '#fef2f2',
+      border: isSelected ? '#dc2626' : '#fecaca',
+      iconColor: '#dc2626',
+      labelColor: '#b91c1c',
+    },
+    amber: {
+      bg: isSelected ? '#fef3c7' : '#fffbeb',
+      border: isSelected ? '#d97706' : '#fde68a',
+      iconColor: '#d97706',
+      labelColor: '#b45309',
+    },
+    gray: {
+      bg: isSelected ? '#f1f5f9' : '#f8fafc',
+      border: isSelected ? '#64748b' : '#e2e8f0',
+      iconColor: '#64748b',
+      labelColor: '#475569',
+    },
+  };
+
+  const s = colorStyles[color];
+
   return (
     <motion.button
-      whileHover={{ x: 4 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={{ scale: 1.03, y: -3 }}
+      whileTap={{ scale: 0.97 }}
       onClick={onClick}
-      className="relative flex items-center gap-4 w-full rounded-2xl px-4 py-4 transition-all duration-150 text-left"
+      className="relative flex flex-col items-center justify-center w-full rounded-2xl transition-all duration-200 py-7 px-4"
       style={{
-        backgroundColor: isSelected ? PRIMARY : '#fff',
-        border: `2px solid ${isSelected ? PRIMARY : '#e5e7eb'}`,
-        boxShadow: isSelected ? `0 4px 16px ${PRIMARY}44` : '0 1px 3px rgba(0,0,0,0.06)',
+        backgroundColor: s.bg,
+        border: `2px solid ${s.border}`,
+        boxShadow: isSelected ? `0 8px 24px ${s.iconColor}22` : '0 2px 8px rgba(0,0,0,0.04)',
       }}
     >
-      {/* Icon area */}
-      <div
-        className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
-        style={{
-          backgroundColor: isSelected ? 'rgba(255,255,255,0.2)' : PRIMARY_LIGHT,
-        }}
-      >
-        {imageSrc ? (
-          <img
-            src={imageSrc}
-            alt={label}
-            className="w-8 h-8 object-contain"
-            style={{ filter: isSelected ? 'brightness(0) invert(1)' : 'none' }}
-          />
-        ) : icon === 'check' ? (
-          <Check style={{ color: isSelected ? '#fff' : PRIMARY, width: 24, height: 24 }} strokeWidth={3} />
-        ) : icon === 'x' ? (
-          <X style={{ color: isSelected ? '#fff' : PRIMARY, width: 24, height: 24 }} strokeWidth={3} />
-        ) : (
-          <HelpCircle style={{ color: isSelected ? '#fff' : PRIMARY, width: 24, height: 24 }} strokeWidth={2.5} />
-        )}
-      </div>
+      {imageSrc ? (
+        <div className="w-20 h-20 flex items-center justify-center mb-3">
+          <img src={imageSrc} alt={label} className="w-full h-full object-contain mix-blend-multiply" />
+        </div>
+      ) : icon === 'check' ? (
+        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-3" style={{ background: 'white', border: `2px solid ${s.border}` }}>
+          <Check className="w-9 h-9" style={{ color: s.iconColor }} strokeWidth={3} />
+        </div>
+      ) : icon === 'x' ? (
+        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-3" style={{ background: 'white', border: `2px solid ${s.border}` }}>
+          <X className="w-9 h-9" style={{ color: s.iconColor }} strokeWidth={3} />
+        </div>
+      ) : (
+        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-3" style={{ background: 'white', border: `2px solid ${s.border}` }}>
+          <HelpCircle className="w-9 h-9" style={{ color: s.iconColor }} strokeWidth={2} />
+        </div>
+      )}
 
-      {/* Text */}
-      <div className="flex-1 min-w-0">
-        <span
-          className="block text-base font-bold leading-tight"
-          style={{ color: isSelected ? '#fff' : '#111827' }}
-        >
-          {label}
+      <span className="text-base font-black leading-tight" style={{ color: s.labelColor }}>
+        {label}
+      </span>
+      {subLabel && (
+        <span className="text-[10px] font-bold tracking-widest mt-1" style={{ color: s.iconColor + '99' }}>
+          {subLabel}
         </span>
-        {subLabel && (
-          <span
-            className="text-[10px] font-semibold tracking-widest mt-0.5 block"
-            style={{ color: isSelected ? 'rgba(255,255,255,0.65)' : '#9ca3af' }}
-          >
-            {subLabel}
-          </span>
-        )}
-      </div>
+      )}
 
-      {/* Right indicator */}
-      <div
-        className="shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center"
-        style={{
-          borderColor: isSelected ? '#fff' : '#d1d5db',
-          backgroundColor: isSelected ? '#fff' : 'transparent',
-        }}
-      >
-        {isSelected && (
-          <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}>
-            <Check style={{ color: PRIMARY, width: 13, height: 13 }} strokeWidth={4} />
-          </motion.div>
-        )}
-      </div>
+      {isSelected && (
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          className="absolute -top-2.5 -right-2.5 w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-md"
+          style={{ border: `2.5px solid ${s.iconColor}` }}
+        >
+          <Check className="w-3.5 h-3.5" style={{ color: s.iconColor }} strokeWidth={4} />
+        </motion.div>
+      )}
     </motion.button>
   );
 }
@@ -511,9 +534,9 @@ export default function SolarForm() {
               <h3 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">{t.step1Title}</h3>
               <p className="text-sm text-gray-400">{t.step1Sub}</p>
             </div>
-            <div className="flex flex-col gap-3 pt-2">
-              <BigCard label={t.yes} subLabel={t.ownerSub} isSelected={formData.isOwner === 'yes'} onClick={() => handleSelection('isOwner', 'yes')} icon="check" />
-              <BigCard label={t.no} subLabel={t.renterSub} isSelected={formData.isOwner === 'no'} onClick={() => handleSelection('isOwner', 'no')} icon="x" />
+            <div className="grid grid-cols-2 gap-4 pt-2">
+              <BigCard label={t.yes} subLabel={t.ownerSub} isSelected={formData.isOwner === 'yes'} onClick={() => handleSelection('isOwner', 'yes')} icon="check" color="green" />
+              <BigCard label={t.no} subLabel={t.renterSub} isSelected={formData.isOwner === 'no'} onClick={() => handleSelection('isOwner', 'no')} icon="x" color="red" />
             </div>
             <TrustBadges />
           </div>
@@ -525,10 +548,14 @@ export default function SolarForm() {
               <h3 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">{t.step2Title}</h3>
               <p className="text-sm text-gray-400">{t.step2Sub}</p>
             </div>
-            <div className="flex flex-col gap-3 pt-2">
-              <BigCard label={t.singleFamily} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelection('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.png" />
-              <BigCard label={t.multiFamily} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelection('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.png" />
-              <BigCard label={t.other} isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelection('propertyType', 'sonstiges')} icon="question" />
+            <div className="grid grid-cols-2 gap-4 pt-2">
+              <BigCard label={t.singleFamily} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelection('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.png" color="amber" />
+              <BigCard label={t.multiFamily} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelection('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.png" color="amber" />
+            </div>
+            <div className="flex justify-center">
+              <div className="w-1/2">
+                <BigCard label={t.other} isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelection('propertyType', 'sonstiges')} icon="question" color="gray" />
+              </div>
             </div>
             <TrustBadges />
           </div>
@@ -540,11 +567,11 @@ export default function SolarForm() {
               <h3 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">{t.step3Title}</h3>
               <p className="text-sm text-gray-400">{t.step3Sub}</p>
             </div>
-            <div className="flex flex-col gap-3 pt-2">
-              <BigCard label={t.pitchedRoof} isSelected={formData.roofType === 'pitched'} onClick={() => handleSelection('roofType', 'pitched')} imageSrc="/icons/pitched-roof.png" />
-              <BigCard label={t.monopitchRoof} isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelection('roofType', 'monopitch')} imageSrc="/icons/monopitch-roof.png" />
-              <BigCard label={t.flatRoof} isSelected={formData.roofType === 'flat'} onClick={() => handleSelection('roofType', 'flat')} imageSrc="/icons/flat-roof.png" />
-              <BigCard label={t.other} isSelected={formData.roofType === 'other'} onClick={() => handleSelection('roofType', 'other')} icon="question" />
+            <div className="grid grid-cols-2 gap-4 pt-2">
+              <BigCard label={t.pitchedRoof} isSelected={formData.roofType === 'pitched'} onClick={() => handleSelection('roofType', 'pitched')} imageSrc="/icons/pitched-roof.png" color="amber" />
+              <BigCard label={t.monopitchRoof} isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelection('roofType', 'monopitch')} imageSrc="/icons/monopitch-roof.png" color="amber" />
+              <BigCard label={t.flatRoof} isSelected={formData.roofType === 'flat'} onClick={() => handleSelection('roofType', 'flat')} imageSrc="/icons/flat-roof.png" color="amber" />
+              <BigCard label={t.other} isSelected={formData.roofType === 'other'} onClick={() => handleSelection('roofType', 'other')} icon="question" color="gray" />
             </div>
             <TrustBadges />
           </div>
@@ -557,9 +584,9 @@ export default function SolarForm() {
               <p className="text-sm text-gray-400">{t.step4Sub}</p>
             </div>
             <div className="grid grid-cols-3 gap-3 pt-2">
-              <BigCard label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelection('wantsBattery', 'yes')} icon="check" />
-              <BigCard label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelection('wantsBattery', 'no')} icon="x" />
-              <BigCard label={t.unknown} isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelection('wantsBattery', 'unknown')} icon="question" />
+              <BigCard label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelection('wantsBattery', 'yes')} icon="check" color="green" />
+              <BigCard label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelection('wantsBattery', 'no')} icon="x" color="red" />
+              <BigCard label={t.unknown} isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelection('wantsBattery', 'unknown')} icon="question" color="gray" />
             </div>
             <TrustBadges />
           </div>
