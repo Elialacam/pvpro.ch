@@ -189,13 +189,24 @@ const formTranslations: Record<string, any> = {
 
 const TOTAL_STEPS = 6;
 
+const BADGES = [
+  { icon: '✓', text: '100% Kostenlos' },
+  { icon: '🔍', text: 'Förderungen Geprüft' },
+  { icon: '🔒', text: 'DSGVO-Konform' },
+  { icon: '🚫', text: 'Keine Werbeanrufe' },
+];
+
 const TrustBadges = () => (
-  <div className="flex justify-center pt-4 pb-1">
-    <img
-      src="/badges/trust-badges.png"
-      alt="100% Kostenlos - Förderungen Geprüft - DSGVO-Konform - Keine Werbeanrufe"
-      style={{ width: 'auto', height: '36px' }}
-    />
+  <div className="grid grid-cols-2 gap-2 pt-3 pb-1">
+    {BADGES.map((b) => (
+      <div
+        key={b.text}
+        className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2"
+      >
+        <span className="text-base leading-none">{b.icon}</span>
+        <span className="text-xs font-bold text-gray-700 leading-tight">{b.text}</span>
+      </div>
+    ))}
   </div>
 );
 

@@ -114,16 +114,6 @@ export default function Hero() {
           {/* Right Column - Form */}
           <div>
             <SolarForm />
-            <div className="flex justify-center mt-3 px-4">
-              <Image
-                src="/badges/trust-badges.png"
-                alt="100% Kostenlos - Förderungen Geprüft - DSGVO-Konform - Keine Werbeanrufe"
-                width={240}
-                height={30}
-                className="object-contain"
-                style={{ width: '240px', height: 'auto' }}
-              />
-            </div>
           </div>
         </div>
       </div>
