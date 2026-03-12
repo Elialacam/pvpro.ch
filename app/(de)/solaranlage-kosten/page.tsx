@@ -1,28 +1,27 @@
 import { Metadata } from 'next';
 import CtaAnfrage from '@/components/CtaAnfrage';
-import FAQ from '@/components/FAQ';
-import { CheckCircle, Calculator, Sun, Zap, PiggyBank, TrendingUp, Home, Building2 } from 'lucide-react';
-
+import Link from 'next/link';
+import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Solaranlage Kosten Schweiz 2025 - Preise, Förderung & Rechner | PVPro',
-  description: 'Was kostet eine Solaranlage in der Schweiz? Aktuelle Preise 2025: CHF 9.500-25.000 für Einfamilienhaus. Mit Förderung bis 30% günstiger. Jetzt kostenlos Offerten vergleichen!',
+  title: 'Solaranlage Kosten Schweiz 2025 – Was kostet eine Solaranlage? | PVPro',
+  description: 'Was kostet eine Solaranlage in der Schweiz? Aktuelle Preise 2025: 15\'000 – 35\'000 CHF für ein Einfamilienhaus. Kosten pro kWp, Förderungen und Speicher. Kostenlose Offerten vergleichen.',
   keywords: [
     'Solaranlage Kosten Schweiz',
-    'Photovoltaik Kosten',
-    'PV Anlage Preis',
-    'Solaranlage Preis Schweiz',
-    'Photovoltaik Kosten pro m2',
-    'Solaranlage Einfamilienhaus Kosten',
-    'PV Anlage Kosten pro kWp',
+    'Was kostet eine Solaranlage',
+    'Photovoltaik Kosten Schweiz',
+    'Solaranlage Preis Einfamilienhaus',
+    'PV Anlage Kosten kWp',
+    '10 kW Solaranlage Kosten',
+    'Solaranlage mit Speicher Kosten',
     'Solaranlage Förderung Schweiz',
   ],
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-kosten',
   },
   openGraph: {
-    title: 'Solaranlage Kosten Schweiz 2025 - Kompletter Preisguide',
-    description: 'Aktuelle Preise für Solaranlagen in der Schweiz. Von CHF 9.500 bis 25.000. Förderungen, Amortisation und kostenloser Offertvergleich.',
+    title: 'Solaranlage Kosten Schweiz 2025 – Aktuelle Preise & Förderungen',
+    description: 'Aktuelle Preise für Solaranlagen in der Schweiz. 15\'000 – 35\'000 CHF für Einfamilienhaus nach Förderung. Alle Infos zu Kosten, kWp-Preis und Speicher.',
     url: 'https://www.pvpro.ch/solaranlage-kosten',
     type: 'article',
     locale: 'de_CH',
@@ -30,82 +29,95 @@ export const metadata: Metadata = {
   },
 };
 
-const costData = [
+const costTable = [
+  { size: '5 kWp', production: '4\'500 – 5\'000 kWh', price: '13\'000 – 18\'000 CHF', area: 'ca. 30 – 35 m²', ideal: 'Kleines Haus' },
+  { size: '8 kWp', production: '7\'500 – 8\'000 kWh', price: '18\'000 – 25\'000 CHF', area: 'ca. 50 – 55 m²', ideal: 'Einfamilienhaus' },
+  { size: '10 kWp', production: '9\'000 – 10\'000 kWh', price: '22\'000 – 30\'000 CHF', area: 'ca. 62 – 68 m²', ideal: 'Grosses EFH / MFH' },
+];
+
+const storageTable = [
+  { size: '5 kWh', price: '4\'000 – 6\'000 CHF' },
+  { size: '10 kWh', price: '7\'000 – 10\'000 CHF' },
+];
+
+const costFactors = [
   {
-    type: 'Klein',
-    size: '3-5 kWp',
-    area: '20-35 m²',
-    priceRange: '9.500 - 14.000',
-    ideal: 'Wohnung / Kleines Haus',
-    icon: Home,
-  },
-  {
-    type: 'Mittel',
-    size: '6-10 kWp',
-    area: '40-70 m²',
-    priceRange: '14.000 - 22.000',
-    ideal: 'Einfamilienhaus',
-    icon: Home,
-  },
-  {
-    type: 'Gross',
-    size: '11-15 kWp',
-    area: '75-105 m²',
-    priceRange: '22.000 - 35.000',
-    ideal: 'Grosses Haus / MFH',
     icon: Building2,
+    title: 'Anlagengrösse',
+    text: 'Grössere Anlagen haben meist geringere Kosten pro kWp, da die Installationskosten auf mehr Leistung verteilt werden.',
+  },
+  {
+    icon: Home,
+    title: 'Dachfläche',
+    text: 'Je grösser die verfügbare Dachfläche, desto grösser kann die Anlage dimensioniert werden.',
+  },
+  {
+    icon: Home,
+    title: 'Dachtyp',
+    text: 'Flachdächer oder komplizierte Dächer können höhere Montagekosten verursachen.',
+  },
+  {
+    icon: Sun,
+    title: 'Komponenten',
+    text: 'Hochwertige Module oder Wechselrichter können den Preis nach oben beeinflussen, bieten aber längere Garantien.',
   },
 ];
 
 const faqs = [
   {
-    question: 'Was kostet eine Solaranlage pro m² in der Schweiz?',
-    answer: 'In der Schweiz kostet eine Solaranlage zwischen CHF 250 und CHF 400 pro m² Modulfläche. Ein typisches Einfamilienhaus mit 50 m² Dachfläche kostet somit zwischen CHF 12.500 und CHF 20.000. Der genaue Preis hängt von der Modulqualität, dem Montagesystem und den örtlichen Gegebenheiten ab.',
+    question: 'Was kostet eine Photovoltaikanlage für ein Einfamilienhaus?',
+    answer: 'Die meisten Solaranlagen für Einfamilienhäuser kosten in der Schweiz zwischen 18\'000 und 30\'000 CHF nach Abzug der Förderungen (EIV). Für eine typische Anlage von 8 bis 10 kWp ist dies der übliche Preisbereich.',
   },
   {
-    question: 'Wie viel kostet eine 10 kWp Solaranlage in der Schweiz?',
-    answer: 'Eine 10 kWp Solaranlage kostet in der Schweiz zwischen CHF 18.000 und CHF 25.000 vor Förderung. Nach Abzug der Einmalvergütung (EIV) vom Bund reduzieren sich die Nettokosten auf etwa CHF 13.000 bis CHF 20.000. Je nach Kanton können weitere Förderungen hinzukommen.',
+    question: 'Wie viel kostet eine 10 kW Solaranlage in der Schweiz?',
+    answer: 'Eine Photovoltaikanlage mit 10 kWp kostet in der Schweiz typischerweise zwischen 22\'000 und 30\'000 CHF. Nach Abzug der Einmalvergütung (EIV) vom Bund können die Nettokosten deutlich tiefer ausfallen. Eine solche Anlage produziert ca. 9\'000 – 10\'000 kWh Strom pro Jahr.',
   },
   {
-    question: 'Lohnt sich eine Solaranlage in der Schweiz finanziell?',
-    answer: 'Ja, eine Solaranlage lohnt sich in der Schweiz sehr gut. Bei aktuellen Strompreisen von über 30 Rappen/kWh und Förderungen von bis zu 30% amortisiert sich eine Anlage in 8-12 Jahren. Bei einer Lebensdauer von 25-30 Jahren ergibt das 15-20 Jahre kostenlosen Strom.',
+    question: 'Wie viel Strom produziert eine Solaranlage?',
+    answer: 'In der Schweiz produziert eine Solaranlage pro kWp Leistung etwa 900 – 1\'000 kWh Strom pro Jahr. Eine 10 kWp Anlage erzeugt also rund 9\'000 – 10\'000 kWh jährlich – das reicht oft, um einen grossen Teil des Stromverbrauchs eines Einfamilienhauses zu decken.',
+  },
+  {
+    question: 'Lohnt sich eine Solaranlage in der Schweiz?',
+    answer: 'Ja. Durch steigende Strompreise und die verfügbaren Förderungen amortisieren sich viele Anlagen in der Schweiz innerhalb von 10 bis 15 Jahren. Bei einer Lebensdauer von 25 – 30 Jahren bedeutet das jahrelanger kostenloser Strom vom eigenen Dach.',
+  },
+  {
+    question: 'Wie viele Solarmodule braucht ein Einfamilienhaus?',
+    answer: 'Für eine typische Anlage von 8 bis 10 kWp werden in der Regel 20 bis 30 Solarmodule benötigt, abhängig von der Modulleistung (meist 400 – 450 Watt pro Modul).',
+  },
+  {
+    question: 'Wie gross muss mein Dach für eine Solaranlage sein?',
+    answer: 'Für 1 kWp Leistung werden ungefähr 6 bis 7 m² Dachfläche benötigt. Eine 10 kWp Anlage benötigt somit ca. 60 – 70 m² geeignete Dachfläche.',
   },
   {
     question: 'Welche Förderungen gibt es für Solaranlagen in der Schweiz?',
-    answer: 'In der Schweiz gibt es die Einmalvergütung (EIV) vom Bund, die bis zu 30% der Kosten abdeckt. Zusätzlich bieten viele Kantone und Gemeinden eigene Förderprogramme. Die Investition ist zudem vollständig von den Steuern absetzbar. Unsere Partner helfen Ihnen bei allen Anträgen.',
+    answer: 'In der Schweiz gibt es die Einmalvergütung (EIV) vom Bund. Die typischen Förderbeträge liegen bei ungefähr 300 – 400 CHF pro kWp. Zusätzlich bieten viele Kantone und Gemeinden eigene Förderprogramme. Die Investition ist zudem steuerlich absetzbar.',
   },
   {
-    question: 'Kosten Solaranlagen mit Speicher mehr?',
-    answer: 'Ja, ein Batteriespeicher kostet zusätzlich CHF 8.000 bis CHF 15.000, je nach Kapazität (5-15 kWh). Mit Speicher erhöhen Sie Ihren Eigenverbrauch von etwa 30% auf 60-80%. Ob sich ein Speicher lohnt, hängt von Ihrem Verbrauchsprofil und den lokalen Stromtarifen ab.',
+    question: 'Was kostet eine Solaranlage mit Batteriespeicher?',
+    answer: 'Ein Batteriespeicher erhöht die Kosten der Solaranlage zusätzlich: ein 5 kWh Speicher kostet ca. 4\'000 – 6\'000 CHF, ein 10 kWh Speicher ca. 7\'000 – 10\'000 CHF. Mit Speicher erhöht sich der Eigenverbrauch des selbst produzierten Stroms deutlich.',
   },
 ];
 
 export default function SolaranlageKostenPage() {
   return (
     <>
-      {/* Schema.org structured data */}
+      {/* Schema.org: Article */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Solaranlage Kosten Schweiz 2025 - Kompletter Preisguide",
-            "description": "Aktuelle Preise für Solaranlagen in der Schweiz. Von CHF 9.500 bis 25.000.",
-            "author": {
-              "@type": "Organization",
-              "name": "PVPro"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "PVPro",
-              "url": "https://www.pvpro.ch"
-            },
+            "headline": "Was kostet eine Solaranlage in der Schweiz? Aktuelle Preise 2025",
+            "description": "Aktuelle Kosten für Solaranlagen in der Schweiz. 5–10 kWp Anlagen, Kosten pro kWp, Förderungen und Batteriespeicher.",
+            "author": { "@type": "Organization", "name": "PVPro" },
+            "publisher": { "@type": "Organization", "name": "PVPro", "url": "https://www.pvpro.ch" },
             "datePublished": "2025-01-01",
-            "dateModified": new Date().toISOString().split('T')[0]
+            "dateModified": new Date().toISOString().split('T')[0],
           })
         }}
       />
+      {/* Schema.org: FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -115,188 +127,298 @@ export default function SolaranlageKostenPage() {
             "mainEntity": faqs.map(faq => ({
               "@type": "Question",
               "name": faq.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.answer
-              }
+              "acceptedAnswer": { "@type": "Answer", "text": faq.answer },
             }))
           })
         }}
       />
 
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="bg-gradient-to-b from-primary-50 to-white section-padding">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl font-sans font-semibold tracking-normal text-gray-900 mb-6">
-              Solaranlage Kosten Schweiz 2025
+          <div className="max-w-4xl mx-auto text-center mb-10">
+            <h1 className="text-4xl sm:text-5xl font-sans font-semibold tracking-normal text-gray-900 mb-6 leading-tight">
+              Was kostet eine Solaranlage in der Schweiz?
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
-              Aktuelle Preise, Förderungen und was Sie wirklich für eine Photovoltaikanlage bezahlen.
-              Transparent und unabhängig.
+            <p className="text-xl text-gray-600 mb-4">
+              Die Kosten hängen hauptsächlich von der Grösse der Anlage, der Dachfläche und den verwendeten Komponenten ab.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-                <CheckCircle className="w-5 h-5 text-primary" />
-                <span className="text-gray-700">Ab CHF 9.500</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-                <CheckCircle className="w-5 h-5 text-primary" />
-                <span className="text-gray-700">Bis 30% Förderung</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-                <CheckCircle className="w-5 h-5 text-primary" />
-                <span className="text-gray-700">8-12 Jahre Amortisation</span>
-              </div>
+            <p className="text-xl text-gray-600 mb-8">
+              Für ein typisches Einfamilienhaus liegen die Preise meist zwischen:
+            </p>
+            <div className="inline-block bg-primary text-white rounded-2xl px-10 py-6 mb-8">
+              <div className="text-4xl sm:text-5xl font-black mb-1">15'000 – 35'000 CHF</div>
+              <div className="text-primary-100 text-base">nach Abzug der Förderungen</div>
             </div>
+            <p className="text-gray-600">
+              Eine durchschnittliche Anlage für ein Einfamilienhaus hat eine Leistung von etwa <strong>8 bis 10 kWp</strong>.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Price Overview */}
+      {/* Preistabelle */}
       <section className="section-padding bg-white">
         <div className="container-custom">
           <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-4">
-            Aktuelle Preise für Solaranlagen
+            Kosten einer Solaranlage für ein Einfamilienhaus
           </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Übersicht der typischen Kosten für Photovoltaikanlagen in der Schweiz (Stand 2025)
+          <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+            Typische Preisbereiche für Photovoltaikanlagen in der Schweiz
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {costData.map((item, index) => (
-              <div
-                key={index}
-                className={`rounded-2xl p-6 border-2 ${index === 1 ? 'border-primary bg-primary-50' : 'border-gray-200 bg-white'}`}
-              >
-                {index === 1 && (
-                  <div className="bg-primary text-white text-sm font-medium px-3 py-1 rounded-full inline-block mb-4">
+          {/* Desktop table */}
+          <div className="hidden md:block max-w-4xl mx-auto mb-10 overflow-hidden rounded-2xl border border-gray-200">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="bg-primary text-white">
+                  <th className="px-6 py-4 font-semibold">Anlagengrösse</th>
+                  <th className="px-6 py-4 font-semibold">Stromproduktion pro Jahr</th>
+                  <th className="px-6 py-4 font-semibold">Dachfläche (ca.)</th>
+                  <th className="px-6 py-4 font-semibold">Kosten (ca.)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {costTable.map((row, i) => (
+                  <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <td className="px-6 py-4 font-semibold text-gray-900">{row.size}</td>
+                    <td className="px-6 py-4 text-gray-700">{row.production}</td>
+                    <td className="px-6 py-4 text-gray-700">{row.area}</td>
+                    <td className="px-6 py-4 font-bold text-primary">{row.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Mobile cards */}
+          <div className="md:hidden space-y-4 mb-10">
+            {costTable.map((row, i) => (
+              <div key={i} className={`rounded-2xl p-5 border-2 ${i === 1 ? 'border-primary bg-primary-50' : 'border-gray-200 bg-white'}`}>
+                {i === 1 && (
+                  <div className="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-3">
                     Beliebteste Grösse
                   </div>
                 )}
-                <div className="flex items-center gap-3 mb-4">
-                  <item.icon className={`w-8 h-8 ${index === 1 ? 'text-primary' : 'text-gray-400'}`} />
-                  <div>
-                    <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900">{item.type}</h3>
-                    <p className="text-gray-600">{item.size}</p>
-                  </div>
+                <div className="flex justify-between items-start mb-3">
+                  <span className="text-xl font-black text-gray-900">{row.size}</span>
+                  <span className="text-xl font-black text-primary">{row.price}</span>
                 </div>
-                <div className="text-3xl font-sans font-semibold tracking-normal text-gray-900 mb-2">
-                  CHF {item.priceRange}
+                <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                  <div><span className="font-medium">Produktion:</span> {row.production}</div>
+                  <div><span className="font-medium">Dachfläche:</span> {row.area}</div>
                 </div>
-                <p className="text-gray-600 mb-4">Dachfläche: {item.area}</p>
-                <p className="text-sm text-gray-500">Ideal für: {item.ideal}</p>
+                <div className="text-xs text-gray-400 mt-2">Ideal für: {row.ideal}</div>
               </div>
             ))}
           </div>
 
-          <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 max-w-3xl mx-auto">
-            <p className="text-yellow-800 text-center">
-              <strong>Hinweis:</strong> Dies sind Richtwerte. Der tatsächliche Preis hängt von Dachtyp,
-              Ausrichtung, gewählten Komponenten und regionalen Faktoren ab.
-              Holen Sie sich kostenlos 3 individuelle Offerten ein.
-            </p>
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 max-w-3xl mx-auto text-sm text-gray-600 text-center">
+            Diese Preise enthalten normalerweise: <strong>Solarmodule, Wechselrichter, Montage und Installation.</strong> Der tatsächliche Preis hängt von Dachtyp, Ausrichtung und gewählten Komponenten ab.
           </div>
         </div>
       </section>
 
-      {/* Cost Factors */}
+      {/* Kosten pro kWp */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-12">
-            Was beeinflusst die Kosten?
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <Sun className="w-10 h-10 text-primary mb-4" />
-              <h3 className="text-lg font-sans font-semibold tracking-normal text-gray-900 mb-2">Anlagengrösse</h3>
-              <p className="text-gray-600 text-sm">
-                Grössere Anlagen sind pro kWp günstiger. Ab 10 kWp sinken die Kosten pro kWp deutlich.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <Zap className="w-10 h-10 text-primary mb-4" />
-              <h3 className="text-lg font-sans font-semibold tracking-normal text-gray-900 mb-2">Modulqualität</h3>
-              <p className="text-gray-600 text-sm">
-                Premium-Module kosten mehr, bieten aber höhere Effizienz und längere Garantien.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <Home className="w-10 h-10 text-primary mb-4" />
-              <h3 className="text-lg font-sans font-semibold tracking-normal text-gray-900 mb-2">Dachtyp</h3>
-              <p className="text-gray-600 text-sm">
-                Flachdächer und komplexe Dachformen erhöhen die Montagekosten um 10-20%.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <PiggyBank className="w-10 h-10 text-primary mb-4" />
-              <h3 className="text-lg font-sans font-semibold tracking-normal text-gray-900 mb-2">Speicher</h3>
-              <p className="text-gray-600 text-sm">
-                Ein Batteriespeicher erhöht die Kosten um CHF 8.000-15.000, steigert aber den Eigenverbrauch.
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-sans font-semibold tracking-normal text-gray-900 mb-4">
+              Kosten pro kWp in der Schweiz
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Die Kosten für eine Photovoltaikanlage werden häufig pro kWp (Kilowatt Peak) berechnet.
+              In der Schweiz liegen die durchschnittlichen Kosten bei:
+            </p>
+            <div className="bg-white rounded-2xl border-2 border-primary p-8 text-center mb-6">
+              <div className="text-4xl font-black text-primary mb-2">1'800 – 2'800 CHF <span className="text-2xl">pro kWp</span></div>
+              <p className="text-gray-600 text-sm mt-2">
+                Der Preis pro kWp sinkt bei grösseren Anlagen, da Installationskosten besser verteilt werden können.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Förderung Section */}
+      {/* 10 kW Solaranlage – dedizierte Sektion für wichtige Google-Abfrage */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-4">
-              Förderungen reduzieren Ihre Kosten
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-sans font-semibold tracking-normal text-gray-900 mb-4">
+              Was kostet eine 10 kW Solaranlage in der Schweiz?
             </h2>
-            <p className="text-center text-gray-600 mb-12">
-              Mit den verfügbaren Förderungen zahlen Sie deutlich weniger
+            <p className="text-gray-600 mb-6">
+              Eine Photovoltaikanlage mit <strong>10 kWp Leistung</strong> kostet in der Schweiz typischerweise:
+            </p>
+            <div className="bg-primary-50 rounded-2xl p-8 mb-6">
+              <div className="text-4xl font-black text-primary mb-3">22'000 – 30'000 CHF</div>
+              <p className="text-gray-700 text-sm">nach Abzug der Förderungen</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6 mb-6">
+              <div className="flex items-start gap-3">
+                <Sun className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Jährliche Stromproduktion</p>
+                  <p className="text-gray-600">Eine 10 kWp Anlage produziert in der Schweiz ungefähr <strong>9'000 – 10'000 kWh Strom pro Jahr</strong>. Das reicht oft aus, um einen grossen Teil des Stromverbrauchs eines Einfamilienhauses zu decken.</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
+              <CheckCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+              <p className="text-yellow-800 text-sm">
+                Für eine 10 kWp Anlage benötigen Sie ca. <strong>62 – 68 m² Dachfläche</strong> und 20 – 25 Solarmodule.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Solaranlage mit Speicher */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-sans font-semibold tracking-normal text-gray-900 mb-4">
+              Wie viel kostet eine Solaranlage mit Speicher?
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Ein Batteriespeicher erhöht die Kosten einer Solaranlage – er ermöglicht aber, mehr eigenen Strom zu nutzen und weniger ins Netz einzuspeisen.
             </p>
 
-            <div className="bg-primary-50 rounded-2xl p-8 mb-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <div className="text-4xl font-sans font-semibold tracking-normal text-primary mb-2">30%</div>
-                  <p className="text-gray-700">Einmalvergütung (EIV) vom Bund</p>
+            <div className="hidden md:block overflow-hidden rounded-2xl border border-gray-200 mb-6">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="bg-gray-800 text-white">
+                    <th className="px-6 py-4 font-semibold">Speichergrösse</th>
+                    <th className="px-6 py-4 font-semibold">Kosten (ca.)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {storageTable.map((row, i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="px-6 py-4 font-semibold text-gray-900 flex items-center gap-2">
+                        <Battery className="w-4 h-4 text-primary" />{row.size}
+                      </td>
+                      <td className="px-6 py-4 font-bold text-primary">{row.price}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="md:hidden space-y-3 mb-6">
+              {storageTable.map((row, i) => (
+                <div key={i} className="flex justify-between items-center bg-white rounded-xl border border-gray-200 px-5 py-4">
+                  <div className="flex items-center gap-2 font-semibold text-gray-900">
+                    <Battery className="w-4 h-4 text-primary" />{row.size}
+                  </div>
+                  <span className="font-bold text-primary">{row.price}</span>
                 </div>
+              ))}
+            </div>
+
+            <p className="text-gray-600 mb-4">
+              Ein Speicher kann den Eigenverbrauch des selbst produzierten Stroms deutlich erhöhen.
+            </p>
+            <Link
+              href="/solaranlage-mit-speicher"
+              className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
+            >
+              → Mehr Informationen: Solaranlage mit Speicher
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Kostenfaktoren */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-4">
+            Welche Faktoren beeinflussen die Kosten?
+          </h2>
+          <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+            Die wichtigsten Faktoren, die den Preis einer Solaranlage in der Schweiz bestimmen
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {costFactors.map((f, i) => (
+              <div key={i} className="bg-gray-50 rounded-xl p-6">
+                <f.icon className="w-9 h-9 text-primary mb-4" />
+                <h3 className="text-lg font-sans font-semibold tracking-normal text-gray-900 mb-2">{f.title}</h3>
+                <p className="text-gray-600 text-sm">{f.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Förderungen */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-sans font-semibold tracking-normal text-gray-900 mb-4">
+              Förderungen für Solaranlagen in der Schweiz
+            </h2>
+            <p className="text-gray-600 mb-6">
+              In der Schweiz unterstützt der Bund Photovoltaikanlagen mit der sogenannten <strong>Einmalvergütung (EIV)</strong>.
+              Diese Förderung reduziert die Investitionskosten deutlich.
+            </p>
+            <div className="bg-primary-50 rounded-2xl p-8 mb-6">
+              <div className="flex items-start gap-4">
+                <PiggyBank className="w-10 h-10 text-primary flex-shrink-0" />
                 <div>
-                  <div className="text-4xl font-sans font-semibold tracking-normal text-primary mb-2">+10-20%</div>
-                  <p className="text-gray-700">Kantonale Förderungen (variiert)</p>
-                </div>
-                <div>
-                  <div className="text-4xl font-sans font-semibold tracking-normal text-primary mb-2">100%</div>
-                  <p className="text-gray-700">Steuerlich absetzbar</p>
+                  <p className="text-2xl font-black text-primary mb-1">300 – 400 CHF pro kWp</p>
+                  <p className="text-gray-700">Typische Förderbeträge des Bundes (EIV). Die Höhe hängt von der Anlagengrösse ab.</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="font-sans font-semibold tracking-normal text-gray-900 mb-4 flex items-center gap-2">
+            <div className="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-primary" />
                 Rechenbeispiel: 10 kWp Anlage
               </h3>
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Bruttokosten</span>
-                  <span className="font-medium">CHF 22.000</span>
+                  <span className="font-medium">CHF 26'000</span>
                 </div>
                 <div className="flex justify-between text-primary">
-                  <span>- Einmalvergütung (EIV)</span>
-                  <span className="font-medium">- CHF 5.400</span>
+                  <span>– Einmalvergütung EIV (ca. 350 CHF/kWp)</span>
+                  <span className="font-medium">– CHF 3'500</span>
                 </div>
                 <div className="flex justify-between text-primary">
-                  <span>- Steuerersparnis (ca.)</span>
-                  <span className="font-medium">- CHF 3.300</span>
+                  <span>– Kantonale Förderung (Beispiel)</span>
+                  <span className="font-medium">– CHF 2'000</span>
                 </div>
-                <div className="border-t border-gray-300 pt-3 flex justify-between">
-                  <span className="font-sans font-semibold tracking-normal text-gray-900">Effektive Kosten</span>
-                  <span className="font-sans font-semibold tracking-normal text-xl text-primary">CHF 13.300</span>
+                <div className="border-t border-gray-200 pt-3 flex justify-between">
+                  <span className="font-semibold text-gray-900">Effektive Kosten (Beispiel)</span>
+                  <span className="font-black text-xl text-primary">CHF 20'500</span>
                 </div>
               </div>
+              <p className="text-xs text-gray-400 mt-3">Richtwert. Tatsächliche Förderungen je nach Kanton und Anlagengrösse.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Solar Rechner CTA */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto bg-primary-50 rounded-2xl p-8 flex flex-col sm:flex-row items-center gap-6">
+            <Calculator className="w-14 h-14 text-primary flex-shrink-0" />
+            <div className="flex-1 text-center sm:text-left">
+              <h3 className="text-xl font-black text-gray-900 mb-1">Solar Rechner: Kosten berechnen</h3>
+              <p className="text-gray-600 text-sm">
+                Schätzen Sie die Kosten Ihrer Solaranlage anhand Ihrer Dachfläche und Ihres Stromverbrauchs.
+              </p>
+            </div>
+            <Link href="/solarrechner" className="btn-primary px-6 py-3 rounded-xl font-bold text-sm whitespace-nowrap flex-shrink-0">
+              Solar Rechner starten →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Offerte */}
       <section className="section-padding bg-primary-50">
         <div className="container-custom">
           <div className="max-w-2xl mx-auto">
@@ -309,21 +431,36 @@ export default function SolaranlageKostenPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-12">
-            Häufige Fragen zu Solaranlage Kosten
+          <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-4">
+            FAQ – Häufige Fragen zu Solaranlage Kosten
           </h2>
-          <div className="max-w-3xl mx-auto">
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div key={index} className="bg-gray-50 rounded-xl p-6">
-                  <h3 className="font-sans font-semibold tracking-normal text-gray-900 mb-2">{faq.question}</h3>
-                  <p className="text-gray-600">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
+          <p className="text-center text-gray-600 mb-10">Antworten auf die häufigsten Fragen rund um die Kosten einer Solaranlage in der Schweiz</p>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, i) => (
+              <div key={i} className="bg-gray-50 rounded-xl p-6">
+                <h3 className="font-sans font-semibold tracking-normal text-gray-900 mb-2">{faq.question}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Kurz gesagt / Summary box */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="max-w-2xl mx-auto bg-white rounded-2xl border border-gray-200 p-8 text-center">
+            <h2 className="text-2xl font-black text-gray-900 mb-4">Kurz gesagt</h2>
+            <p className="text-gray-600 mb-4">Eine Solaranlage kostet in der Schweiz typischerweise:</p>
+            <div className="text-4xl font-black text-primary mb-3">15'000 – 35'000 CHF</div>
+            <p className="text-gray-600 text-sm mb-6">für ein Einfamilienhaus</p>
+            <p className="text-gray-500 text-sm">
+              Die genauen Kosten hängen von der Dachfläche, der Anlagengrösse und den möglichen Förderungen ab.
+              Holen Sie sich unverbindlich 3 Offerten von geprüften Installateuren ein.
+            </p>
           </div>
         </div>
       </section>
