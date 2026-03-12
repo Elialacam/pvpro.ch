@@ -55,15 +55,19 @@ const benefits = [
 const faqs = [
   {
     question: 'Wie genau ist der Solarrechner?',
-    answer: 'Unser Solarrechner gibt Ihnen eine gute erste Orientierung. Er basiert auf Durchschnittswerten für die Schweiz (ca. 1.100 kWh pro kWp). Für eine exakte Berechnung sollten Sie eine professionelle Beratung vor Ort einholen, die Faktoren wie Dachausrichtung, Verschattung und lokale Gegebenheiten berücksichtigt.',
+    answer: 'Unser Solarrechner gibt Ihnen eine gute erste Orientierung. Er basiert auf Schweizer Durchschnittswerten: 6,5 m² pro kWp, 950 kWh Produktion pro kWp und 2\'200 CHF Installationskosten pro kWp. Für eine exakte Berechnung empfehlen wir eine professionelle Beratung vor Ort, die Faktoren wie Dachausrichtung, Verschattung und lokale Gegebenheiten berücksichtigt.',
   },
   {
     question: 'Wie viel m² Dachfläche brauche ich pro kWp?',
-    answer: 'In der Schweiz rechnet man mit etwa 6-7 m² Dachfläche pro kWp bei modernen Modulen. Für eine typische 10 kWp Anlage benötigen Sie also etwa 60-70 m² nutzbare Dachfläche.',
+    answer: 'Mit modernen Modulen rechnet man in der Schweiz mit ca. 6,5 m² Dachfläche pro kWp. Für eine typische 10 kWp Anlage benötigen Sie also rund 65 m² nutzbare Dachfläche.',
+  },
+  {
+    question: 'Was ist die Bundesförderung (EIV)?',
+    answer: 'Die Einmalvergütung (EIV) des Bundes beträgt aktuell rund 350 CHF pro kWp installierter Leistung. Diese wird direkt vom Installationspreis abgezogen und reduziert Ihre tatsächlichen Kosten spürbar. Zusätzliche kantonale Förderungen sind je nach Kanton möglich.',
   },
   {
     question: 'Was ist die typische Amortisationszeit in der Schweiz?',
-    answer: 'Die durchschnittliche Amortisationszeit liegt in der Schweiz bei 8-12 Jahren, abhängig von Strompreis, Eigenverbrauchsanteil und erhaltenen Förderungen. Bei steigenden Strompreisen verkürzt sich diese Zeit weiter.',
+    answer: 'Die durchschnittliche Amortisationszeit liegt in der Schweiz bei 8-12 Jahren, abhängig von Strompreis, Eigenverbrauchsanteil und erhaltenen Förderungen. Nach der Amortisation produzieren Sie für 15-20 Jahre weitgehend kostenlosen Strom.',
   },
 ];
 

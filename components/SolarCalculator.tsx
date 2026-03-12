@@ -1,7 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Calculator, Zap, TrendingUp } from 'lucide-react';
+import { Calculator, Zap, TrendingUp, PiggyBank, Sun, Gift } from 'lucide-react';
+
+const M2_PER_KWP = 6.5;
+const KWH_PER_KWP = 950;
+const CHF_PER_KWP = 2200;
+const INCENTIVE_PER_KWP = 350;
+const CHF_PER_KWH = 0.32;
 
 export default function SolarCalculator() {
   const [roofSize, setRoofSize] = useState<number>(50);
@@ -9,29 +15,26 @@ export default function SolarCalculator() {
   const [results, setResults] = useState<{
     systemSize: number;
     annualProduction: number;
-    costs: { min: number; max: number };
+    costBefore: number;
+    incentive: number;
+    costAfter: number;
     savings: number;
     paybackYears: number;
   } | null>(null);
 
   const calculateResults = () => {
-    // Simple calculation logic
-    const systemSize = Math.round((roofSize / 7) * 10) / 10; // ~7m² per kWp
-    const annualProduction = Math.round(systemSize * 1100); // ~1100 kWh per kWp in Switzerland
-    const costsMin = Math.round(systemSize * 1900); // 1900 CHF per kWp
-    const costsMax = Math.round(systemSize * 2500); // 2500 CHF per kWp
-    const savings = Math.round(Math.min(annualProduction, consumption) * 0.32); // 0.32 CHF per kWh
-    const averageCost = (costsMin + costsMax) / 2;
-    const paybackYears = Math.round((averageCost / savings) * 10) / 10;
+    const systemSize = Math.round((roofSize / M2_PER_KWP) * 10) / 10;
+    const annualProduction = Math.round(systemSize * KWH_PER_KWP);
+    const costBefore = Math.round(systemSize * CHF_PER_KWP);
+    const incentive = Math.round(systemSize * INCENTIVE_PER_KWP);
+    const costAfter = costBefore - incentive;
+    const savings = Math.round(Math.min(annualProduction, consumption) * CHF_PER_KWH);
+    const paybackYears = Math.round((costAfter / savings) * 10) / 10;
 
-    setResults({
-      systemSize,
-      annualProduction,
-      costs: { min: costsMin, max: costsMax },
-      savings,
-      paybackYears,
-    });
+    setResults({ systemSize, annualProduction, costBefore, incentive, costAfter, savings, paybackYears });
   };
+
+  const fmt = (n: number) => n.toLocaleString('de-CH');
 
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 sm:p-8">
@@ -82,7 +85,7 @@ export default function SolarCalculator() {
           />
           <div className="flex justify-between text-sm text-gray-600 mt-1">
             <span>1.000 kWh</span>
-            <span className="font-sans font-semibold tracking-tight text-primary">{consumption.toLocaleString('de-CH')} kWh</span>
+            <span className="font-sans font-semibold tracking-tight text-primary">{fmt(consumption)} kWh</span>
             <span>10.000 kWh</span>
           </div>
         </div>
@@ -107,43 +110,70 @@ export default function SolarCalculator() {
 
             <div className="bg-trust-50 rounded-xl p-4">
               <div className="flex items-center gap-2 mb-1">
-                <TrendingUp className="w-4 h-4 text-trust" />
+                <Sun className="w-4 h-4 text-trust" />
                 <span className="text-sm text-gray-600">Jährliche Produktion</span>
               </div>
-              <div className="text-2xl font-sans font-semibold tracking-tight text-trust">{results.annualProduction.toLocaleString('de-CH')} kWh</div>
+              <div className="text-2xl font-sans font-semibold tracking-tight text-trust">{fmt(results.annualProduction)} kWh</div>
+            </div>
+          </div>
+
+          <div className="bg-gray-50 rounded-xl p-6 space-y-4 mb-4">
+            <div className="flex justify-between items-center">
+              <span className="text-gray-700">Kosten vor Förderung</span>
+              <span className="font-sans font-semibold tracking-tight text-gray-900">
+                {fmt(results.costBefore)} CHF
+              </span>
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center gap-1.5">
+                <Gift className="w-4 h-4 text-green-600" />
+                <span className="text-gray-700">Bundesförderung (EIV)</span>
+              </div>
+              <span className="font-sans font-semibold tracking-tight text-green-600">
+                − {fmt(results.incentive)} CHF
+              </span>
+            </div>
+            <div className="flex justify-between items-center pt-2 border-t border-gray-200">
+              <span className="font-sans font-semibold tracking-tight text-gray-900">Endkosten nach Förderung</span>
+              <span className="font-sans font-semibold tracking-tight text-primary text-lg">
+                {fmt(results.costAfter)} CHF
+              </span>
             </div>
           </div>
 
           <div className="bg-gray-50 rounded-xl p-6 space-y-4">
             <div className="flex justify-between items-center">
-              <span className="text-gray-700">Geschätzte Kosten</span>
-              <span className="font-sans font-semibold tracking-tight text-gray-900">
-                {results.costs.min.toLocaleString('de-CH')} - {results.costs.max.toLocaleString('de-CH')} CHF
+              <div className="flex items-center gap-1.5">
+                <PiggyBank className="w-4 h-4 text-primary" />
+                <span className="text-gray-700">Jährliche Einsparung</span>
+              </div>
+              <span className="font-sans font-semibold tracking-tight text-primary">
+                {fmt(results.savings)} CHF
               </span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-gray-700">Jährliche Einsparung</span>
-              <span className="font-sans font-semibold tracking-tight text-primary">{results.savings.toLocaleString('de-CH')} CHF</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-700">Amortisationszeit</span>
-              <span className="font-sans font-semibold tracking-tight text-gray-900">ca. {results.paybackYears} Jahre</span>
+              <div className="flex items-center gap-1.5">
+                <TrendingUp className="w-4 h-4 text-gray-500" />
+                <span className="text-gray-700">Amortisationszeit</span>
+              </div>
+              <span className="font-sans font-semibold tracking-tight text-gray-900">
+                ca. {results.paybackYears} Jahre
+              </span>
             </div>
           </div>
 
-          <div className="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
             <p className="text-sm text-yellow-800">
-              Dies ist eine Schätzung. Für eine genaue Berechnung empfehlen wir eine professionelle Beratung.
+              Dies ist eine Schätzung auf Basis von Schweizer Durchschnittswerten (950 kWh/kWp, 2'200 CHF/kWp). Für eine genaue Berechnung empfehlen wir eine professionelle Beratung vor Ort.
             </p>
           </div>
 
-          <button 
+          <button
             onClick={() => {
-              const formElement = document.getElementById('formular');
-              if (formElement) {
-                const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = elementPosition - (window.innerHeight / 2) + (formElement.offsetHeight / 2);
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+              const el = document.getElementById('formular');
+              if (el) {
+                const top = el.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({ top: top - 80, behavior: 'smooth' });
               }
             }}
             className="btn-primary w-full mt-6"
