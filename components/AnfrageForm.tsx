@@ -49,100 +49,214 @@ const t = {
   invalidPhone: 'Bitte geben Sie eine gültige Schweizer Telefonnummer ein.',
 };
 
-/* ─── Flat SVG Illustrations ──────────────────────────────────────────────── */
-const W = '#ECEEF0';  // wall
-const R = '#3B4D5C';  // roof / dark accent
-const WI = '#A8BFCC'; // window
-const D = '#C2D0D9';  // door
+/* ─── Gradient SVG Icons — PVPro golden style ─────────────────────────────── */
 
+/* Shared gradient helper – each icon embeds its own defs to avoid ID collisions */
+const G = {
+  dark:  '#7A5800',
+  mid:   '#C49820',
+  brand: '#D4AF37',
+  light: '#F0D060',
+  pale:  '#FBF0B0',
+  white: 'rgba(255,255,255,0.55)',
+  glass: 'rgba(255,255,255,0.22)',
+  door:  'rgba(0,0,0,0.28)',
+  win:   'rgba(255,255,255,0.40)',
+};
+
+/* Reflection strip helper */
+const Reflect = ({ path, id }: { path: string; id: string }) => (
+  <>
+    <defs>
+      <linearGradient id={`rf-${id}`} x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor={G.brand} stopOpacity="0.28"/>
+        <stop offset="100%" stopColor={G.brand} stopOpacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d={path} fill={`url(#rf-${id})`}/>
+  </>
+);
+
+/* ── Circular badge icons (check / x / question) ── */
 const IcoCheck = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="64" height="64">
-    <circle cx="32" cy="32" r="26" fill="#F0FDF4" stroke="#BBF7D0" strokeWidth="2"/>
-    <path d="M19 33l10 10 16-18" stroke="#16A34A" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+  <svg viewBox="0 0 72 80" width="68" height="76" fill="none">
+    <defs>
+      <radialGradient id="ck-g" cx="40%" cy="35%" r="65%">
+        <stop offset="0%" stopColor={G.pale}/>
+        <stop offset="45%" stopColor={G.brand}/>
+        <stop offset="100%" stopColor={G.dark}/>
+      </radialGradient>
+      <linearGradient id="ck-hl" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="white" stopOpacity="0.45"/>
+        <stop offset="55%" stopColor="white" stopOpacity="0"/>
+      </linearGradient>
+    </defs>
+    <circle cx="36" cy="34" r="30" fill="url(#ck-g)"/>
+    <circle cx="36" cy="34" r="30" fill="url(#ck-hl)"/>
+    <path d="M22 35l10 10 18-20" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+    <ellipse cx="36" cy="67" rx="22" ry="5" fill={G.brand} fillOpacity="0.18"/>
   </svg>
 );
 
 const IcoX = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="64" height="64">
-    <circle cx="32" cy="32" r="26" fill="#FFF1F1" stroke="#FECACA" strokeWidth="2"/>
-    <path d="M22 22l20 20M42 22L22 42" stroke="#EF4444" strokeWidth="3.5" strokeLinecap="round"/>
+  <svg viewBox="0 0 72 80" width="68" height="76" fill="none">
+    <defs>
+      <radialGradient id="xc-g" cx="40%" cy="35%" r="65%">
+        <stop offset="0%" stopColor="#FFD0C0"/>
+        <stop offset="45%" stopColor="#E05A30"/>
+        <stop offset="100%" stopColor="#7A1800"/>
+      </radialGradient>
+      <linearGradient id="xc-hl" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="white" stopOpacity="0.4"/>
+        <stop offset="55%" stopColor="white" stopOpacity="0"/>
+      </linearGradient>
+    </defs>
+    <circle cx="36" cy="34" r="30" fill="url(#xc-g)"/>
+    <circle cx="36" cy="34" r="30" fill="url(#xc-hl)"/>
+    <path d="M24 24l24 24M48 24L24 48" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+    <ellipse cx="36" cy="67" rx="22" ry="5" fill="#E05A30" fillOpacity="0.15"/>
   </svg>
 );
 
 const IcoQuestion = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="64" height="64">
-    <circle cx="32" cy="32" r="26" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="2"/>
-    <path d="M24 25c0-4.4 3.6-8 8-8s8 3.6 8 8c0 3-1.6 5.6-4 7l-1 1v3" stroke="#94A3B8" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-    <circle cx="32" cy="44" r="2" fill="#94A3B8"/>
+  <svg viewBox="0 0 72 80" width="68" height="76" fill="none">
+    <defs>
+      <radialGradient id="qc-g" cx="40%" cy="35%" r="65%">
+        <stop offset="0%" stopColor={G.pale}/>
+        <stop offset="45%" stopColor={G.brand}/>
+        <stop offset="100%" stopColor={G.dark}/>
+      </radialGradient>
+      <linearGradient id="qc-hl" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="white" stopOpacity="0.45"/>
+        <stop offset="55%" stopColor="white" stopOpacity="0"/>
+      </linearGradient>
+    </defs>
+    <circle cx="36" cy="34" r="30" fill="url(#qc-g)"/>
+    <circle cx="36" cy="34" r="30" fill="url(#qc-hl)"/>
+    <path d="M28 26c0-4.4 3.6-8 8-8s8 3.6 8 8c0 3.2-1.8 6-4.5 7.5L38 35v4" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <circle cx="36" cy="46" r="2.5" fill="white"/>
+    <ellipse cx="36" cy="67" rx="22" ry="5" fill={G.brand} fillOpacity="0.18"/>
   </svg>
 );
 
+/* ── Building gradient helper ── */
+const houseGrad = (id: string) => (
+  <defs>
+    <linearGradient id={`hg-${id}`} x1="0.3" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stopColor={G.light}/>
+      <stop offset="40%" stopColor={G.brand}/>
+      <stop offset="100%" stopColor={G.dark}/>
+    </linearGradient>
+    <linearGradient id={`hl-${id}`} x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stopColor="white" stopOpacity="0.38"/>
+      <stop offset="50%" stopColor="white" stopOpacity="0"/>
+    </linearGradient>
+  </defs>
+);
+
 const IcoHouse = () => (
-  <svg viewBox="0 0 80 80" fill="none" width="64" height="64">
-    <rect x="15" y="42" width="50" height="28" rx="2.5" fill={W}/>
-    <path d="M8 44L40 14L72 44" fill={R}/>
-    <rect x="32" y="56" width="16" height="14" rx="2" fill={D}/>
-    <rect x="17" y="47" width="13" height="10" rx="1.5" fill={WI}/>
-    <rect x="50" y="47" width="13" height="10" rx="1.5" fill={WI}/>
-    <rect x="54" y="27" width="6" height="14" rx="1" fill={R}/>
+  <svg viewBox="0 0 80 88" width="72" height="80" fill="none">
+    {houseGrad('h')}
+    {/* chimney */}
+    <rect x="54" y="22" width="7" height="16" rx="1.5" fill={`url(#hg-h)`}/>
+    {/* walls */}
+    <rect x="13" y="42" width="54" height="30" rx="3" fill={`url(#hg-h)`}/>
+    {/* roof */}
+    <path d="M7 44L40 12L73 44Z" fill={`url(#hg-h)`}/>
+    {/* gloss on roof */}
+    <path d="M7 44L40 12L73 44Z" fill={`url(#hl-h)`}/>
+    {/* windows */}
+    <rect x="16" y="48" width="14" height="11" rx="2" fill={G.win}/>
+    <rect x="50" y="48" width="14" height="11" rx="2" fill={G.win}/>
+    {/* door */}
+    <rect x="33" y="57" width="14" height="15" rx="2" fill={G.door}/>
+    {/* shadow / reflection */}
+    <ellipse cx="40" cy="75" rx="30" ry="6" fill={G.brand} fillOpacity="0.15"/>
   </svg>
 );
 
 const IcoApartment = () => (
-  <svg viewBox="0 0 80 80" fill="none" width="64" height="64">
-    <rect x="12" y="22" width="56" height="48" rx="3" fill={W}/>
-    <rect x="12" y="18" width="56" height="8" rx="3" fill={R}/>
-    <rect x="18" y="30" width="11" height="9" rx="1.5" fill={WI}/>
-    <rect x="35" y="30" width="11" height="9" rx="1.5" fill={WI}/>
-    <rect x="51" y="30" width="11" height="9" rx="1.5" fill={WI}/>
-    <rect x="18" y="44" width="11" height="9" rx="1.5" fill={WI}/>
-    <rect x="35" y="44" width="11" height="9" rx="1.5" fill={WI}/>
-    <rect x="51" y="44" width="11" height="9" rx="1.5" fill={WI}/>
-    <rect x="33" y="56" width="14" height="14" rx="2" fill={D}/>
+  <svg viewBox="0 0 80 88" width="72" height="80" fill="none">
+    {houseGrad('a')}
+    {/* body */}
+    <rect x="10" y="20" width="60" height="52" rx="3" fill={`url(#hg-a)`}/>
+    {/* roof cap */}
+    <rect x="10" y="16" width="60" height="9" rx="3" fill={`url(#hg-a)`}/>
+    {/* gloss */}
+    <rect x="10" y="16" width="60" height="9" rx="3" fill={`url(#hl-a)`}/>
+    {/* windows row 1 */}
+    <rect x="15" y="30" width="12" height="10" rx="1.5" fill={G.win}/>
+    <rect x="34" y="30" width="12" height="10" rx="1.5" fill={G.win}/>
+    <rect x="53" y="30" width="12" height="10" rx="1.5" fill={G.win}/>
+    {/* windows row 2 */}
+    <rect x="15" y="46" width="12" height="10" rx="1.5" fill={G.win}/>
+    <rect x="34" y="46" width="12" height="10" rx="1.5" fill={G.win}/>
+    <rect x="53" y="46" width="12" height="10" rx="1.5" fill={G.win}/>
+    {/* door */}
+    <rect x="34" y="58" width="12" height="14" rx="2" fill={G.door}/>
+    <ellipse cx="40" cy="75" rx="30" ry="6" fill={G.brand} fillOpacity="0.15"/>
   </svg>
 );
 
 const IcoCommercial = () => (
-  <svg viewBox="0 0 80 80" fill="none" width="64" height="64">
-    <rect x="8" y="26" width="64" height="44" rx="3" fill={W}/>
-    <rect x="8" y="20" width="64" height="10" rx="3" fill={R}/>
-    <rect x="12" y="35" width="22" height="16" rx="2" fill={WI}/>
-    <rect x="46" y="35" width="22" height="16" rx="2" fill={WI}/>
-    <rect x="31" y="56" width="18" height="14" rx="2" fill={D}/>
-    <line x1="16" y1="24" x2="64" y2="24" stroke="white" strokeWidth="1.5" strokeOpacity="0.35"/>
+  <svg viewBox="0 0 80 88" width="72" height="80" fill="none">
+    {houseGrad('c')}
+    {/* body */}
+    <rect x="6" y="28" width="68" height="44" rx="3" fill={`url(#hg-c)`}/>
+    {/* header band */}
+    <rect x="6" y="20" width="68" height="12" rx="3" fill={`url(#hg-c)`}/>
+    <rect x="6" y="20" width="68" height="12" rx="3" fill={`url(#hl-c)`}/>
+    {/* large windows */}
+    <rect x="10" y="37" width="24" height="18" rx="2" fill={G.win}/>
+    <rect x="46" y="37" width="24" height="18" rx="2" fill={G.win}/>
+    {/* door */}
+    <rect x="32" y="58" width="16" height="14" rx="2" fill={G.door}/>
+    <ellipse cx="40" cy="75" rx="32" ry="6" fill={G.brand} fillOpacity="0.15"/>
   </svg>
 );
 
 const IcoPitched = () => (
-  <svg viewBox="0 0 80 80" fill="none" width="64" height="64">
-    <rect x="12" y="44" width="56" height="26" rx="2.5" fill={W}/>
-    <path d="M7 46L40 16L73 46" fill={R}/>
-    <rect x="33" y="56" width="14" height="14" rx="2" fill={D}/>
-    <rect x="15" y="50" width="12" height="9" rx="1.5" fill={WI}/>
-    <rect x="53" y="50" width="12" height="9" rx="1.5" fill={WI}/>
+  <svg viewBox="0 0 80 88" width="72" height="80" fill="none">
+    {houseGrad('p')}
+    <rect x="12" y="44" width="56" height="28" rx="3" fill={`url(#hg-p)`}/>
+    <path d="M6 46L40 14L74 46Z" fill={`url(#hg-p)`}/>
+    <path d="M6 46L40 14L74 46Z" fill={`url(#hl-p)`}/>
+    <rect x="33" y="56" width="14" height="16" rx="2" fill={G.door}/>
+    <rect x="14" y="50" width="13" height="10" rx="1.5" fill={G.win}/>
+    <rect x="53" y="50" width="13" height="10" rx="1.5" fill={G.win}/>
+    <ellipse cx="40" cy="75" rx="30" ry="6" fill={G.brand} fillOpacity="0.15"/>
   </svg>
 );
 
 const IcoMonoPitch = () => (
-  <svg viewBox="0 0 80 80" fill="none" width="64" height="64">
-    <rect x="12" y="42" width="56" height="28" rx="2.5" fill={W}/>
-    <path d="M9 44L9 24L71 38L71 44Z" fill={R}/>
-    <rect x="33" y="54" width="14" height="16" rx="2" fill={D}/>
-    <rect x="15" y="48" width="13" height="9" rx="1.5" fill={WI}/>
-    <rect x="52" y="49" width="13" height="9" rx="1.5" fill={WI}/>
+  <svg viewBox="0 0 80 88" width="72" height="80" fill="none">
+    {houseGrad('mp')}
+    <rect x="10" y="44" width="60" height="28" rx="3" fill={`url(#hg-mp)`}/>
+    <path d="M8 46L8 24L72 40L72 46Z" fill={`url(#hg-mp)`}/>
+    <path d="M8 46L8 24L72 40L72 46Z" fill={`url(#hl-mp)`}/>
+    <rect x="33" y="56" width="14" height="16" rx="2" fill={G.door}/>
+    <rect x="13" y="50" width="13" height="10" rx="1.5" fill={G.win}/>
+    <rect x="54" y="50" width="13" height="10" rx="1.5" fill={G.win}/>
+    <ellipse cx="40" cy="75" rx="30" ry="6" fill={G.brand} fillOpacity="0.15"/>
   </svg>
 );
 
 const IcoFlatRoof = () => (
-  <svg viewBox="0 0 80 80" fill="none" width="64" height="64">
-    <rect x="6" y="21" width="68" height="9" rx="3" fill={R}/>
-    <rect x="12" y="30" width="56" height="40" rx="2.5" fill={W}/>
-    <rect x="16" y="37" width="19" height="13" rx="2" fill={WI}/>
-    <rect x="45" y="37" width="19" height="13" rx="2" fill={WI}/>
-    <rect x="31" y="54" width="18" height="16" rx="2" fill={D}/>
-    <rect x="20" y="23" width="12" height="4" rx="1" fill="#5B7A8C"/>
-    <rect x="36" y="23" width="12" height="4" rx="1" fill="#5B7A8C"/>
-    <rect x="52" y="23" width="8" height="4" rx="1" fill="#5B7A8C"/>
+  <svg viewBox="0 0 80 88" width="72" height="80" fill="none">
+    {houseGrad('fr')}
+    {/* roof slab */}
+    <rect x="4" y="20" width="72" height="10" rx="3" fill={`url(#hg-fr)`}/>
+    <rect x="4" y="20" width="72" height="10" rx="3" fill={`url(#hl-fr)`}/>
+    {/* solar panels on roof */}
+    <rect x="12" y="22" width="14" height="5" rx="1" fill={G.dark} fillOpacity="0.45"/>
+    <rect x="30" y="22" width="14" height="5" rx="1" fill={G.dark} fillOpacity="0.45"/>
+    <rect x="48" y="22" width="14" height="5" rx="1" fill={G.dark} fillOpacity="0.45"/>
+    {/* body */}
+    <rect x="10" y="30" width="60" height="42" rx="3" fill={`url(#hg-fr)`}/>
+    <rect x="14" y="37" width="20" height="14" rx="2" fill={G.win}/>
+    <rect x="46" y="37" width="20" height="14" rx="2" fill={G.win}/>
+    <rect x="32" y="56" width="16" height="16" rx="2" fill={G.door}/>
+    <ellipse cx="40" cy="75" rx="30" ry="6" fill={G.brand} fillOpacity="0.15"/>
   </svg>
 );
 
