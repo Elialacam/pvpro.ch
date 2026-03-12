@@ -32,7 +32,7 @@ const t = {
   firstName: 'Vorname',
   lastName: 'Nachname',
   email: 'E-Mail',
-  phone: 'Telefon',
+  phone: 'Telefonnummer',
   privacyText: 'Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu.',
   submit: 'Kostenlose Offerten anfordern',
   submitting: 'Wird gesendet...',
@@ -52,56 +52,63 @@ const t = {
 
 interface OptionCardProps {
   label: string;
-  subLabel?: string;
   isSelected: boolean;
   onClick: () => void;
   icon?: 'check' | 'x' | 'question';
   imageSrc?: string;
-  color?: 'green' | 'red' | 'amber' | 'gray';
 }
 
-function OptionCard({ label, subLabel, isSelected, onClick, icon, imageSrc, color = 'amber' }: OptionCardProps) {
-  const colors = {
-    green:  { bg: isSelected ? '#dcfce7' : '#f0fdf4', border: isSelected ? '#16a34a' : '#bbf7d0', icon: '#16a34a', label: '#15803d' },
-    red:    { bg: isSelected ? '#fee2e2' : '#fef2f2', border: isSelected ? '#dc2626' : '#fecaca', icon: '#dc2626', label: '#b91c1c' },
-    amber:  { bg: isSelected ? '#fef3c7' : '#fffbeb', border: isSelected ? '#d97706' : '#fde68a', icon: '#d97706', label: '#92400e' },
-    gray:   { bg: isSelected ? '#f1f5f9' : '#f8fafc',  border: isSelected ? '#475569' : '#e2e8f0', icon: '#475569', label: '#334155' },
-  };
-  const c = colors[color];
-
+function OptionCard({ label, isSelected, onClick, icon, imageSrc }: OptionCardProps) {
   return (
     <motion.button
       whileHover={{ scale: 1.02, y: -2 }}
       whileTap={{ scale: 0.97 }}
       onClick={onClick}
-      className="relative flex flex-col items-center justify-center w-full rounded-2xl py-7 px-4 transition-all duration-200"
-      style={{ backgroundColor: c.bg, border: `2px solid ${c.border}`, boxShadow: isSelected ? `0 8px 24px ${c.icon}22` : '0 2px 8px rgba(0,0,0,0.04)' }}
+      className="relative flex flex-col items-center justify-center w-full rounded-2xl py-8 px-4 transition-all duration-200 bg-white"
+      style={{
+        border: isSelected ? '2.5px solid #C4962A' : '2px solid #e5e7eb',
+        boxShadow: isSelected
+          ? '0 8px 24px rgba(196,150,42,0.15)'
+          : '0 2px 8px rgba(0,0,0,0.04)',
+        background: isSelected ? '#FFFBF0' : '#fff',
+      }}
     >
       {imageSrc ? (
-        <div className="w-20 h-20 flex items-center justify-center mb-3">
-          <img src={imageSrc} alt={label} className="w-full h-full object-contain mix-blend-multiply" />
+        <div className="w-20 h-20 flex items-center justify-center mb-4">
+          <img src={imageSrc} alt={label} className="w-full h-full object-contain" />
         </div>
       ) : icon === 'check' ? (
-        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-3" style={{ background: 'white', border: `2px solid ${c.border}` }}>
-          <Check className="w-9 h-9" style={{ color: c.icon }} strokeWidth={3} />
+        <div
+          className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4"
+          style={{ background: isSelected ? '#dcfce7' : '#f0fdf4', border: isSelected ? '2px solid #16a34a' : '2px solid #bbf7d0' }}
+        >
+          <Check className="w-9 h-9" style={{ color: '#16a34a' }} strokeWidth={3} />
         </div>
       ) : icon === 'x' ? (
-        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-3" style={{ background: 'white', border: `2px solid ${c.border}` }}>
-          <X className="w-9 h-9" style={{ color: c.icon }} strokeWidth={3} />
+        <div
+          className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4"
+          style={{ background: isSelected ? '#fee2e2' : '#fef2f2', border: isSelected ? '2px solid #dc2626' : '2px solid #fecaca' }}
+        >
+          <X className="w-9 h-9" style={{ color: '#dc2626' }} strokeWidth={3} />
         </div>
       ) : (
-        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-3" style={{ background: 'white', border: `2px solid ${c.border}` }}>
-          <HelpCircle className="w-9 h-9" style={{ color: c.icon }} strokeWidth={2} />
+        <div
+          className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4"
+          style={{ background: '#f8fafc', border: '2px solid #e2e8f0' }}
+        >
+          <HelpCircle className="w-9 h-9 text-gray-400" strokeWidth={2} />
         </div>
       )}
-      <span className="text-base font-black leading-tight" style={{ color: c.label }}>{label}</span>
-      {subLabel && <span className="text-[10px] font-bold tracking-widest mt-1 uppercase" style={{ color: c.icon + '99' }}>{subLabel}</span>}
+
+      <span className="text-base font-bold text-gray-900 leading-tight">{label}</span>
+
       {isSelected && (
-        <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}
-          className="absolute -top-2.5 -right-2.5 w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-md"
-          style={{ border: `2.5px solid ${c.icon}` }}
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          className="absolute -top-2.5 -right-2.5 w-7 h-7 rounded-full bg-primary flex items-center justify-center shadow-md"
         >
-          <Check className="w-3.5 h-3.5" style={{ color: c.icon }} strokeWidth={4} />
+          <Check className="w-3.5 h-3.5 text-white" strokeWidth={4} />
         </motion.div>
       )}
     </motion.button>
@@ -200,11 +207,11 @@ export default function AnfrageForm() {
       }
       setIsLoadingTransition(true);
       setLoadingStep(1);
-      await new Promise(r => setTimeout(r, 600));
+      await new Promise(r => setTimeout(r, 700));
       setLoadingStep(2);
-      await new Promise(r => setTimeout(r, 600));
+      await new Promise(r => setTimeout(r, 700));
       setLoadingStep(3);
-      await new Promise(r => setTimeout(r, 600));
+      await new Promise(r => setTimeout(r, 700));
       setIsLoadingTransition(false);
     }
     trackStep(currentStep);
@@ -279,8 +286,8 @@ export default function AnfrageForm() {
         return (
           <StepWrapper title={t.step1Title} sub={t.step1Sub}>
             <div className="grid grid-cols-2 gap-4">
-              <OptionCard label="Ja" subLabel="EIGENTÜMER" isSelected={formData.isOwner === 'yes'} onClick={() => handleSelect('isOwner', 'yes')} icon="check" color="green" />
-              <OptionCard label="Nein" subLabel="MIETER" isSelected={formData.isOwner === 'no'} onClick={() => handleSelect('isOwner', 'no')} icon="x" color="red" />
+              <OptionCard label="Ja" isSelected={formData.isOwner === 'yes'} onClick={() => handleSelect('isOwner', 'yes')} icon="check" />
+              <OptionCard label="Nein" isSelected={formData.isOwner === 'no'} onClick={() => handleSelect('isOwner', 'no')} icon="x" />
             </div>
           </StepWrapper>
         );
@@ -288,12 +295,12 @@ export default function AnfrageForm() {
         return (
           <StepWrapper title={t.step2Title} sub={t.step2Sub}>
             <div className="grid grid-cols-2 gap-4">
-              <OptionCard label="Einfamilienhaus" isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelect('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.png" color="amber" />
-              <OptionCard label="Mehrfamilienhaus" isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelect('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.png" color="amber" />
+              <OptionCard label="Einfamilienhaus" isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelect('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.png" />
+              <OptionCard label="Mehrfamilienhaus" isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelect('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.png" />
             </div>
             <div className="flex justify-center mt-4">
               <div className="w-1/2">
-                <OptionCard label="Sonstiges" isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelect('propertyType', 'sonstiges')} icon="question" color="gray" />
+                <OptionCard label="Sonstiges" isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelect('propertyType', 'sonstiges')} icon="question" />
               </div>
             </div>
           </StepWrapper>
@@ -302,10 +309,10 @@ export default function AnfrageForm() {
         return (
           <StepWrapper title={t.step3Title} sub={t.step3Sub}>
             <div className="grid grid-cols-2 gap-4">
-              <OptionCard label="Satteldach" isSelected={formData.roofType === 'pitched'} onClick={() => handleSelect('roofType', 'pitched')} imageSrc="/icons/pitched-roof.png" color="amber" />
-              <OptionCard label="Pultdach" isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelect('roofType', 'monopitch')} imageSrc="/icons/monopitch-roof.png" color="amber" />
-              <OptionCard label="Flachdach" isSelected={formData.roofType === 'flat'} onClick={() => handleSelect('roofType', 'flat')} imageSrc="/icons/flat-roof.png" color="amber" />
-              <OptionCard label="Sonstiges" isSelected={formData.roofType === 'other'} onClick={() => handleSelect('roofType', 'other')} icon="question" color="gray" />
+              <OptionCard label="Satteldach" isSelected={formData.roofType === 'pitched'} onClick={() => handleSelect('roofType', 'pitched')} imageSrc="/icons/pitched-roof.png" />
+              <OptionCard label="Pultdach" isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelect('roofType', 'monopitch')} imageSrc="/icons/monopitch-roof.png" />
+              <OptionCard label="Flachdach" isSelected={formData.roofType === 'flat'} onClick={() => handleSelect('roofType', 'flat')} imageSrc="/icons/flat-roof.png" />
+              <OptionCard label="Sonstiges" isSelected={formData.roofType === 'other'} onClick={() => handleSelect('roofType', 'other')} icon="question" />
             </div>
           </StepWrapper>
         );
@@ -313,9 +320,9 @@ export default function AnfrageForm() {
         return (
           <StepWrapper title={t.step4Title} sub={t.step4Sub}>
             <div className="grid grid-cols-3 gap-3">
-              <OptionCard label="Ja" isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelect('wantsBattery', 'yes')} icon="check" color="green" />
-              <OptionCard label="Nein" isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelect('wantsBattery', 'no')} icon="x" color="red" />
-              <OptionCard label="Weiss nicht" isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelect('wantsBattery', 'unknown')} icon="question" color="gray" />
+              <OptionCard label="Ja" isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelect('wantsBattery', 'yes')} icon="check" />
+              <OptionCard label="Nein" isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelect('wantsBattery', 'no')} icon="x" />
+              <OptionCard label="Weiss nicht" isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelect('wantsBattery', 'unknown')} icon="question" />
             </div>
           </StepWrapper>
         );
@@ -365,29 +372,35 @@ export default function AnfrageForm() {
           <StepWrapper title={t.step6Title} sub={t.step6Sub}>
             <div className="space-y-3">
               <div className="grid grid-cols-2 gap-3">
-                <input placeholder={`${t.firstName} *`}
+                <input
+                  placeholder={`${t.firstName} *`}
                   className={`w-full p-4 border-2 rounded-2xl outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 bg-white text-base ${validationErrors.firstName ? 'border-red-400' : 'border-gray-200'}`}
                   onChange={e => { setFormData({ ...formData, firstName: e.target.value }); setValidationErrors(p => ({ ...p, firstName: false })); }}
                 />
-                <input placeholder={`${t.lastName} *`}
+                <input
+                  placeholder={`${t.lastName} *`}
                   className={`w-full p-4 border-2 rounded-2xl outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 bg-white text-base ${validationErrors.lastName ? 'border-red-400' : 'border-gray-200'}`}
                   onChange={e => { setFormData({ ...formData, lastName: e.target.value }); setValidationErrors(p => ({ ...p, lastName: false })); }}
                 />
               </div>
-              <input type="email" placeholder={`${t.email} *`}
+              <input
+                type="email"
+                placeholder={`${t.email} *`}
                 className={`w-full p-4 border-2 rounded-2xl outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 bg-white text-base ${validationErrors.email ? 'border-red-400' : 'border-gray-200'}`}
                 onChange={e => { setFormData({ ...formData, email: e.target.value }); setValidationErrors(p => ({ ...p, email: false })); }}
               />
               <div className={`flex items-center w-full border-2 rounded-2xl focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10 bg-white overflow-hidden ${validationErrors.phone ? 'border-red-400' : 'border-gray-200'}`}>
                 <div className="flex items-center gap-2 pl-4 pr-3 py-4 border-r border-gray-100 shrink-0">
-                  <svg width="20" height="20" viewBox="0 0 32 32">
-                    <rect width="32" height="32" rx="4" fill="#D52B1E"/>
-                    <rect x="13" y="6" width="6" height="20" rx="1" fill="white"/>
-                    <rect x="6" y="13" width="20" height="6" rx="1" fill="white"/>
+                  <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="15" rx="2" fill="#D52B1E"/>
+                    <rect x="8" y="3" width="4" height="9" fill="white"/>
+                    <rect x="3" y="5.5" width="14" height="4" fill="white"/>
                   </svg>
-                  <span className="text-gray-700 font-medium">+41</span>
+                  <span className="text-gray-700 font-medium text-sm">+41</span>
                 </div>
-                <input type="tel" placeholder={`${t.phone} *`}
+                <input
+                  type="tel"
+                  placeholder={`${t.phone} *`}
                   className="w-full p-4 outline-none bg-transparent text-base"
                   value={formData.phone.replace(/^\+41\s?/, '')}
                   onChange={e => { setFormData({ ...formData, phone: '+41 ' + e.target.value.replace(/^\+41\s?/, '') }); setValidationErrors(p => ({ ...p, phone: false })); }}
@@ -395,12 +408,15 @@ export default function AnfrageForm() {
               </div>
             </div>
             <motion.button
-              whileHover={{ scale: 1.02, y: -1 }} whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.02, y: -1 }}
+              whileTap={{ scale: 0.98 }}
               onClick={handleSubmit}
               disabled={isSubmitting}
               className="w-full btn-primary py-5 rounded-2xl text-lg font-black shadow-lg mt-5 flex items-center justify-center gap-3"
             >
-              {isSubmitting ? <><BarChart2 className="animate-spin w-5 h-5" />{t.submitting}</> : t.submit}
+              {isSubmitting
+                ? <><BarChart2 className="animate-spin w-5 h-5" />{t.submitting}</>
+                : t.submit}
             </motion.button>
             <p className="text-[11px] text-center text-gray-400 mt-3">{t.privacyText}</p>
           </StepWrapper>
@@ -411,8 +427,8 @@ export default function AnfrageForm() {
 
   if (isLoadingTransition) {
     return (
-      <div className="flex flex-col items-center justify-center flex-1 px-6 py-16 text-center">
-        <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-10">{t.loadingTitle}</h2>
+      <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6 py-16 text-center">
+        <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-12">{t.loadingTitle}</h2>
         <div className="space-y-8 w-full max-w-xs">
           {[
             { icon: <BarChart2 className={`w-7 h-7 ${loadingStep === 1 ? 'animate-pulse' : ''}`} />, label: t.loadingStep1, active: loadingStep >= 1, done: loadingStep > 1 },
@@ -427,7 +443,11 @@ export default function AnfrageForm() {
                 {item.icon}
               </div>
               <span className={`text-base font-bold ${item.active ? 'text-gray-900' : 'text-gray-300'}`}>{item.label}</span>
-              {item.done && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}><CheckCircle2 className="w-5 h-5 text-green-500" /></motion.div>}
+              {item.done && (
+                <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}>
+                  <CheckCircle2 className="w-5 h-5 text-green-500" />
+                </motion.div>
+              )}
             </motion.div>
           ))}
         </div>
@@ -437,7 +457,7 @@ export default function AnfrageForm() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      {/* Top progress bar */}
+      {/* Thin progress bar — fixed at very top */}
       <div className="h-1 bg-gray-100 w-full fixed top-0 left-0 z-50">
         <motion.div
           className="h-full bg-primary"
@@ -451,19 +471,23 @@ export default function AnfrageForm() {
       <header className="fixed top-1 left-0 right-0 z-40 bg-white border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
           <Link href="/">
-            <Image src="/logo-pvpro.png" alt="PVPro.ch" width={140} height={40} className="h-7 w-auto" />
+            <Image src="/logo-pvpro.png" alt="PVPro.ch" width={140} height={40} className="h-7 w-auto" priority />
           </Link>
           <span className="text-sm font-semibold text-gray-400">
             {t.stepLabel} {step} {t.of} {TOTAL_STEPS}
           </span>
-          <Link href="/" className="w-9 h-9 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors" aria-label="Schliessen">
+          <Link
+            href="/"
+            className="w-9 h-9 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors"
+            aria-label="Schliessen"
+          >
             <X className="w-5 h-5 text-gray-500" />
           </Link>
         </div>
       </header>
 
-      {/* Main content */}
-      <main className="flex-1 flex flex-col pt-16 pb-8">
+      {/* Main */}
+      <main className="flex-1 flex flex-col pt-16 pb-6">
         <div className="flex-1 flex flex-col justify-center w-full max-w-xl mx-auto px-4 sm:px-6 py-8">
           <AnimatePresence mode="wait">
             <motion.div
@@ -478,10 +502,10 @@ export default function AnfrageForm() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Error notification */}
           {errorMsg && (
             <motion.div
-              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
               className="mt-5 p-4 rounded-2xl bg-red-50 text-red-700 border border-red-100 flex items-start gap-3"
             >
               <X className="w-5 h-5 mt-0.5 shrink-0" />
@@ -489,10 +513,10 @@ export default function AnfrageForm() {
             </motion.div>
           )}
 
-          {/* Back button */}
           {step > 1 && !isLoadingTransition && (
             <div className="mt-6 flex justify-center">
-              <button onClick={() => setStep(s => s - 1)}
+              <button
+                onClick={() => setStep(s => s - 1)}
                 className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-700 font-semibold transition-colors py-2 px-4"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -503,14 +527,14 @@ export default function AnfrageForm() {
         </div>
 
         {/* Trust badges */}
-        <div className="flex items-center justify-center gap-4 sm:gap-6 px-4 pb-2 flex-wrap">
+        <div className="flex items-center justify-center gap-3 sm:gap-5 px-4 pb-4 flex-wrap">
           {[
-            { icon: '✓', text: '100% Kostenlos', color: 'text-green-600', bg: 'bg-green-50 border-green-200' },
-            { icon: '🔒', text: 'SSL Sicher', color: 'text-blue-600', bg: 'bg-blue-50 border-blue-200' },
-            { icon: '🛡', text: 'DSGVO Konform', color: 'text-indigo-600', bg: 'bg-indigo-50 border-indigo-200' },
-            { icon: '⭐', text: 'Keine Werbeanrufe', color: 'text-amber-600', bg: 'bg-amber-50 border-amber-200' },
+            { icon: '✓', text: '100% Kostenlos' },
+            { icon: '🔒', text: 'SSL Sicher' },
+            { icon: '🛡', text: 'DSGVO Konform' },
+            { icon: '☎', text: 'Keine Werbeanrufe' },
           ].map(b => (
-            <div key={b.text} className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-bold ${b.bg} ${b.color}`}>
+            <div key={b.text} className="flex items-center gap-1.5 text-xs font-semibold text-gray-500">
               <span>{b.icon}</span>
               <span>{b.text}</span>
             </div>
@@ -524,9 +548,9 @@ export default function AnfrageForm() {
 function StepWrapper({ title, sub, children }: { title: string; sub: string; children: React.ReactNode }) {
   return (
     <div className="space-y-6">
-      <div className="text-center space-y-2 mb-6">
+      <div className="text-center space-y-2 mb-8">
         <h1 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">{title}</h1>
-        <p className="text-sm text-gray-400">{sub}</p>
+        <p className="text-sm text-gray-500">{sub}</p>
       </div>
       {children}
     </div>
