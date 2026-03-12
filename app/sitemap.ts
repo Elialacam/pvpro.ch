@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getAllCitySlugs, cities } from '@/lib/cities';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://pvpro.ch';
+  const baseUrl = 'https://www.pvpro.ch';
   const currentDate = new Date();
 
   // Static pages - German (default)
