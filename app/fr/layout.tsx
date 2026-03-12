@@ -103,7 +103,7 @@ export default function FrenchLayout({
               "@type": "OrderAction",
               "target": {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://www.pvpro.ch/fr#formular",
+                "urlTemplate": "https://www.pvpro.ch/anfrage",
                 "actionPlatform": [
                   "http://schema.org/DesktopWebPlatform",
                   "http://schema.org/MobileWebPlatform"

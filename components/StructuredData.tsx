@@ -56,7 +56,7 @@ export default function StructuredData() {
       "@type": "OrderAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://www.pvpro.ch/#formular",
+        "urlTemplate": "https://www.pvpro.ch/anfrage",
         "actionPlatform": [
           "http://schema.org/DesktopWebPlatform",
           "http://schema.org/MobileWebPlatform"

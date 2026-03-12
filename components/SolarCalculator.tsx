@@ -170,11 +170,7 @@ export default function SolarCalculator() {
 
           <button
             onClick={() => {
-              const el = document.getElementById('formular');
-              if (el) {
-                const top = el.getBoundingClientRect().top + window.pageYOffset;
-                window.scrollTo({ top: top - 80, behavior: 'smooth' });
-              }
+              window.location.href = '/anfrage';
             }}
             className="btn-primary w-full mt-6"
           >

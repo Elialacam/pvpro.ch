@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import SolarForm from '@/components/SolarForm';
+import CtaAnfrage from '@/components/CtaAnfrage';
 import FAQ from '@/components/FAQ';
 import { CheckCircle, Calculator, Sun, Zap, PiggyBank, TrendingUp, Home, Building2 } from 'lucide-react';
 
@@ -296,17 +296,15 @@ export default function SolaranlageKostenPage() {
         </div>
       </section>
 
-      {/* CTA with Form */}
-      <section id="formular" className="section-padding bg-gray-50">
+      {/* CTA Section */}
+      <section className="section-padding bg-primary-50">
         <div className="container-custom">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-4">
-              Jetzt kostenlose Offerten erhalten
-            </h2>
-            <p className="text-center text-gray-600 mb-8">
-              Vergleichen Sie bis zu 3 Angebote von geprüften Schweizer Solarteuren
-            </p>
-            <SolarForm />
+            <CtaAnfrage
+              title="Jetzt kostenlose Offerten erhalten"
+              subtitle="Vergleichen Sie bis zu 3 Angebote von geprüften Schweizer Solarteuren. In 2 Minuten fertig."
+              ctaText="Kostenlose Offerte anfordern"
+            />
           </div>
         </div>
       </section>

@@ -8,24 +8,11 @@ import LiveBar from './LiveBar';
 import { Locale } from '@/lib/i18n';
 import { useLocale } from '@/lib/LocaleContext';
 
-// Navigation links per locale
-const navLinks: Record<Locale, { cta: string; home: string }> = {
-  de: {
-    cta: 'Offerte anfordern',
-    home: '/',
-  },
-  fr: {
-    cta: 'Demander un devis',
-    home: '/fr',
-  },
-  en: {
-    cta: 'Request Quote',
-    home: '/en',
-  },
-  it: {
-    cta: 'Richiedi preventivo',
-    home: '/it',
-  },
+const navLinks: Record<Locale, { cta: string; home: string; anfrage: string }> = {
+  de: { cta: 'Offerte anfordern', home: '/', anfrage: '/anfrage' },
+  fr: { cta: 'Demander un devis', home: '/fr', anfrage: '/anfrage' },
+  en: { cta: 'Request Quote', home: '/en', anfrage: '/anfrage' },
+  it: { cta: 'Richiedi preventivo', home: '/it', anfrage: '/anfrage' },
 };
 
 export default function Header() {
@@ -46,31 +33,15 @@ export default function Header() {
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <Link href={links.home} className="flex items-center group">
-            <Image
-              src="/logo-pvpro.png"
-              alt="PVPro.ch"
-              width={200}
-              height={56}
-              className="h-8 sm:h-10 w-auto"
-            />
+            <Image src="/logo-pvpro.png" alt="PVPro.ch" width={200} height={56} className="h-8 sm:h-10 w-auto" />
           </Link>
 
           <div className="flex items-center gap-3 sm:gap-6">
             <LanguageSwitcher />
             {isDesktop && (
-              <button 
-                onClick={() => {
-                  const formElement = document.getElementById('formular');
-                  if (formElement) {
-                    const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - (window.innerHeight / 2) + (formElement.offsetHeight / 2);
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                  }
-                }}
-                className="btn-primary"
-              >
+              <Link href={links.anfrage} className="btn-primary">
                 {links.cta}
-              </button>
+              </Link>
             )}
           </div>
         </div>

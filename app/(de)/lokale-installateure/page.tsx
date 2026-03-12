@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import SolarForm from '@/components/SolarForm';
+import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle, Shield, Clock, MapPin, Users, ArrowRight } from 'lucide-react';
 
@@ -80,7 +80,24 @@ export default function LokaleInstallateurePage() {
             </div>
 
             <div className="lg:sticky lg:top-24 flex flex-col items-center">
-              <SolarForm />
+              <div className="w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden">
+                <div className="bg-primary px-6 py-5">
+                  <h2 className="text-xl font-black text-white">Kostenlose Offerte erhalten</h2>
+                  <p className="text-white/80 text-sm mt-0.5">In 2 Minuten fertig. Keine Werbeanrufe.</p>
+                </div>
+                <div className="px-6 py-6 space-y-3">
+                  {['Geprüfte lokale Installateure', 'Kostenlose Förderprüfung', 'Bis zu 3 Offerten, kostenlos'].map((b, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                      <span className="text-gray-700 text-sm font-medium">{b}</span>
+                    </div>
+                  ))}
+                  <Link href="/anfrage" className="block w-full btn-primary py-4 rounded-2xl text-lg font-black text-center shadow-lg shadow-primary/20 mt-2">
+                    Jetzt starten →
+                  </Link>
+                  <p className="text-[10px] text-center text-gray-400">100% kostenlos & unverbindlich</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -255,13 +272,13 @@ export default function LokaleInstallateurePage() {
           <p className="text-lg text-gray-300 mb-8">
             Beantworten Sie ein paar kurze Fragen und erhalten Sie unverbindliche Offerten von geprüften Installateuren in Ihrer Nähe.
           </p>
-          <a
-            href="#formular"
+          <Link
+            href="/anfrage"
             className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-xl text-lg transition-colors"
           >
-            Jetzt Formular ausfüllen
+            Jetzt Offerte anfordern
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
         </div>
       </section>
     </>

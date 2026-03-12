@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import SolarForm from '@/components/SolarForm';
+import CtaAnfrage from '@/components/CtaAnfrage';
 import { CheckCircle, Battery, Zap, Sun, Moon, TrendingUp, PiggyBank, Shield } from 'lucide-react';
 
 
@@ -303,17 +303,14 @@ export default function SolaranlageMitSpeicherPage() {
       </section>
 
       {/* CTA Section */}
-      <section id="formular" className="section-padding bg-primary-50">
+      <section className="section-padding bg-primary-50">
         <div className="container-custom">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-4">
-              Jetzt Offerten mit Speicher vergleichen
-            </h2>
-            <p className="text-center text-gray-600 mb-8">
-              Erhalten Sie bis zu 3 Angebote für Solaranlage mit Batteriespeicher
-              von geprüften Schweizer Installateuren
-            </p>
-            <SolarForm />
+            <CtaAnfrage
+              title="Jetzt Offerten mit Speicher vergleichen"
+              subtitle="Erhalten Sie bis zu 3 Angebote für Solaranlage mit Batteriespeicher von geprüften Schweizer Installateuren."
+              ctaText="Kostenlose Offerte anfordern"
+            />
           </div>
         </div>
       </section>

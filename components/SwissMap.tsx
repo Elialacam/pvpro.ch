@@ -72,16 +72,7 @@ export default function SwissMap() {
   const content = mapContent[locale] || mapContent.de;
 
   const scrollToForm = () => {
-    const formElement = document.getElementById('formular');
-    if (formElement) {
-      const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - (window.innerHeight / 2) + (formElement.offsetHeight / 2);
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+    window.location.href = '/anfrage';
   };
 
   return (

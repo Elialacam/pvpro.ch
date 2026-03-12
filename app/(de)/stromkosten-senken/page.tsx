@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import SolarForm from '@/components/SolarForm';
+import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp, Zap, Shield, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -100,7 +100,24 @@ export default function StromkostenSenkenPage() {
             </div>
 
             <div className="flex flex-col items-center">
-              <SolarForm />
+              <div className="w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden">
+                <div className="bg-green-600 px-6 py-5">
+                  <h2 className="text-xl font-black text-white">Jetzt Ersparnis berechnen</h2>
+                  <p className="text-white/80 text-sm mt-0.5">In 2 Minuten. Keine Werbeanrufe.</p>
+                </div>
+                <div className="px-6 py-6 space-y-3">
+                  {['Bis zu 80% Stromkosten sparen', 'Kostenlose Förderprüfung', '3 Offerten von geprüften Installateuren'].map((b, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700 text-sm font-medium">{b}</span>
+                    </div>
+                  ))}
+                  <Link href="/anfrage" className="block w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-2xl text-lg font-black text-center shadow-lg shadow-green-600/20 transition-colors mt-2">
+                    Jetzt Ersparnis prüfen →
+                  </Link>
+                  <p className="text-[10px] text-center text-gray-400">100% kostenlos & unverbindlich</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -265,13 +282,13 @@ export default function StromkostenSenkenPage() {
           <p className="text-lg text-gray-300 mb-8">
             Prüfen Sie jetzt kostenlos, ob Ihr Dach für eine Solaranlage geeignet ist und wie viel Sie sparen können.
           </p>
-          <a
-            href="#formular"
+          <Link
+            href="/anfrage"
             className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-10 py-4 rounded-xl text-lg transition-colors shadow-lg shadow-green-600/20"
           >
             Jetzt Ersparnis berechnen
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6 text-sm text-gray-400">
             {['Kostenlos', 'Unverbindlich', '30 Sekunden'].map((item, i) => (
               <div key={i} className="flex items-center gap-1.5">

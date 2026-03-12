@@ -91,6 +91,7 @@ npm run start -- -p 5000
   - Footer second checkmark links to this page
 
 ## Recent Changes
+- 2026-03-12: Removed SolarForm from ALL pages — replaced with CTA cards/buttons linking to /anfrage. Affected: Hero, solarrechner, solaranlage-kosten, solaranlage-mit-speicher, lokale-installateure, stromkosten-senken, UniqueCityPage, CityGrid, FAQ, HowItWorks, SwissMap, SolarCalculator. All #formular scroll anchors removed.
 - 2026-03-09: Created /lokale-installateure landing page for Facebook Ads (message match angle: local installers)
 - 2026-03-09: Updated footer first checkmark to "Zuverlässige lokale Installateure" with link to landing page
 - 2026-03-09: Added team images to public/images/

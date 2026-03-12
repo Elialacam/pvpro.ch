@@ -103,7 +103,7 @@ export default function EnglishLayout({
               "@type": "OrderAction",
               "target": {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://www.pvpro.ch/en#formular",
+                "urlTemplate": "https://www.pvpro.ch/anfrage",
                 "actionPlatform": [
                   "http://schema.org/DesktopWebPlatform",
                   "http://schema.org/MobileWebPlatform"

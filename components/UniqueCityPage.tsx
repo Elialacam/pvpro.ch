@@ -2,7 +2,7 @@
 
 import { City } from '@/lib/cities';
 import { CityContent } from '@/lib/city-content';
-import SolarForm from '@/components/SolarForm';
+import Link from 'next/link';
 import USPSection from '@/components/USPSection';
 import TrustBadges from '@/components/TrustBadges';
 import FAQ from '@/components/FAQ';
@@ -148,14 +148,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             </div>
 
             <button 
-              onClick={() => {
-                const formElement = document.getElementById('formular');
-                if (formElement) {
-                  const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
-                  const offsetPosition = elementPosition - (window.innerHeight / 2) + (formElement.offsetHeight / 2);
-                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                }
-              }} 
+              onClick={() => { window.location.href = '/anfrage'; }} 
               className="btn-primary text-lg px-8 py-4"
             >
               {city.language === 'it' ? 'Richiedi preventivo gratuito' : 'Jetzt kostenlose Offerte anfordern'}
@@ -180,8 +173,26 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
           
           <div className="max-w-[550px] mx-auto relative">
             <div className="absolute inset-0 bg-gray-100/50 rounded-[2rem] transform translate-y-4 translate-x-2 -z-10"></div>
-            <div className="bg-white rounded-[2rem] shadow-xl border border-gray-100 p-8 sm:p-10 relative">
-              <SolarForm />
+            <div className="bg-white rounded-[2rem] shadow-xl border border-gray-100 overflow-hidden relative">
+              <div className="bg-primary px-8 py-6">
+                <p className="text-xl font-black text-white">{city.language === 'it' ? 'Preventivo gratuito' : 'Kostenlose Offerte erhalten'}</p>
+                <p className="text-white/80 text-sm mt-1">{city.language === 'it' ? '2 minuti. Nessuna chiamata.' : 'In 2 Minuten. Keine Werbeanrufe.'}</p>
+              </div>
+              <div className="px-8 py-7 space-y-3">
+                {(city.language === 'it'
+                  ? ['Installatori locali certificati', 'Verifica incentivi gratuita', 'Fino a 3 preventivi, gratis']
+                  : ['Geprüfte lokale Solarteure', 'Kostenlose Förderprüfung', 'Bis zu 3 Offerten, kostenlos']
+                ).map((b, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-gray-700 text-sm font-medium">{b}</span>
+                  </div>
+                ))}
+                <Link href="/anfrage" className="block w-full btn-primary py-4 rounded-2xl text-lg font-black text-center shadow-lg shadow-primary/20 mt-2">
+                  {city.language === 'it' ? 'Inizia ora →' : 'Jetzt starten →'}
+                </Link>
+                <p className="text-[10px] text-center text-gray-400">{city.language === 'it' ? '100% gratuito e senza impegno' : '100% kostenlos & unverbindlich'}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -511,9 +522,9 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               ? 'Gratuito, senza impegno e in soli 2 minuti' 
               : 'Kostenlos, unverbindlich und in nur 2 Minuten'}
           </p>
-          <a href="#formular" className={`bg-white ${theme.ctaButton} hover:bg-gray-100 font-sans font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl inline-block`}>
+          <button onClick={() => { window.location.href = '/anfrage'; }} className={`bg-white ${theme.ctaButton} hover:bg-gray-100 font-sans font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl inline-block`}>
             {city.language === 'it' ? 'Richiedi preventivi' : 'Jetzt Offerte anfordern'}
-          </a>
+          </button>
         </div>
       </section>
     </>
