@@ -59,62 +59,34 @@ interface OptionCardProps {
   imageSrc?: string;
 }
 
-function OptionCard({ label, sublabel, isSelected, onClick, icon, imageSrc }: OptionCardProps) {
+function OptionCard({ label, sublabel, onClick, icon, imageSrc }: OptionCardProps) {
   return (
-    <motion.button
-      whileHover={{ scale: 1.025, y: -2 }}
-      whileTap={{ scale: 0.97 }}
+    <button
       onClick={onClick}
-      className="relative flex flex-col items-center justify-center rounded-2xl p-5 sm:p-6 transition-all duration-150 bg-white w-full aspect-square"
-      style={{
-        border: isSelected ? '2.5px solid #C4962A' : '2px solid #e5e7eb',
-        boxShadow: isSelected
-          ? '0 6px 20px rgba(196,150,42,0.14)'
-          : '0 1px 4px rgba(0,0,0,0.04)',
-        background: isSelected ? '#FFFBF0' : '#ffffff',
-      }}
+      className="relative flex flex-col items-center justify-center rounded-2xl p-5 sm:p-6 bg-white w-full aspect-square active:bg-gray-50"
+      style={{ border: '2px solid #e5e7eb', boxShadow: '0 1px 4px rgba(0,0,0,0.04)' }}
     >
-      {/* Illustration / icon */}
-      <div className="flex-1 flex items-center justify-center w-full">
+      {/* Illustration / icon — all same fixed size */}
+      <div className="flex items-center justify-center w-16 h-16 mb-3">
         {imageSrc ? (
-          <img src={imageSrc} alt={label} className="w-full h-full object-contain max-h-20 sm:max-h-24" />
+          <img src={imageSrc} alt={label} className="w-16 h-16 object-contain" />
         ) : icon === 'check' ? (
-          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center"
-            style={{ background: '#f0fdf4', border: '2px solid #bbf7d0' }}>
-            <Check className="w-8 h-8" style={{ color: '#16a34a' }} strokeWidth={3} />
-          </div>
+          <Check className="w-10 h-10 text-green-500" strokeWidth={1.75} />
         ) : icon === 'x' ? (
-          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center"
-            style={{ background: '#fef2f2', border: '2px solid #fecaca' }}>
-            <X className="w-8 h-8" style={{ color: '#dc2626' }} strokeWidth={3} />
-          </div>
+          <X className="w-10 h-10 text-red-400" strokeWidth={1.75} />
         ) : (
-          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center"
-            style={{ background: '#f8fafc', border: '2px solid #e2e8f0' }}>
-            <HelpCircle className="w-8 h-8 text-gray-400" strokeWidth={2} />
-          </div>
+          <HelpCircle className="w-10 h-10 text-gray-300" strokeWidth={1.75} />
         )}
       </div>
 
       {/* Label */}
-      <p className="text-sm sm:text-base font-bold text-gray-900 text-center leading-tight mt-3">
+      <p className="text-sm sm:text-base font-bold text-gray-900 text-center leading-tight">
         {label}
       </p>
       {sublabel && (
         <p className="text-xs text-gray-400 mt-0.5">{sublabel}</p>
       )}
-
-      {/* Selected checkmark badge */}
-      {isSelected && (
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          className="absolute top-2 right-2 w-6 h-6 rounded-full bg-primary flex items-center justify-center shadow"
-        >
-          <Check className="w-3 h-3 text-white" strokeWidth={4} />
-        </motion.div>
-      )}
-    </motion.button>
+    </button>
   );
 }
 
@@ -217,7 +189,7 @@ export default function AnfrageForm() {
   const handleSelect = (field: string, value: any) => {
     if (field === 'isOwner' && value === 'no') { setErrorMsg(t.renterError); return; }
     setFormData((prev: any) => ({ ...prev, [field]: value }));
-    setTimeout(() => goNext(), 60);
+    goNext();
   };
 
   const validateContact = (): boolean => {
@@ -450,10 +422,10 @@ export default function AnfrageForm() {
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div key={step}
               custom={direction}
-              initial={{ opacity: 0, x: direction > 0 ? 48 : -48 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: direction > 0 ? -48 : 48 }}
-              transition={{ duration: 0.22, ease: 'easeOut' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0 }}
             >
               {renderStep()}
             </motion.div>
