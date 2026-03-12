@@ -80,7 +80,7 @@ The tags are created but the container has NOT been published yet due to service
 ### To Test Before Publishing:
 
 1. Click "Preview" in GTM workspace
-2. Enter your website URL: https://pvpro.ch
+2. Enter your website URL: https://www.pvpro.ch
 3. Test the following:
    - Form interactions (start, each step, completion)
    - Calculator usage

@@ -130,7 +130,7 @@ async function visualCheckSwissMap(url: string, siteName: string): Promise<Visua
   }
 }
 
-const url = process.argv[2] || 'https://pvpro.ch';
+const url = process.argv[2] || 'https://www.pvpro.ch';
 const siteName = process.argv[3] || 'pvpro.ch';
 
 visualCheckSwissMap(url, siteName).then(result => {

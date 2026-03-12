@@ -18,12 +18,12 @@ export const metadata: Metadata = {
     'Solaranlage Förderung Schweiz',
   ],
   alternates: {
-    canonical: 'https://pvpro.ch/solaranlage-kosten',
+    canonical: 'https://www.pvpro.ch/solaranlage-kosten',
   },
   openGraph: {
     title: 'Solaranlage Kosten Schweiz 2025 - Kompletter Preisguide',
     description: 'Aktuelle Preise für Solaranlagen in der Schweiz. Von CHF 9.500 bis 25.000. Förderungen, Amortisation und kostenloser Offertvergleich.',
-    url: 'https://pvpro.ch/solaranlage-kosten',
+    url: 'https://www.pvpro.ch/solaranlage-kosten',
     type: 'article',
     locale: 'de_CH',
     siteName: 'PVPro',
@@ -99,7 +99,7 @@ export default function SolaranlageKostenPage() {
             "publisher": {
               "@type": "Organization",
               "name": "PVPro",
-              "url": "https://pvpro.ch"
+              "url": "https://www.pvpro.ch"
             },
             "datePublished": "2025-01-01",
             "dateModified": new Date().toISOString().split('T')[0]

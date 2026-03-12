@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     'Solarstrom speichern',
   ],
   alternates: {
-    canonical: 'https://pvpro.ch/solaranlage-mit-speicher',
+    canonical: 'https://www.pvpro.ch/solaranlage-mit-speicher',
   },
   openGraph: {
     title: 'Solaranlage mit Speicher Schweiz - Kosten & Vorteile 2025',
     description: 'Lohnt sich ein Batteriespeicher? Kosten, Vorteile und wann sich die Investition rechnet.',
-    url: 'https://pvpro.ch/solaranlage-mit-speicher',
+    url: 'https://www.pvpro.ch/solaranlage-mit-speicher',
     type: 'article',
     locale: 'de_CH',
     siteName: 'PVPro',
@@ -115,7 +115,7 @@ export default function SolaranlageMitSpeicherPage() {
             "publisher": {
               "@type": "Organization",
               "name": "PVPro",
-              "url": "https://pvpro.ch"
+              "url": "https://www.pvpro.ch"
             },
             "datePublished": "2025-01-01",
             "dateModified": new Date().toISOString().split('T')[0]

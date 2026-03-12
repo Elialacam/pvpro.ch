@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     'Eigenverbrauch berechnen',
   ],
   alternates: {
-    canonical: 'https://pvpro.ch/solarrechner',
+    canonical: 'https://www.pvpro.ch/solarrechner',
   },
   openGraph: {
     title: 'Solarrechner Schweiz - Kosten & Ertrag berechnen',
     description: 'Kostenloser Solarrechner. Berechnen Sie Kosten, Ertrag und Amortisation Ihrer Solaranlage in der Schweiz.',
-    url: 'https://pvpro.ch/solarrechner',
+    url: 'https://www.pvpro.ch/solarrechner',
     type: 'website',
     locale: 'de_CH',
     siteName: 'PVPro',
@@ -79,7 +79,7 @@ export default function SolarrechnerPage() {
             "@type": "WebApplication",
             "name": "PVPro Solarrechner",
             "description": "Kostenloser Solarrechner für die Schweiz",
-            "url": "https://pvpro.ch/solarrechner",
+            "url": "https://www.pvpro.ch/solarrechner",
             "applicationCategory": "Calculator",
             "operatingSystem": "Web",
             "offers": {

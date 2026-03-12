@@ -5,12 +5,12 @@ import { LocaleProvider } from "@/lib/LocaleContext";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://pvpro.ch/it',
+    canonical: 'https://www.pvpro.ch/it',
     languages: {
-      'de-CH': 'https://pvpro.ch',
-      'fr-CH': 'https://pvpro.ch/fr',
-      'en-CH': 'https://pvpro.ch/en',
-      'it-CH': 'https://pvpro.ch/it',
+      'de-CH': 'https://www.pvpro.ch',
+      'fr-CH': 'https://www.pvpro.ch/fr',
+      'en-CH': 'https://www.pvpro.ch/en',
+      'it-CH': 'https://www.pvpro.ch/it',
     },
   },
   title: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'it_CH',
-    url: 'https://pvpro.ch/it',
+    url: 'https://www.pvpro.ch/it',
     siteName: 'PV Pro',
     title: 'PV Pro - Confronta impianti fotovoltaici in Svizzera',
     description: 'Confronta gratuitamente diverse offerte di impianti fotovoltaici da installatori svizzeri certificati. Risparmia fino al 30%.',
@@ -72,8 +72,8 @@ export default function ItalianLayout({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "PV Pro",
-            "url": "https://pvpro.ch",
-            "logo": "https://pvpro.ch/logo-pvpro.png",
+            "url": "https://www.pvpro.ch",
+            "logo": "https://www.pvpro.ch/logo-pvpro.png",
             "sameAs": [
               "https://www.facebook.com/pvpro",
               "https://www.linkedin.com/company/pvpro"
@@ -95,7 +95,7 @@ export default function ItalianLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "url": "https://pvpro.ch/it",
+            "url": "https://www.pvpro.ch/it",
             "name": "PV Pro",
             "alternateName": "PVPro",
             "description": "Piattaforma di confronto per impianti fotovoltaici in Svizzera",
@@ -104,7 +104,7 @@ export default function ItalianLayout({
               "@type": "OrderAction",
               "target": {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://pvpro.ch/it#formular",
+                "urlTemplate": "https://www.pvpro.ch/it#formular",
                 "actionPlatform": [
                   "http://schema.org/DesktopWebPlatform",
                   "http://schema.org/MobileWebPlatform"

@@ -86,7 +86,7 @@ v0 ripubblica automaticamente.
 
 ## STEP 6: Testa che Funziona
 
-1. Vai su **https://pvpro.ch**
+1. Vai su **https://www.pvpro.ch**
 2. Compila il form con i tuoi dati
 3. Clicca invia
 4. Controlla la tua email

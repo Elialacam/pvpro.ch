@@ -1,5 +1,11 @@
 # PVPro - Swiss Solar Panel Comparison Website
 
+## SEO Fixed Rules (DO NOT change)
+- **Canonical domain**: Always use `https://www.pvpro.ch` — NEVER `https://pvpro.ch` (without www)
+- All `canonical` URLs, `metadataBase`, `og:url`, sitemap entries, structured data, and internal links must use `https://www.pvpro.ch`
+- `robots.txt` Sitemap must point to `https://www.pvpro.ch/sitemap.xml`
+- Vercel handles the redirect pvpro.ch → www.pvpro.ch at the infrastructure level
+
 ## Overview
 PVPro is a multilingual solar panel comparison website for Switzerland. It helps users compare solar panel providers, get quotes, and find certified installers in their region.
 

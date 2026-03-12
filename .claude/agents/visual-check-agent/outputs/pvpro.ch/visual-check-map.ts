@@ -196,7 +196,7 @@ async function visualCheckMap(url: string, siteName: string): Promise<VisualChec
   }
 }
 
-const url = 'https://pvpro.ch';
+const url = 'https://www.pvpro.ch';
 const siteName = 'pvpro.ch';
 
 visualCheckMap(url, siteName).then(result => {

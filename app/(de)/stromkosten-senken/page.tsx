@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     'Stromrechnung senken',
   ],
   alternates: {
-    canonical: 'https://pvpro.ch/stromkosten-senken',
+    canonical: 'https://www.pvpro.ch/stromkosten-senken',
   },
   openGraph: {
     title: '80% weniger Stromkosten mit Solarenergie | PVPro.ch',
     description: 'Von CHF 967 auf CHF 180 pro Monat mit einer eigenen Solaranlage.',
-    url: 'https://pvpro.ch/stromkosten-senken',
+    url: 'https://www.pvpro.ch/stromkosten-senken',
     type: 'website',
     locale: 'de_CH',
     siteName: 'PVPro',
@@ -44,8 +44,8 @@ export default function StromkostenSenkenPage() {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pvpro.ch' },
-              { '@type': 'ListItem', position: 2, name: 'Stromkosten senken', item: 'https://pvpro.ch/stromkosten-senken' },
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.pvpro.ch' },
+              { '@type': 'ListItem', position: 2, name: 'Stromkosten senken', item: 'https://www.pvpro.ch/stromkosten-senken' },
             ],
           }),
         }}

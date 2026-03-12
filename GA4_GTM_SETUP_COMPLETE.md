@@ -147,7 +147,7 @@ After creating all event tags:
 
 ### Production Testing (After Vercel Deployment)
 
-1. Go to https://pvpro.ch
+1. Go to https://www.pvpro.ch
 2. Open browser DevTools → Console
 3. Type: `window.dataLayer`
 4. Should see GTM initialization
@@ -157,7 +157,7 @@ After creating all event tags:
 
 1. Go to GTM: https://tagmanager.google.com/#/container/accounts/6319600105/containers/N8MRNGXQ/workspaces
 2. Click **"Preview"** in top right
-3. Enter: https://pvpro.ch
+3. Enter: https://www.pvpro.ch
 4. GTM Debug window opens
 5. Test each conversion event:
    - Trigger should fire

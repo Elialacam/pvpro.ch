@@ -17,8 +17,8 @@ async function captureMapSection() {
     });
     const page = await context.newPage();
 
-    console.log('Navigating to https://pvpro.ch...');
-    await page.goto('https://pvpro.ch', {
+    console.log('Navigating to https://www.pvpro.ch...');
+    await page.goto('https://www.pvpro.ch', {
       timeout: 30000,
       waitUntil: 'networkidle'
     });

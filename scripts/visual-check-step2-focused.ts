@@ -49,8 +49,8 @@ async function checkStep2Focused(): Promise<VisualCheckResult> {
       }
     });
 
-    console.log('Navigating to https://pvpro.ch...');
-    const response = await desktopPage.goto('https://pvpro.ch', {
+    console.log('Navigating to https://www.pvpro.ch...');
+    const response = await desktopPage.goto('https://www.pvpro.ch', {
       timeout: 30000,
       waitUntil: 'networkidle'
     });
@@ -150,7 +150,7 @@ async function checkStep2Focused(): Promise<VisualCheckResult> {
     });
     const mobilePage = await mobileContext.newPage();
 
-    await mobilePage.goto('https://pvpro.ch', {
+    await mobilePage.goto('https://www.pvpro.ch', {
       timeout: 30000,
       waitUntil: 'networkidle'
     });

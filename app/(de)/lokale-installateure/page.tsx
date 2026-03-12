@@ -15,12 +15,12 @@ export const metadata: Metadata = {
     'PV Installateur in der Nähe',
   ],
   alternates: {
-    canonical: 'https://pvpro.ch/lokale-installateure',
+    canonical: 'https://www.pvpro.ch/lokale-installateure',
   },
   openGraph: {
     title: 'Zuverlässige lokale Installateure finden | PVPro.ch',
     description: 'PVPro wählt geprüfte lokale Installateure in Ihrer Region aus. Sparen Sie Zeit und vermeiden Sie unseriöse Anbieter.',
-    url: 'https://pvpro.ch/lokale-installateure',
+    url: 'https://www.pvpro.ch/lokale-installateure',
     type: 'website',
     locale: 'de_CH',
     siteName: 'PVPro',
@@ -45,8 +45,8 @@ export default function LokaleInstallateurePage() {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pvpro.ch' },
-              { '@type': 'ListItem', position: 2, name: 'Lokale Installateure', item: 'https://pvpro.ch/lokale-installateure' },
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.pvpro.ch' },
+              { '@type': 'ListItem', position: 2, name: 'Lokale Installateure', item: 'https://www.pvpro.ch/lokale-installateure' },
             ],
           }),
         }}

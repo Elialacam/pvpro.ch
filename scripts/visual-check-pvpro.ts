@@ -122,7 +122,7 @@ async function visualCheck(url: string, siteName: string): Promise<VisualCheckRe
   }
 }
 
-const url = process.argv[2] || 'https://pvpro.ch';
+const url = process.argv[2] || 'https://www.pvpro.ch';
 const siteName = process.argv[3] || 'pvpro.ch';
 
 visualCheck(url, siteName).then(result => {
