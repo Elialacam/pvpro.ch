@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Check, X, HelpCircle, MapPin, Search, ChevronLeft,
+  Check, X, MapPin, Search, ChevronLeft,
   BarChart2, CheckCircle2, SearchIcon,
 } from 'lucide-react';
 import Image from 'next/image';
@@ -49,43 +49,140 @@ const t = {
   invalidPhone: 'Bitte geben Sie eine gültige Schweizer Telefonnummer ein.',
 };
 
+/* ─── Flat SVG Illustrations ──────────────────────────────────────────────── */
+const W = '#ECEEF0';  // wall
+const R = '#3B4D5C';  // roof / dark accent
+const WI = '#A8BFCC'; // window
+const D = '#C2D0D9';  // door
+
+const IcoCheck = () => (
+  <svg viewBox="0 0 64 64" fill="none" width="64" height="64">
+    <circle cx="32" cy="32" r="26" fill="#F0FDF4" stroke="#BBF7D0" strokeWidth="2"/>
+    <path d="M19 33l10 10 16-18" stroke="#16A34A" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+const IcoX = () => (
+  <svg viewBox="0 0 64 64" fill="none" width="64" height="64">
+    <circle cx="32" cy="32" r="26" fill="#FFF1F1" stroke="#FECACA" strokeWidth="2"/>
+    <path d="M22 22l20 20M42 22L22 42" stroke="#EF4444" strokeWidth="3.5" strokeLinecap="round"/>
+  </svg>
+);
+
+const IcoQuestion = () => (
+  <svg viewBox="0 0 64 64" fill="none" width="64" height="64">
+    <circle cx="32" cy="32" r="26" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="2"/>
+    <path d="M24 25c0-4.4 3.6-8 8-8s8 3.6 8 8c0 3-1.6 5.6-4 7l-1 1v3" stroke="#94A3B8" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    <circle cx="32" cy="44" r="2" fill="#94A3B8"/>
+  </svg>
+);
+
+const IcoHouse = () => (
+  <svg viewBox="0 0 80 80" fill="none" width="64" height="64">
+    <rect x="15" y="42" width="50" height="28" rx="2.5" fill={W}/>
+    <path d="M8 44L40 14L72 44" fill={R}/>
+    <rect x="32" y="56" width="16" height="14" rx="2" fill={D}/>
+    <rect x="17" y="47" width="13" height="10" rx="1.5" fill={WI}/>
+    <rect x="50" y="47" width="13" height="10" rx="1.5" fill={WI}/>
+    <rect x="54" y="27" width="6" height="14" rx="1" fill={R}/>
+  </svg>
+);
+
+const IcoApartment = () => (
+  <svg viewBox="0 0 80 80" fill="none" width="64" height="64">
+    <rect x="12" y="22" width="56" height="48" rx="3" fill={W}/>
+    <rect x="12" y="18" width="56" height="8" rx="3" fill={R}/>
+    <rect x="18" y="30" width="11" height="9" rx="1.5" fill={WI}/>
+    <rect x="35" y="30" width="11" height="9" rx="1.5" fill={WI}/>
+    <rect x="51" y="30" width="11" height="9" rx="1.5" fill={WI}/>
+    <rect x="18" y="44" width="11" height="9" rx="1.5" fill={WI}/>
+    <rect x="35" y="44" width="11" height="9" rx="1.5" fill={WI}/>
+    <rect x="51" y="44" width="11" height="9" rx="1.5" fill={WI}/>
+    <rect x="33" y="56" width="14" height="14" rx="2" fill={D}/>
+  </svg>
+);
+
+const IcoCommercial = () => (
+  <svg viewBox="0 0 80 80" fill="none" width="64" height="64">
+    <rect x="8" y="26" width="64" height="44" rx="3" fill={W}/>
+    <rect x="8" y="20" width="64" height="10" rx="3" fill={R}/>
+    <rect x="12" y="35" width="22" height="16" rx="2" fill={WI}/>
+    <rect x="46" y="35" width="22" height="16" rx="2" fill={WI}/>
+    <rect x="31" y="56" width="18" height="14" rx="2" fill={D}/>
+    <line x1="16" y1="24" x2="64" y2="24" stroke="white" strokeWidth="1.5" strokeOpacity="0.35"/>
+  </svg>
+);
+
+const IcoPitched = () => (
+  <svg viewBox="0 0 80 80" fill="none" width="64" height="64">
+    <rect x="12" y="44" width="56" height="26" rx="2.5" fill={W}/>
+    <path d="M7 46L40 16L73 46" fill={R}/>
+    <rect x="33" y="56" width="14" height="14" rx="2" fill={D}/>
+    <rect x="15" y="50" width="12" height="9" rx="1.5" fill={WI}/>
+    <rect x="53" y="50" width="12" height="9" rx="1.5" fill={WI}/>
+  </svg>
+);
+
+const IcoMonoPitch = () => (
+  <svg viewBox="0 0 80 80" fill="none" width="64" height="64">
+    <rect x="12" y="42" width="56" height="28" rx="2.5" fill={W}/>
+    <path d="M9 44L9 24L71 38L71 44Z" fill={R}/>
+    <rect x="33" y="54" width="14" height="16" rx="2" fill={D}/>
+    <rect x="15" y="48" width="13" height="9" rx="1.5" fill={WI}/>
+    <rect x="52" y="49" width="13" height="9" rx="1.5" fill={WI}/>
+  </svg>
+);
+
+const IcoFlatRoof = () => (
+  <svg viewBox="0 0 80 80" fill="none" width="64" height="64">
+    <rect x="6" y="21" width="68" height="9" rx="3" fill={R}/>
+    <rect x="12" y="30" width="56" height="40" rx="2.5" fill={W}/>
+    <rect x="16" y="37" width="19" height="13" rx="2" fill={WI}/>
+    <rect x="45" y="37" width="19" height="13" rx="2" fill={WI}/>
+    <rect x="31" y="54" width="18" height="16" rx="2" fill={D}/>
+    <rect x="20" y="23" width="12" height="4" rx="1" fill="#5B7A8C"/>
+    <rect x="36" y="23" width="12" height="4" rx="1" fill="#5B7A8C"/>
+    <rect x="52" y="23" width="8" height="4" rx="1" fill="#5B7A8C"/>
+  </svg>
+);
+
+const iconMap: Record<string, () => JSX.Element> = {
+  check: IcoCheck,
+  x: IcoX,
+  question: IcoQuestion,
+  house: IcoHouse,
+  apartment: IcoApartment,
+  commercial: IcoCommercial,
+  other: IcoQuestion,
+  pitched: IcoPitched,
+  monopitch: IcoMonoPitch,
+  flat: IcoFlatRoof,
+};
+
 /* ─── Option Card ─────────────────────────────────────────────────────────── */
 interface OptionCardProps {
   label: string;
   sublabel?: string;
   isSelected: boolean;
   onClick: () => void;
-  icon?: 'check' | 'x' | 'question';
-  imageSrc?: string;
+  icon: keyof typeof iconMap;
 }
 
-function OptionCard({ label, sublabel, onClick, icon, imageSrc }: OptionCardProps) {
+function OptionCard({ label, sublabel, onClick, icon }: OptionCardProps) {
+  const Icon = iconMap[icon] ?? IcoQuestion;
   return (
     <button
       onClick={onClick}
-      className="relative flex flex-col items-center justify-center rounded-2xl p-5 sm:p-6 bg-white w-full aspect-square active:bg-gray-50"
+      className="flex flex-col items-center justify-center rounded-2xl p-4 sm:p-5 bg-white w-full aspect-square active:bg-gray-50 transition-colors"
       style={{ border: '2px solid #e5e7eb', boxShadow: '0 1px 4px rgba(0,0,0,0.04)' }}
     >
-      {/* Illustration / icon — all same fixed size */}
-      <div className="flex items-center justify-center w-16 h-16 mb-3">
-        {imageSrc ? (
-          <img src={imageSrc} alt={label} className="w-16 h-16 object-contain" />
-        ) : icon === 'check' ? (
-          <Check className="w-10 h-10 text-green-500" strokeWidth={1.75} />
-        ) : icon === 'x' ? (
-          <X className="w-10 h-10 text-red-400" strokeWidth={1.75} />
-        ) : (
-          <HelpCircle className="w-10 h-10 text-gray-300" strokeWidth={1.75} />
-        )}
+      <div className="flex items-center justify-center mb-3">
+        <Icon />
       </div>
-
-      {/* Label */}
       <p className="text-sm sm:text-base font-bold text-gray-900 text-center leading-tight">
         {label}
       </p>
-      {sublabel && (
-        <p className="text-xs text-gray-400 mt-0.5">{sublabel}</p>
-      )}
+      {sublabel && <p className="text-xs text-gray-400 mt-0.5">{sublabel}</p>}
     </button>
   );
 }
@@ -282,9 +379,9 @@ export default function AnfrageForm() {
       case 2: return (
         <StepWrapper title={t.step2Title} sub={t.step2Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label="Einfamilienhaus" isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelect('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.png" />
-            <OptionCard label="Mehrfamilienhaus" isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelect('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.png" />
-            <OptionCard label="Gewerbe" isSelected={formData.propertyType === 'gewerbe'} onClick={() => handleSelect('propertyType', 'gewerbe')} imageSrc="/icons/multi-family.png" />
+            <OptionCard label="Einfamilienhaus" isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelect('propertyType', 'einfamilienhaus')} icon="house" />
+            <OptionCard label="Mehrfamilienhaus" isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelect('propertyType', 'mehrfamilienhaus')} icon="apartment" />
+            <OptionCard label="Gewerbe" isSelected={formData.propertyType === 'gewerbe'} onClick={() => handleSelect('propertyType', 'gewerbe')} icon="commercial" />
             <OptionCard label="Sonstiges" isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelect('propertyType', 'sonstiges')} icon="question" />
           </div>
         </StepWrapper>
@@ -292,9 +389,9 @@ export default function AnfrageForm() {
       case 3: return (
         <StepWrapper title={t.step3Title} sub={t.step3Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label="Satteldach" isSelected={formData.roofType === 'pitched'} onClick={() => handleSelect('roofType', 'pitched')} imageSrc="/icons/pitched-roof.png" />
-            <OptionCard label="Pultdach" isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelect('roofType', 'monopitch')} imageSrc="/icons/monopitch-roof.png" />
-            <OptionCard label="Flachdach" isSelected={formData.roofType === 'flat'} onClick={() => handleSelect('roofType', 'flat')} imageSrc="/icons/flat-roof.png" />
+            <OptionCard label="Satteldach" isSelected={formData.roofType === 'pitched'} onClick={() => handleSelect('roofType', 'pitched')} icon="pitched" />
+            <OptionCard label="Pultdach" isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelect('roofType', 'monopitch')} icon="monopitch" />
+            <OptionCard label="Flachdach" isSelected={formData.roofType === 'flat'} onClick={() => handleSelect('roofType', 'flat')} icon="flat" />
             <OptionCard label="Sonstiges" isSelected={formData.roofType === 'other'} onClick={() => handleSelect('roofType', 'other')} icon="question" />
           </div>
         </StepWrapper>
