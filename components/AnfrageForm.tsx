@@ -439,12 +439,7 @@ export default function AnfrageForm() {
           <Link href="/">
             <Image src="/logo-pvpro.png" alt="PVPro.ch" width={130} height={38} className="h-7 w-auto" priority />
           </Link>
-          <div className="flex items-center gap-4">
-            <span className="text-sm font-semibold text-gray-400">{step}/{TOTAL_STEPS}</span>
-            <Link href="/" className="w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors" aria-label="Schliessen">
-              <X className="w-4 h-4 text-gray-400" />
-            </Link>
-          </div>
+          <span className="text-sm font-semibold text-gray-400">{step}/{TOTAL_STEPS}</span>
         </div>
       </header>
 
@@ -485,12 +480,6 @@ export default function AnfrageForm() {
           )}
         </div>
 
-        {/* Trust badges */}
-        <div className="mt-auto pt-8 flex items-center justify-center gap-4 sm:gap-6 px-4 pb-4 flex-wrap">
-          {['✓ 100% Kostenlos', '🔒 SSL Sicher', '🛡 DSGVO Konform', '☎ Keine Werbeanrufe'].map(b => (
-            <span key={b} className="text-xs font-semibold text-gray-400">{b}</span>
-          ))}
-        </div>
       </main>
     </div>
   );

@@ -1,9 +1,13 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
+
 const WHATSAPP_NUMBER = '41779770750';
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export default function WhatsAppFloating() {
+  const pathname = usePathname();
+  if (pathname === '/anfrage') return null;
   return (
     <a
       href={WHATSAPP_URL}
