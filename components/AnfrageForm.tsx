@@ -528,7 +528,7 @@ export default function AnfrageForm() {
           )}
 
           {/* Back button */}
-          {step > 1 && (
+          {step > 1 && step < 6 && (
             <div className="mt-5 flex">
               <button onClick={goBack}
                 className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-700 font-semibold transition-colors py-2">
