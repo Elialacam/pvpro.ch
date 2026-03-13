@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Check, X, MapPin, Search, ChevronLeft,
-  BarChart2, CheckCircle2, SearchIcon,
+  ScanSearch, Users, Award,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -40,9 +40,9 @@ const t = {
   next: 'Weiter',
   back: 'Zurück',
   loadingTitle: 'Wir suchen passende Angebote…',
-  loadingStep1: 'Analyse Ihrer Angaben',
-  loadingStep2: 'Vergleich mit Installateuren',
-  loadingStep3: "3 Offerten ab 15'999 CHF gefunden",
+  loadingStep1: 'Wir analysieren Ihre Angaben und Adresse',
+  loadingStep2: 'Installateure in Ihrem Kanton werden verglichen',
+  loadingStep3: '3 passende Installateure gefunden',
   renterError: 'Leider können wir nur Eigentümern helfen. Als Mieter wenden Sie sich bitte an Ihren Vermieter.',
   requiredFields: 'Bitte füllen Sie alle Pflichtfelder aus.',
   invalidEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
@@ -186,7 +186,7 @@ export default function AnfrageForm() {
     if (step === 5) {
       if (!selectedAddress) { setErrorMsg('Bitte wählen Sie eine Adresse aus der Liste aus.'); return; }
       setIsLoadingTransition(true);
-      for (let p = 1; p <= 3; p++) { setLoadingPhase(p); await new Promise(r => setTimeout(r, 700)); }
+      for (let p = 1; p <= 3; p++) { setLoadingPhase(p); await new Promise(r => setTimeout(r, 1400)); }
       setIsLoadingTransition(false);
     }
     trackStep(step);
@@ -254,25 +254,98 @@ export default function AnfrageForm() {
 
   /* ── Loading screen ── */
   if (isLoadingTransition) {
+    const loadingSteps = [
+      { icon: <ScanSearch className="w-8 h-8" />, label: t.loadingStep1, phase: 1 },
+      { icon: <Users className="w-8 h-8" />, label: t.loadingStep2, phase: 2 },
+      { icon: <Award className="w-8 h-8" />, label: t.loadingStep3, phase: 3 },
+    ];
     return (
-      <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6 text-center">
-        <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-12">{t.loadingTitle}</h2>
-        <div className="space-y-8 w-full max-w-xs">
-          {[
-            { icon: <BarChart2 className="w-7 h-7" />, label: t.loadingStep1, active: loadingPhase >= 1, done: loadingPhase > 1 },
-            { icon: <SearchIcon className="w-7 h-7" />, label: t.loadingStep2, active: loadingPhase >= 2, done: loadingPhase > 2 },
-            { icon: <Check className="w-7 h-7" />, label: t.loadingStep3, active: loadingPhase >= 3, done: false },
-          ].map((item, i) => (
-            <motion.div key={i} className="flex flex-col items-center gap-2"
-              animate={{ opacity: item.active ? 1 : 0.2, scale: loadingPhase === i + 1 ? 1.05 : 1 }}
-              transition={{ duration: 0.25 }}>
-              <div className={`w-14 h-14 rounded-full flex items-center justify-center ${item.active ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-300'}`}>
-                {item.icon}
+      <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6">
+        <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-10">
+          <Image src="/logo-pvpro.png" alt="PVPro.ch" width={130} height={38} className="h-8 w-auto" />
+        </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }}
+          className="text-2xl sm:text-3xl font-black text-gray-900 mb-14 text-center"
+        >
+          {t.loadingTitle}
+        </motion.h2>
+        <div className="flex flex-col items-center w-full max-w-sm">
+          {loadingSteps.map((item, i) => {
+            const isDone = loadingPhase > item.phase;
+            const isActive = loadingPhase === item.phase;
+            const isWaiting = loadingPhase < item.phase;
+            return (
+              <div key={i} className="flex flex-col items-center w-full">
+                {/* Connector line */}
+                {i > 0 && (
+                  <div className="w-0.5 h-10 bg-gray-100 overflow-hidden relative">
+                    <motion.div
+                      className="w-full absolute top-0 left-0"
+                      style={{ background: '#F97316' }}
+                      initial={{ height: 0 }}
+                      animate={{ height: isDone || isActive ? '100%' : 0 }}
+                      transition={{ duration: 0.6, ease: 'easeInOut' }}
+                    />
+                  </div>
+                )}
+                {/* Step card */}
+                <motion.div
+                  className="flex items-center gap-5 w-full rounded-2xl px-5 py-4"
+                  initial={{ opacity: 0, x: -24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.45, delay: i * 0.18 }}
+                  style={{
+                    background: isDone ? '#f0fdf4' : isActive ? '#FFF7ED' : '#f9fafb',
+                    border: isDone ? '1.5px solid #bbf7d0' : isActive ? '1.5px solid #fed7aa' : '1.5px solid #f3f4f6',
+                  }}
+                >
+                  {/* Circle icon */}
+                  <div className="relative shrink-0">
+                    {isActive && (
+                      <motion.div
+                        className="absolute -inset-1.5 rounded-full"
+                        style={{ border: '2.5px solid #F97316' }}
+                        animate={{ scale: [1, 1.35, 1], opacity: [0.8, 0, 0.8] }}
+                        transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut' }}
+                      />
+                    )}
+                    <motion.div
+                      className="w-14 h-14 rounded-full flex items-center justify-center"
+                      animate={{
+                        background: isDone ? '#dcfce7' : isActive ? '#FFF7ED' : '#f3f4f6',
+                        color: isDone ? '#16a34a' : isActive ? '#F97316' : '#d1d5db',
+                      }}
+                      transition={{ duration: 0.4 }}
+                    >
+                      <AnimatePresence mode="wait">
+                        {isDone ? (
+                          <motion.div key="done" initial={{ scale: 0, rotate: -90 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 260, damping: 18 }}>
+                            <Check className="w-8 h-8 text-green-500" strokeWidth={2.5} />
+                          </motion.div>
+                        ) : (
+                          <motion.div key="icon" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.3 }}>
+                            {item.icon}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  </div>
+                  {/* Text */}
+                  <motion.p
+                    className="font-bold leading-snug text-left"
+                    animate={{
+                      color: isDone ? '#15803d' : isActive ? '#111827' : '#9ca3af',
+                      fontSize: isActive ? '1rem' : '0.9rem',
+                    }}
+                    transition={{ duration: 0.35 }}
+                  >
+                    {item.label}
+                  </motion.p>
+                </motion.div>
               </div>
-              <span className={`text-base font-bold ${item.active ? 'text-gray-900' : 'text-gray-300'}`}>{item.label}</span>
-              {item.done && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}><CheckCircle2 className="w-5 h-5 text-green-500" /></motion.div>}
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     );
