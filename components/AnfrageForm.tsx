@@ -49,121 +49,144 @@ const t = {
   invalidPhone: 'Bitte geben Sie eine gültige Schweizer Telefonnummer ein.',
 };
 
-/* ─── Minimal elegant SVG Icons — PVPro style ────────────────────────────── */
-/* All icons: viewBox only (no fixed px), rendered responsively via container */
+/* ─── Line-art SVG Icons — PVPro golden, stroke only ─────────────────────── */
+/* Matches the thin-stroke minimal style from the reference image             */
 
-const SVG = ({ id, children }: { id: string; children: React.ReactNode }) => (
-  <svg viewBox="0 0 64 64" width="100%" height="100%" fill="none" aria-hidden>
-    <defs>
-      <linearGradient id={`g-${id}`} x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#F0CD5A"/>
-        <stop offset="100%" stopColor="#8C6010"/>
-      </linearGradient>
-    </defs>
+const S  = '#C4962A';   // stroke colour (PVPro brand golden, readable on white)
+const SW = 2.2;          // strokeWidth
+const LC = 'round' as const;
+const LJ = 'round' as const;
+const base = { fill: 'none', stroke: S, strokeWidth: SW, strokeLinecap: LC, strokeLinejoin: LJ };
+
+const Ico = ({ children }: { children: React.ReactNode }) => (
+  <svg viewBox="0 0 64 64" width="100%" height="100%" fill="none" aria-hidden="true">
     {children}
   </svg>
 );
 
-const fill = (id: string) => `url(#g-${id})`;
-const WIN = 'rgba(255,255,255,0.38)';
-const DR  = 'rgba(0,0,0,0.20)';
-
+/* ── 1. Check ── */
 const IcoCheck = () => (
-  <SVG id="ck">
-    <circle cx="32" cy="32" r="27" fill={fill('ck')}/>
-    <path d="M18 33l11 11 17-19" stroke="white" strokeWidth="3.5"
-          strokeLinecap="round" strokeLinejoin="round"/>
-  </SVG>
+  <Ico>
+    <circle cx="32" cy="32" r="23" {...base}/>
+    <path d="M20 33l9 9 15-17" {...base}/>
+  </Ico>
 );
 
+/* ── 2. X ── */
 const IcoX = () => (
-  <svg viewBox="0 0 64 64" width="100%" height="100%" fill="none">
-    <defs>
-      <linearGradient id="g-xc" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#FFBFB0"/>
-        <stop offset="100%" stopColor="#C03018"/>
-      </linearGradient>
-    </defs>
-    <circle cx="32" cy="32" r="27" fill="url(#g-xc)"/>
-    <path d="M21 21l22 22M43 21L21 43" stroke="white" strokeWidth="3.5" strokeLinecap="round"/>
-  </svg>
+  <Ico>
+    <circle cx="32" cy="32" r="23" {...base}/>
+    <path d="M22 22l20 20M42 22L22 42" {...base}/>
+  </Ico>
 );
 
-const IcoQuestion = () => (
-  <SVG id="qu">
-    <circle cx="32" cy="32" r="27" fill={fill('qu')}/>
-    <path d="M25 24c0-3.9 3.1-7 7-7s7 3.1 7 7c0 2.8-1.6 5.2-4 6.5L34 33v4"
-          stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-    <circle cx="32" cy="44" r="2.2" fill="white"/>
-  </SVG>
-);
-
+/* ── 3. Simple house (Einfamilienhaus) ── */
 const IcoHouse = () => (
-  <SVG id="ho">
-    <rect x="10" y="35" width="44" height="22" rx="2" fill={fill('ho')}/>
-    <path d="M4 37L32 10L60 37Z" fill={fill('ho')}/>
-    <rect x="50" y="19" width="5" height="16" rx="1" fill={fill('ho')}/>
-    <rect x="13" y="40" width="11" height="8" rx="1.5" fill={WIN}/>
-    <rect x="40" y="40" width="11" height="8" rx="1.5" fill={WIN}/>
-    <rect x="27" y="45" width="10" height="12" rx="1.5" fill={DR}/>
-  </SVG>
+  <Ico>
+    {/* chimney */}
+    <rect x="43" y="17" width="5" height="13" rx="1" {...base}/>
+    {/* roof */}
+    <path d="M7 35L32 10L57 35" {...base}/>
+    {/* walls */}
+    <rect x="13" y="34" width="38" height="23" rx="2" {...base}/>
+    {/* door */}
+    <path d="M27 57V47a5 5 0 0 1 10 0v10" {...base}/>
+  </Ico>
 );
 
+/* ── 4. Apartment building (Mehrfamilienhaus) ── */
 const IcoApartment = () => (
-  <SVG id="ap">
-    <rect x="8" y="16" width="48" height="41" rx="2" fill={fill('ap')}/>
-    <rect x="8" y="13" width="48" height="7" rx="2" fill={fill('ap')}/>
-    <rect x="12" y="22" width="10" height="8" rx="1.5" fill={WIN}/>
-    <rect x="27" y="22" width="10" height="8" rx="1.5" fill={WIN}/>
-    <rect x="42" y="22" width="10" height="8" rx="1.5" fill={WIN}/>
-    <rect x="12" y="35" width="10" height="8" rx="1.5" fill={WIN}/>
-    <rect x="27" y="35" width="10" height="8" rx="1.5" fill={WIN}/>
-    <rect x="42" y="35" width="10" height="8" rx="1.5" fill={WIN}/>
-    <rect x="26" y="47" width="12" height="10" rx="1.5" fill={DR}/>
-  </SVG>
+  <Ico>
+    {/* body */}
+    <rect x="7" y="9" width="50" height="50" rx="2" {...base}/>
+    {/* cornice band */}
+    <line x1="7" y1="18" x2="57" y2="18" {...base}/>
+    {/* left windows col */}
+    <rect x="12" y="23" width="11" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
+    <rect x="12" y="37" width="11" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
+    {/* right windows col */}
+    <rect x="41" y="23" width="11" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
+    <rect x="41" y="37" width="11" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
+    {/* two doors */}
+    <rect x="17" y="46" width="10" height="13" rx="1" {...base} strokeWidth={1.8}/>
+    <rect x="37" y="46" width="10" height="13" rx="1" {...base} strokeWidth={1.8}/>
+    {/* ground */}
+    <line x1="3" y1="59" x2="61" y2="59" {...base}/>
+  </Ico>
 );
 
+/* ── 5. Commercial building (Gewerbe) ── */
 const IcoCommercial = () => (
-  <SVG id="co">
-    <rect x="5" y="22" width="54" height="35" rx="2" fill={fill('co')}/>
-    <rect x="5" y="17" width="54" height="9" rx="2" fill={fill('co')}/>
-    <rect x="9" y="30" width="18" height="14" rx="1.5" fill={WIN}/>
-    <rect x="37" y="30" width="18" height="14" rx="1.5" fill={WIN}/>
-    <rect x="25" y="46" width="14" height="11" rx="1.5" fill={DR}/>
-  </SVG>
+  <Ico>
+    {/* main block */}
+    <rect x="4" y="16" width="38" height="42" rx="2" {...base}/>
+    {/* side tower */}
+    <rect x="42" y="28" width="18" height="30" rx="2" {...base}/>
+    {/* windows – main */}
+    <rect x="9" y="22" width="10" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
+    <rect x="24" y="22" width="10" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
+    <rect x="9" y="36" width="10" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
+    <rect x="24" y="36" width="10" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
+    {/* window – tower */}
+    <rect x="47" y="34" width="8" height="8" rx="1.5" {...base} strokeWidth={1.8}/>
+    {/* door */}
+    <rect x="15" y="47" width="12" height="11" rx="1" {...base} strokeWidth={1.8}/>
+    {/* ground */}
+    <line x1="2" y1="58" x2="62" y2="58" {...base}/>
+  </Ico>
 );
 
+/* ── 6. Satteldach (pitched / gabled roof) ── */
 const IcoPitched = () => (
-  <SVG id="pi">
-    <rect x="10" y="38" width="44" height="20" rx="2" fill={fill('pi')}/>
-    <path d="M4 40L32 12L60 40Z" fill={fill('pi')}/>
-    <rect x="27" y="46" width="10" height="12" rx="1.5" fill={DR}/>
-    <rect x="12" y="42" width="10" height="8" rx="1.5" fill={WIN}/>
-    <rect x="42" y="42" width="10" height="8" rx="1.5" fill={WIN}/>
-  </SVG>
+  <Ico>
+    {/* outer eave */}
+    <path d="M4 44L32 14L60 44" {...base}/>
+    {/* inner gable */}
+    <path d="M11 44L32 20L53 44" {...base}/>
+    {/* eave baseline */}
+    <line x1="4" y1="44" x2="60" y2="44" {...base}/>
+  </Ico>
 );
 
+/* ── 7. Pultdach (mono-pitch / shed roof) ── */
 const IcoMonoPitch = () => (
-  <SVG id="mp">
-    <rect x="8" y="40" width="48" height="20" rx="2" fill={fill('mp')}/>
-    <path d="M6 42L6 24L58 36L58 42Z" fill={fill('mp')}/>
-    <rect x="27" y="47" width="10" height="13" rx="1.5" fill={DR}/>
-    <rect x="10" y="44" width="11" height="8" rx="1.5" fill={WIN}/>
-    <rect x="43" y="44" width="11" height="8" rx="1.5" fill={WIN}/>
-  </SVG>
+  <Ico>
+    {/* building outline: tall left, short right, sloped roof */}
+    <path d="M9 57V16L55 32V57Z" {...base}/>
+    {/* windows */}
+    <rect x="14" y="24" width="11" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
+    <rect x="14" y="39" width="11" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
+    {/* door */}
+    <rect x="38" y="43" width="12" height="14" rx="1" {...base} strokeWidth={1.8}/>
+    {/* ground */}
+    <line x1="5" y1="57" x2="60" y2="57" {...base}/>
+  </Ico>
 );
 
+/* ── 8. Flachdach (flat roof / storefront) ── */
 const IcoFlatRoof = () => (
-  <SVG id="fr">
-    <rect x="4" y="17" width="56" height="8" rx="2" fill={fill('fr')}/>
-    <rect x="9" y="25" width="46" height="33" rx="2" fill={fill('fr')}/>
-    <rect x="10" y="18" width="10" height="4" rx="1" fill={DR}/>
-    <rect x="24" y="18" width="10" height="4" rx="1" fill={DR}/>
-    <rect x="38" y="18" width="10" height="4" rx="1" fill={DR}/>
-    <rect x="13" y="32" width="14" height="10" rx="1.5" fill={WIN}/>
-    <rect x="37" y="32" width="14" height="10" rx="1.5" fill={WIN}/>
-    <rect x="26" y="46" width="12" height="12" rx="1.5" fill={DR}/>
-  </SVG>
+  <Ico>
+    {/* building body */}
+    <rect x="6" y="22" width="52" height="36" rx="2" {...base}/>
+    {/* roof overhang line */}
+    <line x1="3" y1="22" x2="61" y2="22" {...base}/>
+    {/* left window */}
+    <rect x="9" y="30" width="10" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
+    {/* right window */}
+    <rect x="45" y="30" width="10" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
+    {/* large central opening */}
+    <rect x="22" y="36" width="20" height="22" rx="1" {...base} strokeWidth={1.8}/>
+  </Ico>
+);
+
+/* ── 9. Question mark ── */
+const IcoQuestion = () => (
+  <Ico>
+    <circle cx="32" cy="32" r="23" {...base}/>
+    <path d="M25 25c0-3.9 3.1-7 7-7s7 3.1 7 7c0 2.8-1.7 5.2-4.3 6.6L34 33v4"
+          {...base}/>
+    <circle cx="32" cy="44" r="1.8" fill={S} stroke="none"/>
+  </Ico>
 );
 
 const iconMap: Record<string, () => JSX.Element> = {
