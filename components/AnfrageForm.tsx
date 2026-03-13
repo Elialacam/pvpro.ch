@@ -75,7 +75,7 @@ function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCa
     >
       {/* Illustration */}
       <div className="flex-1 flex items-center justify-center w-full">
-        <img src={imageSrc} alt={label} className="w-full h-full object-contain max-h-20 sm:max-h-24" style={{ filter: 'invert(1)' }} />
+        <img src={imageSrc} alt={label} className="w-full h-full object-contain max-h-20 sm:max-h-24" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
       </div>
 
       {/* Label */}
@@ -199,7 +199,7 @@ export default function AnfrageForm() {
   const handleSelect = (field: string, value: any) => {
     if (field === 'isOwner' && value === 'no') { setErrorMsg(t.renterError); return; }
     setFormData((prev: any) => ({ ...prev, [field]: value }));
-    setTimeout(() => goNext(), 60);
+    goNext();
   };
 
   const validateContact = (): boolean => {
@@ -439,7 +439,7 @@ export default function AnfrageForm() {
               initial={{ opacity: 0, x: direction > 0 ? 48 : -48 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: direction > 0 ? -48 : 48 }}
-              transition={{ duration: 0.22, ease: 'easeOut' }}
+              transition={{ duration: 0.08, ease: 'easeOut' }}
             >
               {renderStep()}
             </motion.div>
