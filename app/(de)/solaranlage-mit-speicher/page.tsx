@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import CtaAnfrage from '@/components/CtaAnfrage';
+import Link from 'next/link';
 import { CheckCircle, Battery, Zap, Sun, Moon, TrendingUp, PiggyBank, Shield } from 'lucide-react';
 
 
@@ -304,14 +304,10 @@ export default function SolaranlageMitSpeicherPage() {
 
       {/* CTA Section */}
       <section className="section-padding bg-primary-50">
-        <div className="container-custom">
-          <div className="max-w-2xl mx-auto">
-            <CtaAnfrage
-              title="Jetzt Offerten mit Speicher vergleichen"
-              subtitle="Erhalten Sie bis zu 3 Angebote für Solaranlage mit Batteriespeicher von geprüften Schweizer Installateuren."
-              ctaText="Kostenlose Offerte anfordern"
-            />
-          </div>
+        <div className="container-custom text-center">
+          <Link href="/anfrage" className="inline-flex items-center gap-2 btn-primary py-4 px-10 rounded-2xl text-lg font-black shadow-lg">
+            Kostenlose Offerte anfordern →
+          </Link>
         </div>
       </section>
 
