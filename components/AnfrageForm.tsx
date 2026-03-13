@@ -66,11 +66,11 @@ function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCa
       onClick={onClick}
       className="relative flex flex-col items-center justify-center rounded-2xl p-5 sm:p-6 transition-all duration-150 bg-white w-full aspect-square"
       style={{
-        border: isSelected ? '2.5px solid #C4962A' : '2px solid #e5e7eb',
+        border: isSelected ? '2.5px solid #F97316' : '2px solid #e5e7eb',
         boxShadow: isSelected
-          ? '0 6px 20px rgba(196,150,42,0.14)'
+          ? '0 6px 20px rgba(249,115,22,0.16)'
           : '0 1px 4px rgba(0,0,0,0.04)',
-        background: isSelected ? '#FFFBF0' : '#ffffff',
+        background: isSelected ? '#FFF7ED' : '#ffffff',
       }}
     >
       {/* Illustration */}
@@ -91,7 +91,7 @@ function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCa
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          className="absolute top-2 right-2 w-6 h-6 rounded-full bg-primary flex items-center justify-center shadow"
+          className="absolute top-2 right-2 w-6 h-6 rounded-full flex items-center justify-center shadow" style={{ background: '#F97316' }}
         >
           <Check className="w-3 h-3 text-white" strokeWidth={4} />
         </motion.div>
@@ -311,10 +311,14 @@ export default function AnfrageForm() {
       );
       case 4: return (
         <StepWrapper title={t.step4Title} sub={t.step4Sub}>
-          <div className="grid grid-cols-3 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             <OptionCard label="Ja" isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelect('wantsBattery', 'yes')} imageSrc="/icons/icon-check.png" />
             <OptionCard label="Nein" isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelect('wantsBattery', 'no')} imageSrc="/icons/icon-x.png" />
-            <OptionCard label="Weiss nicht" isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelect('wantsBattery', 'unknown')} imageSrc="/icons/icon-question.png" />
+            <div className="col-span-2 flex justify-center">
+              <div className="w-1/2 pr-1.5">
+                <OptionCard label="Weiss nicht" isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelect('wantsBattery', 'unknown')} imageSrc="/icons/icon-question.png" />
+              </div>
+            </div>
           </div>
         </StepWrapper>
       );
