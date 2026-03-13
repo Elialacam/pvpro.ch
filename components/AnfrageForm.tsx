@@ -49,157 +49,18 @@ const t = {
   invalidPhone: 'Bitte geben Sie eine gültige Schweizer Telefonnummer ein.',
 };
 
-/* ─── Line-art SVG Icons — PVPro golden, stroke only ─────────────────────── */
-/* Matches the thin-stroke minimal style from the reference image             */
-
-const S  = '#C4962A';   // stroke colour (PVPro brand golden, readable on white)
-const SW = 2.2;          // strokeWidth
-const LC = 'round' as const;
-const LJ = 'round' as const;
-const base = { fill: 'none', stroke: S, strokeWidth: SW, strokeLinecap: LC, strokeLinejoin: LJ };
-
-const Ico = ({ children }: { children: React.ReactNode }) => (
-  <svg viewBox="0 0 64 64" width="100%" height="100%" fill="none" aria-hidden="true">
-    {children}
-  </svg>
-);
-
-/* ── 1. Check ── */
-const IcoCheck = () => (
-  <Ico>
-    <circle cx="32" cy="32" r="23" {...base}/>
-    <path d="M20 33l9 9 15-17" {...base}/>
-  </Ico>
-);
-
-/* ── 2. X ── */
-const IcoX = () => (
-  <Ico>
-    <circle cx="32" cy="32" r="23" {...base}/>
-    <path d="M22 22l20 20M42 22L22 42" {...base}/>
-  </Ico>
-);
-
-/* ── 3. Simple house (Einfamilienhaus) ── */
-const IcoHouse = () => (
-  <Ico>
-    {/* chimney */}
-    <rect x="43" y="17" width="5" height="13" rx="1" {...base}/>
-    {/* roof */}
-    <path d="M7 35L32 10L57 35" {...base}/>
-    {/* walls */}
-    <rect x="13" y="34" width="38" height="23" rx="2" {...base}/>
-    {/* door */}
-    <path d="M27 57V47a5 5 0 0 1 10 0v10" {...base}/>
-  </Ico>
-);
-
-/* ── 4. Apartment building (Mehrfamilienhaus) ── */
-const IcoApartment = () => (
-  <Ico>
-    {/* body */}
-    <rect x="7" y="9" width="50" height="50" rx="2" {...base}/>
-    {/* cornice band */}
-    <line x1="7" y1="18" x2="57" y2="18" {...base}/>
-    {/* left windows col */}
-    <rect x="12" y="23" width="11" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
-    <rect x="12" y="37" width="11" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
-    {/* right windows col */}
-    <rect x="41" y="23" width="11" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
-    <rect x="41" y="37" width="11" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
-    {/* two doors */}
-    <rect x="17" y="46" width="10" height="13" rx="1" {...base} strokeWidth={1.8}/>
-    <rect x="37" y="46" width="10" height="13" rx="1" {...base} strokeWidth={1.8}/>
-    {/* ground */}
-    <line x1="3" y1="59" x2="61" y2="59" {...base}/>
-  </Ico>
-);
-
-/* ── 5. Commercial building (Gewerbe) ── */
-const IcoCommercial = () => (
-  <Ico>
-    {/* main block */}
-    <rect x="4" y="16" width="38" height="42" rx="2" {...base}/>
-    {/* side tower */}
-    <rect x="42" y="28" width="18" height="30" rx="2" {...base}/>
-    {/* windows – main */}
-    <rect x="9" y="22" width="10" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
-    <rect x="24" y="22" width="10" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
-    <rect x="9" y="36" width="10" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
-    <rect x="24" y="36" width="10" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
-    {/* window – tower */}
-    <rect x="47" y="34" width="8" height="8" rx="1.5" {...base} strokeWidth={1.8}/>
-    {/* door */}
-    <rect x="15" y="47" width="12" height="11" rx="1" {...base} strokeWidth={1.8}/>
-    {/* ground */}
-    <line x1="2" y1="58" x2="62" y2="58" {...base}/>
-  </Ico>
-);
-
-/* ── 6. Satteldach (pitched / gabled roof) ── */
-const IcoPitched = () => (
-  <Ico>
-    {/* outer eave */}
-    <path d="M4 44L32 14L60 44" {...base}/>
-    {/* inner gable */}
-    <path d="M11 44L32 20L53 44" {...base}/>
-    {/* eave baseline */}
-    <line x1="4" y1="44" x2="60" y2="44" {...base}/>
-  </Ico>
-);
-
-/* ── 7. Pultdach (mono-pitch / shed roof) ── */
-const IcoMonoPitch = () => (
-  <Ico>
-    {/* building outline: tall left, short right, sloped roof */}
-    <path d="M9 57V16L55 32V57Z" {...base}/>
-    {/* windows */}
-    <rect x="14" y="24" width="11" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
-    <rect x="14" y="39" width="11" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
-    {/* door */}
-    <rect x="38" y="43" width="12" height="14" rx="1" {...base} strokeWidth={1.8}/>
-    {/* ground */}
-    <line x1="5" y1="57" x2="60" y2="57" {...base}/>
-  </Ico>
-);
-
-/* ── 8. Flachdach (flat roof / storefront) ── */
-const IcoFlatRoof = () => (
-  <Ico>
-    {/* building body */}
-    <rect x="6" y="22" width="52" height="36" rx="2" {...base}/>
-    {/* roof overhang line */}
-    <line x1="3" y1="22" x2="61" y2="22" {...base}/>
-    {/* left window */}
-    <rect x="9" y="30" width="10" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
-    {/* right window */}
-    <rect x="45" y="30" width="10" height="9" rx="1.5" {...base} strokeWidth={1.8}/>
-    {/* large central opening */}
-    <rect x="22" y="36" width="20" height="22" rx="1" {...base} strokeWidth={1.8}/>
-  </Ico>
-);
-
-/* ── 9. Question mark ── */
-const IcoQuestion = () => (
-  <Ico>
-    <circle cx="32" cy="32" r="23" {...base}/>
-    <path d="M25 25c0-3.9 3.1-7 7-7s7 3.1 7 7c0 2.8-1.7 5.2-4.3 6.6L34 33v4"
-          {...base}/>
-    <circle cx="32" cy="44" r="1.8" fill={S} stroke="none"/>
-  </Ico>
-);
-
-const iconMap: Record<string, () => JSX.Element> = {
-  check: IcoCheck,
-  x: IcoX,
-  question: IcoQuestion,
-  house: IcoHouse,
-  apartment: IcoApartment,
-  commercial: IcoCommercial,
-  other: IcoQuestion,
-  pitched: IcoPitched,
-  monopitch: IcoMonoPitch,
-  flat: IcoFlatRoof,
+/* ─── Icon image map — extracted from brand reference image ───────────────── */
+const iconMap: Record<string, string> = {
+  check:      '/icons/check.png',
+  x:          '/icons/cross.png',
+  question:   '/icons/question.png',
+  other:      '/icons/question.png',
+  house:      '/icons/house.png',
+  apartment:  '/icons/apartment.png',
+  commercial: '/icons/commercial.png',
+  pitched:    '/icons/pitched.png',
+  monopitch:  '/icons/monopitch.png',
+  flat:       '/icons/flat.png',
 };
 
 /* ─── Option Card ─────────────────────────────────────────────────────────── */
@@ -208,20 +69,19 @@ interface OptionCardProps {
   sublabel?: string;
   isSelected: boolean;
   onClick: () => void;
-  icon: keyof typeof iconMap;
+  icon: string;
 }
 
 function OptionCard({ label, sublabel, onClick, icon }: OptionCardProps) {
-  const Icon = iconMap[icon] ?? IcoQuestion;
+  const src = iconMap[icon] ?? iconMap.question;
   return (
     <button
       onClick={onClick}
       className="flex flex-col items-center justify-center rounded-2xl p-3 sm:p-5 bg-white w-full aspect-square active:bg-gray-50 transition-colors"
       style={{ border: '2px solid #e5e7eb', boxShadow: '0 1px 4px rgba(0,0,0,0.04)' }}
     >
-      {/* Icon scales as 55% of the card width, same proportion in 2-col and 3-col */}
       <div className="w-[55%] aspect-square mb-2 sm:mb-3 flex items-center justify-center">
-        <Icon />
+        <img src={src} alt={label} className="w-full h-full object-contain" />
       </div>
       <p className="text-[11px] sm:text-sm font-bold text-gray-900 text-center leading-tight">
         {label}
