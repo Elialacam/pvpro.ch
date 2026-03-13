@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Check, X, HelpCircle, MapPin, Search, ChevronLeft,
+  Check, X, MapPin, Search, ChevronLeft,
   BarChart2, CheckCircle2, SearchIcon,
 } from 'lucide-react';
 import Image from 'next/image';
@@ -55,11 +55,10 @@ interface OptionCardProps {
   sublabel?: string;
   isSelected: boolean;
   onClick: () => void;
-  icon?: 'check' | 'x' | 'question';
-  imageSrc?: string;
+  imageSrc: string;
 }
 
-function OptionCard({ label, sublabel, isSelected, onClick, icon, imageSrc }: OptionCardProps) {
+function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCardProps) {
   return (
     <motion.button
       whileHover={{ scale: 1.025, y: -2 }}
@@ -74,26 +73,9 @@ function OptionCard({ label, sublabel, isSelected, onClick, icon, imageSrc }: Op
         background: isSelected ? '#FFFBF0' : '#ffffff',
       }}
     >
-      {/* Illustration / icon */}
+      {/* Illustration */}
       <div className="flex-1 flex items-center justify-center w-full">
-        {imageSrc ? (
-          <img src={imageSrc} alt={label} className="w-full h-full object-contain max-h-20 sm:max-h-24" />
-        ) : icon === 'check' ? (
-          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center"
-            style={{ background: '#f0fdf4', border: '2px solid #bbf7d0' }}>
-            <Check className="w-8 h-8" style={{ color: '#16a34a' }} strokeWidth={3} />
-          </div>
-        ) : icon === 'x' ? (
-          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center"
-            style={{ background: '#fef2f2', border: '2px solid #fecaca' }}>
-            <X className="w-8 h-8" style={{ color: '#dc2626' }} strokeWidth={3} />
-          </div>
-        ) : (
-          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center"
-            style={{ background: '#f8fafc', border: '2px solid #e2e8f0' }}>
-            <HelpCircle className="w-8 h-8 text-gray-400" strokeWidth={2} />
-          </div>
-        )}
+        <img src={imageSrc} alt={label} className="w-full h-full object-contain max-h-20 sm:max-h-24" style={{ filter: 'invert(1)' }} />
       </div>
 
       {/* Label */}
@@ -302,37 +284,37 @@ export default function AnfrageForm() {
       case 1: return (
         <StepWrapper title={t.step1Title} sub={t.step1Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label="Ja" isSelected={formData.isOwner === 'yes'} onClick={() => handleSelect('isOwner', 'yes')} icon="check" />
-            <OptionCard label="Nein" isSelected={formData.isOwner === 'no'} onClick={() => handleSelect('isOwner', 'no')} icon="x" />
+            <OptionCard label="Ja" isSelected={formData.isOwner === 'yes'} onClick={() => handleSelect('isOwner', 'yes')} imageSrc="/icons/icon-check.png" />
+            <OptionCard label="Nein" isSelected={formData.isOwner === 'no'} onClick={() => handleSelect('isOwner', 'no')} imageSrc="/icons/icon-x.png" />
           </div>
         </StepWrapper>
       );
       case 2: return (
         <StepWrapper title={t.step2Title} sub={t.step2Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label="Einfamilienhaus" isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelect('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.png" />
-            <OptionCard label="Mehrfamilienhaus" isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelect('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.png" />
-            <OptionCard label="Gewerbe" isSelected={formData.propertyType === 'gewerbe'} onClick={() => handleSelect('propertyType', 'gewerbe')} imageSrc="/icons/multi-family.png" />
-            <OptionCard label="Sonstiges" isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelect('propertyType', 'sonstiges')} icon="question" />
+            <OptionCard label="Einfamilienhaus" isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelect('propertyType', 'einfamilienhaus')} imageSrc="/icons/icon-einfamilienhaus.png" />
+            <OptionCard label="Mehrfamilienhaus" isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelect('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/icon-mehrfamilienhaus.png" />
+            <OptionCard label="Gewerbe" isSelected={formData.propertyType === 'gewerbe'} onClick={() => handleSelect('propertyType', 'gewerbe')} imageSrc="/icons/icon-gewerbe.png" />
+            <OptionCard label="Sonstiges" isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelect('propertyType', 'sonstiges')} imageSrc="/icons/icon-question.png" />
           </div>
         </StepWrapper>
       );
       case 3: return (
         <StepWrapper title={t.step3Title} sub={t.step3Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label="Satteldach" isSelected={formData.roofType === 'pitched'} onClick={() => handleSelect('roofType', 'pitched')} imageSrc="/icons/pitched-roof.png" />
-            <OptionCard label="Pultdach" isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelect('roofType', 'monopitch')} imageSrc="/icons/monopitch-roof.png" />
-            <OptionCard label="Flachdach" isSelected={formData.roofType === 'flat'} onClick={() => handleSelect('roofType', 'flat')} imageSrc="/icons/flat-roof.png" />
-            <OptionCard label="Sonstiges" isSelected={formData.roofType === 'other'} onClick={() => handleSelect('roofType', 'other')} icon="question" />
+            <OptionCard label="Satteldach" isSelected={formData.roofType === 'pitched'} onClick={() => handleSelect('roofType', 'pitched')} imageSrc="/icons/icon-satteldach.png" />
+            <OptionCard label="Pultdach" isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelect('roofType', 'monopitch')} imageSrc="/icons/icon-pultdach.png" />
+            <OptionCard label="Flachdach" isSelected={formData.roofType === 'flat'} onClick={() => handleSelect('roofType', 'flat')} imageSrc="/icons/icon-flachdach.png" />
+            <OptionCard label="Sonstiges" isSelected={formData.roofType === 'other'} onClick={() => handleSelect('roofType', 'other')} imageSrc="/icons/icon-question.png" />
           </div>
         </StepWrapper>
       );
       case 4: return (
         <StepWrapper title={t.step4Title} sub={t.step4Sub}>
           <div className="grid grid-cols-3 gap-3 sm:gap-4">
-            <OptionCard label="Ja" isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelect('wantsBattery', 'yes')} icon="check" />
-            <OptionCard label="Nein" isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelect('wantsBattery', 'no')} icon="x" />
-            <OptionCard label="Weiss nicht" isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelect('wantsBattery', 'unknown')} icon="question" />
+            <OptionCard label="Ja" isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelect('wantsBattery', 'yes')} imageSrc="/icons/icon-check.png" />
+            <OptionCard label="Nein" isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelect('wantsBattery', 'no')} imageSrc="/icons/icon-x.png" />
+            <OptionCard label="Weiss nicht" isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelect('wantsBattery', 'unknown')} imageSrc="/icons/icon-question.png" />
           </div>
         </StepWrapper>
       );
