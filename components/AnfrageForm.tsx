@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Check, X, MapPin, Search, ChevronLeft,
+  Check, X, HelpCircle, MapPin, Search, ChevronLeft,
   BarChart2, CheckCircle2, SearchIcon,
 } from 'lucide-react';
 import Image from 'next/image';
@@ -49,45 +49,72 @@ const t = {
   invalidPhone: 'Bitte geben Sie eine gültige Schweizer Telefonnummer ein.',
 };
 
-/* ─── Icon image map — extracted from brand reference image ───────────────── */
-const iconMap: Record<string, string> = {
-  check:      '/icons/check.png',
-  x:          '/icons/cross.png',
-  question:   '/icons/question.png',
-  other:      '/icons/question.png',
-  house:      '/icons/house.png',
-  apartment:  '/icons/apartment.png',
-  commercial: '/icons/commercial.png',
-  pitched:    '/icons/pitched.png',
-  monopitch:  '/icons/monopitch.png',
-  flat:       '/icons/flat.png',
-};
-
 /* ─── Option Card ─────────────────────────────────────────────────────────── */
 interface OptionCardProps {
   label: string;
   sublabel?: string;
   isSelected: boolean;
   onClick: () => void;
-  icon: string;
+  icon?: 'check' | 'x' | 'question';
+  imageSrc?: string;
 }
 
-function OptionCard({ label, sublabel, onClick, icon }: OptionCardProps) {
-  const src = iconMap[icon] ?? iconMap.question;
+function OptionCard({ label, sublabel, isSelected, onClick, icon, imageSrc }: OptionCardProps) {
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.025, y: -2 }}
+      whileTap={{ scale: 0.97 }}
       onClick={onClick}
-      className="flex flex-col items-center justify-center rounded-2xl p-3 sm:p-5 bg-white w-full aspect-square active:bg-gray-50 transition-colors"
-      style={{ border: '2px solid #e5e7eb', boxShadow: '0 1px 4px rgba(0,0,0,0.04)' }}
+      className="relative flex flex-col items-center justify-center rounded-2xl p-5 sm:p-6 transition-all duration-150 bg-white w-full aspect-square"
+      style={{
+        border: isSelected ? '2.5px solid #C4962A' : '2px solid #e5e7eb',
+        boxShadow: isSelected
+          ? '0 6px 20px rgba(196,150,42,0.14)'
+          : '0 1px 4px rgba(0,0,0,0.04)',
+        background: isSelected ? '#FFFBF0' : '#ffffff',
+      }}
     >
-      <div className="w-[55%] aspect-square mb-2 sm:mb-3 flex items-center justify-center">
-        <img src={src} alt={label} className="w-full h-full object-contain" />
+      {/* Illustration / icon */}
+      <div className="flex-1 flex items-center justify-center w-full">
+        {imageSrc ? (
+          <img src={imageSrc} alt={label} className="w-full h-full object-contain max-h-20 sm:max-h-24" />
+        ) : icon === 'check' ? (
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center"
+            style={{ background: '#f0fdf4', border: '2px solid #bbf7d0' }}>
+            <Check className="w-8 h-8" style={{ color: '#16a34a' }} strokeWidth={3} />
+          </div>
+        ) : icon === 'x' ? (
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center"
+            style={{ background: '#fef2f2', border: '2px solid #fecaca' }}>
+            <X className="w-8 h-8" style={{ color: '#dc2626' }} strokeWidth={3} />
+          </div>
+        ) : (
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center"
+            style={{ background: '#f8fafc', border: '2px solid #e2e8f0' }}>
+            <HelpCircle className="w-8 h-8 text-gray-400" strokeWidth={2} />
+          </div>
+        )}
       </div>
-      <p className="text-[11px] sm:text-sm font-bold text-gray-900 text-center leading-tight">
+
+      {/* Label */}
+      <p className="text-sm sm:text-base font-bold text-gray-900 text-center leading-tight mt-3">
         {label}
       </p>
-      {sublabel && <p className="text-[10px] text-gray-400 mt-0.5">{sublabel}</p>}
-    </button>
+      {sublabel && (
+        <p className="text-xs text-gray-400 mt-0.5">{sublabel}</p>
+      )}
+
+      {/* Selected checkmark badge */}
+      {isSelected && (
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          className="absolute top-2 right-2 w-6 h-6 rounded-full bg-primary flex items-center justify-center shadow"
+        >
+          <Check className="w-3 h-3 text-white" strokeWidth={4} />
+        </motion.div>
+      )}
+    </motion.button>
   );
 }
 
@@ -190,7 +217,7 @@ export default function AnfrageForm() {
   const handleSelect = (field: string, value: any) => {
     if (field === 'isOwner' && value === 'no') { setErrorMsg(t.renterError); return; }
     setFormData((prev: any) => ({ ...prev, [field]: value }));
-    goNext();
+    setTimeout(() => goNext(), 60);
   };
 
   const validateContact = (): boolean => {
@@ -283,9 +310,9 @@ export default function AnfrageForm() {
       case 2: return (
         <StepWrapper title={t.step2Title} sub={t.step2Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label="Einfamilienhaus" isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelect('propertyType', 'einfamilienhaus')} icon="house" />
-            <OptionCard label="Mehrfamilienhaus" isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelect('propertyType', 'mehrfamilienhaus')} icon="apartment" />
-            <OptionCard label="Gewerbe" isSelected={formData.propertyType === 'gewerbe'} onClick={() => handleSelect('propertyType', 'gewerbe')} icon="commercial" />
+            <OptionCard label="Einfamilienhaus" isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelect('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.png" />
+            <OptionCard label="Mehrfamilienhaus" isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelect('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.png" />
+            <OptionCard label="Gewerbe" isSelected={formData.propertyType === 'gewerbe'} onClick={() => handleSelect('propertyType', 'gewerbe')} imageSrc="/icons/multi-family.png" />
             <OptionCard label="Sonstiges" isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelect('propertyType', 'sonstiges')} icon="question" />
           </div>
         </StepWrapper>
@@ -293,9 +320,9 @@ export default function AnfrageForm() {
       case 3: return (
         <StepWrapper title={t.step3Title} sub={t.step3Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label="Satteldach" isSelected={formData.roofType === 'pitched'} onClick={() => handleSelect('roofType', 'pitched')} icon="pitched" />
-            <OptionCard label="Pultdach" isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelect('roofType', 'monopitch')} icon="monopitch" />
-            <OptionCard label="Flachdach" isSelected={formData.roofType === 'flat'} onClick={() => handleSelect('roofType', 'flat')} icon="flat" />
+            <OptionCard label="Satteldach" isSelected={formData.roofType === 'pitched'} onClick={() => handleSelect('roofType', 'pitched')} imageSrc="/icons/pitched-roof.png" />
+            <OptionCard label="Pultdach" isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelect('roofType', 'monopitch')} imageSrc="/icons/monopitch-roof.png" />
+            <OptionCard label="Flachdach" isSelected={formData.roofType === 'flat'} onClick={() => handleSelect('roofType', 'flat')} imageSrc="/icons/flat-roof.png" />
             <OptionCard label="Sonstiges" isSelected={formData.roofType === 'other'} onClick={() => handleSelect('roofType', 'other')} icon="question" />
           </div>
         </StepWrapper>
@@ -423,10 +450,10 @@ export default function AnfrageForm() {
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div key={step}
               custom={direction}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0 }}
+              initial={{ opacity: 0, x: direction > 0 ? 48 : -48 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: direction > 0 ? -48 : 48 }}
+              transition={{ duration: 0.22, ease: 'easeOut' }}
             >
               {renderStep()}
             </motion.div>
