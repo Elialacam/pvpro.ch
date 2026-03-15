@@ -74,59 +74,62 @@ export default function CallbackWidget() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            /* mobile: full-width bottom sheet | desktop: 290px card bottom-right */
-            className="fixed bottom-0 left-0 right-0 z-[9998] rounded-t-2xl sm:bottom-6 sm:right-6 sm:left-auto sm:w-72 sm:rounded-2xl shadow-2xl"
-            style={{ background: NAVY }}
+            /* mobile: full-width bottom  |  desktop: 280px bottom-right */
+            className="fixed bottom-0 left-0 right-0 z-[9998] rounded-t-2xl
+                       sm:bottom-6 sm:right-6 sm:left-auto sm:w-[280px] sm:rounded-2xl
+                       shadow-2xl"
+            style={{ background: NAVY, overflow: 'visible' }}
           >
-            {/* gold top stripe */}
+            {/* Gold top stripe */}
             <div className="h-1 rounded-t-2xl sm:rounded-t-2xl" style={{ background: GOLD }} />
 
-            {/* dismiss */}
+            {/* X dismiss */}
             <button
               onClick={() => setState('hidden')}
-              className="absolute top-2.5 right-3 z-10 w-7 h-7 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors"
+              className="absolute top-2 right-2 z-10 w-7 h-7 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors"
             >
               <X className="w-4 h-4 text-white/50" />
             </button>
 
-            {/* ── Row: text LEFT  |  photo RIGHT ── */}
-            <div className="flex items-center gap-0 px-4 py-4 pr-3">
+            {/* ── Row: text LEFT | photo RIGHT (overflows card) ── */}
+            <div className="flex items-end pl-4 pt-4 pb-4">
 
-              {/* Left: all text + button */}
+              {/* Text + button */}
               <div className="flex-1 min-w-0 pr-3">
-                <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color: GOLD }}>
-                  Kostenlose Beratung
-                </p>
-                <h3 className="text-white font-black text-base leading-tight mb-1.5">
-                  Wir rufen Sie<br />kostenlos zurück
+                <h3 className="text-white font-black leading-tight mb-2" style={{ fontSize: 20 }}>
+                  Kostenlose<br />Beratung
                 </h3>
-                <p className="text-white/55 text-xs leading-relaxed mb-3 hidden sm:block">
+                <p className="text-white/65 text-xs leading-relaxed mb-4">
                   Mit wenigen Klicks zur kostenlosen Offerte. Wir rufen Sie zurück und besprechen gemeinsam Ihr Anliegen.
-                </p>
-                <p className="text-white/55 text-xs leading-relaxed mb-3 sm:hidden">
-                  Wir rufen Sie zurück und beraten Sie kostenlos.
                 </p>
                 <button
                   onClick={() => setState('form')}
-                  className="flex items-center gap-1.5 py-2 px-4 rounded-lg font-bold text-xs whitespace-nowrap transition-all hover:opacity-90"
-                  style={{ background: GOLD, color: NAVY }}
+                  className="flex items-center gap-2 py-2.5 px-4 rounded-lg font-bold text-sm whitespace-nowrap transition-colors"
+                  style={{ background: '#2a3a4e', border: `2px solid ${GOLD}`, color: '#fff' }}
+                  onMouseEnter={e => (e.currentTarget.style.background = '#354d65')}
+                  onMouseLeave={e => (e.currentTarget.style.background = '#2a3a4e')}
                 >
-                  <Phone className="w-3.5 h-3.5 shrink-0" />
+                  <Phone className="w-4 h-4 shrink-0" />
                   Rückruf anfordern
                 </button>
               </div>
 
-              {/* Right: circular photo */}
-              <div className="shrink-0">
+              {/* Circular photo — overflows the right edge */}
+              <div
+                className="shrink-0 rounded-full overflow-hidden"
+                style={{
+                  width: 120,
+                  height: 120,
+                  border: `3px solid ${GOLD}`,
+                  marginRight: -28,
+                  marginBottom: -4,
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.35)',
+                }}
+              >
                 <img
                   src="/images/consultant.png"
                   alt="Solarberater"
-                  className="rounded-full object-cover object-top"
-                  style={{
-                    width: 88,
-                    height: 88,
-                    border: `3px solid ${GOLD}`,
-                  }}
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
             </div>
