@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Suspense } from "react";
 import TrackingScripts from '@/components/TrackingScripts';
-import WhatsAppFloating from '@/components/WhatsAppFloating';
 import SupportPopup from '@/components/SupportPopup';
 
 const inter = Inter({ 
@@ -47,7 +46,6 @@ export default function RootLayout({
           <TrackingScripts />
         </Suspense>
         {children}
-        <WhatsAppFloating />
         <SupportPopup />
       </body>
     </html>

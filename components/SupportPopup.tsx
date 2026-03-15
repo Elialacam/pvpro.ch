@@ -6,6 +6,7 @@ import { X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import { hasConsent } from '@/lib/cookieConsent';
 
 export default function SupportPopup() {
   const pathname = usePathname();
@@ -14,10 +15,26 @@ export default function SupportPopup() {
 
   useEffect(() => {
     if (pathname === '/anfrage') return;
-    const already = sessionStorage.getItem('support-popup-dismissed');
-    if (already) return;
-    const timer = setTimeout(() => setVisible(true), 3500);
-    return () => clearTimeout(timer);
+    if (sessionStorage.getItem('support-popup-dismissed')) return;
+
+    let timer: ReturnType<typeof setTimeout> | null = null;
+
+    const startTimer = () => {
+      if (timer) return;
+      timer = setTimeout(() => setVisible(true), 15000);
+    };
+
+    if (hasConsent()) {
+      startTimer();
+    }
+
+    const onConsent = () => startTimer();
+    window.addEventListener('pvpro:consent', onConsent);
+
+    return () => {
+      window.removeEventListener('pvpro:consent', onConsent);
+      if (timer) clearTimeout(timer);
+    };
   }, [pathname]);
 
   const dismiss = () => {
@@ -36,13 +53,12 @@ export default function SupportPopup() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.96 }}
           transition={{ duration: 0.35, ease: 'easeOut' }}
-          className="fixed bottom-6 left-5 z-[9999] w-[340px] sm:w-[370px]"
+          className="fixed bottom-6 right-5 z-[9990] w-[340px] sm:w-[370px]"
         >
           <div
             className="relative rounded-2xl overflow-hidden shadow-2xl flex flex-row items-stretch"
             style={{ background: '#1a2e4a' }}
           >
-            {/* Close button */}
             <button
               onClick={dismiss}
               className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center transition-colors hover:bg-white/20 z-10"
@@ -51,7 +67,6 @@ export default function SupportPopup() {
               <X className="w-4 h-4 text-white/70" />
             </button>
 
-            {/* Left: text content */}
             <div className="flex-1 p-5 pr-3 flex flex-col justify-center gap-3">
               <div>
                 <p className="text-white font-black text-lg leading-tight">
@@ -70,7 +85,6 @@ export default function SupportPopup() {
               </Link>
             </div>
 
-            {/* Right: circular photo */}
             <div className="flex items-center justify-center px-4 py-4 shrink-0">
               <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-white/20 shadow-lg">
                 <Image

@@ -117,12 +117,14 @@ export default function CookieConsentBanner({ onConsentChange }: { onConsentChan
     const consent = acceptAll();
     onConsentChange(consent);
     setVisible(false);
+    window.dispatchEvent(new CustomEvent('pvpro:consent'));
   }, [onConsentChange]);
 
   const handleReject = useCallback(() => {
     const consent = rejectAll();
     onConsentChange(consent);
     setVisible(false);
+    window.dispatchEvent(new CustomEvent('pvpro:consent'));
   }, [onConsentChange]);
 
   const handleSaveCustom = useCallback(() => {
@@ -130,6 +132,7 @@ export default function CookieConsentBanner({ onConsentChange }: { onConsentChan
     onConsentChange(consent);
     setVisible(false);
     setShowCustomize(false);
+    window.dispatchEvent(new CustomEvent('pvpro:consent'));
   }, [analyticsChecked, marketingChecked, onConsentChange]);
 
   if (!visible) return null;
