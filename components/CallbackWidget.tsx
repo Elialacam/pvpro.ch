@@ -7,9 +7,9 @@ import { X, Phone, Check } from 'lucide-react';
 
 type WidgetState = 'card' | 'form' | 'success' | 'hidden';
 
-const GOLD = '#D4AF37';
-const NAVY = '#1F2937';
-const GOLD50 = '#FDF8E8';
+const GOLD  = '#D4AF37';
+const NAVY  = '#1F2937';
+const CREAM = '#FDF8E8';
 
 export default function CallbackWidget() {
   const pathname = usePathname();
@@ -32,7 +32,7 @@ export default function CallbackWidget() {
     else if (p.startsWith('0041')) p = '0' + p.slice(4);
     if (p.length === 9 && !p.startsWith('0')) p = '0' + p;
     if (p.length === 10 && p.startsWith('0'))
-      return `${p.slice(0, 3)} ${p.slice(3, 6)} ${p.slice(6, 8)} ${p.slice(8, 10)}`;
+      return `${p.slice(0,3)} ${p.slice(3,6)} ${p.slice(6,8)} ${p.slice(8,10)}`;
     return p;
   };
 
@@ -73,77 +73,61 @@ export default function CallbackWidget() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.35, ease: 'easeOut' }}
-            className={[
-              /* mobile: full-width bottom bar */
-              'fixed bottom-0 left-0 right-0 z-[9998]',
-              'rounded-t-2xl',
-              /* desktop: bottom-right card, fixed width */
-              'sm:bottom-6 sm:right-6 sm:left-auto sm:rounded-2xl sm:w-[300px]',
-            ].join(' ')}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            /* mobile: full-width bottom sheet | desktop: 290px card bottom-right */
+            className="fixed bottom-0 left-0 right-0 z-[9998] rounded-t-2xl sm:bottom-6 sm:right-6 sm:left-auto sm:w-72 sm:rounded-2xl shadow-2xl"
             style={{ background: NAVY }}
           >
-            {/* Gold top accent */}
-            <div className="h-1 rounded-t-2xl" style={{ background: GOLD }} />
+            {/* gold top stripe */}
+            <div className="h-1 rounded-t-2xl sm:rounded-t-2xl" style={{ background: GOLD }} />
 
-            {/* Dismiss */}
+            {/* dismiss */}
             <button
               onClick={() => setState('hidden')}
-              className="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors z-10"
-              aria-label="Schliessen"
+              className="absolute top-2.5 right-3 z-10 w-7 h-7 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors"
             >
               <X className="w-4 h-4 text-white/50" />
             </button>
 
-            {/* ── Layout: text + overflowing photo ── */}
-            <div className="flex items-stretch overflow-visible">
+            {/* ── Row: text LEFT  |  photo RIGHT ── */}
+            <div className="flex items-center gap-0 px-4 py-4 pr-3">
 
-              {/* Text column */}
-              <div className="flex-1 px-5 pt-4 pb-5 min-w-0">
-                <p
-                  className="text-xs font-bold uppercase tracking-widest mb-1"
-                  style={{ color: GOLD }}
-                >
+              {/* Left: all text + button */}
+              <div className="flex-1 min-w-0 pr-3">
+                <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5" style={{ color: GOLD }}>
                   Kostenlose Beratung
                 </p>
-                <h3 className="text-white font-black text-lg leading-tight mb-2 sm:text-base">
-                  Wir rufen Sie<br className="sm:hidden" /> kostenlos zurück
+                <h3 className="text-white font-black text-base leading-tight mb-1.5">
+                  Wir rufen Sie<br />kostenlos zurück
                 </h3>
-                <p className="text-white/60 text-xs leading-relaxed mb-4 pr-2">
+                <p className="text-white/55 text-xs leading-relaxed mb-3 hidden sm:block">
                   Mit wenigen Klicks zur kostenlosen Offerte. Wir rufen Sie zurück und besprechen gemeinsam Ihr Anliegen.
+                </p>
+                <p className="text-white/55 text-xs leading-relaxed mb-3 sm:hidden">
+                  Wir rufen Sie zurück und beraten Sie kostenlos.
                 </p>
                 <button
                   onClick={() => setState('form')}
-                  className="flex items-center gap-2 py-2.5 px-5 rounded-xl font-bold text-sm transition-all hover:opacity-90"
+                  className="flex items-center gap-1.5 py-2 px-4 rounded-lg font-bold text-xs whitespace-nowrap transition-all hover:opacity-90"
                   style={{ background: GOLD, color: NAVY }}
                 >
-                  <Phone className="w-4 h-4" />
+                  <Phone className="w-3.5 h-3.5 shrink-0" />
                   Rückruf anfordern
                 </button>
               </div>
 
-              {/* Photo — overflows upward and to the right on desktop */}
-              <div
-                className="shrink-0 flex items-end pr-4 pb-4 sm:pr-0"
-                style={{ width: 110 }}
-              >
-                <div
-                  className="relative overflow-hidden rounded-full"
+              {/* Right: circular photo */}
+              <div className="shrink-0">
+                <img
+                  src="/images/consultant.png"
+                  alt="Solarberater"
+                  className="rounded-full object-cover object-top"
                   style={{
-                    width: 100,
-                    height: 100,
+                    width: 88,
+                    height: 88,
                     border: `3px solid ${GOLD}`,
-                    /* on desktop: protrude above the card top */
-                    marginTop: -20,
-                    marginBottom: 0,
                   }}
-                >
-                  <img
-                    src="/images/consultant.png"
-                    alt="Solarberater"
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
+                />
               </div>
             </div>
           </motion.div>
@@ -176,28 +160,22 @@ export default function CallbackWidget() {
                   className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden"
                 >
                   {/* Header */}
-                  <div
-                    className="flex items-center justify-between px-6 py-5"
-                    style={{ background: NAVY }}
-                  >
+                  <div className="flex items-center justify-between px-5 py-4" style={{ background: NAVY }}>
                     <div className="flex items-center gap-3">
                       <img
                         src="/images/consultant.png"
                         alt="Solarberater"
-                        className="w-12 h-12 rounded-full object-cover object-top shrink-0"
+                        className="w-11 h-11 rounded-full object-cover object-top shrink-0"
                         style={{ border: `2px solid ${GOLD}` }}
                       />
                       <div>
-                        <p
-                          className="text-xs font-bold uppercase tracking-widest"
-                          style={{ color: GOLD }}
-                        >
+                        <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: GOLD }}>
                           Kostenlose Beratung
                         </p>
-                        <h2 className="font-black text-white text-base leading-tight">
+                        <h2 className="font-black text-white text-sm leading-tight">
                           Rückruf anfordern
                         </h2>
-                        <p className="text-white/50 text-xs mt-0.5">Wir melden uns innerhalb von 24h</p>
+                        <p className="text-white/50 text-[11px] mt-0.5">Wir melden uns innerhalb von 24h</p>
                       </div>
                     </div>
                     <button
@@ -210,12 +188,9 @@ export default function CallbackWidget() {
                   <div className="h-1" style={{ background: GOLD }} />
 
                   {/* Fields */}
-                  <div className="px-6 py-6 space-y-4" style={{ background: GOLD50 }}>
+                  <div className="px-5 py-5 space-y-4" style={{ background: CREAM }}>
                     <div>
-                      <label
-                        className="block text-xs font-bold uppercase tracking-wide mb-1.5"
-                        style={{ color: NAVY }}
-                      >
+                      <label className="block text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: NAVY }}>
                         Vor- und Nachname *
                       </label>
                       <input
@@ -229,13 +204,10 @@ export default function CallbackWidget() {
                     </div>
 
                     <div>
-                      <label
-                        className="block text-xs font-bold uppercase tracking-wide mb-1.5"
-                        style={{ color: NAVY }}
-                      >
+                      <label className="block text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: NAVY }}>
                         Telefonnummer *
                       </label>
-                      <div className={`flex items-center rounded-xl border-2 overflow-hidden bg-white transition-colors ${errors.phone ? 'border-red-300' : 'border-gray-200'}`}>
+                      <div className={`flex items-center rounded-xl border-2 overflow-hidden bg-white ${errors.phone ? 'border-red-300' : 'border-gray-200'}`}>
                         <div className="flex items-center gap-1.5 pl-4 pr-3 py-3 border-r border-gray-200 shrink-0">
                           <svg width="18" height="13" viewBox="0 0 20 15" fill="none">
                             <rect width="20" height="15" rx="2" fill="#D52B1E"/>
@@ -255,10 +227,7 @@ export default function CallbackWidget() {
                     </div>
 
                     <div>
-                      <label
-                        className="block text-xs font-bold uppercase tracking-wide mb-1.5"
-                        style={{ color: NAVY }}
-                      >
+                      <label className="block text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: NAVY }}>
                         E-Mail *
                       </label>
                       <input
@@ -275,14 +244,14 @@ export default function CallbackWidget() {
                     <button
                       onClick={handleSubmit}
                       disabled={submitting}
-                      className="w-full py-3.5 rounded-xl font-black text-sm flex items-center justify-center gap-2 transition-opacity hover:opacity-90 disabled:opacity-60 mt-2"
+                      className="w-full py-3.5 rounded-xl font-black text-sm flex items-center justify-center gap-2 transition-opacity hover:opacity-90 disabled:opacity-60"
                       style={{ background: GOLD, color: NAVY }}
                     >
                       <Phone className="w-4 h-4" />
                       {submitting ? 'Wird gesendet…' : 'Rückruf anfordern'}
                     </button>
 
-                    <p className="text-[11px] text-center text-gray-400 leading-relaxed">
+                    <p className="text-[11px] text-center text-gray-400">
                       Mit dem Absenden stimmen Sie unserer{' '}
                       <a href="/datenschutz" className="underline hover:text-gray-600">Datenschutzerklärung</a> zu.
                     </p>
@@ -303,7 +272,7 @@ export default function CallbackWidget() {
                   <div className="p-8 text-center">
                     <div
                       className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                      style={{ background: GOLD50, border: `2px solid ${GOLD}` }}
+                      style={{ background: CREAM, border: `2px solid ${GOLD}` }}
                     >
                       <Check className="w-8 h-8" style={{ color: GOLD }} strokeWidth={2.5} />
                     </div>
