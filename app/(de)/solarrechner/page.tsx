@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 import SolarCalculator from '@/components/SolarCalculator';
+import CtaAnfrage from '@/components/CtaAnfrage';
 import { CheckCircle, Calculator, Zap, TrendingUp, PiggyBank } from 'lucide-react';
 
 
@@ -212,10 +212,14 @@ export default function SolarrechnerPage() {
 
       {/* CTA Section */}
       <section className="section-padding bg-primary-50">
-        <div className="container-custom text-center">
-          <Link href="/anfrage" className="inline-flex items-center gap-2 btn-primary py-4 px-10 rounded-2xl text-lg font-black shadow-lg">
-            Kostenlose Offerte anfordern →
-          </Link>
+        <div className="container-custom">
+          <div className="max-w-2xl mx-auto">
+            <CtaAnfrage
+              title="Bereit für konkrete Offerten?"
+              subtitle="Unser Rechner gibt eine erste Orientierung. Für verbindliche Angebote vermitteln wir Sie kostenlos an geprüfte Schweizer Solarteure."
+              ctaText="Kostenlose Offerte anfordern"
+            />
+          </div>
         </div>
       </section>
 

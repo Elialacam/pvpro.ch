@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import CtaAnfrage from '@/components/CtaAnfrage';
 import Link from 'next/link';
 import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
 
@@ -419,10 +420,14 @@ export default function SolaranlageKostenPage() {
 
       {/* CTA Offerte */}
       <section className="section-padding bg-primary-50">
-        <div className="container-custom text-center">
-          <Link href="/anfrage" className="inline-flex items-center gap-2 btn-primary py-4 px-10 rounded-2xl text-lg font-black shadow-lg">
-            Kostenlose Offerte anfordern →
-          </Link>
+        <div className="container-custom">
+          <div className="max-w-2xl mx-auto">
+            <CtaAnfrage
+              title="Jetzt kostenlose Offerten erhalten"
+              subtitle="Vergleichen Sie bis zu 3 Angebote von geprüften Schweizer Solarteuren. In 2 Minuten fertig."
+              ctaText="Kostenlose Offerte anfordern"
+            />
+          </div>
         </div>
       </section>
 
