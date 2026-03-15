@@ -114,16 +114,17 @@ export default function CallbackWidget() {
                 </button>
               </div>
 
-              {/* Circular photo — overflows the right edge */}
+              {/* Circular photo — overflows significantly to the right */}
               <div
                 className="shrink-0 rounded-full overflow-hidden"
                 style={{
-                  width: 120,
-                  height: 120,
+                  width: 140,
+                  height: 140,
                   border: `3px solid ${GOLD}`,
-                  marginRight: -28,
-                  marginBottom: -4,
-                  boxShadow: '0 4px 20px rgba(0,0,0,0.35)',
+                  marginRight: -60,
+                  marginTop: -20,
+                  boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
+                  flexShrink: 0,
                 }}
               >
                 <img
