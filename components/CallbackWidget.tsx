@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Phone, Check } from 'lucide-react';
+import { X, Phone } from 'lucide-react';
 
 type WidgetState = 'card' | 'form' | 'success' | 'hidden';
 
@@ -59,7 +59,7 @@ export default function CallbackWidget() {
     <div className="fixed bottom-6 right-6 z-[9998]">
       <AnimatePresence mode="wait">
 
-        {/* ── Floating card ── */}
+        {/* ── Floating card — Helion style ── */}
         {state === 'card' && (
           <motion.div
             key="card"
@@ -67,48 +67,47 @@ export default function CallbackWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.95 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="relative w-72 rounded-2xl shadow-2xl overflow-hidden"
-            style={{ background: '#0f172a' }}
+            className="relative rounded-2xl shadow-2xl overflow-visible"
+            style={{ background: '#29B4F3', width: 300 }}
           >
-            {/* Dismiss */}
+            {/* X dismiss */}
             <button
               onClick={() => setState('hidden')}
-              className="absolute top-3 right-3 w-6 h-6 flex items-center justify-center rounded-full text-white/40 hover:text-white transition-colors"
+              className="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors z-10"
               aria-label="Schliessen"
             >
-              <X className="w-4 h-4" />
+              <X className="w-4 h-4 text-white" />
             </button>
 
-            <div className="p-5 pr-4">
-              <div className="flex items-start gap-3">
-                {/* Text */}
-                <div className="flex-1 min-w-0">
-                  <p className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-1">Kostenlose Beratung</p>
-                  <h3 className="text-white font-black text-base leading-tight mb-2">
-                    Wir rufen Sie<br />kostenlos zurück
-                  </h3>
-                  <p className="text-white/60 text-xs leading-relaxed">
-                    In wenigen Minuten zur persönlichen Solarberatung. Unverbindlich.
-                  </p>
-                </div>
-                {/* Photo */}
-                <div className="shrink-0">
-                  <img
-                    src="/images/team-photo.png"
-                    alt="Solarberater"
-                    className="w-16 h-16 rounded-full object-cover border-2 border-white/20"
-                  />
-                </div>
+            {/* Content row */}
+            <div className="flex items-end pt-5 pb-5 pl-5 pr-3 gap-2">
+              {/* Text + button */}
+              <div className="flex-1 min-w-0">
+                <h3 className="text-white font-black text-xl leading-tight mb-2">
+                  Kostenlose<br />Beratung
+                </h3>
+                <p className="text-white/90 text-xs leading-relaxed mb-4">
+                  Mit wenigen Klicks zur kostenlosen Offerte. Wir rufen Sie zurück und besprechen gemeinsam Ihr Anliegen.
+                </p>
+                <button
+                  onClick={() => setState('form')}
+                  className="flex items-center gap-2 py-2.5 px-5 rounded-lg font-bold text-sm text-white transition-all hover:bg-gray-800"
+                  style={{ background: '#1a2332' }}
+                >
+                  <Phone className="w-4 h-4" />
+                  Rückruf anfordern
+                </button>
               </div>
 
-              <button
-                onClick={() => setState('form')}
-                className="mt-4 w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-bold text-sm text-gray-900 transition-all hover:opacity-90"
-                style={{ background: '#F97316', color: '#fff' }}
-              >
-                <Phone className="w-4 h-4" />
-                Rückruf anfordern
-              </button>
+              {/* Consultant photo — cut off at bottom like Helion */}
+              <div className="shrink-0 self-end" style={{ marginBottom: -20, marginRight: -8 }}>
+                <img
+                  src="/images/consultant.png"
+                  alt="Solarberater"
+                  className="rounded-full object-cover object-top border-2 border-white/30"
+                  style={{ width: 100, height: 100 }}
+                />
+              </div>
             </div>
           </motion.div>
         )}
@@ -123,17 +122,17 @@ export default function CallbackWidget() {
             transition={{ duration: 0.25, ease: 'easeOut' }}
             className="w-80 bg-white rounded-2xl shadow-2xl overflow-hidden"
           >
-            {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+            {/* Header — same blue as card */}
+            <div className="flex items-center justify-between px-5 py-4" style={{ background: '#29B4F3' }}>
               <div>
-                <h3 className="font-black text-gray-900 text-base">Rückruf anfordern</h3>
-                <p className="text-xs text-gray-400 mt-0.5">Wir melden uns innerhalb von 24h</p>
+                <h3 className="font-black text-white text-base">Rückruf anfordern</h3>
+                <p className="text-white/80 text-xs mt-0.5">Wir melden uns innerhalb von 24h</p>
               </div>
               <button
                 onClick={() => setState('card')}
-                className="w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+                className="w-7 h-7 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors"
               >
-                <X className="w-4 h-4 text-gray-400" />
+                <X className="w-4 h-4 text-white" />
               </button>
             </div>
 
@@ -141,11 +140,11 @@ export default function CallbackWidget() {
             <div className="p-5 space-y-3">
               <input
                 placeholder="Vor- und Nachname *"
-                className={`w-full px-4 py-3 rounded-xl border-2 text-sm outline-none focus:border-orange-400 transition-colors ${errors.name ? 'border-red-300' : 'border-gray-200'}`}
+                className={`w-full px-4 py-3 rounded-xl border-2 text-sm outline-none focus:border-sky-400 transition-colors ${errors.name ? 'border-red-300' : 'border-gray-200'}`}
                 value={formData.name}
                 onChange={e => { setFormData(p => ({ ...p, name: e.target.value })); setErrors(p => ({ ...p, name: false })); }}
               />
-              <div className={`flex items-center rounded-xl border-2 overflow-hidden focus-within:border-orange-400 transition-colors ${errors.phone ? 'border-red-300' : 'border-gray-200'}`}>
+              <div className={`flex items-center rounded-xl border-2 overflow-hidden focus-within:border-sky-400 transition-colors ${errors.phone ? 'border-red-300' : 'border-gray-200'}`}>
                 <div className="flex items-center gap-1.5 pl-3 pr-2 py-3 border-r border-gray-200 shrink-0">
                   <svg width="18" height="13" viewBox="0 0 20 15" fill="none">
                     <rect width="20" height="15" rx="2" fill="#D52B1E"/>
@@ -165,7 +164,7 @@ export default function CallbackWidget() {
               <input
                 type="email"
                 placeholder="E-Mail *"
-                className={`w-full px-4 py-3 rounded-xl border-2 text-sm outline-none focus:border-orange-400 transition-colors ${errors.email ? 'border-red-300' : 'border-gray-200'}`}
+                className={`w-full px-4 py-3 rounded-xl border-2 text-sm outline-none focus:border-sky-400 transition-colors ${errors.email ? 'border-red-300' : 'border-gray-200'}`}
                 value={formData.email}
                 onChange={e => { setFormData(p => ({ ...p, email: e.target.value })); setErrors(p => ({ ...p, email: false })); }}
               />
@@ -173,8 +172,8 @@ export default function CallbackWidget() {
               <button
                 onClick={handleSubmit}
                 disabled={submitting}
-                className="w-full py-3 rounded-xl font-bold text-white text-sm flex items-center justify-center gap-2 transition-opacity hover:opacity-90 disabled:opacity-60"
-                style={{ background: '#F97316' }}
+                className="w-full py-3 rounded-xl font-bold text-white text-sm transition-opacity hover:opacity-90 disabled:opacity-60"
+                style={{ background: '#1a2332' }}
               >
                 {submitting ? 'Wird gesendet…' : 'Absenden'}
               </button>
@@ -193,16 +192,19 @@ export default function CallbackWidget() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, type: 'spring', stiffness: 200 }}
-            className="w-72 bg-white rounded-2xl shadow-2xl p-6 text-center"
+            className="w-72 rounded-2xl shadow-2xl p-6 text-center"
+            style={{ background: '#29B4F3' }}
           >
-            <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3">
-              <Check className="w-7 h-7 text-green-500" strokeWidth={2.5} />
+            <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-3">
+              <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
             </div>
-            <h3 className="font-black text-gray-900 text-base mb-1">Anfrage erhalten!</h3>
-            <p className="text-sm text-gray-500 mb-4">Wir melden uns so bald wie möglich bei Ihnen.</p>
+            <h3 className="font-black text-white text-base mb-1">Vielen Dank!</h3>
+            <p className="text-sm text-white/80 mb-4">Wir melden uns so bald wie möglich bei Ihnen.</p>
             <button
               onClick={() => setState('hidden')}
-              className="text-xs text-gray-400 hover:text-gray-600 font-semibold"
+              className="text-xs text-white/70 hover:text-white font-semibold"
             >
               Schliessen
             </button>
