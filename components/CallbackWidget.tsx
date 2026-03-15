@@ -11,6 +11,15 @@ const GOLD  = '#D4AF37';
 const NAVY  = '#1F2937';
 const CREAM = '#FDF8E8';
 
+/* Dimensions that mirror the Helion skeleton exactly:
+   - Card background: 250px wide
+   - Photo: 120px circle, center aligned to right edge of card
+     → left 60px of photo inside card, right 60px outside
+   - Total outer wrapper: 250 + 60 = 310px                       */
+const CARD_W  = 250;
+const PHOTO_D = 120;
+const WRAP_W  = CARD_W + PHOTO_D / 2; // 310px
+
 export default function CallbackWidget() {
   const pathname = usePathname();
   const [state, setState] = useState<WidgetState>('card');
@@ -65,66 +74,71 @@ export default function CallbackWidget() {
 
   return (
     <>
-      {/* ─── Floating card ─── */}
+      {/* ════════════════════════════════
+          FLOATING CARD
+          Desktop: bottom-right, fixed width
+          Mobile:  full-width bottom bar
+         ════════════════════════════════ */}
       <AnimatePresence>
         {state === 'card' && (
           <motion.div
             key="card"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
+            exit={{ opacity: 0, y: 24 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            /* mobile: full-width bottom  |  desktop: 280px bottom-right */
-            className="fixed bottom-0 left-0 right-0 z-[9998] rounded-t-2xl
-                       sm:bottom-6 sm:right-6 sm:left-auto sm:w-[280px] sm:rounded-2xl
-                       shadow-2xl"
-            style={{ background: NAVY, overflow: 'visible' }}
           >
-            {/* Gold top stripe */}
-            <div className="h-1 rounded-t-2xl sm:rounded-t-2xl" style={{ background: GOLD }} />
-
-            {/* X dismiss */}
-            <button
-              onClick={() => setState('hidden')}
-              className="absolute top-2 right-2 z-10 w-7 h-7 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors"
+            {/* ── DESKTOP layout ── */}
+            <div
+              className="hidden sm:block fixed z-[9998]"
+              style={{ bottom: 24, right: 24, width: WRAP_W }}
             >
-              <X className="w-4 h-4 text-white/50" />
-            </button>
-
-            {/* ── Row: text LEFT | photo RIGHT (overflows card) ── */}
-            <div className="flex items-end pl-4 pt-4 pb-4">
-
-              {/* Text + button */}
-              <div className="flex-1 min-w-0 pr-3">
-                <h3 className="text-white font-black leading-tight mb-2" style={{ fontSize: 20 }}>
-                  Kostenlose<br />Beratung
-                </h3>
-                <p className="text-white/65 text-xs leading-relaxed mb-4">
-                  Mit wenigen Klicks zur kostenlosen Offerte. Wir rufen Sie zurück und besprechen gemeinsam Ihr Anliegen.
-                </p>
+              {/* Card background */}
+              <div
+                className="relative rounded-2xl shadow-2xl"
+                style={{ background: NAVY, width: CARD_W }}
+              >
+                {/* X button — top-right of card background */}
                 <button
-                  onClick={() => setState('form')}
-                  className="flex items-center gap-2 py-2.5 px-4 rounded-lg font-bold text-sm whitespace-nowrap transition-colors"
-                  style={{ background: '#2a3a4e', border: `2px solid ${GOLD}`, color: '#fff' }}
-                  onMouseEnter={e => (e.currentTarget.style.background = '#354d65')}
-                  onMouseLeave={e => (e.currentTarget.style.background = '#2a3a4e')}
+                  onClick={() => setState('hidden')}
+                  className="absolute top-2.5 right-2.5 w-7 h-7 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors z-10"
                 >
-                  <Phone className="w-4 h-4 shrink-0" />
-                  Rückruf anfordern
+                  <X className="w-4 h-4 text-white/60" />
                 </button>
+
+                {/* Text content */}
+                <div className="px-5 pt-5 pb-5" style={{ paddingRight: 70 }}>
+                  <h3
+                    className="font-black text-white leading-snug mb-2"
+                    style={{ fontSize: 22 }}
+                  >
+                    Kostenlose<br />Beratung
+                  </h3>
+                  <p className="text-white/70 text-xs leading-relaxed mb-4">
+                    Mit wenigen Klicks zur kostenlosen Offerte. Wir rufen Sie zurück und besprechen gemeinsam Ihr Anliegen.
+                  </p>
+                  <button
+                    onClick={() => setState('form')}
+                    className="w-full flex items-center justify-center gap-2 font-bold text-sm py-2.5 rounded-lg transition-colors"
+                    style={{ background: '#111827', color: '#fff', border: 'none' }}
+                    onMouseEnter={e => (e.currentTarget.style.background = '#1f3044')}
+                    onMouseLeave={e => (e.currentTarget.style.background = '#111827')}
+                  >
+                    Rückruf anfordern
+                  </button>
+                </div>
               </div>
 
-              {/* Circular photo — overflows significantly to the right */}
+              {/* Photo — center on right edge of card */}
               <div
-                className="shrink-0 rounded-full overflow-hidden"
+                className="absolute rounded-full overflow-hidden shadow-xl"
                 style={{
-                  width: 130,
-                  height: 130,
-                  border: `3px solid ${GOLD}`,
-                  marginRight: -40,
-                  marginTop: -16,
-                  boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
-                  flexShrink: 0,
+                  width: PHOTO_D,
+                  height: PHOTO_D,
+                  right: 0,
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  border: '3px solid #fff',
                 }}
               >
                 <img
@@ -134,11 +148,59 @@ export default function CallbackWidget() {
                 />
               </div>
             </div>
+
+            {/* ── MOBILE layout: full-width bottom bar ── */}
+            <div
+              className="sm:hidden fixed bottom-0 left-0 right-0 z-[9998] rounded-t-2xl shadow-2xl"
+              style={{ background: NAVY }}
+            >
+              <div className="flex items-center px-4 py-4 gap-3">
+                {/* Text + button */}
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-black text-white text-base leading-tight mb-1">
+                    Kostenlose Beratung
+                  </h3>
+                  <p className="text-white/65 text-xs leading-relaxed mb-3">
+                    Wir rufen Sie kostenlos zurück — unverbindlich.
+                  </p>
+                  <button
+                    onClick={() => setState('form')}
+                    className="flex items-center gap-2 font-bold text-sm py-2 px-4 rounded-lg"
+                    style={{ background: '#111827', color: '#fff' }}
+                  >
+                    <Phone className="w-4 h-4 shrink-0" />
+                    Rückruf anfordern
+                  </button>
+                </div>
+
+                {/* Photo */}
+                <div
+                  className="shrink-0 rounded-full overflow-hidden"
+                  style={{ width: 80, height: 80, border: '2px solid #fff' }}
+                >
+                  <img
+                    src="/images/consultant.png"
+                    alt="Solarberater"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+
+                {/* X */}
+                <button
+                  onClick={() => setState('hidden')}
+                  className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full hover:bg-white/10"
+                >
+                  <X className="w-3.5 h-3.5 text-white/50" />
+                </button>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* ─── Centered modal overlay ─── */}
+      {/* ════════════════════════════════
+          FORM MODAL (centered overlay)
+         ════════════════════════════════ */}
       <AnimatePresence>
         {(state === 'form' || state === 'success') && (
           <motion.div
@@ -153,7 +215,6 @@ export default function CallbackWidget() {
           >
             <AnimatePresence mode="wait">
 
-              {/* Form modal */}
               {state === 'form' && (
                 <motion.div
                   key="form-modal"
@@ -176,9 +237,7 @@ export default function CallbackWidget() {
                         <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: GOLD }}>
                           Kostenlose Beratung
                         </p>
-                        <h2 className="font-black text-white text-sm leading-tight">
-                          Rückruf anfordern
-                        </h2>
+                        <h2 className="font-black text-white text-sm leading-tight">Rückruf anfordern</h2>
                         <p className="text-white/50 text-[11px] mt-0.5">Wir melden uns innerhalb von 24h</p>
                       </div>
                     </div>
@@ -206,7 +265,6 @@ export default function CallbackWidget() {
                         onChange={e => { setFormData(p => ({ ...p, name: e.target.value })); setErrors(p => ({ ...p, name: false })); }}
                       />
                     </div>
-
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: NAVY }}>
                         Telefonnummer *
@@ -229,7 +287,6 @@ export default function CallbackWidget() {
                         />
                       </div>
                     </div>
-
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: NAVY }}>
                         E-Mail *
@@ -244,7 +301,6 @@ export default function CallbackWidget() {
                         onChange={e => { setFormData(p => ({ ...p, email: e.target.value })); setErrors(p => ({ ...p, email: false })); }}
                       />
                     </div>
-
                     <button
                       onClick={handleSubmit}
                       disabled={submitting}
@@ -254,7 +310,6 @@ export default function CallbackWidget() {
                       <Phone className="w-4 h-4" />
                       {submitting ? 'Wird gesendet…' : 'Rückruf anfordern'}
                     </button>
-
                     <p className="text-[11px] text-center text-gray-400">
                       Mit dem Absenden stimmen Sie unserer{' '}
                       <a href="/datenschutz" className="underline hover:text-gray-600">Datenschutzerklärung</a> zu.
@@ -263,7 +318,6 @@ export default function CallbackWidget() {
                 </motion.div>
               )}
 
-              {/* Success */}
               {state === 'success' && (
                 <motion.div
                   key="success-modal"
@@ -274,16 +328,11 @@ export default function CallbackWidget() {
                 >
                   <div className="h-1" style={{ background: GOLD }} />
                   <div className="p-8 text-center">
-                    <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                      style={{ background: CREAM, border: `2px solid ${GOLD}` }}
-                    >
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: CREAM, border: `2px solid ${GOLD}` }}>
                       <Check className="w-8 h-8" style={{ color: GOLD }} strokeWidth={2.5} />
                     </div>
                     <h3 className="font-black text-xl mb-2" style={{ color: NAVY }}>Vielen Dank!</h3>
-                    <p className="text-sm text-gray-500 mb-6">
-                      Wir haben Ihre Anfrage erhalten und melden uns so bald wie möglich bei Ihnen.
-                    </p>
+                    <p className="text-sm text-gray-500 mb-6">Wir haben Ihre Anfrage erhalten und melden uns so bald wie möglich bei Ihnen.</p>
                     <button
                       onClick={() => setState('hidden')}
                       className="py-2.5 px-8 rounded-xl font-bold text-sm text-white"
