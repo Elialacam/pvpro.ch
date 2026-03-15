@@ -7,8 +7,8 @@ import { X, Phone, Check } from 'lucide-react';
 
 type WidgetState = 'card' | 'form' | 'success' | 'hidden';
 
-const GOLD   = '#D4AF37';
-const NAVY   = '#1F2937';
+const GOLD = '#D4AF37';
+const NAVY = '#1F2937';
 const GOLD50 = '#FDF8E8';
 
 export default function CallbackWidget() {
@@ -43,7 +43,6 @@ export default function CallbackWidget() {
     if (!formData.email.trim()) errs.email = true;
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
-
     setSubmitting(true);
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
@@ -66,45 +65,56 @@ export default function CallbackWidget() {
 
   return (
     <>
-      {/* ─── Floating card (bottom-right) ─── */}
+      {/* ─── Floating card ─── */}
       <AnimatePresence>
         {state === 'card' && (
           <motion.div
             key="card"
-            initial={{ opacity: 0, y: 24, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 16, scale: 0.95 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="fixed bottom-6 right-6 z-[9998] rounded-2xl shadow-2xl overflow-visible"
-            style={{ background: NAVY, width: 300 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.35, ease: 'easeOut' }}
+            className={[
+              /* mobile: full-width bottom bar */
+              'fixed bottom-0 left-0 right-0 z-[9998]',
+              'rounded-t-2xl',
+              /* desktop: bottom-right card, fixed width */
+              'sm:bottom-6 sm:right-6 sm:left-auto sm:rounded-2xl sm:w-[300px]',
+            ].join(' ')}
+            style={{ background: NAVY }}
           >
-            {/* Golden top accent line */}
+            {/* Gold top accent */}
             <div className="h-1 rounded-t-2xl" style={{ background: GOLD }} />
 
             {/* Dismiss */}
             <button
               onClick={() => setState('hidden')}
-              className="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors"
+              className="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors z-10"
               aria-label="Schliessen"
             >
               <X className="w-4 h-4 text-white/50" />
             </button>
 
-            <div className="flex items-end pt-4 pb-5 pl-5 pr-2 gap-2">
-              {/* Text + button */}
-              <div className="flex-1 min-w-0">
-                <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: GOLD }}>
+            {/* ── Layout: text + overflowing photo ── */}
+            <div className="flex items-stretch overflow-visible">
+
+              {/* Text column */}
+              <div className="flex-1 px-5 pt-4 pb-5 min-w-0">
+                <p
+                  className="text-xs font-bold uppercase tracking-widest mb-1"
+                  style={{ color: GOLD }}
+                >
                   Kostenlose Beratung
                 </p>
-                <h3 className="text-white font-black text-lg leading-tight mb-2">
-                  Wir rufen Sie<br />kostenlos zurück
+                <h3 className="text-white font-black text-lg leading-tight mb-2 sm:text-base">
+                  Wir rufen Sie<br className="sm:hidden" /> kostenlos zurück
                 </h3>
-                <p className="text-white/60 text-xs leading-relaxed mb-4">
-                  Mit wenigen Klicks zur kostenlosen Offerte. Unverbindlich &amp; persönlich.
+                <p className="text-white/60 text-xs leading-relaxed mb-4 pr-2">
+                  Mit wenigen Klicks zur kostenlosen Offerte. Wir rufen Sie zurück und besprechen gemeinsam Ihr Anliegen.
                 </p>
                 <button
                   onClick={() => setState('form')}
-                  className="flex items-center gap-2 py-2.5 px-4 rounded-xl font-bold text-sm transition-all hover:opacity-90"
+                  className="flex items-center gap-2 py-2.5 px-5 rounded-xl font-bold text-sm transition-all hover:opacity-90"
                   style={{ background: GOLD, color: NAVY }}
                 >
                   <Phone className="w-4 h-4" />
@@ -112,14 +122,28 @@ export default function CallbackWidget() {
                 </button>
               </div>
 
-              {/* Photo — overflows bottom */}
-              <div className="shrink-0 self-end" style={{ marginBottom: -20, marginRight: -6 }}>
-                <img
-                  src="/images/consultant.png"
-                  alt="Solarberater"
-                  className="rounded-full object-cover object-top"
-                  style={{ width: 96, height: 96, border: `3px solid ${GOLD}` }}
-                />
+              {/* Photo — overflows upward and to the right on desktop */}
+              <div
+                className="shrink-0 flex items-end pr-4 pb-4 sm:pr-0"
+                style={{ width: 110 }}
+              >
+                <div
+                  className="relative overflow-hidden rounded-full"
+                  style={{
+                    width: 100,
+                    height: 100,
+                    border: `3px solid ${GOLD}`,
+                    /* on desktop: protrude above the card top */
+                    marginTop: -20,
+                    marginBottom: 0,
+                  }}
+                >
+                  <img
+                    src="/images/consultant.png"
+                    alt="Solarberater"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
               </div>
             </div>
           </motion.div>
@@ -141,7 +165,7 @@ export default function CallbackWidget() {
           >
             <AnimatePresence mode="wait">
 
-              {/* Form */}
+              {/* Form modal */}
               {state === 'form' && (
                 <motion.div
                   key="form-modal"
@@ -152,7 +176,10 @@ export default function CallbackWidget() {
                   className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden"
                 >
                   {/* Header */}
-                  <div className="flex items-center justify-between px-6 py-5" style={{ background: NAVY }}>
+                  <div
+                    className="flex items-center justify-between px-6 py-5"
+                    style={{ background: NAVY }}
+                  >
                     <div className="flex items-center gap-3">
                       <img
                         src="/images/consultant.png"
@@ -161,7 +188,10 @@ export default function CallbackWidget() {
                         style={{ border: `2px solid ${GOLD}` }}
                       />
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: GOLD }}>
+                        <p
+                          className="text-xs font-bold uppercase tracking-widest"
+                          style={{ color: GOLD }}
+                        >
                           Kostenlose Beratung
                         </p>
                         <h2 className="font-black text-white text-base leading-tight">
@@ -177,20 +207,20 @@ export default function CallbackWidget() {
                       <X className="w-4 h-4 text-white/50" />
                     </button>
                   </div>
-
-                  {/* Golden accent line */}
                   <div className="h-1" style={{ background: GOLD }} />
 
                   {/* Fields */}
                   <div className="px-6 py-6 space-y-4" style={{ background: GOLD50 }}>
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: NAVY }}>
+                      <label
+                        className="block text-xs font-bold uppercase tracking-wide mb-1.5"
+                        style={{ color: NAVY }}
+                      >
                         Vor- und Nachname *
                       </label>
                       <input
                         placeholder="z.B. Max Muster"
                         className={`w-full px-4 py-3 rounded-xl border-2 text-sm outline-none transition-colors bg-white ${errors.name ? 'border-red-300' : 'border-gray-200'}`}
-                        style={{ ['--tw-ring-color' as string]: GOLD }}
                         onFocus={e => (e.target.style.borderColor = GOLD)}
                         onBlur={e => (e.target.style.borderColor = errors.name ? '#fca5a5' : '#e5e7eb')}
                         value={formData.name}
@@ -199,7 +229,10 @@ export default function CallbackWidget() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: NAVY }}>
+                      <label
+                        className="block text-xs font-bold uppercase tracking-wide mb-1.5"
+                        style={{ color: NAVY }}
+                      >
                         Telefonnummer *
                       </label>
                       <div className={`flex items-center rounded-xl border-2 overflow-hidden bg-white transition-colors ${errors.phone ? 'border-red-300' : 'border-gray-200'}`}>
@@ -222,7 +255,10 @@ export default function CallbackWidget() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wide mb-1.5" style={{ color: NAVY }}>
+                      <label
+                        className="block text-xs font-bold uppercase tracking-wide mb-1.5"
+                        style={{ color: NAVY }}
+                      >
                         E-Mail *
                       </label>
                       <input
@@ -277,8 +313,8 @@ export default function CallbackWidget() {
                     </p>
                     <button
                       onClick={() => setState('hidden')}
-                      className="py-2.5 px-8 rounded-xl font-bold text-sm"
-                      style={{ background: NAVY, color: '#fff' }}
+                      className="py-2.5 px-8 rounded-xl font-bold text-sm text-white"
+                      style={{ background: NAVY }}
                     >
                       Schliessen
                     </button>
