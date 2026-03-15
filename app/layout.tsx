@@ -5,7 +5,6 @@ import "./globals.css";
 import { Suspense } from "react";
 import TrackingScripts from '@/components/TrackingScripts';
 import WhatsAppFloating from '@/components/WhatsAppFloating';
-import RueckrufWidget from '@/components/RueckrufWidget';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -48,7 +47,6 @@ export default function RootLayout({
         </Suspense>
         {children}
         <WhatsAppFloating />
-        <RueckrufWidget />
       </body>
     </html>
   );
