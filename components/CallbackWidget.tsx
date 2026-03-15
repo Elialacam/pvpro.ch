@@ -118,11 +118,11 @@ export default function CallbackWidget() {
               <div
                 className="shrink-0 rounded-full overflow-hidden"
                 style={{
-                  width: 140,
-                  height: 140,
+                  width: 130,
+                  height: 130,
                   border: `3px solid ${GOLD}`,
-                  marginRight: -60,
-                  marginTop: -20,
+                  marginRight: -40,
+                  marginTop: -16,
                   boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
                   flexShrink: 0,
                 }}
