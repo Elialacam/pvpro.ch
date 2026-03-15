@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { CheckCircle, ChevronRight, Star, Zap, Shield, MapPin } from 'lucide-react';
+import { CheckCircle, ChevronRight, Zap, Shield, MapPin, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLocale } from '@/lib/LocaleContext';
@@ -9,39 +9,49 @@ import { Locale } from '@/lib/i18n';
 import { useRef, useEffect, useState, useCallback } from 'react';
 
 const heroContent: Record<Locale, {
+  eyebrow: string;
   title: string;
-  subtitle: string;
+  highlight: string;
   description: string;
   checkmarks: string[];
   cta: string;
+  ctaSub: string;
 }> = {
   de: {
-    title: 'Solaranlagen in der Schweiz vergleichen:',
-    subtitle: 'geprüfte Anbieter & Förder-Check',
+    eyebrow: 'Nr. 1 Solarvergleich der Schweiz',
+    title: 'Solaranlagen vergleichen —',
+    highlight: 'geprüfte Anbieter & Förder-Check',
     description: 'Wir analysieren Ihr Dach, prüfen verfügbare Förderungen und vermitteln geprüfte Solarteure aus Ihrer Region.',
-    checkmarks: ['Geprüfte Schweizer Solarteure', 'Kantonale Angebote vergleichen', 'Kostenlos & unverbindlich', 'Keine Werbeanrufe'],
+    checkmarks: ['Geprüfte Schweizer Solarteure', 'Kantonale Angebote', 'Kostenlos & unverbindlich', 'Keine Werbeanrufe'],
     cta: 'Jetzt Angebote vergleichen',
+    ctaSub: 'Kostenlos · Unverbindlich · In 2 Minuten',
   },
   fr: {
-    title: 'Comparer les installations solaires en Suisse :',
-    subtitle: 'fournisseurs certifiés & vérification des subventions',
-    description: 'Nous analysons votre toit, vérifions les subventions disponibles et vous mettons en relation avec des installateurs certifiés de votre région.',
-    checkmarks: ['Installateurs suisses certifiés', 'Comparer les offres cantonales', 'Gratuit et sans engagement', 'Pas d\'appels publicitaires'],
-    cta: 'Comparer les offres maintenant',
+    eyebrow: 'N°1 comparateur solaire en Suisse',
+    title: 'Comparez les installations solaires —',
+    highlight: 'fournisseurs certifiés & subventions',
+    description: 'Nous analysons votre toit, vérifions les subventions disponibles et vous mettons en relation avec des installateurs certifiés.',
+    checkmarks: ['Installateurs certifiés', 'Offres cantonales', 'Gratuit & sans engagement', 'Pas d\'appels pub.'],
+    cta: 'Comparer maintenant',
+    ctaSub: 'Gratuit · Sans engagement · En 2 minutes',
   },
   en: {
-    title: 'Compare solar panels in Switzerland:',
-    subtitle: 'certified providers & subsidy check',
+    eyebrow: 'Switzerland\'s #1 solar comparison',
+    title: 'Compare solar installations —',
+    highlight: 'certified providers & subsidy check',
     description: 'We analyze your roof, check available subsidies and connect you with certified solar installers from your region.',
-    checkmarks: ['Certified Swiss installers', 'Compare cantonal offers', 'Free & no obligation', 'No sales calls'],
+    checkmarks: ['Certified installers', 'Cantonal offers', 'Free & no obligation', 'No sales calls'],
     cta: 'Compare quotes now',
+    ctaSub: 'Free · No obligation · 2 minutes',
   },
   it: {
-    title: 'Confronta impianti solari in Svizzera:',
-    subtitle: 'fornitori certificati & verifica incentivi',
-    description: 'Analizziamo il tuo tetto, verifichiamo i sussidi disponibili e ti mettiamo in contatto con installatori certificati della tua regione.',
-    checkmarks: ['Installatori svizzeri certificati', 'Confronta offerte cantonali', 'Gratuito e senza impegno', 'Nessuna chiamata pubblicitaria'],
-    cta: 'Confronta le offerte ora',
+    eyebrow: 'Il comparatore solare Nr. 1 in Svizzera',
+    title: 'Confronta impianti solari —',
+    highlight: 'fornitori certificati & incentivi',
+    description: 'Analizziamo il tuo tetto, verifichiamo i sussidi e ti mettiamo in contatto con installatori certificati della tua regione.',
+    checkmarks: ['Installatori certificati', 'Offerte cantonali', 'Gratuito & senza impegno', 'Nessuna pubblicità'],
+    cta: 'Confronta ora',
+    ctaSub: 'Gratuito · Senza impegno · 2 minuti',
   },
 };
 
@@ -49,182 +59,97 @@ const ctaHref: Record<Locale, string> = {
   de: '/anfrage', fr: '/anfrage', en: '/anfrage', it: '/anfrage',
 };
 
-const offerCards = [
-  { name: 'SolarSwiss AG', location: 'Zürich', rating: 4.9, reviews: 127, price: 'CHF 11\'400', badge: 'Bestes Angebot', badgeColor: '#F97316' },
-  { name: 'Helvetia Solar', location: 'Bern', rating: 4.7, reviews: 89, price: 'CHF 12\'800', badge: null, badgeColor: null },
-  { name: 'Alpine PV GmbH', location: 'Luzern', rating: 4.8, reviews: 203, price: 'CHF 13\'100', badge: null, badgeColor: null },
-];
-
-function StarRow({ rating }: { rating: number }) {
+function SolarOrb() {
   return (
-    <div className="flex gap-0.5">
-      {[1, 2, 3, 4, 5].map((s) => (
-        <Star
-          key={s}
-          className="w-3.5 h-3.5"
-          fill={s <= Math.round(rating) ? '#F97316' : 'none'}
-          stroke={s <= Math.round(rating) ? '#F97316' : '#d1d5db'}
+    <div className="relative flex items-center justify-center" style={{ width: 340, height: 340 }}>
+      {[1, 2, 3].map((ring) => (
+        <motion.div
+          key={ring}
+          className="absolute rounded-full border"
+          style={{
+            width: ring * 110,
+            height: ring * 110,
+            borderColor: `rgba(249,115,22,${0.18 - ring * 0.04})`,
+          }}
+          animate={{ rotate: ring % 2 === 0 ? 360 : -360 }}
+          transition={{ duration: 12 + ring * 6, repeat: Infinity, ease: 'linear' }}
         />
       ))}
-    </div>
-  );
-}
 
-function OfferWidget() {
-  const [phase, setPhase] = useState<'loading' | 'cards' | 'done'>('loading');
-  const [visibleCards, setVisibleCards] = useState(0);
-
-  const runSequence = useCallback(() => {
-    setPhase('loading');
-    setVisibleCards(0);
-    const t1 = setTimeout(() => setPhase('cards'), 1200);
-    const t2 = setTimeout(() => setVisibleCards(1), 1800);
-    const t3 = setTimeout(() => setVisibleCards(2), 2600);
-    const t4 = setTimeout(() => setVisibleCards(3), 3400);
-    const t5 = setTimeout(() => setPhase('done'), 4200);
-    const t6 = setTimeout(() => runSequence(), 7500);
-    return () => [t1, t2, t3, t4, t5, t6].forEach(clearTimeout);
-  }, []);
-
-  useEffect(() => {
-    const cleanup = runSequence();
-    return cleanup;
-  }, [runSequence]);
-
-  return (
-    <div className="relative w-full max-w-sm mx-auto">
-      <div
-        className="rounded-3xl overflow-hidden shadow-2xl border border-white/60"
-        style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(20px)' }}
-      >
-        <div className="px-5 pt-5 pb-3 border-b border-gray-100 flex items-center justify-between">
-          <div>
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest">Ihre Offerten</p>
-            <p className="text-sm font-bold text-gray-800 mt-0.5">3 Angebote verfügbar</p>
-          </div>
-          <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: '#FFF7ED' }}>
-            <Zap className="w-4 h-4" style={{ color: '#F97316' }} />
-          </div>
-        </div>
-
-        <div className="px-4 py-3 space-y-2 min-h-[200px]">
-          <AnimatePresence>
-            {phase === 'loading' && (
-              <motion.div
-                key="loading"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="flex flex-col items-center justify-center py-10 gap-3"
-              >
-                <div className="flex gap-1">
-                  {[0, 1, 2].map((i) => (
-                    <motion.div
-                      key={i}
-                      className="w-2 h-2 rounded-full"
-                      style={{ background: '#F97316' }}
-                      animate={{ y: [0, -8, 0], opacity: [0.4, 1, 0.4] }}
-                      transition={{ duration: 0.8, delay: i * 0.18, repeat: Infinity }}
-                    />
-                  ))}
-                </div>
-                <p className="text-xs text-gray-400 font-medium">Installateure werden gesucht…</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {phase !== 'loading' && offerCards.slice(0, visibleCards).map((card, i) => (
-            <motion.div
-              key={i}
-              initial={{ x: 60, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="flex items-center gap-3 p-3 rounded-2xl border"
-              style={{
-                borderColor: i === 0 ? '#F97316' : '#f0f0f0',
-                background: i === 0 ? '#FFF7ED' : 'white',
-              }}
-            >
-              <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-black text-sm shrink-0"
-                style={{ background: i === 0 ? '#F97316' : '#e5e7eb', color: i === 0 ? 'white' : '#9ca3af' }}
-              >
-                {i + 1}
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-1.5 flex-wrap">
-                  <p className="text-sm font-bold text-gray-900 truncate">{card.name}</p>
-                  {card.badge && (
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full" style={{ background: '#F97316', color: 'white' }}>
-                      {card.badge}
-                    </span>
-                  )}
-                </div>
-                <div className="flex items-center gap-1.5 mt-0.5">
-                  <StarRow rating={card.rating} />
-                  <span className="text-[11px] text-gray-400">{card.rating} ({card.reviews})</span>
-                </div>
-                <div className="flex items-center gap-1 mt-0.5">
-                  <MapPin className="w-3 h-3 text-gray-400" />
-                  <span className="text-[11px] text-gray-400">{card.location}</span>
-                </div>
-              </div>
-              <div className="text-right shrink-0">
-                <p className="text-sm font-black" style={{ color: i === 0 ? '#F97316' : '#374151' }}>{card.price}</p>
-                <p className="text-[10px] text-gray-400">inkl. MwSt.</p>
-              </div>
-            </motion.div>
-          ))}
-
-          <AnimatePresence>
-            {phase === 'done' && (
-              <motion.div
-                key="done"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, ease: 'backOut' }}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-2xl mt-1"
-                style={{ background: 'linear-gradient(135deg, #dcfce7, #f0fdf4)', border: '1px solid #86efac' }}
-              >
-                <CheckCircle className="w-4 h-4 text-green-500 shrink-0" />
-                <p className="text-sm font-semibold text-green-800">3 Offerten erhalten — kostenlos & unverbindlich</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-
-        <div className="px-5 py-3 border-t border-gray-100 flex items-center gap-2">
-          <Shield className="w-3.5 h-3.5 text-gray-400" />
-          <p className="text-[11px] text-gray-400">Nur geprüfte Schweizer Installateure</p>
-        </div>
-      </div>
+      {[0, 72, 144, 216, 288].map((angle, i) => {
+        const rad = (angle * Math.PI) / 180;
+        const r = 120;
+        const x = Math.cos(rad) * r;
+        const y = Math.sin(rad) * r;
+        return (
+          <motion.div
+            key={i}
+            className="absolute w-3 h-3 rounded-full"
+            style={{
+              background: 'radial-gradient(circle, #fb923c, #F97316)',
+              left: '50%',
+              top: '50%',
+              x: x - 6,
+              y: y - 6,
+              boxShadow: '0 0 10px 3px rgba(249,115,22,0.5)',
+            }}
+            animate={{ scale: [1, 1.4, 1], opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 2, delay: i * 0.4, repeat: Infinity }}
+          />
+        );
+      })}
 
       <motion.div
-        className="absolute -top-4 -right-4 w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl"
-        style={{ background: 'linear-gradient(135deg, #F97316, #ea580c)' }}
-        animate={{ rotate: [0, -8, 8, -4, 0], scale: [1, 1.05, 1] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+        className="relative z-10 w-28 h-28 rounded-full flex items-center justify-center"
+        style={{
+          background: 'radial-gradient(circle at 30% 30%, #fbbf24, #F97316, #ea580c)',
+          boxShadow: '0 0 60px 20px rgba(249,115,22,0.4)',
+        }}
+        animate={{ scale: [1, 1.05, 1] }}
+        transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <span className="text-2xl">☀️</span>
+        <span className="text-5xl select-none">☀️</span>
       </motion.div>
+
+      {[28, 22, 35, 20, 32, 26, 38, 24, 30, 22, 34, 28].map((length, i) => {
+        const angle = (i / 12) * 360;
+        return (
+          <motion.div
+            key={`ray-${i}`}
+            className="absolute origin-center"
+            style={{
+              width: 1.5,
+              height: length,
+              background: 'linear-gradient(to bottom, rgba(249,115,22,0.6), transparent)',
+              left: '50%',
+              top: '50%',
+              rotate: angle,
+              transformOrigin: 'top center',
+              marginLeft: -0.75,
+            }}
+            animate={{ opacity: [0.3, 0.9, 0.3], scaleY: [0.8, 1.2, 0.8] }}
+            transition={{ duration: 2 + (i % 3) * 0.5, delay: i * 0.15, repeat: Infinity }}
+          />
+        );
+      })}
     </div>
   );
 }
 
-function CountUp({ end, suffix = '', duration = 1800 }: { end: number; suffix?: string; duration?: number }) {
+function CountUp({ end, suffix = '', duration = 2000 }: { end: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-50px' });
+  const inView = useInView(ref, { once: true, margin: '-40px' });
 
   useEffect(() => {
     if (!inView) return;
     let startTime: number | null = null;
-    const step = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
+    const step = (ts: number) => {
+      if (!startTime) startTime = ts;
+      const p = Math.min((ts - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 4);
       setCount(Math.floor(eased * end));
-      if (progress < 1) requestAnimationFrame(step);
+      if (p < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
   }, [inView, end, duration]);
@@ -237,180 +162,248 @@ export default function Hero() {
   const content = heroContent[locale] || heroContent.de;
   const href = ctaHref[locale] || '/anfrage';
 
-  const containerVariants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.12 } },
-  };
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
-  };
-
   return (
-    <section className="relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #fffbf0 0%, #fff8e8 40%, #ffffff 100%)' }}>
+    <section
+      className="relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(160deg, #03080F 0%, #071525 50%, #0A1B30 100%)',
+        minHeight: '92vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }}
+    >
       <div
-        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(249,115,22,0.10) 0%, rgba(249,115,22,0.04) 50%, transparent 70%)',
-          transform: 'translate(30%, -30%)',
-        }}
-      />
-      <div
-        className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle, rgba(249,115,22,0.06) 0%, transparent 70%)',
-          transform: 'translate(-40%, 40%)',
+          backgroundImage: `
+            radial-gradient(ellipse 80% 60% at 70% 50%, rgba(249,115,22,0.10) 0%, transparent 70%),
+            radial-gradient(ellipse 40% 40% at 20% 80%, rgba(249,115,22,0.06) 0%, transparent 70%)
+          `,
         }}
       />
 
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              width: 4 + i * 2,
-              height: 4 + i * 2,
-              background: `rgba(249,115,22,${0.15 - i * 0.02})`,
-              top: `${15 + i * 12}%`,
-              right: `${8 + i * 3}%`,
-            }}
-            animate={{ y: [0, -12 - i * 4, 0], opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 3 + i * 0.5, delay: i * 0.4, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        ))}
-      </div>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(249,115,22,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(249,115,22,0.04) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+        }}
+      />
 
-      <div className="container-custom py-10 sm:py-14 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.div variants={itemVariants} className="mb-4">
+      {[...Array(20)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full pointer-events-none"
+          style={{
+            width: 2 + (i % 4),
+            height: 2 + (i % 4),
+            background: `rgba(249,115,22,${0.2 + (i % 5) * 0.08})`,
+            left: `${5 + (i * 17 + i * i * 3) % 90}%`,
+            top: `${10 + (i * 23 + i * 7) % 80}%`,
+          }}
+          animate={{
+            y: [0, -(15 + (i % 5) * 8), 0],
+            opacity: [0.3, 0.8, 0.3],
+          }}
+          transition={{
+            duration: 3 + (i % 5) * 0.7,
+            delay: i * 0.3,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+      ))}
+
+      <div className="relative z-10 container-custom py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-center">
+
+          <div className="flex flex-col items-start">
+            <motion.div
+              initial={{ opacity: 0, y: -16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mb-6"
+            >
               <span
-                className="inline-flex items-center gap-2 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest"
-                style={{ background: '#FFF0E0', color: '#C2400C', border: '1px solid rgba(249,115,22,0.25)' }}
+                className="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest"
+                style={{
+                  background: 'rgba(249,115,22,0.12)',
+                  color: '#fb923c',
+                  border: '1px solid rgba(249,115,22,0.25)',
+                }}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
-                Nr. 1 Solarvergleich Schweiz
+                <motion.span
+                  className="w-2 h-2 rounded-full"
+                  style={{ background: '#F97316' }}
+                  animate={{ opacity: [1, 0.3, 1] }}
+                  transition={{ duration: 1.2, repeat: Infinity }}
+                />
+                {content.eyebrow}
               </span>
             </motion.div>
 
             <motion.h1
-              variants={itemVariants}
-              className="text-3xl sm:text-4xl lg:text-5xl font-sans font-bold tracking-tight text-gray-900 leading-tight mb-4"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="font-black tracking-tight leading-none mb-2"
+              style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4.5rem)', color: '#ffffff' }}
             >
-              {content.title}{' '}
-              <span
-                className="relative inline-block"
-                style={{ color: '#F97316' }}
-              >
-                {content.subtitle}
-                <motion.span
-                  className="absolute bottom-0 left-0 h-[3px] rounded-full"
-                  style={{ background: 'linear-gradient(90deg, #F97316, #fb923c)' }}
-                  initial={{ width: 0 }}
-                  animate={{ width: '100%' }}
-                  transition={{ duration: 0.8, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                />
-              </span>
+              {content.title}
             </motion.h1>
 
-            <motion.p variants={itemVariants} className="text-lg text-gray-600 mb-7 leading-relaxed">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="font-black tracking-tight leading-none mb-8"
+              style={{
+                fontSize: 'clamp(2.4rem, 5.5vw, 4.5rem)',
+                background: 'linear-gradient(90deg, #F97316 0%, #fbbf24 60%, #F97316 100%)',
+                backgroundSize: '200% 100%',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              <motion.span
+                animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                style={{ display: 'inline-block' }}
+              >
+                {content.highlight}
+              </motion.span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="mb-8 leading-relaxed max-w-xl"
+              style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.1rem' }}
+            >
               {content.description}
             </motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-col gap-3 mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-wrap gap-x-6 gap-y-3 mb-10"
+            >
               {content.checkmarks.map((c, i) => (
                 <motion.div
                   key={i}
-                  className="flex items-center gap-3"
-                  initial={{ opacity: 0, x: -16 }}
+                  className="flex items-center gap-2"
+                  initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.6 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
                 >
-                  <div
-                    className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
-                    style={{ background: '#FFF0E0' }}
-                  >
-                    <CheckCircle className="w-5 h-5" style={{ color: '#F97316' }} />
-                  </div>
-                  <span className="text-gray-700 font-medium">{c}</span>
+                  <CheckCircle className="w-4 h-4 shrink-0" style={{ color: '#F97316' }} />
+                  <span className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.75)' }}>{c}</span>
                 </motion.div>
               ))}
             </motion.div>
 
-            <motion.div variants={itemVariants}>
-              <Link
-                href={href}
-                className="group inline-flex items-center gap-3 px-7 py-4 rounded-2xl text-white font-bold text-base transition-all duration-300"
-                style={{
-                  background: 'linear-gradient(135deg, #F97316 0%, #ea580c 100%)',
-                  boxShadow: '0 8px 30px rgba(249,115,22,0.35)',
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.boxShadow = '0 12px 40px rgba(249,115,22,0.50)';
-                  (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 30px rgba(249,115,22,0.35)';
-                  (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
-                }}
-              >
-                {content.cta}
-                <motion.span
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="flex flex-col items-start gap-3"
+            >
+              <div className="relative">
+                <motion.div
+                  className="absolute inset-0 rounded-2xl"
+                  style={{ background: 'rgba(249,115,22,0.4)', filter: 'blur(16px)' }}
+                  animate={{ scale: [1, 1.08, 1], opacity: [0.6, 0.9, 0.6] }}
+                  transition={{ duration: 2.5, repeat: Infinity }}
+                />
+                <Link
+                  href={href}
+                  className="relative inline-flex items-center gap-3 font-black text-white rounded-2xl transition-all duration-200 hover:scale-105"
+                  style={{
+                    background: 'linear-gradient(135deg, #F97316, #ea580c)',
+                    padding: '18px 36px',
+                    fontSize: '1.1rem',
+                    boxShadow: '0 4px 24px rgba(249,115,22,0.5)',
+                  }}
                 >
-                  <ChevronRight className="w-5 h-5" />
-                </motion.span>
-              </Link>
+                  {content.cta}
+                  <motion.span
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <ArrowRight className="w-5 h-5" />
+                  </motion.span>
+                </Link>
+              </div>
+              <p className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                {content.ctaSub}
+              </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="mt-7">
-              <Image
-                src="/badges/logos-row.png"
-                alt="Premium Solar Quality - Swiss Made - Trustpilot"
-                width={320} height={60}
-                className="object-contain"
-                style={{ width: '260px', height: 'auto' }}
-              />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="mt-10"
+            >
+              <div
+                className="rounded-2xl px-6 py-4 flex items-center"
+                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+              >
+                <Image
+                  src="/badges/logos-row.png"
+                  alt="Premium Solar Quality - Swiss Made - Trustpilot"
+                  width={280} height={56}
+                  className="object-contain brightness-[0.85] contrast-[0.9]"
+                  style={{ width: '240px', height: 'auto' }}
+                />
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
 
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="hidden lg:flex items-center justify-center"
           >
-            <OfferWidget />
+            <SolarOrb />
           </motion.div>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.0 }}
-          className="mt-12 lg:mt-16 grid grid-cols-3 gap-4 sm:gap-8"
+          className="mt-16 lg:mt-20 grid grid-cols-3 gap-px overflow-hidden rounded-2xl"
+          style={{ border: '1px solid rgba(249,115,22,0.15)', background: 'rgba(249,115,22,0.15)' }}
         >
           {[
-            { icon: <Zap className="w-5 h-5" />, value: 13271, suffix: '+', label: 'Anfragen gestellt' },
-            { icon: <MapPin className="w-5 h-5" />, value: 26, suffix: '', label: 'Kantone abgedeckt' },
-            { icon: <Shield className="w-5 h-5" />, value: 98, suffix: '%', label: 'Kundenzufriedenheit' },
+            { value: 13271, suffix: '+', label: 'Anfragen gestellt', icon: '📋' },
+            { value: 26, suffix: '', label: 'Kantone abgedeckt', icon: '🗺️' },
+            { value: 98, suffix: '%', label: 'Kundenzufriedenheit', icon: '⭐' },
           ].map((stat, i) => (
             <div
               key={i}
-              className="text-center py-4 px-3 rounded-2xl"
-              style={{ background: 'rgba(249,115,22,0.06)', border: '1px solid rgba(249,115,22,0.12)' }}
+              className="flex flex-col items-center justify-center py-6 sm:py-8 px-4 text-center"
+              style={{ background: 'rgba(7,21,37,0.95)' }}
             >
-              <div className="flex justify-center mb-2" style={{ color: '#F97316' }}>{stat.icon}</div>
-              <p className="text-2xl sm:text-3xl font-black text-gray-900">
+              <span className="text-2xl mb-2">{stat.icon}</span>
+              <p
+                className="font-black mb-1"
+                style={{ color: '#F97316', fontSize: 'clamp(1.6rem, 3.5vw, 2.5rem)', lineHeight: 1 }}
+              >
                 <CountUp end={stat.value} suffix={stat.suffix} />
               </p>
-              <p className="text-xs sm:text-sm text-gray-500 mt-1 font-medium">{stat.label}</p>
+              <p className="text-xs sm:text-sm font-medium" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                {stat.label}
+              </p>
             </div>
           ))}
         </motion.div>
