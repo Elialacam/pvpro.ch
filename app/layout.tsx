@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Suspense } from "react";
 import TrackingScripts from '@/components/TrackingScripts';
-import WhatsAppFloating from '@/components/WhatsAppFloating';
+import CallbackWidget from '@/components/CallbackWidget';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -46,7 +46,7 @@ export default function RootLayout({
           <TrackingScripts />
         </Suspense>
         {children}
-        <WhatsAppFloating />
+        <CallbackWidget />
       </body>
     </html>
   );
