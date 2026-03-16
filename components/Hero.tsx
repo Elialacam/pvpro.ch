@@ -50,7 +50,7 @@ export default function Hero() {
     <section className="relative w-full min-h-screen flex items-end overflow-hidden -mt-20" style={{ background: '#0d1117' }}>
       {/* Background image — contain so full image is visible */}
       <Image
-        src="/images/hero-house-solar.png"
+        src="/images/hero-family-solar.png"
         alt="Modernes Haus mit Solaranlage in der Schweiz"
         fill
         priority
