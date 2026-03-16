@@ -96,22 +96,23 @@ function Avatar({ review }: { review: Review }) {
 
 function ReviewCard({ review }: { review: Review }) {
   return (
-    <div
-      className="flex-shrink-0 w-[300px] mx-2.5 bg-white rounded-2xl p-5 border-l-4 shadow-sm border border-gray-100"
-      style={{ borderLeftColor: '#F97316' }}
-    >
-      <div className="flex items-center gap-3 mb-3">
+    <div className="flex-shrink-0 w-[300px] mx-2.5 bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+      {/* Header: avatar + name + stars */}
+      <div className="flex items-center gap-3 mb-4">
         <Avatar review={review} />
-        <div>
-          <p className="font-bold text-gray-900 text-sm leading-tight">{review.name}</p>
-          <div className="flex gap-0.5 mt-0.5">
+        <div className="flex items-center gap-2 flex-wrap">
+          <p className="font-bold text-gray-900 text-sm">{review.name}</p>
+          <div className="flex gap-0.5">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-3.5 h-3.5 fill-[#F97316] text-[#F97316]" />
             ))}
           </div>
         </div>
       </div>
-      <p className="text-gray-500 text-sm leading-relaxed">{review.text}</p>
+      {/* Text with left orange border */}
+      <div className="border-l-4 pl-3" style={{ borderColor: '#F97316' }}>
+        <p className="text-gray-500 text-sm leading-relaxed">{review.text}</p>
+      </div>
     </div>
   );
 }
