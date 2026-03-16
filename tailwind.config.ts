@@ -9,8 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui'],
-        display: ['var(--font-inter)', 'ui-sans-serif', 'system-ui'],
+        sans: ['var(--font-barlow)', 'ui-sans-serif', 'system-ui'],
+        display: ['var(--font-barlow)', 'ui-sans-serif', 'system-ui'],
+        condensed: ['var(--font-barlow-condensed)', 'ui-sans-serif', 'system-ui'],
       },
       colors: {
         primary: {

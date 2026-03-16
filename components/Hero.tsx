@@ -69,7 +69,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-20 w-full pb-12 pt-24 px-5 sm:px-10 lg:px-16 max-w-4xl">
         {/* Big headline */}
-        <h1 className="text-white font-black leading-none tracking-tight mb-5"
+        <h1 className="text-white font-black leading-none tracking-tight mb-5 font-condensed"
           style={{ fontSize: 'clamp(3rem, 8vw, 7rem)', lineHeight: 1.0 }}>
           {content.titleLine1}
           <br />
