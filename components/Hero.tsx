@@ -54,7 +54,7 @@ export default function Hero() {
         alt="Modernes Haus mit Solaranlage in der Schweiz"
         fill
         priority
-        className="object-contain object-center"
+        className="object-cover object-center"
         sizes="100vw"
       />
 
