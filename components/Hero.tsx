@@ -1,92 +1,99 @@
 'use client';
 
-import { CheckCircle, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLocale } from '@/lib/LocaleContext';
 import { Locale } from '@/lib/i18n';
 
 const heroContent: Record<Locale, {
-  title: string;
+  titleLine1: string;
+  titleLine2: string;
   subtitle: string;
-  description: string;
-  checkmarks: string[];
   cta: string;
+  trustBadge: string;
 }> = {
   de: {
-    title: 'Solaranlagen in der Schweiz vergleichen:',
-    subtitle: 'geprüfte Anbieter & Förder-Check',
-    description: 'Wir analysieren Ihr Dach, prüfen verfügbare Förderungen und vermitteln geprüfte Solarteure aus Ihrer Region.',
-    checkmarks: ['Geprüfte Schweizer Solarteure', 'Kantonale Angebote vergleichen', 'Kostenlos & unverbindlich', 'Keine Werbeanrufe'],
-    cta: 'Jetzt Angebote vergleichen',
+    titleLine1: 'SOLARENERGIE.',
+    titleLine2: 'FÜR IHR ZUHAUSE.',
+    subtitle: 'Kostenlos bis zu 3 geprüfte Offerten vergleichen — von zertifizierten Schweizer Solarteuren aus Ihrer Region.',
+    cta: 'Kostenlose Offerten erhalten',
+    trustBadge: '✓ Keine Werbeanrufe · ✓ Kostenlos & unverbindlich · ✓ Geprüfte Installateure',
   },
   fr: {
-    title: 'Comparer les installations solaires en Suisse :',
-    subtitle: 'fournisseurs certifiés & vérification des subventions',
-    description: 'Nous analysons votre toit, vérifions les subventions disponibles et vous mettons en relation avec des installateurs certifiés de votre région.',
-    checkmarks: ['Installateurs suisses certifiés', 'Comparer les offres cantonales', 'Gratuit et sans engagement', 'Pas d\'appels publicitaires'],
-    cta: 'Comparer les offres maintenant',
+    titleLine1: 'ÉNERGIE SOLAIRE.',
+    titleLine2: 'POUR VOTRE MAISON.',
+    subtitle: 'Comparez gratuitement jusqu\'à 3 offres d\'installateurs solaires certifiés de votre région.',
+    cta: 'Obtenir des offres gratuites',
+    trustBadge: '✓ Pas d\'appels · ✓ Gratuit & sans engagement · ✓ Installateurs certifiés',
   },
   en: {
-    title: 'Compare solar panels in Switzerland:',
-    subtitle: 'certified providers & subsidy check',
-    description: 'We analyze your roof, check available subsidies and connect you with certified solar installers from your region.',
-    checkmarks: ['Certified Swiss installers', 'Compare cantonal offers', 'Free & no obligation', 'No sales calls'],
-    cta: 'Compare quotes now',
+    titleLine1: 'SOLAR ENERGY.',
+    titleLine2: 'FOR YOUR HOME.',
+    subtitle: 'Compare up to 3 certified solar installer quotes for free — from certified Swiss professionals in your region.',
+    cta: 'Get free quotes',
+    trustBadge: '✓ No sales calls · ✓ Free & no obligation · ✓ Certified installers',
   },
   it: {
-    title: 'Confronta impianti solari in Svizzera:',
-    subtitle: 'fornitori certificati & verifica incentivi',
-    description: 'Analizziamo il tuo tetto, verifichiamo i sussidi disponibili e ti mettiamo in contatto con installatori certificati della tua regione.',
-    checkmarks: ['Installatori svizzeri certificati', 'Confronta offerte cantonali', 'Gratuito e senza impegno', 'Nessuna chiamata pubblicitaria'],
-    cta: 'Confronta le offerte ora',
+    titleLine1: 'ENERGIA SOLARE.',
+    titleLine2: 'PER LA TUA CASA.',
+    subtitle: 'Confronta gratuitamente fino a 3 preventivi da installatori solari certificati della tua regione.',
+    cta: 'Ottieni preventivi gratuiti',
+    trustBadge: '✓ Nessuna chiamata · ✓ Gratuito e senza impegno · ✓ Installatori certificati',
   },
-};
-
-const ctaHref: Record<Locale, string> = {
-  de: '/anfrage',
-  fr: '/anfrage',
-  en: '/anfrage',
-  it: '/anfrage',
 };
 
 export default function Hero() {
   const locale = useLocale();
   const content = heroContent[locale] || heroContent.de;
-  const href = ctaHref[locale] || '/anfrage';
 
   return (
-    <section className="bg-gradient-to-b from-primary-50 to-white py-6 sm:py-8 md:py-20">
-      <div className="container-custom">
-        <div className="max-w-3xl">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-semibold tracking-tight text-gray-900 mb-2 leading-tight">
-            {content.title}{' '}
-            <span className="text-primary">{content.subtitle}</span>
-          </h1>
-          <p className="text-lg text-gray-600 mb-8 mt-4">{content.description}</p>
+    <section className="relative w-full min-h-[92vh] flex items-end overflow-hidden">
+      {/* Background image */}
+      <Image
+        src="/images/hero-family-solar.png"
+        alt="Familie mit Solaranlage in der Schweiz"
+        fill
+        priority
+        className="object-cover object-center"
+        sizes="100vw"
+      />
 
-          <div className="flex flex-col gap-4 mb-8">
-            {content.checkmarks.map((c, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <CheckCircle className="w-6 h-6 text-primary flex-shrink-0" />
-                <span className="text-gray-700 font-medium text-lg">{c}</span>
-              </div>
-            ))}
-          </div>
+      {/* Gradient overlay — darkens bottom-left for text readability */}
+      <div
+        className="absolute inset-0 z-10"
+        style={{
+          background: 'linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.08) 100%)',
+        }}
+      />
 
-          <Link
-            href={href}
-            className="btn-primary py-4 px-8 rounded-2xl text-lg font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all flex items-center gap-2 w-fit mb-8"
-          >
-            {content.cta}
-            <ChevronRight className="w-5 h-5" />
-          </Link>
+      {/* Content */}
+      <div className="relative z-20 w-full pb-12 pt-24 px-5 sm:px-10 lg:px-16 max-w-4xl">
+        {/* Big headline */}
+        <h1 className="text-white font-black leading-none tracking-tight mb-5"
+          style={{ fontSize: 'clamp(3rem, 8vw, 7rem)', lineHeight: 1.0 }}>
+          {content.titleLine1}
+          <br />
+          {content.titleLine2}
+        </h1>
 
-          <div className="flex items-center">
-            <Image src="/badges/logos-row.png" alt="Premium Solar Quality - Swiss Made - Trustpilot"
-              width={320} height={60} className="object-contain" style={{ width: '280px', height: 'auto' }} />
-          </div>
-        </div>
+        {/* Subtitle */}
+        <p className="text-white/85 text-lg sm:text-xl font-normal mb-8 max-w-xl leading-relaxed">
+          {content.subtitle}
+        </p>
+
+        {/* CTA */}
+        <Link
+          href="/anfrage"
+          className="inline-block font-bold text-base sm:text-lg px-7 py-4 rounded-2xl transition-all shadow-lg"
+          style={{ background: '#F97316', color: '#fff' }}
+        >
+          {content.cta} →
+        </Link>
+
+        {/* Trust line */}
+        <p className="text-white/60 text-sm mt-5 font-medium">
+          {content.trustBadge}
+        </p>
       </div>
     </section>
   );
