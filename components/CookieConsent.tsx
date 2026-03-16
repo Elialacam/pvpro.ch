@@ -149,7 +149,7 @@ export default function CookieConsentBanner({ onConsentChange }: { onConsentChan
             <div className="flex flex-col gap-2">
               <button
                 onClick={handleAccept}
-                className="w-full px-4 py-2.5 text-sm bg-yellow-500 text-white rounded-xl hover:bg-yellow-600 transition-all font-semibold shadow-sm hover:shadow-md"
+                className="w-full px-4 py-2.5 text-sm bg-primary text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-sm hover:shadow-md"
               >
                 {t.accept}
               </button>
@@ -200,7 +200,7 @@ export default function CookieConsentBanner({ onConsentChange }: { onConsentChan
                     onChange={(e) => setAnalyticsChecked(e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-10 h-[22px] bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-[18px] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-[18px] after:w-[18px] after:transition-all after:shadow-sm peer-checked:bg-yellow-500"></div>
+                  <div className="w-10 h-[22px] bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-[18px] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-[18px] after:w-[18px] after:transition-all after:shadow-sm peer-checked:bg-primary"></div>
                 </label>
               </div>
               <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
@@ -215,7 +215,7 @@ export default function CookieConsentBanner({ onConsentChange }: { onConsentChan
                     onChange={(e) => setMarketingChecked(e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-10 h-[22px] bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-[18px] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-[18px] after:w-[18px] after:transition-all after:shadow-sm peer-checked:bg-yellow-500"></div>
+                  <div className="w-10 h-[22px] bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-[18px] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-[18px] after:w-[18px] after:transition-all after:shadow-sm peer-checked:bg-primary"></div>
                 </label>
               </div>
             </div>
@@ -228,7 +228,7 @@ export default function CookieConsentBanner({ onConsentChange }: { onConsentChan
               </button>
               <button
                 onClick={handleSaveCustom}
-                className="flex-1 px-4 py-2.5 text-sm bg-yellow-500 text-white rounded-xl hover:bg-yellow-600 transition-all font-semibold shadow-sm hover:shadow-md"
+                className="flex-1 px-4 py-2.5 text-sm bg-primary text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-sm hover:shadow-md"
               >
                 {t.save}
               </button>

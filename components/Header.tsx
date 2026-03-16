@@ -19,6 +19,7 @@ export default function Header() {
   const locale = useLocale();
   const links = navLinks[locale] || navLinks.de;
   const [isDesktop, setIsDesktop] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const check = () => setIsDesktop(window.innerWidth >= 768);
@@ -27,19 +28,42 @@ export default function Header() {
     return () => window.removeEventListener('resize', check);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-      <LiveBar />
+    <header
+      className="sticky top-0 z-50 transition-all duration-300"
+      style={{
+        background: 'rgba(255,255,255,0.97)',
+        backdropFilter: 'blur(12px)',
+        borderBottom: scrolled ? '1px solid rgba(0,0,0,0.07)' : '1px solid transparent',
+        boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.06)' : 'none',
+      }}
+    >
+      <LiveBar scrolled={true} />
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <Link href={links.home} className="flex items-center group">
-            <Image src="/logo-pvpro.png" alt="PVPro.ch" width={200} height={56} className="h-8 sm:h-10 w-auto" />
+          <Link href={links.home} className="flex items-center">
+            <Image
+              src="/logo-pvpro.png"
+              alt="PVPro.ch"
+              width={200} height={56}
+              className="h-8 sm:h-10 w-auto"
+            />
           </Link>
 
-          <div className="flex items-center gap-3 sm:gap-6">
+          <div className="flex items-center gap-3 sm:gap-5">
             <LanguageSwitcher />
             {isDesktop && (
-              <Link href={links.anfrage} className="btn-primary">
+              <Link
+                href={links.anfrage}
+                className="btn-primary text-sm px-5 py-2.5"
+              >
                 {links.cta}
               </Link>
             )}

@@ -4,34 +4,10 @@ import { useState, useEffect } from 'react';
 import { useLocale } from '@/lib/LocaleContext';
 
 const translations: Record<string, { noSpam: string; lastRequest: string; today: string; at: string; requestsCount: string }> = {
-  de: {
-    noSpam: 'Keine Verkaufsanrufe',
-    lastRequest: 'Letzte Anfrage',
-    today: 'heute',
-    at: 'um',
-    requestsCount: 'Anfragen gestellt',
-  },
-  fr: {
-    noSpam: "Pas d'appels commerciaux",
-    lastRequest: 'Dernière demande',
-    today: "aujourd'hui",
-    at: 'à',
-    requestsCount: 'demandes envoyées',
-  },
-  en: {
-    noSpam: 'No spam calls',
-    lastRequest: 'Last request',
-    today: 'today',
-    at: 'at',
-    requestsCount: 'requests submitted',
-  },
-  it: {
-    noSpam: 'Nessuna chiamata di vendita',
-    lastRequest: 'Ultima richiesta',
-    today: 'oggi',
-    at: 'alle',
-    requestsCount: 'richieste inviate',
-  },
+  de: { noSpam: 'Keine Verkaufsanrufe', lastRequest: 'Letzte Anfrage', today: 'heute', at: 'um', requestsCount: 'Anfragen gestellt' },
+  fr: { noSpam: "Pas d'appels commerciaux", lastRequest: 'Dernière demande', today: "aujourd'hui", at: 'à', requestsCount: 'demandes envoyées' },
+  en: { noSpam: 'No spam calls', lastRequest: 'Last request', today: 'today', at: 'at', requestsCount: 'requests submitted' },
+  it: { noSpam: 'Nessuna chiamata di vendita', lastRequest: 'Ultima richiesta', today: 'oggi', at: 'alle', requestsCount: 'richieste inviate' },
 };
 
 function formatDate(locale: string): string {
@@ -58,15 +34,12 @@ function getCount(): string {
   for (let i = 0; i < seed; i++) {
     const hash = Math.sin(i * 9301 + 49297) * 49271;
     const rand = hash - Math.floor(hash);
-    if (rand < 0.27) {
-      extra++;
-    }
+    if (rand < 0.27) extra++;
   }
-  const total = BASE_COUNT + extra;
-  return total.toLocaleString('de-CH');
+  return (BASE_COUNT + extra).toLocaleString('de-CH');
 }
 
-export default function LiveBar() {
+export default function LiveBar({ scrolled = false }: { scrolled?: boolean }) {
   const locale = useLocale();
   const t = translations[locale] || translations.de;
   const [dateStr, setDateStr] = useState('');
@@ -85,22 +58,27 @@ export default function LiveBar() {
   if (!dateStr) return null;
 
   return (
-    <div className="bg-[#d4af37] text-white text-xs sm:text-sm py-1.5 overflow-hidden">
+    <div
+      className="text-xs py-1.5 overflow-hidden transition-all duration-300"
+      style={{
+        background: scrolled ? '#16A34A' : 'rgba(0,0,0,0.35)',
+        color: 'white',
+        backdropFilter: scrolled ? 'none' : 'blur(4px)',
+      }}
+    >
       <div className="container-custom flex items-center justify-center gap-4 sm:gap-8 whitespace-nowrap">
-        <span className="hidden sm:flex items-center gap-1.5 font-semibold">
+        <span className="hidden sm:flex items-center gap-1.5 font-medium opacity-90">
           <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-none stroke-current stroke-2"><path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
           {t.noSpam}
         </span>
-
-        <span className="flex items-center gap-1.5">
+        <span className="flex items-center gap-1.5 font-medium">
           <span className="relative flex h-2 w-2">
-            <span className="wa-online-ping absolute h-full w-full rounded-full bg-green-400" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+            <span className="wa-online-ping absolute h-full w-full rounded-full bg-green-300" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-300" />
           </span>
           {t.lastRequest} {dateStr}
         </span>
-
-        <span className="hidden sm:flex items-center gap-1.5">
+        <span className="hidden sm:flex items-center gap-1.5 font-medium opacity-90">
           <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-none stroke-current stroke-2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           {count} {t.requestsCount}
         </span>
