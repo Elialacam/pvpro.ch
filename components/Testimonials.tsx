@@ -4,95 +4,69 @@ import { Star } from 'lucide-react';
 
 interface Review {
   name: string;
-  location: string;
   avatar: string | null;
-  rating: number;
   text: string;
 }
 
 const reviews: Review[] = [
   {
     name: 'Thomas Weber',
-    location: 'Zürich',
     avatar: '/images/testimonials/weber.png',
-    rating: 5,
     text: 'Wir sind sehr zufrieden mit unserer neuen Solaranlage. PVPro hat uns perfekt beraten und mit einem lokalen Fachbetrieb verbunden. Alles lief reibungslos!',
   },
   {
     name: 'Sandra Müller',
-    location: 'Bern',
     avatar: null,
-    rating: 5,
     text: 'Super einfach und schnell. Drei Offerten innerhalb von zwei Tagen erhalten, alle sehr professionell. Habe mich für den besten Preis entschieden. Sehr empfehlenswert!',
   },
   {
     name: 'Andreas Brunner',
-    location: 'Basel',
     avatar: '/images/testimonials/andreas.png',
-    rating: 5,
     text: 'Der Prozess war so einfach! Formular ausgefüllt, drei Angebote erhalten, das beste gewählt. Jetzt produzieren wir unseren eigenen Strom.',
   },
   {
     name: 'Beat Keller',
-    location: 'Luzern',
     avatar: null,
-    rating: 5,
     text: 'Ich war skeptisch, aber PVPro hat mich wirklich überzeugt. Die vermittelten Installateure waren kompetent und pünktlich. Die Anlage läuft seit 6 Monaten perfekt.',
   },
   {
     name: 'Josef Berber',
-    location: 'St. Gallen',
     avatar: '/images/testimonials/josef.png',
-    rating: 5,
     text: 'Installation sauber gemacht, die Monteure waren sehr freundlich. Anlage produziert echt ordentlich, sogar mehr als erwartet. Bin sehr zufrieden!',
   },
   {
     name: 'Laura Meier',
-    location: 'Winterthur',
     avatar: null,
-    rating: 5,
     text: 'Kostenloser Service, geprüfte Installateure, keine Werbeanrufe — genau das wurde versprochen und genau das wurde geliefert. 5 Sterne!',
   },
   {
     name: 'Tobias Schneider',
-    location: 'Genf',
     avatar: '/images/testimonials/tobias.png',
-    rating: 5,
     text: 'Kompetent, zuverlässig und professionell. Transparente Beratung mit exzellentem Service. Die Solaranlage hat sich schon nach 8 Jahren amortisiert.',
   },
   {
     name: 'Hans Zimmermann',
-    location: 'Thun',
     avatar: null,
-    rating: 5,
     text: 'Habe über PVPro drei Offerten verglichen und dabei fast 4000 CHF gespart. Der lokale Installateur war top — schnelle Montage, alles erklärt.',
   },
   {
     name: 'Markus Frei',
-    location: 'Chur',
     avatar: '/images/testimonials/mtb.png',
-    rating: 5,
     text: 'Top Service, top Qualität. Die Monteure haben sehr sauber gearbeitet und alles verständlich erklärt. Kann ich nur weiterempfehlen!',
   },
   {
     name: 'Anna Huber',
-    location: 'Zug',
     avatar: null,
-    rating: 5,
     text: 'Sehr gute Erfahrung! PVPro hat mir geholfen, die beste Lösung für mein Dach zu finden. Seit der Installation spare ich monatlich über 120 CHF Stromkosten.',
   },
   {
     name: 'Daniel Ochs',
-    location: 'Lugano',
     avatar: '/images/testimonials/octo.png',
-    rating: 5,
     text: 'Ich bin total fasziniert von dem Service. Alles hat super geklappt, der Installateur war sehr professionell und die Anlage läuft einwandfrei.',
   },
   {
     name: 'Claudia Fischer',
-    location: 'Olten',
     avatar: null,
-    rating: 5,
     text: 'Einfach, schnell und kostenlos. Ich habe nie gedacht, dass es so unkompliziert sein kann. Drei Offerten in 24 Stunden — unglaublich!',
   },
 ];
@@ -106,13 +80,13 @@ function Avatar({ review }: { review: Review }) {
       <img
         src={review.avatar}
         alt={review.name}
-        className="w-11 h-11 rounded-full object-cover ring-2 ring-gray-100 flex-shrink-0"
+        className="w-10 h-10 rounded-full object-cover flex-shrink-0"
       />
     );
   }
   return (
     <div
-      className="w-11 h-11 rounded-full flex items-center justify-center text-white font-black text-base flex-shrink-0 ring-2 ring-gray-100"
+      className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
       style={{ background: avatarColors[colorIndex] }}
     >
       {review.name.charAt(0)}
@@ -123,24 +97,21 @@ function Avatar({ review }: { review: Review }) {
 function ReviewCard({ review }: { review: Review }) {
   return (
     <div
-      className="flex-shrink-0 w-[340px] mx-3 rounded-2xl p-6 flex flex-col gap-4 bg-white border border-gray-100 shadow-sm"
+      className="flex-shrink-0 w-[300px] mx-2.5 bg-white rounded-2xl p-5 border-l-4 shadow-sm border border-gray-100"
+      style={{ borderLeftColor: '#F97316' }}
     >
-      <div className="flex items-start justify-between">
-        <span className="text-5xl leading-none font-serif text-[#F97316] opacity-70 select-none">"</span>
-        <div className="flex gap-0.5 mt-1">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-3.5 h-3.5 fill-[#F97316] text-[#F97316]" />
-          ))}
-        </div>
-      </div>
-      <p className="text-[0.85rem] leading-relaxed text-gray-600 flex-1">{review.text}</p>
-      <div className="flex items-center gap-3 pt-2 border-t border-gray-100">
+      <div className="flex items-center gap-3 mb-3">
         <Avatar review={review} />
         <div>
-          <p className="text-sm font-bold text-gray-900">{review.name}</p>
-          <p className="text-xs text-gray-500">{review.location}</p>
+          <p className="font-bold text-gray-900 text-sm leading-tight">{review.name}</p>
+          <div className="flex gap-0.5 mt-0.5">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-3.5 h-3.5 fill-[#F97316] text-[#F97316]" />
+            ))}
+          </div>
         </div>
       </div>
+      <p className="text-gray-500 text-sm leading-relaxed">{review.text}</p>
     </div>
   );
 }
@@ -149,28 +120,24 @@ export default function Testimonials() {
   const doubled = [...reviews, ...reviews];
 
   return (
-    <section
-      className="py-20 overflow-hidden bg-gray-50"
-    >
-      {/* Header */}
-      <div className="container-custom mb-14">
+    <section className="py-16 bg-white overflow-hidden">
+      <div className="container-custom mb-10">
         <div className="text-center">
           <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Kundenstimmen</p>
           <h2 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-2">
             Was unsere Kunden sagen
           </h2>
-          <p className="text-gray-500 text-sm leading-relaxed">
+          <p className="text-gray-500 text-sm">
             Über 13'000 Haushalte haben bereits über PVPro ihre Solaranlage gefunden.
           </p>
         </div>
       </div>
 
-      {/* Single row marquee */}
       <div className="relative w-full">
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10"
-          style={{ background: 'linear-gradient(to right, #0d1117, transparent)' }} />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10"
-          style={{ background: 'linear-gradient(to left, #0f172a, transparent)' }} />
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-20 z-10"
+          style={{ background: 'linear-gradient(to right, white, transparent)' }} />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-20 z-10"
+          style={{ background: 'linear-gradient(to left, white, transparent)' }} />
         <div className="flex marquee-track" style={{ width: 'max-content' }}>
           {doubled.map((review, i) => <ReviewCard key={i} review={review} />)}
         </div>
