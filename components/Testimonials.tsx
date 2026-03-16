@@ -96,7 +96,7 @@ function Avatar({ review }: { review: Review }) {
 
 function ReviewCard({ review }: { review: Review }) {
   return (
-    <div className="flex-shrink-0 w-[300px] mx-2.5 bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+    <div className="flex-shrink-0 w-[300px] mx-2.5 bg-white rounded-3xl p-6 shadow-md border border-gray-100">
       {/* Header: avatar + name + stars */}
       <div className="flex items-center gap-3 mb-4">
         <Avatar review={review} />
@@ -135,10 +135,10 @@ export default function Testimonials() {
       </div>
 
       <div className="relative w-full">
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-20 z-10"
-          style={{ background: 'linear-gradient(to right, white, transparent)' }} />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-20 z-10"
-          style={{ background: 'linear-gradient(to left, white, transparent)' }} />
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-48 z-10"
+          style={{ background: 'linear-gradient(to right, white 40%, transparent)' }} />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-48 z-10"
+          style={{ background: 'linear-gradient(to left, white 40%, transparent)' }} />
         <div className="flex marquee-track" style={{ width: 'max-content' }}>
           {doubled.map((review, i) => <ReviewCard key={i} review={review} />)}
         </div>
