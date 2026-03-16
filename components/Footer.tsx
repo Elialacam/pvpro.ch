@@ -124,14 +124,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-3 py-6 text-xs text-gray-600"
+          className="flex items-center justify-center py-6 text-xs text-gray-600"
           style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
         >
           <p>© 2026 PVPro. Alle Rechte vorbehalten.</p>
-          <div className="flex items-center gap-5">
-            <Link href="/datenschutz" className="hover:text-gray-400 transition-colors">Datenschutz</Link>
-            <Link href="/impressum"   className="hover:text-gray-400 transition-colors">Impressum</Link>
-          </div>
         </div>
 
       </div>
