@@ -165,15 +165,6 @@ export default function FAQ({ items }: FAQProps) {
   return (
     <section className="section-padding bg-gray-50">
       <div className="container-custom max-w-4xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-4">
-            {content.title}
-          </h2>
-          <p className="text-xl text-gray-600">
-            {content.subtitle}
-          </p>
-        </div>
-
         <div className="space-y-4">
           {faqItems.map((item, index) => (
             <div
