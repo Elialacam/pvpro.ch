@@ -21,12 +21,12 @@ const columns = [
   {
     title: 'Für Kunden',
     links: [
-      { label: 'Solaranlage im Winter',                   href: '/' },
-      { label: 'PV für Einfamilienhäuser',                href: '/' },
-      { label: 'PV für Mehrfamilienhäuser',               href: '/' },
-      { label: 'Solarspeicher erklärt',                   href: '/solaranlage-mit-speicher' },
-      { label: 'Wie funktioniert PVPro?',                 href: '/#wie-es-funktioniert' },
-      { label: 'Anbieter vergleichen',                    href: '/anfrage' },
+      { label: 'Solaranlage mit Speicher',          href: '/solaranlage-mit-speicher' },
+      { label: 'Photovoltaik Kosten pro m²',        href: '/pv-kosten' },
+      { label: 'Solaranlage Einfamilienhaus',        href: '/solaranlage-einfamilienhaus' },
+      { label: 'Solaranlage Mehrfamilienhaus',       href: '/solaranlage-mehrfamilienhaus' },
+      { label: 'Balkonkraftwerk Schweiz',            href: '/balkonkraftwerk' },
+      { label: 'Wie funktioniert eine Solaranlage', href: '/wie-funktioniert' },
     ],
   },
   {
