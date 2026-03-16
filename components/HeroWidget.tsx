@@ -21,6 +21,9 @@ export default function HeroWidget() {
 
   const pct = ((value - MIN) / (MAX - MIN)) * 100;
   const saving = Math.round((value * 12 * 0.6) / 100) * 100;
+  const savingFormatted = saving >= 1000
+    ? `${Math.floor(saving / 1000)}'${String(saving % 1000).padStart(3, '0')}`
+    : String(saving);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(Number(e.target.value));
@@ -95,7 +98,7 @@ export default function HeroWidget() {
         <div>
           <p className="text-[11px] text-gray-400 font-semibold uppercase tracking-wider mb-1">{t.savings}</p>
           <p className="text-2xl font-black text-[#F97316] tabular-nums leading-none">
-            CHF {saving.toLocaleString()}
+            CHF {savingFormatted}
             <span className="text-sm font-semibold text-orange-300 ml-1">{t.per}</span>
           </p>
         </div>

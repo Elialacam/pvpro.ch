@@ -2,211 +2,138 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Clock, MapPin, Instagram } from 'lucide-react';
-import { Locale } from '@/lib/i18n';
 import { useLocale } from '@/lib/LocaleContext';
 
-const footerContent: Record<Locale, {
-  tagline: string;
-  features: { text: string; href: string | null }[];
-  contact: {
-    title: string;
-    email: string;
-    hours: string;
-    address: string;
-  };
-  followUs: string;
-  copyright: string;
-  privacy: string;
-  imprint: string;
-  privacyText: string;
-  imprintText: string;
-  home: string;
-}> = {
-  de: {
-    tagline: 'PVPro.ch ist eine unabhängige Schweizer Plattform, die Immobilieneigentümer mit geprüften Photovoltaik-Installateuren und Speicherlösungen verbindet.',
-    features: [
-      { text: 'Zuverlässige lokale Installateure', href: '/lokale-installateure' },
-      { text: 'Stromkosten bis zu 80% reduzieren', href: '/stromkosten-senken' },
-      { text: 'Jede Anfrage persönlich geprüft', href: null },
-      { text: 'Regionale Anbieter', href: null },
-      { text: 'Schweizer Plattform', href: null },
+const instagramUrl = 'https://www.instagram.com/pvpro.ch/';
+const facebookUrl  = 'https://www.facebook.com/pvpro.ch/';
+
+const columns = [
+  {
+    title: 'Ressourcen',
+    links: [
+      { label: 'Solarrechner',        href: '/solarrechner' },
+      { label: 'Blog',                href: '/' },
+      { label: 'News',                href: '/' },
+      { label: 'Förderungen',         href: '/solaranlage-kosten' },
+      { label: 'Solaranlage Kosten',  href: '/solaranlage-kosten' },
+      { label: 'FAQ',                 href: '/#faq' },
     ],
-    contact: {
-      title: 'Wir sind für Sie da',
-      email: 'anfrage@pvpro.ch',
-      hours: 'Mon-Sam: 8:00 - 19:00 Uhr',
-      address: 'Via Santi Pietro e Paolo 16, 6953 Lugaggia, Schweiz',
-    },
-    followUs: 'Folge Uns',
-    copyright: 'Alle Rechte vorbehalten.',
-    privacy: '/datenschutz',
-    imprint: '/impressum',
-    privacyText: 'Datenschutz',
-    imprintText: 'Impressum',
-    home: '/',
   },
-  fr: {
-    tagline: 'PVPro.ch est une plateforme suisse indépendante qui met en relation les propriétaires immobiliers avec des installateurs photovoltaïques certifiés et des solutions de stockage.',
-    features: [
-      { text: 'Installateurs suisses certifiés', href: null },
-      { text: 'Offres réelles au lieu de prix indicatifs', href: null },
-      { text: 'Chaque demande vérifiée personnellement', href: null },
-      { text: 'Fournisseurs régionaux', href: null },
-      { text: 'Plateforme suisse', href: null },
+  {
+    title: 'Für Kunden',
+    links: [
+      { label: 'Solaranlage im Winter',                   href: '/' },
+      { label: 'PV für Einfamilienhäuser',                href: '/' },
+      { label: 'PV für Mehrfamilienhäuser',               href: '/' },
+      { label: 'Solarspeicher erklärt',                   href: '/solaranlage-mit-speicher' },
+      { label: 'Wie funktioniert PVPro?',                 href: '/#wie-es-funktioniert' },
+      { label: 'Anbieter vergleichen',                    href: '/anfrage' },
     ],
-    contact: {
-      title: 'Nous sommes là pour vous',
-      email: 'anfrage@pvpro.ch',
-      hours: 'Lun-Sam: 8:00 - 19:00',
-      address: 'Via Santi Pietro e Paolo 16, 6953 Lugaggia, Suisse',
-    },
-    followUs: 'Suivez-nous',
-    copyright: 'Tous droits réservés.',
-    privacy: '/fr/protection-des-donnees',
-    imprint: '/fr/mentions-legales',
-    privacyText: 'Protection des données',
-    imprintText: 'Mentions légales',
-    home: '/fr',
   },
-  en: {
-    tagline: 'PVPro.ch is an independent Swiss platform that connects property owners with certified photovoltaic installers and storage solutions.',
-    features: [
-      { text: 'Certified Swiss Solar Installers', href: null },
-      { text: 'Real Quotes Instead of Price Estimates', href: null },
-      { text: 'Every Request Personally Reviewed', href: null },
-      { text: 'Regional Providers', href: null },
-      { text: 'Swiss Platform', href: null },
+  {
+    title: 'Über uns',
+    links: [
+      { label: 'Über uns',       href: '/' },
+      { label: 'Kontakt',        href: '/anfrage' },
+      { label: 'Bewertungen',    href: '/' },
+      { label: 'Datenschutz',    href: '/datenschutz' },
+      { label: 'Impressum',      href: '/impressum' },
     ],
-    contact: {
-      title: 'We are here for you',
-      email: 'anfrage@pvpro.ch',
-      hours: 'Mon-Sat: 8:00 - 19:00',
-      address: 'Via Santi Pietro e Paolo 16, 6953 Lugaggia, Switzerland',
-    },
-    followUs: 'Follow Us',
-    copyright: 'All rights reserved.',
-    privacy: '/en/privacy',
-    imprint: '/en/imprint',
-    privacyText: 'Privacy Policy',
-    imprintText: 'Imprint',
-    home: '/en',
   },
-  it: {
-    tagline: 'PVPro.ch è una piattaforma svizzera indipendente che mette in relazione i proprietari di immobili con installatori fotovoltaici certificati e soluzioni di stoccaggio.',
-    features: [
-      { text: 'Installatori solari svizzeri certificati', href: null },
-      { text: 'Offerte reali invece di stime di prezzo', href: null },
-      { text: 'Ogni richiesta verificata personalmente', href: null },
-      { text: 'Fornitori regionali', href: null },
-      { text: 'Piattaforma svizzera', href: null },
-    ],
-    contact: {
-      title: 'Siamo qui per voi',
-      email: 'anfrage@pvpro.ch',
-      hours: 'Lun-Sab: 8:00 - 19:00',
-      address: 'Via Santi Pietro e Paolo 16, 6953 Lugaggia, Svizzera',
-    },
-    followUs: 'Seguici',
-    copyright: 'Tutti i diritti riservati.',
-    privacy: '/it/protezione-dati',
-    imprint: '/it/note-legali',
-    privacyText: 'Protezione dei dati',
-    imprintText: 'Note legali',
-    home: '/it',
-  },
-};
+];
 
 export default function Footer() {
   const locale = useLocale();
-  const content = footerContent[locale] || footerContent.de;
+  const homeHref = locale === 'de' ? '/' : `/${locale}`;
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="container-custom py-12 sm:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
-          <div>
-            <Link href={content.home} className="flex items-center mb-4">
+    <footer style={{ background: '#0d1117' }} className="text-gray-400">
+      <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+
+        {/* Main grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 py-16 lg:py-20">
+
+          {/* Col 1 — Brand */}
+          <div className="flex flex-col gap-6 lg:pr-8">
+            <Link href={homeHref}>
               <Image
                 src="/logo-pvpro.png"
                 alt="PVPro.ch"
-                width={140}
-                height={35}
-                className="h-8 w-auto"
+                width={130}
+                height={36}
+                className="h-8 w-auto brightness-0 invert"
               />
             </Link>
-            <p className="text-sm text-gray-400">
-              {content.tagline}
+            <p className="text-sm leading-relaxed text-gray-500" style={{ maxWidth: 280 }}>
+              PVPro.ch ist eine unabhängige Schweizer Plattform, die Immobilienbesitzer mit geprüften Photovoltaik-Installateuren verbindet.
             </p>
-          </div>
-
-          <div>
-            <ul className="space-y-2">
-              {content.features.map((feature, index) => (
-                <li key={index} className="flex items-center gap-2 text-sm text-gray-400">
-                  <span className="text-primary">✓</span>
-                  {feature.href ? (
-                    <Link href={feature.href} className="hover:text-primary transition-colors">
-                      {feature.text}
-                    </Link>
-                  ) : (
-                    feature.text
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-white font-sans font-semibold tracking-tight mb-4">{content.contact.title}</h3>
-            <ul className="space-y-3">
-              <li>
-                <a href={`mailto:${content.contact.email}`} className="flex items-center gap-2 text-sm hover:text-primary transition-colors">
-                  <Mail className="w-4 h-4" />
-                  {content.contact.email}
-                </a>
-              </li>
-              <li className="flex items-center gap-2 text-sm text-gray-400">
-                <Clock className="w-4 h-4" />
-                {content.contact.hours}
-              </li>
-              <li className="flex items-start gap-2 text-sm text-gray-400">
-                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                {content.contact.address}
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-white font-sans font-semibold tracking-tight mb-4">{content.followUs}</h3>
-            <div className="flex gap-4">
+            {/* Social icons */}
+            <div className="flex items-center gap-3 mt-1">
               <a
-                href="https://www.instagram.com/pvpro.ch/"
+                href={instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="Instagram"
+                className="w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200"
+                style={{ background: 'rgba(255,255,255,0.07)' }}
+                onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.14)')}
+                onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.07)')}
               >
-                <Instagram className="w-5 h-5" />
+                <svg className="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
               </a>
               <a
-                href="https://www.facebook.com/pvpro.ch/"
+                href={facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="Facebook"
+                className="w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200"
+                style={{ background: 'rgba(255,255,255,0.07)' }}
+                onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.14)')}
+                onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.07)')}
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
               </a>
             </div>
           </div>
+
+          {/* Cols 2-4 — Link columns */}
+          {columns.map((col) => (
+            <div key={col.title}>
+              <h4 className="text-white text-sm font-semibold tracking-wide mb-5">
+                {col.title}
+              </h4>
+              <ul className="flex flex-col gap-3">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-gray-500 hover:text-white transition-colors duration-150"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; 2026 PV Pro. {content.copyright} <Link href={content.privacy} className="hover:text-white">{content.privacyText}</Link> | <Link href={content.imprint} className="hover:text-white">{content.imprintText}</Link></p>
+        {/* Bottom bar */}
+        <div
+          className="flex flex-col sm:flex-row items-center justify-between gap-3 py-6 text-xs text-gray-600"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
+        >
+          <p>© 2026 PVPro. Alle Rechte vorbehalten.</p>
+          <div className="flex items-center gap-5">
+            <Link href="/datenschutz" className="hover:text-gray-400 transition-colors">Datenschutz</Link>
+            <Link href="/impressum"   className="hover:text-gray-400 transition-colors">Impressum</Link>
+          </div>
         </div>
+
       </div>
     </footer>
   );
