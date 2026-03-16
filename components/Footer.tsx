@@ -61,7 +61,7 @@ export default function Footer() {
                 alt="PVPro.ch"
                 width={130}
                 height={36}
-                className="h-8 w-auto brightness-0 invert"
+                className="h-8 w-auto"
               />
             </Link>
             <p className="text-sm leading-relaxed text-gray-500" style={{ maxWidth: 280 }}>

@@ -1,5 +1,8 @@
 # PVPro - Swiss Solar Panel Comparison Website
 
+## Logo Fixed Rules (DO NOT change)
+- **Logo**: ALWAYS use `/logo-pvpro.png` as-is — NEVER apply CSS filters (`brightness`, `invert`, etc.) or any color transformation. The logo must always display in its original colors everywhere (header, footer, any page).
+
 ## SEO Fixed Rules (DO NOT change)
 - **Canonical domain**: Always use `https://www.pvpro.ch` — NEVER `https://pvpro.ch` (without www)
 - All `canonical` URLs, `metadataBase`, `og:url`, sitemap entries, structured data, and internal links must use `https://www.pvpro.ch`
