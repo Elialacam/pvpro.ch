@@ -47,27 +47,29 @@ export default function Hero() {
   const content = heroContent[locale] || heroContent.de;
 
   return (
-    <section className="relative w-full min-h-[92vh] flex items-end overflow-hidden">
-      {/* Background image */}
+    <section className="relative w-full flex items-end overflow-hidden" style={{ background: '#0d1117' }}>
+      {/* Background image — contain to show full image */}
       <Image
         src="/images/hero-house-solar.png"
         alt="Modernes Haus mit Solaranlage in der Schweiz"
-        fill
+        width={1440}
+        height={960}
         priority
-        className="object-cover object-center"
+        className="w-full h-auto block"
         sizes="100vw"
+        style={{ display: 'block' }}
       />
 
-      {/* Gradient overlay — darkens bottom-left for text readability */}
+      {/* Overlay for text area — gradient from bottom */}
       <div
         className="absolute inset-0 z-10"
         style={{
-          background: 'linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.08) 100%)',
+          background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0.0) 65%)',
         }}
       />
 
-      {/* Content */}
-      <div className="relative z-20 w-full pb-12 pt-24 px-5 sm:px-10 lg:px-16 max-w-4xl">
+      {/* Content — absolute over image */}
+      <div className="absolute bottom-0 left-0 z-20 w-full pb-10 px-5 sm:px-10 lg:px-16 max-w-4xl">
         {/* Big headline */}
         <h1 className="text-white font-black leading-none tracking-tight mb-5"
           style={{ fontSize: 'clamp(3rem, 8vw, 7rem)', lineHeight: 1.0 }}>
