@@ -7,11 +7,11 @@ import { useLocale } from '@/lib/LocaleContext';
 const MIN = 500;
 const MAX = 1500;
 
-const labels: Record<string, { question: string; cta: string; savings: string; per: string }> = {
-  de: { question: 'Wie hoch ist Ihre Stromrechnung?', cta: 'Jetzt sparen', savings: 'Mögliche Ersparnis', per: '/Jahr' },
-  fr: { question: 'Quel est votre facture d\'énergie?', cta: 'Réduire maintenant', savings: 'Économies possibles', per: '/an' },
-  en: { question: 'How much is your energy bill?', cta: "Let's cut it", savings: 'Possible savings', per: '/year' },
-  it: { question: 'Qual è la sua bolletta energetica?', cta: 'Riduciamo ora', savings: 'Risparmio possibile', per: '/anno' },
+const labels: Record<string, { question: string; cta: string; savings: string; per: string; month: string }> = {
+  de: { question: 'Wie hoch ist Ihre monatliche Stromrechnung?', cta: 'Jetzt sparen', savings: 'Geschätzte Ersparnis', per: '/Jahr', month: '/Monat' },
+  fr: { question: 'Quel est votre facture mensuelle d\'énergie?', cta: 'Réduire maintenant', savings: 'Économies estimées', per: '/an', month: '/mois' },
+  en: { question: 'What is your monthly energy bill?', cta: "Let's cut it", savings: 'Estimated savings', per: '/year', month: '/month' },
+  it: { question: 'Qual è la sua bolletta mensile?', cta: 'Riduciamo ora', savings: 'Risparmio stimato', per: '/anno', month: '/mese' },
 };
 
 export default function HeroWidget() {
@@ -20,9 +20,7 @@ export default function HeroWidget() {
   const [value, setValue] = useState(900);
 
   const pct = ((value - MIN) / (MAX - MIN)) * 100;
-  // Estimated annual savings: ~60% of yearly bill (monthly × 12)
-  const annualBill = value * 12;
-  const saving = Math.round(annualBill * 0.6 / 100) * 100;
+  const saving = Math.round((value * 12 * 0.6) / 100) * 100;
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(Number(e.target.value));
@@ -30,79 +28,82 @@ export default function HeroWidget() {
 
   return (
     <div
-      className="w-[320px] rounded-3xl p-6 flex flex-col gap-5 select-none"
+      className="w-[370px] rounded-[28px] p-8 flex flex-col gap-7 select-none"
       style={{
-        background: 'rgba(255,255,255,0.92)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        boxShadow: '0 24px 64px rgba(0,0,0,0.22), 0 4px 16px rgba(0,0,0,0.10)',
-        border: '1px solid rgba(255,255,255,0.7)',
+        background: 'rgba(255,255,255,0.93)',
+        backdropFilter: 'blur(28px)',
+        WebkitBackdropFilter: 'blur(28px)',
+        boxShadow: '0 32px 80px rgba(0,0,0,0.20), 0 2px 12px rgba(0,0,0,0.08)',
+        border: '1px solid rgba(255,255,255,0.8)',
       }}
     >
-      {/* Question + amount */}
-      <div className="flex items-start justify-between gap-3">
-        <p className="text-gray-700 text-sm font-semibold leading-snug max-w-[160px]">
-          {t.question}
-        </p>
-        <div className="flex-shrink-0 text-right">
-          <span className="text-3xl font-black text-[#F97316] leading-none tabular-nums">
-            CHF {value}
-          </span>
-          <span className="block text-xs text-gray-400 font-medium mt-0.5">/Monat</span>
-        </div>
+      {/* Question */}
+      <p className="text-gray-500 text-[13px] font-semibold tracking-wide uppercase leading-none">
+        {t.question}
+      </p>
+
+      {/* Amount */}
+      <div className="flex items-baseline gap-2">
+        <span className="text-[52px] font-black text-gray-900 leading-none tabular-nums tracking-tight">
+          {value}
+        </span>
+        <span className="text-base font-semibold text-gray-400 mb-1">CHF{t.month}</span>
       </div>
 
-      {/* Slider track */}
-      <div className="relative">
-        {/* Filled track */}
-        <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
+      {/* Slider */}
+      <div className="flex flex-col gap-3">
+        <div className="relative h-[6px]">
+          {/* Track background */}
+          <div className="absolute inset-0 rounded-full bg-gray-150" style={{ background: '#ebebeb' }} />
+          {/* Filled track */}
           <div
-            className="h-full rounded-full transition-all duration-75"
+            className="absolute inset-y-0 left-0 rounded-full"
             style={{
               width: `${pct}%`,
               background: 'linear-gradient(90deg, #fdba74, #F97316)',
             }}
           />
+          {/* Native input (invisible, for interaction) */}
+          <input
+            type="range"
+            min={MIN}
+            max={MAX}
+            step={10}
+            value={value}
+            onChange={handleChange}
+            className="energy-slider absolute w-full opacity-0 cursor-pointer"
+            style={{ top: '-9px', height: '24px' }}
+          />
+          {/* Custom thumb */}
+          <div
+            className="absolute top-1/2 -translate-y-1/2 w-[22px] h-[22px] rounded-full bg-white pointer-events-none"
+            style={{
+              left: `calc(${pct}% - 11px)`,
+              border: '2.5px solid #F97316',
+              boxShadow: '0 2px 10px rgba(249,115,22,0.30)',
+            }}
+          />
         </div>
-        {/* Range input */}
-        <input
-          type="range"
-          min={MIN}
-          max={MAX}
-          step={10}
-          value={value}
-          onChange={handleChange}
-          className="energy-slider absolute inset-0 w-full opacity-0 cursor-pointer"
-          style={{ height: '24px', top: '-9px' }}
-        />
-        {/* Thumb visual */}
-        <div
-          className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
-          style={{ left: `calc(${pct}% - 12px)` }}
-        >
-          <div className="w-6 h-6 rounded-full bg-white border-[3px] border-[#F97316] shadow-[0_2px_8px_rgba(249,115,22,0.4)]" />
-        </div>
-        {/* Min / Max labels */}
-        <div className="flex justify-between mt-3 px-0.5">
+        <div className="flex justify-between">
           <span className="text-xs text-gray-400">CHF {MIN}</span>
           <span className="text-xs text-gray-400">CHF {MAX}</span>
         </div>
       </div>
 
-      {/* Savings estimate */}
-      <div
-        className="rounded-2xl px-4 py-3 flex items-center justify-between"
-        style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}
-      >
+      {/* Savings row */}
+      <div className="flex items-center justify-between pt-1 border-t border-gray-100">
         <div>
-          <p className="text-xs text-orange-400 font-semibold uppercase tracking-wider">{t.savings}</p>
-          <p className="text-2xl font-black text-[#F97316] tabular-nums mt-0.5">
+          <p className="text-[11px] text-gray-400 font-semibold uppercase tracking-wider mb-1">{t.savings}</p>
+          <p className="text-2xl font-black text-[#F97316] tabular-nums leading-none">
             CHF {saving.toLocaleString()}
-            <span className="text-sm font-semibold text-orange-400 ml-1">{t.per}</span>
+            <span className="text-sm font-semibold text-orange-300 ml-1">{t.per}</span>
           </p>
         </div>
-        <div className="w-10 h-10 rounded-full flex items-center justify-center bg-orange-100">
-          <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+        <div
+          className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0"
+          style={{ background: '#fff7ed' }}
+        >
+          <svg className="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
         </div>
@@ -111,8 +112,8 @@ export default function HeroWidget() {
       {/* CTA */}
       <Link
         href="/anfrage"
-        className="w-full text-center font-bold text-base py-3.5 rounded-2xl text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
-        style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+        className="w-full text-center font-bold text-[15px] py-4 rounded-2xl text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98] tracking-wide"
+        style={{ background: '#F97316' }}
       >
         {t.cta} →
       </Link>
