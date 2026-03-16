@@ -4,6 +4,7 @@ import Testimonials from '@/components/Testimonials';
 import TeamSection from '@/components/TeamSection';
 import SwissMap from '@/components/SwissMap';
 import FAQ from '@/components/FAQ';
+import BlogSection from '@/components/BlogSection';
 import Link from 'next/link';
 import { cities } from '@/lib/cities';
 import { MapPin } from 'lucide-react';
@@ -154,6 +155,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <BlogSection />
       <FAQ />
     </>
   );

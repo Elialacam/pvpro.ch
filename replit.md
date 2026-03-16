@@ -93,6 +93,13 @@ npm run start -- -p 5000
   - Hero with form, rising costs section, own energy section, roof check CTA
   - Footer second checkmark links to this page
 
+## Blog
+- **Blog data**: `lib/blogPosts.ts` — 6 posts (Ratgeber, Förderungen, Speicher, Tipps, Finanzen)
+- **BlogSection**: `components/BlogSection.tsx` — 3-card preview on homepage (before FAQ), links to `/blog`
+- **Blog page**: `app/(de)/blog/page.tsx` — full 2-column layout; left = 6-post grid, right = sticky sidebar with PLZ widget + Themen
+- **PlzWidget**: `components/PlzWidget.tsx` — client component; PLZ input (4 digits) → navigates to `/anfrage?plz=XXXX`
+- Blog thumbnail images: `public/images/blog-1.png` … `blog-6.png` (copies of hero images)
+
 ## Recent Changes
 - 2026-03-12: Removed SolarForm from ALL pages — replaced with CTA cards/buttons linking to /anfrage. Affected: Hero, solarrechner, solaranlage-kosten, solaranlage-mit-speicher, lokale-installateure, stromkosten-senken, UniqueCityPage, CityGrid, FAQ, HowItWorks, SwissMap, SolarCalculator. All #formular scroll anchors removed.
 - 2026-03-09: Created /lokale-installateure landing page for Facebook Ads (message match angle: local installers)
