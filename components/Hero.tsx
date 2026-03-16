@@ -47,7 +47,7 @@ export default function Hero() {
   const content = heroContent[locale] || heroContent.de;
 
   return (
-    <section className="relative w-full min-h-screen flex items-end overflow-hidden" style={{ background: '#0d1117' }}>
+    <section className="relative w-full min-h-screen flex items-end overflow-hidden -mt-20" style={{ background: '#0d1117' }}>
       {/* Background image — contain so full image is visible */}
       <Image
         src="/images/hero-house-solar.png"

@@ -64,7 +64,7 @@ export default function GermanLayout({
     <LocaleProvider locale="de">
       <StructuredData />
       <Header />
-      <main className="min-h-screen">{children}</main>
+      <main className="min-h-screen pt-20">{children}</main>
       <Footer />
       <script
         type="application/ld+json"

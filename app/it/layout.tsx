@@ -63,7 +63,7 @@ export default function ItalianLayout({
   return (
     <LocaleProvider locale="it">
       <Header />
-      <main>{children}</main>
+      <main className="min-h-screen pt-20">{children}</main>
       <Footer />
       <script
         type="application/ld+json"
