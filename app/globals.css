@@ -2,6 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Premium energy slider */
+.energy-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+}
+.energy-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #F97316;
+  box-shadow: 0 2px 8px rgba(249,115,22,0.35);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.energy-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px rgba(249,115,22,0.45);
+}
+.energy-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #F97316;
+  box-shadow: 0 2px 8px rgba(249,115,22,0.35);
+  cursor: pointer;
+}
+
 :root {
   --primary: #D4AF37;
   --primary-foreground: #ffffff;

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState, useCallback } from 'react';
 import { useLocale } from '@/lib/LocaleContext';
 import { Locale } from '@/lib/i18n';
+import HeroWidget from './HeroWidget';
 
 const slides = [
   '/images/hero-family-solar.png',
@@ -141,6 +142,11 @@ export default function Hero() {
         <p className="text-white/60 text-sm mt-5 font-medium">
           {content.trustBadge}
         </p>
+      </div>
+
+      {/* Premium widget — right side */}
+      <div className="hidden lg:flex absolute right-12 xl:right-20 top-1/2 -translate-y-1/2 z-20 items-center">
+        <HeroWidget />
       </div>
 
       {/* Otovo-style dots — bottom center */}
