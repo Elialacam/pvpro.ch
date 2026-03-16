@@ -139,3 +139,23 @@ Use these for new pages — do not link to attached_assets/ directly.
 - `asset-haus-alpen-1.png` — Drohne: Holzhaus mit Solar, Alpenkulisse (Sommer)
 - `asset-haus-alpen-2.png` — Holzhaus mit Solar vor Eiger/Mönch/Jungfrau
 - `asset-haus-alpen-3.png` — Holzhaus mit Solar + Gründach, Kühe auf Weide
+
+### Installateur Montage (Dach, Arbeit)
+- `asset-installateur-dach-5.png` — Techniker auf Dach mit Tablet (Schweizer Dorf, Sommer)
+- `asset-installateur-montage-1.png` — Monteur schraubt Solarpanel auf Ziegeldach
+- `asset-installateur-montage-2.png` — Monteur positioniert Solarpanel auf Ziegeldach
+
+### Solarpanel Nahaufnahmen
+- `asset-panel-closeup-1.png` — Solarpanele auf grauem Dach, blauer Himmel
+- `asset-panel-closeup-2.png` — Nahaufnahme Solarpanel-Oberfläche (polykristallin)
+- `asset-panel-closeup-3.png` — Solarpanele mit Halterung auf Tonziegeldach
+
+### Haus mit Solar (Luftbild / Drohne)
+- `asset-haus-luftbild-1.png` — Luftbild Holzhaus mit Solar, grüne Siedlung (Sommer)
+- `asset-haus-luftbild-2.png` — Luftbild Einfamilienhaus mit Solar, Garten (Sommer)
+- `asset-haus-luftbild-3.png` — Nahdrohne: Dach mit Solarpanelen, Wohnquartier
+- `asset-haus-luftbild-4.png` — Draufsicht Dach mit schwarzen Solarpanelen (modern)
+
+### Haus Modern (Architektur + Solar)
+- `asset-haus-modern-1.png` — Modernes Holzhaus mit Solar, Garten bei Sonnenuntergang
+- `asset-haus-modern-2.png` — Flaches Holzhaus mit Solar, Naturgarten (Abendlicht)
