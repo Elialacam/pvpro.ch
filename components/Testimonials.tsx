@@ -106,13 +106,13 @@ function Avatar({ review }: { review: Review }) {
       <img
         src={review.avatar}
         alt={review.name}
-        className="w-11 h-11 rounded-full object-cover ring-2 ring-white/20 flex-shrink-0"
+        className="w-11 h-11 rounded-full object-cover ring-2 ring-gray-100 flex-shrink-0"
       />
     );
   }
   return (
     <div
-      className="w-11 h-11 rounded-full flex items-center justify-center text-white font-black text-base flex-shrink-0 ring-2 ring-white/20"
+      className="w-11 h-11 rounded-full flex items-center justify-center text-white font-black text-base flex-shrink-0 ring-2 ring-gray-100"
       style={{ background: avatarColors[colorIndex] }}
     >
       {review.name.charAt(0)}
@@ -123,11 +123,7 @@ function Avatar({ review }: { review: Review }) {
 function ReviewCard({ review }: { review: Review }) {
   return (
     <div
-      className="flex-shrink-0 w-[340px] mx-3 rounded-2xl p-6 flex flex-col gap-4"
-      style={{
-        background: 'rgba(255,255,255,0.05)',
-        border: '1px solid rgba(255,255,255,0.09)',
-      }}
+      className="flex-shrink-0 w-[340px] mx-3 rounded-2xl p-6 flex flex-col gap-4 bg-white border border-gray-100 shadow-sm"
     >
       <div className="flex items-start justify-between">
         <span className="text-5xl leading-none font-serif text-[#F97316] opacity-70 select-none">"</span>
@@ -137,11 +133,11 @@ function ReviewCard({ review }: { review: Review }) {
           ))}
         </div>
       </div>
-      <p className="text-[0.85rem] leading-relaxed text-gray-300 flex-1">{review.text}</p>
-      <div className="flex items-center gap-3 pt-2 border-t border-white/8">
+      <p className="text-[0.85rem] leading-relaxed text-gray-600 flex-1">{review.text}</p>
+      <div className="flex items-center gap-3 pt-2 border-t border-gray-100">
         <Avatar review={review} />
         <div>
-          <p className="text-sm font-bold text-white">{review.name}</p>
+          <p className="text-sm font-bold text-gray-900">{review.name}</p>
           <p className="text-xs text-gray-500">{review.location}</p>
         </div>
       </div>
@@ -154,14 +150,13 @@ export default function Testimonials() {
 
   return (
     <section
-      className="py-20 overflow-hidden"
-      style={{ background: 'linear-gradient(160deg, #0d1117 0%, #111827 60%, #0f172a 100%)' }}
+      className="py-20 overflow-hidden bg-gray-50"
     >
       {/* Header */}
       <div className="container-custom mb-14">
         <div className="text-center">
           <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Kundenstimmen</p>
-          <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-2">
+          <h2 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-2">
             Was unsere Kunden sagen
           </h2>
           <p className="text-gray-500 text-sm leading-relaxed">
