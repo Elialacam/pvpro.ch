@@ -203,7 +203,6 @@ export default function Header() {
               width={160}
               height={44}
               className="h-8 sm:h-9 w-auto"
-              style={transparent ? { filter: 'brightness(0) invert(1)' } : {}}
             />
           </Link>
 
