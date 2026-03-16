@@ -205,19 +205,6 @@ export default function FAQ({ items }: FAQProps) {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
-            {content.moreQuestions}
-          </p>
-          <button 
-            onClick={() => {
-              window.location.href = '/anfrage';
-            }}
-            className="btn-primary"
-          >
-            {content.cta}
-          </button>
-        </div>
       </div>
     </section>
   );
