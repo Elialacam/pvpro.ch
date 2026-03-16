@@ -241,9 +241,7 @@ export default function Header() {
 
           {/* Right — lang switcher + CTA */}
           <div className="flex items-center gap-3 sm:gap-4 z-10">
-            <div style={transparent ? { filter: 'brightness(0) invert(1)' } : {}}>
-              <LanguageSwitcher />
-            </div>
+            <LanguageSwitcher transparent={transparent} />
             <Link
               href="/anfrage"
               className="hidden sm:inline-flex items-center font-semibold text-sm px-5 py-2.5 rounded-full border-2 transition-all duration-200 whitespace-nowrap"
