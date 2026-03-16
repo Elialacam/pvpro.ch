@@ -144,8 +144,8 @@ export default function Hero() {
         </p>
       </div>
 
-      {/* Premium widget — right side */}
-      <div className="hidden lg:flex absolute right-12 xl:right-20 top-1/2 -translate-y-1/2 z-20 items-center">
+      {/* Premium widget — bottom right */}
+      <div className="hidden lg:flex absolute right-12 xl:right-20 bottom-16 z-20 items-end">
         <HeroWidget />
       </div>
 
