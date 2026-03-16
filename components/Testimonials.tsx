@@ -82,6 +82,30 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Einfach, schnell und kostenlos. Ich habe nie gedacht, dass es so unkompliziert sein kann. Drei Offerten in 24 Stunden — unglaublich!',
   },
+  {
+    name: 'Martin Steiner',
+    avatar: null,
+    rating: 5,
+    text: 'Endlich habe ich den Schritt gewagt. PVPro hat mir innerhalb von Stunden drei seriöse Angebote geschickt. Der Installateur war pünktlich und hat hervorragende Arbeit geleistet.',
+  },
+  {
+    name: 'Nicole Baumgartner',
+    avatar: null,
+    rating: 5,
+    text: 'Wir erzeugen jetzt unseren eigenen Strom und haben unsere Jahresstromrechnung um fast 60% reduziert. Der Service von PVPro war von Anfang bis Ende top!',
+  },
+  {
+    name: 'Patrick Lüthi',
+    avatar: null,
+    rating: 5,
+    text: 'Sehr professionelle Abwicklung. Der Installateur kam pünktlich, arbeitete sauber und erklärte uns alles genau. Die Anlage läuft seit 4 Monaten einwandfrei.',
+  },
+  {
+    name: 'Ursula Gerber',
+    avatar: null,
+    rating: 5,
+    text: 'Als Rentnerin war ich zunächst unsicher, aber PVPro hat mir alles einfach erklärt. Jetzt spare ich monatlich über 90 CHF Stromkosten. Hätte ich früher machen sollen!',
+  },
 ];
 
 function StarRating({ count }: { count: number }) {
