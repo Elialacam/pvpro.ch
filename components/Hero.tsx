@@ -2,8 +2,20 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState, useCallback } from 'react';
 import { useLocale } from '@/lib/LocaleContext';
 import { Locale } from '@/lib/i18n';
+
+const slides = [
+  '/images/hero-family-solar.png',
+  '/images/hero-2.png',
+  '/images/hero-3.png',
+  '/images/hero-4.png',
+  '/images/hero-5.png',
+  '/images/hero-6.png',
+  '/images/hero-7.png',
+  '/images/hero-8.png',
+];
 
 const heroContent: Record<Locale, {
   titleLine1: string;
@@ -42,49 +54,82 @@ const heroContent: Record<Locale, {
   },
 };
 
+const SLIDE_DURATION = 6000;
+
 export default function Hero() {
   const locale = useLocale();
   const content = heroContent[locale] || heroContent.de;
+  const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  const goTo = useCallback((index: number) => {
+    if (index === current) return;
+    setAnimating(true);
+    setTimeout(() => {
+      setCurrent(index);
+      setAnimating(false);
+    }, 400);
+  }, [current]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const next = (current + 1) % slides.length;
+      setAnimating(true);
+      setTimeout(() => {
+        setCurrent(next);
+        setAnimating(false);
+      }, 400);
+    }, SLIDE_DURATION);
+    return () => clearInterval(timer);
+  }, [current]);
 
   return (
-    <section className="relative w-full min-h-screen flex items-end overflow-hidden -mt-20" style={{ background: '#0d1117' }}>
-      {/* Background image — contain so full image is visible */}
-      <Image
-        src="/images/hero-family-solar.png"
-        alt="Modernes Haus mit Solaranlage in der Schweiz"
-        fill
-        priority
-        className="object-cover object-center"
-        sizes="100vw"
-      />
+    <section className="relative w-full min-h-screen flex items-end overflow-hidden -mt-20" style={{ background: '#111' }}>
 
-      {/* Gradient overlay — top fade (header readability) + bottom fade (text readability) */}
+      {/* Slides */}
+      {slides.map((src, i) => (
+        <div
+          key={src}
+          className="absolute inset-0 transition-opacity duration-700"
+          style={{ opacity: i === current ? (animating ? 0 : 1) : 0 }}
+        >
+          <Image
+            src={src}
+            alt="PVPro Solaranlage"
+            fill
+            priority={i === 0}
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+      ))}
+
+      {/* Gradient overlay — top + bottom */}
       <div
         className="absolute inset-0 z-10"
         style={{
           background: [
-            'linear-gradient(to bottom, rgba(0,0,0,0.52) 0%, transparent 22%)',
-            'linear-gradient(to top,    rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.5) 35%, transparent 65%)',
+            'linear-gradient(to bottom, rgba(0,0,0,0.50) 0%, transparent 22%)',
+            'linear-gradient(to top,    rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 35%, transparent 65%)',
           ].join(', '),
         }}
       />
 
-      {/* Content — absolute over image */}
-      <div className="absolute bottom-0 left-0 z-20 w-full pb-10 px-5 sm:px-10 lg:px-16 max-w-4xl">
-        {/* Big headline */}
-        <h1 className="text-white font-black leading-none tracking-tight mb-5"
-          style={{ fontSize: 'clamp(3rem, 8vw, 7rem)', lineHeight: 1.0 }}>
+      {/* Content */}
+      <div className="absolute bottom-0 left-0 z-20 w-full pb-14 px-5 sm:px-10 lg:px-16 max-w-4xl">
+        <h1
+          className="text-white font-black leading-none tracking-tight mb-5"
+          style={{ fontSize: 'clamp(3rem, 8vw, 7rem)', lineHeight: 1.0 }}
+        >
           {content.titleLine1}
           <br />
           {content.titleLine2}
         </h1>
 
-        {/* Subtitle */}
         <p className="text-white/85 text-lg sm:text-xl font-normal mb-8 max-w-xl leading-relaxed">
           {content.subtitle}
         </p>
 
-        {/* CTA */}
         <Link
           href="/anfrage"
           className="inline-block font-bold text-base sm:text-lg px-7 py-4 rounded-2xl transition-all shadow-lg"
@@ -93,11 +138,28 @@ export default function Hero() {
           {content.cta} →
         </Link>
 
-        {/* Trust line */}
         <p className="text-white/60 text-sm mt-5 font-medium">
           {content.trustBadge}
         </p>
       </div>
+
+      {/* Otovo-style dots — bottom center */}
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            aria-label={`Slide ${i + 1}`}
+            className="rounded-full transition-all duration-300"
+            style={{
+              width:  i === current ? '20px' : '6px',
+              height: '6px',
+              background: i === current ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.4)',
+            }}
+          />
+        ))}
+      </div>
+
     </section>
   );
 }
