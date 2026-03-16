@@ -1,338 +1,300 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import { ChevronRight, Battery, Sun, Home, Zap, CheckCircle, ArrowRight, TrendingUp } from 'lucide-react';
 import { Metadata } from 'next';
-import CtaAnfrage from '@/components/CtaAnfrage';
-import { CheckCircle, Battery, Zap, Sun, Moon, TrendingUp, PiggyBank, Shield } from 'lucide-react';
-
+import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
 
 export const metadata: Metadata = {
-  title: 'Solaranlage mit Speicher Schweiz - Kosten & Vorteile 2025 | PVPro',
-  description: 'Solaranlage mit Batteriespeicher in der Schweiz. Kosten CHF 19.500-35.000, bis 80% Eigenverbrauch. Lohnt sich ein Speicher? Jetzt Offerten vergleichen!',
-  keywords: [
-    'Solaranlage mit Speicher Schweiz',
-    'Photovoltaik Speicher Kosten',
-    'Batteriespeicher Solaranlage',
-    'Stromspeicher Schweiz',
-    'PV Anlage mit Batterie',
-    'Eigenverbrauch erhöhen',
-    'Solarstrom speichern',
-  ],
-  alternates: {
-    canonical: 'https://www.pvpro.ch/solaranlage-mit-speicher',
-  },
-  openGraph: {
-    title: 'Solaranlage mit Speicher Schweiz - Kosten & Vorteile 2025',
-    description: 'Lohnt sich ein Batteriespeicher? Kosten, Vorteile und wann sich die Investition rechnet.',
-    url: 'https://www.pvpro.ch/solaranlage-mit-speicher',
-    type: 'article',
-    locale: 'de_CH',
-    siteName: 'PVPro',
-  },
+  title: 'Solaranlage mit Speicher: Kosten, Vorteile und Speichergröße in der Schweiz | PVPro.ch',
+  description: 'Wie funktioniert eine Solaranlage mit Speicher? Erfahren Sie Kosten, Vorteile, Speichergrößen und wie viel Strom Sie selbst nutzen können.',
 };
 
-const storageOptions = [
-  {
-    capacity: '5 kWh',
-    price: '8.000 - 10.000',
-    ideal: 'Kleiner Haushalt, 2 Personen',
-    autonomy: '4-6 Stunden',
-  },
-  {
-    capacity: '10 kWh',
-    price: '12.000 - 15.000',
-    ideal: 'Einfamilienhaus, 4 Personen',
-    autonomy: '8-12 Stunden',
-    popular: true,
-  },
-  {
-    capacity: '15 kWh',
-    price: '16.000 - 20.000',
-    ideal: 'Grosser Haushalt, E-Auto',
-    autonomy: '12-18 Stunden',
-  },
+const vorteile = [
+  { icon: TrendingUp, title: 'Weniger Strom kaufen',       text: 'Sie beziehen deutlich weniger Strom vom Energieversorger — Tag für Tag.' },
+  { icon: Zap,        title: 'Tiefere Stromkosten',        text: 'Langfristig sinken Ihre Stromkosten erheblich, gerade bei steigenden Preisen.' },
+  { icon: Home,       title: 'Mehr Unabhängigkeit',        text: 'Weniger Abhängigkeit vom Strommarkt — auch abends und nachts.' },
+  { icon: Sun,        title: 'Solarstrom optimal nutzen',  text: 'Der selbst erzeugte Strom wird nicht mehr ungenutzt ins Netz eingespeist.' },
 ];
 
-const benefits = [
-  {
-    icon: Moon,
-    title: 'Strom auch nachts',
-    description: 'Nutzen Sie Ihren Solarstrom auch nach Sonnenuntergang',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Bis 80% Eigenverbrauch',
-    description: 'Steigern Sie Ihren Eigenverbrauch von 30% auf bis zu 80%',
-  },
-  {
-    icon: Shield,
-    title: 'Unabhängigkeit',
-    description: 'Weniger abhängig vom Stromnetz und steigenden Preisen',
-  },
-  {
-    icon: Zap,
-    title: 'Notstromfunktion',
-    description: 'Viele Speicher bieten Notstrom bei Stromausfall',
-  },
-];
-
-const faqs = [
-  {
-    question: 'Lohnt sich ein Batteriespeicher in der Schweiz?',
-    answer: 'Ein Speicher lohnt sich besonders, wenn Sie tagsüber wenig zu Hause sind und Ihren Solarstrom abends nutzen möchten. Bei aktuellen Strompreisen von über 30 Rp./kWh und sinkenden Batteriepreisen wird ein Speicher immer attraktiver. Die Amortisation liegt bei 10-15 Jahren.',
-  },
-  {
-    question: 'Wie gross sollte der Speicher sein?',
-    answer: 'Als Faustregel: Die Speicherkapazität sollte etwa dem halben Tagesverbrauch entsprechen. Für einen 4-Personen-Haushalt mit 12 kWh Tagesverbrauch empfiehlt sich ein 5-10 kWh Speicher. Grösser ist nicht immer besser – ein zu grosser Speicher wird nie voll geladen.',
-  },
-  {
-    question: 'Kann ich einen Speicher nachrüsten?',
-    answer: 'Ja, ein Speicher kann in den meisten Fällen nachgerüstet werden. Ideal ist jedoch die gemeinsame Planung mit der Solaranlage, da der Wechselrichter kompatibel sein muss. Bei einer Nachrüstung können zusätzliche Kosten für einen neuen Hybridwechselrichter entstehen.',
-  },
-  {
-    question: 'Wie lange hält ein Batteriespeicher?',
-    answer: 'Moderne Lithium-Ionen-Speicher halten 10-15 Jahre bzw. 6.000-10.000 Ladezyklen. Die meisten Hersteller geben 10 Jahre Garantie. Nach dieser Zeit hat der Speicher noch etwa 70-80% seiner ursprünglichen Kapazität.',
-  },
-  {
-    question: 'Gibt es Förderungen für Batteriespeicher?',
-    answer: 'In der Schweiz gibt es keine bundesweite Förderung speziell für Speicher. Einige Kantone und Gemeinden bieten jedoch Zuschüsse. Der Speicher ist aber zusammen mit der Solaranlage steuerlich absetzbar. Informieren Sie sich bei Ihrer Gemeinde über lokale Programme.',
-  },
+const wennSinnvoll = [
+  'Ein Elektroauto wird geladen',
+  'Eine Wärmepumpe wird betrieben',
+  'Der Stromverbrauch am Abend ist hoch',
+  'Möglichst viel Solarstrom selbst genutzt werden soll',
 ];
 
 export default function SolaranlageMitSpeicherPage() {
   return (
-    <>
-      {/* Schema.org structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Solaranlage mit Speicher Schweiz - Kosten & Vorteile 2025",
-            "description": "Lohnt sich ein Batteriespeicher? Kosten, Vorteile und Amortisation.",
-            "author": {
-              "@type": "Organization",
-              "name": "PVPro"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "PVPro",
-              "url": "https://www.pvpro.ch"
-            },
-            "datePublished": "2025-01-01",
-            "dateModified": new Date().toISOString().split('T')[0]
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.answer
-              }
-            }))
-          })
-        }}
-      />
+    <main className="min-h-screen bg-white">
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-primary-50 to-white section-padding">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl font-sans font-semibold tracking-normal text-gray-900 mb-6">
-              Solaranlage mit Speicher
-            </h1>
-            <p className="text-xl text-gray-600 mb-8">
-              Maximieren Sie Ihren Eigenverbrauch und nutzen Sie Ihren Solarstrom
-              auch nachts. Alles über Kosten, Vorteile und die richtige Speichergrösse.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-                <Battery className="w-5 h-5 text-primary" />
-                <span className="text-gray-700">Bis 80% Eigenverbrauch</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-                <CheckCircle className="w-5 h-5 text-primary" />
-                <span className="text-gray-700">Ab CHF 8.000</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-                <CheckCircle className="w-5 h-5 text-primary" />
-                <span className="text-gray-700">10 Jahre Garantie</span>
-              </div>
-            </div>
-          </div>
+      {/* ── HERO ── */}
+      <section className="relative pt-28 pb-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
+        <div className="absolute inset-0 opacity-20">
+          <Image src="/images/blog-3.png" alt="Solaranlage mit Speicher" fill className="object-cover" priority />
         </div>
-      </section>
+        <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <nav className="flex items-center gap-1.5 text-sm text-gray-500 mb-10">
+            <Link href="/" className="hover:text-gray-300 transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5" />
+            <span className="text-gray-300 font-medium">Solaranlage mit Speicher</span>
+          </nav>
 
-      {/* Comparison: With vs Without Storage */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-12">
-            Mit oder ohne Speicher?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="border-2 border-gray-200 rounded-2xl p-6">
-              <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mb-4 flex items-center gap-2">
-                <Sun className="w-6 h-6 text-yellow-500" />
-                Ohne Speicher
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-400 mt-1">•</span>
-                  <span className="text-gray-600">~30% Eigenverbrauch</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-400 mt-1">•</span>
-                  <span className="text-gray-600">Strom nur tagsüber nutzbar</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-400 mt-1">•</span>
-                  <span className="text-gray-600">Überschuss wird eingespeist (~8-12 Rp./kWh)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-400 mt-1">•</span>
-                  <span className="text-gray-600">Niedrigere Anfangsinvestition</span>
-                </li>
-              </ul>
-              <div className="mt-6 pt-4 border-t border-gray-200">
-                <div className="text-2xl font-sans font-semibold tracking-normal text-gray-900">
-                  CHF 9.500 - 25.000
-                </div>
-                <p className="text-sm text-gray-500">Nur Solaranlage</p>
-              </div>
-            </div>
-
-            <div className="border-2 border-primary rounded-2xl p-6 bg-primary-50">
-              <div className="bg-primary text-white text-sm font-medium px-3 py-1 rounded-full inline-block mb-4">
-                Empfohlen
-              </div>
-              <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mb-4 flex items-center gap-2">
-                <Battery className="w-6 h-6 text-primary" />
-                Mit Speicher
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 font-medium">60-80% Eigenverbrauch</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 font-medium">Strom auch abends & nachts</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 font-medium">Mehr Unabhängigkeit</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 font-medium">Optional Notstromfunktion</span>
-                </li>
-              </ul>
-              <div className="mt-6 pt-4 border-t border-primary/20">
-                <div className="text-2xl font-sans font-semibold tracking-normal text-primary">
-                  CHF 19.500 - 40.000
-                </div>
-                <p className="text-sm text-gray-600">Solaranlage + Speicher</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Storage Options */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-4">
-            Speichergrössen im Vergleich
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Die richtige Speichergrösse hängt von Ihrem Verbrauch und Lebensstil ab
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {storageOptions.map((option, index) => (
-              <div
-                key={index}
-                className={`rounded-2xl p-6 ${option.popular ? 'border-2 border-primary bg-white shadow-lg' : 'border border-gray-200 bg-white'}`}
-              >
-                {option.popular && (
-                  <div className="bg-primary text-white text-sm font-medium px-3 py-1 rounded-full inline-block mb-4">
-                    Meistgewählt
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5">
+                <Battery className="w-3.5 h-3.5" /> Batteriespeicher
+              </span>
+              <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-6">
+                Solaranlage mit Speicher: Kosten, Vorteile und Funktionsweise
+              </h1>
+              <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                Ein Batteriespeicher ermöglicht es, den selbst erzeugten Solarstrom auch abends und nachts zu nutzen — statt ihn ins Netz einzuspeisen.
+              </p>
+              <div className="grid grid-cols-3 gap-4">
+                {[
+                  { value: '70%',      label: 'Eigenverbrauch möglich' },
+                  { value: '8–15 kWh', label: 'Typische Speichergrösse' },
+                  { value: '25–40k',   label: 'CHF Gesamtkosten' },
+                ].map(s => (
+                  <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <p className="text-xl font-black text-white">{s.value}</p>
+                    <p className="text-xs text-gray-500 mt-1 leading-tight">{s.label}</p>
                   </div>
-                )}
-                <div className="flex items-center gap-3 mb-4">
-                  <Battery className={`w-8 h-8 ${option.popular ? 'text-primary' : 'text-gray-400'}`} />
-                  <div className="text-2xl font-sans font-semibold tracking-normal text-gray-900">{option.capacity}</div>
-                </div>
-                <div className="text-xl font-sans font-semibold tracking-normal text-gray-900 mb-4">
-                  CHF {option.price}
-                </div>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li>Ideal für: {option.ideal}</li>
-                  <li>Autonomie: {option.autonomy}</li>
-                </ul>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
 
-      {/* Benefits */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-12">
-            Vorteile eines Batteriespeichers
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <benefit.icon className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-lg font-sans font-semibold tracking-normal text-gray-900 mb-2">{benefit.title}</h3>
-                <p className="text-gray-600 text-sm">{benefit.description}</p>
+            <div className="rounded-3xl p-8" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <p className="text-white font-black text-lg mb-6">Eigenverbrauch im Vergleich</p>
+              <div className="flex flex-col gap-6">
+                {[
+                  { label: 'Ohne Speicher', pct: 30, color: '#6b7280' },
+                  { label: 'Mit Speicher',  pct: 70, color: '#F97316' },
+                ].map(item => (
+                  <div key={item.label}>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm text-gray-400 font-medium">{item.label}</span>
+                      <span className="text-sm font-black" style={{ color: item.color }}>~{item.pct}%</span>
+                    </div>
+                    <div className="h-4 rounded-full overflow-hidden bg-white/10">
+                      <div className="h-full rounded-full" style={{ width: `${item.pct}%`, background: item.color }} />
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="section-padding bg-primary-50">
-        <div className="container-custom">
-          <div className="max-w-2xl mx-auto">
-            <CtaAnfrage
-              title="Jetzt Offerten mit Speicher vergleichen"
-              subtitle="Erhalten Sie bis zu 3 Angebote für Solaranlage mit Batteriespeicher von geprüften Schweizer Installateuren."
-              ctaText="Kostenlose Offerte anfordern"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-12">
-            Häufige Fragen zu Solaranlagen mit Speicher
-          </h2>
-          <div className="max-w-3xl mx-auto">
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div key={index} className="bg-gray-50 rounded-xl p-6">
-                  <h3 className="font-sans font-semibold tracking-normal text-gray-900 mb-2">{faq.question}</h3>
-                  <p className="text-gray-600">{faq.answer}</p>
-                </div>
-              ))}
+              <p className="text-xs text-gray-500 mt-6">Durchschnittswerte für ein Einfamilienhaus mit 10 kWp Solaranlage</p>
             </div>
           </div>
         </div>
       </section>
-    </>
+
+      {/* ── WIE FUNKTIONIERT ES ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Funktionsweise</p>
+              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-6">
+                Wie funktioniert eine Solaranlage mit Speicher?
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-5">
+                Eine Photovoltaikanlage erzeugt tagsüber Strom aus Sonnenenergie. Dieser wird zunächst direkt im Haushalt genutzt — für Geräte, Beleuchtung oder Wärmepumpen.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                Wenn die Anlage mehr produziert als gerade benötigt wird, speichert der Batteriespeicher die Energie automatisch. Am Abend oder nachts gibt er den Strom wieder ab. Eine intelligente Steuerung sorgt für optimale Verteilung.
+              </p>
+
+              <div className="flex items-center gap-3 flex-wrap">
+                {[
+                  { icon: Sun,     label: 'Solaranlage', color: '#F97316' },
+                  { icon: Battery, label: 'Speicher',    color: '#3b82f6' },
+                  { icon: Home,    label: 'Haushalt',    color: '#10b981' },
+                ].map((item, i, arr) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.label} className="flex items-center gap-3">
+                      <div className="flex flex-col items-center gap-2 rounded-2xl px-5 py-4 border border-gray-100 shadow-sm">
+                        <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${item.color}18` }}>
+                          <Icon className="w-5 h-5" style={{ color: item.color }} />
+                        </div>
+                        <p className="text-xs font-bold text-gray-700">{item.label}</p>
+                      </div>
+                      {i < arr.length - 1 && <ArrowRight className="w-4 h-4 text-gray-300 flex-shrink-0" />}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <Image src="/images/hero-family-solar.png" alt="Solaranlage mit Batteriespeicher" width={700} height={500} className="w-full h-auto object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── VORTEILE ── */}
+      <section className="py-20" style={{ background: '#f9fafb' }}>
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="text-center mb-14">
+            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Warum lohnt es sich?</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-4">
+              Die Vorteile eines Batteriespeichers
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
+              Ohne Speicher werden oft nur <strong className="text-gray-800">30%</strong> des erzeugten Solarstroms direkt genutzt. Mit Speicher steigt dieser Wert auf <strong className="text-gray-800">60–70%</strong>.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {vorteile.map(v => {
+              const Icon = v.icon;
+              return (
+                <div key={v.title} className="rounded-2xl border border-gray-100 bg-white p-7 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
+                    <Icon className="w-5 h-5 text-[#F97316]" />
+                  </div>
+                  <h3 className="font-black text-gray-900 mb-2">{v.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{v.text}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── KOSTEN ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Kosten & Preise</p>
+              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-6">
+                Was kostet eine Solaranlage mit Speicher?
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                Die Kosten hängen von Anlagengrösse, Speicherkapazität, Dachtyp und Komponentenqualität ab. Hier typische Richtwerte für ein Einfamilienhaus:
+              </p>
+
+              <div className="flex flex-col gap-3">
+                {[
+                  { label: 'Photovoltaikanlage (ca. 10 kWp)', range: "18'000 – 25'000 CHF", highlight: false },
+                  { label: 'Batteriespeicher',                 range: "8'000 – 15'000 CHF",  highlight: false },
+                  { label: 'Gesamtanlage',                     range: "25'000 – 40'000 CHF", highlight: true  },
+                ].map(row => (
+                  <div
+                    key={row.label}
+                    className={`flex items-center justify-between rounded-2xl px-6 py-4 ${row.highlight ? 'border-2 border-orange-200' : 'border border-gray-100'}`}
+                    style={row.highlight ? { background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' } : { background: '#f9fafb' }}
+                  >
+                    <p className={`font-medium text-sm ${row.highlight ? 'font-black text-gray-900' : 'text-gray-700'}`}>{row.label}</p>
+                    <p className={`font-black ${row.highlight ? 'text-[#F97316] text-lg' : 'text-gray-900'}`}>{row.range}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-gray-400 mt-4">
+                Durch Förderprogramme und höheren Eigenverbrauch kann sich die Anlage über mehrere Jahre wirtschaftlich auszahlen.
+              </p>
+            </div>
+
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <Image src="/images/blog-5.png" alt="Kosten Solaranlage Schweiz" width={700} height={500} className="w-full h-auto object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SPEICHERGRÖSSE (INTERACTIVE) ── */}
+      <section className="py-20" style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-sm font-semibold text-orange-400 uppercase tracking-widest mb-3">Speichergrösse</p>
+              <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-6">
+                Wie gross sollte Ihr Batteriespeicher sein?
+              </h2>
+              <p className="text-gray-400 leading-relaxed mb-6">
+                Die ideale Grösse hängt vom Stromverbrauch Ihres Haushalts und der Grösse Ihrer Solaranlage ab. Ein zu grosser Speicher kann wirtschaftlich weniger sinnvoll sein.
+              </p>
+              <p className="text-gray-400 leading-relaxed">
+                Wählen Sie Ihr Haushaltsprofil, um die empfohlene Speichergrösse und den erwarteten Eigenverbrauch zu sehen.
+              </p>
+            </div>
+            <SpeicherGroesse />
+          </div>
+        </div>
+      </section>
+
+      {/* ── STROMPRODUKTION + WANN LOHNT ES SICH ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <Image src="/images/blog-1.png" alt="Solarstrom Produktion" width={700} height={500} className="w-full h-auto object-cover" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Stromproduktion</p>
+              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-6">
+                Wie viel Strom produziert eine Solaranlage?
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-5">
+                Eine typische 10-kWp-Anlage produziert in der Schweiz jährlich rund <strong>9'000 – 11'000 kWh</strong> — das entspricht täglich ca. <strong>25–40 kWh</strong>.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                Die genaue Menge hängt von Dachausrichtung, Neigungswinkel und der regionalen Sonneneinstrahlung ab.
+              </p>
+
+              <p className="font-black text-gray-900 mb-4">Ein Speicher lohnt sich besonders wenn…</p>
+              <div className="flex flex-col gap-2.5">
+                {wennSinnvoll.map(w => (
+                  <div key={w} className="flex items-center gap-3 rounded-xl px-4 py-3 bg-gray-50 border border-gray-100">
+                    <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+                    <p className="text-sm text-gray-700">{w}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="py-20" style={{ background: '#f9fafb' }}>
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="text-center mb-12">
+            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">FAQ</p>
+            <h2 className="text-3xl font-black text-gray-900 tracking-tight">
+              Häufig gestellte Fragen zum Batteriespeicher
+            </h2>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <SpeicherFAQ />
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="rounded-3xl p-10 sm:p-16 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
+            <p className="text-sm font-semibold text-orange-500 uppercase tracking-widest mb-4">Angebote vergleichen</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
+              Jetzt Solaranlage mit Speicher vergleichen
+            </h2>
+            <p className="text-gray-600 mb-8 max-w-lg mx-auto leading-relaxed">
+              Die Kosten können je nach Installateur und Komponenten stark variieren. Holen Sie kostenlos bis zu 3 Offerten ein und vergleichen Sie.
+            </p>
+            <Link
+              href="/anfrage"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity"
+              style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            >
+              Kostenlose Offerte anfordern
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+    </main>
   );
 }
