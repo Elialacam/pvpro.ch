@@ -32,11 +32,11 @@ export default function FoerderRechner() {
         <div className="flex items-end justify-between mb-4">
           <div>
             <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">Anlagengrösse</p>
-            <p className="text-5xl font-black text-gray-900">{kwp} <span className="text-2xl font-bold text-gray-400">kWp</span></p>
+            <p className="text-5xl font-bold text-gray-900">{kwp} <span className="text-2xl font-bold text-gray-400">kWp</span></p>
           </div>
           <div className="text-right">
             <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">Geschätzte Förderung</p>
-            <p className="text-3xl font-black text-[#F97316]">CHF {formatChf(foerderung)}</p>
+            <p className="text-3xl font-bold text-[#F97316]">CHF {formatChf(foerderung)}</p>
           </div>
         </div>
 
@@ -64,15 +64,15 @@ export default function FoerderRechner() {
         <div className="grid grid-cols-3 gap-4">
           <div className="rounded-2xl p-4 text-center" style={{ background: '#f9fafb' }}>
             <p className="text-xs text-gray-400 mb-1">Gesamtkosten</p>
-            <p className="font-black text-gray-800 text-lg">CHF {formatChf(gesamtkosten)}</p>
+            <p className="font-bold text-gray-800 text-lg">CHF {formatChf(gesamtkosten)}</p>
           </div>
           <div className="rounded-2xl p-4 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
             <p className="text-xs text-orange-400 font-semibold mb-1">Förderung</p>
-            <p className="font-black text-[#F97316] text-lg">− CHF {formatChf(foerderung)}</p>
+            <p className="font-bold text-[#F97316] text-lg">− CHF {formatChf(foerderung)}</p>
           </div>
           <div className="rounded-2xl p-4 text-center" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
             <p className="text-xs text-green-500 font-semibold mb-1">Effektiv</p>
-            <p className="font-black text-green-700 text-lg">CHF {formatChf(nachFoerderung)}</p>
+            <p className="font-bold text-green-700 text-lg">CHF {formatChf(nachFoerderung)}</p>
           </div>
         </div>
 

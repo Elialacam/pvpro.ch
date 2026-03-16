@@ -64,7 +64,7 @@ export default function FoerderungenPage() {
               <span className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5">
                 Staatliche Förderung 2026
               </span>
-              <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-6">
                 Förderung für<br />Solaranlagen in<br />der Schweiz
               </h1>
               <p className="text-gray-400 text-lg leading-relaxed mb-8 max-w-xl">
@@ -79,7 +79,7 @@ export default function FoerderungenPage() {
                   { value: '30%',     unit: 'Rabatt',   label: 'Investition' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                    <p className="text-2xl font-black text-white">{s.value}</p>
+                    <p className="text-2xl font-bold text-white">{s.value}</p>
                     <p className="text-xs text-orange-400 font-semibold">{s.unit}</p>
                     <p className="text-xs text-gray-500 mt-0.5">{s.label}</p>
                   </div>
@@ -101,7 +101,7 @@ export default function FoerderungenPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Einmalvergütung (EIV)</p>
-              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">
                 Was ist die Einmalvergütung?
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
@@ -114,7 +114,7 @@ export default function FoerderungenPage() {
               {/* KLEIV / GREIV cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="rounded-2xl p-5 border-2 border-orange-100" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-                  <p className="font-black text-gray-900 text-lg mb-1">KLEIV</p>
+                  <p className="font-bold text-gray-900 text-lg mb-1">KLEIV</p>
                   <p className="text-xs font-semibold text-orange-500 uppercase tracking-wide mb-3">Kleine Einmalvergütung</p>
                   <p className="text-sm text-gray-600 leading-relaxed">Für kleinere Photovoltaikanlagen — am häufigsten genutzt für private Einfamilienhäuser.</p>
                   <div className="mt-3 flex items-center gap-2 text-xs text-orange-600 font-semibold">
@@ -123,7 +123,7 @@ export default function FoerderungenPage() {
                   </div>
                 </div>
                 <div className="rounded-2xl p-5 border border-gray-100" style={{ background: '#f9fafb' }}>
-                  <p className="font-black text-gray-900 text-lg mb-1">GREIV</p>
+                  <p className="font-bold text-gray-900 text-lg mb-1">GREIV</p>
                   <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Grosse Einmalvergütung</p>
                   <p className="text-sm text-gray-600 leading-relaxed">Für grössere Photovoltaikanlagen mit höherer Leistung — z.B. Mehrfamilienhäuser oder Gewerbe.</p>
                   <div className="mt-3 flex items-center gap-2 text-xs text-gray-500 font-semibold">
@@ -152,7 +152,7 @@ export default function FoerderungenPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="text-center mb-14">
             <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Förderübersicht</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
               Wie hoch ist die Förderung?
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
@@ -174,7 +174,7 @@ export default function FoerderungenPage() {
                   className={`grid grid-cols-4 gap-0 border-t transition-colors ${row.highlight ? 'border-orange-100' : 'border-gray-100'}`}
                   style={row.highlight ? { background: 'linear-gradient(135deg, #fff7ed, #fff5eb)' } : { background: '#fff' }}
                 >
-                  <div className="px-5 py-5 font-black text-gray-900 flex items-center gap-2">
+                  <div className="px-5 py-5 font-bold text-gray-900 flex items-center gap-2">
                     {row.highlight && <span className="text-[10px] bg-orange-500 text-white font-bold px-1.5 py-0.5 rounded-full uppercase">Beliebt</span>}
                     {row.size}
                   </div>
@@ -208,7 +208,7 @@ export default function FoerderungenPage() {
 
             <div>
               <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Rechenbeispiel</p>
-              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
                 Beispiel für ein Einfamilienhaus
               </h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
@@ -219,19 +219,19 @@ export default function FoerderungenPage() {
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-gray-100">
                   <p className="text-gray-700 font-medium">Kosten der Solaranlage (10 kWp)</p>
-                  <p className="font-black text-gray-900">CHF 25'000</p>
+                  <p className="font-bold text-gray-900">CHF 25'000</p>
                 </div>
                 <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-orange-100" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
                   <p className="text-orange-700 font-medium">Einmalvergütung (EIV)</p>
-                  <p className="font-black text-[#F97316]">− CHF 3'500</p>
+                  <p className="font-bold text-[#F97316]">− CHF 3'500</p>
                 </div>
                 <div className="h-px bg-gray-200" />
                 <div className="flex items-center justify-between rounded-2xl px-6 py-5 border-2 border-green-200" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
                   <div>
-                    <p className="font-black text-gray-900">Effektive Investition</p>
+                    <p className="font-bold text-gray-900">Effektive Investition</p>
                     <p className="text-xs text-green-600 mt-0.5">Nach Abzug der Bundesförderung</p>
                   </div>
-                  <p className="font-black text-green-700 text-2xl">CHF 21'500</p>
+                  <p className="font-bold text-green-700 text-2xl">CHF 21'500</p>
                 </div>
               </div>
             </div>
@@ -247,7 +247,7 @@ export default function FoerderungenPage() {
             {/* Kantonale Förderungen */}
             <div>
               <p className="text-sm font-semibold text-orange-400 uppercase tracking-widest mb-3">Zusätzliche Förderungen</p>
-              <h2 className="text-2xl sm:text-3xl font-black text-white mb-5">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-5">
                 Kantonale Förderprogramme
               </h2>
               <p className="text-gray-400 leading-relaxed mb-6">
@@ -272,7 +272,7 @@ export default function FoerderungenPage() {
             {/* Process steps */}
             <div>
               <p className="text-sm font-semibold text-orange-400 uppercase tracking-widest mb-3">Ablauf</p>
-              <h2 className="text-2xl sm:text-3xl font-black text-white mb-5">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-5">
                 Wie erhalte ich die Förderung?
               </h2>
               <div className="flex flex-col gap-0">
@@ -282,11 +282,11 @@ export default function FoerderungenPage() {
                     {i < processSteps.length - 1 && (
                       <div className="absolute left-[19px] top-10 w-0.5 h-full" style={{ background: 'rgba(249,115,22,0.2)' }} />
                     )}
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-black text-white text-sm relative z-10" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-sm relative z-10" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
                       {step.n}
                     </div>
                     <div className="pt-1">
-                      <p className="font-black text-white mb-1">{step.title}</p>
+                      <p className="font-bold text-white mb-1">{step.title}</p>
                       <p className="text-sm text-gray-400 leading-relaxed">{step.text}</p>
                     </div>
                   </div>
@@ -304,7 +304,7 @@ export default function FoerderungenPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Wirtschaftlichkeit</p>
-              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-5">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-5">
                 Lohnt sich eine Solaranlage trotz Investitionskosten?
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
@@ -341,7 +341,7 @@ export default function FoerderungenPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="rounded-3xl p-10 sm:p-16 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
             <p className="text-sm font-semibold text-orange-500 uppercase tracking-widest mb-4">Jetzt profitieren</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Förderung optimal nutzen?
             </h2>
             <p className="text-gray-600 mb-8 max-w-lg mx-auto leading-relaxed">

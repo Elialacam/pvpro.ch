@@ -23,7 +23,7 @@ export default function FAQPage() {
         {/* Header */}
         <div className="mb-12">
           <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-2">Hilfe & Support</p>
-          <h1 className="text-4xl sm:text-5xl font-black text-gray-900 tracking-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-4">
             Häufig gestellte Fragen
           </h1>
           <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
@@ -39,7 +39,7 @@ export default function FAQPage() {
       {/* CTA */}
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 mt-12">
         <div className="rounded-2xl p-10 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-          <h2 className="text-2xl font-black text-gray-900 mb-3">Noch Fragen offen?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Noch Fragen offen?</h2>
           <p className="text-gray-600 mb-6 max-w-md mx-auto">
             Unser Team hilft Ihnen gerne weiter. Fordern Sie jetzt Ihre kostenlosen Offerten an.
           </p>

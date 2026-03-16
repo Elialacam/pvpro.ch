@@ -147,7 +147,7 @@ export default function SolaranlageKostenPage() {
               Für ein typisches Einfamilienhaus liegen die Preise meist zwischen:
             </p>
             <div className="inline-block bg-primary text-white rounded-2xl px-10 py-6 mb-8">
-              <div className="text-4xl sm:text-5xl font-black mb-1">15'000 – 35'000 CHF</div>
+              <div className="text-4xl sm:text-5xl font-bold mb-1">15'000 – 35'000 CHF</div>
               <div className="text-primary-100 text-base">nach Abzug der Förderungen</div>
             </div>
             <p className="text-gray-600">
@@ -201,8 +201,8 @@ export default function SolaranlageKostenPage() {
                   </div>
                 )}
                 <div className="flex justify-between items-start mb-3">
-                  <span className="text-xl font-black text-gray-900">{row.size}</span>
-                  <span className="text-xl font-black text-primary">{row.price}</span>
+                  <span className="text-xl font-bold text-gray-900">{row.size}</span>
+                  <span className="text-xl font-bold text-primary">{row.price}</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
                   <div><span className="font-medium">Produktion:</span> {row.production}</div>
@@ -231,7 +231,7 @@ export default function SolaranlageKostenPage() {
               In der Schweiz liegen die durchschnittlichen Kosten bei:
             </p>
             <div className="bg-white rounded-2xl border-2 border-primary p-8 text-center mb-6">
-              <div className="text-4xl font-black text-primary mb-2">1'800 – 2'800 CHF <span className="text-2xl">pro kWp</span></div>
+              <div className="text-4xl font-bold text-primary mb-2">1'800 – 2'800 CHF <span className="text-2xl">pro kWp</span></div>
               <p className="text-gray-600 text-sm mt-2">
                 Der Preis pro kWp sinkt bei grösseren Anlagen, da Installationskosten besser verteilt werden können.
               </p>
@@ -251,7 +251,7 @@ export default function SolaranlageKostenPage() {
               Eine Photovoltaikanlage mit <strong>10 kWp Leistung</strong> kostet in der Schweiz typischerweise:
             </p>
             <div className="bg-primary-50 rounded-2xl p-8 mb-6">
-              <div className="text-4xl font-black text-primary mb-3">22'000 – 30'000 CHF</div>
+              <div className="text-4xl font-bold text-primary mb-3">22'000 – 30'000 CHF</div>
               <p className="text-gray-700 text-sm">nach Abzug der Förderungen</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 mb-6">
@@ -365,7 +365,7 @@ export default function SolaranlageKostenPage() {
               <div className="flex items-start gap-4">
                 <PiggyBank className="w-10 h-10 text-primary flex-shrink-0" />
                 <div>
-                  <p className="text-2xl font-black text-primary mb-1">300 – 400 CHF pro kWp</p>
+                  <p className="text-2xl font-bold text-primary mb-1">300 – 400 CHF pro kWp</p>
                   <p className="text-gray-700">Typische Förderbeträge des Bundes (EIV). Die Höhe hängt von der Anlagengrösse ab.</p>
                 </div>
               </div>
@@ -391,7 +391,7 @@ export default function SolaranlageKostenPage() {
                 </div>
                 <div className="border-t border-gray-200 pt-3 flex justify-between">
                   <span className="font-semibold text-gray-900">Effektive Kosten (Beispiel)</span>
-                  <span className="font-black text-xl text-primary">CHF 20'500</span>
+                  <span className="font-bold text-xl text-primary">CHF 20'500</span>
                 </div>
               </div>
               <p className="text-xs text-gray-400 mt-3">Richtwert. Tatsächliche Förderungen je nach Kanton und Anlagengrösse.</p>
@@ -406,7 +406,7 @@ export default function SolaranlageKostenPage() {
           <div className="max-w-3xl mx-auto bg-primary-50 rounded-2xl p-8 flex flex-col sm:flex-row items-center gap-6">
             <Calculator className="w-14 h-14 text-primary flex-shrink-0" />
             <div className="flex-1 text-center sm:text-left">
-              <h3 className="text-xl font-black text-gray-900 mb-1">Solar Rechner: Kosten berechnen</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-1">Solar Rechner: Kosten berechnen</h3>
               <p className="text-gray-600 text-sm">
                 Schätzen Sie die Kosten Ihrer Solaranlage anhand Ihrer Dachfläche und Ihres Stromverbrauchs.
               </p>
@@ -453,9 +453,9 @@ export default function SolaranlageKostenPage() {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="max-w-2xl mx-auto bg-white rounded-2xl border border-gray-200 p-8 text-center">
-            <h2 className="text-2xl font-black text-gray-900 mb-4">Kurz gesagt</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Kurz gesagt</h2>
             <p className="text-gray-600 mb-4">Eine Solaranlage kostet in der Schweiz typischerweise:</p>
-            <div className="text-4xl font-black text-primary mb-3">15'000 – 35'000 CHF</div>
+            <div className="text-4xl font-bold text-primary mb-3">15'000 – 35'000 CHF</div>
             <p className="text-gray-600 text-sm mb-6">für ein Einfamilienhaus</p>
             <p className="text-gray-500 text-sm">
               Die genauen Kosten hängen von der Dachfläche, der Anlagengrösse und den möglichen Förderungen ab.

@@ -69,7 +69,7 @@ export default function SupportPopup() {
 
             <div className="flex-1 p-5 pr-3 flex flex-col justify-center gap-3">
               <div>
-                <p className="text-white font-black text-lg leading-tight">
+                <p className="text-white font-bold text-lg leading-tight">
                   Kostenlose Beratung
                 </p>
                 <p className="text-white/75 text-sm mt-1 leading-snug">

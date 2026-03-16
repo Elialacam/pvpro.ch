@@ -26,7 +26,7 @@ export default function BlogPage() {
 
         {/* Page header */}
         <div className="mb-10">
-          <h1 className="text-4xl sm:text-5xl font-black text-gray-900 tracking-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-4">
             PVPro Blog
           </h1>
           <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">

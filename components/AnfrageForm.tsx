@@ -104,7 +104,7 @@ function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCa
 function StepWrapper({ title, sub, children }: { title: string; sub: string; children: React.ReactNode }) {
   return (
     <div>
-      <h1 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-2">{title}</h1>
+      <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-2">{title}</h1>
       <p className="text-sm sm:text-base text-gray-500 mb-8 leading-relaxed">{sub}</p>
       {children}
     </div>
@@ -266,7 +266,7 @@ export default function AnfrageForm() {
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }}
-          className="text-2xl sm:text-3xl font-black text-gray-900 mb-14 text-center"
+          className="text-2xl sm:text-3xl font-bold text-gray-900 mb-14 text-center"
         >
           {t.loadingTitle}
         </motion.h2>
@@ -471,7 +471,7 @@ export default function AnfrageForm() {
           <motion.button
             whileHover={{ scale: 1.02, y: -1 }} whileTap={{ scale: 0.98 }}
             onClick={handleSubmit} disabled={isSubmitting}
-            className="w-full btn-primary py-5 rounded-2xl text-lg font-black shadow-lg mt-5 flex items-center justify-center gap-3"
+            className="w-full btn-primary py-5 rounded-2xl text-lg font-bold shadow-lg mt-5 flex items-center justify-center gap-3"
           >
             {isSubmitting ? <><BarChart2 className="animate-spin w-5 h-5" />{t.submitting}</> : t.submit}
           </motion.button>

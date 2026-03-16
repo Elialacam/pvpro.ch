@@ -25,12 +25,12 @@ export default function CtaAnfrage({
 
   return (
     <div className={`rounded-3xl p-8 sm:p-12 text-center ${bg}`}>
-      <h2 className={`text-2xl sm:text-3xl font-black mb-4 ${titleColor}`}>{title}</h2>
+      <h2 className={`text-2xl sm:text-3xl font-bold mb-4 ${titleColor}`}>{title}</h2>
       <p className={`text-base mb-8 max-w-lg mx-auto ${subColor}`}>{subtitle}</p>
 
       <Link
         href="/anfrage"
-        className="inline-flex items-center gap-3 btn-primary py-4 px-8 rounded-2xl text-lg font-black shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all"
+        className="inline-flex items-center gap-3 btn-primary py-4 px-8 rounded-2xl text-lg font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all"
       >
         {ctaText}
         <ChevronRight className="w-5 h-5" />

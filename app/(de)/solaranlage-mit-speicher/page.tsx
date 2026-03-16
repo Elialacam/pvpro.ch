@@ -44,7 +44,7 @@ export default function SolaranlageMitSpeicherPage() {
               <span className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5">
                 <Battery className="w-3.5 h-3.5" /> Batteriespeicher
               </span>
-              <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-6">
                 Solaranlage mit Speicher: Kosten, Vorteile und Funktionsweise
               </h1>
               <p className="text-gray-400 text-lg leading-relaxed mb-8">
@@ -57,7 +57,7 @@ export default function SolaranlageMitSpeicherPage() {
                   { value: '25–40k',   label: 'CHF Gesamtkosten' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                    <p className="text-xl font-black text-white">{s.value}</p>
+                    <p className="text-xl font-bold text-white">{s.value}</p>
                     <p className="text-xs text-gray-500 mt-1 leading-tight">{s.label}</p>
                   </div>
                 ))}
@@ -65,7 +65,7 @@ export default function SolaranlageMitSpeicherPage() {
             </div>
 
             <div className="rounded-3xl p-8" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <p className="text-white font-black text-lg mb-6">Eigenverbrauch im Vergleich</p>
+              <p className="text-white font-bold text-lg mb-6">Eigenverbrauch im Vergleich</p>
               <div className="flex flex-col gap-6">
                 {[
                   { label: 'Ohne Speicher', pct: 30, color: '#6b7280' },
@@ -74,7 +74,7 @@ export default function SolaranlageMitSpeicherPage() {
                   <div key={item.label}>
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-sm text-gray-400 font-medium">{item.label}</span>
-                      <span className="text-sm font-black" style={{ color: item.color }}>~{item.pct}%</span>
+                      <span className="text-sm font-bold" style={{ color: item.color }}>~{item.pct}%</span>
                     </div>
                     <div className="h-4 rounded-full overflow-hidden bg-white/10">
                       <div className="h-full rounded-full" style={{ width: `${item.pct}%`, background: item.color }} />
@@ -94,7 +94,7 @@ export default function SolaranlageMitSpeicherPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Funktionsweise</p>
-              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">
                 Wie funktioniert eine Solaranlage mit Speicher?
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
@@ -138,7 +138,7 @@ export default function SolaranlageMitSpeicherPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="text-center mb-14">
             <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Warum lohnt es sich?</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
               Die Vorteile eines Batteriespeichers
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
@@ -153,7 +153,7 @@ export default function SolaranlageMitSpeicherPage() {
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
                     <Icon className="w-5 h-5 text-[#F97316]" />
                   </div>
-                  <h3 className="font-black text-gray-900 mb-2">{v.title}</h3>
+                  <h3 className="font-bold text-gray-900 mb-2">{v.title}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed">{v.text}</p>
                 </div>
               );
@@ -168,7 +168,7 @@ export default function SolaranlageMitSpeicherPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Kosten & Preise</p>
-              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">
                 Was kostet eine Solaranlage mit Speicher?
               </h2>
               <p className="text-gray-600 leading-relaxed mb-8">
@@ -186,8 +186,8 @@ export default function SolaranlageMitSpeicherPage() {
                     className={`flex items-center justify-between rounded-2xl px-6 py-4 ${row.highlight ? 'border-2 border-orange-200' : 'border border-gray-100'}`}
                     style={row.highlight ? { background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' } : { background: '#f9fafb' }}
                   >
-                    <p className={`font-medium text-sm ${row.highlight ? 'font-black text-gray-900' : 'text-gray-700'}`}>{row.label}</p>
-                    <p className={`font-black ${row.highlight ? 'text-[#F97316] text-lg' : 'text-gray-900'}`}>{row.range}</p>
+                    <p className={`font-medium text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-700'}`}>{row.label}</p>
+                    <p className={`font-bold ${row.highlight ? 'text-[#F97316] text-lg' : 'text-gray-900'}`}>{row.range}</p>
                   </div>
                 ))}
               </div>
@@ -209,7 +209,7 @@ export default function SolaranlageMitSpeicherPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-sm font-semibold text-orange-400 uppercase tracking-widest mb-3">Speichergrösse</p>
-              <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-6">
                 Wie gross sollte Ihr Batteriespeicher sein?
               </h2>
               <p className="text-gray-400 leading-relaxed mb-6">
@@ -233,7 +233,7 @@ export default function SolaranlageMitSpeicherPage() {
             </div>
             <div>
               <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Stromproduktion</p>
-              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">
                 Wie viel Strom produziert eine Solaranlage?
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
@@ -243,7 +243,7 @@ export default function SolaranlageMitSpeicherPage() {
                 Die genaue Menge hängt von Dachausrichtung, Neigungswinkel und der regionalen Sonneneinstrahlung ab.
               </p>
 
-              <p className="font-black text-gray-900 mb-4">Ein Speicher lohnt sich besonders wenn…</p>
+              <p className="font-bold text-gray-900 mb-4">Ein Speicher lohnt sich besonders wenn…</p>
               <div className="flex flex-col gap-2.5">
                 {wennSinnvoll.map(w => (
                   <div key={w} className="flex items-center gap-3 rounded-xl px-4 py-3 bg-gray-50 border border-gray-100">
@@ -262,7 +262,7 @@ export default function SolaranlageMitSpeicherPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="text-center mb-12">
             <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">FAQ</p>
-            <h2 className="text-3xl font-black text-gray-900 tracking-tight">
+            <h2 className="text-3xl font-bold text-gray-900 tracking-tight">
               Häufig gestellte Fragen zum Batteriespeicher
             </h2>
           </div>
@@ -277,7 +277,7 @@ export default function SolaranlageMitSpeicherPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="rounded-3xl p-10 sm:p-16 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
             <p className="text-sm font-semibold text-orange-500 uppercase tracking-widest mb-4">Angebote vergleichen</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Jetzt Solaranlage mit Speicher vergleichen
             </h2>
             <p className="text-gray-600 mb-8 max-w-lg mx-auto leading-relaxed">

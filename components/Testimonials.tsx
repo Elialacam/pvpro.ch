@@ -125,7 +125,7 @@ export default function Testimonials() {
       <div className="container-custom mb-10">
         <div className="text-center">
           <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Kundenstimmen</p>
-          <h2 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-2">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-2">
             Was unsere Kunden sagen
           </h2>
           <p className="text-gray-500 text-sm">

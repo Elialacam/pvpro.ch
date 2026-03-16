@@ -49,7 +49,7 @@ export default function UeberUnsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
           <div>
             <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Unsere Geschichte</p>
-            <h1 className="text-4xl sm:text-5xl font-black text-gray-900 tracking-tight mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-6 leading-tight">
               Die unabhängige Schweizer Solar­plattform
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -75,7 +75,7 @@ export default function UeberUnsPage() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-24">
           {stats.map((s) => (
             <div key={s.label} className="text-center rounded-2xl p-8" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-              <p className="text-3xl sm:text-4xl font-black text-[#F97316] mb-2">{s.value}</p>
+              <p className="text-3xl sm:text-4xl font-bold text-[#F97316] mb-2">{s.value}</p>
               <p className="text-sm text-gray-600 font-medium">{s.label}</p>
             </div>
           ))}
@@ -85,7 +85,7 @@ export default function UeberUnsPage() {
         <div className="mb-24">
           <div className="max-w-3xl mx-auto text-center mb-14">
             <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Unsere Mission</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-5">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-5">
               Wir machen Solarenergie zugänglich für alle
             </h2>
             <p className="text-gray-500 text-lg leading-relaxed">
@@ -101,7 +101,7 @@ export default function UeberUnsPage() {
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
                     <Icon className="w-6 h-6 text-[#F97316]" />
                   </div>
-                  <h3 className="font-black text-gray-900 text-lg mb-3">{v.title}</h3>
+                  <h3 className="font-bold text-gray-900 text-lg mb-3">{v.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{v.text}</p>
                 </div>
               );
@@ -122,7 +122,7 @@ export default function UeberUnsPage() {
           </div>
           <div className="order-1 lg:order-2">
             <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Wie wir arbeiten</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">
               Ihr Interesse kommt zuerst
             </h2>
             <div className="flex flex-col gap-5">
@@ -147,7 +147,7 @@ export default function UeberUnsPage() {
 
         {/* Company info */}
         <div className="rounded-2xl border border-gray-100 p-8 sm:p-12 mb-12">
-          <h2 className="text-2xl font-black text-gray-900 mb-8">Unternehmensinformationen</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Unternehmensinformationen</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
             <div className="flex flex-col gap-4">
               <div>
@@ -195,7 +195,7 @@ export default function UeberUnsPage() {
 
         {/* CTA */}
         <div className="rounded-2xl p-10 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-          <h2 className="text-2xl font-black text-gray-900 mb-3">Bereit für Ihre Solaranlage?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Bereit für Ihre Solaranlage?</h2>
           <p className="text-gray-600 mb-6 max-w-md mx-auto">
             Fordern Sie jetzt kostenlos und unverbindlich bis zu 3 Offerten an.
           </p>

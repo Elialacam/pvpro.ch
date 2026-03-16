@@ -175,7 +175,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             <div className="absolute inset-0 bg-gray-100/50 rounded-[2rem] transform translate-y-4 translate-x-2 -z-10"></div>
             <div className="bg-white rounded-[2rem] shadow-xl border border-gray-100 overflow-hidden relative">
               <div className="bg-primary px-8 py-6">
-                <p className="text-xl font-black text-white">{city.language === 'it' ? 'Preventivo gratuito' : 'Kostenlose Offerte erhalten'}</p>
+                <p className="text-xl font-bold text-white">{city.language === 'it' ? 'Preventivo gratuito' : 'Kostenlose Offerte erhalten'}</p>
                 <p className="text-white/80 text-sm mt-1">{city.language === 'it' ? '2 minuti. Nessuna chiamata.' : 'In 2 Minuten. Keine Werbeanrufe.'}</p>
               </div>
               <div className="px-8 py-7 space-y-3">
@@ -188,7 +188,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                     <span className="text-gray-700 text-sm font-medium">{b}</span>
                   </div>
                 ))}
-                <Link href="/anfrage" className="block w-full btn-primary py-4 rounded-2xl text-lg font-black text-center shadow-lg shadow-primary/20 mt-2">
+                <Link href="/anfrage" className="block w-full btn-primary py-4 rounded-2xl text-lg font-bold text-center shadow-lg shadow-primary/20 mt-2">
                   {city.language === 'it' ? 'Inizia ora →' : 'Jetzt starten →'}
                 </Link>
                 <p className="text-[10px] text-center text-gray-400">{city.language === 'it' ? '100% gratuito e senza impegno' : '100% kostenlos & unverbindlich'}</p>

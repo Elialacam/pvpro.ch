@@ -35,16 +35,16 @@ export function SpeicherGroesse() {
 
       <div className="bg-white p-8">
         <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">{h.personen}</p>
-        <h3 className="text-2xl font-black text-gray-900 mb-6">{h.label}</h3>
+        <h3 className="text-2xl font-bold text-gray-900 mb-6">{h.label}</h3>
 
         <div className="grid grid-cols-2 gap-4 mb-6">
           <div className="rounded-2xl p-5 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
             <p className="text-xs text-orange-500 font-semibold uppercase tracking-wide mb-2">Empfohlener Speicher</p>
-            <p className="text-3xl font-black text-[#F97316]">{h.speicher}</p>
+            <p className="text-3xl font-bold text-[#F97316]">{h.speicher}</p>
           </div>
           <div className="rounded-2xl p-5 text-center" style={{ background: '#f9fafb' }}>
             <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-2">Tageskapazität</p>
-            <p className="text-3xl font-black text-gray-800">{h.kwh}</p>
+            <p className="text-3xl font-bold text-gray-800">{h.kwh}</p>
           </div>
         </div>
 

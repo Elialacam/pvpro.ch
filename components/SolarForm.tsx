@@ -294,7 +294,7 @@ function BigCard({ label, subLabel, isSelected, onClick, icon, imageSrc, color =
         </div>
       )}
 
-      <span className="text-base font-black leading-tight" style={{ color: s.labelColor }}>
+      <span className="text-base font-bold leading-tight" style={{ color: s.labelColor }}>
         {label}
       </span>
       {subLabel && (
@@ -531,7 +531,7 @@ export default function SolarForm() {
         return (
           <div className="space-y-6">
             <div className="text-center space-y-2">
-              <h3 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">{t.step1Title}</h3>
+              <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">{t.step1Title}</h3>
               <p className="text-sm text-gray-400">{t.step1Sub}</p>
             </div>
             <div className="grid grid-cols-2 gap-4 pt-2">
@@ -545,7 +545,7 @@ export default function SolarForm() {
         return (
           <div className="space-y-6">
             <div className="text-center space-y-2">
-              <h3 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">{t.step2Title}</h3>
+              <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">{t.step2Title}</h3>
               <p className="text-sm text-gray-400">{t.step2Sub}</p>
             </div>
             <div className="grid grid-cols-2 gap-4 pt-2">
@@ -564,7 +564,7 @@ export default function SolarForm() {
         return (
           <div className="space-y-6">
             <div className="text-center space-y-2">
-              <h3 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">{t.step3Title}</h3>
+              <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">{t.step3Title}</h3>
               <p className="text-sm text-gray-400">{t.step3Sub}</p>
             </div>
             <div className="grid grid-cols-2 gap-4 pt-2">
@@ -580,7 +580,7 @@ export default function SolarForm() {
         return (
           <div className="space-y-6">
             <div className="text-center space-y-2">
-              <h3 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">{t.step4Title}</h3>
+              <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">{t.step4Title}</h3>
               <p className="text-sm text-gray-400">{t.step4Sub}</p>
             </div>
             <div className="grid grid-cols-3 gap-3 pt-2">
@@ -595,7 +595,7 @@ export default function SolarForm() {
         return (
           <div className="space-y-6">
             <div className="text-center space-y-2">
-              <h3 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">{t.step5Title}</h3>
+              <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">{t.step5Title}</h3>
               <p className="text-sm text-gray-400">{t.step5Sub}</p>
             </div>
 
@@ -650,7 +650,7 @@ export default function SolarForm() {
         return (
           <div className="space-y-5">
             <div className="text-center space-y-1">
-              <h3 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">{t.step6Title}</h3>
+              <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">{t.step6Title}</h3>
               <p className="text-sm text-gray-400">{t.step6Sub}</p>
             </div>
 
@@ -696,7 +696,7 @@ export default function SolarForm() {
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleSubmit}
-              className="w-full btn-primary py-5 rounded-2xl text-lg font-black shadow-lg flex items-center justify-center gap-3"
+              className="w-full btn-primary py-5 rounded-2xl text-lg font-bold shadow-lg flex items-center justify-center gap-3"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
@@ -719,7 +719,7 @@ export default function SolarForm() {
   if (isLoadingTransition) {
     return (
       <div className="px-6 py-12 text-center space-y-8">
-        <h2 className="text-2xl sm:text-3xl font-black text-gray-900">{t.loadingTitle}</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{t.loadingTitle}</h2>
         <div className="space-y-8 max-w-xs mx-auto">
           {[
             { icon: <BarChart2 className={`w-8 h-8 ${loadingStep === 1 ? 'animate-pulse' : ''}`} />, label: t.loadingStep1, active: loadingStep >= 1, done: loadingStep > 1 },

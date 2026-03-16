@@ -47,7 +47,7 @@ export default function HeroWidget() {
 
       {/* Amount */}
       <div className="flex items-baseline gap-2">
-        <span className="text-[52px] font-black text-gray-900 leading-none tabular-nums tracking-tight">
+        <span className="text-[52px] font-bold text-gray-900 leading-none tabular-nums tracking-tight">
           {value}
         </span>
         <span className="text-base font-semibold text-gray-400 mb-1">CHF{t.month}</span>
@@ -97,7 +97,7 @@ export default function HeroWidget() {
       <div className="flex items-center justify-between pt-1 border-t border-gray-100">
         <div>
           <p className="text-[11px] text-gray-400 font-semibold uppercase tracking-wider mb-1">{t.savings}</p>
-          <p className="text-2xl font-black text-[#F97316] tabular-nums leading-none">
+          <p className="text-2xl font-bold text-[#F97316] tabular-nums leading-none">
             CHF {savingFormatted}
             <span className="text-sm font-semibold text-orange-300 ml-1">{t.per}</span>
           </p>

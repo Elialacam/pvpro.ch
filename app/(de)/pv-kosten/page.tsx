@@ -18,7 +18,7 @@ export default function PvKostenPage() {
         </nav>
         <div className="mb-16 max-w-3xl">
           <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-2">Kosten & Preise</p>
-          <h1 className="text-4xl sm:text-5xl font-black text-gray-900 tracking-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-6">
             Photovoltaik Kosten pro m² in der Schweiz
           </h1>
           <p className="text-gray-500 text-lg leading-relaxed">
@@ -32,7 +32,7 @@ export default function PvKostenPage() {
           </div>
         </div>
         <div className="rounded-2xl p-10 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-          <h2 className="text-2xl font-black text-gray-900 mb-3">Jetzt Preise vergleichen</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Jetzt Preise vergleichen</h2>
           <p className="text-gray-600 mb-6 max-w-md mx-auto">Erhalten Sie kostenlose Offerten von geprüften Installateuren in Ihrer Region.</p>
           <Link href="/anfrage" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             Kostenlose Offerte anfordern →
