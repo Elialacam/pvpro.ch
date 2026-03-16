@@ -12,11 +12,10 @@ const columns = [
     title: 'Ressourcen',
     links: [
       { label: 'Solarrechner',        href: '/solarrechner' },
-      { label: 'Blog',                href: '/' },
-      { label: 'News',                href: '/' },
-      { label: 'Förderungen',         href: '/solaranlage-kosten' },
+      { label: 'Blog',                href: '/blog' },
+      { label: 'Förderungen',         href: '/foerderungen' },
       { label: 'Solaranlage Kosten',  href: '/solaranlage-kosten' },
-      { label: 'FAQ',                 href: '/#faq' },
+      { label: 'FAQ',                 href: '/faq' },
     ],
   },
   {
