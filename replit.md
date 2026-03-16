@@ -111,4 +111,31 @@ npm run start -- -p 5000
 - 2026-02-10: Added GDPR/nLPD cookie consent banner with conditional tracking script loading
 - 2026-02-10: Added Google Analytics (G-ZE1BS0ZGK9) and Google Ads (AW-17901154625) tracking
 - 2026-02-10: Cleaned up duplicate/placeholder tracking scripts
+- 2026-03-16: Added 15 new photo assets to public/images/ for use in new pages
 - 2026-01-21: Imported project to Replit, configured for development and deployment
+
+## Image Assets (public/images/)
+Use these for new pages — do not link to attached_assets/ directly.
+
+### Beratung / Consultation (indoor)
+- `asset-beratung-indoor-1.png` — Frau zeigt Paar Solar-Plan am Laptop (Schweizer Küche)
+- `asset-beratung-indoor-2.png` — Berater zeigt Solar-Dachplan am Laptop (junges Paar am Tisch)
+- `asset-beratung-indoor-3.png` — Berater präsentiert Solar-Lösung (Paar am Tisch, Berge)
+
+### Installateur / Technician (outdoor/roof)
+- `asset-installateur-dach-1.png` — Installateur zeigt auf Solar-Dach (Paar im Garten)
+- `asset-installateur-dach-2.png` — Installateur erklärt Solar-Dach (Frau vor Haus Nr. 42)
+- `asset-installateur-dach-3.png` — Techniker auf Dach mit Solarpanelen (Alpenkulisse)
+- `asset-installateur-dach-4.png` — Monteur installiert Solarpanele (Schweizer Dorf)
+- `asset-installateur-tablet.png` — Installateur zeigt Tablet mit Solar-Daten (vor Haus)
+- `asset-installateur-inspektion.png` — Inspektor mit Tablet vor Haus mit Solarpanelen
+
+### Haus mit Solar + EV
+- `asset-haus-solar-ev-1.png` — Luftaufnahme Haus mit Solar + E-Auto (dunkel, Schweiz)
+- `asset-haus-solar-ev-2.png` — Luftaufnahme Haus mit Solar + weisses E-Auto (Schweiz)
+- `asset-haus-solar-ev-3.png` — Tesla lädt an Haus mit Solarpanelen (Abendsonne)
+
+### Schweizer Alpenlandschaft
+- `asset-haus-alpen-1.png` — Drohne: Holzhaus mit Solar, Alpenkulisse (Sommer)
+- `asset-haus-alpen-2.png` — Holzhaus mit Solar vor Eiger/Mönch/Jungfrau
+- `asset-haus-alpen-3.png` — Holzhaus mit Solar + Gründach, Kühe auf Weide
