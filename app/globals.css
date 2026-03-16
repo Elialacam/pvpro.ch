@@ -131,11 +131,21 @@
   100% { transform: translateX(-50%); }
 }
 
-.marquee-track {
-  animation: marquee 40s linear infinite;
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
-.marquee-track:hover {
+.marquee-track {
+  animation: marquee 90s linear infinite;
+}
+
+.marquee-track-reverse {
+  animation: marquee-reverse 90s linear infinite;
+}
+
+.marquee-track:hover,
+.marquee-track-reverse:hover {
   animation-play-state: paused;
 }
 
