@@ -42,10 +42,10 @@ export default function TeamSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Text Content - Left side on desktop */}
           <div className="order-2 lg:order-1">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6 tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-6">
               {content.title}
             </h2>
-            <p className="text-lg text-gray-500 leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed">
               {content.description}
             </p>
           </div>

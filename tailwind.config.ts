@@ -9,22 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-jakarta)', 'ui-sans-serif', 'system-ui'],
-        display: ['var(--font-jakarta)', 'ui-sans-serif', 'system-ui'],
+        sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui'],
+        display: ['var(--font-inter)', 'ui-sans-serif', 'system-ui'],
       },
       colors: {
         primary: {
-          DEFAULT: '#16A34A',
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          200: '#bbf7d0',
-          300: '#86efac',
-          400: '#4ade80',
-          500: '#22c55e',
-          600: '#16A34A',
-          700: '#15803d',
-          800: '#166534',
-          900: '#14532d',
+          DEFAULT: '#D4AF37',
+          50: '#FDF8E8',
+          100: '#FAEFCD',
+          200: '#F5DF9B',
+          300: '#EFCF69',
+          400: '#E5B917',
+          500: '#D4AF37',
+          600: '#B8942F',
+          700: '#9A7B27',
+          800: '#7C621F',
+          900: '#5E4A17',
         },
         trust: {
           DEFAULT: '#1F2937',

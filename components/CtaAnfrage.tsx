@@ -18,19 +18,19 @@ export default function CtaAnfrage({
   badges = ['100% Kostenlos', 'Unverbindlich', 'Keine Werbeanrufe'],
   variant = 'default',
 }: CtaAnfrageProps) {
-  const bg = variant === 'dark' ? 'bg-gray-900' : 'bg-primary-50';
+  const bg = variant === 'light' ? 'bg-primary-50' : variant === 'dark' ? 'bg-gray-900' : 'bg-primary-50';
   const titleColor = variant === 'dark' ? 'text-white' : 'text-gray-900';
-  const subColor = variant === 'dark' ? 'text-gray-400' : 'text-gray-500';
-  const badgeColor = variant === 'dark' ? 'bg-white/10 text-white' : 'bg-white text-gray-700 border border-gray-200';
+  const subColor = variant === 'dark' ? 'text-gray-300' : 'text-gray-600';
+  const badgeColor = variant === 'dark' ? 'bg-white/10 text-white' : 'bg-white text-gray-700';
 
   return (
-    <div className={`rounded-3xl p-8 sm:p-14 text-center ${bg}`}>
-      <h2 className={`text-2xl sm:text-3xl font-extrabold mb-4 tracking-tight ${titleColor}`}>{title}</h2>
-      <p className={`text-base mb-8 max-w-lg mx-auto leading-relaxed ${subColor}`}>{subtitle}</p>
+    <div className={`rounded-3xl p-8 sm:p-12 text-center ${bg}`}>
+      <h2 className={`text-2xl sm:text-3xl font-black mb-4 ${titleColor}`}>{title}</h2>
+      <p className={`text-base mb-8 max-w-lg mx-auto ${subColor}`}>{subtitle}</p>
 
       <Link
         href="/anfrage"
-        className="inline-flex items-center gap-3 btn-primary py-4 px-9 text-base font-bold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 transition-all hover:scale-[1.02]"
+        className="inline-flex items-center gap-3 btn-primary py-4 px-8 rounded-2xl text-lg font-black shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all"
       >
         {ctaText}
         <ChevronRight className="w-5 h-5" />

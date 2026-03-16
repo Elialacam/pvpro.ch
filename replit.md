@@ -90,17 +90,6 @@ npm run start -- -p 5000
   - Hero with form, rising costs section, own energy section, roof check CTA
   - Footer second checkmark links to this page
 
-## Design System (Active)
-- **Primary color**: `#16A34A` (green-600) — replaces old gold (#D4AF37) everywhere
-- **Font**: Plus Jakarta Sans (400–800 weights), CSS variable `--font-jakarta`, configured in tailwind.config.ts and layout.tsx
-- **Hero**: Full-bleed `/images/hero-solar-panels.webp`, dark gradient overlay, white text, green pill badge, green checkmarks, green CTA
-- **Header**: Clean white frosted-glass (always), green LiveBar, scrolled shadow effect, green CTA button
-- **LiveBar**: Green background (`#16A34A`), live pulse dot, rolling request counter, anti-spam messaging
-- **btn-primary**: `rounded-xl font-semibold bg-primary hover:bg-primary-700 shadow`
-- **section-padding**: `py-16 md:py-24`
-- **card**: `rounded-2xl`
-- **CookieConsent**: "Alle akzeptieren" button updated from yellow → green primary
-
 ## Recent Changes
 - 2026-03-12: Removed SolarForm from ALL pages — replaced with CTA cards/buttons linking to /anfrage. Affected: Hero, solarrechner, solaranlage-kosten, solaranlage-mit-speicher, lokale-installateure, stromkosten-senken, UniqueCityPage, CityGrid, FAQ, HowItWorks, SwissMap, SolarCalculator. All #formular scroll anchors removed.
 - 2026-03-09: Created /lokale-installateure landing page for Facebook Ads (message match angle: local installers)

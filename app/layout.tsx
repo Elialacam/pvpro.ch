@@ -1,16 +1,15 @@
 import Script from 'next/script'
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Suspense } from "react";
 import TrackingScripts from '@/components/TrackingScripts';
 import SupportPopup from '@/components/SupportPopup';
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const inter = Inter({ 
   subsets: ["latin"],
-  variable: '--font-jakarta',
+  variable: '--font-inter',
   display: 'swap',
-  weight: ['400', '500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
@@ -36,9 +35,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de-CH" className={`scroll-smooth ${plusJakartaSans.variable}`} suppressHydrationWarning>
+    <html lang="de-CH" className={`scroll-smooth ${inter.variable}`} suppressHydrationWarning>
       <head />
-      <body className={plusJakartaSans.className}>
+      <body className={inter.className}>
         <Script
           src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
           strategy="afterInteractive"

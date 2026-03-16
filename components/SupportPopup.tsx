@@ -24,7 +24,9 @@ export default function SupportPopup() {
       timer = setTimeout(() => setVisible(true), 15000);
     };
 
-    if (hasConsent()) startTimer();
+    if (hasConsent()) {
+      startTimer();
+    }
 
     const onConsent = () => startTimer();
     window.addEventListener('pvpro:consent', onConsent);
@@ -53,35 +55,38 @@ export default function SupportPopup() {
           transition={{ duration: 0.35, ease: 'easeOut' }}
           className="fixed bottom-6 right-5 z-[9990] w-[340px] sm:w-[370px]"
         >
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl flex flex-row items-stretch bg-white border border-gray-100">
+          <div
+            className="relative rounded-2xl overflow-hidden shadow-2xl flex flex-row items-stretch"
+            style={{ background: '#1a2e4a' }}
+          >
             <button
               onClick={dismiss}
-              className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center transition-colors hover:bg-gray-100 z-10"
+              className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center transition-colors hover:bg-white/20 z-10"
               aria-label="Schliessen"
             >
-              <X className="w-4 h-4 text-gray-400" />
+              <X className="w-4 h-4 text-white/70" />
             </button>
 
             <div className="flex-1 p-5 pr-3 flex flex-col justify-center gap-3">
               <div>
-                <p className="text-gray-900 font-extrabold text-base leading-tight">
+                <p className="text-white font-black text-lg leading-tight">
                   Kostenlose Beratung
                 </p>
-                <p className="text-gray-500 text-sm mt-1 leading-snug">
+                <p className="text-white/75 text-sm mt-1 leading-snug">
                   Mit wenigen Klicks zu kostenlosen Offerten. Unser Team beantwortet Ihre Fragen.
                 </p>
               </div>
               <Link
                 href="/anfrage"
                 onClick={dismiss}
-                className="inline-block bg-primary text-white font-bold text-sm px-4 py-2.5 rounded-xl hover:bg-primary-700 transition-colors text-center"
+                className="inline-block bg-white text-[#1a2e4a] font-bold text-sm px-4 py-2.5 rounded-xl hover:bg-gray-100 transition-colors text-center"
               >
                 Jetzt starten →
               </Link>
             </div>
 
             <div className="flex items-center justify-center px-4 py-4 shrink-0">
-              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-100 shadow-sm">
+              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-white/20 shadow-lg">
                 <Image
                   src="/images/support-agent.png"
                   alt="PVPro Support"
