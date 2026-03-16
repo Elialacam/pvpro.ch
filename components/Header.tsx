@@ -193,10 +193,10 @@ export default function Header() {
       }}
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="flex items-center justify-between h-16 sm:h-[72px]">
+        <div className="relative flex items-center justify-between h-16 sm:h-[72px]">
 
-          {/* Logo */}
-          <Link href={homeHref} className="flex-shrink-0">
+          {/* Logo — far left */}
+          <Link href={homeHref} className="flex-shrink-0 z-10">
             <Image
               src="/logo-pvpro.png"
               alt="PVPro.ch"
@@ -207,39 +207,41 @@ export default function Header() {
             />
           </Link>
 
-          {/* Center — pill nav */}
-          <div
-            className="hidden md:flex items-center rounded-full px-1 py-1"
-            style={{
-              background: transparent ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.06)',
-              backdropFilter: 'blur(12px)',
-            }}
-          >
-            {navItems.map((item, i) => (
-              <div key={i} className="relative">
-                <button
-                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-150 ${textColor} ${
-                    openIndex === i
-                      ? transparent ? 'bg-white/20' : 'bg-black/10'
-                      : transparent ? 'hover:bg-white/15' : 'hover:bg-black/[0.07]'
-                  }`}
-                >
-                  {item.label}
-                  <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${openIndex === i ? 'rotate-180' : ''}`}
-                  />
-                </button>
+          {/* Center nav — truly centered in viewport via absolute */}
+          <div className="hidden md:block absolute left-1/2 -translate-x-1/2">
+            <div
+              className="flex items-center rounded-full px-1 py-1"
+              style={{
+                background: transparent ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.06)',
+                backdropFilter: 'blur(12px)',
+              }}
+            >
+              {navItems.map((item, i) => (
+                <div key={i} className="relative">
+                  <button
+                    onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                    className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-150 ${textColor} ${
+                      openIndex === i
+                        ? transparent ? 'bg-white/20' : 'bg-black/10'
+                        : transparent ? 'hover:bg-white/15' : 'hover:bg-black/[0.07]'
+                    }`}
+                  >
+                    {item.label}
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${openIndex === i ? 'rotate-180' : ''}`}
+                    />
+                  </button>
 
-                {openIndex === i && (
-                  <DropdownPanel item={item} transparent={transparent} />
-                )}
-              </div>
-            ))}
+                  {openIndex === i && (
+                    <DropdownPanel item={item} transparent={transparent} />
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Right */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          {/* Right — lang switcher + CTA */}
+          <div className="flex items-center gap-3 sm:gap-4 z-10">
             <div style={transparent ? { filter: 'brightness(0) invert(1)' } : {}}>
               <LanguageSwitcher />
             </div>

@@ -58,11 +58,14 @@ export default function Hero() {
         sizes="100vw"
       />
 
-      {/* Overlay for text area — gradient from bottom */}
+      {/* Gradient overlay — top fade (header readability) + bottom fade (text readability) */}
       <div
         className="absolute inset-0 z-10"
         style={{
-          background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0.0) 65%)',
+          background: [
+            'linear-gradient(to bottom, rgba(0,0,0,0.52) 0%, transparent 22%)',
+            'linear-gradient(to top,    rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.5) 35%, transparent 65%)',
+          ].join(', '),
         }}
       />
 
