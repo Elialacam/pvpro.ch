@@ -32,11 +32,10 @@ const columns = [
   {
     title: 'Über uns',
     links: [
-      { label: 'Über uns',       href: '/' },
-      { label: 'Kontakt',        href: '/anfrage' },
-      { label: 'Bewertungen',    href: '/' },
-      { label: 'Datenschutz',    href: '/datenschutz' },
-      { label: 'Impressum',      href: '/impressum' },
+      { label: 'Über uns',           href: '/ueber-uns' },
+      { label: 'Wie es funktioniert', href: '/wie-es-funktioniert' },
+      { label: 'Datenschutz',        href: '/datenschutz' },
+      { label: 'Impressum',          href: '/impressum' },
     ],
   },
 ];
