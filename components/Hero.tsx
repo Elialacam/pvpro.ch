@@ -47,17 +47,15 @@ export default function Hero() {
   const content = heroContent[locale] || heroContent.de;
 
   return (
-    <section className="relative w-full flex items-end overflow-hidden" style={{ background: '#0d1117' }}>
-      {/* Background image — contain to show full image */}
+    <section className="relative w-full min-h-screen flex items-end overflow-hidden" style={{ background: '#0d1117' }}>
+      {/* Background image — contain so full image is visible */}
       <Image
         src="/images/hero-house-solar.png"
         alt="Modernes Haus mit Solaranlage in der Schweiz"
-        width={1440}
-        height={960}
+        fill
         priority
-        className="w-full h-auto block"
+        className="object-contain object-center"
         sizes="100vw"
-        style={{ display: 'block' }}
       />
 
       {/* Overlay for text area — gradient from bottom */}
