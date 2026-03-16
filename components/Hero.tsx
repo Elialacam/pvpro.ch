@@ -50,8 +50,8 @@ export default function Hero() {
     <section className="relative w-full min-h-[92vh] flex items-end overflow-hidden">
       {/* Background image */}
       <Image
-        src="/images/hero-family-solar.png"
-        alt="Familie mit Solaranlage in der Schweiz"
+        src="/images/hero-house-solar.png"
+        alt="Modernes Haus mit Solaranlage in der Schweiz"
         fill
         priority
         className="object-cover object-center"
