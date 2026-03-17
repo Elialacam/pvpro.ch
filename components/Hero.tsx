@@ -98,20 +98,25 @@ export default function Hero() {
             src={src}
             alt="PVPro Solaranlage"
             fill
-            priority={i === 0}
+            priority={i <= 1}
+            quality={90}
             className="object-cover object-center"
             sizes="100vw"
           />
         </div>
       ))}
 
-      {/* Gradient overlay — top + bottom */}
+      {/* Gradient overlay — uniform base + top + bottom */}
+      <div
+        className="absolute inset-0 z-10"
+        style={{ background: 'rgba(0,0,0,0.18)' }}
+      />
       <div
         className="absolute inset-0 z-10"
         style={{
           background: [
-            'linear-gradient(to bottom, rgba(0,0,0,0.50) 0%, transparent 22%)',
-            'linear-gradient(to top,    rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 35%, transparent 65%)',
+            'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 25%)',
+            'linear-gradient(to top,    rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 38%, transparent 68%)',
           ].join(', '),
         }}
       />
