@@ -134,7 +134,7 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <div className="relative w-full overflow-hidden">
+      <div className="relative overflow-hidden px-6 sm:px-10 lg:px-16">
         <div className="flex marquee-track" style={{ width: 'max-content' }}>
           {doubled.map((review, i) => <ReviewCard key={i} review={review} />)}
         </div>
