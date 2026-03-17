@@ -22,7 +22,7 @@ const columns = [
     title: 'Für Kunden',
     links: [
       { label: 'Solaranlage mit Speicher',          href: '/solaranlage-mit-speicher' },
-      { label: 'Photovoltaik Kosten pro m²',        href: '/pv-kosten' },
+      { label: 'Photovoltaik Kosten pro m²',        href: '/photovoltaik-kosten-pro-m2' },
       { label: 'Solaranlage Einfamilienhaus',        href: '/solaranlage-einfamilienhaus' },
       { label: 'Solaranlage Mehrfamilienhaus',       href: '/solaranlage-mehrfamilienhaus' },
       { label: 'Balkonkraftwerk Schweiz',            href: '/balkonkraftwerk' },
