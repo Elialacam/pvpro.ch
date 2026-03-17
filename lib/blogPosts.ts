@@ -11,6 +11,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'balkonkraftwerk-schweiz',
+    title: 'Balkonkraftwerk Schweiz: erlaubt, Kosten und lohnt es sich wirklich?',
+    excerpt: 'Sind Balkonkraftwerke in der Schweiz erlaubt? Kosten, Regeln und ob sich ein Balkonkraftwerk lohnt – mit ehrlichem Vergleich zur vollwertigen Solaranlage.',
+    image: '/images/balkonkraftwerk-schweiz.png',
+    author: 'PVPro Redaktion',
+    date: '17. März 2026',
+    readMin: 7,
+    tag: 'Ratgeber',
+  },
+  {
     slug: 'solaranlage-winter-schweiz',
     title: 'Solaranlage im Winter: Wie effizient sind Panels bei Schnee und Kälte?',
     excerpt: 'Viele Hausbesitzer fragen sich, ob sich eine Solaranlage in der Schweiz auch im Winter lohnt. Die Antwort überrascht: Moderne PV-Anlagen produzieren auch bei Schnee und Kälte zuverlässig Strom.',

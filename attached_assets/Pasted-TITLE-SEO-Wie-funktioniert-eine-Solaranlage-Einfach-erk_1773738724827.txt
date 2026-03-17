@@ -1,0 +1,253 @@
+TITLE (SEO)
+
+Wie funktioniert eine Solaranlage? Einfach erklärt (Schweiz)
+
+META DESCRIPTION
+
+Wie funktioniert eine Solaranlage? Einfache Erklärung mit Beispielen, Stromproduktion und Antworten auf häufige Fragen zur Photovoltaik.
+
+H1
+
+Wie funktioniert eine Solaranlage? Einfach erklärt
+
+Eine Solaranlage (Photovoltaikanlage) wandelt Sonnenlicht direkt in Strom um. Das Prinzip dahinter ist relativ einfach: Sonnenstrahlen treffen auf die Solarmodule, und daraus entsteht elektrische Energie, die im Haushalt genutzt werden kann.
+
+Genauer gesagt basiert die Technik auf dem sogenannten photoelektrischen Effekt, bei dem Licht in elektrische Energie umgewandelt wird.
+
+H2
+
+Wie funktioniert eine Solaranlage Schritt für Schritt?
+
+Die Funktionsweise lässt sich in wenigen Schritten erklären:
+
+H3
+
+Sonnenlicht trifft auf die Solarmodule
+Die Solarmodule bestehen aus vielen kleinen Solarzellen. Diese nehmen die Sonnenstrahlung auf.
+
+H3
+
+Die Solarzellen erzeugen Strom
+In den Solarzellen wird das Licht direkt in Gleichstrom umgewandelt.
+
+H3
+
+Der Wechselrichter wandelt den Strom um
+Da Haushaltsgeräte mit Wechselstrom arbeiten, wird der erzeugte Strom durch einen Wechselrichter umgewandelt.
+
+H3
+
+Der Strom wird im Haus genutzt
+Der erzeugte Strom wird direkt im Haushalt verbraucht, zum Beispiel für Geräte, Licht oder Wärmepumpen.
+
+H3
+
+Überschüssiger Strom wird gespeichert oder eingespeist
+Wenn mehr Strom produziert wird als benötigt:
+
+wird er ins Netz eingespeist
+
+oder in einem Batteriespeicher gespeichert
+
+H2
+
+Was ist der Unterschied zwischen Solaranlage und Photovoltaik?
+
+Oft werden diese Begriffe verwechselt.
+
+Photovoltaik = erzeugt Strom
+
+Solarthermie = erzeugt Wärme (z. B. für Warmwasser)
+
+Im Alltag wird „Solaranlage“ meist als Synonym für Photovoltaik verwendet.
+
+H2
+
+Welche Komponenten hat eine Solaranlage?
+
+Eine typische Anlage besteht aus:
+
+Solarmodule → erzeugen Strom
+
+Wechselrichter → macht Strom nutzbar
+
+Stromzähler → misst Verbrauch und Einspeisung
+
+Batteriespeicher (optional) → speichert Strom
+
+Diese Komponenten arbeiten zusammen, um möglichst viel Energie im eigenen Haushalt zu nutzen.
+
+H2
+
+Wie viel Strom produziert eine Solaranlage?
+
+Die Produktion hängt von Größe und Standort ab.
+
+Eine typische Anlage:
+
+10 kWp Anlage → ca. 9’000 – 11’000 kWh pro Jahr
+
+pro Tag → ca. 25–40 kWh
+
+Das reicht oft aus, um den Großteil eines Haushalts zu versorgen.
+
+H2
+
+Wie viel bringt ein Solarmodul am Tag?
+
+Ein einzelnes Modul (ca. 400 Watt):
+
+produziert etwa 1–2 kWh pro Tag bei guter Sonneneinstrahlung
+
+Ein kleines System (800 Watt) produziert:
+
+👉 etwa 2–4 kWh pro Tag im Sommer
+👉 deutlich weniger im Winter
+
+H2
+
+Was bringt eine Solaranlage im Winter?
+
+Im Winter produziert eine Solaranlage deutlich weniger Strom, da:
+
+die Tage kürzer sind
+
+die Sonne tiefer steht
+
+oft mehr Bewölkung vorhanden ist
+
+Trotzdem wird weiterhin Strom erzeugt – nur auf niedrigerem Niveau.
+
+H2
+
+Kann eine Solaranlage ein Haus komplett versorgen?
+
+In vielen Fällen kann eine Solaranlage einen großen Teil des Strombedarfs decken.
+
+Aber:
+
+👉 vollständig unabhängig (autark) ist man meist nicht
+
+Warum?
+
+im Winter weniger Produktion
+
+nachts keine Energie ohne Speicher
+
+hoher Verbrauch kann zusätzliches Netzstrom benötigen
+
+H2
+
+Kann man mit Photovoltaik ein Elektroauto laden?
+
+Ja.
+
+Eine Solaranlage kann problemlos ein Elektroauto laden, wenn sie ausreichend groß ist.
+
+Typisch:
+
+Auto benötigt ca. 2’000 – 3’000 kWh pro Jahr
+
+dafür braucht man etwa 2–4 kWp zusätzliche Leistung
+
+Je größer die Anlage, desto mehr Eigenverbrauch ist möglich.
+
+H2
+
+Wie lange reicht ein 10 kWh Speicher?
+
+Ein 10-kWh-Speicher kann je nach Verbrauch:
+
+mehrere Stunden Strom liefern
+
+oft den Abend und die Nacht abdecken
+
+Bei hohem Verbrauch (z. B. Wärmepumpe) wird der Speicher schneller entladen.
+
+H2
+
+Kann ein 800-Watt-Solarmodul Geräte betreiben?
+
+Ja, aber nur begrenzt.
+
+Ein 800-Watt-System kann:
+
+Kühlschrank
+
+WLAN
+
+kleine Geräte
+
+teilweise abdecken.
+
+Aber:
+
+👉 Für ein ganzes Haus reicht das nicht.
+
+H2
+
+Lohnt sich eine Solaranlage?
+
+Ja, besonders wenn:
+
+viel Strom verbraucht wird
+
+Eigenverbrauch hoch ist
+
+Strompreise steigen
+
+Eine Solaranlage reduziert langfristig die Energiekosten und macht unabhängiger vom Strommarkt.
+
+H2
+
+Angebote vergleichen und optimale Anlage finden
+
+Die Leistung und Kosten einer Solaranlage hängen stark vom Haus ab.
+
+Über PVPro können Sie:
+
+mehrere Angebote vergleichen
+
+die passende Anlagengröße berechnen
+
+herausfinden, wie viel Sie sparen können
+
+H2
+
+Häufig gestellte Fragen zur Funktionsweise von Solaranlagen
+
+H3
+
+Wie funktioniert eine Solaranlage einfach erklärt?
+
+Eine Solaranlage wandelt Sonnenlicht in Strom um. Die Solarmodule erzeugen Gleichstrom, der durch einen Wechselrichter in nutzbaren Strom umgewandelt wird. Dieser Strom wird direkt im Haushalt genutzt oder ins Netz eingespeist.
+
+H3
+
+Was ist der Unterschied zwischen Photovoltaik und Solaranlage?
+
+Photovoltaik erzeugt Strom, während Solarthermie Wärme produziert. Im Alltag wird der Begriff Solaranlage oft für Photovoltaik verwendet.
+
+H3
+
+Was bringt ein 800 Watt Solarmodul am Tag?
+
+Ein 800-Watt-System produziert im Sommer etwa 2–4 kWh pro Tag. Im Winter ist die Produktion deutlich geringer.
+
+H3
+
+Kann ein Solarpanel einen Kühlschrank betreiben?
+
+Ja, ein Solarpanel kann einen Kühlschrank betreiben, aber meist nicht dauerhaft alleine. Dafür ist ein größeres System oder ein Speicher notwendig.
+
+H3
+
+Ist man mit Photovoltaik autark?
+
+Nicht vollständig. Ohne Speicher und im Winter bleibt man teilweise auf Strom aus dem Netz angewiesen.
+
+H3
+
+Wie groß muss eine Solaranlage sein, um ein Auto zu laden?
+
+Für ein Elektroauto benötigt man etwa 2–4 kWp zusätzliche Leistung, je nach Fahrverhalten und Verbrauch.
