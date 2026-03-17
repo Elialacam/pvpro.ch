@@ -100,6 +100,9 @@ npm run start -- -p 5000
 - **PlzWidget**: `components/PlzWidget.tsx` — client component; PLZ input (4 digits) → navigates to `/anfrage?plz=XXXX`
 - Blog thumbnail images: `public/images/blog-1.png` … `blog-6.png` (copies of hero images)
 
+## Pages Built
+- `/wie-funktioniert` — Full interactive page: step-by-step animated process (5 steps, clickable), 4 Komponenten cards, production calculator (kWp slider + EV/Wärmepumpe toggles), 6 quick fact cards, FAQ accordion. Uses `components/WieFunktioniertInteractive.tsx`. Hero image: `public/images/wie-funktioniert-solaranlage.png`
+
 ## Recent Changes
 - 2026-03-12: Removed SolarForm from ALL pages — replaced with CTA cards/buttons linking to /anfrage. Affected: Hero, solarrechner, solaranlage-kosten, solaranlage-mit-speicher, lokale-installateure, stromkosten-senken, UniqueCityPage, CityGrid, FAQ, HowItWorks, SwissMap, SolarCalculator. All #formular scroll anchors removed.
 - 2026-03-09: Created /lokale-installateure landing page for Facebook Ads (message match angle: local installers)

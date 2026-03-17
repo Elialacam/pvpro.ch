@@ -1,44 +1,158 @@
 import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
+import WieFunktioniertInteractive from '@/components/WieFunktioniertInteractive';
 
 export const metadata: Metadata = {
-  title: 'Wie funktioniert eine Solaranlage? | PVPro.ch',
-  description: 'Wie funktioniert eine Solaranlage? Erklärung der Photovoltaik-Technologie, der Komponenten und des Stromflusses – einfach und verständlich erklärt.',
+  title: 'Wie funktioniert eine Solaranlage? Einfach erklärt (Schweiz) | PVPro.ch',
+  description: 'Wie funktioniert eine Solaranlage? Einfache Erklärung mit Beispielen, Stromproduktion und Antworten auf häufige Fragen zur Photovoltaik.',
+  alternates: { canonical: 'https://www.pvpro.ch/wie-funktioniert' },
 };
 
 export default function WieFunktioniertPage() {
   return (
-    <main className="min-h-screen bg-white pt-28 pb-20">
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
-        <nav className="flex items-center gap-1.5 text-sm text-gray-400 mb-10">
-          <Link href="/" className="hover:text-gray-600 transition-colors">Home</Link>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-gray-700 font-medium">Wie funktioniert eine Solaranlage</span>
-        </nav>
-        <div className="mb-16 max-w-3xl">
-          <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-2">Technik & Wissen</p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-6">
-            Wie funktioniert eine Solaranlage?
-          </h1>
-          <p className="text-gray-500 text-lg leading-relaxed">
-            Solarmodule wandeln Sonnenlicht direkt in elektrischen Strom um. Erfahren Sie, wie die Photovoltaik-Technologie funktioniert und wie der Strom in Ihrem Haushalt genutzt wird.
-          </p>
-        </div>
-        <div className="flex items-center justify-center py-32 rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50 mb-12">
-          <div className="text-center">
-            <p className="text-5xl mb-4">🔧</p>
-            <p className="text-gray-500 font-medium">Inhalt folgt in Kürze</p>
+    <main className="min-h-screen bg-white">
+
+      {/* ── Hero ── */}
+      <section className="relative bg-[#0f1f3d] pt-28 pb-0 overflow-hidden">
+        <div className="absolute inset-0 opacity-10"
+          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
+
+        <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-8">
+            <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5" />
+            <span className="text-white/70">Wie funktioniert eine Solaranlage</span>
+          </nav>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
+            <div className="pb-12">
+              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-4">Technik & Wissen</p>
+              <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
+                Wie funktioniert eine Solaranlage? Einfach erklärt
+              </h1>
+              <p className="text-white/70 text-lg leading-relaxed mb-8">
+                Eine Solaranlage wandelt Sonnenlicht direkt in Strom um — basierend auf dem photoelektrischen Effekt. Wie genau das funktioniert und was Ihre Anlage leistet, erklärt diese Seite verständlich Schritt für Schritt.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/anfrage"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
+                  style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+                >
+                  Offerte anfordern <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a
+                  href="#rechner"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-white/80 text-sm border border-white/20 hover:border-white/40 transition-colors"
+                >
+                  Produktion berechnen
+                </a>
+              </div>
+            </div>
+
+            {/* Hero image */}
+            <div className="relative rounded-t-3xl overflow-hidden self-end h-80 lg:h-[420px] shadow-2xl">
+              <img
+                src="/images/wie-funktioniert-solaranlage.png"
+                alt="Wie funktioniert eine Solaranlage – Illustration mit Sonne, Solarmodulen, Wechselrichter, Speicher und Hausstrom"
+                className="w-full h-full object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f1f3d]/30 to-transparent" />
+            </div>
           </div>
         </div>
-        <div className="rounded-2xl p-10 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Bereit für Ihre eigene Solaranlage?</h2>
-          <p className="text-gray-600 mb-6 max-w-md mx-auto">Vergleichen Sie jetzt kostenlos Offerten von geprüften Installateuren in Ihrer Region.</p>
-          <Link href="/anfrage" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
-            Kostenlose Offerte anfordern →
-          </Link>
+      </section>
+
+      {/* ── Intro strip ── */}
+      <section className="bg-white border-b border-gray-100 py-8">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+            {[
+              { val: '25–30 J.', label: 'Lebensdauer Module' },
+              { val: '22%', label: 'Max. Wirkungsgrad' },
+              { val: '9–11k', label: 'kWh/Jahr bei 10 kWp' },
+              { val: '0 CHF', label: 'Treibstoff nötig' },
+            ].map((s) => (
+              <div key={s.label}>
+                <p className="text-2xl sm:text-3xl font-bold text-[#F97316]">{s.val}</p>
+                <p className="text-xs text-gray-500 mt-1">{s.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* ── Intro text ── */}
+      <section className="py-14">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                Das Prinzip dahinter ist einfach
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Eine Photovoltaikanlage (PV-Anlage) basiert auf dem sogenannten <strong>photoelektrischen Effekt</strong>: Wenn Licht auf bestimmte Materialien trifft, werden Elektronen freigesetzt und es entsteht elektrischer Strom.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                Die Solarmodule auf Ihrem Dach enthalten tausende solcher Zellen. Diese wandeln Sonnenlicht direkt und lautlos in Strom um — ohne bewegliche Teile, ohne Abgase, ohne Lärm.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-gray-50 border border-gray-100 p-6">
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Photovoltaik vs. Solarthermie</p>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3 p-4 rounded-xl bg-white border border-[#F97316]/20">
+                  <span className="text-2xl">⚡</span>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm">Photovoltaik</p>
+                    <p className="text-gray-500 text-xs mt-0.5">Erzeugt <strong>Strom</strong> aus Sonnenlicht. Das meinen die meisten, wenn sie von "Solaranlage" sprechen.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 rounded-xl bg-white border border-gray-100">
+                  <span className="text-2xl">🌡️</span>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm">Solarthermie</p>
+                    <p className="text-gray-500 text-xs mt-0.5">Erzeugt <strong>Wärme</strong> aus Sonnenlicht — typisch für Warmwasserbereitung oder Heizung.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Interactive section (steps + components + calculator + FAQ) ── */}
+      <WieFunktioniertInteractive />
+
+      {/* ── CTA bottom ── */}
+      <section className="py-16 bg-[#0f1f3d] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10"
+          style={{ backgroundImage: 'radial-gradient(circle at 30% 60%, #F97316 0%, transparent 55%)' }} />
+        <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Bereit für Ihre eigene Solaranlage?
+          </h2>
+          <p className="text-white/60 text-lg mb-8 max-w-2xl mx-auto">
+            Vergleichen Sie jetzt kostenlos Offerten von geprüften Installateuren in Ihrer Region — unverbindlich und in wenigen Minuten.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link
+              href="/anfrage"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-xl"
+              style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            >
+              Kostenlose Offerte anfordern <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/solaranlage-kosten"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white/80 text-sm border border-white/20 hover:border-white/40 transition-colors"
+            >
+              Kosten berechnen
+            </Link>
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }
