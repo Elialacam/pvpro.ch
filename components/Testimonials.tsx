@@ -134,11 +134,7 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <div className="relative w-full">
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-48 z-10"
-          style={{ background: 'linear-gradient(to right, white 40%, transparent)' }} />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-48 z-10"
-          style={{ background: 'linear-gradient(to left, white 40%, transparent)' }} />
+      <div className="relative w-full overflow-hidden">
         <div className="flex marquee-track" style={{ width: 'max-content' }}>
           {doubled.map((review, i) => <ReviewCard key={i} review={review} />)}
         </div>
