@@ -52,7 +52,7 @@ export default function WieFunktioniertPage() {
             </div>
 
             {/* Hero image */}
-            <div className="relative rounded-3xl overflow-hidden self-end shadow-2xl">
+            <div className="relative rounded-3xl overflow-hidden self-center shadow-2xl mb-8">
               <img
                 src="/images/wie-funktioniert-solaranlage.png"
                 alt="Wie funktioniert eine Solaranlage – Illustration mit Sonne, Solarmodulen, Wechselrichter, Speicher und Hausstrom"
