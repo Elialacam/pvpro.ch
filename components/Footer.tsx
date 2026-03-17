@@ -25,7 +25,6 @@ const columns = [
       { label: 'Photovoltaik Kosten pro m²',        href: '/photovoltaik-kosten-pro-m2' },
       { label: 'Solaranlage Einfamilienhaus',        href: '/solaranlage-einfamilienhaus' },
       { label: 'Solaranlage Mehrfamilienhaus',       href: '/solaranlage-mehrfamilienhaus' },
-      { label: 'Balkonkraftwerk Schweiz',            href: '/balkonkraftwerk' },
       { label: 'Wie funktioniert eine Solaranlage', href: '/wie-funktioniert' },
     ],
   },
