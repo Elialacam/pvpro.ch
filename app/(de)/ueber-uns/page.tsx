@@ -147,27 +147,8 @@ export default function UeberUnsPage() {
 
         {/* Company info */}
         <div className="rounded-2xl border border-gray-100 p-8 sm:p-12 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Unternehmensinformationen</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
-            <div className="flex flex-col gap-4">
-              <div>
-                <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">Unternehmen</p>
-                <p className="font-semibold text-gray-800">NOBA Media Sagl</p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">Geschäftsführer</p>
-                <p className="font-semibold text-gray-800">Elia Alacam</p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">UID</p>
-                <p className="font-semibold text-gray-800">CHE-236.020.113</p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">Handelsregister</p>
-                <p className="font-semibold text-gray-800">CH-501.4.029.665-0, Kanton Tessin</p>
-              </div>
-            </div>
-            <div className="flex flex-col gap-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Kontakt</h2>
+          <div className="flex flex-col gap-4 text-sm max-w-sm">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#F97316] mt-0.5 flex-shrink-0" />
                 <div>
@@ -189,7 +170,6 @@ export default function UeberUnsPage() {
                   <a href="tel:+41779770750" className="font-semibold text-gray-800 hover:text-[#F97316] transition-colors">+41 77 977 07 50</a>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 
