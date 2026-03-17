@@ -96,7 +96,7 @@ function Avatar({ review }: { review: Review }) {
 
 function ReviewCard({ review }: { review: Review }) {
   return (
-    <div className="flex-shrink-0 w-[300px] mx-2.5 bg-white rounded-3xl p-6 shadow-md border border-gray-100">
+    <div className="flex-shrink-0 w-[300px] mx-2.5 bg-white rounded-2xl p-6 border-2 border-gray-200">
       {/* Header: avatar + name + stars */}
       <div className="flex items-center gap-3 mb-4">
         <Avatar review={review} />
