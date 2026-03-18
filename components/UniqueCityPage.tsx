@@ -4,7 +4,6 @@ import { City } from '@/lib/cities';
 import { CityContent } from '@/lib/city-content';
 import Link from 'next/link';
 import USPSection from '@/components/USPSection';
-import TrustBadges from '@/components/TrustBadges';
 import FAQ from '@/components/FAQ';
 import RelatedCities from '@/components/RelatedCities';
 import { Sun, MapPin, TrendingUp, CheckCircle, Zap, Euro, Award } from 'lucide-react';
@@ -16,8 +15,21 @@ interface UniqueCityPageProps {
   accentColor?: 'orange' | 'blue' | 'purple' | 'green' | 'red';
 }
 
+function t(lang: string, de: string, fr: string, it: string) {
+  if (lang === 'fr') return fr;
+  if (lang === 'it') return it;
+  return de;
+}
+
+function getFormUrl(lang: string) {
+  if (lang === 'fr') return '/fr/demande';
+  if (lang === 'it') return '/it/richiesta';
+  return '/anfrage';
+}
+
 export default function UniqueCityPage({ city, content, accentColor = 'orange' }: UniqueCityPageProps) {
-  // Color variants
+  const lang = city.language;
+
   const colors = {
     orange: {
       gradient: 'from-yellow-50 via-orange-50 to-primary-50',
@@ -72,6 +84,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
   };
 
   const theme = colors[accentColor];
+  const formUrl = getFormUrl(lang);
 
   return (
     <>
@@ -82,7 +95,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm mb-6">
               <Sun className={`w-4 h-4 ${theme.badgeBg}`} />
               <span className={`text-sm font-sans font-semibold tracking-tight ${theme.badge}`}>
-                {city.sunshineHours} {city.language === 'it' ? 'Ore di sole' : 'Sonnenstunden'} - {content.heroSubheadline}
+                {city.sunshineHours} {t(lang, 'Sonnenstunden', 'heures de soleil', 'Ore di sole')} — {content.heroSubheadline}
               </span>
             </div>
 
@@ -98,61 +111,40 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             {/* City-specific Stats */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 max-w-3xl mx-auto">
               <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className={`text-3xl font-sans font-semibold tracking-tight ${theme.stats} mb-2`}>{city.sunshineHours || '1560'}</div>
-                <div className="text-sm text-gray-600">
-                  {city.language === 'it' ? 'Ore di sole/anno' : 'Sonnenstunden/Jahr'}
-                </div>
-                <div className="text-xs text-gray-500 mt-1">
-                  {city.language === 'it' ? 'Condizioni ottimali' : 'Optimale Bedingungen'}
-                </div>
+                <div className={`text-3xl font-sans font-semibold tracking-tight ${theme.stats} mb-2`}>{city.sunshineHours}</div>
+                <div className="text-sm text-gray-600">{t(lang, 'Sonnenstunden/Jahr', 'Heures de soleil/an', 'Ore di sole/anno')}</div>
+                <div className="text-xs text-gray-500 mt-1">{t(lang, 'Optimale Bedingungen', 'Conditions optimales', 'Condizioni ottimali')}</div>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-md">
                 <div className="text-3xl font-sans font-semibold tracking-tight text-green-600 mb-2">{content.pricing.roiYears}</div>
-                <div className="text-sm text-gray-600">
-                  {city.language === 'it' ? 'Anni di ammortamento' : 'Jahre Amortisation'}
-                </div>
-                <div className="text-xs text-gray-500 mt-1">
-                  {city.language === 'it' ? 'ROI rapido' : 'Schneller ROI'}
-                </div>
+                <div className="text-sm text-gray-600">{t(lang, 'Jahre Amortisation', "Ans d'amortissement", 'Anni di ammortamento')}</div>
+                <div className="text-xs text-gray-500 mt-1">{t(lang, 'Schneller ROI', 'Retour rapide', 'ROI rapido')}</div>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-md">
                 <div className="text-3xl font-sans font-semibold tracking-tight text-primary mb-2">45%</div>
-                <div className="text-sm text-gray-600">
-                  {city.language === 'it' ? 'Sussidi possibili' : 'Förderung möglich'}
-                </div>
-                <div className="text-xs text-gray-500 mt-1">
-                  {city.language === 'it' ? 'Confederazione + Cantone' : 'Bund + Kanton'}
-                </div>
+                <div className="text-sm text-gray-600">{t(lang, 'Förderung möglich', 'Aides possibles', 'Sussidi possibili')}</div>
+                <div className="text-xs text-gray-500 mt-1">{t(lang, 'Bund + Kanton', 'Confédération + Canton', 'Confederazione + Cantone')}</div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700 font-medium">
-                  {city.language === 'it' ? 'Ditte certificate' : 'Geprüfte Fachbetriebe'}
-                </span>
+                <span className="text-gray-700 font-medium">{t(lang, 'Geprüfte Fachbetriebe', 'Installateurs certifiés', 'Ditte certificate')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700 font-medium">
-                  {city.language === 'it' ? 'Installatori locali' : 'Lokale Solarteure'}
-                </span>
+                <span className="text-gray-700 font-medium">{t(lang, 'Lokale Solarteure', 'Installateurs locaux', 'Installatori locali')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700 font-medium">
-                  {city.language === 'it' ? 'Fino a 3 preventivi' : 'Bis zu 3 Offerten'}
-                </span>
+                <span className="text-gray-700 font-medium">{t(lang, 'Bis zu 3 Offerten', "Jusqu'à 3 offres", 'Fino a 3 preventivi')}</span>
               </div>
             </div>
 
-            <button 
-              onClick={() => { window.location.href = '/anfrage'; }} 
-              className="btn-primary text-lg px-8 py-4"
-            >
-              {city.language === 'it' ? 'Richiedi preventivo gratuito' : 'Jetzt kostenlose Offerte anfordern'}
-            </button>
+            <Link href={formUrl} className="btn-primary text-lg px-8 py-4 inline-block">
+              {t(lang, 'Jetzt kostenlose Offerte anfordern', 'Demander une offre gratuite', 'Richiedi preventivo gratuito')}
+            </Link>
           </div>
         </div>
       </section>
@@ -192,32 +184,52 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-6">
-                {city.language === 'it' ? 'Incentivi Solari in Svizzera: Come Funzionano' : 'Solarförderung in der Schweiz: So funktioniert es wirklich'}
+                {t(lang,
+                  'Solarförderung in der Schweiz: So funktioniert es wirklich',
+                  "Aides solaires en Suisse: comment ça marche vraiment",
+                  "Incentivi fotovoltaico in Svizzera: Come Funzionano"
+                )}
               </h2>
               <div className="prose prose-lg text-gray-600 space-y-4">
                 <p>
-                  {city.language === 'it' 
-                    ? 'In Svizzera, l\'installazione di un impianto fotovoltaico è supportata da schemi di incentivi federali ufficiali progettati per ridurre significativamente i costi iniziali.' 
-                    : 'In der Schweiz wird die Installation einer Photovoltaikanlage durch offizielle Bundesförderprogramme unterstützt, die die Investitionskosten deutlich senken.'}
+                  {t(lang,
+                    'In der Schweiz wird die Installation einer Photovoltaikanlage durch offizielle Bundesförderprogramme unterstützt, die die Investitionskosten deutlich senken.',
+                    "En Suisse, l'installation de panneaux photovoltaïques est soutenue par des programmes fédéraux qui réduisent significativement les coûts.",
+                    "In Svizzera, l'installazione di un impianto fotovoltaico è supportata da programmi di incentivi federali che riducono i costi iniziali."
+                  )}
                 </p>
                 <ul className="space-y-2">
                   <li className="flex gap-2">
                     <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span>{city.language === 'it' ? 'Copertura fino al 30% dei costi di investimento' : 'Abdeckung von bis zu 30% der Investitionskosten'}</span>
+                    <span>{t(lang,
+                      'Abdeckung von bis zu 30% der Investitionskosten',
+                      "Couverture jusqu'à 30% des coûts d'investissement",
+                      'Copertura fino al 30% dei costi di investimento'
+                    )}</span>
                   </li>
                   <li className="flex gap-2">
                     <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span>{city.language === 'it' ? 'Rimunerazione unica pagata dopo la messa in servizio' : 'Einmalvergütung (EIV) nach Inbetriebnahme'}</span>
+                    <span>{t(lang,
+                      'Einmalvergütung (EIV) nach Inbetriebnahme',
+                      'Rétribution unique (RU) versée après la mise en service',
+                      'Rimunerazione unica (RU) pagata dopo la messa in servizio'
+                    )}</span>
                   </li>
                   <li className="flex gap-2">
                     <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span>{city.language === 'it' ? 'Bonus per altitudine e superfici inclinate' : 'Zusatzboni für Höhenlagen und steile Flächen'}</span>
+                    <span>{t(lang,
+                      'Zusatzboni für Höhenlagen und steile Flächen',
+                      'Bonus supplémentaires pour les toits en pente et en altitude',
+                      'Bonus per altitudine e superfici inclinate'
+                    )}</span>
                   </li>
                 </ul>
                 <p className="font-sans font-bold text-gray-900">
-                  {city.language === 'it' 
-                    ? 'PVPro.ch ti aiuta a navigare tra incentivi, cantoni e offerte, connettendoti con installatori qualificati aggiornati sulle normative 2026.' 
-                    : 'PVPro.ch hilft Ihnen, sich bei Förderungen, Kantonen und Offerten zurechtzufinden und verbindet Sie mit Fachpartnern, die auf dem neuesten Stand von 2026 sind.'}
+                  {t(lang,
+                    'PVPro.ch hilft Ihnen, sich bei Förderungen, Kantonen und Offerten zurechtzufinden und verbindet Sie mit Fachpartnern, die auf dem neuesten Stand von 2026 sind.',
+                    "PVPro.ch vous aide à naviguer parmi les aides, cantons et offres et vous met en contact avec des partenaires certifiés à jour en 2026.",
+                    'PVPro.ch ti aiuta a navigare tra incentivi, cantoni e offerte, connettendoti con installatori qualificati aggiornati sulle normative 2026.'
+                  )}
                 </p>
               </div>
             </div>
@@ -227,21 +239,21 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 <Zap className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-3xl font-sans font-semibold tracking-tight text-gray-900 mb-4 relative">
-                {city.language === 'it' ? 'Incentivi 2026' : 'Förderung 2026'}
+                {t(lang, 'Förderung 2026', 'Aides 2026', 'Incentivi 2026')}
               </h3>
               <div className="space-y-4 relative">
                 <p className="text-lg text-gray-600 font-medium">
-                  {city.language === 'it' 
-                    ? 'Risparmia fino al 30% immediatamente' 
-                    : 'Sparen Sie bis zu 30% sofort'}
+                  {t(lang, 'Sparen Sie bis zu 30% sofort', "Économisez jusqu'à 30% immédiatement", 'Risparmia fino al 30% immediatamente')}
                 </p>
                 <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-sans font-semibold tracking-tight text-sm">
-                  {city.language === 'it' ? 'Pronovo EIV Disponibile' : 'Pronovo-EIV verfügbar'}
+                  {t(lang, 'Pronovo-EIV verfügbar', 'Pronovo RU disponible', 'Pronovo EIV Disponibile')}
                 </div>
                 <p className="text-sm text-gray-500">
-                  {city.language === 'it' 
-                    ? 'Incentivi federali per nuovi impianti garantiti per tutto il 2026.' 
-                    : 'Bundesförderung für Neuanlagen für das gesamte Jahr 2026 garantiert.'}
+                  {t(lang,
+                    'Bundesförderung für Neuanlagen für das gesamte Jahr 2026 garantiert.',
+                    "Subvention fédérale pour nouvelles installations garantie pour toute l'année 2026.",
+                    'Incentivi federali per nuovi impianti garantiti per tutto il 2026.'
+                  )}
                 </p>
               </div>
             </div>
@@ -253,7 +265,11 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
       <section className="section-padding bg-gray-50">
         <div className="container-custom max-w-6xl">
           <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-12 text-center">
-            {city.language === 'it' ? `Costi impianto fotovoltaico a ${city.name}` : `Solaranlage Kosten in ${city.name}`}
+            {t(lang,
+              `Solaranlage Kosten in ${city.name}`,
+              `Coût d'une installation solaire à ${city.name}`,
+              `Costi impianto fotovoltaico a ${city.name}`
+            )}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -261,17 +277,17 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               <div className="flex items-center gap-3 mb-4">
                 <Euro className="w-8 h-8 text-primary" />
                 <h3 className="text-2xl font-sans font-semibold tracking-tight text-gray-900">
-                  {city.language === 'it' ? 'Costi di investimento' : 'Investitionskosten'}
+                  {t(lang, 'Investitionskosten', "Coûts d'investissement", 'Costi di investimento')}
                 </h3>
               </div>
               <div className="space-y-4">
                 <div>
                   <div className="flex justify-between items-baseline mb-2">
                     <span className="text-gray-600">
-                      {city.language === 'it' ? 'Impianto 5 kWp (tipico)' : '5 kWp Anlage (typisch)'}
+                      {t(lang, '5 kWp Anlage (typisch)', 'Installation 5 kWc (typique)', 'Impianto 5 kWp (tipico)')}
                     </span>
                     <span className="text-2xl font-sans font-semibold tracking-tight text-gray-900">
-                      {content.pricing.typical5kw.min.toLocaleString()}-{content.pricing.typical5kw.max.toLocaleString()} CHF
+                      {content.pricing.typical5kw.min.toLocaleString()}–{content.pricing.typical5kw.max.toLocaleString()} CHF
                     </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
@@ -281,10 +297,10 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 <div>
                   <div className="flex justify-between items-baseline mb-2">
                     <span className="text-gray-600">
-                      {city.language === 'it' ? 'Dopo i sussidi' : 'Nach Förderung'}
+                      {t(lang, 'Nach Förderung', 'Après subventions', 'Dopo i sussidi')}
                     </span>
                     <span className="text-2xl font-sans font-semibold tracking-tight text-green-600">
-                      {content.pricing.afterSubsidy5kw.min.toLocaleString()}-{content.pricing.afterSubsidy5kw.max.toLocaleString()} CHF
+                      {content.pricing.afterSubsidy5kw.min.toLocaleString()}–{content.pricing.afterSubsidy5kw.max.toLocaleString()} CHF
                     </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
@@ -294,10 +310,10 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 <div className="pt-4 border-t">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-700 font-sans font-bold">
-                      {city.language === 'it' ? 'Ammortamento' : 'Amortisation'}
+                      {t(lang, 'Amortisation', 'Amortissement', 'Ammortamento')}
                     </span>
                     <span className="text-xl font-sans font-semibold tracking-tight text-primary">
-                      {content.pricing.roiYears} {city.language === 'it' ? 'anni' : 'Jahre'}
+                      {content.pricing.roiYears} {t(lang, 'Jahre', 'ans', 'anni')}
                     </span>
                   </div>
                 </div>
@@ -308,7 +324,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               <div className="flex items-center gap-3 mb-4">
                 <Zap className={`w-8 h-8 ${theme.icon}`} />
                 <h3 className="text-2xl font-sans font-semibold tracking-tight text-gray-900">
-                  {city.language === 'it' ? `Vantaggio ${city.name}` : `${city.name}-Vorteil`}
+                  {t(lang, `${city.name}-Vorteil`, `Avantage ${city.name}`, `Vantaggio ${city.name}`)}
                 </h3>
               </div>
               <div className="space-y-4">
@@ -316,10 +332,10 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                   <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-sans font-semibold tracking-tight text-gray-900">
-                      {city.language === 'it' ? 'Risparmia fino al 30%' : 'Bis 30% sparen'}
+                      {t(lang, 'Bis 30% sparen', "Jusqu'à 30% d'économies", 'Risparmia fino al 30%')}
                     </div>
                     <div className="text-sm text-gray-600">
-                      {city.language === 'it' ? 'Confrontando i preventivi' : 'Durch Offerten-Vergleich'}
+                      {t(lang, 'Durch Offerten-Vergleich', 'En comparant les offres', 'Confrontando i preventivi')}
                     </div>
                   </div>
                 </div>
@@ -327,10 +343,10 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                   <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-sans font-semibold tracking-tight text-gray-900">
-                      {city.language === 'it' ? 'Sussidi locali' : 'Lokale Förderung'}
+                      {t(lang, 'Lokale Förderung', 'Subventions locales', 'Sussidi locali')}
                     </div>
                     <div className="text-sm text-gray-600">
-                      {city.language === 'it' ? `Programmi Canton ${city.canton}` : `Kanton ${city.canton} Programme`}
+                      {t(lang, `Kanton ${city.canton} Programme`, `Programmes Canton ${city.canton}`, `Programmi Canton ${city.canton}`)}
                     </div>
                   </div>
                 </div>
@@ -338,10 +354,10 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                   <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-sans font-semibold tracking-tight text-gray-900">
-                      {city.language === 'it' ? 'Installatori esperti' : 'Erfahrene Installateure'}
+                      {t(lang, 'Erfahrene Installateure', 'Installateurs expérimentés', 'Installatori esperti')}
                     </div>
                     <div className="text-sm text-gray-600">
-                      {city.language === 'it' ? `Ditte certificate a ${city.name}` : `Geprüfte Betriebe in ${city.name}`}
+                      {t(lang, `Geprüfte Betriebe in ${city.name}`, `Entreprises certifiées à ${city.name}`, `Ditte certificate a ${city.name}`)}
                     </div>
                   </div>
                 </div>
@@ -351,12 +367,12 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
         </div>
       </section>
 
-      {/* Solar Installation Hero with Image */}
+      {/* Unique Canton Image Section */}
       <section className="relative section-padding bg-gray-900 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/hero-solar-panels.webp"
-            alt={`Solaranlage Installation ${city.name}`}
+            src={content.image}
+            alt={t(lang, `Solaranlage Installation ${city.name}`, `Installation solaire ${city.name}`, `Impianto fotovoltaico ${city.name}`)}
             fill
             className="object-cover opacity-30"
             priority={false}
@@ -367,30 +383,36 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
         <div className="container-custom max-w-4xl relative z-10">
           <div className="text-center text-white">
             <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight mb-4 text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-              {city.language === 'it' ? `Installazione professionale a ${city.name}` : `Professionelle Installation in ${city.name}`}
+              {t(lang,
+                `Professionelle Installation in ${city.name}`,
+                `Installation professionnelle à ${city.name}`,
+                `Installazione professionale a ${city.name}`
+              )}
             </h2>
             <p className="text-xl text-white mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-              {city.language === 'it' 
-                ? `Installatori esperti a ${city.name} installano il tuo impianto su misura` 
-                : `Erfahrene Solarteure aus ${city.name} installano Ihre massgeschneiderte Anlage`}
+              {t(lang,
+                `Erfahrene Solarteure aus der Region ${city.canton} installieren Ihre massgeschneiderte Anlage`,
+                `Des installateurs expérimentés de la région ${city.canton} réalisent votre installation sur mesure`,
+                `Installatori esperti a ${city.name} installano il tuo impianto su misura`
+              )}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                 <div className="text-4xl font-sans font-semibold tracking-tight text-white mb-2 drop-shadow-lg">{city.sunshineHours}</div>
                 <div className="text-sm text-white/90 font-medium">
-                  {city.language === 'it' ? 'Ore di sole' : 'Sonnenstunden'}
+                  {t(lang, 'Sonnenstunden', 'Heures de soleil', 'Ore di sole')}
                 </div>
               </div>
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                 <div className="text-4xl font-sans font-semibold tracking-tight text-white mb-2 drop-shadow-lg">45%</div>
                 <div className="text-sm text-white/90 font-medium">
-                  {city.language === 'it' ? 'Sussidi' : 'Förderung'}
+                  {t(lang, 'Förderung', 'Subventions', 'Sussidi')}
                 </div>
               </div>
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                 <div className="text-4xl font-sans font-semibold tracking-tight text-white mb-2 drop-shadow-lg">{content.pricing.roiYears}</div>
                 <div className="text-sm text-white/90 font-medium">
-                  {city.language === 'it' ? 'Anni ROI' : 'Jahre ROI'}
+                  {t(lang, 'Jahre ROI', 'Ans ROI', 'Anni ROI')}
                 </div>
               </div>
             </div>
@@ -403,12 +425,18 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
         <div className="container-custom max-w-6xl">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-sans font-semibold tracking-tight text-gray-900 mb-3">
-              {city.language === 'it' ? `Installatori a ${city.name} e dintorni` : `Solarteure in ${city.name} und Umgebung`}
+              {t(lang,
+                `Solarteure in ${city.name} und Umgebung`,
+                `Installateurs solaires à ${city.name} et alentours`,
+                `Installatori a ${city.name} e dintorni`
+              )}
             </h2>
             <p className="text-gray-600">
-              {city.language === 'it' 
-                ? `La nostra rete comprende ditte certificate in tutto il Canton ${city.canton}` 
-                : `Unser Netzwerk umfasst geprüfte Fachbetriebe in der gesamten Region ${city.canton}`}
+              {t(lang,
+                `Unser Netzwerk umfasst geprüfte Fachbetriebe in der gesamten Region ${city.canton}`,
+                `Notre réseau comprend des entreprises certifiées dans toute la région ${city.canton}`,
+                `La nostra rete comprende ditte certificate in tutto il Canton ${city.canton}`
+              )}
             </p>
           </div>
 
@@ -421,7 +449,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title={`Karte von ${city.name}`}
+              title={t(lang, `Karte von ${city.name}`, `Carte de ${city.name}`, `Mappa di ${city.name}`)}
             />
             <div className="absolute bottom-6 left-6 bg-white px-6 py-3 rounded-lg shadow-lg">
               <div className="flex items-center gap-2">
@@ -438,7 +466,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
       {/* Testimonial - UNIQUE */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom max-w-4xl">
-          <div className={`card bg-white shadow-lg`}>
+          <div className="card bg-white shadow-lg">
             <div className="flex items-start gap-4">
               <div className={`w-16 h-16 bg-${accentColor}-600 rounded-full flex items-center justify-center flex-shrink-0`}>
                 <span className="text-2xl font-sans font-semibold tracking-tight text-white">{content.testimonial.initials}</span>
@@ -472,18 +500,25 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
       <section className={`section-padding bg-gradient-to-r ${theme.cta} text-white`}>
         <div className="container-custom text-center">
           <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight mb-4">
-            {city.language === 'it' 
-              ? `Inizia ora il tuo progetto solare a ${city.name}!` 
-              : `Starten Sie jetzt Ihr Solarprojekt in ${city.name}!`}
+            {t(lang,
+              `Starten Sie jetzt Ihr Solarprojekt in ${city.name}!`,
+              `Lancez votre projet solaire à ${city.name} maintenant !`,
+              `Inizia ora il tuo progetto solare a ${city.name}!`
+            )}
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            {city.language === 'it' 
-              ? 'Gratuito, senza impegno e in soli 2 minuti' 
-              : 'Kostenlos, unverbindlich und in nur 2 Minuten'}
+            {t(lang,
+              'Kostenlos, unverbindlich und in nur 2 Minuten',
+              'Gratuit, sans engagement et en seulement 2 minutes',
+              'Gratuito, senza impegno e in soli 2 minuti'
+            )}
           </p>
-          <button onClick={() => { window.location.href = '/anfrage'; }} className={`bg-white ${theme.ctaButton} hover:bg-gray-100 font-sans font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl inline-block`}>
-            {city.language === 'it' ? 'Richiedi preventivi' : 'Jetzt Offerte anfordern'}
-          </button>
+          <Link
+            href={formUrl}
+            className={`bg-white ${theme.ctaButton} hover:bg-gray-100 font-sans font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl inline-block`}
+          >
+            {t(lang, 'Jetzt Offerte anfordern', 'Demander une offre', 'Richiedi preventivi')}
+          </Link>
         </div>
       </section>
     </>

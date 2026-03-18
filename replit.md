@@ -134,6 +134,7 @@ Previously completed FR/EN/IT pages: comment-ca-marche/how-it-works/come-funzion
 - All FR/EN/IT page CTAs now link to locale-specific form URL (not `/anfrage`)
 
 ## Recent Changes
+- 2026-03-18: Completely rewrote all 20 canton pages with unique content — each canton has its own angle, pricing, testimonial, FAQs and image. FR canton pages (Genève/Vaud/Valais) now show full French text (fixed DE fallback bug). UniqueCityPage uses content.image (unique per canton from assets). Form links locale-aware via getFormUrl().
 - 2026-03-18: Translated contact form into FR/EN/IT; created `/fr/demande`, `/en/request`, `/it/richiesta`; all CTAs updated; thank-you pages locale-aware
 - 2026-03-18: Created all FR/EN/IT translations of major content pages (about, thank-you, costs, battery, calculator, detached house, apartment, pv-per-m2, how-solar-works, blog, redirects)
 - 2026-03-12: Removed SolarForm from ALL pages — replaced with CTA cards/buttons linking to /anfrage. Affected: Hero, solarrechner, solaranlage-kosten, solaranlage-mit-speicher, lokale-installateure, stromkosten-senken, UniqueCityPage, CityGrid, FAQ, HowItWorks, SwissMap, SolarCalculator. All #formular scroll anchors removed.
