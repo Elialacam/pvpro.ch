@@ -103,7 +103,27 @@ npm run start -- -p 5000
 ## Pages Built
 - `/wie-funktioniert` — Full interactive page: step-by-step animated process (5 steps, clickable), 4 Komponenten cards, production calculator (kWp slider + EV/Wärmepumpe toggles), 6 quick fact cards, FAQ accordion. Uses `components/WieFunktioniertInteractive.tsx`. Hero image: `public/images/wie-funktioniert-solaranlage.png`
 
+## Multilingual Pages (FR/EN/IT) — Completed
+All pages below exist in all 3 non-DE languages. DE originals are the master versions.
+
+| DE slug | FR | EN | IT |
+|---|---|---|---|
+| `/ueber-uns` | `/fr/a-propos` | `/en/about-us` | `/it/chi-siamo` |
+| `/danke` | `/fr/merci` | `/en/thank-you` | `/it/grazie` |
+| `/solaranlage-kosten` | `/fr/cout-installation-solaire` | `/en/solar-panel-costs` | `/it/costi-impianto-solare` |
+| `/solaranlage-mit-speicher` | `/fr/solaire-avec-batterie` | `/en/solar-with-battery` | `/it/solare-con-accumulo` |
+| `/solarrechner` | `/fr/calculateur-solaire` | `/en/solar-calculator` | `/it/calcolatore-solare` |
+| `/solaranlage-einfamilienhaus` | `/fr/solaire-maison-individuelle` | `/en/solar-detached-house` | `/it/solare-casa-unifamiliare` |
+| `/solaranlage-mehrfamilienhaus` | `/fr/solaire-immeuble` | `/en/solar-apartment-building` | `/it/solare-condominio` |
+| `/photovoltaik-kosten-pro-m2` | `/fr/cout-pv-par-m2` | `/en/solar-cost-per-m2` | `/it/costo-fv-per-m2` |
+| `/wie-funktioniert` | `/fr/fonctionnement-solaire` | `/en/how-solar-works` | `/it/come-funziona-solare` |
+| `/blog` | `/fr/blog` | `/en/blog` | `/it/blog` |
+| (redirect) | `/fr/pv-kosten` → `/fr/cout-pv-par-m2` | `/en/pv-kosten` → `/en/solar-cost-per-m2` | `/it/pv-kosten` → `/it/costo-fv-per-m2` |
+
+Previously completed FR/EN/IT pages: comment-ca-marche/how-it-works/come-funziona, subventions-solaires/solar-subsidies/incentivi-solari, faq, foerderungen (see older entries)
+
 ## Recent Changes
+- 2026-03-18: Created all FR/EN/IT translations of major content pages (about, thank-you, costs, battery, calculator, detached house, apartment, pv-per-m2, how-solar-works, blog, redirects)
 - 2026-03-12: Removed SolarForm from ALL pages — replaced with CTA cards/buttons linking to /anfrage. Affected: Hero, solarrechner, solaranlage-kosten, solaranlage-mit-speicher, lokale-installateure, stromkosten-senken, UniqueCityPage, CityGrid, FAQ, HowItWorks, SwissMap, SolarCalculator. All #formular scroll anchors removed.
 - 2026-03-09: Created /lokale-installateure landing page for Facebook Ads (message match angle: local installers)
 - 2026-03-09: Updated footer first checkmark to "Zuverlässige lokale Installateure" with link to landing page
