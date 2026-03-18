@@ -7,47 +7,162 @@ import { useLocale } from '@/lib/LocaleContext';
 const instagramUrl = 'https://www.instagram.com/pvpro.ch/';
 const facebookUrl  = 'https://www.facebook.com/pvpro.ch/';
 
-const columns = [
-  {
-    title: 'Ressourcen',
-    links: [
-      { label: 'Solarrechner',        href: '/solarrechner' },
-      { label: 'Blog',                href: '/blog' },
-      { label: 'Förderungen',         href: '/foerderungen' },
-      { label: 'Solaranlage Kosten',  href: '/solaranlage-kosten' },
-      { label: 'FAQ',                 href: '/faq' },
+const footerContent: Record<string, {
+  description: string;
+  copyright: string;
+  columns: { title: string; links: { label: string; href: string }[] }[];
+}> = {
+  de: {
+    description: 'PVPro.ch ist eine unabhängige Schweizer Plattform, die Immobilienbesitzer mit geprüften Photovoltaik-Installateuren verbindet.',
+    copyright: '© 2026 PVPro. Alle Rechte vorbehalten.',
+    columns: [
+      {
+        title: 'Ressourcen',
+        links: [
+          { label: 'Solarrechner',               href: '/solarrechner' },
+          { label: 'Blog',                        href: '/blog' },
+          { label: 'Förderungen',                 href: '/foerderungen' },
+          { label: 'Solaranlage Kosten',          href: '/solaranlage-kosten' },
+          { label: 'FAQ',                         href: '/faq' },
+        ],
+      },
+      {
+        title: 'Für Kunden',
+        links: [
+          { label: 'Solaranlage mit Speicher',          href: '/solaranlage-mit-speicher' },
+          { label: 'Photovoltaik Kosten pro m²',        href: '/photovoltaik-kosten-pro-m2' },
+          { label: 'Solaranlage Einfamilienhaus',        href: '/solaranlage-einfamilienhaus' },
+          { label: 'Solaranlage Mehrfamilienhaus',       href: '/solaranlage-mehrfamilienhaus' },
+          { label: 'Wie funktioniert eine Solaranlage', href: '/wie-funktioniert' },
+        ],
+      },
+      {
+        title: 'Über uns',
+        links: [
+          { label: 'Über uns',            href: '/ueber-uns' },
+          { label: 'Wie es funktioniert', href: '/wie-es-funktioniert' },
+          { label: 'Datenschutz',         href: '/datenschutz' },
+          { label: 'Impressum',           href: '/impressum' },
+        ],
+      },
     ],
   },
-  {
-    title: 'Für Kunden',
-    links: [
-      { label: 'Solaranlage mit Speicher',          href: '/solaranlage-mit-speicher' },
-      { label: 'Photovoltaik Kosten pro m²',        href: '/photovoltaik-kosten-pro-m2' },
-      { label: 'Solaranlage Einfamilienhaus',        href: '/solaranlage-einfamilienhaus' },
-      { label: 'Solaranlage Mehrfamilienhaus',       href: '/solaranlage-mehrfamilienhaus' },
-      { label: 'Wie funktioniert eine Solaranlage', href: '/wie-funktioniert' },
+  fr: {
+    description: "PVPro.ch est une plateforme suisse indépendante qui met en relation les propriétaires avec des installateurs photovoltaïques certifiés.",
+    copyright: '© 2026 PVPro. Tous droits réservés.',
+    columns: [
+      {
+        title: 'Ressources',
+        links: [
+          { label: 'Calculateur solaire',          href: '/solarrechner' },
+          { label: 'Blog',                         href: '/blog' },
+          { label: 'Subventions',                  href: '/foerderungen' },
+          { label: "Coût installation solaire",    href: '/solaranlage-kosten' },
+          { label: 'FAQ',                          href: '/faq' },
+        ],
+      },
+      {
+        title: 'Pour les clients',
+        links: [
+          { label: 'Solaire avec batterie',               href: '/solaranlage-mit-speicher' },
+          { label: 'Coût PV par m²',                      href: '/photovoltaik-kosten-pro-m2' },
+          { label: 'PV maison individuelle',              href: '/solaranlage-einfamilienhaus' },
+          { label: 'PV immeuble résidentiel',             href: '/solaranlage-mehrfamilienhaus' },
+          { label: 'Comment fonctionne le solaire',       href: '/wie-funktioniert' },
+        ],
+      },
+      {
+        title: 'À propos',
+        links: [
+          { label: 'À propos de nous',          href: '/ueber-uns' },
+          { label: 'Comment ça marche',         href: '/wie-es-funktioniert' },
+          { label: 'Protection des données',    href: '/fr/protection-des-donnees' },
+          { label: 'Mentions légales',          href: '/fr/mentions-legales' },
+        ],
+      },
     ],
   },
-  {
-    title: 'Über uns',
-    links: [
-      { label: 'Über uns',           href: '/ueber-uns' },
-      { label: 'Wie es funktioniert', href: '/wie-es-funktioniert' },
-      { label: 'Datenschutz',        href: '/datenschutz' },
-      { label: 'Impressum',          href: '/impressum' },
+  en: {
+    description: 'PVPro.ch is an independent Swiss platform connecting homeowners with certified photovoltaic installers.',
+    copyright: '© 2026 PVPro. All rights reserved.',
+    columns: [
+      {
+        title: 'Resources',
+        links: [
+          { label: 'Solar calculator',       href: '/solarrechner' },
+          { label: 'Blog',                   href: '/blog' },
+          { label: 'Subsidies',              href: '/foerderungen' },
+          { label: 'Solar system costs',     href: '/solaranlage-kosten' },
+          { label: 'FAQ',                    href: '/faq' },
+        ],
+      },
+      {
+        title: 'For customers',
+        links: [
+          { label: 'Solar with battery storage',  href: '/solaranlage-mit-speicher' },
+          { label: 'PV cost per m²',              href: '/photovoltaik-kosten-pro-m2' },
+          { label: 'PV for detached houses',      href: '/solaranlage-einfamilienhaus' },
+          { label: 'PV for apartment buildings',  href: '/solaranlage-mehrfamilienhaus' },
+          { label: 'How solar panels work',        href: '/wie-funktioniert' },
+        ],
+      },
+      {
+        title: 'About us',
+        links: [
+          { label: 'About us',        href: '/ueber-uns' },
+          { label: 'How it works',    href: '/wie-es-funktioniert' },
+          { label: 'Privacy policy',  href: '/en/privacy' },
+          { label: 'Legal notice',    href: '/en/imprint' },
+        ],
+      },
     ],
   },
-];
+  it: {
+    description: 'PVPro.ch è una piattaforma svizzera indipendente che mette in contatto i proprietari immobiliari con installatori fotovoltaici certificati.',
+    copyright: '© 2026 PVPro. Tutti i diritti riservati.',
+    columns: [
+      {
+        title: 'Risorse',
+        links: [
+          { label: 'Calcolatore solare',      href: '/solarrechner' },
+          { label: 'Blog',                    href: '/blog' },
+          { label: 'Sovvenzioni',             href: '/foerderungen' },
+          { label: 'Costi impianto solare',   href: '/solaranlage-kosten' },
+          { label: 'FAQ',                     href: '/faq' },
+        ],
+      },
+      {
+        title: 'Per i clienti',
+        links: [
+          { label: 'Solare con accumulo',             href: '/solaranlage-mit-speicher' },
+          { label: 'Costo FV per m²',                 href: '/photovoltaik-kosten-pro-m2' },
+          { label: 'FV casa unifamiliare',            href: '/solaranlage-einfamilienhaus' },
+          { label: 'FV condominio',                   href: '/solaranlage-mehrfamilienhaus' },
+          { label: 'Come funziona un impianto solare', href: '/wie-funktioniert' },
+        ],
+      },
+      {
+        title: 'Chi siamo',
+        links: [
+          { label: 'Chi siamo',         href: '/ueber-uns' },
+          { label: 'Come funziona',     href: '/wie-es-funktioniert' },
+          { label: 'Privacy',           href: '/it/protezione-dati' },
+          { label: 'Note legali',       href: '/it/note-legali' },
+        ],
+      },
+    ],
+  },
+};
 
 export default function Footer() {
   const locale = useLocale();
   const homeHref = locale === 'de' ? '/' : `/${locale}`;
+  const content = footerContent[locale] || footerContent.de;
 
   return (
     <footer style={{ background: '#0d1117' }} className="text-gray-400">
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
 
-        {/* Main grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 py-16 lg:py-20">
 
           {/* Col 1 — Brand */}
@@ -62,9 +177,8 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm leading-relaxed text-gray-500" style={{ maxWidth: 280 }}>
-              PVPro.ch ist eine unabhängige Schweizer Plattform, die Immobilienbesitzer mit geprüften Photovoltaik-Installateuren verbindet.
+              {content.description}
             </p>
-            {/* Social icons */}
             <div className="flex items-center gap-3 mt-1">
               <a
                 href={instagramUrl}
@@ -98,7 +212,7 @@ export default function Footer() {
           </div>
 
           {/* Cols 2-4 — Link columns */}
-          {columns.map((col) => (
+          {content.columns.map((col) => (
             <div key={col.title}>
               <h4 className="text-white text-sm font-semibold tracking-wide mb-5">
                 {col.title}
@@ -119,12 +233,11 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
         <div
           className="flex items-center justify-center py-6 text-xs text-gray-600"
           style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
         >
-          <p>© 2026 PVPro. Alle Rechte vorbehalten.</p>
+          <p>{content.copyright}</p>
         </div>
 
       </div>
