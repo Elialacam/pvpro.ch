@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { blogPosts } from '@/lib/blogPosts';
+import { blogPostsI18n } from '@/lib/blogPostsI18n';
 import PlzWidget from '@/components/PlzWidget';
 import { Calendar, Clock, ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
@@ -43,7 +43,7 @@ export default function BlogItPage() {
           <div className="flex-1 min-w-0">
             <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8">Tutti gli articoli</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {blogPosts.map((post) => (
+              {blogPostsI18n.it.map((post) => (
                 <Link key={post.slug} href={`/blog/${post.slug}`}
                   className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
                   <div className="relative h-48 overflow-hidden bg-gray-100">

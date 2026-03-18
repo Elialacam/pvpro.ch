@@ -94,9 +94,11 @@ npm run start -- -p 5000
   - Footer second checkmark links to this page
 
 ## Blog
-- **Blog data**: `lib/blogPosts.ts` — 6 posts (Ratgeber, Förderungen, Speicher, Tipps, Finanzen)
-- **BlogSection**: `components/BlogSection.tsx` — 3-card preview on homepage (before FAQ), links to `/blog`
-- **Blog page**: `app/(de)/blog/page.tsx` — full 2-column layout; left = 6-post grid, right = sticky sidebar with PLZ widget + Themen
+- **Blog data DE**: `lib/blogPosts.ts` — 7 posts (Ratgeber, Förderungen, Speicher, Tipps, Finanzen, Balkonkraftwerk)
+- **Blog data FR/EN/IT**: `lib/blogPostsI18n.ts` — translated titles, excerpts, tags for all 7 posts in FR/EN/IT
+- **BlogSection**: `components/BlogSection.tsx` — 3-card preview on homepage (before FAQ); accepts `locale` prop; uses `blogPostsI18n` for FR/EN/IT, `blogPosts` for DE
+- **Blog page**: `app/(de)/blog/page.tsx` — full 2-column layout; left = 7-post grid, right = sticky sidebar with PLZ widget + Themen
+- **FR/EN/IT blog pages** use `blogPostsI18n.[locale]` for translated post cards; links go to DE detail pages (`/blog/[slug]`)
 - **PlzWidget**: `components/PlzWidget.tsx` — client component; PLZ input (4 digits) → navigates to `/anfrage?plz=XXXX`
 - Blog thumbnail images: `public/images/blog-1.png` … `blog-6.png` (copies of hero images)
 

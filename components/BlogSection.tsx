@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { blogPosts } from '@/lib/blogPosts';
+import { blogPostsI18n } from '@/lib/blogPostsI18n';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 const labels: Record<string, { eyebrow: string; title: string; viewAll: string; viewAllMobile: string; blogHref: string; min: string }> = {
@@ -43,8 +44,14 @@ interface Props {
 }
 
 export default function BlogSection({ locale = 'de' }: Props) {
-  const featured = blogPosts.slice(0, 3);
   const t = labels[locale] ?? labels.de;
+
+  // Use translated posts for FR/EN/IT, German originals for DE
+  const allPosts = locale !== 'de' && blogPostsI18n[locale]
+    ? blogPostsI18n[locale]
+    : blogPosts;
+
+  const featured = allPosts.slice(0, 3);
 
   return (
     <section className="py-20 bg-gray-50">
@@ -84,7 +91,6 @@ export default function BlogSection({ locale = 'de' }: Props) {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                {/* Tag */}
                 <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-xs font-semibold text-gray-700 px-2.5 py-1 rounded-full">
                   {post.tag}
                 </span>
