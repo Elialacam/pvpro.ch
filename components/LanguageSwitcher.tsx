@@ -2,7 +2,8 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Locale, locales, localeNames, defaultLocale, getLocaleFromPathname, removeLocaleFromPathname } from '@/lib/i18n';
+import { Locale, locales, localeNames } from '@/lib/i18n';
+import { getLocalizedRoute } from '@/lib/i18n/routeMap';
 import { Globe } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
@@ -12,9 +13,14 @@ interface Props {
 
 export default function LanguageSwitcher({ transparent = false }: Props) {
   const pathname = usePathname();
-  const currentLocale = getLocaleFromPathname(pathname);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Detect current locale from path
+  const currentLocale: Locale = pathname.startsWith('/fr') ? 'fr'
+    : pathname.startsWith('/en') ? 'en'
+    : pathname.startsWith('/it') ? 'it'
+    : 'de';
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -28,13 +34,6 @@ export default function LanguageSwitcher({ transparent = false }: Props) {
 
   const isCityPage = /\/(solaranlage-|solaire-|fotovoltaico-)/.test(pathname);
   if (isCityPage) return null;
-
-  const pathWithoutLocale = removeLocaleFromPathname(pathname);
-
-  function getLocalizedPath(locale: Locale): string {
-    if (locale === defaultLocale) return pathWithoutLocale || '/';
-    return `/${locale}${pathWithoutLocale || ''}`;
-  }
 
   const triggerColor = transparent ? 'text-white' : 'text-gray-700';
   const triggerHover = transparent ? 'hover:bg-white/15' : 'hover:bg-gray-100';
@@ -56,7 +55,7 @@ export default function LanguageSwitcher({ transparent = false }: Props) {
           {locales.map((locale) => (
             <Link
               key={locale}
-              href={getLocalizedPath(locale)}
+              href={getLocalizedRoute(pathname, locale)}
               onClick={() => setIsOpen(false)}
               className={`flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${
                 currentLocale === locale
