@@ -44,7 +44,7 @@ export default function BlogEnPage() {
             <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8">All articles</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {blogPostsI18n.en.map((post) => (
-                <Link key={post.slug} href={`/blog/${post.slug}`}
+                <Link key={post.slug} href={`/en/blog/${post.slug}`}
                   className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
                   <div className="relative h-48 overflow-hidden bg-gray-100">
                     <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 640px) 100vw, 50vw" />

@@ -96,9 +96,17 @@ npm run start -- -p 5000
 ## Blog
 - **Blog data DE**: `lib/blogPosts.ts` — 7 posts (Ratgeber, Förderungen, Speicher, Tipps, Finanzen, Balkonkraftwerk)
 - **Blog data FR/EN/IT**: `lib/blogPostsI18n.ts` — translated titles, excerpts, tags for all 7 posts in FR/EN/IT
+- **Full article content**: `lib/blogArticles.ts` — complete article body (sections, FAQs, CTAs) for all 7 posts × 4 locales (DE/FR/EN/IT)
+- **Blog article template**: `components/BlogArticlePage.tsx` — shared renderer used by all dynamic blog routes
 - **BlogSection**: `components/BlogSection.tsx` — 3-card preview on homepage (before FAQ); accepts `locale` prop; uses `blogPostsI18n` for FR/EN/IT, `blogPosts` for DE
 - **Blog page**: `app/(de)/blog/page.tsx` — full 2-column layout; left = 7-post grid, right = sticky sidebar with PLZ widget + Themen
-- **FR/EN/IT blog pages** use `blogPostsI18n.[locale]` for translated post cards; links go to DE detail pages (`/blog/[slug]`)
+- **Dynamic blog routes** (all 7 posts × all 4 locales):
+  - DE: `app/(de)/blog/[slug]/page.tsx` → `/blog/[slug]`
+  - FR: `app/fr/blog/[slug]/page.tsx` → `/fr/blog/[slug]`
+  - EN: `app/en/blog/[slug]/page.tsx` → `/en/blog/[slug]`
+  - IT: `app/it/blog/[slug]/page.tsx` → `/it/blog/[slug]`
+- **balkonkraftwerk-schweiz DE** has a custom static page at `app/(de)/blog/balkonkraftwerk-schweiz/page.tsx` (takes priority over dynamic route for DE)
+- **FR/EN/IT blog listing pages** now link to locale-specific URLs: `/fr/blog/[slug]`, `/en/blog/[slug]`, `/it/blog/[slug]`
 - **PlzWidget**: `components/PlzWidget.tsx` — client component; PLZ input (4 digits) → navigates to `/anfrage?plz=XXXX`
 - Blog thumbnail images: `public/images/blog-1.png` … `blog-6.png` (copies of hero images)
 
