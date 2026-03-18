@@ -175,7 +175,7 @@ const it: BlogPostLocale[] = [
   {
     slug: 'solaranlage-winter-schweiz',
     title: 'Pannelli solari in inverno: quanto sono efficienti con neve e freddo?',
-    excerpt: 'Molti proprietari si chiedono se un impianto solare conviene in inverno. La risposta sorprende: i moderni impianti FV producono energia anche con la neve.',
+    excerpt: 'Molti proprietari si chiedono se un impianto solare conviene in inverno. La risposta sorprende: i moderni impianti fotovoltaici producono energia anche con la neve.',
     tag: 'Guida',
     image: '/images/blog-1.png',
     author: 'PVPro Redazione',

@@ -135,9 +135,9 @@ const footerContent: Record<string, {
         title: 'Per i clienti',
         links: [
           { label: 'Solare con accumulo',              href: '/it/solare-con-accumulo' },
-          { label: 'Costo FV per m²',                  href: '/it/costo-fv-per-m2' },
-          { label: 'FV casa unifamiliare',             href: '/it/solare-casa-unifamiliare' },
-          { label: 'FV condominio',                    href: '/it/solare-condominio' },
+          { label: 'Costo fotovoltaico per m²',           href: '/it/costo-fv-per-m2' },
+          { label: 'Fotovoltaico casa unifamiliare',    href: '/it/solare-casa-unifamiliare' },
+          { label: 'Fotovoltaico condominio',           href: '/it/solare-condominio' },
           { label: 'Come funziona un impianto solare', href: '/it/come-funziona-solare' },
         ],
       },
