@@ -30,7 +30,7 @@ export default function HowSolarWorksPage() {
                 A solar installation converts sunlight directly into electricity — based on the photoelectric effect. This page explains how it works and what your installation can produce, step by step.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/anfrage" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                <Link href="/en/request" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
                   Get a free quote <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link href="/en/solar-calculator" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-sm border border-white/20 text-white hover:bg-white/10 transition-colors">
@@ -49,7 +49,7 @@ export default function HowSolarWorksPage() {
           <div className="rounded-3xl p-10 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">Ready for your own installation?</h2>
             <p className="text-gray-600 mb-6 max-w-md mx-auto">Get up to 3 free quotes from certified installers in your region.</p>
-            <Link href="/anfrage" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            <Link href="/en/request" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
               Get free quotes <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

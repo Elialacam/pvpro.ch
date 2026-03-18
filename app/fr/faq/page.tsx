@@ -53,7 +53,7 @@ export default function FaqFrPage() {
         <div className="rounded-2xl p-10 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
           <h2 className="text-2xl font-bold text-gray-900 mb-3">D'autres questions ?</h2>
           <p className="text-gray-600 mb-6 max-w-md mx-auto">Notre équipe est là pour vous aider. Demandez vos devis gratuits maintenant.</p>
-          <Link href="/anfrage" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+          <Link href="/fr/demande" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             Obtenir des devis gratuits →
           </Link>
         </div>

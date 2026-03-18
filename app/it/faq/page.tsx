@@ -53,7 +53,7 @@ export default function FaqItPage() {
         <div className="rounded-2xl p-10 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Hai altre domande?</h2>
           <p className="text-gray-600 mb-6 max-w-md mx-auto">Il nostro team è felice di aiutarti. Richiedi ora i tuoi preventivi gratuiti.</p>
-          <Link href="/anfrage" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+          <Link href="/it/richiesta" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             Ottieni preventivi gratuiti →
           </Link>
         </div>

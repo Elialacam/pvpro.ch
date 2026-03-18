@@ -30,7 +30,7 @@ export default function FonctionnementSolairePage() {
                 Une installation solaire convertit la lumière du soleil directement en électricité — basé sur l'effet photoélectrique. Cette page explique comment cela fonctionne et ce que votre installation peut produire, pas à pas.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/anfrage" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                <Link href="/fr/demande" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
                   Obtenir un devis gratuit <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link href="/fr/calculateur-solaire" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-sm border border-white/20 text-white hover:bg-white/10 transition-colors">
@@ -49,7 +49,7 @@ export default function FonctionnementSolairePage() {
           <div className="rounded-3xl p-10 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">Prêt pour votre propre installation ?</h2>
             <p className="text-gray-600 mb-6 max-w-md mx-auto">Obtenez jusqu'à 3 devis gratuits d'installateurs certifiés dans votre région.</p>
-            <Link href="/anfrage" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            <Link href="/fr/demande" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
               Obtenir des devis gratuits <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

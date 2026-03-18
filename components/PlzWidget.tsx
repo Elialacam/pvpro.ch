@@ -1,17 +1,20 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { MapPin } from 'lucide-react';
+import { getFormUrl } from '@/lib/i18n/formUrls';
 
 export default function PlzWidget() {
   const [plz, setPlz] = useState('');
   const router = useRouter();
+  const pathname = usePathname();
+  const formUrl = getFormUrl(pathname);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (plz.trim().length >= 4) {
-      router.push(`/anfrage?plz=${encodeURIComponent(plz.trim())}`);
+      router.push(`${formUrl}?plz=${encodeURIComponent(plz.trim())}`);
     }
   };
 

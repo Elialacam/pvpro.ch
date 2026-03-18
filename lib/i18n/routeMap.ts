@@ -11,8 +11,11 @@ export const routeMap: Record<string, Record<string, string>> = {
   '/en':  { de: '/',   fr: '/fr', en: '/en', it: '/it' },
   '/it':  { de: '/',   fr: '/fr', en: '/en', it: '/it' },
 
-  // ─── Anfrage (shared) ───────────────────────────────────────────────────────
-  '/anfrage': { de: '/anfrage', fr: '/anfrage', en: '/anfrage', it: '/anfrage' },
+  // ─── Anfrage / Demande / Request / Richiesta ────────────────────────────────
+  '/anfrage':      { de: '/anfrage', fr: '/fr/demande', en: '/en/request', it: '/it/richiesta' },
+  '/fr/demande':   { de: '/anfrage', fr: '/fr/demande', en: '/en/request', it: '/it/richiesta' },
+  '/en/request':   { de: '/anfrage', fr: '/fr/demande', en: '/en/request', it: '/it/richiesta' },
+  '/it/richiesta': { de: '/anfrage', fr: '/fr/demande', en: '/en/request', it: '/it/richiesta' },
 
   // ─── Danke / Thank you ──────────────────────────────────────────────────────
   '/danke':        { de: '/danke',        fr: '/fr/merci',    en: '/en/thank-you', it: '/it/grazie' },

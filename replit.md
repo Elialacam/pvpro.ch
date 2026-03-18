@@ -124,7 +124,17 @@ All pages below exist in all 3 non-DE languages. DE originals are the master ver
 
 Previously completed FR/EN/IT pages: comment-ca-marche/how-it-works/come-funziona, subventions-solaires/solar-subsidies/incentivi-solari, faq, foerderungen (see older entries)
 
+## Form Pages (Multilingual)
+- **DE**: `/anfrage` → `app/(form)/anfrage/page.tsx` → `<AnfrageForm locale="de" />` → redirects to `/danke`
+- **FR**: `/fr/demande` → `app/fr/demande/page.tsx` → `<AnfrageForm locale="fr" />` → redirects to `/fr/merci`
+- **EN**: `/en/request` → `app/en/request/page.tsx` → `<AnfrageForm locale="en" />` → redirects to `/en/thank-you`
+- **IT**: `/it/richiesta` → `app/it/richiesta/page.tsx` → `<AnfrageForm locale="it" />` → redirects to `/it/grazie`
+- **AnfrageForm**: `components/AnfrageForm.tsx` — accepts `locale` prop; full i18n (step titles, options, labels, errors, submit button)
+- **Shared components** locale-aware: Header, Hero, HeroWidget, CtaAnfrage, SupportPopup, PlzWidget, WieFunktioniertInteractive — all use `getFormUrl(pathname)` from `lib/i18n/formUrls.ts`
+- All FR/EN/IT page CTAs now link to locale-specific form URL (not `/anfrage`)
+
 ## Recent Changes
+- 2026-03-18: Translated contact form into FR/EN/IT; created `/fr/demande`, `/en/request`, `/it/richiesta`; all CTAs updated; thank-you pages locale-aware
 - 2026-03-18: Created all FR/EN/IT translations of major content pages (about, thank-you, costs, battery, calculator, detached house, apartment, pv-per-m2, how-solar-works, blog, redirects)
 - 2026-03-12: Removed SolarForm from ALL pages — replaced with CTA cards/buttons linking to /anfrage. Affected: Hero, solarrechner, solaranlage-kosten, solaranlage-mit-speicher, lokale-installateure, stromkosten-senken, UniqueCityPage, CityGrid, FAQ, HowItWorks, SwissMap, SolarCalculator. All #formular scroll anchors removed.
 - 2026-03-09: Created /lokale-installateure landing page for Facebook Ads (message match angle: local installers)

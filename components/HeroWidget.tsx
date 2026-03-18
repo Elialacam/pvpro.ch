@@ -2,7 +2,9 @@
 
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useLocale } from '@/lib/LocaleContext';
+import { getFormUrl } from '@/lib/i18n/formUrls';
 
 const MIN = 500;
 const MAX = 1500;
@@ -17,6 +19,8 @@ const labels: Record<string, { question: string; cta: string; savings: string; p
 export default function HeroWidget() {
   const locale = useLocale();
   const t = labels[locale] || labels.de;
+  const pathname = usePathname();
+  const formUrl = getFormUrl(pathname);
   const [value, setValue] = useState(900);
 
   const pct = ((value - MIN) / (MAX - MIN)) * 100;
@@ -114,7 +118,7 @@ export default function HeroWidget() {
 
       {/* CTA */}
       <Link
-        href="/anfrage"
+        href={formUrl}
         className="w-full text-center font-bold text-[15px] py-4 rounded-2xl text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98] tracking-wide"
         style={{ background: '#F97316' }}
       >

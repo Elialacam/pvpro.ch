@@ -1,7 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ChevronRight, CheckCircle } from 'lucide-react';
+import { getFormUrl } from '@/lib/i18n/formUrls';
 
 interface CtaAnfrageProps {
   title?: string;
@@ -18,6 +20,8 @@ export default function CtaAnfrage({
   badges = ['100% Kostenlos', 'Unverbindlich', 'Keine Werbeanrufe'],
   variant = 'default',
 }: CtaAnfrageProps) {
+  const pathname = usePathname();
+  const formUrl = getFormUrl(pathname);
   const bg = variant === 'light' ? 'bg-primary-50' : variant === 'dark' ? 'bg-gray-900' : 'bg-primary-50';
   const titleColor = variant === 'dark' ? 'text-white' : 'text-gray-900';
   const subColor = variant === 'dark' ? 'text-gray-300' : 'text-gray-600';
@@ -29,7 +33,7 @@ export default function CtaAnfrage({
       <p className={`text-base mb-8 max-w-lg mx-auto ${subColor}`}>{subtitle}</p>
 
       <Link
-        href="/anfrage"
+        href={formUrl}
         className="inline-flex items-center gap-3 btn-primary py-4 px-8 rounded-2xl text-lg font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all"
       >
         {ctaText}

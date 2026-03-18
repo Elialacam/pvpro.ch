@@ -3,7 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState, useCallback } from 'react';
+import { usePathname } from 'next/navigation';
 import { useLocale } from '@/lib/LocaleContext';
+import { getFormUrl } from '@/lib/i18n/formUrls';
 import { Locale } from '@/lib/i18n';
 import HeroWidget from './HeroWidget';
 
@@ -60,6 +62,8 @@ const SLIDE_DURATION = 6000;
 export default function Hero() {
   const locale = useLocale();
   const content = heroContent[locale] || heroContent.de;
+  const pathname = usePathname();
+  const formUrl = getFormUrl(pathname);
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -137,7 +141,7 @@ export default function Hero() {
         </p>
 
         <Link
-          href="/anfrage"
+          href={formUrl}
           className="inline-block font-bold text-base sm:text-lg px-7 py-4 rounded-2xl transition-all shadow-lg"
           style={{ background: '#F97316', color: '#fff' }}
         >

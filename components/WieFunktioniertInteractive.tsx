@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Sun, Zap, ArrowRight, Battery, Home, Wifi, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import { getFormUrl } from '@/lib/i18n/formUrls';
 
 const steps = [
   {
@@ -75,6 +77,8 @@ const komponenten = [
 ];
 
 function ProductionCalc() {
+  const pathname = usePathname();
+  const formUrl = getFormUrl(pathname);
   const [kwp, setKwp] = useState(8);
   const [hasEv, setHasEv] = useState(false);
   const [hasHeatpump, setHasHeatpump] = useState(false);
@@ -172,7 +176,7 @@ function ProductionCalc() {
 
       <div className="mt-6 pt-6 border-t border-gray-100 flex flex-col sm:flex-row gap-3">
         <Link
-          href="/anfrage"
+          href={formUrl}
           className="flex-1 text-center py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity"
           style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
         >

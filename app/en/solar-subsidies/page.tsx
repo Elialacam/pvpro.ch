@@ -188,7 +188,7 @@ export default function SolarSubsidiesPage() {
             <p className="text-gray-600 mb-8 max-w-lg mx-auto leading-relaxed">
               Our partner installers know all current subsidy programmes and handle the applications — you don't have to worry about a thing.
             </p>
-            <Link href="/anfrage" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            <Link href="/en/request" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
               Get a free quote <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

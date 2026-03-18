@@ -7,14 +7,19 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { hasConsent } from '@/lib/cookieConsent';
+import { getFormUrl } from '@/lib/i18n/formUrls';
+
+const FORM_PATHS = ['/anfrage', '/fr/demande', '/en/request', '/it/richiesta'];
 
 export default function SupportPopup() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
 
+  const formUrl = getFormUrl(pathname);
+
   useEffect(() => {
-    if (pathname === '/anfrage') return;
+    if (FORM_PATHS.includes(pathname)) return;
     if (sessionStorage.getItem('support-popup-dismissed')) return;
 
     let timer: ReturnType<typeof setTimeout> | null = null;
@@ -43,7 +48,7 @@ export default function SupportPopup() {
     sessionStorage.setItem('support-popup-dismissed', '1');
   };
 
-  if (pathname === '/anfrage' || dismissed) return null;
+  if (FORM_PATHS.includes(pathname) || dismissed) return null;
 
   return (
     <AnimatePresence>
@@ -77,7 +82,7 @@ export default function SupportPopup() {
                 </p>
               </div>
               <Link
-                href="/anfrage"
+                href={formUrl}
                 onClick={dismiss}
                 className="inline-block bg-white text-[#1a2e4a] font-bold text-sm px-4 py-2.5 rounded-xl hover:bg-gray-100 transition-colors text-center"
               >

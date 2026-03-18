@@ -30,7 +30,7 @@ export default function ComeFunzionaSolarePage() {
                 Un impianto solare converte la luce solare direttamente in elettricità — basandosi sull'effetto fotoelettrico. Questa pagina spiega come funziona e cosa può produrre il tuo impianto, passo dopo passo.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/anfrage" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                <Link href="/it/richiesta" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
                   Ricevi un preventivo gratuito <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link href="/it/calcolatore-solare" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-sm border border-white/20 text-white hover:bg-white/10 transition-colors">
@@ -49,7 +49,7 @@ export default function ComeFunzionaSolarePage() {
           <div className="rounded-3xl p-10 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">Pronto per il tuo impianto?</h2>
             <p className="text-gray-600 mb-6 max-w-md mx-auto">Ottieni fino a 3 preventivi gratuiti da installatori certificati nella tua regione.</p>
-            <Link href="/anfrage" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            <Link href="/it/richiesta" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
               Ottieni preventivi gratuiti <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

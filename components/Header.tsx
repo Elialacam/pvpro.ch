@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLocale } from '@/lib/LocaleContext';
 import { usePathname } from 'next/navigation';
+import { getFormUrl } from '@/lib/i18n/formUrls';
 import {
   ChevronDown, Sun, Zap, Star, ArrowRight,
   Home, BarChart2, Battery, Calculator, Layers,
@@ -101,9 +102,9 @@ function getNavItems(locale: string): NavItem[] {
         viewAllHref: '/fr/comment-ca-marche',
         viewAllLabel: 'En savoir plus',
         items: [
-          { icon: <FileText className="w-5 h-5" />, title: 'Remplir le formulaire', subtitle: 'Indiquez vos besoins', href: '/anfrage' },
-          { icon: <Zap className="w-5 h-5" />, title: 'Recevoir des offres', subtitle: "Jusqu'à 3 devis certifiés", href: '/anfrage' },
-          { icon: <Star className="w-5 h-5" />, title: 'Choisir le meilleur', subtitle: 'Gratuit & sans engagement', href: '/anfrage' },
+          { icon: <FileText className="w-5 h-5" />, title: 'Remplir le formulaire', subtitle: 'Indiquez vos besoins', href: '/fr/demande' },
+          { icon: <Zap className="w-5 h-5" />, title: 'Recevoir des offres', subtitle: "Jusqu'à 3 devis certifiés", href: '/fr/demande' },
+          { icon: <Star className="w-5 h-5" />, title: 'Choisir le meilleur', subtitle: 'Gratuit & sans engagement', href: '/fr/demande' },
         ],
       },
       {
@@ -144,7 +145,7 @@ function getNavItems(locale: string): NavItem[] {
         items: [
           { icon: <Sun className="w-5 h-5" />, title: 'Notre approche', subtitle: 'Pourquoi PVPro?', href: '/fr/a-propos' },
           { icon: <Users className="w-5 h-5" />, title: 'Équipe', subtitle: 'Nos experts', href: '/fr/a-propos' },
-          { icon: <Mail className="w-5 h-5" />, title: 'Contact', subtitle: 'Écrivez-nous', href: '/anfrage' },
+          { icon: <Mail className="w-5 h-5" />, title: 'Contact', subtitle: 'Écrivez-nous', href: '/fr/demande' },
           { icon: <HelpCircle className="w-5 h-5" />, title: 'FAQ', subtitle: 'Questions fréquentes', href: '/fr/faq' },
           { icon: <Shield className="w-5 h-5" />, title: 'Protection des données', subtitle: 'Conforme RGPD', href: '/fr/protection-des-donnees' },
           { icon: <BookOpen className="w-5 h-5" />, title: 'Mentions légales', subtitle: 'Informations légales', href: '/fr/mentions-legales' },
@@ -160,9 +161,9 @@ function getNavItems(locale: string): NavItem[] {
         viewAllHref: '/en/how-it-works',
         viewAllLabel: 'Learn more',
         items: [
-          { icon: <FileText className="w-5 h-5" />, title: 'Fill in the form', subtitle: 'Tell us your needs', href: '/anfrage' },
-          { icon: <Zap className="w-5 h-5" />, title: 'Receive quotes', subtitle: 'Up to 3 certified offers', href: '/anfrage' },
-          { icon: <Star className="w-5 h-5" />, title: 'Choose the best', subtitle: 'Free & no obligation', href: '/anfrage' },
+          { icon: <FileText className="w-5 h-5" />, title: 'Fill in the form', subtitle: 'Tell us your needs', href: '/en/request' },
+          { icon: <Zap className="w-5 h-5" />, title: 'Receive quotes', subtitle: 'Up to 3 certified offers', href: '/en/request' },
+          { icon: <Star className="w-5 h-5" />, title: 'Choose the best', subtitle: 'Free & no obligation', href: '/en/request' },
         ],
       },
       {
@@ -203,7 +204,7 @@ function getNavItems(locale: string): NavItem[] {
         items: [
           { icon: <Sun className="w-5 h-5" />, title: 'Our approach', subtitle: 'Why PVPro?', href: '/en/about-us' },
           { icon: <Users className="w-5 h-5" />, title: 'Team', subtitle: 'Our experts', href: '/en/about-us' },
-          { icon: <Mail className="w-5 h-5" />, title: 'Contact', subtitle: 'Write to us', href: '/anfrage' },
+          { icon: <Mail className="w-5 h-5" />, title: 'Contact', subtitle: 'Write to us', href: '/en/request' },
           { icon: <HelpCircle className="w-5 h-5" />, title: 'FAQ', subtitle: 'Common questions', href: '/en/faq' },
           { icon: <Shield className="w-5 h-5" />, title: 'Privacy policy', subtitle: 'GDPR compliant', href: '/en/privacy' },
           { icon: <BookOpen className="w-5 h-5" />, title: 'Legal notice', subtitle: 'Legal information', href: '/en/imprint' },
@@ -219,9 +220,9 @@ function getNavItems(locale: string): NavItem[] {
         viewAllHref: '/it/come-funziona',
         viewAllLabel: 'Scopri di più',
         items: [
-          { icon: <FileText className="w-5 h-5" />, title: 'Compila il modulo', subtitle: 'Indica le tue esigenze', href: '/anfrage' },
-          { icon: <Zap className="w-5 h-5" />, title: 'Ricevi i preventivi', subtitle: 'Fino a 3 offerte certificate', href: '/anfrage' },
-          { icon: <Star className="w-5 h-5" />, title: 'Scegli il migliore', subtitle: 'Gratuito e senza impegno', href: '/anfrage' },
+          { icon: <FileText className="w-5 h-5" />, title: 'Compila il modulo', subtitle: 'Indica le tue esigenze', href: '/it/richiesta' },
+          { icon: <Zap className="w-5 h-5" />, title: 'Ricevi i preventivi', subtitle: 'Fino a 3 offerte certificate', href: '/it/richiesta' },
+          { icon: <Star className="w-5 h-5" />, title: 'Scegli il migliore', subtitle: 'Gratuito e senza impegno', href: '/it/richiesta' },
         ],
       },
       {
@@ -262,7 +263,7 @@ function getNavItems(locale: string): NavItem[] {
         items: [
           { icon: <Sun className="w-5 h-5" />, title: 'Il nostro approccio', subtitle: 'Perché PVPro?', href: '/it/chi-siamo' },
           { icon: <Users className="w-5 h-5" />, title: 'Team', subtitle: 'I nostri esperti', href: '/it/chi-siamo' },
-          { icon: <Mail className="w-5 h-5" />, title: 'Contatto', subtitle: 'Scrivici', href: '/anfrage' },
+          { icon: <Mail className="w-5 h-5" />, title: 'Contatto', subtitle: 'Scrivici', href: '/it/richiesta' },
           { icon: <HelpCircle className="w-5 h-5" />, title: 'FAQ', subtitle: 'Domande frequenti', href: '/it/faq' },
           { icon: <Shield className="w-5 h-5" />, title: 'Privacy', subtitle: 'Conforme GDPR', href: '/it/protezione-dati' },
           { icon: <BookOpen className="w-5 h-5" />, title: 'Note legali', subtitle: 'Informazioni legali', href: '/it/note-legali' },
@@ -362,6 +363,7 @@ export default function Header() {
   const textColor = transparent ? 'text-white' : 'text-gray-800';
   const cta = ctaLabels[locale] || ctaLabels.de;
   const homeHref = homeLinks[locale] || '/';
+  const formUrl = getFormUrl(pathname);
 
   return (
     <header
@@ -421,7 +423,7 @@ export default function Header() {
           <div className="flex items-center gap-3 sm:gap-4 z-10">
             <LanguageSwitcher transparent={transparent} />
             <Link
-              href="/anfrage"
+              href={formUrl}
               className="hidden sm:inline-flex items-center font-semibold text-sm px-5 py-2.5 rounded-full border-2 transition-all duration-200 whitespace-nowrap"
               style={
                 transparent

@@ -188,7 +188,7 @@ export default function SubventionsSolairesPage() {
             <p className="text-gray-600 mb-8 max-w-lg mx-auto leading-relaxed">
               Nos installateurs partenaires connaissent tous les programmes de subventions actuels et s'occupent des démarches — vous n'avez rien à faire.
             </p>
-            <Link href="/anfrage" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            <Link href="/fr/demande" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
               Obtenir un devis gratuit <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

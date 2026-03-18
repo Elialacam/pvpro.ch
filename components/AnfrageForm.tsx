@@ -16,37 +16,187 @@ declare global {
 
 const TOTAL_STEPS = 6;
 
-const t = {
-  step1Title: 'Sind Sie Eigentümer der Liegenschaft?',
-  step1Sub: 'Nur Eigentümer können die Eignung Ihres Dachs prüfen lassen.',
-  step2Title: 'Um welchen Gebäudetyp handelt es sich?',
-  step2Sub: 'Wählen Sie den Typ Ihrer Liegenschaft.',
-  step3Title: 'Welche Dachform kommt Ihrer am nächsten?',
-  step3Sub: 'Wählen Sie die Dachform, die Ihrer am ähnlichsten ist.',
-  step4Title: 'Möchten Sie einen Stromspeicher integrieren?',
-  step4Sub: 'Ein Speicher erhöht Ihren Eigenverbrauch auf bis zu 80%.',
-  step5Title: 'Wo befindet sich Ihre Liegenschaft?',
-  step5Sub: 'Wir prüfen die Eignung Ihres Dachs und verfügbare Förderungen.',
-  step6Title: 'Fast geschafft!',
-  step6Sub: 'Geben Sie Ihre Kontaktdaten ein, um Ihre kostenlosen Offerten zu erhalten.',
-  addressPlaceholder: 'z.B. Bahnhofstrasse 10, 8001 Zürich',
-  firstName: 'Vorname',
-  lastName: 'Nachname',
-  email: 'E-Mail',
-  phone: 'Telefonnummer',
-  privacyText: 'Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu.',
-  submit: 'Kostenlose Offerten anfordern',
-  submitting: 'Wird gesendet…',
-  next: 'Weiter',
-  back: 'Zurück',
-  loadingTitle: 'Wir suchen passende Angebote…',
-  loadingStep1: 'Wir analysieren Ihre Angaben und Adresse',
-  loadingStep2: 'Installateure in Ihrem Kanton werden verglichen',
-  loadingStep3: '3 passende Installateure gefunden',
-  renterError: 'Leider können wir nur Eigentümern helfen. Als Mieter wenden Sie sich bitte an Ihren Vermieter.',
-  requiredFields: 'Bitte füllen Sie alle Pflichtfelder aus.',
-  invalidEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
-  invalidPhone: 'Bitte geben Sie eine gültige Schweizer Telefonnummer ein.',
+const i18n = {
+  de: {
+    step1Title: 'Sind Sie Eigentümer der Liegenschaft?',
+    step1Sub: 'Nur Eigentümer können die Eignung Ihres Dachs prüfen lassen.',
+    step2Title: 'Um welchen Gebäudetyp handelt es sich?',
+    step2Sub: 'Wählen Sie den Typ Ihrer Liegenschaft.',
+    step3Title: 'Welche Dachform kommt Ihrer am nächsten?',
+    step3Sub: 'Wählen Sie die Dachform, die Ihrer am ähnlichsten ist.',
+    step4Title: 'Möchten Sie einen Stromspeicher integrieren?',
+    step4Sub: 'Ein Speicher erhöht Ihren Eigenverbrauch auf bis zu 80%.',
+    step5Title: 'Wo befindet sich Ihre Liegenschaft?',
+    step5Sub: 'Wir prüfen die Eignung Ihres Dachs und verfügbare Förderungen.',
+    step6Title: 'Fast geschafft!',
+    step6Sub: 'Geben Sie Ihre Kontaktdaten ein, um Ihre kostenlosen Offerten zu erhalten.',
+    addressPlaceholder: 'z.B. Bahnhofstrasse 10, 8001 Zürich',
+    addressError: 'Bitte wählen Sie eine Adresse aus der Liste aus.',
+    firstName: 'Vorname',
+    lastName: 'Nachname',
+    email: 'E-Mail',
+    phone: 'Telefonnummer',
+    privacyText: 'Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu.',
+    privacyHref: '/datenschutz',
+    submit: 'Kostenlose Offerten anfordern',
+    submitting: 'Wird gesendet…',
+    next: 'Weiter',
+    back: 'Zurück',
+    loadingTitle: 'Wir suchen passende Angebote…',
+    loadingStep1: 'Wir analysieren Ihre Angaben und Adresse',
+    loadingStep2: 'Installateure in Ihrem Kanton werden verglichen',
+    loadingStep3: '3 passende Installateure gefunden',
+    renterError: 'Leider können wir nur Eigentümern helfen. Als Mieter wenden Sie sich bitte an Ihren Vermieter.',
+    requiredFields: 'Bitte füllen Sie alle Pflichtfelder aus.',
+    invalidEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+    invalidPhone: 'Bitte geben Sie eine gültige Schweizer Telefonnummer ein.',
+    yes: 'Ja',
+    no: 'Nein',
+    dontKnow: 'Weiss nicht',
+    detachedHouse: 'Einfamilienhaus',
+    apartmentBuilding: 'Mehrfamilienhaus',
+    commercial: 'Gewerbe',
+    other: 'Sonstiges',
+    pitchedRoof: 'Satteldach',
+    monopitchRoof: 'Pultdach',
+    flatRoof: 'Flachdach',
+    dankeUrl: '/danke',
+  },
+  fr: {
+    step1Title: 'Êtes-vous propriétaire du bien immobilier?',
+    step1Sub: 'Seuls les propriétaires peuvent faire évaluer l\'aptitude de leur toit.',
+    step2Title: 'De quel type de bâtiment s\'agit-il?',
+    step2Sub: 'Sélectionnez le type de votre bien immobilier.',
+    step3Title: 'Quelle forme de toit correspond le mieux à la vôtre?',
+    step3Sub: 'Sélectionnez la forme de toit qui ressemble le plus à la vôtre.',
+    step4Title: 'Souhaitez-vous intégrer un système de stockage d\'énergie?',
+    step4Sub: 'Un stockage augmente votre autoconsommation jusqu\'à 80%.',
+    step5Title: 'Où se situe votre bien immobilier?',
+    step5Sub: 'Nous vérifions l\'aptitude de votre toit et les subventions disponibles.',
+    step6Title: 'Presque terminé!',
+    step6Sub: 'Saisissez vos coordonnées pour recevoir vos devis gratuits.',
+    addressPlaceholder: 'p.ex. Rue du Centre 10, 1003 Lausanne',
+    addressError: 'Veuillez sélectionner une adresse dans la liste.',
+    firstName: 'Prénom',
+    lastName: 'Nom',
+    email: 'E-mail',
+    phone: 'Numéro de téléphone',
+    privacyText: 'En envoyant le formulaire, vous acceptez notre politique de confidentialité.',
+    privacyHref: '/fr/protection-des-donnees',
+    submit: 'Demander des devis gratuits',
+    submitting: 'Envoi en cours…',
+    next: 'Suivant',
+    back: 'Retour',
+    loadingTitle: 'Nous recherchons les meilleures offres…',
+    loadingStep1: 'Nous analysons vos informations et votre adresse',
+    loadingStep2: 'Les installateurs de votre canton sont comparés',
+    loadingStep3: '3 installateurs correspondants trouvés',
+    renterError: 'Malheureusement, nous ne pouvons aider que les propriétaires. En tant que locataire, veuillez contacter votre bailleur.',
+    requiredFields: 'Veuillez remplir tous les champs obligatoires.',
+    invalidEmail: 'Veuillez saisir une adresse e-mail valide.',
+    invalidPhone: 'Veuillez saisir un numéro de téléphone suisse valide.',
+    yes: 'Oui',
+    no: 'Non',
+    dontKnow: 'Je ne sais pas',
+    detachedHouse: 'Maison individuelle',
+    apartmentBuilding: 'Immeuble résidentiel',
+    commercial: 'Commerce',
+    other: 'Autre',
+    pitchedRoof: 'Toit à deux pentes',
+    monopitchRoof: 'Toit monopente',
+    flatRoof: 'Toit plat',
+    dankeUrl: '/fr/merci',
+  },
+  en: {
+    step1Title: 'Are you the owner of the property?',
+    step1Sub: 'Only owners can have their roof\'s suitability assessed.',
+    step2Title: 'What type of building is it?',
+    step2Sub: 'Select your property type.',
+    step3Title: 'Which roof shape best matches yours?',
+    step3Sub: 'Select the roof shape closest to your own.',
+    step4Title: 'Would you like to include a battery storage system?',
+    step4Sub: 'Storage increases your self-consumption to up to 80%.',
+    step5Title: 'Where is your property located?',
+    step5Sub: 'We\'ll assess your roof\'s suitability and available subsidies.',
+    step6Title: 'Almost done!',
+    step6Sub: 'Enter your contact details to receive your free quotes.',
+    addressPlaceholder: 'e.g. Bahnhofstrasse 10, 8001 Zürich',
+    addressError: 'Please select an address from the list.',
+    firstName: 'First name',
+    lastName: 'Last name',
+    email: 'E-mail',
+    phone: 'Phone number',
+    privacyText: 'By submitting, you agree to our privacy policy.',
+    privacyHref: '/en/privacy',
+    submit: 'Request free quotes',
+    submitting: 'Sending…',
+    next: 'Next',
+    back: 'Back',
+    loadingTitle: 'Searching for matching offers…',
+    loadingStep1: 'Analysing your details and address',
+    loadingStep2: 'Comparing installers in your canton',
+    loadingStep3: '3 matching installers found',
+    renterError: 'Unfortunately, we can only help owners. As a tenant, please contact your landlord.',
+    requiredFields: 'Please fill in all required fields.',
+    invalidEmail: 'Please enter a valid email address.',
+    invalidPhone: 'Please enter a valid Swiss phone number.',
+    yes: 'Yes',
+    no: 'No',
+    dontKnow: 'Not sure',
+    detachedHouse: 'Detached house',
+    apartmentBuilding: 'Apartment building',
+    commercial: 'Commercial',
+    other: 'Other',
+    pitchedRoof: 'Pitched roof',
+    monopitchRoof: 'Monopitch roof',
+    flatRoof: 'Flat roof',
+    dankeUrl: '/en/thank-you',
+  },
+  it: {
+    step1Title: 'Sei il proprietario dell\'immobile?',
+    step1Sub: 'Solo i proprietari possono far valutare l\'idoneità del loro tetto.',
+    step2Title: 'Di che tipo di edificio si tratta?',
+    step2Sub: 'Seleziona il tipo del tuo immobile.',
+    step3Title: 'Quale forma di tetto si avvicina di più alla tua?',
+    step3Sub: 'Seleziona la forma del tetto più simile alla tua.',
+    step4Title: 'Desideri integrare un sistema di accumulo?',
+    step4Sub: 'Un accumulo aumenta il tuo autoconsumo fino all\'80%.',
+    step5Title: 'Dove si trova il tuo immobile?',
+    step5Sub: 'Verificheremo l\'idoneità del tuo tetto e gli incentivi disponibili.',
+    step6Title: 'Ci siamo quasi!',
+    step6Sub: 'Inserisci i tuoi dati di contatto per ricevere i preventivi gratuiti.',
+    addressPlaceholder: 'es. Via Lugano 10, 6900 Lugano',
+    addressError: 'Seleziona un indirizzo dalla lista.',
+    firstName: 'Nome',
+    lastName: 'Cognome',
+    email: 'E-mail',
+    phone: 'Numero di telefono',
+    privacyText: 'Inviando il modulo, accetti la nostra informativa sulla privacy.',
+    privacyHref: '/it/protezione-dati',
+    submit: 'Richiedi preventivi gratuiti',
+    submitting: 'Invio in corso…',
+    next: 'Avanti',
+    back: 'Indietro',
+    loadingTitle: 'Stiamo cercando le offerte migliori…',
+    loadingStep1: 'Analizziamo le tue informazioni e l\'indirizzo',
+    loadingStep2: 'I tecnici del tuo cantone vengono confrontati',
+    loadingStep3: '3 tecnici corrispondenti trovati',
+    renterError: 'Purtroppo possiamo aiutare solo i proprietari. Come inquilino, contatta il tuo proprietario di casa.',
+    requiredFields: 'Compila tutti i campi obbligatori.',
+    invalidEmail: 'Inserisci un indirizzo e-mail valido.',
+    invalidPhone: 'Inserisci un numero di telefono svizzero valido.',
+    yes: 'Sì',
+    no: 'No',
+    dontKnow: 'Non so',
+    detachedHouse: 'Casa unifamiliare',
+    apartmentBuilding: 'Condominio',
+    commercial: 'Commerciale',
+    other: 'Altro',
+    pitchedRoof: 'Tetto a falda',
+    monopitchRoof: 'Tetto a unica falda',
+    flatRoof: 'Tetto piano',
+    dankeUrl: '/it/grazie',
+  },
 };
 
 /* ─── Option Card ─────────────────────────────────────────────────────────── */
@@ -73,20 +223,15 @@ function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCa
         background: isSelected ? '#FFF7ED' : '#ffffff',
       }}
     >
-      {/* Illustration */}
       <div className="flex-1 flex items-center justify-center w-full">
         <img src={imageSrc} alt={label} className="w-full h-full object-contain max-h-28 sm:max-h-32" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
       </div>
-
-      {/* Label */}
       <p className="text-sm sm:text-base font-bold text-gray-900 text-center leading-tight mt-3">
         {label}
       </p>
       {sublabel && (
         <p className="text-xs text-gray-400 mt-0.5">{sublabel}</p>
       )}
-
-      {/* Selected checkmark badge */}
       {isSelected && (
         <motion.div
           initial={{ scale: 0 }}
@@ -112,7 +257,12 @@ function StepWrapper({ title, sub, children }: { title: string; sub: string; chi
 }
 
 /* ─── Main component ──────────────────────────────────────────────────────── */
-export default function AnfrageForm() {
+interface AnfrageFormProps {
+  locale?: 'de' | 'fr' | 'en' | 'it';
+}
+
+export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
+  const t = i18n[locale] ?? i18n.de;
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [direction, setDirection] = useState(1);
@@ -134,8 +284,8 @@ export default function AnfrageForm() {
 
   useEffect(() => {
     if (!errorMsg) return;
-    const t = setTimeout(() => setErrorMsg(null), 5000);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => setErrorMsg(null), 5000);
+    return () => clearTimeout(timer);
   }, [errorMsg]);
 
   useEffect(() => {
@@ -184,7 +334,7 @@ export default function AnfrageForm() {
 
   const goNext = async () => {
     if (step === 5) {
-      if (!selectedAddress) { setErrorMsg('Bitte wählen Sie eine Adresse aus der Liste aus.'); return; }
+      if (!selectedAddress) { setErrorMsg(t.addressError); return; }
       setIsLoadingTransition(true);
       for (let p = 1; p <= 3; p++) { setLoadingPhase(p); await new Promise(r => setTimeout(r, 1400)); }
       setIsLoadingTransition(false);
@@ -245,7 +395,7 @@ export default function AnfrageForm() {
         (window as any).fbq?.('track', 'Lead', { content_name: 'Solar Quote Request', value: 50.0, currency: 'CHF' });
         (window as any).gtag?.('event', 'conversion', { send_to: 'AW-17901154625/LyaGCIXE-fUbEMHi99dC', value: 1.0, currency: 'CHF' });
         fetch('/api/send-confirmation', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) }).catch(() => {});
-        router.push('/danke');
+        router.push(t.dankeUrl);
       }
     } finally { setIsSubmitting(false); }
   };
@@ -274,10 +424,8 @@ export default function AnfrageForm() {
           {loadingSteps.map((item, i) => {
             const isDone = loadingPhase > item.phase;
             const isActive = loadingPhase === item.phase;
-            const isWaiting = loadingPhase < item.phase;
             return (
               <div key={i} className="flex flex-col items-center w-full">
-                {/* Connector line */}
                 {i > 0 && (
                   <div className="w-0.5 h-10 bg-gray-100 overflow-hidden relative">
                     <motion.div
@@ -289,7 +437,6 @@ export default function AnfrageForm() {
                     />
                   </div>
                 )}
-                {/* Step card */}
                 <motion.div
                   className="flex items-center gap-5 w-full rounded-2xl px-5 py-4"
                   initial={{ opacity: 0, x: -24 }}
@@ -300,7 +447,6 @@ export default function AnfrageForm() {
                     border: isDone ? '1.5px solid #bbf7d0' : isActive ? '1.5px solid #fed7aa' : '1.5px solid #f3f4f6',
                   }}
                 >
-                  {/* Circle icon */}
                   <div className="relative shrink-0">
                     {isActive && (
                       <motion.div
@@ -331,7 +477,6 @@ export default function AnfrageForm() {
                       </AnimatePresence>
                     </motion.div>
                   </div>
-                  {/* Text */}
                   <motion.p
                     className="font-bold leading-snug text-left"
                     animate={{
@@ -357,39 +502,39 @@ export default function AnfrageForm() {
       case 1: return (
         <StepWrapper title={t.step1Title} sub={t.step1Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label="Ja" isSelected={formData.isOwner === 'yes'} onClick={() => handleSelect('isOwner', 'yes')} imageSrc="/icons/icon-check.png" />
-            <OptionCard label="Nein" isSelected={formData.isOwner === 'no'} onClick={() => handleSelect('isOwner', 'no')} imageSrc="/icons/icon-x.png" />
+            <OptionCard label={t.yes} isSelected={formData.isOwner === 'yes'} onClick={() => handleSelect('isOwner', 'yes')} imageSrc="/icons/icon-check.png" />
+            <OptionCard label={t.no} isSelected={formData.isOwner === 'no'} onClick={() => handleSelect('isOwner', 'no')} imageSrc="/icons/icon-x.png" />
           </div>
         </StepWrapper>
       );
       case 2: return (
         <StepWrapper title={t.step2Title} sub={t.step2Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label="Einfamilienhaus" isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelect('propertyType', 'einfamilienhaus')} imageSrc="/icons/icon-einfamilienhaus.png" />
-            <OptionCard label="Mehrfamilienhaus" isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelect('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/icon-mehrfamilienhaus.png" />
-            <OptionCard label="Gewerbe" isSelected={formData.propertyType === 'gewerbe'} onClick={() => handleSelect('propertyType', 'gewerbe')} imageSrc="/icons/icon-gewerbe.png" />
-            <OptionCard label="Sonstiges" isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelect('propertyType', 'sonstiges')} imageSrc="/icons/icon-question.png" />
+            <OptionCard label={t.detachedHouse} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelect('propertyType', 'einfamilienhaus')} imageSrc="/icons/icon-einfamilienhaus.png" />
+            <OptionCard label={t.apartmentBuilding} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelect('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/icon-mehrfamilienhaus.png" />
+            <OptionCard label={t.commercial} isSelected={formData.propertyType === 'gewerbe'} onClick={() => handleSelect('propertyType', 'gewerbe')} imageSrc="/icons/icon-gewerbe.png" />
+            <OptionCard label={t.other} isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelect('propertyType', 'sonstiges')} imageSrc="/icons/icon-question.png" />
           </div>
         </StepWrapper>
       );
       case 3: return (
         <StepWrapper title={t.step3Title} sub={t.step3Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label="Satteldach" isSelected={formData.roofType === 'pitched'} onClick={() => handleSelect('roofType', 'pitched')} imageSrc="/icons/icon-satteldach.png" />
-            <OptionCard label="Pultdach" isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelect('roofType', 'monopitch')} imageSrc="/icons/icon-pultdach.png" />
-            <OptionCard label="Flachdach" isSelected={formData.roofType === 'flat'} onClick={() => handleSelect('roofType', 'flat')} imageSrc="/icons/icon-flachdach.png" />
-            <OptionCard label="Sonstiges" isSelected={formData.roofType === 'other'} onClick={() => handleSelect('roofType', 'other')} imageSrc="/icons/icon-question.png" />
+            <OptionCard label={t.pitchedRoof} isSelected={formData.roofType === 'pitched'} onClick={() => handleSelect('roofType', 'pitched')} imageSrc="/icons/icon-satteldach.png" />
+            <OptionCard label={t.monopitchRoof} isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelect('roofType', 'monopitch')} imageSrc="/icons/icon-pultdach.png" />
+            <OptionCard label={t.flatRoof} isSelected={formData.roofType === 'flat'} onClick={() => handleSelect('roofType', 'flat')} imageSrc="/icons/icon-flachdach.png" />
+            <OptionCard label={t.other} isSelected={formData.roofType === 'other'} onClick={() => handleSelect('roofType', 'other')} imageSrc="/icons/icon-question.png" />
           </div>
         </StepWrapper>
       );
       case 4: return (
         <StepWrapper title={t.step4Title} sub={t.step4Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label="Ja" isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelect('wantsBattery', 'yes')} imageSrc="/icons/icon-check.png" />
-            <OptionCard label="Nein" isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelect('wantsBattery', 'no')} imageSrc="/icons/icon-x.png" />
+            <OptionCard label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelect('wantsBattery', 'yes')} imageSrc="/icons/icon-check.png" />
+            <OptionCard label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelect('wantsBattery', 'no')} imageSrc="/icons/icon-x.png" />
             <div className="col-span-2 flex justify-center">
               <div className="w-1/2 pr-1.5">
-                <OptionCard label="Weiss nicht" isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelect('wantsBattery', 'unknown')} imageSrc="/icons/icon-question.png" />
+                <OptionCard label={t.dontKnow} isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelect('wantsBattery', 'unknown')} imageSrc="/icons/icon-question.png" />
               </div>
             </div>
           </div>
@@ -462,84 +607,103 @@ export default function AnfrageForm() {
                 <span className="text-gray-700 font-medium text-sm">+41</span>
               </div>
               <input type="tel" placeholder={`${t.phone} *`}
-                className="w-full p-4 outline-none bg-transparent text-base"
-                value={formData.phone.replace(/^\+41\s?/, '')}
-                onChange={e => { setFormData({ ...formData, phone: '+41 ' + e.target.value.replace(/^\+41\s?/, '') }); setValidationErrors(p => ({ ...p, phone: false })); }}
+                className="flex-1 px-4 py-4 outline-none bg-transparent text-base"
+                onChange={e => { setFormData({ ...formData, phone: e.target.value }); setValidationErrors(p => ({ ...p, phone: false })); }}
               />
             </div>
+            <p className="text-xs text-gray-400 leading-relaxed">
+              {t.privacyText.split('politique de confidentialité').length > 1 ||
+               t.privacyText.split('privacy policy').length > 1 ||
+               t.privacyText.split('informativa sulla privacy').length > 1 ||
+               t.privacyText.split('Datenschutzerklärung').length > 1 ? (
+                <>
+                  {t.privacyText.split(/(Datenschutzerklärung|politique de confidentialité|privacy policy|informativa sulla privacy)/)[0]}
+                  <Link href={t.privacyHref} className="underline hover:text-gray-600">
+                    {t.privacyText.match(/(Datenschutzerklärung|politique de confidentialité|privacy policy|informativa sulla privacy)/)?.[0]}
+                  </Link>
+                  {t.privacyText.split(/(Datenschutzerklärung|politique de confidentialité|privacy policy|informativa sulla privacy)/)[2]}
+                </>
+              ) : t.privacyText}
+            </p>
+            <button
+              onClick={handleSubmit}
+              disabled={isSubmitting}
+              className="w-full py-4 rounded-2xl font-bold text-base btn-primary disabled:opacity-60 disabled:cursor-not-allowed transition-all"
+            >
+              {isSubmitting ? t.submitting : t.submit}
+            </button>
           </div>
-          <motion.button
-            whileHover={{ scale: 1.02, y: -1 }} whileTap={{ scale: 0.98 }}
-            onClick={handleSubmit} disabled={isSubmitting}
-            className="w-full btn-primary py-5 rounded-2xl text-lg font-bold shadow-lg mt-5 flex items-center justify-center gap-3"
-          >
-            {isSubmitting ? <><BarChart2 className="animate-spin w-5 h-5" />{t.submitting}</> : t.submit}
-          </motion.button>
-          <p className="text-[11px] text-center text-gray-400 mt-3">{t.privacyText}</p>
         </StepWrapper>
       );
       default: return null;
     }
   };
 
-  /* ── Shell ── */
+  const variants = {
+    enter: (d: number) => ({ x: d > 0 ? 60 : -60, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (d: number) => ({ x: d > 0 ? -60 : 60, opacity: 0 }),
+  };
+
   return (
-    <div className="min-h-screen bg-white flex flex-col">
-
-      {/* ── Thin progress bar ── */}
-      <div className="h-1 bg-gray-100 w-full fixed top-0 left-0 z-50">
-        <motion.div className="h-full bg-primary" initial={{ width: 0 }}
-          animate={{ width: `${progressPct}%` }} transition={{ duration: 0.35, ease: 'easeOut' }} />
-      </div>
-
-      {/* ── Header: logo left · step right · close right ── */}
-      <header className="fixed top-1 left-0 right-0 z-40 bg-white border-b border-gray-100">
-        <div className="max-w-2xl mx-auto px-5 sm:px-8 flex items-center justify-between h-14">
-          <Link href="/">
-            <Image src="/logo-pvpro.png" alt="PVPro.ch" width={130} height={38} className="h-7 w-auto" priority />
-          </Link>
-          <span className="text-sm font-semibold text-gray-400">{step}/{TOTAL_STEPS}</span>
-        </div>
+    <div className="min-h-screen bg-[#fafafa] flex flex-col">
+      {/* Header */}
+      <header className="w-full bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
+        <Link href="/">
+          <Image src="/logo-pvpro.png" alt="PVPro.ch" width={120} height={36} className="h-8 w-auto" />
+        </Link>
+        {step > 1 && (
+          <button onClick={goBack} className="flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
+            <ChevronLeft className="w-4 h-4" />
+            {t.back}
+          </button>
+        )}
       </header>
 
-      {/* ── Content: starts from top (EnergySage style) ── */}
-      <main className="flex-1 flex flex-col pt-20 pb-6">
-        <div className="w-full max-w-2xl mx-auto px-5 sm:px-8 pt-8">
+      {/* Progress bar */}
+      <div className="w-full h-1 bg-gray-100">
+        <motion.div className="h-full" style={{ background: '#F97316' }} animate={{ width: `${progressPct}%` }} transition={{ duration: 0.4, ease: 'easeOut' }} />
+      </div>
 
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div key={step}
+      {/* Step counter */}
+      <div className="text-center pt-6 pb-2">
+        <span className="text-xs font-semibold text-gray-400 tracking-widest uppercase">
+          {step} / {TOTAL_STEPS}
+        </span>
+      </div>
+
+      {/* Content */}
+      <div className="flex-1 flex items-start justify-center px-4 py-6 sm:py-10">
+        <div className="w-full max-w-md">
+          <AnimatePresence custom={direction} mode="wait">
+            <motion.div
+              key={step}
               custom={direction}
-              initial={{ opacity: 0, x: direction > 0 ? 48 : -48 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: direction > 0 ? -48 : 48 }}
-              transition={{ duration: 0.08, ease: 'easeOut' }}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
             >
               {renderStep()}
             </motion.div>
           </AnimatePresence>
 
-          {/* Error message */}
-          {errorMsg && (
-            <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-              className="mt-5 p-4 rounded-2xl bg-red-50 text-red-700 border border-red-100 flex items-start gap-3">
-              <X className="w-5 h-5 mt-0.5 shrink-0" />
-              <span className="text-sm font-semibold">{errorMsg}</span>
-            </motion.div>
-          )}
-
-          {/* Back button */}
-          {step > 1 && step < 6 && (
-            <div className="mt-5 flex">
-              <button onClick={goBack}
-                className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-700 font-semibold transition-colors py-2">
-                <ChevronLeft className="w-4 h-4" />
-                {t.back}
-              </button>
-            </div>
-          )}
+          {/* Error toast */}
+          <AnimatePresence>
+            {errorMsg && (
+              <motion.div
+                initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }}
+                className="mt-4 flex items-start gap-3 rounded-2xl px-4 py-3 text-sm font-medium"
+                style={{ background: '#fef2f2', color: '#dc2626', border: '1.5px solid #fecaca' }}
+              >
+                <X className="w-4 h-4 shrink-0 mt-0.5" />
+                {errorMsg}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-
-      </main>
+      </div>
     </div>
   );
 }
