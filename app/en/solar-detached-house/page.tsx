@@ -6,7 +6,16 @@ import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/Einfami
 export const metadata: Metadata = {
   title: 'Solar installation for detached houses Switzerland: costs, size and benefits | PVPro.ch',
   description: 'What does a solar installation for a detached house in Switzerland cost? Prices, size, subsidies and tips explained simply. Compare offers now.',
-  alternates: { canonical: 'https://www.pvpro.ch/en/solar-detached-house' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/en/solar-detached-house',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solaranlage-einfamilienhaus',
+      'fr-CH': 'https://www.pvpro.ch/fr/solaire-maison-individuelle',
+      'en-CH': 'https://www.pvpro.ch/en/solar-detached-house',
+      'it-CH': 'https://www.pvpro.ch/it/solare-casa-unifamiliare',
+      'x-default': 'https://www.pvpro.ch/solaranlage-einfamilienhaus',
+    },
+  },
 };
 
 const costRows = [

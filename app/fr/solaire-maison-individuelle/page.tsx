@@ -6,7 +6,16 @@ import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/Einfami
 export const metadata: Metadata = {
   title: 'Installation solaire maison individuelle Suisse : coûts, taille et avantages | PVPro.ch',
   description: 'Combien coûte une installation solaire pour une maison individuelle en Suisse ? Prix, taille, subventions et conseils expliqués simplement. Comparez les offres maintenant.',
-  alternates: { canonical: 'https://www.pvpro.ch/fr/solaire-maison-individuelle' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/fr/solaire-maison-individuelle',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solaranlage-einfamilienhaus',
+      'fr-CH': 'https://www.pvpro.ch/fr/solaire-maison-individuelle',
+      'en-CH': 'https://www.pvpro.ch/en/solar-detached-house',
+      'it-CH': 'https://www.pvpro.ch/it/solare-casa-unifamiliare',
+      'x-default': 'https://www.pvpro.ch/solaranlage-einfamilienhaus',
+    },
+  },
 };
 
 const costRows = [

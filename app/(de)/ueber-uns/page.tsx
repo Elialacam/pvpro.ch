@@ -6,6 +6,16 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Über uns – PVPro.ch | Schweizer Solaranlage-Vergleichsplattform',
   description: 'Erfahren Sie mehr über PVPro.ch – die unabhängige Schweizer Plattform, die Hausbesitzer mit geprüften Photovoltaik-Installateuren verbindet.',
+  alternates: {
+    canonical: 'https://www.pvpro.ch/ueber-uns',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/ueber-uns',
+      'fr-CH': 'https://www.pvpro.ch/fr/a-propos',
+      'en-CH': 'https://www.pvpro.ch/en/about-us',
+      'it-CH': 'https://www.pvpro.ch/it/chi-siamo',
+      'x-default': 'https://www.pvpro.ch/ueber-uns',
+    },
+  },
 };
 
 const values = [

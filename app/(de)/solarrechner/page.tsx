@@ -18,6 +18,13 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.pvpro.ch/solarrechner',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solarrechner',
+      'fr-CH': 'https://www.pvpro.ch/fr/calculateur-solaire',
+      'en-CH': 'https://www.pvpro.ch/en/solar-calculator',
+      'it-CH': 'https://www.pvpro.ch/it/calcolatore-solare',
+      'x-default': 'https://www.pvpro.ch/solarrechner',
+    },
   },
   openGraph: {
     title: 'Solarrechner Schweiz - Kosten & Ertrag berechnen',

@@ -7,7 +7,16 @@ import FoerderRechner from '@/components/FoerderRechner';
 export const metadata: Metadata = {
   title: 'Incentivi solari in Svizzera 2026 | PVPro.ch',
   description: 'Remunerazione unica (RU), programmi cantonali e deduzioni fiscali per impianti fotovoltaici in Svizzera. Calcola il tuo incentivo ora.',
-  alternates: { canonical: 'https://www.pvpro.ch/it/incentivi-solari' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/it/incentivi-solari',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/foerderungen',
+      'fr-CH': 'https://www.pvpro.ch/fr/subventions-solaires',
+      'en-CH': 'https://www.pvpro.ch/en/solar-subsidies',
+      'it-CH': 'https://www.pvpro.ch/it/incentivi-solari',
+      'x-default': 'https://www.pvpro.ch/foerderungen',
+    },
+  },
 };
 
 const tableRows = [

@@ -6,7 +6,16 @@ import { CheckCircle, Calculator, Zap, TrendingUp, PiggyBank } from 'lucide-reac
 export const metadata: Metadata = {
   title: 'Solar Calculator Switzerland – Calculate costs and yield | PVPro',
   description: 'Free solar calculator for Switzerland. Calculate the costs, yield and payback period of your solar installation in 30 seconds.',
-  alternates: { canonical: 'https://www.pvpro.ch/en/solar-calculator' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/en/solar-calculator',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solarrechner',
+      'fr-CH': 'https://www.pvpro.ch/fr/calculateur-solaire',
+      'en-CH': 'https://www.pvpro.ch/en/solar-calculator',
+      'it-CH': 'https://www.pvpro.ch/it/calcolatore-solare',
+      'x-default': 'https://www.pvpro.ch/solarrechner',
+    },
+  },
 };
 
 const benefits = [

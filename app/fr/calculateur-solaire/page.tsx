@@ -6,7 +6,16 @@ import { CheckCircle, Calculator, Zap, TrendingUp, PiggyBank } from 'lucide-reac
 export const metadata: Metadata = {
   title: 'Calculateur solaire Suisse – Calculer coûts et rendement | PVPro',
   description: 'Calculateur solaire gratuit pour la Suisse. Calculez en 30 secondes les coûts, le rendement et l\'amortissement de votre installation solaire.',
-  alternates: { canonical: 'https://www.pvpro.ch/fr/calculateur-solaire' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/fr/calculateur-solaire',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solarrechner',
+      'fr-CH': 'https://www.pvpro.ch/fr/calculateur-solaire',
+      'en-CH': 'https://www.pvpro.ch/en/solar-calculator',
+      'it-CH': 'https://www.pvpro.ch/it/calcolatore-solare',
+      'x-default': 'https://www.pvpro.ch/solarrechner',
+    },
+  },
 };
 
 const benefits = [

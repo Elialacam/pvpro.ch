@@ -8,7 +8,16 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Blog & Guides | PVPro.ch – Énergie solaire en Suisse',
   description: 'Guides actuels, actualités et conseils sur les installations solaires, les subventions et le photovoltaïque en Suisse.',
-  alternates: { canonical: 'https://www.pvpro.ch/fr/blog' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/fr/blog',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/blog',
+      'fr-CH': 'https://www.pvpro.ch/fr/blog',
+      'en-CH': 'https://www.pvpro.ch/en/blog',
+      'it-CH': 'https://www.pvpro.ch/it/blog',
+      'x-default': 'https://www.pvpro.ch/blog',
+    },
+  },
 };
 
 const tags = ['Tous', 'Guides', 'Subventions', 'Stockage', 'Conseils', 'Finance'];

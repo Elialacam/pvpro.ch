@@ -18,6 +18,13 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-kosten',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solaranlage-kosten',
+      'fr-CH': 'https://www.pvpro.ch/fr/cout-installation-solaire',
+      'en-CH': 'https://www.pvpro.ch/en/solar-panel-costs',
+      'it-CH': 'https://www.pvpro.ch/it/costi-impianto-solare',
+      'x-default': 'https://www.pvpro.ch/solaranlage-kosten',
+    },
   },
   openGraph: {
     title: 'Solaranlage Kosten Schweiz 2025 – Aktuelle Preise & Förderungen',

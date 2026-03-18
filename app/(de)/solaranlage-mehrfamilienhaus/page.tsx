@@ -6,7 +6,16 @@ import MehrfamilienhausRechner, { MehrfamilienhausFaq } from '@/components/Mehrf
 export const metadata: Metadata = {
   title: 'Solaranlage Mehrfamilienhaus Schweiz: Kosten, ZEV und Wirtschaftlichkeit | PVPro.ch',
   description: 'Was kostet eine Solaranlage für ein Mehrfamilienhaus? Erfahren Sie Kosten, ZEV, Grösse und wie sich Solarstrom für mehrere Parteien lohnt.',
-  alternates: { canonical: 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus',
+      'fr-CH': 'https://www.pvpro.ch/fr/solaire-immeuble',
+      'en-CH': 'https://www.pvpro.ch/en/solar-apartment-building',
+      'it-CH': 'https://www.pvpro.ch/it/solare-condominio',
+      'x-default': 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus',
+    },
+  },
 };
 
 const costRows = [

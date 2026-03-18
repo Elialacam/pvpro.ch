@@ -6,7 +6,16 @@ import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/Einfami
 export const metadata: Metadata = {
   title: 'Impianto solare casa unifamiliare Svizzera: costi, dimensioni e vantaggi | PVPro.ch',
   description: 'Quanto costa un impianto solare per una casa unifamiliare in Svizzera? Prezzi, dimensioni, incentivi e consigli spiegati semplicemente. Confronta le offerte ora.',
-  alternates: { canonical: 'https://www.pvpro.ch/it/solare-casa-unifamiliare' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/it/solare-casa-unifamiliare',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solaranlage-einfamilienhaus',
+      'fr-CH': 'https://www.pvpro.ch/fr/solaire-maison-individuelle',
+      'en-CH': 'https://www.pvpro.ch/en/solar-detached-house',
+      'it-CH': 'https://www.pvpro.ch/it/solare-casa-unifamiliare',
+      'x-default': 'https://www.pvpro.ch/solaranlage-einfamilienhaus',
+    },
+  },
 };
 
 const costRows = [

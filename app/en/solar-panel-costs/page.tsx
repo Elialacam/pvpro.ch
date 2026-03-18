@@ -6,7 +6,16 @@ import CtaAnfrage from '@/components/CtaAnfrage';
 export const metadata: Metadata = {
   title: 'Solar Panel Costs Switzerland 2026 – What does a solar installation cost? | PVPro',
   description: 'How much does a solar installation cost in Switzerland? Current 2026 prices: CHF 15,000 – 35,000 for a detached house. Costs per kWp, subsidies and storage. Compare offers free of charge.',
-  alternates: { canonical: 'https://www.pvpro.ch/en/solar-panel-costs' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/en/solar-panel-costs',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solaranlage-kosten',
+      'fr-CH': 'https://www.pvpro.ch/fr/cout-installation-solaire',
+      'en-CH': 'https://www.pvpro.ch/en/solar-panel-costs',
+      'it-CH': 'https://www.pvpro.ch/it/costi-impianto-solare',
+      'x-default': 'https://www.pvpro.ch/solaranlage-kosten',
+    },
+  },
 };
 
 const costTable = [

@@ -7,7 +7,16 @@ import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
 export const metadata: Metadata = {
   title: 'Impianto solare con accumulo: costi, vantaggi e dimensionamento | PVPro.ch',
   description: 'Come funziona un impianto solare con accumulo? Costi, vantaggi, dimensionamento e autoconsumo in Svizzera.',
-  alternates: { canonical: 'https://www.pvpro.ch/it/solare-con-accumulo' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/it/solare-con-accumulo',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solaranlage-mit-speicher',
+      'fr-CH': 'https://www.pvpro.ch/fr/solaire-avec-batterie',
+      'en-CH': 'https://www.pvpro.ch/en/solar-with-battery',
+      'it-CH': 'https://www.pvpro.ch/it/solare-con-accumulo',
+      'x-default': 'https://www.pvpro.ch/solaranlage-mit-speicher',
+    },
+  },
 };
 
 const vantaggi = [

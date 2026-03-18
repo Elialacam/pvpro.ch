@@ -5,7 +5,16 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'FAQ – Questions fréquentes | PVPro.ch',
   description: 'Réponses aux questions les plus fréquentes sur les installations solaires en Suisse : coûts, subventions, installation et plus.',
-  alternates: { canonical: 'https://www.pvpro.ch/fr/faq' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/fr/faq',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/faq',
+      'fr-CH': 'https://www.pvpro.ch/fr/faq',
+      'en-CH': 'https://www.pvpro.ch/en/faq',
+      'it-CH': 'https://www.pvpro.ch/it/faq',
+      'x-default': 'https://www.pvpro.ch/faq',
+    },
+  },
 };
 
 const faqs = [

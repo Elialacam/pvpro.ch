@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       'fr-CH': 'https://www.pvpro.ch/fr',
       'en-CH': 'https://www.pvpro.ch/en',
       'it-CH': 'https://www.pvpro.ch/it',
+      'x-default': 'https://www.pvpro.ch',
     },
   },
   title: {

@@ -6,7 +6,16 @@ import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/Einfami
 export const metadata: Metadata = {
   title: 'Solaranlage Einfamilienhaus Schweiz: Kosten, Grösse und Vorteile | PVPro.ch',
   description: 'Was kostet eine Solaranlage für ein Einfamilienhaus in der Schweiz? Preise, Grösse, Förderung und Tipps einfach erklärt. Jetzt Angebote vergleichen.',
-  alternates: { canonical: 'https://www.pvpro.ch/solaranlage-einfamilienhaus' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/solaranlage-einfamilienhaus',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solaranlage-einfamilienhaus',
+      'fr-CH': 'https://www.pvpro.ch/fr/solaire-maison-individuelle',
+      'en-CH': 'https://www.pvpro.ch/en/solar-detached-house',
+      'it-CH': 'https://www.pvpro.ch/it/solare-casa-unifamiliare',
+      'x-default': 'https://www.pvpro.ch/solaranlage-einfamilienhaus',
+    },
+  },
 };
 
 const costRows = [

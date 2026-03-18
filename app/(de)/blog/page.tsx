@@ -8,6 +8,16 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Blog & Ratgeber | PVPro.ch – Solarenergie in der Schweiz',
   description: 'Aktuelle Ratgeber, News und Tipps rund um Solaranlagen, Förderungen und Photovoltaik in der Schweiz.',
+  alternates: {
+    canonical: 'https://www.pvpro.ch/blog',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/blog',
+      'fr-CH': 'https://www.pvpro.ch/fr/blog',
+      'en-CH': 'https://www.pvpro.ch/en/blog',
+      'it-CH': 'https://www.pvpro.ch/it/blog',
+      'x-default': 'https://www.pvpro.ch/blog',
+    },
+  },
 };
 
 const tags = ['Alle', 'Ratgeber', 'Förderungen', 'Speicher', 'Tipps', 'Finanzen'];

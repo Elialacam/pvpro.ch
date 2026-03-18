@@ -7,6 +7,16 @@ import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
 export const metadata: Metadata = {
   title: 'Solaranlage mit Speicher: Kosten, Vorteile und Speichergröße in der Schweiz | PVPro.ch',
   description: 'Wie funktioniert eine Solaranlage mit Speicher? Erfahren Sie Kosten, Vorteile, Speichergrößen und wie viel Strom Sie selbst nutzen können.',
+  alternates: {
+    canonical: 'https://www.pvpro.ch/solaranlage-mit-speicher',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solaranlage-mit-speicher',
+      'fr-CH': 'https://www.pvpro.ch/fr/solaire-avec-batterie',
+      'en-CH': 'https://www.pvpro.ch/en/solar-with-battery',
+      'it-CH': 'https://www.pvpro.ch/it/solare-con-accumulo',
+      'x-default': 'https://www.pvpro.ch/solaranlage-mit-speicher',
+    },
+  },
 };
 
 const vorteile = [

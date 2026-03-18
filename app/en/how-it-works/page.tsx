@@ -5,7 +5,16 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'How It Works – PVPro.ch | Solar Quotes in 3 Steps',
   description: 'How PVPro works: fill in the form, receive up to 3 certified quotes and choose the best installer. Free and no obligation.',
-  alternates: { canonical: 'https://www.pvpro.ch/en/how-it-works' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/en/how-it-works',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/wie-es-funktioniert',
+      'fr-CH': 'https://www.pvpro.ch/fr/comment-ca-marche',
+      'en-CH': 'https://www.pvpro.ch/en/how-it-works',
+      'it-CH': 'https://www.pvpro.ch/it/come-funziona',
+      'x-default': 'https://www.pvpro.ch/wie-es-funktioniert',
+    },
+  },
 };
 
 const steps = [

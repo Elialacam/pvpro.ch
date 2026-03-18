@@ -5,7 +5,16 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Come funziona – PVPro.ch | Preventivi solari in 3 passi',
   description: 'Scopri come funziona PVPro: compila il modulo, ricevi fino a 3 preventivi certificati e scegli il miglior installatore. Gratuito e senza impegno.',
-  alternates: { canonical: 'https://www.pvpro.ch/it/come-funziona' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/it/come-funziona',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/wie-es-funktioniert',
+      'fr-CH': 'https://www.pvpro.ch/fr/comment-ca-marche',
+      'en-CH': 'https://www.pvpro.ch/en/how-it-works',
+      'it-CH': 'https://www.pvpro.ch/it/come-funziona',
+      'x-default': 'https://www.pvpro.ch/wie-es-funktioniert',
+    },
+  },
 };
 
 const steps = [

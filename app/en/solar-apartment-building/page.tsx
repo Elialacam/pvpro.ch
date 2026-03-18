@@ -6,7 +6,16 @@ import MehrfamilienhausRechner, { MehrfamilienhausFaq } from '@/components/Mehrf
 export const metadata: Metadata = {
   title: 'Solar installation for apartment buildings Switzerland: costs, ZEC and profitability | PVPro.ch',
   description: 'How much does a solar installation for an apartment building cost? Costs, ZEC, size and profitability for multiple residential units in Switzerland.',
-  alternates: { canonical: 'https://www.pvpro.ch/en/solar-apartment-building' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/en/solar-apartment-building',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus',
+      'fr-CH': 'https://www.pvpro.ch/fr/solaire-immeuble',
+      'en-CH': 'https://www.pvpro.ch/en/solar-apartment-building',
+      'it-CH': 'https://www.pvpro.ch/it/solare-condominio',
+      'x-default': 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus',
+    },
+  },
 };
 
 const costRows = [

@@ -6,7 +6,16 @@ import MehrfamilienhausRechner, { MehrfamilienhausFaq } from '@/components/Mehrf
 export const metadata: Metadata = {
   title: 'Installation solaire immeuble Suisse : coûts, ZEC et rentabilité | PVPro.ch',
   description: 'Combien coûte une installation solaire pour un immeuble ? Coûts, ZEC, taille et rentabilité pour plusieurs logements en Suisse.',
-  alternates: { canonical: 'https://www.pvpro.ch/fr/solaire-immeuble' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/fr/solaire-immeuble',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus',
+      'fr-CH': 'https://www.pvpro.ch/fr/solaire-immeuble',
+      'en-CH': 'https://www.pvpro.ch/en/solar-apartment-building',
+      'it-CH': 'https://www.pvpro.ch/it/solare-condominio',
+      'x-default': 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus',
+    },
+  },
 };
 
 const costRows = [

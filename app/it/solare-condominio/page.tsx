@@ -6,7 +6,16 @@ import MehrfamilienhausRechner, { MehrfamilienhausFaq } from '@/components/Mehrf
 export const metadata: Metadata = {
   title: 'Impianto solare condominio Svizzera: costi, CEP e redditività | PVPro.ch',
   description: 'Quanto costa un impianto solare per un condominio? Costi, CEP, dimensioni e redditività per più unità abitative in Svizzera.',
-  alternates: { canonical: 'https://www.pvpro.ch/it/solare-condominio' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/it/solare-condominio',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus',
+      'fr-CH': 'https://www.pvpro.ch/fr/solaire-immeuble',
+      'en-CH': 'https://www.pvpro.ch/en/solar-apartment-building',
+      'it-CH': 'https://www.pvpro.ch/it/solare-condominio',
+      'x-default': 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus',
+    },
+  },
 };
 
 const costRows = [

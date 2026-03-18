@@ -6,7 +6,16 @@ import CtaAnfrage from '@/components/CtaAnfrage';
 export const metadata: Metadata = {
   title: 'Coût installation solaire Suisse 2026 – Prix d\'un panneau solaire | PVPro',
   description: 'Combien coûte une installation solaire en Suisse ? Prix 2026 : 15\'000 – 35\'000 CHF pour une maison individuelle. Coûts par kWp, subventions et stockage. Comparez des offres gratuitement.',
-  alternates: { canonical: 'https://www.pvpro.ch/fr/cout-installation-solaire' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/fr/cout-installation-solaire',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solaranlage-kosten',
+      'fr-CH': 'https://www.pvpro.ch/fr/cout-installation-solaire',
+      'en-CH': 'https://www.pvpro.ch/en/solar-panel-costs',
+      'it-CH': 'https://www.pvpro.ch/it/costi-impianto-solare',
+      'x-default': 'https://www.pvpro.ch/solaranlage-kosten',
+    },
+  },
 };
 
 const costTable = [

@@ -7,7 +7,16 @@ import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
 export const metadata: Metadata = {
   title: 'Installation solaire avec batterie : coûts, avantages et taille | PVPro.ch',
   description: 'Comment fonctionne une installation solaire avec batterie ? Coûts, avantages, taille du stockage et autoconsommation en Suisse.',
-  alternates: { canonical: 'https://www.pvpro.ch/fr/solaire-avec-batterie' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/fr/solaire-avec-batterie',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/solaranlage-mit-speicher',
+      'fr-CH': 'https://www.pvpro.ch/fr/solaire-avec-batterie',
+      'en-CH': 'https://www.pvpro.ch/en/solar-with-battery',
+      'it-CH': 'https://www.pvpro.ch/it/solare-con-accumulo',
+      'x-default': 'https://www.pvpro.ch/solaranlage-mit-speicher',
+    },
+  },
 };
 
 const avantages = [

@@ -6,7 +6,16 @@ import WieFunktioniertInteractive from '@/components/WieFunktioniertInteractive'
 export const metadata: Metadata = {
   title: 'Come funziona un impianto solare? Spiegato semplicemente (Svizzera) | PVPro.ch',
   description: 'Come funziona un impianto solare? Spiegazione semplice con esempi, produzione di energia e risposte alle domande frequenti sul fotovoltaico.',
-  alternates: { canonical: 'https://www.pvpro.ch/it/come-funziona-solare' },
+  alternates: {
+    canonical: 'https://www.pvpro.ch/it/come-funziona-solare',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/wie-funktioniert',
+      'fr-CH': 'https://www.pvpro.ch/fr/fonctionnement-solaire',
+      'en-CH': 'https://www.pvpro.ch/en/how-solar-works',
+      'it-CH': 'https://www.pvpro.ch/it/come-funziona-solare',
+      'x-default': 'https://www.pvpro.ch/wie-funktioniert',
+    },
+  },
 };
 
 export default function ComeFunzionaSolarePage() {
