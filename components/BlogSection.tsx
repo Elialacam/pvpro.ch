@@ -3,8 +3,48 @@ import Link from 'next/link';
 import { blogPosts } from '@/lib/blogPosts';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
-export default function BlogSection() {
+const labels: Record<string, { eyebrow: string; title: string; viewAll: string; viewAllMobile: string; blogHref: string; min: string }> = {
+  de: {
+    eyebrow: 'Blog & News',
+    title: 'Neuigkeiten & Ratgeber',
+    viewAll: 'Alle Artikel',
+    viewAllMobile: 'Alle Artikel ansehen',
+    blogHref: '/blog',
+    min: 'Min.',
+  },
+  fr: {
+    eyebrow: 'Blog & Actualités',
+    title: 'Actualités & Conseils',
+    viewAll: 'Tous les articles',
+    viewAllMobile: 'Voir tous les articles',
+    blogHref: '/fr/blog',
+    min: 'min.',
+  },
+  en: {
+    eyebrow: 'Blog & News',
+    title: 'News & Guides',
+    viewAll: 'All articles',
+    viewAllMobile: 'View all articles',
+    blogHref: '/en/blog',
+    min: 'min.',
+  },
+  it: {
+    eyebrow: 'Blog & Notizie',
+    title: 'Notizie & Consigli',
+    viewAll: 'Tutti gli articoli',
+    viewAllMobile: 'Vedi tutti gli articoli',
+    blogHref: '/it/blog',
+    min: 'min.',
+  },
+};
+
+interface Props {
+  locale?: string;
+}
+
+export default function BlogSection({ locale = 'de' }: Props) {
   const featured = blogPosts.slice(0, 3);
+  const t = labels[locale] ?? labels.de;
 
   return (
     <section className="py-20 bg-gray-50">
@@ -13,16 +53,16 @@ export default function BlogSection() {
         {/* Header */}
         <div className="flex items-end justify-between mb-12">
           <div>
-            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-2">Blog & News</p>
+            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-2">{t.eyebrow}</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
-              Neuigkeiten & Ratgeber
+              {t.title}
             </h2>
           </div>
           <Link
-            href="/blog"
+            href={t.blogHref}
             className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-gray-900 transition-colors group"
           >
-            Alle Artikel
+            {t.viewAll}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
@@ -67,7 +107,7 @@ export default function BlogSection() {
                   </span>
                   <span className="flex items-center gap-1">
                     <Clock className="w-3.5 h-3.5" />
-                    {post.readMin} Min.
+                    {post.readMin} {t.min}
                   </span>
                 </div>
               </div>
@@ -78,10 +118,10 @@ export default function BlogSection() {
         {/* Mobile CTA */}
         <div className="mt-10 text-center sm:hidden">
           <Link
-            href="/blog"
+            href={t.blogHref}
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#F97316]"
           >
-            Alle Artikel ansehen <ArrowRight className="w-4 h-4" />
+            {t.viewAllMobile} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 

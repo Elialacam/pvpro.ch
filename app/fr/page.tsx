@@ -3,6 +3,7 @@ import HowItWorks from '@/components/HowItWorks';
 import Testimonials from '@/components/Testimonials';
 import TeamSection from '@/components/TeamSection';
 import SwissMap from '@/components/SwissMap';
+import BlogSection from '@/components/BlogSection';
 import FAQ from '@/components/FAQ';
 import { cities } from '@/lib/cities';
 import Link from 'next/link';
@@ -111,6 +112,7 @@ export default function FrenchHomePage() {
         </div>
       </section>
 
+      <BlogSection locale="fr" />
       <FAQ />
     </>
   );
