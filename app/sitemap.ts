@@ -66,23 +66,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   );
 
-  // ── Förderungen / Subventions pages ──────────────────────────────────────────
-  const foerderungPages = [
-    ...entry(
-      '/foerderungen-photovoltaik',
-      '/fr/subventions-solaires',
-      '/en/solar-subsidies',
-      '/it/incentivi-solari',
-      0.85,
-    ),
-  ];
-
-  // ── Landing pages (DE only – no translations) ─────────────────────────────
-  const deOnlyPages = [
-    { url: `${BASE}/lokale-installateure`, lastModified: NOW, changeFrequency: 'weekly' as Freq, priority: 0.9 },
-    { url: `${BASE}/stromkosten-senken`, lastModified: NOW, changeFrequency: 'weekly' as Freq, priority: 0.9 },
-  ];
-
   // ── Canton pages ─────────────────────────────────────────────────────────────
   const deCities   = cities.filter(c => c.language === 'de');
   const frCities   = cities.filter(c => c.language === 'fr');
@@ -121,8 +104,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...corePages,
     ...blogListPages,
     ...blogPostPages,
-    ...foerderungPages,
-    ...deOnlyPages,
     ...deCityPages,
     ...frCityPages,
     ...itCityPages,
