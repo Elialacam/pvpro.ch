@@ -1,0 +1,135 @@
+Crea una nuova pagina sul sito pvpro.ch con URL /solaranlage-offerte-einholen.
+Crea anche le versioni nelle altre lingue:
+
+Francese: /fr/demander-offre-panneau-solaire
+Inglese: /en/get-solar-panel-quotes
+Italiano: /it/richiedere-preventivo-solare
+
+SEO TECNICO — aggiungi esattamente questi valori per la versione tedesca:
+
+Title tag: Solaranlage Offerte einholen Schweiz 2026 – Kostenlos & unverbindlich | PVPro.ch
+Meta description: Kostenlose Offerten für Ihre Solaranlage in der Schweiz einholen. Bis zu 3 Angebote von zertifizierten Installateuren in Ihrer Region. Jetzt vergleichen und sparen.
+H1: Offerten für Photovoltaikanlagen einholen in der Schweiz
+Canonical URL: https://www.pvpro.ch/solaranlage-offerte-einholen
+Lingua: de
+
+
+CONTENUTO DELLA PAGINA:
+[Tag categoria]
+Offerten & Preise
+[H1]
+Offerten für Photovoltaikanlagen einholen in der Schweiz
+[Testo introduttivo]
+Wer eine Solaranlage kaufen möchte, sollte nie beim ersten Angebot unterschreiben. In der Schweiz können die Preise für die gleiche Anlage je nach Installateur um mehrere tausend Franken variieren. PVPro.ch ermöglicht es Ihnen, kostenlos bis zu 3 Offerten von geprüften lokalen Installateuren einzuholen — in weniger als 2 Minuten.
+[3 Stat-Boxen orizzontali]
+
+Box 1: Kostenlos / kein Risiko, kein Versteck
+Box 2: 24–48 Stunden / bis zur ersten Offerte
+Box 3: Bis zu 4'000 CHF / mögliche Ersparnis durch Vergleich
+
+
+[H2] Warum mehrere Offerten einholen?
+Viele Hausbesitzer in der Schweiz machen denselben Fehler: Sie fragen nur einen Installateur an und akzeptieren das erste Angebot. Was die meisten nicht wissen ist, dass für exakt die gleiche Anlage — gleiche Module, gleicher Wechselrichter, gleiche Leistung — die Preise zwischen verschiedenen Installateuren um bis zu 4'000 Franken variieren können.
+Der Grund dafür ist einfach: Installateure kalkulieren unterschiedlich, haben verschiedene Einkaufskonditionen und unterschiedliche Margen. Wer vergleicht, gewinnt.
+
+[H2] Wie einfach ist es, Offerten einzuholen?
+Früher bedeutete Offerten einholen: selbst recherchieren, anrufen, Termine vereinbaren, warten. Mit PVPro.ch geht das in 3 Schritten:
+Schritt 1 — Formular ausfüllen (2 Minuten)
+Sie beschreiben Ihre Situation: Dachfläche, Stromverbrauch, Kanton, gewünschte Optionen wie Batteriespeicher oder Wärmepumpe.
+Schritt 2 — Offerten erhalten (24–48 Stunden)
+Bis zu 3 zertifizierte Installateure aus Ihrer Region schicken Ihnen massgeschneiderte Angebote direkt zu.
+Schritt 3 — Vergleichen und entscheiden
+Sie vergleichen Preise, Komponenten und Referenzen — und wählen frei. Keine Verpflichtung, kein Druck.
+
+[H2] Was steht in einer guten Offerte?
+Eine seriöse Offerte für eine Solaranlage enthält immer folgende Punkte:
+
+Anlagengrösse in kWp und Anzahl Module
+Modultyp und Hersteller mit technischen Daten
+Wechselrichter — Marke und Leistung
+Montagesystem — passend für Ihren Dachtyp
+Installationskosten separat ausgewiesen
+Geschätzte Jahresproduktion in kWh
+Förderung (EIV) bereits abgezogen oder separat ausgewiesen
+Garantien auf Module, Wechselrichter und Montage
+Amortisationszeit als Richtwert
+
+Wenn eine Offerte diese Punkte nicht enthält, sollten Sie nachfragen.
+
+[H2] Was kostet es, Offerten einzuholen?
+Bei PVPro.ch ist das Einholen von Offerten für Hausbesitzer vollständig kostenlos. Es gibt keine versteckten Gebühren, keine Abo-Kosten und keine Verpflichtung zur Auftragserteilung. Wir finanzieren uns über eine Vermittlungsgebühr, die der beauftragte Installateur bezahlt — nicht Sie.
+
+[H2] Für welche Gebäudetypen kann ich Offerten einholen?
+Über PVPro.ch können Sie Offerten für folgende Gebäudetypen einholen:
+
+Einfamilienhaus — die häufigste Anfrage, typisch 8–12 kWp
+Mehrfamilienhaus — grössere Anlagen mit ZEV-Modell
+Gewerbegebäude — auch für Firmen und Landwirtschaft
+
+
+[H2] Häufig gestellte Fragen
+Füge queste come FAQ a fisarmonica (Accordion), con schema JSON-LD FAQPage:
+F: Wie viele Offerten erhalte ich über PVPro.ch?
+A: Sie erhalten bis zu 3 massgeschneiderte Offerten von zertifizierten Installateuren aus Ihrer Region. So haben Sie sofort eine Vergleichsbasis.
+F: Wie schnell erhalte ich die Offerten?
+A: In den meisten Fällen erhalten Sie die ersten Offerten innerhalb von 24 bis 48 Stunden nach Ihrer Anfrage.
+F: Bin ich nach der Anfrage zu etwas verpflichtet?
+A: Nein. Die Anfrage ist vollständig kostenlos und unverbindlich. Sie entscheiden frei, ob und welches Angebot Sie annehmen.
+F: Erhalte ich Werbeanrufe nach meiner Anfrage?
+A: Nein. PVPro.ch garantiert, dass Sie keine unerwünschten Werbeanrufe erhalten. Nur die Installateure, die Ihnen ein Angebot schicken, nehmen Kontakt auf.
+F: Kann ich auch für ein Mehrfamilienhaus Offerten einholen?
+A: Ja. PVPro.ch vermittelt Offerten für alle Gebäudetypen — Einfamilienhäuser, Mehrfamilienhäuser und Gewerbegebäude.
+F: Was passiert, wenn mir keine Offerte gefällt?
+A: Sie sind zu nichts verpflichtet. Sie können alle Offerten ablehnen, ohne irgendwelche Kosten zu tragen.
+
+[CTA Box finale — stesso stile delle altre pagine]
+Titel: Jetzt kostenlos bis zu 3 Offerten einholen
+Text: In 2 Minuten Formular ausfüllen — und bis zu 3 Offerten von zertifizierten Installateuren aus Ihrer Region erhalten. Kostenlos, unverbindlich, ohne Werbeanrufe.
+Button: Kostenlose Offerte anfordern → link a /anfrage
+
+LINK INTERNI — aggiungi questi link nel testo della pagina dove pertinente:
+
+Dove menzioni "Einmalvergütung (EIV)" → linka a /foerderungen
+Dove menzioni "Batteriespeicher" → linka a /solaranlage-mit-speicher
+Dove menzioni "Einfamilienhaus" → linka a /solaranlage-einfamilienhaus
+Dove menzioni "Mehrfamilienhaus" → linka a /solaranlage-mehrfamilienhaus
+Dove menzioni "Kosten" → linka a /solaranlage-kosten
+Dove menzioni "Vergleichsportal" → linka a /vergleichsportal-photovoltaik-schweiz
+
+
+LINK INTERNI INVERSI — aggiungi un link a questa nuova pagina nelle seguenti pagine esistenti:
+
+/solaranlage-kosten → aggiungi un link con anchor text Kostenlose Offerten einholen che punta a /solaranlage-offerte-einholen
+/vergleichsportal-photovoltaik-schweiz → aggiungi un link con anchor text Offerten einholen und vergleichen che punta a /solaranlage-offerte-einholen
+/solaranlage-einfamilienhaus → aggiungi un link con anchor text Jetzt Offerten einholen che punta a /solaranlage-offerte-einholen
+/solaranlage-mehrfamilienhaus → aggiungi un link con anchor text Offerten für Ihr Mehrfamilienhaus che punta a /solaranlage-offerte-einholen
+/solaranlage-installieren-schweiz → aggiungi un link con anchor text Kostenlose Offerten vergleichen che punta a /solaranlage-offerte-einholen
+
+
+SITEMAP — aggiungi queste righe nel file sitemap.xml:
+xml<url>
+  <loc>https://www.pvpro.ch/solaranlage-offerte-einholen</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/fr/demander-offre-panneau-solaire</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/en/get-solar-panel-quotes</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/it/richiedere-preventivo-solare</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+STILE VISIVO — usa esattamente lo stesso layout e componenti delle pagine esistenti come /solaranlage-mit-speicher e /bewilligungspflicht-solaranlage-schweiz. Stesso header, stesso footer, stessi colori, stessi componenti accordion per le FAQ, stessa stat-box orizzontale. Le tabelle devono essere stilizzate con lo stesso stile delle altre tabelle del sito.

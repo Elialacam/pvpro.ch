@@ -380,6 +380,10 @@ export default function FoerderungenPage() {
               Kostenlose Offerte anfordern
               <ArrowRight className="w-4 h-4" />
             </Link>
+            <p className="text-gray-500 text-sm mt-4">
+              Oder zuerst Anbieter vergleichen:{' '}
+              <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#F97316] hover:underline font-medium">Geprüfte Installateure finden</Link>
+            </p>
           </div>
         </div>
       </section>

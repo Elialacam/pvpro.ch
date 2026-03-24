@@ -447,6 +447,10 @@ export default function SolaranlageKostenPage() {
               subtitle="Vergleichen Sie bis zu 3 Angebote von geprüften Schweizer Solarteuren. In 2 Minuten fertig."
               ctaText="Kostenlose Offerte anfordern"
             />
+            <p className="text-center text-sm text-gray-500 mt-4">
+              Möchten Sie zuerst Anbieter vergleichen?{' '}
+              <a href="/vergleichsportal-photovoltaik-schweiz" className="text-[#F97316] hover:underline font-medium">Anbieter kostenlos vergleichen</a>
+            </p>
           </div>
         </div>
       </section>

@@ -345,6 +345,10 @@ export default function SolaranlageEinfamilienhausPage() {
           >
             Kostenlose Offerte anfordern →
           </Link>
+          <p className="text-gray-500 text-sm mt-5">
+            Möchten Sie zuerst Anbieter vergleichen?{' '}
+            <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#F97316] hover:underline font-medium">Photovoltaik Anbieter vergleichen</Link>
+          </p>
         </section>
 
       </div>
