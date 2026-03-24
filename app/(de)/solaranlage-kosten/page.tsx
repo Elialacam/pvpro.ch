@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Solaranlage Kosten Schweiz 2025 – Was kostet eine Solaranlage? | PVPro',
+  title: 'Solaranlage Kosten Schweiz 2026 – Was kostet eine Solaranlage? | PVPro',
   description: 'Was kostet eine Solaranlage in der Schweiz? Aktuelle Preise 2025: 15\'000 – 35\'000 CHF für ein Einfamilienhaus. Kosten pro kWp, Förderungen und Speicher. Kostenlose Offerten vergleichen.',
   keywords: [
     'Solaranlage Kosten Schweiz',
