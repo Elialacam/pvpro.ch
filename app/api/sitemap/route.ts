@@ -116,6 +116,7 @@ ${entry4('/wie-funktioniert', '/fr/fonctionnement-solaire', '/en/how-solar-works
 ${entry4('/foerderungen', '/fr/subventions-solaires', '/en/solar-subsidies', '/it/incentivi-solari', 0.85)}
 ${entry4('/vergleichsportal-photovoltaik-schweiz', '/fr/comparateur-photovoltaique-suisse', '/en/solar-comparison-portal-switzerland', '/it/comparatore-fotovoltaico-svizzera', 0.85)}
 ${entry4('/solaranlage-installieren-schweiz', '/fr/installer-panneau-solaire-suisse', '/en/solar-panel-installation-switzerland', '/it/installare-impianto-solare-svizzera', 0.85)}
+${entry4('/solaranlage-offerte-einholen', '/fr/demander-offre-panneau-solaire', '/en/get-solar-panel-quotes', '/it/richiedere-preventivo-solare', 0.85)}
 ${entry4('/faq', '/fr/faq', '/en/faq', '/it/faq', 0.75)}
 ${entry4('/ueber-uns', '/fr/a-propos', '/en/about-us', '/it/chi-siamo', 0.7)}
 ${entry4('/anfrage', '/fr/demande', '/en/request', '/it/richiesta', 0.8)}

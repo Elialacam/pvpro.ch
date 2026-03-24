@@ -452,6 +452,8 @@ export default function SolaranlageKostenPage() {
               <a href="/vergleichsportal-photovoltaik-schweiz" className="text-[#F97316] hover:underline font-medium">Anbieter kostenlos vergleichen</a>
               {' '}·{' '}
               <a href="/solaranlage-installieren-schweiz" className="text-[#F97316] hover:underline font-medium">Was kostet die Installation?</a>
+              {' '}·{' '}
+              <a href="/solaranlage-offerte-einholen" className="text-[#F97316] hover:underline font-medium">Kostenlose Offerten einholen</a>
             </p>
           </div>
         </div>

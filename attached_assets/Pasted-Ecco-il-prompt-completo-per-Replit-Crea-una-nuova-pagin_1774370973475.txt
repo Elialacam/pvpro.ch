@@ -1,0 +1,140 @@
+Ecco il prompt completo per Replit:
+
+Crea una nuova pagina sul sito pvpro.ch con URL /photovoltaik-wartung-kosten.
+Crea anche le versioni nelle altre lingue:
+
+Francese: /fr/entretien-photovoltaique-couts
+Inglese: /en/solar-panel-maintenance-costs
+Italiano: /it/manutenzione-fotovoltaico-costi
+
+SEO TECNICO — aggiungi esattamente questi valori per la versione tedesca:
+
+Title tag: Photovoltaik Wartung Kosten Schweiz 2026 – Was kostet die Wartung? | PVPro.ch
+Meta description: Was kostet die Wartung einer Photovoltaikanlage in der Schweiz? Reinigung, Inspektion, Reparatur — alle Kosten im Überblick. Jetzt informieren auf PVPro.ch.
+H1: Wartung einer Photovoltaikanlage in der Schweiz — Kosten und Ablauf
+Canonical URL: https://www.pvpro.ch/photovoltaik-wartung-kosten
+Lingua: de
+
+
+CONTENUTO DELLA PAGINA:
+[Tag categoria]
+Wartung & Betrieb
+[H1]
+Wartung einer Photovoltaikanlage in der Schweiz — Kosten und Ablauf
+[Testo introduttivo]
+Eine Photovoltaikanlage ist wartungsarm — aber nicht wartungsfrei. Wer seine Anlage regelmässig kontrolliert und pflegt, sichert die volle Leistung über die gesamte Lebensdauer von 25–30 Jahren. Diese Seite erklärt, was bei der Wartung anfällt, was es kostet und wie oft man die Anlage kontrollieren sollte.
+[3 Stat-Boxen orizzontali]
+
+Box 1: 150–300 CHF / typische Wartungskosten pro Jahr
+Box 2: 1x pro Jahr / empfohlene Inspektion
+Box 3: 25–30 Jahre / Lebensdauer bei guter Pflege
+
+
+[H2] Warum ist Wartung wichtig?
+Eine vernachlässigte Anlage produziert weniger Strom — oft ohne dass der Besitzer es merkt. Verschmutzte Module, lockere Verbindungen oder ein alternder Wechselrichter können die Produktion um 10–20% reduzieren. Regelmässige Wartung schützt Ihre Investition und stellt sicher, dass die Anlage immer auf dem optimalen Niveau läuft.
+
+[H2] Was umfasst die Wartung einer Solaranlage?
+Sichtprüfung der Module
+Einmal pro Jahr sollten die Module auf Verschmutzung, Risse, Verfärbungen oder Schäden geprüft werden. Vogelkot, Laub und Moos können die Produktion merklich reduzieren.
+Reinigung der Module
+In der Schweiz reicht meist der Regen, um die Module sauber zu halten. In staubigen Regionen oder bei starker Vogelbelastung kann eine manuelle Reinigung sinnvoll sein.
+Inspektion des Wechselrichters
+Der Wechselrichter ist das Herzstück der Anlage. Er sollte jährlich auf Fehler, Überhitzung und korrekte Funktion geprüft werden.
+Kontrolle der elektrischen Verbindungen
+Kabelverbindungen, Stecker und Anschlüsse können sich mit der Zeit lockern. Eine regelmässige Prüfung verhindert Ausfälle und Brandrisiken.
+Monitoring der Produktion
+Moderne Anlagen haben ein digitales Monitoring. Wer die Produktionsdaten regelmässig verfolgt, erkennt Abweichungen sofort.
+Dachkontrolle
+Bei der Jahresinspektion sollte auch das Dach rund um die Montage geprüft werden — auf Dichtigkeit und Stabilität der Unterkonstruktion.
+
+[H2] Was kostet die Wartung einer Solaranlage in der Schweiz?
+LeistungKosten (Richtwert)Jährliche Inspektion (ohne Reinigung)100–200 CHFModulreinigung100–300 CHF je nach GrösseWechselrichter-Austausch (nach 10–15 Jahren)1'500–3'000 CHFReparatur Kleinschäden200–500 CHFJährliche Gesamtkosten (Durchschnitt)150–300 CHF/Jahr
+Über die gesamte Lebensdauer von 25 Jahren entspricht das Wartungskosten von ca. 4'000–7'500 CHF — ein kleiner Betrag im Vergleich zur Gesamtinvestition.
+
+[H2] Wie oft sollte eine Solaranlage gewartet werden?
+MassnahmeHäufigkeitVisuelle Kontrolle2x pro Jahr (empfohlen)Professionelle Inspektion1x pro JahrModulreinigungNach Bedarf, mind. 1x pro JahrWechselrichter prüfen1x pro JahrElektrische KontrolleAlle 2–3 JahreWechselrichter ersetzenNach 10–15 Jahren
+
+[H2] Kann ich die Wartung selbst machen?
+Die Sichtprüfung und einfache Reinigung kann der Hausbesitzer selbst übernehmen. Für alles Elektrische — Verbindungen, Wechselrichter, Anschlüsse — muss zwingend ein zertifizierter Fachbetrieb beauftragt werden. Arbeiten auf dem Dach sollten aus Sicherheitsgründen immer von Profis durchgeführt werden.
+
+[H2] Welche Garantien gibt es auf eine Solaranlage?
+
+Module: 25–30 Jahre Leistungsgarantie (mind. 80% der Nennleistung)
+Wechselrichter: 5–12 Jahre Herstellergarantie, verlängerbar
+Montage: Abhängig vom Installateur, typisch 5–10 Jahre
+
+Ein guter Installateur erklärt Ihnen alle Garantien transparent vor dem Kauf.
+
+[H2] Häufig gestellte Fragen
+Füge queste come FAQ a fisarmonica (Accordion), con schema JSON-LD FAQPage:
+F: Muss ich meine Solaranlage regelmässig reinigen?
+A: In der Schweiz reicht in den meisten Fällen der Regen. Bei starker Vogelbelastung oder in staubigen Regionen empfiehlt sich eine manuelle Reinigung einmal pro Jahr.
+F: Was kostet ein Wartungsvertrag für eine Solaranlage?
+A: Viele Installateure bieten Wartungsverträge für 150–300 CHF pro Jahr an, die eine jährliche Inspektion und kleinere Reparaturen umfassen.
+F: Wie lange hält ein Wechselrichter?
+A: Wechselrichter halten typischerweise 10–15 Jahre. Ein Austausch kostet je nach Modell zwischen 1'500 und 3'000 CHF.
+F: Verliere ich die Garantie, wenn ich die Wartung selbst mache?
+A: Die Sichtprüfung und Reinigung der Module können Sie selbst übernehmen, ohne die Garantie zu verlieren. Elektrische Arbeiten müssen jedoch von einem zertifizierten Fachbetrieb durchgeführt werden.
+F: Wie erkenne ich, ob meine Anlage nicht optimal produziert?
+A: Über das digitale Monitoring des Wechselrichters können Sie die tägliche Produktion verfolgen. Weicht die Produktion ohne ersichtlichen Grund deutlich vom Vorjahr ab, sollten Sie eine Inspektion anfordern.
+F: Wer kann die Wartung meiner Solaranlage übernehmen?
+A: Zertifizierte Schweizer Installateure bieten Wartungsservices an. PVPro.ch vermittelt auf Anfrage auch Servicepartner für bestehende Anlagen.
+
+[CTA Box finale — stesso stile delle altre pagine]
+Titel: Jetzt Wartungsanfrage stellen
+Text: Haben Sie eine bestehende Anlage, die gewartet werden muss? Oder planen Sie eine neue Anlage und möchten gleich einen Wartungsvertrag abschliessen? Wir vermitteln Ihnen den richtigen Partner.
+Button: Kostenlose Offerte anfordern → link a /anfrage
+
+LINK INTERNI — aggiungi questi link nel testo della pagina dove pertinente:
+
+Dove menzioni "Wechselrichter" → linka a /wie-funktioniert
+Dove menzioni "Garantien" → linka a /solaranlage-kosten
+Dove menzioni "Batteriespeicher" → linka a /solaranlage-mit-speicher
+Dove menzioni "Offerten vergleichen" → linka a /solaranlage-offerte-einholen
+Dove menzioni "Anbieter" → linka a /vergleichsportal-photovoltaik-schweiz
+Dove menzioni "Installation" → linka a /solaranlage-installieren-schweiz
+Dove menzioni "Komplettlösung" → linka a /photovoltaik-komplettloesung-schweiz
+
+
+LINK INTERNI INVERSI — aggiungi un link a questa nuova pagina nelle seguenti pagine esistenti:
+
+/solaranlage-kosten → aggiungi un link con anchor text Wartungskosten im Überblick che punta a /photovoltaik-wartung-kosten
+/wie-funktioniert → aggiungi un link con anchor text Wartung und Betrieb einer Solaranlage che punta a /photovoltaik-wartung-kosten
+/solaranlage-einfamilienhaus → aggiungi un link con anchor text Was kostet die Wartung?' che punta a /photovoltaik-wartung-kosten`
+/photovoltaik-komplettloesung-schweiz → aggiungi un link con anchor text Wartung der Komplettlösung che punta a /photovoltaik-wartung-kosten
+/blog/batteriespeicher-solaranlage-lohnt-sich → aggiungi un link con anchor text Wartungskosten Solaranlage' che punta a /photovoltaik-wartung-kosten`
+
+
+FOOTER — aggiungi il link a questa nuova pagina nella sezione "Notizie & Consigli" del footer:
+
+Wartung & Kosten → /photovoltaik-wartung-kosten
+Assicurati che il link appaia anche nelle versioni francese, inglese e italiana del footer con i rispettivi URL tradotti.
+
+
+SITEMAP — aggiungi queste righe nel file sitemap.xml:
+xml<url>
+  <loc>https://www.pvpro.ch/photovoltaik-wartung-kosten</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/fr/entretien-photovoltaique-couts</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/en/solar-panel-maintenance-costs</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/it/manutenzione-fotovoltaico-costi</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+STILE VISIVO — usa esattamente lo stesso layout e componenti delle pagine esistenti come /solaranlage-mit-speicher e /bewilligungspflicht-solaranlage-schweiz. Stesso header, stesso footer, stessi colori, stessi componenti accordion per le FAQ, stessa stat-box orizzontale. Le tabelle devono essere stilizzate con lo stesso stile delle altre tabelle del sito.

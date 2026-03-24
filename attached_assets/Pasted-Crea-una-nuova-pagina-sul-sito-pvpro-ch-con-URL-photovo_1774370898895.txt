@@ -1,0 +1,141 @@
+Crea una nuova pagina sul sito pvpro.ch con URL /photovoltaik-komplettloesung-schweiz.
+Crea anche le versioni nelle altre lingue:
+
+Francese: /fr/solution-complete-photovoltaique-suisse
+Inglese: /en/complete-solar-solution-switzerland
+Italiano: /it/soluzione-completa-fotovoltaico-svizzera
+
+SEO TECNICO — aggiungi esattamente questi valori per la versione tedesca:
+
+Title tag: Photovoltaik Komplettlösung Schweiz 2026 – Alles aus einer Hand | PVPro.ch
+Meta description: Welche Schweizer Firmen bieten Komplettlösungen für Photovoltaik Anlagen an? Module, Speicher, Wärmepumpe und Installation aus einer Hand. Jetzt vergleichen mit PVPro.ch.
+H1: Photovoltaik Komplettlösung in der Schweiz — alles aus einer Hand
+Canonical URL: https://www.pvpro.ch/photovoltaik-komplettloesung-schweiz
+Lingua: de
+
+
+CONTENUTO DELLA PAGINA:
+[Tag categoria]
+Komplettlösungen & Anbieter
+[H1]
+Photovoltaik Komplettlösung in der Schweiz — alles aus einer Hand
+[Testo introduttivo]
+Immer mehr Schweizer Hausbesitzer wollen nicht nur eine Solaranlage — sie wollen eine vollständige Energielösung: Photovoltaik, Batteriespeicher, Wärmepumpe und Elektroauto-Ladestation, alles koordiniert von einem einzigen Anbieter. Diese Seite erklärt, was eine Komplettlösung umfasst, was sie kostet und wie Sie den richtigen Anbieter finden.
+[3 Stat-Boxen orizzontali]
+
+Box 1: Bis zu 80% / Eigenverbrauch mit Komplettlösung
+Box 2: 1 Anbieter / für alles zuständig
+Box 3: 500+ / geprüfte Partner in der Schweiz
+
+
+[H2] Was ist eine Photovoltaik Komplettlösung?
+Eine Komplettlösung kombiniert mehrere Energietechnologien zu einem integrierten System:
+Photovoltaikanlage
+Die Basis jeder Komplettlösung. Produziert Strom aus Sonnenenergie für den Eigenverbrauch und die Einspeisung ins Netz.
+Batteriespeicher
+Speichert überschüssigen Solarstrom für die Nutzung abends und nachts. Erhöht den Eigenverbrauch von ca. 30% auf bis zu 70%.
+Wärmepumpe
+Nutzt den selbst produzierten Solarstrom für Heizung und Warmwasser. Eine der effektivsten Möglichkeiten, den Eigenverbrauch zu maximieren.
+Elektroauto-Ladestation (Wallbox)
+Lädt das Elektroauto direkt mit Solarstrom — besonders wirtschaftlich und nachhaltig.
+Energiemanagementsystem
+Steuert automatisch, wann welche Energie wohin fliesst — für maximale Effizienz ohne manuellen Aufwand.
+
+[H2] Was kostet eine Komplettlösung in der Schweiz?
+Die Kosten hängen davon ab, welche Komponenten enthalten sind:
+KomponenteKosten (Richtwert)Photovoltaikanlage 10 kWp22'000 – 30'000 CHFBatteriespeicher 10 kWh7'000 – 10'000 CHFWärmepumpe15'000 – 25'000 CHFWallbox (Ladestation)1'500 – 3'000 CHFEnergiemanagementsystem1'000 – 3'000 CHFGesamtpaketca. 40'000 – 70'000 CHF
+Nach Abzug aller Förderungen — EIV, Wärmepumpenförderung, kantonale Beiträge — reduzieren sich die Kosten erheblich. Der Eigenverbrauch kann auf bis zu 80% steigen, was die Amortisationszeit deutlich verkürzt.
+
+[H2] Vorteile einer Komplettlösung gegenüber Einzelkomponenten
+Wer alles beim gleichen Anbieter kauft, profitiert von mehreren Vorteilen:
+
+Optimale Abstimmung — alle Komponenten sind aufeinander abgestimmt und kommunizieren miteinander
+Ein Ansprechpartner — bei Fragen oder Problemen gibt es nur eine Anlaufstelle
+Bessere Preise — Paketpreise sind oft günstiger als Einzelkäufe
+Einfachere Förderbeantragung — ein Installateur kümmert sich um alle Förderanträge
+Garantien aus einer Hand — keine Diskussion zwischen verschiedenen Anbietern
+
+
+[H2] Worauf achten bei der Wahl eines Komplettlösungs-Anbieters?
+Nicht jeder Installateur bietet echte Komplettlösungen an. Das sollten Sie prüfen:
+
+Hat der Anbieter Erfahrung mit allen Komponenten — nicht nur mit Modulen?
+Bietet er ein integriertes Energiemanagementsystem an?
+Kann er die Wärmepumpe und die Wallbox selbst installieren oder nur vermitteln?
+Gibt es Referenzprojekte mit vergleichbaren Komplettlösungen?
+Sind alle Förderanträge im Service inbegriffen?
+
+PVPro.ch vermittelt Installateure, die Komplettlösungen aus einer Hand anbieten — geprüft und zertifiziert.
+
+[H2] Häufig gestellte Fragen
+Füge queste come FAQ a fisarmonica (Accordion), con schema JSON-LD FAQPage:
+F: Lohnt sich eine Komplettlösung mit Wärmepumpe und Solaranlage?
+A: Ja, in den meisten Fällen. Wer seine Wärmepumpe mit selbst produziertem Solarstrom betreibt, reduziert die Heizkosten erheblich und maximiert den Eigenverbrauch. Die Amortisationszeit verkürzt sich deutlich.
+F: Kann ich eine Komplettlösung auch schrittweise aufbauen?
+A: Ja. Viele Hausbesitzer starten mit der Solaranlage und fügen später Batteriespeicher, Wallbox oder Wärmepumpe hinzu. Wichtig ist, dass die Anlage von Anfang an entsprechend dimensioniert wird.
+F: Welche Förderungen gibt es für Komplettlösungen?
+A: Für jede Komponente gibt es separate Förderungen — EIV für die Solaranlage, kantonale Beiträge für die Wärmepumpe, und weitere Programme je nach Kanton. Ein erfahrener Installateur kennt alle relevanten Fördermöglichkeiten.
+F: Wie finde ich einen Anbieter für Komplettlösungen in meiner Region?
+A: PVPro.ch vermittelt kostenlos zertifizierte Installateure, die Komplettlösungen anbieten. Einfach Formular ausfüllen und bis zu 3 Offerten erhalten.
+F: Kann ich meine bestehende Solaranlage um einen Speicher oder eine Wallbox erweitern?
+A: Ja, in den meisten Fällen ist eine Erweiterung möglich. Ein zertifizierter Installateur prüft die Kompatibilität und erstellt eine Offerte für die Erweiterung.
+
+[CTA Box finale — stesso stile delle altre pagine]
+Titel: Jetzt Komplettlösung anfragen
+Text: Füllen Sie unser Formular aus und erhalten Sie bis zu 3 Offerten von zertifizierten Installateuren, die Komplettlösungen aus einer Hand anbieten — kostenlos und unverbindlich.
+Button: Kostenlose Offerte anfordern → link a /anfrage
+
+LINK INTERNI — aggiungi questi link nel testo della pagina dove pertinente:
+
+Dove menzioni "Batteriespeicher" → linka a /solaranlage-mit-speicher
+Dove menzioni "Einmalvergütung (EIV)" → linka a /foerderungen
+Dove menzioni "Förderungen" → linka a /foerderungen
+Dove menzioni "Eigenverbrauch" → linka a /blog/eigenverbrauch-optimieren-solar
+Dove menzioni "Offerten vergleichen" → linka a /solaranlage-offerte-einholen
+Dove menzioni "Anbieter vergleichen" → linka a /vergleichsportal-photovoltaik-schweiz
+Dove menzioni "Installation" → linka a /solaranlage-installieren-schweiz
+Dove menzioni "Kosten" → linka a /solaranlage-kosten
+
+
+LINK INTERNI INVERSI — aggiungi un link a questa nuova pagina nelle seguenti pagine esistenti:
+
+/solaranlage-mit-speicher → aggiungi un link con anchor text Photovoltaik Komplettlösung mit Speicher che punta a /photovoltaik-komplettloesung-schweiz
+/solaranlage-einfamilienhaus → aggiungi un link con anchor text Komplettlösung für Ihr Einfamilienhaus che punta a /photovoltaik-komplettloesung-schweiz
+/solaranlage-mehrfamilienhaus → aggiungi un link con anchor text Komplettlösung für Mehrfamilienhäuser che punta a /photovoltaik-komplettloesung-schweiz
+/vergleichsportal-photovoltaik-schweiz → aggiungi un link con anchor text Anbieter für Komplettlösungen' che punta a /photovoltaik-komplettloesung-schweiz`
+/solaranlage-offerte-einholen → aggiungi un link con anchor text Offerte für Komplettlösung anfragen che punta a /photovoltaik-komplettloesung-schweiz
+
+
+FOOTER — aggiungi il link a questa nuova pagina nella sezione "Notizie & Consigli" del footer:
+
+Photovoltaik Komplettlösung → /photovoltaik-komplettloesung-schweiz
+Assicurati che il link appaia anche nelle versioni francese, inglese e italiana del footer con i rispettivi URL tradotti.
+
+
+SITEMAP — aggiungi queste righe nel file sitemap.xml:
+xml<url>
+  <loc>https://www.pvpro.ch/photovoltaik-komplettloesung-schweiz</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/fr/solution-complete-photovoltaique-suisse</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/en/complete-solar-solution-switzerland</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/it/soluzione-completa-fotovoltaico-svizzera</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+STILE VISIVO — usa esattamente lo stesso layout e componenti delle pagine esistenti come /solaranlage-mit-speicher e /bewilligungspflicht-solaranlage-schweiz. Stesso header, stesso footer, stessi colori, stessi componenti accordion per le FAQ, stessa stat-box orizzontale. Le tabelle devono essere stilizzate con lo stesso stile delle altre tabelle del sito.

@@ -1,0 +1,144 @@
+Crea una nuova pagina sul sito pvpro.ch con URL /photovoltaik-installation-schweiz.
+Crea anche le versioni nelle altre lingue:
+
+Francese: /fr/installation-photovoltaique-suisse
+Inglese: /en/solar-panel-installation-process-switzerland
+Italiano: /it/processo-installazione-fotovoltaico-svizzera
+
+SEO TECNICO — aggiungi esattamente questi valori per la versione tedesca:
+
+Title tag: Photovoltaik Installation Schweiz 2026 – Ablauf, Dauer & Kosten | PVPro.ch
+Meta description: Wie funktioniert die Installation einer Photovoltaik Anlage in der Schweiz? Ablauf, Dauer, Kosten und was Sie beachten müssen — alles erklärt von PVPro.ch.
+H1: Wie funktioniert die Installation einer Photovoltaik Anlage in der Schweiz?
+Canonical URL: https://www.pvpro.ch/photovoltaik-installation-schweiz
+Lingua: de
+
+
+CONTENUTO DELLA PAGINA:
+[Tag categoria]
+Installation & Ablauf
+[H1]
+Wie funktioniert die Installation einer Photovoltaik Anlage in der Schweiz?
+[Testo introduttivo]
+Von der ersten Anfrage bis zum ersten selbst produzierten Strom — die Installation einer Photovoltaikanlage in der Schweiz läuft in klar definierten Schritten ab. Wer weiss, was ihn erwartet, kann besser planen und die richtigen Entscheidungen treffen. Diese Seite erklärt den gesamten Prozess Schritt für Schritt.
+[3 Stat-Boxen orizzontali]
+
+Box 1: 1–3 Tage / Montagedauer EFH
+Box 2: 4–12 Wochen / Vorlaufzeit ab Auftrag
+Box 3: Schlüsselfertig / Installateur übernimmt alles
+
+
+[H2] Der komplette Ablauf einer Photovoltaik Installation
+Phase 1 — Planung und Offerte (1–2 Wochen)
+Alles beginnt mit einer Bedarfsanalyse. Ein zertifizierter Installateur besucht Ihr Gebäude, analysiert Dachfläche, Ausrichtung, Neigung und Verschattung. Auf dieser Basis erstellt er eine massgeschneiderte Offerte mit Anlagengrösse, Komponenten und Kosten.
+Phase 2 — Bewilligung und Meldung (1–4 Wochen)
+In den meisten Fällen ist eine Solaranlage auf dem Dach bewilligungsfrei — es genügt eine einfache Meldung bei der Gemeinde. In Ausnahmefällen (Denkmalschutz, freistehende Anlagen) ist ein Baugesuch nötig. Der Installateur übernimmt diesen Schritt für Sie.
+Phase 3 — Materialbeschaffung (2–6 Wochen)
+Nach Auftragserteilung werden Module, Wechselrichter, Montagesystem und allfälliger Batteriespeicher bestellt. Die Lieferzeiten variieren je nach Hersteller und Saison.
+Phase 4 — Montage (1–3 Tage)
+Das Montageteam installiert die Unterkonstruktion auf dem Dach, befestigt die Module, verlegt die DC-Kabel und installiert den Wechselrichter im Gebäude. Bei grösseren Anlagen dauert die Montage länger.
+Phase 5 — Elektrischer Anschluss und Inbetriebnahme (1 Tag)
+Ein zertifizierter Elektriker schliesst die Anlage ans Hausnetz an und nimmt sie in Betrieb. Die Anlage wird konfiguriert und getestet.
+Phase 6 — Anmeldung und Förderung (2–4 Wochen)
+Der Installateur meldet die Anlage beim lokalen Netzbetreiber an und stellt den Antrag für die Einmalvergütung (EIV) bei Pronovo. Die Auszahlung erfolgt einige Monate später.
+
+[H2] Wie lange dauert der gesamte Prozess?
+PhaseDauerPlanung und Offerte1–2 WochenBewilligung / Meldung1–4 WochenMaterialbeschaffung2–6 WochenMontage1–3 TageAnschluss und Inbetriebnahme1 TagAnmeldung EIV2–4 WochenGesamtdauer ab Auftrag4–12 Wochen
+Der grösste Zeitfaktor ist oft die Auslastung des Installateurs und die Lieferzeit der Komponenten — besonders in der Hochsaison (Frühling und Sommer).
+
+[H2] Was macht ein guter Installateur?
+Ein professioneller Installateur übernimmt den gesamten Prozess für Sie:
+
+Analyse des Dachs und Dimensionierung der Anlage
+Meldung oder Baugesuch bei der Gemeinde
+Beschaffung aller Komponenten
+Fachgerechte Montage und elektrischer Anschluss
+Inbetriebnahme und Einweisung
+Anmeldung beim Netzbetreiber
+Antrag für die Einmalvergütung (EIV) bei Pronovo
+
+PVPro.ch vermittelt nur Installateure, die all diese Schritte zuverlässig übernehmen.
+
+[H2] Was muss ich als Hausbesitzer tun?
+Eigentlich sehr wenig. Ihre Aufgaben beschränken sich auf:
+
+Anfrage stellen und Offerten vergleichen
+Installateur beauftragen
+Bei der Montage anwesend sein (empfohlen, aber nicht zwingend)
+Anlage in Betrieb nehmen lassen und Einweisung erhalten
+
+Den Rest übernimmt der Installateur.
+
+[H2] Häufig gestellte Fragen
+Füge queste come FAQ a fisarmonica (Accordion), con schema JSON-LD FAQPage:
+F: Wie lange dauert die Montage einer Solaranlage auf einem Einfamilienhaus?
+A: Die eigentliche Montage dauert bei einem Einfamilienhaus mit 8–12 kWp typischerweise 1 bis 3 Tage. Die gesamte Projektdauer ab Auftragserteilung beträgt 4 bis 12 Wochen.
+F: Muss ich während der Installation zu Hause sein?
+A: Nicht zwingend für die gesamte Dauer. Es empfiehlt sich jedoch, am ersten Tag und bei der Inbetriebnahme dabei zu sein.
+F: Wer kümmert sich um die Bewilligung?
+A: In der Regel übernimmt der Installateur die Meldung bei der Gemeinde oder — bei bewilligungspflichtigen Anlagen — das Baugesuch.
+F: Wann fängt die Anlage an, Strom zu produzieren?
+A: Direkt nach der Inbetriebnahme — also am letzten Tag der Montage. Vom ersten Tag an produziert die Anlage Strom, sofern die Sonne scheint.
+F: Was passiert nach der Installation?
+A: Der Installateur meldet die Anlage beim Netzbetreiber an und stellt den EIV-Antrag bei Pronovo. Sie erhalten eine Einweisung und können die Produktion über eine App oder ein Monitoringsystem verfolgen.
+F: Kann ich den Fortschritt der Installation verfolgen?
+A: Die meisten modernen Wechselrichter haben ein integriertes Monitoring, das Sie per App verfolgen können. Der Installateur richtet dies bei der Inbetriebnahme ein.
+
+[CTA Box finale — stesso stile delle altre pagine]
+Titel: Jetzt Installateur finden und loslegen
+Text: Füllen Sie unser Formular in 2 Minuten aus — wir vermitteln Ihnen bis zu 3 zertifizierte Installateure aus Ihrer Region, die den gesamten Prozess für Sie übernehmen.
+Button: Kostenlose Offerte anfordern → link a /anfrage
+
+LINK INTERNI — aggiungi questi link nel testo della pagina dove pertinente:
+
+Dove menzioni "Einmalvergütung (EIV)" → linka a /foerderungen
+Dove menzioni "bewilligungsfrei" → linka a /bewilligungspflicht-solaranlage-schweiz
+Dove menzioni "Batteriespeicher" → linka a /solaranlage-mit-speicher
+Dove menzioni "Offerten vergleichen" → linka a /solaranlage-offerte-einholen
+Dove menzioni "Anbieter" → linka a /vergleichsportal-photovoltaik-schweiz
+Dove menzioni "Kosten" → linka a /solaranlage-kosten
+Dove menzioni "Installateur beauftragen" → linka a /solaranlage-installieren-schweiz
+
+
+LINK INTERNI INVERSI — aggiungi un link a questa nuova pagina nelle seguenti pagine esistenti:
+
+/wie-funktioniert → aggiungi un link con anchor text Ablauf der Installation im Detail che punta a /photovoltaik-installation-schweiz
+/solaranlage-installieren-schweiz → aggiungi un link con anchor text Wie läuft die Installation ab? che punta a /photovoltaik-installation-schweiz
+/solaranlage-einfamilienhaus → aggiungi un link con anchor text Installationsablauf Schritt für Schritt che punta a /photovoltaik-installation-schweiz
+/solaranlage-mehrfamilienhaus → aggiungi un link con anchor text Ablauf der Photovoltaik Installation che punta a /photovoltaik-installation-schweiz
+/solaranlage-offerte-einholen → aggiungi un link con anchor text Was passiert nach der Offerte?' che punta a /photovoltaik-installation-schweiz`
+
+
+FOOTER — aggiungi il link a questa nuova pagina nella sezione "Notizie & Consigli" del footer:
+
+Ablauf der Installation → /photovoltaik-installation-schweiz
+Assicurati che il link appaia anche nelle versioni francese, inglese e italiana del footer con i rispettivi URL tradotti.
+
+
+SITEMAP — aggiungi queste righe nel file sitemap.xml:
+xml<url>
+  <loc>https://www.pvpro.ch/photovoltaik-installation-schweiz</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/fr/installation-photovoltaique-suisse</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/en/solar-panel-installation-process-switzerland</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/it/processo-installazione-fotovoltaico-svizzera</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+STILE VISIVO — usa esattamente lo stesso layout e componenti delle pagine esistenti come /solaranlage-mit-speicher e /bewilligungspflicht-solaranlage-schweiz. Stesso header, stesso footer, stessi colori, stessi componenti accordion per le FAQ, stessa stat-box orizzontale. Le tabelle devono essere stilizzate con lo stesso stile delle altre tabelle del sito.

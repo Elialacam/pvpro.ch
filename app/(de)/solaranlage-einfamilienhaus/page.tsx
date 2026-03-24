@@ -350,6 +350,8 @@ export default function SolaranlageEinfamilienhausPage() {
             <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#F97316] hover:underline font-medium">Photovoltaik Anbieter vergleichen</Link>
             {' '}·{' '}
             <Link href="/solaranlage-installieren-schweiz" className="text-[#F97316] hover:underline font-medium">Wie läuft die Installation ab?</Link>
+            {' '}·{' '}
+            <Link href="/solaranlage-offerte-einholen" className="text-[#F97316] hover:underline font-medium">Jetzt Offerten einholen</Link>
           </p>
         </section>
 
