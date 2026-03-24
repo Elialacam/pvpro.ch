@@ -50,11 +50,11 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
               </h1>
               <p className="text-white/70 text-lg leading-relaxed">{article.intro}</p>
             </div>
-            <div className="relative h-80 lg:h-96 rounded-t-2xl overflow-hidden self-end">
+            <div className="relative h-80 lg:h-[440px] rounded-t-2xl overflow-hidden self-end">
               <img
                 src={article.image}
                 alt={article.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f1f3d]/60 to-transparent" />
             </div>
