@@ -100,6 +100,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/it/note-legali`, lastModified: NOW, changeFrequency: 'yearly' as Freq, priority: 0.2 },
   ];
 
+  const deOnlyPages = [
+    {
+      url: `${BASE}/bewilligungspflicht-solaranlage-schweiz`,
+      lastModified: new Date('2026-03-24'),
+      changeFrequency: 'monthly' as Freq,
+      priority: 0.85,
+      alternates: {
+        languages: {
+          'de-CH': `${BASE}/bewilligungspflicht-solaranlage-schweiz`,
+          'x-default': `${BASE}/bewilligungspflicht-solaranlage-schweiz`,
+        },
+      },
+    },
+  ];
+
   return [
     ...corePages,
     ...blogListPages,
@@ -108,5 +123,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...frCityPages,
     ...itCityPages,
     ...legalPages,
+    ...deOnlyPages,
   ];
 }

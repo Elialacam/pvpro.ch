@@ -112,6 +112,7 @@ npm run start -- -p 5000
 
 ## Pages Built
 - `/wie-funktioniert` — Full interactive page: step-by-step animated process (5 steps, clickable), 4 Komponenten cards, production calculator (kWp slider + EV/Wärmepumpe toggles), 6 quick fact cards, FAQ accordion. Uses `components/WieFunktioniertInteractive.tsx`. Hero image: `public/images/wie-funktioniert-solaranlage.png`
+- `/bewilligungspflicht-solaranlage-schweiz` — DE-only page: hero with 3 stat boxes, when no permit needed (RPG rules), when permit IS needed (monuments/ISOS/ground), canton differences table, Meldepflicht explanation, 4-step process, Balkonkraftwerk section, CTA, 5-FAQ accordion with FAQPage JSON-LD. Internal links to /foerderungen, /solaranlage-zurich, /blog/balkonkraftwerk-schweiz, /anfrage. Backlinks added to /solaranlage-einfamilienhaus (FAQ), /foerderungen (link box), /wie-funktioniert (footer link), /solaranlage-zurich (link banner). Sitemap updated.
 
 ## Multilingual Pages (FR/EN/IT) — Completed
 All pages below exist in all 3 non-DE languages. DE originals are the master versions.

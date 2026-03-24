@@ -336,6 +336,21 @@ export default function FoerderungenPage() {
         </div>
       </section>
 
+      {/* ── Bewilligungspflicht ── */}
+      <section style={{ background: '#f9fafb' }}>
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 pb-4">
+          <div className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
+            <ArrowRight className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+            <p className="text-gray-600 text-sm">
+              Benötigen Sie eine Bewilligung?{' '}
+              <Link href="/bewilligungspflicht-solaranlage-schweiz" className="text-[#F97316] hover:underline font-medium">
+                Alle Infos zur Bewilligungspflicht für Solaranlagen in der Schweiz →
+              </Link>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section className="py-20" style={{ background: '#f9fafb' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">

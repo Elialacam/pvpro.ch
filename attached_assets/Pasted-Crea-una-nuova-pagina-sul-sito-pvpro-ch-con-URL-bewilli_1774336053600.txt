@@ -1,0 +1,104 @@
+Crea una nuova pagina sul sito pvpro.ch con URL /bewilligungspflicht-solaranlage-schweiz.
+SEO TECNICO — aggiungi esattamente questi valori:
+
+Title tag: Bewilligungspflicht Solaranlage Schweiz 2026 – Was Sie wissen müssen | PVPro.ch
+Meta description: Braucht eine Solaranlage in der Schweiz eine Baubewilligung? Wir erklären die Regeln für alle Kantone, wann eine Bewilligung nötig ist und wie PVPro hilft.
+H1: Bewilligungspflicht für Solaranlagen in der Schweiz
+Canonical URL: https://www.pvpro.ch/bewilligungspflicht-solaranlage-schweiz
+Lingua: de
+
+
+CONTENUTO DELLA PAGINA:
+[Tag categoria] Diritto & Autorizzazioni
+[H1] Obbligo di autorizzazione per impianti solari in Svizzera
+[Testo introduttivo]
+In Svizzera, gli impianti solari nella maggior parte dei casi non richiedono autorizzazione — ma non sempre. Se hai bisogno di un permesso edilizio dipende dal cantone, dalla posizione dell'edificio e dal tipo di impianto. Questa pagina spiega le regole attuali in modo chiaro e comprensibile.
+[3 riquadri statistici orizzontali]
+
+Riquadro 1: Nella maggior parte dei casi senza autorizzazione / per impianti standard
+Riquadro 2: 26 Cantoni / regole diverse
+Riquadro 3: Obbligo di notifica / invece di autorizzazione
+
+
+[H2] Quando un impianto solare in Svizzera non richiede autorizzazione?
+Da quando è stata revisionata la Legge sulla pianificazione del territorio (LPT), in Svizzera vale la regola: gli impianti solari sui tetti sono generalmente esenti da autorizzazione, se soddisfano le seguenti condizioni:
+
+L'impianto è integrato nell'edificio o montato parallelamente al tetto
+Non supera il colmo del tetto
+Non pregiudica significativamente l'immagine del paese
+L'edificio non si trova in una zona protetta
+
+Se tutti questi punti sono soddisfatti, non hai bisogno di un permesso edilizio — è sufficiente una semplice notifica al comune.
+
+[H2] Quando è comunque necessaria un'autorizzazione?
+In alcune situazioni è comunque richiesto un permesso edilizio:
+
+L'edificio è sotto tutela dei monumenti
+L'edificio si trova in una zona di protezione del paesaggio urbano (ISOS)
+L'impianto è a terra (es. in giardino)
+L'impianto supera il colmo del tetto
+Il cantone ha normative più severe
+
+In questi casi è necessario presentare una domanda di costruzione prima dell'installazione. Il tuo installatore conosce le regole locali e ti aiuterà.
+
+[H2] Differenze tra i cantoni
+Anche se il diritto federale costituisce la base, i cantoni hanno un certo margine di manovra. Alcuni cantoni come Zurigo hanno introdotto un obbligo solare per le nuove costruzioni. Altri cantoni hanno procedure di notifica semplificate.
+Importante: Informatevi sempre anche presso il vostro comune, poiché le regole possono variare ulteriormente a livello comunale.
+
+[H2] Cos'è l'obbligo di notifica?
+L'obbligo di notifica non è una procedura di autorizzazione — è molto più semplice. Informate il comune prima dell'installazione che intendete installare un impianto solare. Il comune ha poi un breve termine per rispondere. Se non ricevete risposta, l'impianto si considera approvato.
+Nella maggior parte dei casi l'installatore si occupa della notifica per voi.
+
+[H2] Passo dopo passo: cosa dovete fare?
+Passo 1 — Contattare l'installatore
+Un installatore certificato esamina la vostra situazione e chiarisce se è necessaria un'autorizzazione.
+Passo 2 — Notifica o domanda di costruzione
+A seconda della situazione, l'installatore presenta una notifica o una domanda di costruzione al comune.
+Passo 3 — Installazione
+Dopo l'approvazione, l'impianto viene montato. Per gli impianti esenti da autorizzazione, questo avviene spesso nel giro di poche settimane.
+Passo 4 — Richiedere il sussidio
+Dopo l'installazione, la remunerazione unica (RU) viene registrata presso Pronovo — spesso anch'essa tramite l'installatore.
+
+[H2] Domande frequenti
+Inserisci queste come FAQ a fisarmonica (Accordion), con schema JSON-LD FAQPage:
+D: Ho bisogno di un'autorizzazione per un impianto solare sul tetto?
+R: Nella maggior parte dei casi no. Gli impianti paralleli al tetto che non superano il colmo sono generalmente esenti da autorizzazione in Svizzera e soggetti solo a obbligo di notifica.
+D: Quanto costa una domanda di costruzione per un impianto solare?
+R: I costi variano a seconda del comune e del cantone, ma di solito sono compresi tra 200 e 800 CHF. Per gli impianti esenti da autorizzazione non ci sono costi.
+D: Chi notifica l'impianto solare al comune?
+R: Di norma è l'installatore certificato a occuparsi della notifica. PVPro mette in contatto solo con aziende certificate che conoscono questo processo.
+D: L'esenzione dall'autorizzazione vale anche per gli impianti da balcone?
+R: Gli impianti da balcone (mini centrali da balcone) sono anch'essi generalmente esenti da autorizzazione in Svizzera, ma sono soggetti a regole proprie riguardo alla potenza e all'immissione in rete.
+D: Cosa succede se installo un impianto solare senza notifica?
+R: Ciò può causare problemi nella richiesta del sussidio e nel peggiore dei casi portare alla richiesta postuma di un'autorizzazione. Si consiglia sempre di seguire la procedura corretta.
+
+[Riquadro CTA finale — stesso stile delle altre pagine]
+Titolo: Richiedi subito un preventivo — incl. verifica autorizzazione
+Testo: I nostri installatori certificati conoscono le regole di autorizzazione nel tuo cantone e si occupano di tutto — dalla notifica al sussidio.
+Pulsante: Richiedi preventivo gratuito → link a /anfrage
+
+LINK INTERNI — aggiungi questi link nel testo della pagina dove pertinente:
+
+Dove menzioni "Remunerazione unica (RU)" → linka a /foerderungen
+Dove menzioni "obbligo solare Zurigo" → linka a /solaranlage-zurich
+Dove menzioni "mini centrali da balcone" → linka a /blog/balkonkraftwerk-schweiz
+Dove menzioni "installatori certificati" → linka a /anfrage
+
+
+LINK INTERNI INVERSI — aggiungi un link a questa nuova pagina nelle seguenti pagine esistenti:
+
+/solaranlage-zurich → aggiungi nel testo esistente un link con anchor text Bewilligungspflicht im Kanton Zürich che punta a /bewilligungspflicht-solaranlage-schweiz
+/solaranlage-einfamilienhaus → aggiungi una riga nella sezione FAQ: Brauche ich eine Bewilligung? con link a /bewilligungspflicht-solaranlage-schweiz
+/wie-funktioniert → aggiungi in fondo un link con testo Bewilligungspflicht und rechtliche Hinweise che punta a /bewilligungspflicht-solaranlage-schweiz
+/foerderungen → aggiungi una riga con testo Benötigen Sie eine Bewilligung? con link a /bewilligungspflicht-solaranlage-schweiz
+
+
+SITEMAP — aggiungi questa riga nel file sitemap.xml:
+xml<url>
+  <loc>https://www.pvpro.ch/bewilligungspflicht-solaranlage-schweiz</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+STILE VISIVO — usa esattamente lo stesso layout e componenti delle pagine esistenti come /solaranlage-mit-speicher e /solaranlage-einfamilienhaus. Stesso header, stesso footer, stessi colori, stessi componenti accordion per le FAQ, stessa stat-box orizzontale.

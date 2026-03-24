@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Zap, Car, Thermometer, ChevronDown } from 'lucide-react';
 
 const PRESETS = [
@@ -54,6 +55,15 @@ export function EinfamilienhausFaq() {
   return (
     <div className="rounded-2xl border border-gray-100 px-6 shadow-sm bg-white">
       {faqs.map((f) => <FaqItem key={f.q} q={f.q} a={f.a} />)}
+      <div className="border-t border-gray-100 py-5">
+        <p className="font-bold text-gray-900 text-sm sm:text-base mb-2">Brauche ich eine Bewilligung für die Solaranlage?</p>
+        <p className="text-gray-500 text-sm leading-relaxed">
+          In den meisten Fällen nicht. Erfahren Sie alles zu den aktuellen Regeln auf unserer Seite zur{' '}
+          <Link href="/bewilligungspflicht-solaranlage-schweiz" className="text-[#F97316] hover:underline">
+            Bewilligungspflicht für Solaranlagen in der Schweiz
+          </Link>.
+        </p>
+      </div>
     </div>
   );
 }

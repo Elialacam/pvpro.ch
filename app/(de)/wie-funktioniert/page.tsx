@@ -172,6 +172,19 @@ export default function WieFunktioniertPage() {
         </div>
       </section>
 
+      {/* ── Bewilligungspflicht Link ── */}
+      <section className="py-8 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 text-center">
+          <p className="text-gray-500 text-sm mb-3">Rechtliche Informationen</p>
+          <Link
+            href="/bewilligungspflicht-solaranlage-schweiz"
+            className="inline-flex items-center gap-2 text-[#F97316] font-semibold text-sm hover:underline"
+          >
+            Bewilligungspflicht und rechtliche Hinweise <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+
       <FaqSchema faqs={wfFaqs} />
     </main>
   );
