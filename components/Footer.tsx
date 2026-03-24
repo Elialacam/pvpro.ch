@@ -34,6 +34,7 @@ const footerContent: Record<string, {
           { label: 'Solaranlage Einfamilienhaus',        href: '/solaranlage-einfamilienhaus' },
           { label: 'Solaranlage Mehrfamilienhaus',       href: '/solaranlage-mehrfamilienhaus' },
           { label: 'Wie funktioniert eine Solaranlage', href: '/wie-funktioniert' },
+          { label: 'Bewilligung Solaranlage',           href: '/bewilligungspflicht-solaranlage-schweiz' },
         ],
       },
       {
@@ -69,6 +70,7 @@ const footerContent: Record<string, {
           { label: 'PV maison individuelle',              href: '/fr/solaire-maison-individuelle' },
           { label: 'PV immeuble résidentiel',             href: '/fr/solaire-immeuble' },
           { label: 'Comment fonctionne le solaire',       href: '/fr/fonctionnement-solaire' },
+          { label: 'Autorisation installation solaire',   href: '/fr/autorisation-installation-solaire-suisse' },
         ],
       },
       {
@@ -104,6 +106,7 @@ const footerContent: Record<string, {
           { label: 'PV for detached houses',      href: '/en/solar-detached-house' },
           { label: 'PV for apartment buildings',  href: '/en/solar-apartment-building' },
           { label: 'How solar panels work',       href: '/en/how-solar-works' },
+          { label: 'Solar panel permits',         href: '/en/solar-panel-permit-switzerland' },
         ],
       },
       {
@@ -139,6 +142,7 @@ const footerContent: Record<string, {
           { label: 'Fotovoltaico casa unifamiliare',    href: '/it/solare-casa-unifamiliare' },
           { label: 'Fotovoltaico condominio',           href: '/it/solare-condominio' },
           { label: 'Come funziona un impianto solare', href: '/it/come-funziona-solare' },
+          { label: 'Autorizzazione impianto solare',   href: '/it/autorizzazione-impianto-solare-svizzera' },
         ],
       },
       {

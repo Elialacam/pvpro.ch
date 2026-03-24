@@ -4,10 +4,10 @@ import { Metadata } from 'next';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = {
-  title: 'Bewilligungspflicht Solaranlage Schweiz 2026 – Was Sie wissen müssen | PVPro.ch',
-  description: 'Braucht eine Solaranlage in der Schweiz eine Baubewilligung? Wir erklären die Regeln für alle Kantone, wann eine Bewilligung nötig ist und wie PVPro hilft.',
+  title: 'Solar Panel Permit Switzerland 2026 – What You Need to Know | PVPro.ch',
+  description: 'Does a solar system in Switzerland need planning permission? Rules for all cantons, when a permit is required and how PVPro helps.',
   alternates: {
-    canonical: 'https://www.pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
+    canonical: 'https://www.pvpro.ch/en/solar-panel-permit-switzerland',
     languages: {
       'de-CH': 'https://www.pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
       'fr-CH': 'https://www.pvpro.ch/fr/autorisation-installation-solaire-suisse',
@@ -17,77 +17,77 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Bewilligungspflicht Solaranlage Schweiz 2026 – Was Sie wissen müssen',
-    description: 'Braucht eine Solaranlage in der Schweiz eine Baubewilligung? Alle Regeln für Kantone, Meldepflicht und Ausnahmen.',
-    url: 'https://www.pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
+    title: 'Solar Panel Permit Switzerland 2026 – What You Need to Know',
+    description: 'Does a solar system in Switzerland need planning permission? All cantonal rules, notification requirements and exceptions.',
+    url: 'https://www.pvpro.ch/en/solar-panel-permit-switzerland',
     type: 'website',
-    locale: 'de_CH',
+    locale: 'en_CH',
     siteName: 'PVPro',
   },
 };
 
 const faqs = [
   {
-    question: 'Brauche ich eine Bewilligung für eine Solaranlage auf dem Dach?',
-    answer: 'In den meisten Fällen nein. Dachanlagen, die parallel zum Dach montiert sind und den Dachfirst nicht überragen, sind in der Schweiz generell bewilligungsfrei und unterliegen nur der Meldepflicht.',
+    question: 'Do I need a permit for a rooftop solar system?',
+    answer: 'In most cases, no. Rooftop systems mounted parallel to the roof that do not exceed the ridge are generally permit-free in Switzerland and subject only to a notification requirement.',
   },
   {
-    question: 'Was kostet ein Baugesuch für eine Solaranlage?',
-    answer: 'Die Kosten variieren je nach Gemeinde und Kanton, liegen aber üblicherweise zwischen 200 und 800 CHF. Für bewilligungsfreie Anlagen fallen keine Kosten an.',
+    question: 'How much does a planning application for a solar system cost?',
+    answer: 'Costs vary by municipality and canton but typically range between CHF 200 and CHF 800. For permit-free systems, there are no costs at all.',
   },
   {
-    question: 'Wer meldet die Solaranlage bei der Gemeinde?',
-    answer: 'In der Regel übernimmt der zertifizierte Installateur die Meldung. PVPro vermittelt ausschliesslich zertifizierte Unternehmen, die diesen Prozess kennen und routiniert abwickeln.',
+    question: 'Who notifies the municipality about the solar installation?',
+    answer: 'The certified installer usually handles the notification. PVPro only connects you with certified companies that are experienced in this process.',
   },
   {
-    question: 'Gilt die Bewilligungsfreiheit auch für Balkonkraftwerke?',
-    answer: 'Balkonkraftwerke (Stecker-Solargeräte) sind in der Schweiz ebenfalls grundsätzlich bewilligungsfrei, unterliegen aber eigenen Regeln bezüglich Leistung und Netzeinspeisung.',
+    question: 'Does the permit exemption also apply to balcony power stations?',
+    answer: 'Balcony power stations (plug-in solar devices) are also generally permit-free in Switzerland, but subject to their own rules regarding output and grid feed-in.',
   },
   {
-    question: 'Was passiert, wenn ich die Solaranlage ohne Meldung installiere?',
-    answer: 'Das kann zu Problemen bei der Förderbeantragung führen und im schlimmsten Fall eine nachträgliche Bewilligungspflicht auslösen. Es empfiehlt sich daher, immer das korrekte Verfahren einzuhalten — Ihr Installateur kümmert sich darum.',
+    question: 'What happens if I install the solar system without notifying the municipality?',
+    answer: 'This can cause problems when applying for subsidies and, in the worst case, trigger a retroactive permit requirement. It is always advisable to follow the correct procedure — your installer takes care of this.',
   },
 ];
 
-const keineBewilligung = [
-  'Die Anlage ist gebäudeintegriert oder parallel zum Dach montiert',
-  'Sie überragt den Dachfirst nicht',
-  'Sie beeinträchtigt das Ortsbild nicht erheblich',
-  'Das Gebäude liegt nicht in einer Schutzzone',
+const noPermit = [
+  'The system is building-integrated or mounted parallel to the roof',
+  'It does not exceed the roof ridge',
+  'It does not significantly impair the townscape',
+  'The building is not located in a protected zone',
 ];
 
-const mitBewilligung = [
-  'Das Gebäude steht unter Denkmalschutz',
-  'Das Gebäude liegt in einem ISOS-Ortsbildschutzgebiet',
-  'Die Anlage ist eine Freiflächenanlage (z.B. im Garten)',
-  'Die Anlage überragt den Dachfirst',
-  'Der Kanton hat strengere Regelungen erlassen',
+const permitRequired = [
+  'The building is a listed historic monument',
+  'The building is in an ISOS townscape protection area',
+  'The system is ground-mounted (e.g. in the garden)',
+  'The system exceeds the roof ridge',
+  'The canton has enacted stricter regulations',
 ];
 
 const steps = [
   {
     n: '1',
-    title: 'Installateur kontaktieren',
-    text: 'Ein zertifizierter Installateur prüft Ihre Situation und klärt ab, ob eine Bewilligung erforderlich ist. PVPro vermittelt Sie kostenlos.',
+    title: 'Contact an installer',
+    text: 'A certified installer assesses your situation and clarifies whether a permit is required. PVPro connects you free of charge.',
   },
   {
     n: '2',
-    title: 'Meldung oder Baugesuch',
-    text: 'Je nach Situation reicht der Installateur eine Meldung oder ein Baugesuch bei der Gemeinde ein. Er kennt die lokalen Vorschriften genau.',
+    title: 'Notification or planning application',
+    text: 'Depending on the situation, the installer submits a notification or planning application to the municipality. They know the local regulations inside out.',
   },
   {
     n: '3',
     title: 'Installation',
-    text: 'Nach der Freigabe wird die Anlage montiert. Bei bewilligungsfreien Anlagen geschieht dies oft innerhalb weniger Wochen.',
+    text: 'After approval, the system is installed. For permit-free systems, this often happens within a few weeks.',
   },
   {
     n: '4',
-    title: 'Förderung beantragen',
-    text: 'Nach der Installation wird die Einmalvergütung (EIV) bei Pronovo angemeldet — ebenfalls oft durch den Installateur.',
+    title: 'Apply for subsidy',
+    text: 'After installation, the one-time subsidy (OTS) is registered with Pronovo — also often handled by the installer.',
   },
 ];
 
-export default function BewilligungspflichtPage() {
+export default function SolarPanelPermitPage() {
   return (
     <main className="min-h-screen bg-white">
 
@@ -99,29 +99,29 @@ export default function BewilligungspflichtPage() {
         />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
-            <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
+            <Link href="/en" className="hover:text-white/70 transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5" />
-            <span className="text-white/70">Bewilligungspflicht Solaranlage</span>
+            <span className="text-white/70">Solar Panel Permit Switzerland</span>
           </nav>
 
           <div className="max-w-3xl mb-12">
             <span className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5">
-              <Shield className="w-3.5 h-3.5" /> Recht &amp; Bewilligung
+              <Shield className="w-3.5 h-3.5" /> Law &amp; Permits
             </span>
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-6">
-              Bewilligungspflicht für Solaranlagen in der Schweiz
+              Solar Panel Permits in Switzerland
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              In der Schweiz benötigen Solaranlagen in den meisten Fällen keine Baugenehmigung — aber nicht immer. Ob Sie eine Baubewilligung brauchen, hängt vom Kanton, der Lage des Gebäudes und der Art der Anlage ab. Diese Seite erklärt die aktuellen Regeln klar und verständlich.
+              In Switzerland, solar systems generally do not require planning permission — but not always. Whether you need a building permit depends on the canton, the location of the building and the type of system. This page explains the current rules clearly and simply.
             </p>
           </div>
 
           {/* Stat boxes */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: 'Meistens', sub: 'ohne Bewilligung', note: 'für Standardanlagen auf dem Dach' },
-              { val: '26', sub: 'Kantone', note: 'mit jeweils eigenen Regelungen' },
-              { val: 'Meldepflicht', sub: 'statt Bewilligung', note: 'in den meisten Fällen ausreichend' },
+              { val: 'Usually', sub: 'no permit needed', note: 'for standard rooftop systems' },
+              { val: '26', sub: 'cantons', note: 'each with their own regulations' },
+              { val: 'Notification', sub: 'instead of permit', note: 'sufficient in most cases' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-2xl font-bold text-white mb-0.5">{s.val}</p>
@@ -135,18 +135,18 @@ export default function BewilligungspflichtPage() {
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 py-16 space-y-20">
 
-        {/* ── Wann keine Bewilligung ── */}
+        {/* ── No permit needed ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Keine Bewilligung nötig</p>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">No permit required</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
-              Wann braucht eine Solaranlage in der Schweiz keine Bewilligung?
+              When does a solar system in Switzerland not need a permit?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-5">
-              Seit der Revision des <strong>Raumplanungsgesetzes (RPG)</strong> gilt in der Schweiz: Solaranlagen auf Dächern sind grundsätzlich bewilligungsfrei, wenn sie folgende Bedingungen erfüllen:
+              Since the revision of the <strong>Spatial Planning Act (SPA)</strong>, rooftop solar systems in Switzerland are generally permit-free if they meet the following conditions:
             </p>
             <ul className="space-y-3 mb-6">
-              {keineBewilligung.map(item => (
+              {noPermit.map(item => (
                 <li key={item} className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
@@ -155,7 +155,7 @@ export default function BewilligungspflichtPage() {
             </ul>
             <div className="bg-green-50 border border-green-200 rounded-xl p-5">
               <p className="text-green-800 text-sm leading-relaxed">
-                <strong>Fazit:</strong> Sind alle diese Punkte erfüllt, benötigen Sie keine Baubewilligung — es genügt eine einfache <strong>Meldung bei der Gemeinde</strong>.
+                <strong>Conclusion:</strong> If all these conditions are met, you do not need a building permit — a simple <strong>notification to the municipality</strong> is sufficient.
               </p>
             </div>
           </div>
@@ -164,19 +164,19 @@ export default function BewilligungspflichtPage() {
           <div className="rounded-3xl overflow-hidden">
             <img
               src="/images/asset-installateur-dach-3.png"
-              alt="Techniker auf Dach mit Solarpanelen – Bewilligungspflicht Schweiz"
+              alt="Technician on roof with solar panels – permit requirements Switzerland"
               className="w-full h-72 object-cover rounded-3xl"
             />
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Wussten Sie?</p>
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Did you know?</p>
               <p className="text-gray-700 text-sm leading-relaxed">
-                In der Schweiz wurden 2024 über 50'000 neue Solaranlagen installiert — der Grossteil davon bewilligungsfrei. Mit der richtigen Planung und einem erfahrenen Installateur ist der Weg zur eigenen Solaranlage unkompliziert.
+                In Switzerland, more than 50,000 new solar systems were installed in 2024 — the vast majority without a permit. With proper planning and an experienced installer, the path to your own solar system is straightforward.
               </p>
             </div>
           </div>
         </section>
 
-        {/* ── Wann Bewilligung nötig ── */}
+        {/* ── Permit required ── */}
         <section>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="bg-amber-50 border border-amber-200 rounded-3xl p-8">
@@ -184,16 +184,16 @@ export default function BewilligungspflichtPage() {
                 <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
                   <AlertCircle className="w-5 h-5 text-amber-600" />
                 </div>
-                <p className="text-xs font-bold text-amber-700 uppercase tracking-widest">Ausnahmen</p>
+                <p className="text-xs font-bold text-amber-700 uppercase tracking-widest">Exceptions</p>
               </div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Wann ist dennoch eine Bewilligung nötig?
+                When is a permit still required?
               </h2>
               <p className="text-gray-600 text-sm leading-relaxed mb-5">
-                In bestimmten Situationen ist trotzdem ein Baugesuch erforderlich — in diesen Fällen müssen Sie <strong>vor der Installation</strong> einen Antrag stellen:
+                In certain situations a planning application is still required — in these cases you must apply <strong>before installation</strong>:
               </p>
               <ul className="space-y-3">
-                {mitBewilligung.map(item => (
+                {permitRequired.map(item => (
                   <li key={item} className="flex items-start gap-3">
                     <AlertCircle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700 text-sm">{item}</span>
@@ -202,26 +202,26 @@ export default function BewilligungspflichtPage() {
               </ul>
               <div className="mt-6 pt-5 border-t border-amber-200">
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  In diesen Fällen muss vor der Installation ein Baugesuch eingereicht werden. Ihr Installateur kennt die lokalen Regeln und hilft Ihnen dabei.
+                  In these cases, a planning application must be submitted before installation. Your installer knows the local rules and will assist you.
                 </p>
               </div>
             </div>
 
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Kantonale Unterschiede</p>
+              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Cantonal differences</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
-                Unterschiede zwischen den Kantonen
+                Differences between cantons
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                Obwohl das Bundesrecht die Grundlage bildet, haben die Kantone einen gewissen Spielraum. Einige Kantone wie <Link href="/solaranlage-zurich" className="text-[#F97316] hover:underline font-medium">Kanton Zürich</Link> haben eine <strong>Solarpflicht für Neubauten</strong> eingeführt. Andere Kantone haben vereinfachte Meldeverfahren.
+                Although federal law provides the foundation, cantons have some room for manoeuvre. Some cantons such as <Link href="/en/solar-subsidies-canton-zurich" className="text-[#F97316] hover:underline font-medium">Canton Zurich</Link> have introduced a <strong>solar obligation for new buildings</strong>. Other cantons have simplified notification procedures.
               </p>
               <div className="space-y-3 mb-6">
                 {[
-                  { kanton: 'Zürich', regel: 'Solarpflicht für Neubauten ab 2025; Dachanlagen sonst meldepflichtig', badge: 'Solarpflicht' },
-                  { kanton: 'Bern', regel: 'Vereinfachtes Meldeverfahren für Standardanlagen', badge: 'Meldepflicht' },
-                  { kanton: 'Genf', regel: 'Solarpflicht bei Renovationen grösserer Gebäude', badge: 'Solarpflicht' },
-                  { kanton: 'Tessin', regel: 'Strenge Regeln in ortsbildgeschützten Gebieten', badge: 'Ortsbild' },
-                  { kanton: 'Alle übrigen', regel: 'Bundes-RPG gilt: bewilligungsfrei bei Standardanlagen', badge: 'Standard' },
+                  { kanton: 'Zurich', regel: 'Solar obligation for new buildings from 2025; rooftop systems otherwise subject to notification', badge: 'Solar Duty' },
+                  { kanton: 'Berne', regel: 'Simplified notification procedure for standard installations', badge: 'Notification' },
+                  { kanton: 'Geneva', regel: 'Solar obligation for renovations of larger buildings', badge: 'Solar Duty' },
+                  { kanton: 'Ticino', regel: 'Strict rules in townscape protection areas', badge: 'Heritage' },
+                  { kanton: 'All others', regel: 'Federal SPA applies: permit-free for standard installations', badge: 'Standard' },
                 ].map(r => (
                   <div key={r.kanton} className="flex items-start justify-between bg-gray-50 rounded-xl p-4 border border-gray-100">
                     <div className="flex items-start gap-3">
@@ -237,37 +237,37 @@ export default function BewilligungspflichtPage() {
               </div>
               <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
                 <p className="text-blue-800 text-sm leading-relaxed">
-                  <strong>Wichtig:</strong> Informieren Sie sich immer auch bei Ihrer <strong>Gemeinde</strong>, da die Regeln kommunal weiter variieren können.
+                  <strong>Important:</strong> Always check with your <strong>municipality</strong> as regulations can vary further at the local level.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── Was ist Meldepflicht ── */}
+        {/* ── Notification procedure ── */}
         <section className="bg-gray-50 rounded-3xl p-10 border border-gray-100">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Einfacheres Verfahren</p>
+              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Simpler process</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
-                Was ist die Meldepflicht?
+                What is the notification procedure?
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Die Meldepflicht ist <strong>kein Bewilligungsverfahren</strong> — sie ist deutlich einfacher. Sie informieren die Gemeinde vor der Installation, dass Sie eine Solaranlage errichten möchten. Die Gemeinde hat dann eine kurze Frist, um zu reagieren.
+                The notification procedure is <strong>not a permit procedure</strong> — it is far simpler. You inform the municipality before installation that you intend to erect a solar system. The municipality then has a short period to respond.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Erhalten Sie <strong>keine Antwort</strong>, gilt die Anlage als genehmigt. In der Praxis übernimmt in den meisten Fällen der Installateur die Meldung für Sie.
+                If you receive <strong>no response</strong>, the installation is deemed approved. In practice, in most cases the installer submits the notification on your behalf.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Das Verfahren ist unkompliziert und dauert in der Regel nur wenige Tage bis zwei Wochen. Im Gegensatz zum Baugesuch entstehen dabei meist <strong>keine Kosten</strong>.
+                The procedure is straightforward and typically takes only a few days to two weeks. Unlike a planning application, it generally incurs <strong>no costs</strong>.
               </p>
             </div>
             <div className="space-y-3">
               {[
-                { step: '1', title: 'Meldung einreichen', text: 'Installateur reicht die Meldung bei der Gemeinde ein — oft digital.', color: 'bg-[#F97316]' },
-                { step: '2', title: 'Wartefrist (10–30 Tage)', text: 'Die Gemeinde prüft die Meldung. Keine Antwort = Genehmigt.', color: 'bg-blue-500' },
-                { step: '3', title: 'Anlage montieren', text: 'Nach der Frist oder ausdrücklicher Genehmigung beginnt die Installation.', color: 'bg-green-500' },
-                { step: '4', title: 'EIV beantragen', text: 'Die Einmalvergütung wird bei Pronovo registriert — oft durch den Installateur.', color: 'bg-purple-500' },
+                { step: '1', title: 'Submit notification', text: 'The installer submits the notification to the municipality — often digitally.', color: 'bg-[#F97316]' },
+                { step: '2', title: 'Waiting period (10–30 days)', text: 'The municipality reviews the notification. No response = Approved.', color: 'bg-blue-500' },
+                { step: '3', title: 'Install the system', text: 'After the deadline or express approval, installation begins.', color: 'bg-green-500' },
+                { step: '4', title: 'Apply for OTS', text: 'The one-time subsidy is registered with Pronovo — often by the installer.', color: 'bg-purple-500' },
               ].map(s => (
                 <div key={s.step} className="flex items-start gap-4 bg-white rounded-xl p-4 border border-gray-100">
                   <div className={`w-8 h-8 rounded-full ${s.color} text-white text-sm font-bold flex items-center justify-center flex-shrink-0`}>
@@ -286,12 +286,12 @@ export default function BewilligungspflichtPage() {
         {/* ── Steps ── */}
         <section>
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">So läuft es ab</p>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Step by step</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              Schritt für Schritt: Was müssen Sie tun?
+              Step by step: what do you need to do?
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
-              Von der ersten Anfrage bis zur Förderung — in vier Schritten zur eigenen Solaranlage. Ihr Installateur begleitet Sie durch den gesamten Prozess.
+              From first enquiry to subsidy — four steps to your own solar system. Your installer guides you through the entire process.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -309,21 +309,20 @@ export default function BewilligungspflichtPage() {
             ))}
           </div>
 
-          {/* Foerderung link */}
           <div className="mt-8 bg-orange-50 border border-orange-100 rounded-2xl p-5 flex items-start gap-4">
             <FileText className="w-5 h-5 text-[#F97316] flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-semibold text-gray-800 text-sm mb-1">
-                Alles zur Einmalvergütung (EIV)
+                Everything about the one-time subsidy (OTS)
               </p>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Die <Link href="/foerderungen" className="text-[#F97316] hover:underline font-medium">Einmalvergütung (EIV)</Link> des Bundes deckt einen erheblichen Teil Ihrer Investitionskosten. Erfahren Sie, wie viel Sie erhalten und wie Sie die Förderung beantragen.
+                The <Link href="/en/solar-subsidies" className="text-[#F97316] hover:underline font-medium">one-time subsidy (OTS)</Link> from the federal government covers a significant portion of your investment costs. Find out how much you can receive and how to apply.
               </p>
             </div>
           </div>
         </section>
 
-        {/* ── Balkonkraftwerk note ── */}
+        {/* ── Balcony power stations ── */}
         <section className="bg-[#0f1f3d] rounded-3xl p-10 relative overflow-hidden">
           <div
             className="absolute inset-0 opacity-10 rounded-3xl"
@@ -331,19 +330,19 @@ export default function BewilligungspflichtPage() {
           />
           <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Sonderfall</p>
+              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Special case</p>
               <h2 className="text-2xl font-bold text-white mb-4">
-                Balkonkraftwerke: eigene Regeln
+                Balcony power stations: special rules
               </h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                <Link href="/blog/balkonkraftwerk-schweiz" className="text-[#F97316] hover:underline font-medium">Balkonkraftwerke</Link> (Stecker-Solargeräte) unterliegen in der Schweiz ebenfalls grundsätzlich der Bewilligungsfreiheit. Es gelten aber eigene Regeln:
+                <Link href="/en/blog/balkonkraftwerk-schweiz" className="text-[#F97316] hover:underline font-medium">Balcony power stations</Link> (plug-in solar devices) are also generally permit-free in Switzerland. However, specific rules apply:
               </p>
               <ul className="space-y-2">
                 {[
-                  'Maximale Einspeiseleistung: 600 Watt ins Hausnetz',
-                  'Keine professionelle Elektroinstallation nötig',
-                  'Meldung beim Netzbetreiber empfohlen',
-                  'In Eigentumswohnungen: Zustimmung der Stockwerkeigentümergemeinschaft',
+                  'Maximum feed-in power: 600 watts into the household grid',
+                  'No professional electrical installation required',
+                  'Notification to grid operator recommended',
+                  'In condominium units: approval of the owners\' association required',
                 ].map(item => (
                   <li key={item} className="flex items-start gap-2.5">
                     <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
@@ -353,12 +352,12 @@ export default function BewilligungspflichtPage() {
               </ul>
             </div>
             <div className="text-center lg:text-right">
-              <p className="text-white/60 text-sm mb-4">Mehr zu Balkonkraftwerken in der Schweiz</p>
+              <p className="text-white/60 text-sm mb-4">More about balcony power stations in Switzerland</p>
               <Link
-                href="/blog/balkonkraftwerk-schweiz"
+                href="/en/blog/balkonkraftwerk-schweiz"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity border border-white/20"
               >
-                Balkonkraftwerk Ratgeber <ArrowRight className="w-4 h-4" />
+                Balcony power station guide <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -371,26 +370,26 @@ export default function BewilligungspflichtPage() {
             <Home className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-            Jetzt Offerte anfragen — inkl. Bewilligungsprüfung
+            Request a quote now — permit check included
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Unsere <Link href="/anfrage" className="text-[#F97316] hover:underline font-medium">zertifizierten Installateure</Link> kennen die Bewilligungsregeln in Ihrem Kanton und kümmern sich um alles — von der Meldung bis zur Förderung.
+            Our <Link href="/en/request" className="text-[#F97316] hover:underline font-medium">certified installers</Link> know the permit rules in your canton and handle everything — from notification to subsidy.
           </p>
           <Link
-            href="/anfrage"
+            href="/en/request"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
             style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
           >
-            Kostenlose Offerte anfordern →
+            Request a free quote →
           </Link>
         </section>
 
         {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Häufige Fragen</p>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Frequently asked questions</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-              Fragen zur Bewilligungspflicht
+              Questions about solar permits
             </h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -408,32 +407,32 @@ export default function BewilligungspflichtPage() {
           </div>
 
           <div className="text-center mt-10">
-            <p className="text-gray-500 text-sm mb-4">Weitere Informationen rund um Solaranlagen:</p>
+            <p className="text-gray-500 text-sm mb-4">More information about solar systems:</p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link
-                href="/solaranlage-kosten"
+                href="/en/solar-panel-costs"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors"
               >
-                Kosten Solaranlage
+                Solar system costs
               </Link>
               <Link
-                href="/foerderungen"
+                href="/en/solar-subsidies"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors"
               >
-                Förderungen &amp; EIV
+                Subsidies &amp; OTS
               </Link>
               <Link
-                href="/wie-funktioniert"
+                href="/en/how-solar-works"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors"
               >
-                Wie funktioniert Solar
+                How solar works
               </Link>
               <Link
-                href="/anfrage"
+                href="/en/request"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
                 style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
               >
-                Offerte anfragen <ArrowRight className="w-4 h-4" />
+                Request a quote <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>

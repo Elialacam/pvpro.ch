@@ -4,10 +4,10 @@ import { Metadata } from 'next';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = {
-  title: 'Bewilligungspflicht Solaranlage Schweiz 2026 – Was Sie wissen müssen | PVPro.ch',
-  description: 'Braucht eine Solaranlage in der Schweiz eine Baubewilligung? Wir erklären die Regeln für alle Kantone, wann eine Bewilligung nötig ist und wie PVPro hilft.',
+  title: 'Autorizzazione impianto solare Svizzera 2026 – Tutto quello che devi sapere | PVPro.ch',
+  description: 'Un impianto solare in Svizzera necessita di un permesso edilizio? Regole per tutti i cantoni, quando è necessaria un\'autorizzazione e come PVPro aiuta.',
   alternates: {
-    canonical: 'https://www.pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
+    canonical: 'https://www.pvpro.ch/it/autorizzazione-impianto-solare-svizzera',
     languages: {
       'de-CH': 'https://www.pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
       'fr-CH': 'https://www.pvpro.ch/fr/autorisation-installation-solaire-suisse',
@@ -17,77 +17,77 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Bewilligungspflicht Solaranlage Schweiz 2026 – Was Sie wissen müssen',
-    description: 'Braucht eine Solaranlage in der Schweiz eine Baubewilligung? Alle Regeln für Kantone, Meldepflicht und Ausnahmen.',
-    url: 'https://www.pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
+    title: 'Autorizzazione impianto solare Svizzera 2026 – Tutto quello che devi sapere',
+    description: "Un impianto solare in Svizzera necessita di un permesso edilizio? Tutte le regole cantonali, obbligo di annuncio ed eccezioni.",
+    url: 'https://www.pvpro.ch/it/autorizzazione-impianto-solare-svizzera',
     type: 'website',
-    locale: 'de_CH',
+    locale: 'it_CH',
     siteName: 'PVPro',
   },
 };
 
 const faqs = [
   {
-    question: 'Brauche ich eine Bewilligung für eine Solaranlage auf dem Dach?',
-    answer: 'In den meisten Fällen nein. Dachanlagen, die parallel zum Dach montiert sind und den Dachfirst nicht überragen, sind in der Schweiz generell bewilligungsfrei und unterliegen nur der Meldepflicht.',
+    question: 'Ho bisogno di un\'autorizzazione per un impianto solare sul tetto?',
+    answer: 'Nella maggior parte dei casi, no. Gli impianti in copertura montati parallelamente al tetto che non superano il colmo sono in linea di principio esenti da autorizzazione in Svizzera e soggetti unicamente all\'obbligo di annuncio.',
   },
   {
-    question: 'Was kostet ein Baugesuch für eine Solaranlage?',
-    answer: 'Die Kosten variieren je nach Gemeinde und Kanton, liegen aber üblicherweise zwischen 200 und 800 CHF. Für bewilligungsfreie Anlagen fallen keine Kosten an.',
+    question: 'Quanto costa una domanda di permesso edilizio per un impianto solare?',
+    answer: 'I costi variano a seconda del comune e del cantone, ma si aggirano generalmente tra i 200 e gli 800 CHF. Per gli impianti esenti da autorizzazione non vi sono costi.',
   },
   {
-    question: 'Wer meldet die Solaranlage bei der Gemeinde?',
-    answer: 'In der Regel übernimmt der zertifizierte Installateur die Meldung. PVPro vermittelt ausschliesslich zertifizierte Unternehmen, die diesen Prozess kennen und routiniert abwickeln.',
+    question: 'Chi effettua l\'annuncio dell\'impianto solare al comune?',
+    answer: 'Di norma è l\'installatore certificato a occuparsi dell\'annuncio. PVPro mette in contatto esclusivamente con aziende certificate che conoscono bene questo processo.',
   },
   {
-    question: 'Gilt die Bewilligungsfreiheit auch für Balkonkraftwerke?',
-    answer: 'Balkonkraftwerke (Stecker-Solargeräte) sind in der Schweiz ebenfalls grundsätzlich bewilligungsfrei, unterliegen aber eigenen Regeln bezüglich Leistung und Netzeinspeisung.',
+    question: 'L\'esenzione dall\'autorizzazione vale anche per i mini impianti da balcone?',
+    answer: 'I mini impianti da balcone (dispositivi solari a spina) sono anch\'essi in linea di principio esenti da autorizzazione in Svizzera, ma soggetti a regole proprie riguardo alla potenza e all\'immissione in rete.',
   },
   {
-    question: 'Was passiert, wenn ich die Solaranlage ohne Meldung installiere?',
-    answer: 'Das kann zu Problemen bei der Förderbeantragung führen und im schlimmsten Fall eine nachträgliche Bewilligungspflicht auslösen. Es empfiehlt sich daher, immer das korrekte Verfahren einzuhalten — Ihr Installateur kümmert sich darum.',
+    question: 'Cosa succede se installo l\'impianto solare senza effettuare l\'annuncio?',
+    answer: 'Ciò può causare problemi in fase di richiesta del sussidio e, nel peggiore dei casi, far scattare un obbligo di autorizzazione retroattivo. È quindi sempre consigliabile seguire la procedura corretta — il vostro installatore se ne occupa.',
   },
 ];
 
-const keineBewilligung = [
-  'Die Anlage ist gebäudeintegriert oder parallel zum Dach montiert',
-  'Sie überragt den Dachfirst nicht',
-  'Sie beeinträchtigt das Ortsbild nicht erheblich',
-  'Das Gebäude liegt nicht in einer Schutzzone',
+const senzaAutorizzazione = [
+  "L'impianto è integrato nell'edificio o montato parallelamente al tetto",
+  "Non supera il colmo del tetto",
+  "Non pregiudica significativamente l'immagine del luogo",
+  "L'edificio non si trova in una zona protetta",
 ];
 
-const mitBewilligung = [
-  'Das Gebäude steht unter Denkmalschutz',
-  'Das Gebäude liegt in einem ISOS-Ortsbildschutzgebiet',
-  'Die Anlage ist eine Freiflächenanlage (z.B. im Garten)',
-  'Die Anlage überragt den Dachfirst',
-  'Der Kanton hat strengere Regelungen erlassen',
+const conAutorizzazione = [
+  "L'edificio è sottoposto a tutela dei beni culturali",
+  "L'edificio si trova in una zona di protezione del paesaggio urbano ISOS",
+  "L'impianto è a terra (es. in giardino)",
+  "L'impianto supera il colmo del tetto",
+  "Il cantone ha emanato normative più severe",
 ];
 
 const steps = [
   {
     n: '1',
-    title: 'Installateur kontaktieren',
-    text: 'Ein zertifizierter Installateur prüft Ihre Situation und klärt ab, ob eine Bewilligung erforderlich ist. PVPro vermittelt Sie kostenlos.',
+    title: 'Contattare un installatore',
+    text: 'Un installatore certificato esamina la vostra situazione e verifica se è necessaria un\'autorizzazione. PVPro vi mette in contatto gratuitamente.',
   },
   {
     n: '2',
-    title: 'Meldung oder Baugesuch',
-    text: 'Je nach Situation reicht der Installateur eine Meldung oder ein Baugesuch bei der Gemeinde ein. Er kennt die lokalen Vorschriften genau.',
+    title: 'Annuncio o domanda di permesso',
+    text: "A seconda della situazione, l'installatore presenta un annuncio o una domanda di permesso al comune. Conosce perfettamente le normative locali.",
   },
   {
     n: '3',
-    title: 'Installation',
-    text: 'Nach der Freigabe wird die Anlage montiert. Bei bewilligungsfreien Anlagen geschieht dies oft innerhalb weniger Wochen.',
+    title: 'Installazione',
+    text: "Dopo l'approvazione, l'impianto viene montato. Per gli impianti esenti da autorizzazione, ciò avviene spesso nell'arco di poche settimane.",
   },
   {
     n: '4',
-    title: 'Förderung beantragen',
-    text: 'Nach der Installation wird die Einmalvergütung (EIV) bei Pronovo angemeldet — ebenfalls oft durch den Installateur.',
+    title: 'Richiedere il sussidio',
+    text: "Dopo l'installazione, la remunerazione unica (RU) viene registrata presso Pronovo — spesso dall'installatore stesso.",
   },
 ];
 
-export default function BewilligungspflichtPage() {
+export default function AutorizzazioneImpiantoSolarePage() {
   return (
     <main className="min-h-screen bg-white">
 
@@ -99,29 +99,29 @@ export default function BewilligungspflichtPage() {
         />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
-            <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
+            <Link href="/it" className="hover:text-white/70 transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5" />
-            <span className="text-white/70">Bewilligungspflicht Solaranlage</span>
+            <span className="text-white/70">Autorizzazione impianto solare</span>
           </nav>
 
           <div className="max-w-3xl mb-12">
             <span className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5">
-              <Shield className="w-3.5 h-3.5" /> Recht &amp; Bewilligung
+              <Shield className="w-3.5 h-3.5" /> Diritto &amp; Autorizzazione
             </span>
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-6">
-              Bewilligungspflicht für Solaranlagen in der Schweiz
+              Autorizzazione per impianti solari in Svizzera
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              In der Schweiz benötigen Solaranlagen in den meisten Fällen keine Baugenehmigung — aber nicht immer. Ob Sie eine Baubewilligung brauchen, hängt vom Kanton, der Lage des Gebäudes und der Art der Anlage ab. Diese Seite erklärt die aktuellen Regeln klar und verständlich.
+              In Svizzera, gli impianti solari nella maggior parte dei casi non necessitano di un permesso edilizio — ma non sempre. Se è necessaria un&apos;autorizzazione dipende dal cantone, dall&apos;ubicazione dell&apos;edificio e dal tipo di impianto. Questa pagina spiega le regole vigenti in modo chiaro e comprensibile.
             </p>
           </div>
 
           {/* Stat boxes */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: 'Meistens', sub: 'ohne Bewilligung', note: 'für Standardanlagen auf dem Dach' },
-              { val: '26', sub: 'Kantone', note: 'mit jeweils eigenen Regelungen' },
-              { val: 'Meldepflicht', sub: 'statt Bewilligung', note: 'in den meisten Fällen ausreichend' },
+              { val: 'Di solito', sub: 'senza autorizzazione', note: 'per impianti standard in copertura' },
+              { val: '26', sub: 'cantoni', note: 'ognuno con le proprie normative' },
+              { val: 'Obbligo', sub: 'di annuncio', note: 'sufficiente nella maggior parte dei casi' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-2xl font-bold text-white mb-0.5">{s.val}</p>
@@ -135,18 +135,18 @@ export default function BewilligungspflichtPage() {
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 py-16 space-y-20">
 
-        {/* ── Wann keine Bewilligung ── */}
+        {/* ── Senza autorizzazione ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Keine Bewilligung nötig</p>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Nessuna autorizzazione richiesta</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
-              Wann braucht eine Solaranlage in der Schweiz keine Bewilligung?
+              Quando un impianto solare in Svizzera non necessita di autorizzazione?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-5">
-              Seit der Revision des <strong>Raumplanungsgesetzes (RPG)</strong> gilt in der Schweiz: Solaranlagen auf Dächern sind grundsätzlich bewilligungsfrei, wenn sie folgende Bedingungen erfüllen:
+              Dalla revisione della <strong>legge sulla pianificazione del territorio (LPT)</strong>, in Svizzera gli impianti solari in copertura sono in linea di principio esenti da autorizzazione se soddisfano le seguenti condizioni:
             </p>
             <ul className="space-y-3 mb-6">
-              {keineBewilligung.map(item => (
+              {senzaAutorizzazione.map(item => (
                 <li key={item} className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
@@ -155,7 +155,7 @@ export default function BewilligungspflichtPage() {
             </ul>
             <div className="bg-green-50 border border-green-200 rounded-xl p-5">
               <p className="text-green-800 text-sm leading-relaxed">
-                <strong>Fazit:</strong> Sind alle diese Punkte erfüllt, benötigen Sie keine Baubewilligung — es genügt eine einfache <strong>Meldung bei der Gemeinde</strong>.
+                <strong>Conclusione:</strong> Se tutti questi punti sono soddisfatti, non è necessario un permesso edilizio — è sufficiente un semplice <strong>annuncio al comune</strong>.
               </p>
             </div>
           </div>
@@ -164,19 +164,19 @@ export default function BewilligungspflichtPage() {
           <div className="rounded-3xl overflow-hidden">
             <img
               src="/images/asset-installateur-dach-3.png"
-              alt="Techniker auf Dach mit Solarpanelen – Bewilligungspflicht Schweiz"
+              alt="Tecnico sul tetto con pannelli solari – autorizzazione Svizzera"
               className="w-full h-72 object-cover rounded-3xl"
             />
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Wussten Sie?</p>
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Lo sapevate?</p>
               <p className="text-gray-700 text-sm leading-relaxed">
-                In der Schweiz wurden 2024 über 50'000 neue Solaranlagen installiert — der Grossteil davon bewilligungsfrei. Mit der richtigen Planung und einem erfahrenen Installateur ist der Weg zur eigenen Solaranlage unkompliziert.
+                In Svizzera nel 2024 sono stati installati oltre 50&apos;000 nuovi impianti solari — la grande maggioranza senza autorizzazione. Con una buona pianificazione e un installatore esperto, il percorso verso il proprio impianto solare è semplice.
               </p>
             </div>
           </div>
         </section>
 
-        {/* ── Wann Bewilligung nötig ── */}
+        {/* ── Con autorizzazione ── */}
         <section>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="bg-amber-50 border border-amber-200 rounded-3xl p-8">
@@ -184,16 +184,16 @@ export default function BewilligungspflichtPage() {
                 <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
                   <AlertCircle className="w-5 h-5 text-amber-600" />
                 </div>
-                <p className="text-xs font-bold text-amber-700 uppercase tracking-widest">Ausnahmen</p>
+                <p className="text-xs font-bold text-amber-700 uppercase tracking-widest">Eccezioni</p>
               </div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Wann ist dennoch eine Bewilligung nötig?
+                Quando è comunque necessaria un&apos;autorizzazione?
               </h2>
               <p className="text-gray-600 text-sm leading-relaxed mb-5">
-                In bestimmten Situationen ist trotzdem ein Baugesuch erforderlich — in diesen Fällen müssen Sie <strong>vor der Installation</strong> einen Antrag stellen:
+                In determinate situazioni è comunque richiesta una domanda di permesso edilizio — in questi casi è necessario presentare una domanda <strong>prima dell&apos;installazione</strong>:
               </p>
               <ul className="space-y-3">
-                {mitBewilligung.map(item => (
+                {conAutorizzazione.map(item => (
                   <li key={item} className="flex items-start gap-3">
                     <AlertCircle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700 text-sm">{item}</span>
@@ -202,26 +202,26 @@ export default function BewilligungspflichtPage() {
               </ul>
               <div className="mt-6 pt-5 border-t border-amber-200">
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  In diesen Fällen muss vor der Installation ein Baugesuch eingereicht werden. Ihr Installateur kennt die lokalen Regeln und hilft Ihnen dabei.
+                  In questi casi deve essere presentata una domanda di permesso edilizio prima dell&apos;installazione. Il vostro installatore conosce le normative locali e vi assiste in questa procedura.
                 </p>
               </div>
             </div>
 
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Kantonale Unterschiede</p>
+              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Differenze cantonali</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
-                Unterschiede zwischen den Kantonen
+                Differenze tra i cantoni
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                Obwohl das Bundesrecht die Grundlage bildet, haben die Kantone einen gewissen Spielraum. Einige Kantone wie <Link href="/solaranlage-zurich" className="text-[#F97316] hover:underline font-medium">Kanton Zürich</Link> haben eine <strong>Solarpflicht für Neubauten</strong> eingeführt. Andere Kantone haben vereinfachte Meldeverfahren.
+                Sebbene il diritto federale costituisca la base, i cantoni dispongono di un certo margine di manovra. Alcuni cantoni come il <Link href="/it/incentivi-solari-cantone-zurigo" className="text-[#F97316] hover:underline font-medium">cantone di Zurigo</Link> hanno introdotto un <strong>obbligo solare per i nuovi edifici</strong>. Altri cantoni hanno procedure di annuncio semplificate.
               </p>
               <div className="space-y-3 mb-6">
                 {[
-                  { kanton: 'Zürich', regel: 'Solarpflicht für Neubauten ab 2025; Dachanlagen sonst meldepflichtig', badge: 'Solarpflicht' },
-                  { kanton: 'Bern', regel: 'Vereinfachtes Meldeverfahren für Standardanlagen', badge: 'Meldepflicht' },
-                  { kanton: 'Genf', regel: 'Solarpflicht bei Renovationen grösserer Gebäude', badge: 'Solarpflicht' },
-                  { kanton: 'Tessin', regel: 'Strenge Regeln in ortsbildgeschützten Gebieten', badge: 'Ortsbild' },
-                  { kanton: 'Alle übrigen', regel: 'Bundes-RPG gilt: bewilligungsfrei bei Standardanlagen', badge: 'Standard' },
+                  { kanton: 'Zurigo', regel: 'Obbligo solare per nuovi edifici dal 2025; impianti in copertura altrimenti soggetti ad annuncio', badge: 'Obbligo' },
+                  { kanton: 'Berna', regel: 'Procedura di annuncio semplificata per impianti standard', badge: 'Annuncio' },
+                  { kanton: 'Ginevra', regel: 'Obbligo solare per ristrutturazioni di edifici di grandi dimensioni', badge: 'Obbligo' },
+                  { kanton: 'Ticino', regel: 'Regole severe nelle zone di protezione del paesaggio urbano', badge: 'Paesaggio' },
+                  { kanton: 'Tutti gli altri', regel: 'LPT federale si applica: esente da autorizzazione per impianti standard', badge: 'Standard' },
                 ].map(r => (
                   <div key={r.kanton} className="flex items-start justify-between bg-gray-50 rounded-xl p-4 border border-gray-100">
                     <div className="flex items-start gap-3">
@@ -237,37 +237,37 @@ export default function BewilligungspflichtPage() {
               </div>
               <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
                 <p className="text-blue-800 text-sm leading-relaxed">
-                  <strong>Wichtig:</strong> Informieren Sie sich immer auch bei Ihrer <strong>Gemeinde</strong>, da die Regeln kommunal weiter variieren können.
+                  <strong>Importante:</strong> Informatevi sempre anche presso il vostro <strong>comune</strong>, poiché le normative possono variare ulteriormente a livello comunale.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── Was ist Meldepflicht ── */}
+        {/* ── Obbligo di annuncio ── */}
         <section className="bg-gray-50 rounded-3xl p-10 border border-gray-100">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Einfacheres Verfahren</p>
+              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Procedura semplificata</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
-                Was ist die Meldepflicht?
+                Cos&apos;è l&apos;obbligo di annuncio?
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Die Meldepflicht ist <strong>kein Bewilligungsverfahren</strong> — sie ist deutlich einfacher. Sie informieren die Gemeinde vor der Installation, dass Sie eine Solaranlage errichten möchten. Die Gemeinde hat dann eine kurze Frist, um zu reagieren.
+                L&apos;obbligo di annuncio <strong>non è una procedura di autorizzazione</strong> — è molto più semplice. Informate il comune prima dell&apos;installazione che intendete realizzare un impianto solare. Il comune dispone quindi di un breve termine per reagire.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Erhalten Sie <strong>keine Antwort</strong>, gilt die Anlage als genehmigt. In der Praxis übernimmt in den meisten Fällen der Installateur die Meldung für Sie.
+                Se non ricevete <strong>alcuna risposta</strong>, l&apos;impianto si considera approvato. In pratica, nella maggior parte dei casi è l&apos;installatore a effettuare l&apos;annuncio per voi.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Das Verfahren ist unkompliziert und dauert in der Regel nur wenige Tage bis zwei Wochen. Im Gegensatz zum Baugesuch entstehen dabei meist <strong>keine Kosten</strong>.
+                La procedura è semplice e dura generalmente solo pochi giorni o al massimo due settimane. A differenza della domanda di permesso edilizio, di norma non comporta <strong>alcun costo</strong>.
               </p>
             </div>
             <div className="space-y-3">
               {[
-                { step: '1', title: 'Meldung einreichen', text: 'Installateur reicht die Meldung bei der Gemeinde ein — oft digital.', color: 'bg-[#F97316]' },
-                { step: '2', title: 'Wartefrist (10–30 Tage)', text: 'Die Gemeinde prüft die Meldung. Keine Antwort = Genehmigt.', color: 'bg-blue-500' },
-                { step: '3', title: 'Anlage montieren', text: 'Nach der Frist oder ausdrücklicher Genehmigung beginnt die Installation.', color: 'bg-green-500' },
-                { step: '4', title: 'EIV beantragen', text: 'Die Einmalvergütung wird bei Pronovo registriert — oft durch den Installateur.', color: 'bg-purple-500' },
+                { step: '1', title: "Presentare l'annuncio", text: "L'installatore presenta l'annuncio al comune — spesso in modo digitale.", color: 'bg-[#F97316]' },
+                { step: '2', title: "Periodo di attesa (10–30 giorni)", text: "Il comune esamina l'annuncio. Nessuna risposta = Approvato.", color: 'bg-blue-500' },
+                { step: '3', title: "Montare l'impianto", text: "Dopo il termine o l'approvazione espressa, inizia l'installazione.", color: 'bg-green-500' },
+                { step: '4', title: "Richiedere la RU", text: "La remunerazione unica viene registrata presso Pronovo — spesso dall'installatore.", color: 'bg-purple-500' },
               ].map(s => (
                 <div key={s.step} className="flex items-start gap-4 bg-white rounded-xl p-4 border border-gray-100">
                   <div className={`w-8 h-8 rounded-full ${s.color} text-white text-sm font-bold flex items-center justify-center flex-shrink-0`}>
@@ -286,12 +286,12 @@ export default function BewilligungspflichtPage() {
         {/* ── Steps ── */}
         <section>
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">So läuft es ab</p>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Passo dopo passo</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              Schritt für Schritt: Was müssen Sie tun?
+              Passo dopo passo: cosa dovete fare?
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
-              Von der ersten Anfrage bis zur Förderung — in vier Schritten zur eigenen Solaranlage. Ihr Installateur begleitet Sie durch den gesamten Prozess.
+              Dalla prima richiesta al sussidio — in quattro passi verso il proprio impianto solare. Il vostro installatore vi accompagna durante l&apos;intero processo.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -309,21 +309,20 @@ export default function BewilligungspflichtPage() {
             ))}
           </div>
 
-          {/* Foerderung link */}
           <div className="mt-8 bg-orange-50 border border-orange-100 rounded-2xl p-5 flex items-start gap-4">
             <FileText className="w-5 h-5 text-[#F97316] flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-semibold text-gray-800 text-sm mb-1">
-                Alles zur Einmalvergütung (EIV)
+                Tutto sulla remunerazione unica (RU)
               </p>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Die <Link href="/foerderungen" className="text-[#F97316] hover:underline font-medium">Einmalvergütung (EIV)</Link> des Bundes deckt einen erheblichen Teil Ihrer Investitionskosten. Erfahren Sie, wie viel Sie erhalten und wie Sie die Förderung beantragen.
+                La <Link href="/it/incentivi-solari" className="text-[#F97316] hover:underline font-medium">remunerazione unica (RU)</Link> della Confederazione copre una parte significativa dei costi di investimento. Scoprite a quanto avete diritto e come richiedere il sussidio.
               </p>
             </div>
           </div>
         </section>
 
-        {/* ── Balkonkraftwerk note ── */}
+        {/* ── Mini impianti da balcone ── */}
         <section className="bg-[#0f1f3d] rounded-3xl p-10 relative overflow-hidden">
           <div
             className="absolute inset-0 opacity-10 rounded-3xl"
@@ -331,19 +330,19 @@ export default function BewilligungspflichtPage() {
           />
           <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Sonderfall</p>
+              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Caso speciale</p>
               <h2 className="text-2xl font-bold text-white mb-4">
-                Balkonkraftwerke: eigene Regeln
+                Mini impianti da balcone: regole speciali
               </h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                <Link href="/blog/balkonkraftwerk-schweiz" className="text-[#F97316] hover:underline font-medium">Balkonkraftwerke</Link> (Stecker-Solargeräte) unterliegen in der Schweiz ebenfalls grundsätzlich der Bewilligungsfreiheit. Es gelten aber eigene Regeln:
+                <Link href="/it/blog/balkonkraftwerk-schweiz" className="text-[#F97316] hover:underline font-medium">I mini impianti da balcone</Link> (dispositivi solari a spina) sono anch&apos;essi in linea di principio esenti da autorizzazione in Svizzera. Valgono però regole specifiche:
               </p>
               <ul className="space-y-2">
                 {[
-                  'Maximale Einspeiseleistung: 600 Watt ins Hausnetz',
-                  'Keine professionelle Elektroinstallation nötig',
-                  'Meldung beim Netzbetreiber empfohlen',
-                  'In Eigentumswohnungen: Zustimmung der Stockwerkeigentümergemeinschaft',
+                  'Potenza di immissione massima: 600 watt nella rete domestica',
+                  'Nessuna installazione elettrica professionale necessaria',
+                  'Annuncio al gestore di rete raccomandato',
+                  "In proprietà per piani: necessario il consenso della comunità dei proprietari",
                 ].map(item => (
                   <li key={item} className="flex items-start gap-2.5">
                     <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
@@ -353,12 +352,12 @@ export default function BewilligungspflichtPage() {
               </ul>
             </div>
             <div className="text-center lg:text-right">
-              <p className="text-white/60 text-sm mb-4">Mehr zu Balkonkraftwerken in der Schweiz</p>
+              <p className="text-white/60 text-sm mb-4">Maggiori informazioni sui mini impianti da balcone in Svizzera</p>
               <Link
-                href="/blog/balkonkraftwerk-schweiz"
+                href="/it/blog/balkonkraftwerk-schweiz"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity border border-white/20"
               >
-                Balkonkraftwerk Ratgeber <ArrowRight className="w-4 h-4" />
+                Guida mini impianti da balcone <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -371,26 +370,26 @@ export default function BewilligungspflichtPage() {
             <Home className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-            Jetzt Offerte anfragen — inkl. Bewilligungsprüfung
+            Richiedi subito un preventivo — verifica autorizzazione inclusa
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Unsere <Link href="/anfrage" className="text-[#F97316] hover:underline font-medium">zertifizierten Installateure</Link> kennen die Bewilligungsregeln in Ihrem Kanton und kümmern sich um alles — von der Meldung bis zur Förderung.
+            I nostri <Link href="/it/richiesta" className="text-[#F97316] hover:underline font-medium">installatori certificati</Link> conoscono le normative di autorizzazione nel vostro cantone e si occupano di tutto — dall&apos;annuncio al sussidio.
           </p>
           <Link
-            href="/anfrage"
+            href="/it/richiesta"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
             style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
           >
-            Kostenlose Offerte anfordern →
+            Richiedere un preventivo gratuito →
           </Link>
         </section>
 
         {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Häufige Fragen</p>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Domande frequenti</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-              Fragen zur Bewilligungspflicht
+              Domande sull&apos;autorizzazione
             </h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -408,32 +407,32 @@ export default function BewilligungspflichtPage() {
           </div>
 
           <div className="text-center mt-10">
-            <p className="text-gray-500 text-sm mb-4">Weitere Informationen rund um Solaranlagen:</p>
+            <p className="text-gray-500 text-sm mb-4">Ulteriori informazioni sugli impianti solari:</p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link
-                href="/solaranlage-kosten"
+                href="/it/costi-impianto-solare"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors"
               >
-                Kosten Solaranlage
+                Costi impianto solare
               </Link>
               <Link
-                href="/foerderungen"
+                href="/it/incentivi-solari"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors"
               >
-                Förderungen &amp; EIV
+                Incentivi &amp; RU
               </Link>
               <Link
-                href="/wie-funktioniert"
+                href="/it/come-funziona-solare"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors"
               >
-                Wie funktioniert Solar
+                Come funziona il solare
               </Link>
               <Link
-                href="/anfrage"
+                href="/it/richiesta"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
                 style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
               >
-                Offerte anfragen <ArrowRight className="w-4 h-4" />
+                Richiedere preventivo <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>

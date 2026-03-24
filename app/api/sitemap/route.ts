@@ -135,8 +135,8 @@ ${blogSlugs.map((slug) => entry4(`/blog/${slug}`, `/fr/blog/${slug}`, `/en/blog/
   <!-- ── Balcony power station (4 languages) ───────────────────────────────── -->
 ${entry4('/balkonkraftwerk', '/fr/centrale-balcon', '/en/balcony-power-station', '/it/centrale-balcone', 0.7)}
 
-  <!-- ── DE-only pages ─────────────────────────────────────────────────────── -->
-${entryDe('/bewilligungspflicht-solaranlage-schweiz', 0.8)}
+  <!-- ── Bewilligungspflicht (4 languages) ─────────────────────────────────── -->
+${entry4('/bewilligungspflicht-solaranlage-schweiz', '/fr/autorisation-installation-solaire-suisse', '/en/solar-panel-permit-switzerland', '/it/autorizzazione-impianto-solare-svizzera', 0.8)}
 
   <!-- ── DE canton pages ───────────────────────────────────────────────────── -->
 ${deCities.map((city) => entryDe(`/solaranlage-${city.slug}`, 0.8, 'weekly')).join('')}
