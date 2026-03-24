@@ -188,6 +188,12 @@ export default function WieFunktioniertPage() {
             >
               Ablauf der Installation im Detail
             </Link>
+            <Link
+              href="/photovoltaik-wartung-kosten"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white/80 text-sm border border-white/20 hover:border-white/40 transition-colors"
+            >
+              Wartung und Betrieb einer Solaranlage
+            </Link>
           </div>
         </div>
       </section>

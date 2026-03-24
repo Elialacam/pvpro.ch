@@ -121,6 +121,7 @@ ${entry4('/foerderungen-kanton-zuerich', '/fr/subventions-solaires-canton-zurich
 ${entry4('/photovoltaik-schweizer-klima', '/fr/photovoltaique-climat-suisse', '/en/solar-panels-swiss-climate', '/it/fotovoltaico-clima-svizzero', 0.85)}
 ${entry4('/photovoltaik-installation-schweiz', '/fr/installation-photovoltaique-suisse', '/en/solar-panel-installation-process-switzerland', '/it/processo-installazione-fotovoltaico-svizzera', 0.85)}
 ${entry4('/photovoltaik-komplettloesung-schweiz', '/fr/solution-complete-photovoltaique-suisse', '/en/complete-solar-solution-switzerland', '/it/soluzione-completa-fotovoltaico-svizzera', 0.85)}
+${entry4('/photovoltaik-wartung-kosten', '/fr/entretien-photovoltaique-couts', '/en/solar-panel-maintenance-costs', '/it/manutenzione-fotovoltaico-costi', 0.85)}
 ${entry4('/faq', '/fr/faq', '/en/faq', '/it/faq', 0.75)}
 ${entry4('/ueber-uns', '/fr/a-propos', '/en/about-us', '/it/chi-siamo', 0.7)}
 ${entry4('/anfrage', '/fr/demande', '/en/request', '/it/richiesta', 0.8)}

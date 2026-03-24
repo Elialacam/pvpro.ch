@@ -629,6 +629,7 @@ const articles: BlogArticle[] = [
     ctaButton: 'Jetzt kostenlose Offerte anfordern',
     formUrl: '/anfrage',
     relatedSlugs: ['eigenverbrauch-optimieren-solar', 'roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026'],
+    relatedPageLinks: [{ label: 'Wartungskosten Solaranlage', href: '/photovoltaik-wartung-kosten' }],
     faqs: [
       { question: 'Wie gross sollte mein Heimspeicher sein?', answer: 'Als Faustregel gilt: 1 kWh Speicher pro 1 kWp Anlagenleistung. Für eine 8-kWp-Anlage sind 8–10 kWh Speicherkapazität ideal. Mit Elektroauto oder Wärmepumpe darf es gerne mehr sein.' },
       { question: 'Wie lange hält ein Batteriespeicher?', answer: 'Moderne Lithium-Ionen-Speicher halten 10–15 Jahre oder 3\'000–6\'000 Ladezyklen. Die Hersteller geben meist 10 Jahre Garantie. Nach der Lebensdauer kann der Speicher oft günstig ersetzt werden.' },

@@ -360,6 +360,8 @@ export default function SolaranlageEinfamilienhausPage() {
             <Link href="/photovoltaik-installation-schweiz" className="text-[#F97316] hover:underline font-medium">Installationsablauf Schritt für Schritt</Link>
             {' '}·{' '}
             <Link href="/photovoltaik-komplettloesung-schweiz" className="text-[#F97316] hover:underline font-medium">Komplettlösung für Ihr Einfamilienhaus</Link>
+            {' '}·{' '}
+            <Link href="/photovoltaik-wartung-kosten" className="text-[#F97316] hover:underline font-medium">Was kostet die Wartung?</Link>
           </p>
         </section>
 
