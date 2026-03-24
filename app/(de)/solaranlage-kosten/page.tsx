@@ -454,6 +454,8 @@ export default function SolaranlageKostenPage() {
               <a href="/solaranlage-installieren-schweiz" className="text-[#F97316] hover:underline font-medium">Was kostet die Installation?</a>
               {' '}·{' '}
               <a href="/solaranlage-offerte-einholen" className="text-[#F97316] hover:underline font-medium">Kostenlose Offerten einholen</a>
+              {' '}·{' '}
+              <a href="/photovoltaik-schweizer-klima" className="text-[#F97316] hover:underline font-medium">Photovoltaik im Schweizer Klima</a>
             </p>
           </div>
         </div>

@@ -27,6 +27,7 @@ export interface BlogArticle {
   ctaButton: string;
   formUrl: string;
   relatedSlugs: string[];
+  relatedPageLinks?: { label: string; href: string }[];
   faqs: { question: string; answer: string }[];
 }
 
@@ -254,6 +255,7 @@ const articles: BlogArticle[] = [
     ctaButton: 'Jetzt kostenlose Offerte anfordern',
     formUrl: '/anfrage',
     relatedSlugs: ['roi-photovoltaik-schweiz', 'eigenverbrauch-optimieren-solar', 'batteriespeicher-solaranlage-lohnt-sich'],
+    relatedPageLinks: [{ label: 'Photovoltaik im Schweizer Klima', href: '/photovoltaik-schweizer-klima' }],
     faqs: [
       { question: 'Produziert meine Solaranlage im Winter überhaupt Strom?', answer: 'Ja, definitiv. Auch im Schweizer Winter produziert eine gut ausgerichtete Anlage 10–20% ihrer Jahresproduktion. Kalte Temperaturen verbessern sogar die Effizienz der Zellen.' },
       { question: 'Muss ich Schnee von meinen Solarmodulen entfernen?', answer: 'In der Regel nicht. Bei einer Neigung über 35° rutscht Schnee selbst innerhalb von 1–3 sonnigen Tagen ab. Die schwarze Moduloberfläche hilft dabei, Schnee aktiv zu schmelzen.' },

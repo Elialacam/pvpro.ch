@@ -187,6 +187,28 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
                 </div>
               )}
 
+              {/* Related pages */}
+              {article.relatedPageLinks && article.relatedPageLinks.length > 0 && (
+                <div className="rounded-2xl border border-gray-100 p-5 shadow-sm bg-white">
+                  <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
+                    {article.locale === 'de' ? 'Weiterführende Seiten' :
+                      article.locale === 'fr' ? 'Pages connexes' :
+                        article.locale === 'it' ? 'Pagine correlate' : 'Related pages'}
+                  </p>
+                  <div className="space-y-3">
+                    {article.relatedPageLinks.map((p) => (
+                      <Link
+                        key={p.href}
+                        href={p.href}
+                        className="block text-sm text-gray-700 hover:text-[#F97316] transition-colors leading-snug border-b border-gray-50 last:border-0 pb-2 last:pb-0"
+                      >
+                        → {p.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Back to blog */}
               <Link
                 href={blogBase}

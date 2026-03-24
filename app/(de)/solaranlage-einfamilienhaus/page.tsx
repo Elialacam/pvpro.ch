@@ -354,6 +354,8 @@ export default function SolaranlageEinfamilienhausPage() {
             <Link href="/solaranlage-offerte-einholen" className="text-[#F97316] hover:underline font-medium">Jetzt Offerten einholen</Link>
             {' '}·{' '}
             <Link href="/foerderungen-kanton-zuerich" className="text-[#F97316] hover:underline font-medium">Förderung im Kanton Zürich</Link>
+            {' '}·{' '}
+            <Link href="/photovoltaik-schweizer-klima" className="text-[#F97316] hover:underline font-medium">Welche Module passen zum Schweizer Klima?</Link>
           </p>
         </section>
 

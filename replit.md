@@ -9,7 +9,7 @@ PVPro is a multilingual solar panel comparison website for Switzerland. Its prim
 - All `canonical` URLs, `metadataBase`, `og:url`, sitemap entries, structured data, and internal links must use `https://www.pvpro.ch`.
 - `robots.txt` Sitemap must point to `https://www.pvpro.ch/sitemap.xml`.
 - Vercel handles the redirect pvpro.ch → www.pvpro.ch at the infrastructure level.
-- **Sitemap handler**: `app/api/sitemap/route.ts` — generates full XML with `xmlns:xhtml` namespace and `<xhtml:link hreflang>` tags (122 URLs, 4 locales each).
+- **Sitemap handler**: `app/api/sitemap/route.ts` — generates full XML with `xmlns:xhtml` namespace and `<xhtml:link hreflang>` tags (126 URLs, 4 locales each, includes photovoltaik-schweizer-klima group).
 - **Routing**: `next.config.js` uses `beforeFiles` rewrite `/sitemap.xml` → `/api/sitemap` (beforeFiles takes precedence over file-based routes).
 - **Stub files**: `app/sitemap.ts` (exports generateSitemaps stub) and `app/sitemap.xml/route.ts` (empty stub) — DO NOT DELETE these, they coexist via the Next.js patch.
 - **Next.js patch**: `scripts/patch-next-sorted-routes.js` neutralizes the route conflict check in `node_modules/next/dist/shared/lib/router/utils/sorted-routes.js`; applied via `postinstall` and `prebuild` in `package.json` so it survives `npm install`.
