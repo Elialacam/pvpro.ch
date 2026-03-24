@@ -28,6 +28,13 @@ export const cities: City[] = [
   { name: 'Unterwalden', slug: 'unterwalden', canton: 'OW/NW', language: 'de', sunshineHours: 1739 },
   { name: 'Solothurn', slug: 'solothurn', canton: 'SO', language: 'de', sunshineHours: 1631 },
   { name: 'Aargau', slug: 'aargau', canton: 'AG', language: 'de', sunshineHours: 1605 },
+  // Bilingual cantons — DE versions
+  { name: 'Freiburg', slug: 'freiburg', canton: 'FR', language: 'de', sunshineHours: 1694 },
+  { name: 'Biel/Bienne', slug: 'biel', canton: 'BE', language: 'de', sunshineHours: 1750 },
+  { name: 'Wallis', slug: 'wallis', canton: 'VS', language: 'de', sunshineHours: 1849 },
+  // Bilingual cantons — FR versions
+  { name: 'Fribourg', slug: 'fribourg', canton: 'FR', language: 'fr', sunshineHours: 1694 },
+  { name: 'Biel/Bienne', slug: 'bienne', canton: 'BE', language: 'fr', sunshineHours: 1750 },
 ];
 
 export function getCityBySlug(slug: string): City | undefined {

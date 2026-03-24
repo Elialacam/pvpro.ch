@@ -81,6 +81,23 @@ function entryIt(path: string, priority: number, freq: Freq = 'monthly') {
   }];
 }
 
+// Bilingual DE+FR entry — cross-links two language versions (used for bilingual cantons)
+function entryDeFr(dePath: string, frPath: string, priority: number, freq: Freq = 'monthly') {
+  const makeUrl = (path: string) => `${BASE}${path}`;
+  const langs = {
+    'de-CH': makeUrl(dePath),
+    'fr-CH': makeUrl(frPath),
+    'x-default': makeUrl(dePath),
+  };
+  return [dePath, frPath].map((path) => ({
+    url: makeUrl(path),
+    lastModified: NOW,
+    changeFrequency: freq,
+    priority,
+    alternates: { languages: langs },
+  }));
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
 
   // ── Homepages (all 4 locales) ─────────────────────────────────────────────────
@@ -214,9 +231,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...entryDe('/balkonkraftwerk', 0.7),
   ];
 
-  // ── Canton pages — German-speaking cantons ────────────────────────────────────
-  // Each DE canton page is DE-only: self-referencing hreflang de-CH + x-default
-  const deCities = cities.filter(c => c.language === 'de');
+  // ── Canton pages — German-speaking cantons (DE-only, no FR counterpart) ────────
+  // Bilingual cantons (freiburg, biel, wallis) are handled separately in bilingualCityPages
+  const bilingualDeSlugs = new Set(['freiburg', 'biel', 'wallis']);
+  const deCities = cities.filter(c => c.language === 'de' && !bilingualDeSlugs.has(c.slug));
   const deCityPages = deCities.flatMap(city =>
     entryDe(`/solaranlage-${city.slug}`, 0.8, 'weekly'),
   );
@@ -224,18 +242,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
   //   Schwyz, Uri, Schaffhausen, Appenzell, Graubünden, Glarus, Zug,
   //   Unterwalden, Solothurn, Aargau
 
-  // ── Canton pages — French-speaking cantons ────────────────────────────────────
-  // FR canton pages: self-referencing hreflang fr-CH + x-default
+  // ── Canton pages — French-speaking cantons (FR-only, self-referencing) ─────────
   const frCityPages = [
     ...entryFr('/fr/solaire-geneve', 0.8, 'weekly'),
     ...entryFr('/fr/solaire-vaud',   0.8, 'weekly'),
-    ...entryFr('/fr/solaire-valais', 0.8, 'weekly'),
   ];
 
   // ── Canton pages — Italian-speaking canton ────────────────────────────────────
   // IT canton pages: self-referencing hreflang it-CH + x-default
   const itCityPages = [
     ...entryIt('/it/fotovoltaico-ticino', 0.9, 'weekly'),
+  ];
+
+  // ── Bilingual canton pages — DE ↔ FR cross-linked hreflang ───────────────────
+  // These are cantons with both German and French official languages.
+  // The DE and FR versions are cross-linked via hreflang de-CH + fr-CH + x-default.
+  const bilingualCityPages = [
+    // Kanton Freiburg / Canton de Fribourg (FR bilingual canton)
+    ...entryDeFr('/solaranlage-freiburg', '/fr/solaire-fribourg', 0.8, 'weekly'),
+    // Biel/Bienne (BE bilingual city)
+    ...entryDeFr('/solaranlage-biel', '/fr/solaire-bienne', 0.8, 'weekly'),
+    // Wallis / Valais (VS bilingual canton)
+    ...entryDeFr('/solaranlage-wallis', '/fr/solaire-valais', 0.8, 'weekly'),
   ];
 
   // ── Legal pages (4 languages, cross-linked) ───────────────────────────────────
@@ -268,6 +296,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...deCityPages,
     ...frCityPages,
     ...itCityPages,
+    ...bilingualCityPages,
     ...legalPages,
   ];
 }

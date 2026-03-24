@@ -1259,4 +1259,349 @@ export const cityContents: Record<string, CityContent> = {
     },
   },
 
+  // ─── FREIBURG (DE) ───────────────────────────────────────────────────────────
+  freiburg: {
+    slug: 'freiburg',
+    image: '/images/asset-haus-alpen-1.png',
+    heroHeadline: 'Solaranlage im Kanton Freiburg',
+    heroSubheadline: 'Zweisprachig. Förderungsstark. Zukunftsorientiert.',
+    heroDescription: 'Der Kanton Freiburg vereint deutsch- und frankophone Traditionen – und fördert Solaranlagen in beiden Landesteilen mit attraktiven Kantonsprogrammen. Vergleichen Sie bis zu 3 geprüfte Offerten und sichern Sie sich Ihre EIV-Förderung 2026.',
+    whySolarTitle: 'Warum Solar im Kanton Freiburg besonders lohnenswert ist',
+    whySolarIntro: 'Als einziger offiziell zweisprachiger Kanton der Schweiz verbindet Freiburg ländliche Agrar­tradition mit ambitionierten Klimazielen und soliden Förderprogrammen.',
+    whySolarReasons: [
+      {
+        title: 'Grosszügige Kantonsförderung',
+        description: "Freiburg ergänzt die Bundesförderung (EIV) mit kantonalen Zusatzbeiträgen. Kombiniert können bis zu 30–35 % der Investitionskosten durch Förderungen abgedeckt werden.",
+      },
+      {
+        title: 'Agri-PV im Greyerzerland',
+        description: "Das Freiburger Mittelland und der Bezirk Greyerz eignen sich hervorragend für Agri-PV. Landwirtschaftliche Betriebe kombinieren Sonnenenergie und Viehwirtschaft – mit Doppelnutzen für Boden und Klima.",
+      },
+      {
+        title: 'Günstige Sonnenlage',
+        description: "Mit rund 1'694 Sonnenstunden pro Jahr erzeugt eine 8 kWp Anlage in Freiburg etwa 7'200–7'800 kWh jährlich – genug, um den Grossteil des Haushaltsstroms selbst zu produzieren.",
+      },
+    ],
+    cityFactsTitle: 'Solarenergie im Kanton Freiburg – was Sie wissen sollten',
+    cityFactsParagraphs: [
+      "Der Kanton Freiburg hat sich verpflichtet, bis 2050 klimaneutral zu sein. Photovoltaik spielt dabei eine Schlüsselrolle: Der Kanton fördert sowohl Neuinstallationen auf Dächern als auch Fassaden-PV in historischen Ortschaften.",
+      "Besonders im Sensebezirk und im Broyebezirk boomt die Solarenergie. Viele Landwirtschaftsbetriebe nutzen grosse Schrägdächer ihrer Ökonomiegebäude für leistungsstarke Anlagen ab 15 kWp.",
+    ],
+    pricing: {
+      min: 13000,
+      max: 32000,
+      typical5kw: { min: 13500, max: 17500 },
+      afterSubsidy5kw: { min: 9500, max: 13000 },
+      roiYears: '9–12',
+    },
+    incentives: {
+      title: 'Förderungen für Solaranlagen in Freiburg',
+      description: "Im Kanton Freiburg profitieren Hausbesitzer von der eidgenössischen Einmalvergütung (EIV) via Pronovo sowie ergänzenden Kantonsbeiträgen. Solarinvestitionen sind als werterhaltende Massnahmen vollständig steuerlich absetzbar.",
+      programs: [
+        { name: 'Bundesförderung EIV (Pronovo)', amount: 'ca. CHF 400/kWp', description: 'Einmalige Bundesvergütung für Anlagen ab 2 kWp – gilt kantonsübergreifend.' },
+        { name: 'Kantonsförderung Freiburg', amount: 'bis CHF 1\'500 pauschal', description: 'Zusatzbeitrag des Kantons Freiburg für Wohneigentümer – kann mit dem EIV kombiniert werden.' },
+        { name: 'Steuerliche Absetzbarkeit', amount: '100 % der Kosten', description: 'Alle Freiburger Gemeinden akzeptieren Solaranlagen als Unterhaltskosten – voll vom steuerbaren Einkommen absetzbar.' },
+      ],
+    },
+    caseStudies: [
+      {
+        name: 'Familie Lötscher',
+        location: 'Düdingen',
+        systemSize: '8 kWp',
+        cost: "CHF 16'000",
+        savings: "CHF 2'400/Jahr",
+        payback: '10 Jahre',
+        quote: "In Düdingen läuft vieles über Empfehlung – PVPro hat mir drei lokale Installateure vermittelt, die alle den Kanton Freiburg sehr gut kennen. Die Offerten lagen nahe beieinander, die Qualität war überzeugend.",
+      },
+    ],
+    faqs: [
+      { question: 'Welche Förderungen gibt es für Solaranlagen im Kanton Freiburg?', answer: "Im Kanton Freiburg können Sie die Bundesförderung (EIV, ca. CHF 400/kWp) mit dem kantonalen Zusatzbeitrag (bis CHF 1'500) kombinieren. Zudem sind die Investitionskosten als werterhaltende Liegenschaftskosten vollumfänglich steuerlich absetzbar." },
+      { question: 'Wie viele Sonnenstunden hat der Kanton Freiburg?', answer: "Der Kanton Freiburg liegt im Mittelland und verzeichnet rund 1'694 Sonnenstunden pro Jahr. Eine 8 kWp Anlage produziert damit ca. 7'200–7'800 kWh jährlich." },
+      { question: 'Benötige ich im Kanton Freiburg eine Baugenehmigung für eine Solaranlage?', answer: 'Im Kanton Freiburg genügt für Dachflächenanlagen an bestehenden Gebäuden in den meisten Gemeinden eine einfache Meldung. Nur bei geschützten Ortsbildern oder denkmalgeschützten Gebäuden ist eine Bewilligung nötig.' },
+      { question: 'Lohnt sich Agri-PV im Kanton Freiburg?', answer: "Ja. Gerade im Greyerzerland und im Broyebezirk kombinieren Landwirtschaftsbetriebe Solar mit Viehwirtschaft oder Ackerbau. Spezielle Bundesförderprogramme für Agri-PV-Pilot­projekte sind verfügbar." },
+      { question: 'Wie finde ich einen guten Solarinstallateur in Freiburg?', answer: 'PVPro vermittelt ausschliesslich zertifizierte Installateure mit Referenzen im Kanton Freiburg. Stellen Sie eine unverbindliche Anfrage und erhalten Sie innerhalb von 48 Stunden bis zu 3 Vergleichsofferten.' },
+    ],
+    testimonial: {
+      initials: 'FL',
+      name: 'Franz Lötscher',
+      quote: "Ich war skeptisch, ob sich Solar in Freiburg wirklich lohnt. Aber nach 2 Jahren Betrieb spare ich über CHF 2'000 pro Jahr – und das bei Kosten, die durch die Förderungen deutlich tiefer lagen als erwartet.",
+    },
+  },
+
+  // ─── BIEL/BIENNE (DE) ────────────────────────────────────────────────────────
+  biel: {
+    slug: 'biel',
+    image: '/images/asset-haus-luftbild-1.png',
+    heroHeadline: 'Solaranlage in Biel/Bienne',
+    heroSubheadline: 'Die Uhrenhauptstadt setzt auf Solarenergie',
+    heroDescription: "Biel/Bienne liegt im Herzen des Berner Juras – und profitiert von einer begünstigten Sonnenlage am Bielersee. Vergleichen Sie jetzt bis zu 3 geprüfte Offerten von zertifizierten Solarinstallateuren in der Region Biel.",
+    whySolarTitle: 'Warum Solar in Biel/Bienne besonders attraktiv ist',
+    whySolarIntro: 'Als zweisprachige Industriestadt verbindet Biel/Bienne Präzisionstradition mit Pioniergeist – auch in der Energiewende.',
+    whySolarReasons: [
+      {
+        title: 'Günstiges Mikroklima am Bielersee',
+        description: "Die Tallage am Bielersee und der Föhneinfluss aus dem Jura sorgen in Biel für rund 1'750 Sonnenstunden pro Jahr – mehr als in Bern oder Zürich. Ideal für eine leistungsstarke Solaranlage.",
+      },
+      {
+        title: 'Starke kommunale Energieförderung',
+        description: "Die Stadt Biel hat einen eigenen Energiefonds mit Beiträgen für Solaranlagen. Kombiniert mit EIV und kantonaler Berner Förderung kann die Nettoinvestition deutlich reduziert werden.",
+      },
+      {
+        title: 'Schnelle Amortisation',
+        description: "Dank hoher Sonnenstunden und steigender Strompreise rechnet sich eine typische 8 kWp Anlage in Biel bereits nach 8–10 Jahren. Die Anlage produziert danach 15–20 Jahre lang nahezu kostenlosen Strom.",
+      },
+    ],
+    cityFactsTitle: 'Solarenergie in Biel – regionale Besonderheiten',
+    cityFactsParagraphs: [
+      "Die Region Biel/Bienne hat sich früh zur Energiestadt entwickelt – eine Auszeichnung, die die Stadt für besonders vorbildliches Energiemanagement erhält. Das spiegelt sich in klaren Prozessen für Baubewilligungen und einer praxisnahen Beratung durch die Stadtbehörden.",
+      "Viele Neubauprojekte in der Entwicklungszone Biel-West und in der Agglomeration Nidau integrieren Solar bereits in der Planungsphase. Für Bestandsgebäude sind Nachrüstungen unkompliziert möglich.",
+    ],
+    pricing: {
+      min: 13000,
+      max: 32000,
+      typical5kw: { min: 13500, max: 17000 },
+      afterSubsidy5kw: { min: 9500, max: 12500 },
+      roiYears: '8–10',
+    },
+    incentives: {
+      title: 'Förderungen für Solaranlagen in Biel/Bienne',
+      description: "In Biel/Bienne profitieren Sie von drei Förderebenen: Bundesförderung, kantonale Berner Förderung und städtischer Energiefonds. Alle können kumuliert werden.",
+      programs: [
+        { name: 'Bundesförderung EIV (Pronovo)', amount: 'ca. CHF 400/kWp', description: 'Einmalige Bundesvergütung für alle Anlagen ab 2 kWp.' },
+        { name: 'Kanton Bern – Kantonsprogramm', amount: 'bis CHF 2\'000', description: 'Zusatzbeiträge des Kantons Bern, ergänzend zum Bundesbeitrag.' },
+        { name: 'Energiefonds Stadt Biel', amount: 'pauschal CHF 500–1\'000', description: 'Städtischer Förderbeitrag der Stadt Biel für Solarprojekte im Stadtgebiet.' },
+      ],
+    },
+    caseStudies: [
+      {
+        name: 'Familie Widmer',
+        location: 'Nidau / Biel',
+        systemSize: '9 kWp',
+        cost: "CHF 17'500",
+        savings: "CHF 2'600/Jahr",
+        payback: '9 Jahre',
+        quote: "Wir wohnten in Nidau und haben über PVPro drei Offerten aus der Region Biel erhalten. Der ausgewählte Installateur kannte die Anforderungen der Stadt Biel in- und auswendig – alles lief reibungslos.",
+      },
+    ],
+    faqs: [
+      { question: 'Welche Förderungen gibt es für Solaranlagen in Biel?', answer: "In Biel profitieren Sie von der EIV des Bundes (ca. CHF 400/kWp), dem kantonalen Berner Förderprogramm (bis CHF 2'000) und dem städtischen Energiefonds (CHF 500–1'000). Diese Mittel lassen sich kombinieren." },
+      { question: 'Wie viele Sonnenstunden hat Biel pro Jahr?', answer: "Biel/Bienne verzeichnet dank der Tallage am Bielersee und dem Föhneinfluss rund 1'750 Sonnenstunden pro Jahr – mehr als Bern und Zürich. Eine 8 kWp Anlage erzeugt ca. 7'500–8'000 kWh jährlich." },
+      { question: 'Brauche ich in Biel eine Baubewilligung für eine Solaranlage?', answer: 'In der Stadt Biel ist für dachintegrierte oder dachparallele Anlagen an Bestandsgebäuden in der Regel nur eine Meldung erforderlich. Die städtische Bauverwaltung bearbeitet Solaranfragen speditiv.' },
+      { question: 'Ist Biel eine Energiestadt?', answer: "Ja. Biel/Bienne trägt das Label «Energiestadt» und hat ambitionierte Klimaziele bis 2030. Das bedeutet praxisnahe Behörden, klare Prozesse und Unterstützung für Solarprojekte auch auf Gemeindeebene." },
+      { question: 'Wie schnell amortisiert sich eine Solaranlage in Biel?', answer: "Durch die günstige Sonnenlage, die Kombination aus drei Förderebenen und steigende Strompreise amortisieren sich Anlagen in der Region Biel/Bienne typischerweise in 8–10 Jahren." },
+    ],
+    testimonial: {
+      initials: 'PW',
+      name: 'Peter Widmer',
+      quote: "Biel hat mehr Sonne als man denkt. Meine 9 kWp Anlage produziert im Sommer fast doppelt so viel Strom wie wir verbrauchen – den Rest speisen wir ins Netz ein. Die Förderungen haben die Anfangsinvestition erheblich reduziert.",
+    },
+  },
+
+  // ─── WALLIS (DE) ─────────────────────────────────────────────────────────────
+  wallis: {
+    slug: 'wallis',
+    image: '/images/asset-haus-alpen-2.png',
+    heroHeadline: 'Solaranlage im Kanton Wallis',
+    heroSubheadline: "Schweizer Sonnenstunden-Rekord – jetzt nutzen",
+    heroDescription: "Das Wallis empfängt mehr Sonnenstunden als jeder andere deutschschweizerische Kanton. Mit 1'849 Stunden pro Jahr und einer der höchsten kantonalen Förderungen der Schweiz ist jetzt der ideale Zeitpunkt für Ihre Solaranlage.",
+    whySolarTitle: 'Warum das Wallis der ideale Standort für Solar ist',
+    whySolarIntro: 'Das Rhônetal und die Walliser Alpentäler bieten dank Alpinlage, trockenem Klima und hoher Sonneneinstrahlung optimale Bedingungen für Photovoltaik.',
+    whySolarReasons: [
+      {
+        title: "1'849 Sonnenstunden – schweizweit Spitze",
+        description: "Keine andere deutschsprachige Region der Schweiz empfängt mehr Sonnenlicht. Eine 8 kWp Anlage im Wallis erzeugt bis zu 8'500 kWh pro Jahr – deutlich mehr als in Zürich oder Bern.",
+      },
+      {
+        title: 'Albedo-Effekt: Schnee als Boostverstärker',
+        description: "Der reflektierte Schnee auf Walliser Bergwiesen und Gipfeln (Albedo bis 80%) erhöht die Solarproduktion in den Wintermonaten um 20–30%. Selbst im Dezember und Januar läuft die Anlage auf hohem Niveau.",
+      },
+      {
+        title: 'Hohe Kantonsförderung',
+        description: "Der Kanton Wallis zählt zu den grosszügigsten Fördergebern der Schweiz. Die Kombination aus EIV und kantonalem Beitrag kann die Nettokosten um bis zu 40% senken.",
+      },
+    ],
+    cityFactsTitle: 'Solarenergie im Wallis – regionale Besonderheiten',
+    cityFactsParagraphs: [
+      "Im Wallis boomt die Solarenergie auf breiter Front: Neben Einfamilienhäusern investieren Bergbahnen, Hotels und Alpwirtschaften massiv in PV-Anlagen. Die lokale Installateur-Szene ist hoch spezialisiert, auch für Steillagen und alpine Gegebenheiten.",
+      "Die grossen Weinberge in der Rhôneebene und die weitläufigen Dachflächen der typischen Walliser Alphütten bieten aussergewöhnlich günstige Bedingungen. Viele Walliser Haushalte decken 70–80% ihres Jahresverbrauchs selbst.",
+    ],
+    pricing: {
+      min: 13000,
+      max: 33000,
+      typical5kw: { min: 13500, max: 17500 },
+      afterSubsidy5kw: { min: 9000, max: 13000 },
+      roiYears: '7–10',
+    },
+    incentives: {
+      title: 'Förderungen für Solaranlagen im Wallis 2026',
+      description: "Das Wallis bietet eine der attraktivsten Förderlandschaften der Schweiz. Neben dem Bundesbeitrag (EIV) gibt es einen kantonalen Beitrag, der besonders für alpine Standorte grosszügig ausgelegt ist.",
+      programs: [
+        { name: 'Bundesförderung EIV (Pronovo)', amount: 'ca. CHF 400/kWp', description: 'Einmalige Vergütung für alle Anlagen ab 2 kWp in der ganzen Schweiz.' },
+        { name: 'Kanton Wallis – Kantonsbeitrag', amount: 'bis CHF 500/kWp', description: 'Einer der höchsten kantonalen Zusatzbeiträge der Schweiz – besonders für Anlagen über 10 kWp.' },
+        { name: 'Steuerliche Absetzbarkeit', amount: '100 % der Kosten', description: 'Solarinvestitionen sind im Kanton Wallis als Unterhaltskosten vollumfänglich abzugsfähig.' },
+      ],
+    },
+    caseStudies: [
+      {
+        name: 'Familie Zenhäusern',
+        location: 'Visp / Wallis',
+        systemSize: '10 kWp',
+        cost: "CHF 18'000",
+        savings: "CHF 3'200/Jahr",
+        payback: '8 Jahre',
+        quote: "Im Wallis lohnt sich Solar noch mehr als anderswo. Die Förderung war sehr grosszügig und unser Installateur kannte alle kantonalen Anforderungen genau. Wir produzieren jetzt mehr Strom als wir verbrauchen.",
+      },
+    ],
+    faqs: [
+      { question: 'Wie viele Sonnenstunden hat das Wallis pro Jahr?', answer: "Das Wallis verzeichnet rund 1'849 Sonnenstunden pro Jahr und gehört damit zu den sonnenreichsten Regionen der Schweiz. Eine 10 kWp Anlage erzeugt ca. 9'000–10'000 kWh jährlich." },
+      { question: 'Welche Förderungen gibt es für Solaranlagen im Wallis?', answer: "Im Wallis können Sie die Bundesförderung (EIV, ca. CHF 400/kWp via Pronovo) mit dem kantonalen Walliser Beitrag (bis CHF 500/kWp) kombinieren. Zusätzlich sind alle Kosten steuerlich absetzbar. Die Gesamtförderung kann bis zu 40% der Investition abdecken." },
+      { question: 'Lohnt sich Solar im Wallis auch im Winter?', answer: "Ja. Durch den Albedo-Effekt des Schnees (Reflexion bis 80%) produzieren Walliser Solaranlagen im Winter 20–30% mehr als in der Schweizer Mittellandlage. Selbst im Dezember wird deutlich Energie produziert." },
+      { question: 'Welche Anforderungen gelten für alpine Solaranlagen im Wallis?', answer: "Anlagen in Steillagen oder alpinen Zonen erfordern spezielle Montagesysteme und schneelastgerechte Auslegung. Unsere zertifizierten Walliser Installateure sind auf Berganlagen spezialisiert." },
+      { question: 'Wie schnell amortisiert sich eine Solaranlage im Wallis?', answer: "Dank der hohen Sonneneinstrahlung und den attraktiven Förderungen amortisiert sich eine Anlage im Wallis typischerweise in 7–10 Jahren – einer der besten Werte in der Schweiz." },
+    ],
+    testimonial: {
+      initials: 'RZ',
+      name: 'Robert Zenhäusern',
+      quote: "Das Wallis ist das Sonnendach der Schweiz. Mit 10 kWp produziere ich jährlich mehr Strom als meine Familie verbraucht. Die Walliser Förderung plus EIV haben die Kosten massiv gesenkt – eine der besten Investitionen meines Lebens.",
+    },
+  },
+
+  // ─── FRIBOURG (FR) ───────────────────────────────────────────────────────────
+  fribourg: {
+    slug: 'fribourg',
+    image: '/images/asset-haus-alpen-1.png',
+    heroHeadline: 'Installation solaire dans le Canton de Fribourg',
+    heroSubheadline: 'Bilingue. Engagé. Productif.',
+    heroDescription: "Le Canton de Fribourg combine tradition agricole et ambitions climatiques fortes. Profitez des subventions cantonales attractives et comparez jusqu'à 3 offres d'installateurs certifiés dans votre région.",
+    whySolarTitle: 'Pourquoi le solaire est particulièrement rentable à Fribourg',
+    whySolarIntro: "Seul canton officiellement bilingue de Suisse, Fribourg mise sur le renouvelable pour atteindre ses objectifs climatiques 2050 – avec un soutien financier concret pour les propriétaires.",
+    whySolarReasons: [
+      {
+        title: 'Subventions cantonales attractives',
+        description: "Fribourg complète la rétribution unique fédérale (RU) par une contribution cantonale propre. Combinées, elles peuvent couvrir jusqu'à 30–35 % du coût total de l'installation.",
+      },
+      {
+        title: 'Agri-PV dans le Gruyère',
+        description: "Le district de la Gruyère est pionnier en matière d'agri-PV en Suisse romande. Les exploitations agricoles combinent production laitière et énergie solaire, avec des programmes pilotes fédéraux spécifiques.",
+      },
+      {
+        title: 'Ensoleillement solide',
+        description: "Avec environ 1'694 heures d'ensoleillement par an, une installation de 8 kWc à Fribourg produit 7'000–7'800 kWh annuellement – suffisant pour couvrir la majorité des besoins d'un ménage.",
+      },
+    ],
+    cityFactsTitle: "Le solaire fribourgeois – ce qu'il faut savoir",
+    cityFactsParagraphs: [
+      "Le Canton de Fribourg s'est fixé l'objectif de devenir climatiquement neutre d'ici 2050. Le photovoltaïque est l'un des piliers de cette stratégie, soutenu par une réglementation claire et des aides financières directes.",
+      "Dans les districts du Lac et de la Broye, la densité de toitures adaptées est particulièrement élevée. Les procédures d'autorisation sont simplifiées pour les installations standards, et les délais de traitement restent raisonnables.",
+    ],
+    pricing: {
+      min: 13000,
+      max: 32000,
+      typical5kw: { min: 13500, max: 17500 },
+      afterSubsidy5kw: { min: 9500, max: 13000 },
+      roiYears: '9–12',
+    },
+    incentives: {
+      title: 'Subventions pour le solaire à Fribourg',
+      description: "Les propriétaires fribourgeois peuvent cumuler la rétribution unique fédérale (RU via Pronovo) avec les aides cantonales. L'investissement est intégralement déductible comme frais d'entretien immobilier.",
+      programs: [
+        { name: 'Rétribution unique fédérale (Pronovo)', amount: 'env. CHF 400/kWc', description: 'Subvention fédérale unique pour toute installation dès 2 kWc.' },
+        { name: 'Contribution cantonale Fribourg', amount: "jusqu'à CHF 1'500", description: "Aide cantonale complémentaire cumulable avec la rétribution fédérale." },
+        { name: 'Déductibilité fiscale', amount: '100 % des coûts', description: "Les installations solaires sont déductibles comme frais d'entretien dans toutes les communes fribourgeoises." },
+      ],
+    },
+    caseStudies: [
+      {
+        name: 'Famille Pythoud',
+        location: 'Romont, Fribourg',
+        systemSize: '7 kWc',
+        cost: "CHF 14'500",
+        savings: "CHF 2'100/an",
+        payback: '10 ans',
+        quote: "À Romont, nos toits ont une exposition sud parfaite. PVPro nous a mis en contact avec un installateur qui connaît bien les procédures fribourgeoises. L'installation a été impeccable et les aides ont allégé la facture.",
+      },
+    ],
+    faqs: [
+      { question: 'Quelles subventions pour le solaire dans le Canton de Fribourg ?', answer: "À Fribourg, vous bénéficiez de la RU fédérale (env. CHF 400/kWc) cumulée avec la contribution cantonale (jusqu'à CHF 1'500). L'investissement est aussi intégralement déductible fiscalement." },
+      { question: "Combien d'heures d'ensoleillement à Fribourg ?", answer: "Le Canton de Fribourg enregistre environ 1'694 heures de soleil par an. Une installation de 8 kWc produit entre 7'000 et 7'800 kWh annuellement." },
+      { question: 'Faut-il un permis de construire pour une installation solaire à Fribourg ?', answer: "Dans le Canton de Fribourg, une simple notification suffit pour les installations sur toiture existante hors périmètre protégé. Les autorités traitent les dossiers solaires de manière prioritaire." },
+      { question: "Qu'est-ce que l'agri-PV dans le district de la Gruyère ?", answer: "L'agri-PV combine panneaux solaires et activité agricole sur le même terrain. Dans le Gruyère, des exploitations utilisent des structures en hauteur au-dessus de pâturages ou de cultures, avec des subventions pilotes spécifiques." },
+      { question: 'Comment trouver un installateur solaire certifié à Fribourg ?', answer: "PVPro travaille exclusivement avec des installateurs certifiés OFEN actifs dans le Canton de Fribourg. Faites une demande gratuite et recevez jusqu'à 3 offres comparatives en 48h." },
+    ],
+    testimonial: {
+      initials: 'CP',
+      name: 'Claude Pythoud',
+      quote: "Fribourg est un canton où il fait bon investir dans le solaire : les démarches sont simples, les subventions réelles et les installateurs locaux compétents. En moins d'un an, mon installation est opérationnelle et déjà rentable.",
+    },
+  },
+
+  // ─── BIEL/BIENNE (FR) ────────────────────────────────────────────────────────
+  bienne: {
+    slug: 'bienne',
+    image: '/images/asset-haus-luftbild-1.png',
+    heroHeadline: 'Installation solaire à Biel/Bienne',
+    heroSubheadline: "La capitale de l'horlogerie mise sur l'énergie solaire",
+    heroDescription: "Biel/Bienne bénéficie d'un microclimat favorable au bord du lac de Bienne et d'une politique énergétique municipale ambitieuse. Comparez jusqu'à 3 offres d'installateurs certifiés dans la région biennoise.",
+    whySolarTitle: "Pourquoi Bienne est une ville idéale pour le solaire",
+    whySolarIntro: "Ville bilingue et industrielle, Bienne allie esprit pionnier et pragmatisme énergétique – avec un microclimat particulièrement favorable à la production solaire.",
+    whySolarReasons: [
+      {
+        title: 'Microclimat favorable au lac de Bienne',
+        description: "La situation en fond de vallée au bord du lac et l'influence du fœhn depuis le Jura donnent à Bienne environ 1'750 heures d'ensoleillement par an – plus qu'à Berne ou Zurich.",
+      },
+      {
+        title: 'Triple niveau de subventions',
+        description: "À Bienne, vous cumulez la RU fédérale, l'aide cantonale bernoise et le fonds énergie municipal. Ces trois niveaux de soutien réduisent significativement l'investissement net.",
+      },
+      {
+        title: "Label Cité de l'énergie",
+        description: "Bienne est lauréate du label «Cité de l'énergie» pour son exemplarité en matière de gestion énergétique. Les procédures d'autorisation sont simplifiées et les délais maîtrisés.",
+      },
+    ],
+    cityFactsTitle: "Le solaire à Bienne – particularités régionales",
+    cityFactsParagraphs: [
+      "La région biennoise a développé une véritable culture de la durabilité, ancrée dans son passé industriel et horloger. Les nouveaux quartiers comme Biel-Bözingen intègrent systématiquement des toitures solaires dans les projets de construction.",
+      "Pour les bâtiments existants, les travaux de rénovation incluant une installation solaire sont facilement autorisés. La ville de Bienne dispose d'un guichet unique énergie pour accompagner les propriétaires de la demande jusqu'à la mise en service.",
+    ],
+    pricing: {
+      min: 13000,
+      max: 32000,
+      typical5kw: { min: 13500, max: 17000 },
+      afterSubsidy5kw: { min: 9500, max: 12500 },
+      roiYears: '8–10',
+    },
+    incentives: {
+      title: 'Subventions pour le solaire à Biel/Bienne',
+      description: "À Bienne, trois niveaux de subventions sont cumulables : fédéral, cantonal (Berne) et municipal. Un avantage unique par rapport aux autres villes romandes.",
+      programs: [
+        { name: 'Rétribution unique fédérale (Pronovo)', amount: 'env. CHF 400/kWc', description: 'Subvention fédérale unique pour toute installation dès 2 kWc.' },
+        { name: 'Canton de Berne – programme cantonal', amount: "jusqu'à CHF 2'000", description: 'Contribution additionnelle du Canton de Berne, cumulable avec la RU.' },
+        { name: 'Fonds énergie municipal de Bienne', amount: 'CHF 500–1\'000', description: 'Aide directe de la Ville de Bienne pour les projets solaires dans le périmètre communal.' },
+      ],
+    },
+    caseStudies: [
+      {
+        name: 'Famille Chételat',
+        location: 'Bienne',
+        systemSize: '8 kWc',
+        cost: "CHF 15'500",
+        savings: "CHF 2'400/an",
+        payback: '9 ans',
+        quote: "À Bienne, les démarches ont été très rapides. PVPro m'a mis en relation avec un installateur régional qui connaissait parfaitement les aides disponibles. L'installation est en service depuis 6 mois et les économies sont au rendez-vous.",
+      },
+    ],
+    faqs: [
+      { question: 'Quelles subventions pour le solaire à Biel/Bienne ?', answer: "À Bienne, vous cumulez trois niveaux d'aide : la RU fédérale (env. CHF 400/kWc), la contribution cantonale bernoise (jusqu'à CHF 2'000) et le fonds énergie municipal (CHF 500–1'000). La combinaison est particulièrement attractive." },
+      { question: "Combien d'heures de soleil à Bienne ?", answer: "Bienne bénéficie d'environ 1'750 heures d'ensoleillement par an, grâce à son microclimat lacustre. Une installation de 8 kWc produit entre 7'500 et 8'000 kWh annuellement." },
+      { question: 'Faut-il un permis de construire à Bienne pour une installation solaire ?', answer: "En règle générale, une simple notification suffit pour les toitures existantes à Bienne. Le service de l'urbanisme traite les dossiers solaires en priorité dans le cadre de la politique énergie de la ville." },
+      { question: "Bienne est-elle une Cité de l'énergie ?", answer: "Oui. Bienne est lauréate du label «Cité de l'énergie» pour son exemplarité en matière de politique énergétique. Cela se traduit par des procédures simplifiées et un accompagnement actif des propriétaires." },
+      { question: 'Comment trouver un bon installateur solaire à Bienne ?', answer: "PVPro collabore avec des installateurs certifiés actifs dans la région biennoise. Faites une demande gratuite et recevez jusqu'à 3 offres comparatives en 48h, avec un accompagnement personnalisé." },
+    ],
+    testimonial: {
+      initials: 'MC',
+      name: 'Marc Chételat',
+      quote: "Bienne est une ville dynamique qui soutient vraiment les projets solaires. Entre les aides fédérales, cantonales et municipales, j'ai réduit mon investissement de près de 30%. L'installateur trouvé via PVPro était excellent et connaissait bien la région.",
+    },
+  },
+
 };
