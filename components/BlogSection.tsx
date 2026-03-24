@@ -46,12 +46,15 @@ interface Props {
 export default function BlogSection({ locale = 'de' }: Props) {
   const t = labels[locale] ?? labels.de;
 
-  // Use translated posts for FR/EN/IT, German originals for DE
   const allPosts = locale !== 'de' && blogPostsI18n[locale]
     ? blogPostsI18n[locale]
     : blogPosts;
 
   const featured = allPosts.slice(0, 3);
+
+  function articleHref(slug: string) {
+    return locale === 'de' ? `/blog/${slug}` : `/${locale}/blog/${slug}`;
+  }
 
   return (
     <section className="py-20 bg-gray-50">
@@ -79,7 +82,7 @@ export default function BlogSection({ locale = 'de' }: Props) {
           {featured.map((post) => (
             <Link
               key={post.slug}
-              href={`/blog/${post.slug}`}
+              href={articleHref(post.slug)}
               className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
               {/* Image */}
