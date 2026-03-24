@@ -318,6 +318,9 @@ export default function PhotovoltaikSchweizKlimaPage() {
               <Link href="/vergleichsportal-photovoltaik-schweiz" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Anbieter vergleichen
               </Link>
+              <Link href="/solaranlagen-typen-vergleich" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Welche Module eignen sich für die Schweiz?
+              </Link>
               <Link href="/blog/solaranlage-winter-schweiz" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Solaranlage im Winter
               </Link>

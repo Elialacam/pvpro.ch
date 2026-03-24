@@ -333,6 +333,9 @@ export default function PhotovoltaikKomplettloesungSchweizPage() {
               <Link href="/solaranlage-kosten" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Kosten Solaranlage
               </Link>
+              <Link href="/solaranlagen-typen-vergleich" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Modultypen für Komplettlösungen
+              </Link>
               <Link href="/photovoltaik-wartung-kosten" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Wartung der Komplettlösung
               </Link>

@@ -194,6 +194,12 @@ export default function WieFunktioniertPage() {
             >
               Wartung und Betrieb einer Solaranlage
             </Link>
+            <Link
+              href="/solaranlagen-typen-vergleich"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white/80 text-sm border border-white/20 hover:border-white/40 transition-colors"
+            >
+              Vergleich der Solaranlagen Typen
+            </Link>
           </div>
         </div>
       </section>

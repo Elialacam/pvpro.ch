@@ -458,6 +458,8 @@ export default function SolaranlageKostenPage() {
               <a href="/photovoltaik-schweizer-klima" className="text-[#F97316] hover:underline font-medium">Photovoltaik im Schweizer Klima</a>
               {' '}·{' '}
               <a href="/photovoltaik-wartung-kosten" className="text-[#F97316] hover:underline font-medium">Wartungskosten im Überblick</a>
+              {' '}·{' '}
+              <a href="/solaranlagen-typen-vergleich" className="text-[#F97316] hover:underline font-medium">Kosten je nach Modultyp</a>
             </p>
           </div>
         </div>

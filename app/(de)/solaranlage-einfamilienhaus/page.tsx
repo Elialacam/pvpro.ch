@@ -362,6 +362,8 @@ export default function SolaranlageEinfamilienhausPage() {
             <Link href="/photovoltaik-komplettloesung-schweiz" className="text-[#F97316] hover:underline font-medium">Komplettlösung für Ihr Einfamilienhaus</Link>
             {' '}·{' '}
             <Link href="/photovoltaik-wartung-kosten" className="text-[#F97316] hover:underline font-medium">Was kostet die Wartung?</Link>
+            {' '}·{' '}
+            <Link href="/solaranlagen-typen-vergleich" className="text-[#F97316] hover:underline font-medium">Welcher Modultyp ist der richtige?</Link>
           </p>
         </section>
 
