@@ -19,45 +19,66 @@ export const metadata: Metadata = {
 
 const steps = [
   {
-    number: '1', Icon: FileText,
+    number: '1',
+    Icon: FileText,
     title: 'Fill in the form',
     subtitle: 'Takes less than 2 minutes',
     description: 'Enter your contact details and address in our simple online form. No technical knowledge is required — we guide you step by step through the process.',
-    details: ['Name, phone number and email', 'Full address of your property', 'No account or registration needed', '100% free and no obligation'],
+    details: [
+      'Name, phone number and email',
+      'Full address of your property',
+      'No account or registration needed',
+      '100% free and no obligation',
+    ],
   },
   {
-    number: '2', Icon: Search,
+    number: '2',
+    Icon: Search,
     title: 'We connect you with certified installers',
     subtitle: 'Within 24–48 hours',
     description: 'Once we receive your request, we forward it to up to 3 certified solar installers in your region. Every partner in our network has been pre-screened for certifications, references and quality.',
-    details: ['Up to 3 independent quotes', 'Only certified professionals', 'Installers from your region', 'Individual offers tailored to your roof'],
+    details: [
+      'Up to 3 independent quotes',
+      'Only certified professionals',
+      'Installers from your region',
+      'Individual offers tailored to your roof',
+    ],
   },
   {
-    number: '3', Icon: CheckCircle,
+    number: '3',
+    Icon: CheckCircle,
     title: 'Compare and choose',
     subtitle: 'No pressure, no obligation',
-    description: 'You receive the installers\' offers directly and compare prices, services and terms at your own pace. You decide freely whether and which offer you accept — with no pressure at all.',
-    details: ['Real prices, no bait offers', 'No installer has priority', 'No contract with PVPro', 'Free decision, no minimum order'],
+    description: "You receive the installers' offers directly and compare prices, services and terms at your own pace. You decide freely whether and which offer you accept — with no pressure at all.",
+    details: [
+      'Real prices, no bait offers',
+      'No installer has priority',
+      'No contract with PVPro',
+      'Free decision, no minimum order',
+    ],
   },
 ];
 
 const benefits = [
-  { Icon: Clock,       title: 'Time saving',         text: 'Instead of contacting multiple installers yourself, PVPro handles the search for you — in less than 2 minutes.' },
-  { Icon: ShieldCheck, title: 'Certified quality',    text: 'Only installers with valid certifications, proof of insurance and positive references.' },
-  { Icon: Euro,        title: 'Free of charge',       text: 'Our service is 100% free for homeowners. We are funded by installer commissions — no extra cost for you.' },
-  { Icon: Phone,       title: 'Personal support',     text: 'If you have questions, our team is available by phone and email at any time.' },
+  { Icon: Clock,       title: 'Time saving',      text: 'Instead of contacting multiple installers yourself, PVPro handles the search for you — in less than 2 minutes.' },
+  { Icon: ShieldCheck, title: 'Certified quality', text: 'Only installers with valid certifications, proof of insurance and positive references.' },
+  { Icon: Euro,        title: 'Free of charge',   text: 'Our service is 100% free for homeowners. We are funded by installer commissions — no extra cost for you.' },
+  { Icon: Phone,       title: 'Personal support', text: 'If you have questions, our team is available by phone and email at any time.' },
 ];
 
 export default function HowItWorksPage() {
   return (
     <main className="min-h-screen bg-white pt-28 pb-20">
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+
+        {/* Breadcrumb */}
         <nav className="flex items-center gap-1.5 text-sm text-gray-400 mb-10">
           <Link href="/en" className="hover:text-gray-600 transition-colors">Home</Link>
           <ChevronRight className="w-3.5 h-3.5" />
           <span className="text-gray-700 font-medium">How it works</span>
         </nav>
 
+        {/* Page header */}
         <div className="max-w-3xl mb-20">
           <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Simple & transparent</p>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-6 leading-tight">
@@ -68,6 +89,7 @@ export default function HowItWorksPage() {
           </p>
         </div>
 
+        {/* Steps */}
         <div className="flex flex-col gap-0 mb-24">
           {steps.map((step, i) => {
             const Icon = step.Icon;
@@ -77,10 +99,12 @@ export default function HowItWorksPage() {
                   <div className="absolute left-9 top-[88px] w-0.5 h-[calc(100%-40px)] bg-gradient-to-b from-orange-200 to-orange-100 hidden sm:block" />
                 )}
                 <div className="flex flex-col sm:flex-row gap-8 pb-16">
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 flex flex-col items-center sm:items-start gap-0">
                     <div className="relative w-[72px] h-[72px] rounded-2xl flex items-center justify-center shadow-md" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
                       <Icon className="w-8 h-8 text-white" />
-                      <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-gray-900 text-white text-xs font-bold flex items-center justify-center">{step.number}</span>
+                      <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-gray-900 text-white text-xs font-bold flex items-center justify-center">
+                        {step.number}
+                      </span>
                     </div>
                   </div>
                   <div className="flex-1 pt-2">
@@ -104,6 +128,7 @@ export default function HowItWorksPage() {
           })}
         </div>
 
+        {/* Benefits grid */}
         <div className="mb-20">
           <div className="text-center mb-12">
             <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Why PVPro?</p>
@@ -125,6 +150,7 @@ export default function HowItWorksPage() {
           </div>
         </div>
 
+        {/* FAQ teaser */}
         <div className="rounded-2xl border border-gray-100 p-8 sm:p-10 mb-12">
           <h2 className="text-xl font-bold text-gray-900 mb-6">Frequently asked questions</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -141,17 +167,27 @@ export default function HowItWorksPage() {
             ))}
           </div>
           <div className="mt-6 pt-6 border-t border-gray-100">
-            <Link href="/en/faq" className="text-sm font-semibold text-[#F97316] hover:underline">View all FAQ →</Link>
+            <Link href="/en/faq" className="text-sm font-semibold text-[#F97316] hover:underline">
+              View all FAQ →
+            </Link>
           </div>
         </div>
 
+        {/* CTA */}
         <div className="rounded-2xl p-10 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Start for free now</h2>
-          <p className="text-gray-600 mb-6 max-w-md mx-auto">Fill in the form in under 2 minutes and receive up to 3 quotes from certified installers.</p>
-          <Link href="/en/request" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+          <p className="text-gray-600 mb-6 max-w-md mx-auto">
+            Fill in the form in under 2 minutes and receive up to 3 quotes from certified installers.
+          </p>
+          <Link
+            href="/en/request"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90"
+            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+          >
             Get free quotes →
           </Link>
         </div>
+
       </div>
     </main>
   );

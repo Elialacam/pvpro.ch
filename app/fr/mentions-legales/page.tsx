@@ -19,9 +19,15 @@ export default function MentionsLegalesPage() {
             <p className="text-gray-600 mb-2">Via Santi Pietro e Paolo 16</p>
             <p className="text-gray-600 mb-2">6953 Lugaggia</p>
             <p className="text-gray-600 mb-2">Suisse</p>
-            <p className="text-gray-600 mb-2"><strong>E-mail :</strong> anfrage@pvpro.ch</p>
-            <p className="text-gray-600 mb-2"><strong>Téléphone :</strong> +41 77 977 07 50</p>
-            <p className="text-gray-600"><strong>Site web :</strong> www.pvpro.ch</p>
+            <p className="text-gray-600 mb-2">
+              <strong>E-mail :</strong> anfrage@pvpro.ch
+            </p>
+            <p className="text-gray-600 mb-2">
+              <strong>Téléphone :</strong> +41 77 977 07 50
+            </p>
+            <p className="text-gray-600">
+              <strong>Site web :</strong> www.pvpro.ch
+            </p>
           </div>
 
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Forme juridique</h2>
@@ -32,12 +38,12 @@ export default function MentionsLegalesPage() {
 
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Registre du commerce</h2>
           <p className="text-gray-600 mb-6">
-            Numéro : CH-501.4.029.665-0<br />
+            Numéro d'inscription : CH-501.4.029.665-0<br />
             Office du registre du commerce : Canton du Tessin<br />
             Siège social : Capriasca
           </p>
 
-          <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Numéro d'identification (IDE)</h2>
+          <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Numéro d'identification des entreprises (IDE)</h2>
           <p className="text-gray-600 mb-6">CHE-236.020.113</p>
 
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Limitation de responsabilité</h2>
@@ -45,20 +51,31 @@ export default function MentionsLegalesPage() {
           <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">Responsabilité pour les contenus</h3>
           <p className="text-gray-600 leading-relaxed mb-6">
             Les contenus de nos pages ont été créés avec le plus grand soin. Cependant, nous ne pouvons garantir
-            l'exactitude, l'exhaustivité et l'actualité des contenus.
+            l'exactitude, l'exhaustivité et l'actualité des contenus. En tant que prestataire de services, nous sommes
+            responsables de nos propres contenus sur ces pages conformément aux lois générales. Nous ne sommes toutefois
+            pas tenus de surveiller les informations transmises ou stockées par des tiers, ni de rechercher des
+            circonstances indiquant une activité illégale.
           </p>
 
           <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">Responsabilité pour les liens</h3>
           <p className="text-gray-600 leading-relaxed mb-6">
             Notre offre contient des liens vers des sites Web externes de tiers, sur le contenu desquels nous n'avons
-            aucune influence. Nous ne pouvons donc assumer aucune responsabilité pour ces contenus externes.
+            aucune influence. Nous ne pouvons donc assumer aucune responsabilité pour ces contenus externes. Le
+            fournisseur ou l'exploitant respectif des pages est toujours responsable du contenu des pages liées.
           </p>
 
           <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">Droit d'auteur</h3>
           <p className="text-gray-600 leading-relaxed mb-6">
-            Les contenus et œuvres créés par les exploitants du site sur ces pages sont soumis au droit d'auteur suisse.
-            La reproduction, le traitement, la distribution et toute forme d'exploitation en dehors des limites du droit
-            d'auteur nécessitent le consentement écrit de l'auteur respectif.
+            Les contenus et œuvres créés par les exploitants du site sur ces pages sont soumis au droit d'auteur
+            suisse. La reproduction, le traitement, la distribution et toute forme d'exploitation en dehors des
+            limites du droit d'auteur nécessitent le consentement écrit de l'auteur respectif.
+          </p>
+
+          <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Règlement des litiges</h2>
+          <p className="text-gray-600 leading-relaxed mb-6">
+            La Commission européenne met à disposition une plateforme de règlement en ligne des litiges (RLL). Notre
+            adresse e-mail figure dans les mentions légales ci-dessus. Nous ne sommes pas disposés ni tenus de
+            participer à des procédures de règlement des litiges devant un organisme de médiation de la consommation.
           </p>
         </div>
       </div>
