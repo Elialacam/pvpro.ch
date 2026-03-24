@@ -189,6 +189,69 @@ export default function SolarSubsidiesPage() {
         </div>
       </section>
 
+      {/* ── EXAMPLE CALCULATION ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <Image src="/images/hero-family-solar.png" alt="Detached house with solar installation" width={700} height={500} className="w-full h-auto object-cover" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Calculation example</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">Example for a detached house</h2>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Many detached houses install a system of <strong>8–10 kWp</strong>, producing approximately <strong>8,000–10,000 kWh</strong> of electricity per year.
+              </p>
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-gray-100">
+                  <p className="text-gray-700 font-medium">Solar installation cost (10 kWp)</p>
+                  <p className="font-bold text-gray-900">CHF 25,000</p>
+                </div>
+                <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-orange-100" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
+                  <p className="text-orange-700 font-medium">One-time payment (OTP)</p>
+                  <p className="font-bold text-[#F97316]">− CHF 3,500</p>
+                </div>
+                <div className="h-px bg-gray-200" />
+                <div className="flex items-center justify-between rounded-2xl px-6 py-5 border-2 border-green-200" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
+                  <div>
+                    <p className="font-bold text-gray-900">Effective investment</p>
+                    <p className="text-xs text-green-600 mt-0.5">After deducting the federal subsidy</p>
+                  </div>
+                  <p className="font-bold text-green-700 text-2xl">CHF 21,500</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROFITABILITY ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Profitability</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-5">Is a solar installation worth it despite the investment costs?</h2>
+              <p className="text-gray-600 leading-relaxed mb-5">
+                Thanks to government subsidies and rising electricity prices, a solar installation is worthwhile for many Swiss households. Most systems pay for themselves within <strong>10–15 years</strong> with a lifespan of 25–30 years.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-8">The actual profitability depends on the following factors:</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {['Household electricity consumption', 'Self-consumption rate', 'Solar installation size', 'Electricity price trends'].map(f => (
+                  <div key={f} className="flex items-center gap-2.5 rounded-xl px-4 py-3 border border-gray-100 bg-gray-50">
+                    <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+                    <p className="text-sm text-gray-700">{f}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <Image src="/images/blog-5.png" alt="Solar installation profitability" width={700} height={500} className="w-full h-auto object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20" style={{ background: '#f9fafb' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="rounded-3xl p-10 sm:p-16 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>

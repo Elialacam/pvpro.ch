@@ -189,6 +189,69 @@ export default function SubventionsSolairesPage() {
         </div>
       </section>
 
+      {/* ── EXAMPLE CALCULATION ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <Image src="/images/hero-family-solar.png" alt="Maison individuelle avec installation solaire" width={700} height={500} className="w-full h-auto object-cover" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Exemple de calcul</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">Exemple pour une maison individuelle</h2>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                De nombreuses maisons individuelles installent un système de <strong>8–10 kWp</strong>, produisant environ <strong>8'000–10'000 kWh</strong> d'électricité par an.
+              </p>
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-gray-100">
+                  <p className="text-gray-700 font-medium">Coût de l'installation solaire (10 kWp)</p>
+                  <p className="font-bold text-gray-900">CHF 25'000</p>
+                </div>
+                <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-orange-100" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
+                  <p className="text-orange-700 font-medium">Rétribution unique (RU)</p>
+                  <p className="font-bold text-[#F97316]">− CHF 3'500</p>
+                </div>
+                <div className="h-px bg-gray-200" />
+                <div className="flex items-center justify-between rounded-2xl px-6 py-5 border-2 border-green-200" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
+                  <div>
+                    <p className="font-bold text-gray-900">Investissement effectif</p>
+                    <p className="text-xs text-green-600 mt-0.5">Après déduction de la subvention fédérale</p>
+                  </div>
+                  <p className="font-bold text-green-700 text-2xl">CHF 21'500</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── RENTABILITÉ ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Rentabilité</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-5">Une installation solaire est-elle rentable malgré les coûts ?</h2>
+              <p className="text-gray-600 leading-relaxed mb-5">
+                Grâce aux subventions de l'État et à la hausse des prix de l'électricité, une installation solaire est rentable pour de nombreux ménages suisses. La plupart s'amortissent en <strong>10–15 ans</strong> pour une durée de vie de 25–30 ans.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-8">La rentabilité effective dépend des facteurs suivants :</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {['Consommation d\'électricité du ménage', 'Taux d\'autoconsommation', 'Taille de l\'installation solaire', 'Évolution des prix de l\'électricité'].map(f => (
+                  <div key={f} className="flex items-center gap-2.5 rounded-xl px-4 py-3 border border-gray-100 bg-gray-50">
+                    <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+                    <p className="text-sm text-gray-700">{f}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <Image src="/images/blog-5.png" alt="Rentabilité installation solaire" width={700} height={500} className="w-full h-auto object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20" style={{ background: '#f9fafb' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="rounded-3xl p-10 sm:p-16 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>

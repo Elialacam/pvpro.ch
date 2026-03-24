@@ -50,12 +50,17 @@ export default function FaqEnPage() {
         </div>
 
         <div className="max-w-3xl mx-auto mb-16">
-          <div className="flex flex-col gap-4">
+          <div className="space-y-4">
             {faqs.map((faq, i) => (
-              <div key={i} className="rounded-2xl border border-gray-100 p-6 hover:shadow-md transition-shadow">
-                <h2 className="font-bold text-gray-900 mb-2">{faq.q}</h2>
-                <p className="text-gray-500 text-sm leading-relaxed">{faq.a}</p>
-              </div>
+              <details key={i} className="group rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
+                <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-gray-900 text-sm select-none list-none">
+                  {faq.q}
+                  <span className="ml-4 text-[#F97316] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
+                </summary>
+                <div className="px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-50">
+                  <p className="pt-4">{faq.a}</p>
+                </div>
+              </details>
             ))}
           </div>
         </div>

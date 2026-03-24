@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Locale, locales, localeNames } from '@/lib/i18n';
-import { getLocalizedRoute } from '@/lib/i18n/routeMap';
+import { getLocalizedRoute, routeMap } from '@/lib/i18n/routeMap';
 import { Globe } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
@@ -32,8 +32,9 @@ export default function LanguageSwitcher({ transparent = false }: Props) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const isCityPage = /\/(solaranlage-|solaire-|fotovoltaico-)/.test(pathname);
-  if (isCityPage) return null;
+  const cleanPath = pathname.replace(/\/$/, '') || '/';
+  const hasTranslations = !!routeMap[cleanPath];
+  if (!hasTranslations) return null;
 
   const triggerColor = transparent ? 'text-white' : 'text-gray-700';
   const triggerHover = transparent ? 'hover:bg-white/15' : 'hover:bg-gray-100';
