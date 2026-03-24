@@ -228,7 +228,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Permit requirements
     ...entryDe('/bewilligungspflicht-solaranlage-schweiz', 0.8),
     // Balcony power station
-    ...entryDe('/balkonkraftwerk', 0.7),
+    ...entry('/balkonkraftwerk', '/fr/centrale-balcon', '/en/balcony-power-station', '/it/centrale-balcone', 0.7),
   ];
 
   // ── Canton pages — German-speaking cantons (DE-only, no FR counterpart) ────────
