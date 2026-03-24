@@ -182,6 +182,12 @@ export default function WieFunktioniertPage() {
             >
               Solaranlagen im Schweizer Klima
             </Link>
+            <Link
+              href="/photovoltaik-installation-schweiz"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white/80 text-sm border border-white/20 hover:border-white/40 transition-colors"
+            >
+              Ablauf der Installation im Detail
+            </Link>
           </div>
         </div>
       </section>

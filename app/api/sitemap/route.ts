@@ -119,6 +119,7 @@ ${entry4('/solaranlage-installieren-schweiz', '/fr/installer-panneau-solaire-sui
 ${entry4('/solaranlage-offerte-einholen', '/fr/demander-offre-panneau-solaire', '/en/get-solar-panel-quotes', '/it/richiedere-preventivo-solare', 0.85)}
 ${entry4('/foerderungen-kanton-zuerich', '/fr/subventions-solaires-canton-zurich', '/en/solar-subsidies-canton-zurich', '/it/incentivi-solari-cantone-zurigo', 0.85)}
 ${entry4('/photovoltaik-schweizer-klima', '/fr/photovoltaique-climat-suisse', '/en/solar-panels-swiss-climate', '/it/fotovoltaico-clima-svizzero', 0.85)}
+${entry4('/photovoltaik-installation-schweiz', '/fr/installation-photovoltaique-suisse', '/en/solar-panel-installation-process-switzerland', '/it/processo-installazione-fotovoltaico-svizzera', 0.85)}
 ${entry4('/faq', '/fr/faq', '/en/faq', '/it/faq', 0.75)}
 ${entry4('/ueber-uns', '/fr/a-propos', '/en/about-us', '/it/chi-siamo', 0.7)}
 ${entry4('/anfrage', '/fr/demande', '/en/request', '/it/richiesta', 0.8)}
