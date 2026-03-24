@@ -1,0 +1,176 @@
+Crea una nuova pagina sul sito pvpro.ch con URL /solaranlagen-typen-vergleich.
+Crea anche le versioni nelle altre lingue:
+
+Francese: /fr/comparaison-types-panneaux-solaires
+Inglese: /en/solar-panel-types-comparison
+Italiano: /it/confronto-tipi-impianti-solari
+
+SEO TECNICO — aggiungi esattamente questi valori per la versione tedesca:
+
+Title tag: Solaranlagen Typen Vergleich Schweiz 2026 – Welche passt zu mir? | PVPro.ch
+Meta description: Vergleich der verschiedenen Solaranlagen Typen in der Schweiz: monokristallin, polykristallin, Dünnschicht, bifazial. Was sind die Unterschiede und welche lohnt sich?
+H1: Solaranlagen Typen im Vergleich — welche passt zu Ihrer Situation?
+Canonical URL: https://www.pvpro.ch/solaranlagen-typen-vergleich
+Lingua: de
+
+
+CONTENUTO DELLA PAGINA:
+[Tag categoria]
+Technik & Vergleich
+[H1]
+Solaranlagen Typen im Vergleich — welche passt zu Ihrer Situation?
+[Testo introduttivo]
+Nicht alle Solaranlagen sind gleich. Je nach Dachtyp, Budget und Ziel gibt es verschiedene Technologien und Konfigurationen. Diese Seite erklärt die wichtigsten Typen verständlich — ohne technischen Fachjargon — damit Sie eine informierte Entscheidung treffen können.
+[3 Stat-Boxen orizzontali]
+
+Box 1: 22% / maximaler Wirkungsgrad monokristallin
+Box 2: 4 Typen / im direkten Vergleich
+Box 3: 25–30 Jahre / Lebensdauer aller Typen
+
+
+[H2] Die wichtigsten Solaranlagen Typen im Überblick
+TypWirkungsgradKostenIdeal fürMonokristallin18–22%Mittel–HochKleine Dachflächen, hohe EffizienzPolykristallin15–17%GünstigGrosse Dachflächen, Budget-OptionDünnschicht10–13%GünstigFlachdächer, spezielle AnwendungenBifazial20–24%HochSchneeregionen, Flachdächer
+
+[H2] Monokristalline Module — der Standard in der Schweiz
+Monokristalline Module sind heute die mit Abstand häufigste Wahl für Schweizer Einfamilienhäuser. Sie bestehen aus einem einzigen Siliziumkristall und haben den höchsten Wirkungsgrad aller gängigen Technologien.
+Vorteile:
+
+Höchster Wirkungsgrad (18–22%)
+Beste Leistung bei diffusem Licht und Bewölkung
+Kompakt — ideal für kleinere Dachflächen
+Lange Lebensdauer und hohe Zuverlässigkeit
+Ästhetisch ansprechend (einheitlich schwarz)
+
+Nachteile:
+
+Höhere Kosten als polykristalline Module
+Leichte Leistungsminderung bei sehr hohen Temperaturen
+
+Fazit: Für die meisten Schweizer Haushalte die beste Wahl — besonders im bewölkten Mittelland.
+
+[H2] Polykristalline Module — die Budget-Option
+Polykristalline Module bestehen aus mehreren Siliziumkristallen und haben einen etwas niedrigeren Wirkungsgrad als monokristalline. Sie werden zunehmend durch leistungsstärkere Alternativen verdrängt.
+Vorteile:
+
+Günstiger in der Anschaffung
+Bewährt und zuverlässig
+Gut für grosse Dachflächen geeignet
+
+Nachteile:
+
+Niedrigerer Wirkungsgrad (15–17%)
+Grössere Fläche für gleiche Leistung nötig
+Erkennbar an blau-schimmernder Optik
+
+Fazit: Interessant für grosse Dachflächen mit kleinem Budget. In der Schweiz immer weniger verbreitet.
+
+[H2] Dünnschichtmodule — für spezielle Anwendungen
+Dünnschichtmodule werden auf eine dünne Trägerschicht aufgedampft und sind flexibler als kristalline Module. Sie eignen sich besonders für Flachdächer und unkonventionelle Anwendungen.
+Vorteile:
+
+Leicht und flexibel
+Günstig in der Herstellung
+Funktionieren gut bei hohen Temperaturen
+
+Nachteile:
+
+Niedrigster Wirkungsgrad (10–13%)
+Benötigen deutlich mehr Fläche
+Kürzere Lebensdauer als kristalline Module
+
+Fazit: Für Standardanlagen in der Schweiz kaum empfehlenswert. Interessant für spezielle Anwendungen wie Fassadenintegration.
+
+[H2] Bifaziale Module — mehr Strom durch Rückseite
+Bifaziale Module produzieren Strom von beiden Seiten — vorne durch direktes Sonnenlicht, hinten durch reflektiertes Licht. Bei Schnee oder hellen Dachbelägen ist der Mehrertrag besonders hoch.
+Vorteile:
+
+Höchster Ertrag unter den richtigen Bedingungen
+Besonders effektiv bei Schnee (reflektiert Licht)
+Ideal für Flachdächer mit Abstand zur Dachfläche
+
+Nachteile:
+
+Teurer als monokristalline Module
+Mehrertrag hängt stark von der Aufstellung ab
+Nicht immer sinnvoll auf normalen Steildächern
+
+Fazit: Interessant für Regionen mit viel Schnee und für Flachdächer. Für normale Steildächer in der Schweiz meist kein signifikanter Vorteil.
+
+[H2] Welcher Typ ist der richtige für mich?
+Die Wahl hängt von Ihrer konkreten Situation ab:
+SituationEmpfehlungKleines Dach, maximale LeistungMonokristallinGrosses Dach, kleines BudgetPolykristallinFlachdach, SchneeregionBifazialFassade oder unkonventionelles DachDünnschichtStandard Einfamilienhaus SchweizMonokristallin
+In der Praxis empfiehlt ein zertifizierter Installateur den richtigen Modultyp nach Besichtigung Ihres Dachs. PVPro.ch vermittelt Installateure, die alle Technologien kennen und neutral beraten.
+
+[H2] Häufig gestellte Fragen
+Füge queste come FAQ a fisarmonica (Accordion), con schema JSON-LD FAQPage:
+F: Welche Solarmodule sind in der Schweiz am beliebtesten?
+A: Monokristalline Module sind in der Schweiz mit Abstand am häufigsten verbaut. Sie bieten den besten Wirkungsgrad auch bei bewölktem Himmel und sind ideal für das Schweizer Klima.
+F: Was ist der Unterschied zwischen monokristallin und polykristallin?
+A: Monokristalline Module haben einen höheren Wirkungsgrad und sind kompakter, kosten aber etwas mehr. Polykristalline Module sind günstiger, benötigen aber mehr Fläche für die gleiche Leistung.
+F: Lohnen sich bifaziale Module für ein normales Einfamilienhaus?
+A: Auf einem normalen Steildach ist der Mehrertrag durch die Rückseite gering. Bifaziale Module lohnen sich vor allem auf Flachdächern oder in Schneeregionen.
+F: Welche Module halten am längsten?
+A: Alle hochwertigen kristallinen Module haben eine Leistungsgarantie von 25–30 Jahren. Die Wahl des Herstellers ist oft wichtiger als die Technologie.
+F: Kann ich verschiedene Modultypen auf demselben Dach kombinieren?
+A: Technisch ist das möglich, aber in der Praxis nicht empfehlenswert. Unterschiedliche Module haben unterschiedliche elektrische Eigenschaften, was die Systemleistung reduzieren kann.
+F: Welcher Modultyp passt am besten zum Schweizer Klima?
+A: Monokristalline Module sind die beste Wahl für das Schweizer Klima — sie liefern auch bei Bewölkung und diffusem Licht gute Leistung und sind robust gegenüber Schnee und Kälte.
+
+[CTA Box finale — stesso stile delle altre pagine]
+Titel: Welcher Typ passt zu Ihrem Dach?
+Text: Ein zertifizierter Installateur aus Ihrer Region analysiert Ihr Dach und empfiehlt den optimalen Modultyp für Ihre Situation — kostenlos und unverbindlich.
+Button: Kostenlose Offerte anfordern → link a /anfrage
+
+LINK INTERNI — aggiungi questi link nel testo della pagina dove pertinente:
+
+Dove menzioni "Schweizer Klima" → linka a /photovoltaik-schweizer-klima
+Dove menzioni "Flachdach" → linka a /solaranlage-mehrfamilienhaus
+Dove menzioni "Einfamilienhaus" → linka a /solaranlage-einfamilienhaus
+Dove menzioni "Kosten" → linka a /solaranlage-kosten
+Dove menzioni "Offerten vergleichen" → linka a /solaranlage-offerte-einholen
+Dove menzioni "Anbieter" → linka a /vergleichsportal-photovoltaik-schweiz
+Dove menzioni "Installation" → linka a /solaranlage-installieren-schweiz
+
+
+LINK INTERNI INVERSI — aggiungi un link a questa nuova pagina nelle seguenti pagine esistenti:
+
+/wie-funktioniert → aggiungi un link con anchor text Vergleich der Solaranlagen Typen che punta a /solaranlagen-typen-vergleich
+/photovoltaik-schweizer-klima → aggiungi un link con anchor text Welche Module eignen sich für die Schweiz?' che punta a /solaranlagen-typen-vergleich`
+/solaranlage-einfamilienhaus → aggiungi un link con anchor text Welcher Modultyp ist der richtige?' che punta a /solaranlagen-typen-vergleich`
+/solaranlage-kosten → aggiungi un link con anchor text Kosten je nach Modultyp che punta a /solaranlagen-typen-vergleich
+/photovoltaik-komplettloesung-schweiz → aggiungi un link con anchor text Modultypen für Komplettlösungen che punta a /solaranlagen-typen-vergleich
+
+
+FOOTER — aggiungi il link a questa nuova pagina nella sezione "Notizie & Consigli" del footer:
+
+Solaranlagen Typen Vergleich → /solaranlagen-typen-vergleich
+Assicurati che il link appaia anche nelle versioni francese, inglese e italiana del footer con i rispettivi URL tradotti.
+
+
+SITEMAP — aggiungi queste righe nel file sitemap.xml:
+xml<url>
+  <loc>https://www.pvpro.ch/solaranlagen-typen-vergleich</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/fr/comparaison-types-panneaux-solaires</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/en/solar-panel-types-comparison</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/it/confronto-tipi-impianti-solari</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+STILE VISIVO — usa esattamente lo stesso layout e componenti delle pagine esistenti come /solaranlage-mit-speicher e /bewilligungspflicht-solaranlage-schweiz. Stesso header, stesso footer, stessi colori, stessi componenti accordion per le FAQ, stessa stat-box orizzontale. Le tabelle devono essere stilizzate con lo stesso stile delle altre tabelle del sito.

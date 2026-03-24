@@ -34,6 +34,9 @@ const footerContent: Record<string, {
           { label: 'Solaranlage Einfamilienhaus',        href: '/solaranlage-einfamilienhaus' },
           { label: 'Solaranlage Mehrfamilienhaus',       href: '/solaranlage-mehrfamilienhaus' },
           { label: 'Wie funktioniert eine Solaranlage', href: '/wie-funktioniert' },
+          { label: 'Anbieter vergleichen',               href: '/vergleichsportal-photovoltaik-schweiz' },
+          { label: 'Solaranlage installieren lassen',    href: '/solaranlage-installieren-schweiz' },
+          { label: 'Offerten einholen',                  href: '/solaranlage-offerte-einholen' },
         ],
       },
       {
@@ -69,6 +72,9 @@ const footerContent: Record<string, {
           { label: 'PV maison individuelle',              href: '/fr/solaire-maison-individuelle' },
           { label: 'PV immeuble résidentiel',             href: '/fr/solaire-immeuble' },
           { label: 'Comment fonctionne le solaire',       href: '/fr/fonctionnement-solaire' },
+          { label: 'Comparer les installateurs',          href: '/fr/comparateur-photovoltaique-suisse' },
+          { label: 'Installer des panneaux solaires',     href: '/fr/installer-panneau-solaire-suisse' },
+          { label: 'Demander des offres',                 href: '/fr/demander-offre-panneau-solaire' },
         ],
       },
       {
@@ -104,6 +110,9 @@ const footerContent: Record<string, {
           { label: 'PV for detached houses',      href: '/en/solar-detached-house' },
           { label: 'PV for apartment buildings',  href: '/en/solar-apartment-building' },
           { label: 'How solar panels work',       href: '/en/how-solar-works' },
+          { label: 'Compare installers',          href: '/en/solar-comparison-portal-switzerland' },
+          { label: 'Solar panel installation',    href: '/en/solar-panel-installation-switzerland' },
+          { label: 'Get solar quotes',            href: '/en/get-solar-panel-quotes' },
         ],
       },
       {
@@ -135,10 +144,13 @@ const footerContent: Record<string, {
         title: 'Per i clienti',
         links: [
           { label: 'Solare con accumulo',              href: '/it/solare-con-accumulo' },
-          { label: 'Costo fotovoltaico per m²',           href: '/it/costo-fv-per-m2' },
+          { label: 'Costo fotovoltaico per m²',        href: '/it/costo-fv-per-m2' },
           { label: 'Fotovoltaico casa unifamiliare',    href: '/it/solare-casa-unifamiliare' },
           { label: 'Fotovoltaico condominio',           href: '/it/solare-condominio' },
           { label: 'Come funziona un impianto solare', href: '/it/come-funziona-solare' },
+          { label: 'Confrontare installatori',          href: '/it/comparatore-fotovoltaico-svizzera' },
+          { label: 'Installare impianto solare',        href: '/it/installare-impianto-solare-svizzera' },
+          { label: 'Richiedere preventivi',             href: '/it/richiedere-preventivo-solare' },
         ],
       },
       {
