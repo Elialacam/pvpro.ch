@@ -29,39 +29,62 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: 'PVPro.ch est-il vraiment gratuit ?',
-    answer: "Oui, le service est entièrement gratuit et sans engagement pour les propriétaires. Nous nous finançons via une commission payée par les installateurs — pas par vous.",
+    answer: "Oui, pour les propriétaires le service est entièrement gratuit et sans engagement. Nous nous finançons via une commission versée par les installateurs — pas par vous.",
   },
   {
-    question: 'Combien d\'offres vais-je recevoir ?',
-    answer: "Vous recevez jusqu'à 3 offres personnalisées d'installateurs locaux certifiés. Vous disposez ainsi d'une base de comparaison directe.",
+    question: "Combien d'offres vais-je recevoir ?",
+    answer: "Vous recevez jusqu'à 3 offres personnalisées d'installateurs locaux certifiés. Vous avez ainsi immédiatement une base de comparaison.",
   },
   {
-    question: 'Qui sont les installateurs du réseau PVPro ?',
-    answer: "Nous travaillons avec plus de 500 entreprises suisses certifiées. Chaque installateur est vérifié avant d'être admis dans le réseau.",
+    question: "Qui sont les installateurs du réseau PVPro ?",
+    answer: "Nous collaborons avec plus de 500 entreprises suisses certifiées. Chaque installateur est vérifié avant d'être admis dans notre réseau.",
   },
   {
-    question: 'Puis-je utiliser PVPro.ch pour un immeuble résidentiel ?',
-    answer: "Oui, nous proposons des offres pour les maisons individuelles, les immeubles résidentiels et les bâtiments commerciaux dans toute la Suisse.",
+    question: "Puis-je utiliser PVPro.ch pour un immeuble locatif ?",
+    answer: "Oui, nous transmettons des offres pour les maisons individuelles, les immeubles locatifs et les bâtiments commerciaux dans toute la Suisse.",
   },
   {
-    question: 'Combien de temps faut-il pour recevoir des offres ?',
+    question: "Combien de temps faut-il pour recevoir des offres ?",
     answer: "Dans la plupart des cas, vous recevez les premières offres dans les 24 à 48 heures suivant votre demande.",
   },
   {
-    question: 'Dois-je m\'engager à quoi que ce soit ?',
+    question: "Dois-je m'engager à quelque chose ?",
     answer: "Non. Vous pouvez comparer les offres et décider librement — sans aucun engagement.",
   },
+];
+
+const reasons = [
+  {
+    title: 'Transparence des prix',
+    text: "Vous voyez immédiatement ce que coûte réellement une installation dans votre région",
+  },
+  {
+    title: 'Comparaison de qualité',
+    text: "Uniquement des installateurs certifiés avec une expérience reconnue",
+  },
+  {
+    title: 'Gain de temps',
+    text: "Plutôt que de chercher vous-même, vous obtenez tout en un coup d'œil",
+  },
+];
+
+const criteria = [
+  { title: 'Certification', text: "Vérifiez que l'entreprise possède des qualifications reconnues (ex. electrosuisse, Swissolar)" },
+  { title: 'Expérience locale', text: "Un installateur de votre région connaît les subventions cantonales et les procédures d'autorisation" },
+  { title: 'Références', text: "Demandez des projets réalisés dans votre commune" },
+  { title: 'Garanties', text: "Les prestataires sérieux offrent des garanties claires sur les modules, l'onduleur et la pose" },
+  { title: 'Prix transparents', text: "Pas de frais cachés — tout est écrit dans l'offre" },
 ];
 
 const tableRows = [
   { label: 'Coût pour le client', pvpro: 'Gratuit', others: 'Souvent des frais cachés' },
   { label: 'Installateurs vérifiés', pvpro: 'Oui, certifiés', others: 'Pas toujours' },
-  { label: 'Entreprises locales', pvpro: 'Oui, dans votre région', others: 'Souvent hors région' },
-  { label: 'Pas de démarchage', pvpro: 'Garanti', others: 'Non garanti' },
+  { label: 'Entreprises locales', pvpro: 'Oui, de votre région', others: 'Souvent non locales' },
+  { label: "Pas d'appels publicitaires", pvpro: 'Garanti', others: 'Non garanti' },
   { label: 'Plateforme suisse', pvpro: 'Oui', others: 'Souvent étrangère' },
 ];
 
-export default function ComparateurPhotovoltaiquePage() {
+export default function ComparateurPhotovoltaiqueSuissePage() {
   return (
     <main className="min-h-screen bg-white">
 
@@ -72,21 +95,23 @@ export default function ComparateurPhotovoltaiquePage() {
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
             <Link href="/fr" className="hover:text-white/70 transition-colors">Accueil</Link>
             <ChevronRight className="w-3.5 h-3.5" />
-            <span className="text-white/70">Comparateur Photovoltaïque</span>
+            <span className="text-white/70">Comparateur photovoltaïque</span>
           </nav>
+
           <div className="max-w-3xl mb-12">
             <span className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5">
-              <BarChart2 className="w-3.5 h-3.5" /> Fournisseurs &amp; Comparaison
+              <BarChart2 className="w-3.5 h-3.5" /> Installateurs &amp; Comparaison
             </span>
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-6">
-              Comparateur d'installations photovoltaïques en Suisse
+              Comparateur d&apos;installations photovoltaïques en Suisse
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Qui souhaite installer une installation solaire en Suisse se pose une grande question : quel fournisseur choisir ? Les prix varient fortement, la qualité encore plus. PVPro.ch est le comparateur suisse indépendant qui met en relation les propriétaires avec des{' '}
+              Vous souhaitez installer une installation solaire en Suisse ? Lequel des prestataires est le bon ? Les prix varient fortement, la qualité encore davantage. PVPro.ch est le comparateur suisse indépendant qui met en relation les propriétaires avec des{' '}
               <Link href="/fr/demande" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">installateurs locaux certifiés</Link>{' '}
               — gratuitement et sans engagement.
             </p>
           </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { val: 'Gratuit & sans engagement', sub: 'aucun risque', note: 'entièrement gratuit pour les propriétaires' },
@@ -110,18 +135,14 @@ export default function ComparateurPhotovoltaiquePage() {
           <div>
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Pourquoi comparer ?</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
-              Pourquoi comparer les fournisseurs ?
+              Pourquoi faire une comparaison de prestataires ?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-5">
-              De nombreux propriétaires contactent un seul installateur et signent la première offre. C'est souvent une erreur coûteuse. Pour la même installation, les prix peuvent varier de plusieurs milliers de francs selon les installateurs.
+              De nombreux propriétaires ne contactent qu&apos;un seul installateur et signent la première offre. C&apos;est souvent une erreur coûteuse. Pour la même installation, les prix peuvent varier entre différents installateurs de plusieurs milliers de francs.
             </p>
-            <p className="text-gray-700 font-semibold mb-4">Comparer est utile pour trois raisons :</p>
+            <p className="text-gray-700 font-semibold mb-4">Une comparaison vaut la peine pour trois raisons :</p>
             <ul className="space-y-4">
-              {[
-                { title: 'Transparence des prix', text: 'Vous voyez immédiatement ce que coûte une installation dans votre région' },
-                { title: 'Comparaison qualité', text: 'Uniquement des installateurs certifiés avec une expérience prouvée' },
-                { title: 'Gain de temps', text: 'Au lieu de chercher vous-même, vous recevez tout en un coup d\'œil' },
-              ].map(r => (
+              {reasons.map(r => (
                 <li key={r.title} className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#F97316] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm leading-relaxed">
@@ -132,11 +153,15 @@ export default function ComparateurPhotovoltaiquePage() {
             </ul>
           </div>
           <div className="rounded-3xl overflow-hidden">
-            <img src="/images/asset-beratung-indoor-2.png" alt="Comparateur photovoltaïque Suisse" className="w-full h-72 object-cover rounded-3xl" />
+            <img
+              src="/images/asset-beratung-indoor-2.png"
+              alt="Comparaison installateurs photovoltaïques Suisse"
+              className="w-full h-72 object-cover rounded-3xl"
+            />
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Le saviez-vous ?</p>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Ceux qui comparent au moins 3 offres économisent en moyenne 15 à 25 % par rapport à la première proposition — soit jusqu'à 5'000 CHF pour une installation typique.
+                Ceux qui comparent au moins 3 offres économisent en moyenne 15 à 25 % par rapport à la première offre — soit jusqu&apos;à 5 000 CHF pour une installation typique.
               </p>
             </div>
           </div>
@@ -145,22 +170,23 @@ export default function ComparateurPhotovoltaiquePage() {
         {/* ── Comment ça marche ── */}
         <section>
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Simple et rapide</p>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">C&apos;est simple</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Comment fonctionne PVPro.ch comme comparateur ?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              PVPro.ch n'est pas un simple annuaire. Nous vérifions chaque installateur de notre réseau et ne mettons en relation qu'avec des entreprises certifiées de votre région.
+              PVPro.ch n&apos;est pas un simple annuaire. Nous vérifions chaque installateur de notre réseau et ne transmettons que des entreprises certifiées de votre région.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { n: '1', title: 'Remplir le formulaire', text: 'En 2 minutes, décrivez votre toit, votre consommation électrique et vos souhaits.' },
-              { n: '2', title: 'Recevoir des offres', text: "Jusqu'à 3 installateurs locaux vous envoient des offres personnalisées directement." },
+              { n: '1', title: 'Remplir le formulaire', text: 'En 2 minutes, vous décrivez votre toit, votre consommation électrique et vos souhaits.' },
+              { n: '2', title: 'Recevoir les offres', text: "Jusqu'à 3 installateurs locaux vous envoient des offres personnalisées directement." },
               { n: '3', title: 'Comparer et choisir', text: 'Vous comparez les prix, les composants et les références — et décidez librement.' },
             ].map(step => (
               <div key={step.n} className="rounded-2xl p-8 text-center" style={{ background: 'linear-gradient(135deg, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>
-                <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-5" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-5"
+                  style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
                   {step.n}
                 </div>
                 <h3 className="font-bold text-gray-900 text-lg mb-3">Étape {step.n} — {step.title}</h3>
@@ -170,35 +196,37 @@ export default function ComparateurPhotovoltaiquePage() {
           </div>
         </section>
 
-        {/* ── Quels fournisseurs ── */}
+        {/* ── Quels installateurs ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="rounded-3xl overflow-hidden">
-            <img src="/images/asset-installateur-dach-2.png" alt="Installateur photovoltaïque certifié Suisse" className="w-full h-72 object-cover rounded-3xl object-top" />
+            <img
+              src="/images/asset-installateur-dach-2.png"
+              alt="Installateur photovoltaïque certifié Suisse"
+              className="w-full h-72 object-cover rounded-3xl object-top"
+            />
           </div>
           <div>
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Critères de qualité</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
-              Quels fournisseurs sont recommandables en Suisse ?
+              Quels installateurs sont recommandables en Suisse ?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Il existe des centaines d'installateurs photovoltaïques en Suisse. La qualité varie fortement. À quoi faut-il faire attention ?
+              Il existe des centaines d&apos;installateurs photovoltaïques en Suisse. La qualité varie fortement. À quoi devez-vous faire attention ?
             </p>
             <ul className="space-y-4 mb-6">
-              {[
-                { title: 'Certification', text: 'Recherchez des entreprises avec des qualifications reconnues (p. ex. electrosuisse, Swissolar)' },
-                { title: 'Expérience locale', text: "Un installateur de votre région connaît les subventions cantonales et les procédures d'autorisation" },
-                { title: 'Références', text: 'Demandez des projets réalisés dans votre commune' },
-                { title: 'Garanties', text: 'Les fournisseurs sérieux offrent des garanties claires sur les modules, les onduleurs et le montage' },
-                { title: 'Prix transparents', text: "Pas de coûts cachés — tout par écrit dans l'offre" },
-              ].map(c => (
+              {criteria.map(c => (
                 <li key={c.title} className="flex items-start gap-3">
                   <Star className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-1" />
-                  <span className="text-gray-700 text-sm leading-relaxed"><strong className="text-gray-900">{c.title} :</strong> {c.text}</span>
+                  <span className="text-gray-700 text-sm leading-relaxed">
+                    <strong className="text-gray-900">{c.title} :</strong> {c.text}
+                  </span>
                 </li>
               ))}
             </ul>
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
-              <p className="text-orange-800 text-sm leading-relaxed"><strong>PVPro.ch vérifie tous ces critères pour vous</strong> et ne met en relation qu'avec des entreprises qui respectent nos standards.</p>
+              <p className="text-orange-800 text-sm leading-relaxed">
+                <strong>PVPro.ch vérifie tous ces critères pour vous</strong> et ne transmet que des entreprises qui respectent nos standards.
+              </p>
             </div>
           </div>
         </section>
@@ -207,7 +235,9 @@ export default function ComparateurPhotovoltaiquePage() {
         <section>
           <div className="text-center mb-10">
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">La différence</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Qu'est-ce qui distingue PVPro.ch des autres comparateurs ?</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              Qu&apos;est-ce qui distingue PVPro.ch des autres comparateurs ?
+            </h2>
           </div>
           <div className="max-w-3xl mx-auto overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
             <table className="w-full text-sm">
@@ -222,7 +252,12 @@ export default function ComparateurPhotovoltaiquePage() {
                 {tableRows.map((row, i) => (
                   <tr key={row.label} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="px-6 py-4 text-gray-700 font-medium">{row.label}</td>
-                    <td className="px-6 py-4 text-center"><span className="inline-flex items-center gap-1.5 text-green-700 font-semibold"><CheckCircle className="w-4 h-4 text-green-500" />{row.pvpro}</span></td>
+                    <td className="px-6 py-4 text-center">
+                      <span className="inline-flex items-center gap-1.5 text-green-700 font-semibold">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        {row.pvpro}
+                      </span>
+                    </td>
                     <td className="px-6 py-4 text-center text-gray-400">{row.others}</td>
                   </tr>
                 ))}
@@ -233,14 +268,23 @@ export default function ComparateurPhotovoltaiquePage() {
 
         {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-          <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+          <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center"
+            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             <Users className="w-7 h-7 text-white" />
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Comparez gratuitement les fournisseurs maintenant</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+            Comparer gratuitement les prestataires
+          </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Remplissez notre formulaire en 2 minutes et recevez jusqu'à 3 offres d'<Link href="/fr/demande" className="text-[#F97316] hover:underline font-medium">installateurs certifiés</Link> dans votre région — gratuitement et sans engagement.
+            Remplissez notre formulaire en 2 minutes et recevez jusqu&apos;à 3 offres d&apos;{' '}
+            <Link href="/fr/demande" className="text-[#F97316] hover:underline font-medium">installateurs certifiés</Link>{' '}
+            de votre région — gratuitement et sans engagement.
           </p>
-          <Link href="/fr/demande" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+          <Link
+            href="/fr/demande"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
+            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+          >
             Demander une offre gratuite <ArrowRight className="w-4 h-4" />
           </Link>
         </section>
@@ -249,7 +293,9 @@ export default function ComparateurPhotovoltaiquePage() {
         <section>
           <div className="text-center mb-10">
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Questions fréquentes</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Questions fréquemment posées</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              Questions fréquemment posées
+            </h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
             {faqs.map((faq, i) => (
@@ -263,6 +309,40 @@ export default function ComparateurPhotovoltaiquePage() {
                 </div>
               </details>
             ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <p className="text-gray-500 text-sm mb-4">Plus d&apos;informations sur les panneaux solaires :</p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link href="/fr/cout-installation-solaire" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Coût installation solaire
+              </Link>
+              <Link href="/fr/subventions-solaires" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Subventions &amp; RUP
+              </Link>
+              <Link href="/fr/solaire-maison-individuelle" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Maison individuelle
+              </Link>
+              <Link href="/fr/solaire-immeuble" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Immeuble locatif
+              </Link>
+              <Link href="/fr/installer-panneau-solaire-suisse" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Installateurs dans votre région
+              </Link>
+              <Link href="/fr/demander-offre-panneau-solaire" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Demander et comparer des offres
+              </Link>
+              <Link href="/fr/solution-complete-photovoltaique-suisse" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Prestataires de solutions complètes
+              </Link>
+              <Link href="/fr/subventions-solaires-canton-zurich" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Subventions Canton de Zurich
+              </Link>
+              <Link href="/fr/demande" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
+                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                Demander une offre <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </section>
 

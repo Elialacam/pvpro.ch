@@ -23,12 +23,6 @@ const footerContent: Record<string, {
           { label: 'Blog',                        href: '/blog' },
           { label: 'Förderungen',                 href: '/foerderungen' },
           { label: 'Solaranlage Kosten',          href: '/solaranlage-kosten' },
-          { label: 'Förderung Kanton Zürich',     href: '/foerderungen-kanton-zuerich' },
-          { label: 'Photovoltaik im Schweizer Klima', href: '/photovoltaik-schweizer-klima' },
-          { label: 'Ablauf der Installation',     href: '/photovoltaik-installation-schweiz' },
-          { label: 'Photovoltaik Komplettlösung', href: '/photovoltaik-komplettloesung-schweiz' },
-          { label: 'Wartung & Kosten',            href: '/photovoltaik-wartung-kosten' },
-          { label: 'Solaranlagen Typen Vergleich', href: '/solaranlagen-typen-vergleich' },
           { label: 'FAQ',                         href: '/faq' },
         ],
       },
@@ -40,9 +34,6 @@ const footerContent: Record<string, {
           { label: 'Solaranlage Einfamilienhaus',        href: '/solaranlage-einfamilienhaus' },
           { label: 'Solaranlage Mehrfamilienhaus',       href: '/solaranlage-mehrfamilienhaus' },
           { label: 'Wie funktioniert eine Solaranlage', href: '/wie-funktioniert' },
-          { label: 'Anbieter vergleichen',               href: '/vergleichsportal-photovoltaik-schweiz' },
-          { label: 'Solaranlage installieren lassen',    href: '/solaranlage-installieren-schweiz' },
-          { label: 'Offerten einholen',                  href: '/solaranlage-offerte-einholen' },
         ],
       },
       {
@@ -52,6 +43,20 @@ const footerContent: Record<string, {
           { label: 'Wie es funktioniert', href: '/wie-es-funktioniert' },
           { label: 'Datenschutz',         href: '/datenschutz' },
           { label: 'Impressum',           href: '/impressum' },
+        ],
+      },
+      {
+        title: 'Blog & Ratgeber',
+        links: [
+          { label: 'Anbieter vergleichen',               href: '/vergleichsportal-photovoltaik-schweiz' },
+          { label: 'Solaranlage installieren',           href: '/solaranlage-installieren-schweiz' },
+          { label: 'Offerten einholen',                  href: '/solaranlage-offerte-einholen' },
+          { label: 'Förderung Kanton Zürich',            href: '/foerderungen-kanton-zuerich' },
+          { label: 'PV im Schweizer Klima',              href: '/photovoltaik-schweizer-klima' },
+          { label: 'Ablauf der Installation',            href: '/photovoltaik-installation-schweiz' },
+          { label: 'Photovoltaik Komplettlösung',        href: '/photovoltaik-komplettloesung-schweiz' },
+          { label: 'Wartung & Kosten',                   href: '/photovoltaik-wartung-kosten' },
+          { label: 'Solaranlagen Typen Vergleich',       href: '/solaranlagen-typen-vergleich' },
         ],
       },
     ],
@@ -67,12 +72,6 @@ const footerContent: Record<string, {
           { label: 'Blog',                          href: '/fr/blog' },
           { label: 'Subventions',                   href: '/fr/subventions-solaires' },
           { label: "Coût installation solaire",     href: '/fr/cout-installation-solaire' },
-          { label: 'Subventions canton de Zurich',  href: '/fr/subventions-solaires-canton-zurich' },
-          { label: 'Photovoltaïque et climat suisse', href: '/fr/photovoltaique-climat-suisse' },
-          { label: "Processus d'installation",      href: '/fr/installation-photovoltaique-suisse' },
-          { label: 'Solution complète PV',          href: '/fr/solution-complete-photovoltaique-suisse' },
-          { label: "Entretien & Coûts",            href: '/fr/entretien-photovoltaique-couts' },
-          { label: 'Comparaison types panneaux',    href: '/fr/comparaison-types-panneaux-solaires' },
           { label: 'FAQ',                           href: '/fr/faq' },
         ],
       },
@@ -84,9 +83,6 @@ const footerContent: Record<string, {
           { label: 'PV maison individuelle',              href: '/fr/solaire-maison-individuelle' },
           { label: 'PV immeuble résidentiel',             href: '/fr/solaire-immeuble' },
           { label: 'Comment fonctionne le solaire',       href: '/fr/fonctionnement-solaire' },
-          { label: 'Comparer les installateurs',          href: '/fr/comparateur-photovoltaique-suisse' },
-          { label: 'Installer des panneaux solaires',     href: '/fr/installer-panneau-solaire-suisse' },
-          { label: 'Demander des offres',                 href: '/fr/demander-offre-panneau-solaire' },
         ],
       },
       {
@@ -96,6 +92,20 @@ const footerContent: Record<string, {
           { label: 'Comment ça marche',         href: '/fr/comment-ca-marche' },
           { label: 'Protection des données',    href: '/fr/protection-des-donnees' },
           { label: 'Mentions légales',          href: '/fr/mentions-legales' },
+        ],
+      },
+      {
+        title: 'Blog & Guides',
+        links: [
+          { label: 'Comparer les installateurs',            href: '/fr/comparateur-photovoltaique-suisse' },
+          { label: 'Installer des panneaux solaires',       href: '/fr/installer-panneau-solaire-suisse' },
+          { label: 'Demander des offres',                   href: '/fr/demander-offre-panneau-solaire' },
+          { label: 'Subventions canton de Zurich',          href: '/fr/subventions-solaires-canton-zurich' },
+          { label: 'PV et climat suisse',                   href: '/fr/photovoltaique-climat-suisse' },
+          { label: "Processus d'installation",              href: '/fr/installation-photovoltaique-suisse' },
+          { label: 'Solution complète PV',                  href: '/fr/solution-complete-photovoltaique-suisse' },
+          { label: "Entretien & Coûts",                    href: '/fr/entretien-photovoltaique-couts' },
+          { label: 'Comparaison types panneaux',            href: '/fr/comparaison-types-panneaux-solaires' },
         ],
       },
     ],
@@ -111,12 +121,6 @@ const footerContent: Record<string, {
           { label: 'Blog',                       href: '/en/blog' },
           { label: 'Subsidies',                  href: '/en/solar-subsidies' },
           { label: 'Solar system costs',         href: '/en/solar-panel-costs' },
-          { label: 'Subsidies Canton Zurich',    href: '/en/solar-subsidies-canton-zurich' },
-          { label: 'Solar panels & Swiss climate', href: '/en/solar-panels-swiss-climate' },
-          { label: 'Installation process',       href: '/en/solar-panel-installation-process-switzerland' },
-          { label: 'Complete solar solution',    href: '/en/complete-solar-solution-switzerland' },
-          { label: 'Maintenance & Costs',        href: '/en/solar-panel-maintenance-costs' },
-          { label: 'Solar panel types',          href: '/en/solar-panel-types-comparison' },
           { label: 'FAQ',                        href: '/en/faq' },
         ],
       },
@@ -128,9 +132,6 @@ const footerContent: Record<string, {
           { label: 'PV for detached houses',      href: '/en/solar-detached-house' },
           { label: 'PV for apartment buildings',  href: '/en/solar-apartment-building' },
           { label: 'How solar panels work',       href: '/en/how-solar-works' },
-          { label: 'Compare installers',          href: '/en/solar-comparison-portal-switzerland' },
-          { label: 'Solar panel installation',    href: '/en/solar-panel-installation-switzerland' },
-          { label: 'Get solar quotes',            href: '/en/get-solar-panel-quotes' },
         ],
       },
       {
@@ -140,6 +141,20 @@ const footerContent: Record<string, {
           { label: 'How it works',    href: '/en/how-it-works' },
           { label: 'Privacy policy',  href: '/en/privacy' },
           { label: 'Legal notice',    href: '/en/imprint' },
+        ],
+      },
+      {
+        title: 'Blog & Guides',
+        links: [
+          { label: 'Compare installers',              href: '/en/solar-comparison-portal-switzerland' },
+          { label: 'Solar panel installation',        href: '/en/solar-panel-installation-switzerland' },
+          { label: 'Get solar quotes',                href: '/en/get-solar-panel-quotes' },
+          { label: 'Subsidies Canton Zurich',         href: '/en/solar-subsidies-canton-zurich' },
+          { label: 'Solar panels & Swiss climate',    href: '/en/solar-panels-swiss-climate' },
+          { label: 'Installation process',            href: '/en/solar-panel-installation-process-switzerland' },
+          { label: 'Complete solar solution',         href: '/en/complete-solar-solution-switzerland' },
+          { label: 'Maintenance & Costs',             href: '/en/solar-panel-maintenance-costs' },
+          { label: 'Solar panel types',               href: '/en/solar-panel-types-comparison' },
         ],
       },
     ],
@@ -155,12 +170,6 @@ const footerContent: Record<string, {
           { label: 'Blog',                        href: '/it/blog' },
           { label: 'Sovvenzioni',                 href: '/it/incentivi-solari' },
           { label: 'Costi impianto solare',       href: '/it/costi-impianto-solare' },
-          { label: 'Incentivi cantone di Zurigo', href: '/it/incentivi-solari-cantone-zurigo' },
-          { label: 'Fotovoltaico e clima svizzero', href: '/it/fotovoltaico-clima-svizzero' },
-          { label: 'Processo di installazione',   href: '/it/processo-installazione-fotovoltaico-svizzera' },
-          { label: 'Soluzione completa FV',       href: '/it/soluzione-completa-fotovoltaico-svizzera' },
-          { label: 'Manutenzione & Costi',        href: '/it/manutenzione-fotovoltaico-costi' },
-          { label: 'Confronto tipi impianti',     href: '/it/confronto-tipi-impianti-solari' },
           { label: 'FAQ',                         href: '/it/faq' },
         ],
       },
@@ -172,9 +181,6 @@ const footerContent: Record<string, {
           { label: 'Fotovoltaico casa unifamiliare',    href: '/it/solare-casa-unifamiliare' },
           { label: 'Fotovoltaico condominio',           href: '/it/solare-condominio' },
           { label: 'Come funziona un impianto solare', href: '/it/come-funziona-solare' },
-          { label: 'Confrontare installatori',          href: '/it/comparatore-fotovoltaico-svizzera' },
-          { label: 'Installare impianto solare',        href: '/it/installare-impianto-solare-svizzera' },
-          { label: 'Richiedere preventivi',             href: '/it/richiedere-preventivo-solare' },
         ],
       },
       {
@@ -184,6 +190,20 @@ const footerContent: Record<string, {
           { label: 'Come funziona',     href: '/it/come-funziona' },
           { label: 'Privacy',           href: '/it/protezione-dati' },
           { label: 'Note legali',       href: '/it/note-legali' },
+        ],
+      },
+      {
+        title: 'Blog & Guide',
+        links: [
+          { label: 'Confrontare installatori',          href: '/it/comparatore-fotovoltaico-svizzera' },
+          { label: 'Installare impianto solare',        href: '/it/installare-impianto-solare-svizzera' },
+          { label: 'Richiedere preventivi',             href: '/it/richiedere-preventivo-solare' },
+          { label: 'Incentivi cantone di Zurigo',       href: '/it/incentivi-solari-cantone-zurigo' },
+          { label: 'Fotovoltaico e clima svizzero',     href: '/it/fotovoltaico-clima-svizzero' },
+          { label: 'Processo di installazione',         href: '/it/processo-installazione-fotovoltaico-svizzera' },
+          { label: 'Soluzione completa FV',             href: '/it/soluzione-completa-fotovoltaico-svizzera' },
+          { label: 'Manutenzione & Costi',              href: '/it/manutenzione-fotovoltaico-costi' },
+          { label: 'Confronto tipi impianti',           href: '/it/confronto-tipi-impianti-solari' },
         ],
       },
     ],
@@ -199,10 +219,10 @@ export default function Footer() {
     <footer style={{ background: '#0d1117' }} className="text-gray-400">
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 py-16 lg:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 py-16 lg:py-20">
 
           {/* Col 1 — Brand */}
-          <div className="flex flex-col gap-6 lg:pr-8">
+          <div className="flex flex-col gap-6 lg:pr-4">
             <Link href={homeHref}>
               <Image
                 src="/logo-pvpro.png"
@@ -212,7 +232,7 @@ export default function Footer() {
                 className="h-8 w-auto"
               />
             </Link>
-            <p className="text-sm leading-relaxed text-gray-500" style={{ maxWidth: 280 }}>
+            <p className="text-sm leading-relaxed text-gray-500" style={{ maxWidth: 260 }}>
               {content.description}
             </p>
             <div className="flex items-center gap-3 mt-1">
@@ -247,7 +267,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Cols 2-4 — Link columns */}
+          {/* Cols 2-5 — Link columns */}
           {content.columns.map((col) => (
             <div key={col.title}>
               <h4 className="text-white text-sm font-semibold tracking-wide mb-5">

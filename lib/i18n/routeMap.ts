@@ -110,6 +110,60 @@ export const routeMap: Record<string, Record<string, string>> = {
   // ─── Balkonkraftwerk (DE only — no translation) ──────────────────────────────
   '/balkonkraftwerk': { de: '/balkonkraftwerk', fr: '/fr/blog', en: '/en/blog', it: '/it/blog' },
 
+  // ─── Vergleichsportal / Solar comparison portal ──────────────────────────────
+  '/vergleichsportal-photovoltaik-schweiz':        { de: '/vergleichsportal-photovoltaik-schweiz', fr: '/fr/comparateur-photovoltaique-suisse', en: '/en/solar-comparison-portal-switzerland', it: '/it/comparatore-fotovoltaico-svizzera' },
+  '/fr/comparateur-photovoltaique-suisse':          { de: '/vergleichsportal-photovoltaik-schweiz', fr: '/fr/comparateur-photovoltaique-suisse', en: '/en/solar-comparison-portal-switzerland', it: '/it/comparatore-fotovoltaico-svizzera' },
+  '/en/solar-comparison-portal-switzerland':        { de: '/vergleichsportal-photovoltaik-schweiz', fr: '/fr/comparateur-photovoltaique-suisse', en: '/en/solar-comparison-portal-switzerland', it: '/it/comparatore-fotovoltaico-svizzera' },
+  '/it/comparatore-fotovoltaico-svizzera':          { de: '/vergleichsportal-photovoltaik-schweiz', fr: '/fr/comparateur-photovoltaique-suisse', en: '/en/solar-comparison-portal-switzerland', it: '/it/comparatore-fotovoltaico-svizzera' },
+
+  // ─── Solaranlage installieren / Installation ─────────────────────────────────
+  '/solaranlage-installieren-schweiz':              { de: '/solaranlage-installieren-schweiz', fr: '/fr/installer-panneau-solaire-suisse', en: '/en/solar-panel-installation-switzerland', it: '/it/installare-impianto-solare-svizzera' },
+  '/fr/installer-panneau-solaire-suisse':           { de: '/solaranlage-installieren-schweiz', fr: '/fr/installer-panneau-solaire-suisse', en: '/en/solar-panel-installation-switzerland', it: '/it/installare-impianto-solare-svizzera' },
+  '/en/solar-panel-installation-switzerland':       { de: '/solaranlage-installieren-schweiz', fr: '/fr/installer-panneau-solaire-suisse', en: '/en/solar-panel-installation-switzerland', it: '/it/installare-impianto-solare-svizzera' },
+  '/it/installare-impianto-solare-svizzera':        { de: '/solaranlage-installieren-schweiz', fr: '/fr/installer-panneau-solaire-suisse', en: '/en/solar-panel-installation-switzerland', it: '/it/installare-impianto-solare-svizzera' },
+
+  // ─── Offerte einholen / Get quotes ───────────────────────────────────────────
+  '/solaranlage-offerte-einholen':                  { de: '/solaranlage-offerte-einholen', fr: '/fr/demander-offre-panneau-solaire', en: '/en/get-solar-panel-quotes', it: '/it/richiedere-preventivo-solare' },
+  '/fr/demander-offre-panneau-solaire':             { de: '/solaranlage-offerte-einholen', fr: '/fr/demander-offre-panneau-solaire', en: '/en/get-solar-panel-quotes', it: '/it/richiedere-preventivo-solare' },
+  '/en/get-solar-panel-quotes':                     { de: '/solaranlage-offerte-einholen', fr: '/fr/demander-offre-panneau-solaire', en: '/en/get-solar-panel-quotes', it: '/it/richiedere-preventivo-solare' },
+  '/it/richiedere-preventivo-solare':               { de: '/solaranlage-offerte-einholen', fr: '/fr/demander-offre-panneau-solaire', en: '/en/get-solar-panel-quotes', it: '/it/richiedere-preventivo-solare' },
+
+  // ─── Förderung Kanton Zürich ─────────────────────────────────────────────────
+  '/foerderungen-kanton-zuerich':                   { de: '/foerderungen-kanton-zuerich', fr: '/fr/subventions-solaires-canton-zurich', en: '/en/solar-subsidies-canton-zurich', it: '/it/incentivi-solari-cantone-zurigo' },
+  '/fr/subventions-solaires-canton-zurich':         { de: '/foerderungen-kanton-zuerich', fr: '/fr/subventions-solaires-canton-zurich', en: '/en/solar-subsidies-canton-zurich', it: '/it/incentivi-solari-cantone-zurigo' },
+  '/en/solar-subsidies-canton-zurich':              { de: '/foerderungen-kanton-zuerich', fr: '/fr/subventions-solaires-canton-zurich', en: '/en/solar-subsidies-canton-zurich', it: '/it/incentivi-solari-cantone-zurigo' },
+  '/it/incentivi-solari-cantone-zurigo':            { de: '/foerderungen-kanton-zuerich', fr: '/fr/subventions-solaires-canton-zurich', en: '/en/solar-subsidies-canton-zurich', it: '/it/incentivi-solari-cantone-zurigo' },
+
+  // ─── Photovoltaik Schweizer Klima ────────────────────────────────────────────
+  '/photovoltaik-schweizer-klima':                  { de: '/photovoltaik-schweizer-klima', fr: '/fr/photovoltaique-climat-suisse', en: '/en/solar-panels-swiss-climate', it: '/it/fotovoltaico-clima-svizzero' },
+  '/fr/photovoltaique-climat-suisse':               { de: '/photovoltaik-schweizer-klima', fr: '/fr/photovoltaique-climat-suisse', en: '/en/solar-panels-swiss-climate', it: '/it/fotovoltaico-clima-svizzero' },
+  '/en/solar-panels-swiss-climate':                 { de: '/photovoltaik-schweizer-klima', fr: '/fr/photovoltaique-climat-suisse', en: '/en/solar-panels-swiss-climate', it: '/it/fotovoltaico-clima-svizzero' },
+  '/it/fotovoltaico-clima-svizzero':                { de: '/photovoltaik-schweizer-klima', fr: '/fr/photovoltaique-climat-suisse', en: '/en/solar-panels-swiss-climate', it: '/it/fotovoltaico-clima-svizzero' },
+
+  // ─── Photovoltaik Installation Schweiz ───────────────────────────────────────
+  '/photovoltaik-installation-schweiz':             { de: '/photovoltaik-installation-schweiz', fr: '/fr/installation-photovoltaique-suisse', en: '/en/solar-panel-installation-process-switzerland', it: '/it/processo-installazione-fotovoltaico-svizzera' },
+  '/fr/installation-photovoltaique-suisse':         { de: '/photovoltaik-installation-schweiz', fr: '/fr/installation-photovoltaique-suisse', en: '/en/solar-panel-installation-process-switzerland', it: '/it/processo-installazione-fotovoltaico-svizzera' },
+  '/en/solar-panel-installation-process-switzerland': { de: '/photovoltaik-installation-schweiz', fr: '/fr/installation-photovoltaique-suisse', en: '/en/solar-panel-installation-process-switzerland', it: '/it/processo-installazione-fotovoltaico-svizzera' },
+  '/it/processo-installazione-fotovoltaico-svizzera': { de: '/photovoltaik-installation-schweiz', fr: '/fr/installation-photovoltaique-suisse', en: '/en/solar-panel-installation-process-switzerland', it: '/it/processo-installazione-fotovoltaico-svizzera' },
+
+  // ─── Photovoltaik Komplettlösung ─────────────────────────────────────────────
+  '/photovoltaik-komplettloesung-schweiz':          { de: '/photovoltaik-komplettloesung-schweiz', fr: '/fr/solution-complete-photovoltaique-suisse', en: '/en/complete-solar-solution-switzerland', it: '/it/soluzione-completa-fotovoltaico-svizzera' },
+  '/fr/solution-complete-photovoltaique-suisse':    { de: '/photovoltaik-komplettloesung-schweiz', fr: '/fr/solution-complete-photovoltaique-suisse', en: '/en/complete-solar-solution-switzerland', it: '/it/soluzione-completa-fotovoltaico-svizzera' },
+  '/en/complete-solar-solution-switzerland':        { de: '/photovoltaik-komplettloesung-schweiz', fr: '/fr/solution-complete-photovoltaique-suisse', en: '/en/complete-solar-solution-switzerland', it: '/it/soluzione-completa-fotovoltaico-svizzera' },
+  '/it/soluzione-completa-fotovoltaico-svizzera':   { de: '/photovoltaik-komplettloesung-schweiz', fr: '/fr/solution-complete-photovoltaique-suisse', en: '/en/complete-solar-solution-switzerland', it: '/it/soluzione-completa-fotovoltaico-svizzera' },
+
+  // ─── Photovoltaik Wartung Kosten ─────────────────────────────────────────────
+  '/photovoltaik-wartung-kosten':                   { de: '/photovoltaik-wartung-kosten', fr: '/fr/entretien-photovoltaique-couts', en: '/en/solar-panel-maintenance-costs', it: '/it/manutenzione-fotovoltaico-costi' },
+  '/fr/entretien-photovoltaique-couts':             { de: '/photovoltaik-wartung-kosten', fr: '/fr/entretien-photovoltaique-couts', en: '/en/solar-panel-maintenance-costs', it: '/it/manutenzione-fotovoltaico-costi' },
+  '/en/solar-panel-maintenance-costs':              { de: '/photovoltaik-wartung-kosten', fr: '/fr/entretien-photovoltaique-couts', en: '/en/solar-panel-maintenance-costs', it: '/it/manutenzione-fotovoltaico-costi' },
+  '/it/manutenzione-fotovoltaico-costi':            { de: '/photovoltaik-wartung-kosten', fr: '/fr/entretien-photovoltaique-couts', en: '/en/solar-panel-maintenance-costs', it: '/it/manutenzione-fotovoltaico-costi' },
+
+  // ─── Solaranlagen Typen Vergleich ────────────────────────────────────────────
+  '/solaranlagen-typen-vergleich':                  { de: '/solaranlagen-typen-vergleich', fr: '/fr/comparaison-types-panneaux-solaires', en: '/en/solar-panel-types-comparison', it: '/it/confronto-tipi-impianti-solari' },
+  '/fr/comparaison-types-panneaux-solaires':        { de: '/solaranlagen-typen-vergleich', fr: '/fr/comparaison-types-panneaux-solaires', en: '/en/solar-panel-types-comparison', it: '/it/confronto-tipi-impianti-solari' },
+  '/en/solar-panel-types-comparison':               { de: '/solaranlagen-typen-vergleich', fr: '/fr/comparaison-types-panneaux-solaires', en: '/en/solar-panel-types-comparison', it: '/it/confronto-tipi-impianti-solari' },
+  '/it/confronto-tipi-impianti-solari':             { de: '/solaranlagen-typen-vergleich', fr: '/fr/comparaison-types-panneaux-solaires', en: '/en/solar-panel-types-comparison', it: '/it/confronto-tipi-impianti-solari' },
+
 };
 
 /**
