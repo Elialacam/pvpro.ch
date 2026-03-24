@@ -1,11 +1,12 @@
 import { Metadata } from 'next';
 import CtaAnfrage from '@/components/CtaAnfrage';
 import Link from 'next/link';
+import Image from 'next/image';
 import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Solaranlage Kosten Schweiz 2026 – Was kostet eine Solaranlage? | PVPro',
-  description: 'Was kostet eine Solaranlage in der Schweiz? Aktuelle Preise 2025: 15\'000 – 35\'000 CHF für ein Einfamilienhaus. Kosten pro kWp, Förderungen und Speicher. Kostenlose Offerten vergleichen.',
+  description: 'Was kostet eine Solaranlage in der Schweiz? Aktuelle Preise 2026: 15\'000 – 35\'000 CHF für ein Einfamilienhaus. Kosten pro kWp, Förderungen und Speicher. Kostenlose Offerten vergleichen.',
   keywords: [
     'Solaranlage Kosten Schweiz',
     'Was kostet eine Solaranlage',
@@ -115,7 +116,7 @@ export default function SolaranlageKostenPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Was kostet eine Solaranlage in der Schweiz? Aktuelle Preise 2025",
+            "headline": "Was kostet eine Solaranlage in der Schweiz? Aktuelle Preise 2026",
             "description": "Aktuelle Kosten für Solaranlagen in der Schweiz. 5–10 kWp Anlagen, Kosten pro kWp, Förderungen und Batteriespeicher.",
             "author": { "@type": "Organization", "name": "PVPro" },
             "publisher": { "@type": "Organization", "name": "PVPro", "url": "https://www.pvpro.ch" },
@@ -143,23 +144,35 @@ export default function SolaranlageKostenPage() {
       {/* Hero */}
       <section className="bg-gradient-to-b from-primary-50 to-white section-padding">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center mb-10">
-            <h1 className="text-4xl sm:text-5xl font-sans font-semibold tracking-normal text-gray-900 mb-6 leading-tight">
-              Was kostet eine Solaranlage in der Schweiz?
-            </h1>
-            <p className="text-xl text-gray-600 mb-4">
-              Die Kosten hängen hauptsächlich von der Grösse der Anlage, der Dachfläche und den verwendeten Komponenten ab.
-            </p>
-            <p className="text-xl text-gray-600 mb-8">
-              Für ein typisches Einfamilienhaus liegen die Preise meist zwischen:
-            </p>
-            <div className="inline-block bg-primary text-white rounded-2xl px-10 py-6 mb-8">
-              <div className="text-4xl sm:text-5xl font-bold mb-1">15'000 – 35'000 CHF</div>
-              <div className="text-primary-100 text-base">nach Abzug der Förderungen</div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl sm:text-5xl font-sans font-semibold tracking-normal text-gray-900 mb-6 leading-tight">
+                Was kostet eine Solaranlage in der Schweiz?
+              </h1>
+              <p className="text-xl text-gray-600 mb-4">
+                Die Kosten hängen hauptsächlich von der Grösse der Anlage, der Dachfläche und den verwendeten Komponenten ab.
+              </p>
+              <p className="text-xl text-gray-600 mb-8">
+                Für ein typisches Einfamilienhaus liegen die Preise meist zwischen:
+              </p>
+              <div className="inline-block bg-primary text-white rounded-2xl px-10 py-6 mb-8">
+                <div className="text-4xl sm:text-5xl font-bold mb-1">15'000 – 35'000 CHF</div>
+                <div className="text-primary-100 text-base">nach Abzug der Förderungen</div>
+              </div>
+              <p className="text-gray-600">
+                Eine durchschnittliche Anlage für ein Einfamilienhaus hat eine Leistung von etwa <strong>8 bis 10 kWp</strong>.
+              </p>
             </div>
-            <p className="text-gray-600">
-              Eine durchschnittliche Anlage für ein Einfamilienhaus hat eine Leistung von etwa <strong>8 bis 10 kWp</strong>.
-            </p>
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/images/asset-haus-luftbild-2.png"
+                alt="Solaranlage auf Schweizer Einfamilienhaus – Luftaufnahme"
+                width={700}
+                height={500}
+                className="w-full h-auto object-cover"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>

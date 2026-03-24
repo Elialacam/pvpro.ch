@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import CtaAnfrage from '@/components/CtaAnfrage';
 import Link from 'next/link';
+import Image from 'next/image';
 import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
 import FaqSchema from '@/components/FaqSchema';
 
@@ -142,23 +143,35 @@ export default function SolarPanelCostsPage() {
       {/* Hero */}
       <section className="bg-gradient-to-b from-primary-50 to-white section-padding">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center mb-10">
-            <h1 className="text-4xl sm:text-5xl font-sans font-semibold tracking-normal text-gray-900 mb-6 leading-tight">
-              How much does a solar installation cost in Switzerland?
-            </h1>
-            <p className="text-xl text-gray-600 mb-4">
-              The costs depend primarily on the system size, the roof area and the components used.
-            </p>
-            <p className="text-xl text-gray-600 mb-8">
-              For a typical detached house, prices are usually between:
-            </p>
-            <div className="inline-block bg-primary text-white rounded-2xl px-10 py-6 mb-8">
-              <div className="text-4xl sm:text-5xl font-bold mb-1">CHF 15,000 – 35,000</div>
-              <div className="text-primary-100 text-base">after deducting subsidies</div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl sm:text-5xl font-sans font-semibold tracking-normal text-gray-900 mb-6 leading-tight">
+                How much does a solar installation cost in Switzerland?
+              </h1>
+              <p className="text-xl text-gray-600 mb-4">
+                The costs depend primarily on the system size, the roof area and the components used.
+              </p>
+              <p className="text-xl text-gray-600 mb-8">
+                For a typical detached house, prices are usually between:
+              </p>
+              <div className="inline-block bg-primary text-white rounded-2xl px-10 py-6 mb-8">
+                <div className="text-4xl sm:text-5xl font-bold mb-1">CHF 15,000 – 35,000</div>
+                <div className="text-primary-100 text-base">after deducting subsidies</div>
+              </div>
+              <p className="text-gray-600">
+                An average installation for a detached house has an output of approximately <strong>8 to 10 kWp</strong>.
+              </p>
             </div>
-            <p className="text-gray-600">
-              An average installation for a detached house has an output of approximately <strong>8 to 10 kWp</strong>.
-            </p>
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/images/asset-haus-luftbild-2.png"
+                alt="Solar installation on a Swiss detached house – aerial view"
+                width={700}
+                height={500}
+                className="w-full h-auto object-cover"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
