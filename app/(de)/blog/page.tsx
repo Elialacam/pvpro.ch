@@ -72,7 +72,7 @@ export default function BlogPage() {
               {blogPosts.map((post) => (
                 <Link
                   key={post.slug}
-                  href={`/blog/${post.slug}`}
+                  href={post.href ?? `/blog/${post.slug}`}
                   className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
                 >
                   {/* Image */}
