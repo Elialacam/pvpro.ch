@@ -7,6 +7,16 @@ import FoerderRechner from '@/components/FoerderRechner';
 export const metadata: Metadata = {
   title: 'Förderungen für Solaranlagen in der Schweiz 2026 | PVPro.ch',
   description: 'Einmalvergütung (EIV), kantonale Förderprogramme und steuerliche Abzüge für Photovoltaikanlagen in der Schweiz. Jetzt Förderung berechnen.',
+  alternates: {
+    canonical: 'https://www.pvpro.ch/foerderungen',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch/foerderungen',
+      'fr-CH': 'https://www.pvpro.ch/fr/subventions-solaires',
+      'en-CH': 'https://www.pvpro.ch/en/solar-subsidies',
+      'it-CH': 'https://www.pvpro.ch/it/incentivi-solari',
+      'x-default': 'https://www.pvpro.ch/foerderungen',
+    },
+  },
 };
 
 const tableRows = [
