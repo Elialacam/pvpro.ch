@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
+import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = {
   title: 'FAQ – Frequently Asked Questions | PVPro.ch',
@@ -67,6 +68,7 @@ export default function FaqEnPage() {
           </Link>
         </div>
       </div>
+      <FaqSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
     </main>
   );
 }

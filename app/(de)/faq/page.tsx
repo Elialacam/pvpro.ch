@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
 import FAQ from '@/components/FAQ';
+import FaqSchema from '@/components/FaqSchema';
+import { faqContent } from '@/lib/faqData';
 
 export const metadata: Metadata = {
   title: 'FAQ – Häufig gestellte Fragen | PVPro.ch',
@@ -33,6 +35,7 @@ export default function FAQPage() {
 
       </div>
 
+      <FaqSchema faqs={faqContent.de.faqs} />
       {/* FAQ accordion — reuse existing component */}
       <FAQ />
 

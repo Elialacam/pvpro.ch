@@ -2,6 +2,17 @@ import Link from 'next/link';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
 import WieFunktioniertInteractive from '@/components/WieFunktioniertInteractive';
+import FaqSchema from '@/components/FaqSchema';
+
+const wfFaqs = [
+  { question: 'Wie funktioniert eine Solaranlage einfach erklärt?', answer: 'Solarmodule erzeugen aus Sonnenlicht Gleichstrom. Ein Wechselrichter wandelt diesen in nutzbaren Wechselstrom um, der direkt im Haushalt verwendet oder ins Netz eingespeist wird.' },
+  { question: 'Was ist der Unterschied zwischen Photovoltaik und Solaranlage?', answer: 'Photovoltaik erzeugt Strom aus Licht. Solarthermie dagegen erzeugt Wärme (z.B. für Warmwasser). Im Alltag wird "Solaranlage" meist als Synonym für Photovoltaik verwendet.' },
+  { question: 'Was bringt ein 800 Watt Solarmodul am Tag?', answer: 'Ein 800-Watt-System produziert im Sommer etwa 2–4 kWh pro Tag. Im Winter ist die Produktion deutlich geringer, da die Tage kürzer und die Sonne tiefer steht.' },
+  { question: 'Kann ein Solarpanel einen Kühlschrank betreiben?', answer: 'Ja, ein Solarpanel kann einen Kühlschrank betreiben — aber meist nicht dauerhaft alleine. Dafür ist ein grösseres System oder ein Speicher notwendig.' },
+  { question: 'Ist man mit Photovoltaik autark?', answer: 'Nicht vollständig. Ohne Speicher und im Winter bleibt man teilweise auf Strom aus dem Netz angewiesen. Mit einem grossen Batteriespeicher kann man jedoch sehr hohe Eigenversorgungsgrade erreichen.' },
+  { question: 'Was bringt eine Solaranlage im Winter?', answer: 'Im Winter produziert eine Solaranlage deutlich weniger Strom — aber nicht nichts. Kürzere Tage und tiefere Sonnenwinkel reduzieren die Produktion, Strom wird aber weiterhin erzeugt.' },
+  { question: 'Wie lange reicht ein 10 kWh Speicher?', answer: 'Ein 10-kWh-Speicher deckt je nach Haushalt den Abend und die Nacht ab. Bei hohem Verbrauch (z.B. Wärmepumpe) wird er schneller entladen.' },
+];
 
 export const metadata: Metadata = {
   title: 'Wie funktioniert eine Solaranlage? Einfach erklärt (Schweiz) | PVPro.ch',
@@ -161,6 +172,7 @@ export default function WieFunktioniertPage() {
         </div>
       </section>
 
+      <FaqSchema faqs={wfFaqs} />
     </main>
   );
 }

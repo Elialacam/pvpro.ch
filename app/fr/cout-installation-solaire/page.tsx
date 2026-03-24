@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ChevronRight, CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp } from 'lucide-react';
 import { Metadata } from 'next';
 import CtaAnfrage from '@/components/CtaAnfrage';
+import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = {
   title: 'Coût installation solaire Suisse 2026 – Prix d\'un panneau solaire | PVPro',
@@ -184,6 +185,7 @@ export default function CoutInstallationSolairePage() {
           <CtaAnfrage />
         </div>
       </section>
+          <FaqSchema faqs={faqs} />
     </main>
   );
 }

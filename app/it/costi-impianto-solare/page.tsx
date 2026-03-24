@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ChevronRight, CheckCircle, Sun, Home, Building2, Battery, Calculator } from 'lucide-react';
 import { Metadata } from 'next';
 import CtaAnfrage from '@/components/CtaAnfrage';
+import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = {
   title: 'Costi impianto solare Svizzera 2026 – Quanto costa un impianto fotovoltaico? | PVPro',
@@ -184,6 +185,7 @@ export default function CostiImpiantoSolarePage() {
           <CtaAnfrage />
         </div>
       </section>
+          <FaqSchema faqs={faqs} />
     </main>
   );
 }

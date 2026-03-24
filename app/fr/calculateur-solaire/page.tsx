@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import SolarCalculator from '@/components/SolarCalculator';
 import CtaAnfrage from '@/components/CtaAnfrage';
 import { CheckCircle, Calculator, Zap, TrendingUp, PiggyBank } from 'lucide-react';
+import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = {
   title: 'Calculateur solaire Suisse – Calculer coûts et rendement | PVPro',
@@ -101,6 +102,7 @@ export default function CalculateurSolairePage() {
           <CtaAnfrage />
         </div>
       </section>
+          <FaqSchema faqs={faqs} />
     </main>
   );
 }

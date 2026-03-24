@@ -9,6 +9,8 @@ import { cities } from '@/lib/cities';
 import { MapPin } from 'lucide-react';
 
 import { Metadata } from 'next';
+import FaqSchema from '@/components/FaqSchema';
+import { faqContent } from '@/lib/faqData';
 
 export const metadata: Metadata = {
   title: 'PV Pro - Solaranlagen in der Schweiz vergleichen | Kostenlose Offerten',
@@ -110,6 +112,7 @@ export default function HomePage() {
       </section>
 
       <BlogSection />
+      <FaqSchema faqs={faqContent.de.faqs} />
     </>
   );
 }

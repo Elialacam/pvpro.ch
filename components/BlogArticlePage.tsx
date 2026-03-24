@@ -3,6 +3,7 @@ import { ChevronRight, Calendar, Clock, ArrowRight, AlertTriangle, CheckCircle2 
 import { BlogArticle } from '@/lib/blogArticles';
 import { blogPosts } from '@/lib/blogPosts';
 import { blogPostsI18n } from '@/lib/blogPostsI18n';
+import FaqSchema from '@/components/FaqSchema';
 
 interface Props {
   article: BlogArticle;
@@ -144,6 +145,7 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
               </section>
             )}
 
+          {article.faqs.length > 0 && <FaqSchema faqs={article.faqs} />}
           </article>
 
           {/* Sidebar */}
