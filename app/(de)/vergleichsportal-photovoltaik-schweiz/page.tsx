@@ -356,6 +356,9 @@ export default function VergleichsportalPage() {
               <Link href="/solaranlage-offerte-einholen" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Offerten einholen und vergleichen
               </Link>
+              <Link href="/foerderungen-kanton-zuerich" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Förderungen Kanton Zürich
+              </Link>
               <Link href="/anfrage" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
                 style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
                 Offerte anfragen <ArrowRight className="w-4 h-4" />

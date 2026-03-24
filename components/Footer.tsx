@@ -23,6 +23,7 @@ const footerContent: Record<string, {
           { label: 'Blog',                        href: '/blog' },
           { label: 'Förderungen',                 href: '/foerderungen' },
           { label: 'Solaranlage Kosten',          href: '/solaranlage-kosten' },
+          { label: 'Förderung Kanton Zürich',     href: '/foerderungen-kanton-zuerich' },
           { label: 'FAQ',                         href: '/faq' },
         ],
       },
@@ -57,11 +58,12 @@ const footerContent: Record<string, {
       {
         title: 'Ressources',
         links: [
-          { label: 'Calculateur solaire',          href: '/fr/calculateur-solaire' },
-          { label: 'Blog',                         href: '/fr/blog' },
-          { label: 'Subventions',                  href: '/fr/subventions-solaires' },
-          { label: "Coût installation solaire",    href: '/fr/cout-installation-solaire' },
-          { label: 'FAQ',                          href: '/fr/faq' },
+          { label: 'Calculateur solaire',            href: '/fr/calculateur-solaire' },
+          { label: 'Blog',                          href: '/fr/blog' },
+          { label: 'Subventions',                   href: '/fr/subventions-solaires' },
+          { label: "Coût installation solaire",     href: '/fr/cout-installation-solaire' },
+          { label: 'Subventions canton de Zurich',  href: '/fr/subventions-solaires-canton-zurich' },
+          { label: 'FAQ',                           href: '/fr/faq' },
         ],
       },
       {
@@ -95,11 +97,12 @@ const footerContent: Record<string, {
       {
         title: 'Resources',
         links: [
-          { label: 'Solar calculator',       href: '/en/solar-calculator' },
-          { label: 'Blog',                   href: '/en/blog' },
-          { label: 'Subsidies',              href: '/en/solar-subsidies' },
-          { label: 'Solar system costs',     href: '/en/solar-panel-costs' },
-          { label: 'FAQ',                    href: '/en/faq' },
+          { label: 'Solar calculator',            href: '/en/solar-calculator' },
+          { label: 'Blog',                       href: '/en/blog' },
+          { label: 'Subsidies',                  href: '/en/solar-subsidies' },
+          { label: 'Solar system costs',         href: '/en/solar-panel-costs' },
+          { label: 'Subsidies Canton Zurich',    href: '/en/solar-subsidies-canton-zurich' },
+          { label: 'FAQ',                        href: '/en/faq' },
         ],
       },
       {
@@ -133,11 +136,12 @@ const footerContent: Record<string, {
       {
         title: 'Risorse',
         links: [
-          { label: 'Calcolatore solare',      href: '/it/calcolatore-solare' },
-          { label: 'Blog',                    href: '/it/blog' },
-          { label: 'Sovvenzioni',             href: '/it/incentivi-solari' },
-          { label: 'Costi impianto solare',   href: '/it/costi-impianto-solare' },
-          { label: 'FAQ',                     href: '/it/faq' },
+          { label: 'Calcolatore solare',            href: '/it/calcolatore-solare' },
+          { label: 'Blog',                        href: '/it/blog' },
+          { label: 'Sovvenzioni',                 href: '/it/incentivi-solari' },
+          { label: 'Costi impianto solare',       href: '/it/costi-impianto-solare' },
+          { label: 'Incentivi cantone di Zurigo', href: '/it/incentivi-solari-cantone-zurigo' },
+          { label: 'FAQ',                         href: '/it/faq' },
         ],
       },
       {
