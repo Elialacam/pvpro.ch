@@ -1,0 +1,137 @@
+Crea una nuova pagina sul sito pvpro.ch con URL /foerderungen-kanton-zuerich.
+Crea anche le versioni nelle altre lingue:
+
+Francese: /fr/subventions-solaires-canton-zurich
+Inglese: /en/solar-subsidies-canton-zurich
+Italiano: /it/incentivi-solari-cantone-zurigo
+
+SEO TECNICO — aggiungi esattamente questi valori per la versione tedesca:
+
+Title tag: Förderung Solaranlage Kanton Zürich 2026 – EIV, Solarpflicht & Beiträge | PVPro.ch
+Meta description: Welche Förderungen gibt es für Solaranlagen im Kanton Zürich 2026? EIV, kantonale Beiträge, Solarpflicht und wie Sie die Förderung beantragen. Jetzt informieren.
+H1: Förderung Solaranlage Kanton Zürich 2026
+Canonical URL: https://www.pvpro.ch/foerderungen-kanton-zuerich
+Lingua: de
+
+
+CONTENUTO DELLA PAGINA:
+[Tag categoria]
+Förderungen & Subventionen
+[H1]
+Förderung Solaranlage Kanton Zürich 2026
+[Testo introduttivo]
+Der Kanton Zürich gehört zu den aktivsten Kantonen der Schweiz beim Ausbau der Solarenergie. Neben der Bundesförderung profitieren Zürcherinnen und Zürcher von zusätzlichen kantonalen Programmen und einer gesetzlichen Solarpflicht für Neubauten. Diese Seite erklärt alle aktuellen Fördermöglichkeiten klar und verständlich.
+[3 Stat-Boxen orizzontali]
+
+Box 1: 300–400 CHF/kWp / Bundesförderung EIV
+Box 2: Solarpflicht / seit 2023 für Neubauten
+Box 3: 7–9 Jahre / Amortisation im Kanton ZH
+
+
+[H2] Bundesförderung: Die Einmalvergütung (EIV)
+Die wichtigste Förderung für Solaranlagen in der Schweiz ist die Einmalvergütung (EIV) des Bundes. Sie gilt auch im Kanton Zürich und wird von Pronovo verwaltet.
+
+Betrag: ca. 300–400 CHF pro kWp installierter Leistung
+Wird einmalig nach der Installation ausbezahlt
+Kein jährlicher Antrag nötig
+Der Installateur übernimmt die Anmeldung in der Regel für Sie
+
+Für eine typische 10-kWp-Anlage entspricht das einer Förderung von ca. 3'500 CHF.
+
+[H2] Kantonale Förderung im Kanton Zürich
+Der Kanton Zürich fördert Solaranlagen über das kantonale Energieförderprogramm. Die verfügbaren Beiträge hängen von der Anlagengrösse und dem Gebäudetyp ab.
+Zusätzlich zur EIV können Zürcher Hausbesitzer von folgenden kantonalen Massnahmen profitieren:
+
+Energieförderprogramm des Kantons Zürich — Beiträge für Photovoltaikanlagen in Kombination mit Wärmepumpen oder Gebäudedämmung
+Lokale Elektrizitätsgemeinschaften (LEG) — Ab 2026 können Solarstrom direkt ans Quartier verkauft werden, was die Netzgebühren um bis zu 40% senkt
+Steuerliche Abzüge — Investitionen in Solaranlagen können auf Bundesebene und im Kanton Zürich steuerlich abgezogen werden
+
+
+[H2] Solarpflicht im Kanton Zürich
+Seit 2023 gilt im Kanton Zürich eine gesetzliche Solarpflicht für:
+
+Neubauten ab einer bestimmten Grösse
+Grosse Dachsanierungen
+
+Wer ohnehin bauen oder renovieren muss, sollte die Solarpflicht als Chance sehen — denn die Förderung ist für 2026 vollumfänglich garantiert.
+
+[H2] Wie beantrage ich die Förderung im Kanton Zürich?
+Schritt 1 — Installateur beauftragen
+Ein zertifizierter Installateur aus Ihrer Region prüft Ihre Anlage und klärt alle Fördermöglichkeiten ab.
+Schritt 2 — Anlage installieren
+Nach der Installation meldet der Installateur die Anlage bei Pronovo für die EIV an.
+Schritt 3 — Kantonale Förderung beantragen
+Für kantonale Beiträge wird ein separater Antrag beim kantonalen Amt für Abfall, Wasser, Energie und Luft (AWEL) gestellt.
+Schritt 4 — Auszahlung
+Die EIV wird typischerweise einige Monate nach der Anmeldung ausbezahlt. Kantonale Beiträge folgen je nach Programm.
+
+[H2] Häufig gestellte Fragen
+Füge queste come FAQ a fisarmonica (Accordion), con schema JSON-LD FAQPage:
+F: Wie hoch ist die Förderung für eine Solaranlage im Kanton Zürich?
+A: Die Bundesförderung (EIV) beträgt ca. 300–400 CHF pro kWp. Für eine 10-kWp-Anlage sind das rund 3'500 CHF. Zusätzlich gibt es kantonale Programme und steuerliche Abzüge.
+F: Gilt die Solarpflicht auch für bestehende Häuser im Kanton Zürich?
+A: Die Solarpflicht gilt aktuell primär für Neubauten und grosse Dachsanierungen. Bestehende Häuser sind nicht direkt betroffen, können aber freiwillig von allen Förderungen profitieren.
+F: Wer kümmert sich um die Beantragung der Förderung?
+A: In der Regel übernimmt der zertifizierte Installateur die Anmeldung der EIV bei Pronovo. Für kantonale Beiträge hilft er ebenfalls beim Antrag.
+F: Kann ich die Solaranlage steuerlich abziehen im Kanton Zürich?
+A: Ja. Investitionen in Solaranlagen können als energiesparende Massnahmen steuerlich abgezogen werden — sowohl auf Bundesebene als auch im Kanton Zürich.
+F: Wie lange dauert es, bis die Förderung ausbezahlt wird?
+A: Die EIV wird typischerweise einige Monate nach der Anmeldung bei Pronovo ausbezahlt. Kantonale Beiträge können je nach Programm länger dauern.
+
+[CTA Box finale — stesso stile delle altre pagine]
+Titel: Jetzt Förderung im Kanton Zürich optimal nutzen
+Text: Unsere zertifizierten Installateure im Kanton Zürich kennen alle aktuellen Förderprogramme und kümmern sich um die Beantragung — Sie müssen sich um nichts kümmern.
+Button: Kostenlose Offerte anfordern → link a /anfrage
+
+LINK INTERNI — aggiungi questi link nel testo della pagina dove pertinente:
+
+Dove menzioni "Einmalvergütung (EIV)" → linka a /foerderungen
+Dove menzioni "Solarpflicht" → linka a /solaranlage-zurich
+Dove menzioni "Bewilligung" → linka a /bewilligungspflicht-solaranlage-schweiz
+Dove menzioni "Offerten vergleichen" → linka a /solaranlage-offerte-einholen
+Dove menzioni "Anbieter vergleichen" → linka a /vergleichsportal-photovoltaik-schweiz
+Dove menzioni "Installation" → linka a /solaranlage-installieren-schweiz
+
+
+LINK INTERNI INVERSI — aggiungi un link a questa nuova pagina nelle seguenti pagine esistenti:
+
+/solaranlage-zurich → aggiungi un link con anchor text Alle Förderungen im Kanton Zürich che punta a /foerderungen-kanton-zuerich
+/foerderungen → aggiungi un link con anchor text Förderung Kanton Zürich im Detail che punta a /foerderungen-kanton-zuerich
+/solaranlage-einfamilienhaus → aggiungi un link con anchor text Förderung im Kanton Zürich che punta a /foerderungen-kanton-zuerich
+/vergleichsportal-photovoltaik-schweiz → aggiungi un link con anchor text Förderungen Kanton Zürich che punta a /foerderungen-kanton-zuerich
+/solaranlage-offerte-einholen → aggiungi un link con anchor text Förderung Kanton Zürich che punta a /foerderungen-kanton-zuerich
+
+
+FOOTER — aggiungi il link a questa nuova pagina nella sezione "Notizie & Consigli" del footer:
+
+Förderung Kanton Zürich → /foerderungen-kanton-zuerich
+Assicurati che il link appaia anche nelle versioni francese, inglese e italiana del footer con i rispettivi URL tradotti.
+
+
+SITEMAP — aggiungi queste righe nel file sitemap.xml:
+xml<url>
+  <loc>https://www.pvpro.ch/foerderungen-kanton-zuerich</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/fr/subventions-solaires-canton-zurich</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/en/solar-subsidies-canton-zurich</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/it/incentivi-solari-cantone-zurigo</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+STILE VISIVO — usa esattamente lo stesso layout e componenti delle pagine esistenti come /solaranlage-mit-speicher e /bewilligungspflicht-solaranlage-schweiz. Stesso header, stesso footer, stessi colori, stessi componenti accordion per le FAQ, stessa stat-box orizzontale.

@@ -1,0 +1,134 @@
+Crea una nuova pagina sul sito pvpro.ch con URL /photovoltaik-schweizer-klima.
+Crea anche le versioni nelle altre lingue:
+
+Francese: /fr/photovoltaique-climat-suisse
+Inglese: /en/solar-panels-swiss-climate
+Italiano: /it/fotovoltaico-clima-svizzero
+
+SEO TECNICO — aggiungi esattamente questi valori per la versione tedesca:
+
+Title tag: Photovoltaik Schweizer Klima 2026 – Welche Anlage passt? | PVPro.ch
+Meta description: Welche Photovoltaik Anlagen eignen sich für das Schweizer Klima? Schnee, Kälte, Nebel — wir erklären, was wirklich zählt und welche Module in der Schweiz am besten funktionieren.
+H1: Welche Photovoltaik Anlagen eignen sich für das Schweizer Klima?
+Canonical URL: https://www.pvpro.ch/photovoltaik-schweizer-klima
+Lingua: de
+
+
+CONTENUTO DELLA PAGINA:
+[Tag categoria]
+Technik & Klima
+[H1]
+Welche Photovoltaik Anlagen eignen sich für das Schweizer Klima?
+[Testo introduttivo]
+Viele Hausbesitzer in der Schweiz fragen sich: Lohnt sich eine Solaranlage wirklich, wenn es oft bewölkt, kalt oder schneebedeckt ist? Die Antwort überrascht viele: Moderne Photovoltaikanlagen funktionieren auch bei Schnee, Nebel und tiefen Temperaturen zuverlässig — und in manchen Fällen sogar besser als in wärmeren Regionen.
+[3 Stat-Boxen orizzontali]
+
+Box 1: 1'300–2'100 / Sonnenstunden je nach Kanton
+Box 2: +5–10% / Mehrertrag bei Kälte
+Box 3: 25–30 Jahre / Lebensdauer auch im Schweizer Klima
+
+
+[H2] Wie beeinflusst das Schweizer Klima die Solarproduktion?
+Die Schweiz hat ein sehr vielfältiges Klima — vom nebligen Mittelland bis zum sonnigen Tessin. Was viele nicht wissen: Photovoltaikmodule brauchen kein heisses Wetter, sondern Licht. Und Licht gibt es in der Schweiz reichlich, auch im Winter.
+Sonnenstunden nach Region:
+RegionSonnenstunden/JahrTessin (Lugano)ca. 2'157Wallis (Sitten)ca. 2'000Genferseeregionca. 1'800Mittelland (Zürich, Bern)ca. 1'500–1'600Ostschweiz (St. Gallen)ca. 1'500
+Selbst im Mittelland mit durchschnittlich 1'500 Sonnenstunden produziert eine 10-kWp-Anlage rund 9'000–10'000 kWh pro Jahr — genug für einen grossen Teil des Strombedarfs eines Einfamilienhauses.
+
+[H2] Was passiert mit Solarmodulen bei Schnee und Kälte?
+Schnee:
+Schnee auf Modulen reduziert kurzfristig die Produktion. Jedoch rutscht Schnee auf geneigten Dächern in der Regel schnell ab — und die Module selbst helfen dabei, da sie leicht Wärme abgeben. Nach einem Schneefall ist die Anlage meist innerhalb von Stunden wieder voll produktiv.
+Kälte:
+Hier überrascht die Physik: Photovoltaikmodule arbeiten bei Kälte effizienter als bei Hitze. Ab etwa 25°C sinkt der Wirkungsgrad der Module leicht. Im kühlen Schweizer Frühling und Herbst hingegen produzieren die Module oft auf Hochtouren.
+Nebel:
+Im Nebel ist die Produktion reduziert, aber nicht null. Diffuses Licht wird von modernen Modulen noch teilweise in Strom umgewandelt.
+
+[H2] Welche Module eignen sich besonders für die Schweiz?
+Nicht alle Module sind gleich gut für das Schweizer Klima geeignet. Diese Eigenschaften sind wichtig:
+Monokristalline Module
+Die häufigste Wahl für die Schweiz. Hoher Wirkungsgrad auch bei diffusem Licht, robust und langlebig. Ideal für das Mittelland und die Voralpen.
+Bifaziale Module
+Produzieren auch von der Rückseite Strom — besonders nützlich bei Schnee, der das Licht reflektiert. Interessant für Regionen mit viel Schnee.
+Module mit niedrigem Temperaturkoeffizienten
+Je kleiner der Temperaturkoeffizient, desto besser die Leistung bei Kälte. Besonders relevant für Höhenlagen.
+
+[H2] Lohnt sich eine Solaranlage in allen Schweizer Kantonen?
+Ja — auch in sonnenarmen Kantonen lohnt sich eine Solaranlage, weil:
+
+Die Strompreise in der Schweiz hoch sind
+Die Bundesförderung (EIV) in der ganzen Schweiz gilt
+Moderne Module auch bei diffusem Licht effizient produzieren
+Die Amortisationszeit auch im Mittelland bei 8–10 Jahren liegt
+
+Im Tessin hingegen amortisiert sich eine Anlage bereits in 4–6 Jahren — der beste Wert der ganzen Schweiz.
+
+[H2] Häufig gestellte Fragen
+Füge queste come FAQ a fisarmonica (Accordion), con schema JSON-LD FAQPage:
+F: Funktioniert eine Solaranlage auch bei Bewölkung?
+A: Ja. Moderne Module produzieren auch bei bedecktem Himmel Strom, wenn auch mit reduzierter Leistung. Diffuses Licht wird teilweise in Energie umgewandelt.
+F: Muss ich Schnee von den Modulen räumen?
+A: In der Regel nicht. Auf geneigten Dächern rutscht Schnee schnell ab. Das Räumen ist meist nicht nötig und kann die Module beschädigen.
+F: Produziert eine Solaranlage im Winter überhaupt Strom?
+A: Ja, aber weniger als im Sommer. Im Winter sind die Sonnenstunden kürzer und der Winkel flacher. Eine gut dimensionierte Anlage produziert auch im Winter einen nützlichen Beitrag.
+F: Sind Solarmodule winterfest?
+A: Ja. Hochwertige Module sind für Temperaturen bis -40°C ausgelegt und halten Schneelasten von mehreren hundert Kilogramm pro Quadratmeter stand.
+F: Welche Kantone eignen sich am besten für Photovoltaik?
+A: Das Tessin hat mit über 2'100 Sonnenstunden den besten Ausgangspunkt. Aber auch im Mittelland und in der Ostschweiz lohnt sich eine Solaranlage — die Amortisationszeit ist etwas länger, aber immer noch attraktiv.
+
+[CTA Box finale — stesso stile delle altre pagine]
+Titel: Jetzt prüfen, ob sich eine Solaranlage für Ihr Dach lohnt
+Text: Unabhängig vom Kanton und Klima — unsere zertifizierten Installateure berechnen das Potenzial Ihres Daches und erstellen Ihnen eine kostenlose, massgeschneiderte Offerte.
+Button: Kostenlose Offerte anfordern → link a /anfrage
+
+LINK INTERNI — aggiungi questi link nel testo della pagina dove pertinente:
+
+Dove menzioni "Einmalvergütung (EIV)" → linka a /foerderungen
+Dove menzioni "Tessin" → linka a /it/fotovoltaico-ticino
+Dove menzioni "Kanton Zürich" → linka a /solaranlage-zurich
+Dove menzioni "Solaranlage im Winter" → linka a /blog/solaranlage-winter-schweiz
+Dove menzioni "Offerten vergleichen" → linka a /solaranlage-offerte-einholen
+Dove menzioni "Kosten" → linka a /solaranlage-kosten
+Dove menzioni "Anbieter vergleichen" → linka a /vergleichsportal-photovoltaik-schweiz
+
+
+LINK INTERNI INVERSI — aggiungi un link a questa nuova pagina nelle seguenti pagine esistenti:
+
+/blog/solaranlage-winter-schweiz → aggiungi un link con anchor text Photovoltaik im Schweizer Klima che punta a /photovoltaik-schweizer-klima
+/wie-funktioniert → aggiungi un link con anchor text Solaranlagen im Schweizer Klima che punta a /photovoltaik-schweizer-klima
+/solaranlage-einfamilienhaus → aggiungi un link con anchor text Welche Module passen zum Schweizer Klima? che punta a /photovoltaik-schweizer-klima
+/solaranlage-kosten → aggiungi un link con anchor text Photovoltaik im Schweizer Klima che punta a /photovoltaik-schweizer-klima
+/solaranlage-offerte-einholen → aggiungi un link con anchor text Solaranlage im Schweizer Klima che punta a /photovoltaik-schweizer-klima
+
+
+FOOTER — aggiungi il link a questa nuova pagina nella sezione "Notizie & Consigli" del footer:
+
+Photovoltaik im Schweizer Klima → /photovoltaik-schweizer-klima
+Assicurati che il link appaia anche nelle versioni francese, inglese e italiana del footer con i rispettivi URL tradotti.
+
+
+SITEMAP — aggiungi queste righe nel file sitemap.xml:
+xml<url>
+  <loc>https://www.pvpro.ch/photovoltaik-schweizer-klima</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/fr/photovoltaique-climat-suisse</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/en/solar-panels-swiss-climate</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/it/fotovoltaico-clima-svizzero</loc>
+  <lastmod>2026-03-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+STILE VISIVO — usa esattamente lo stesso layout e componenti delle pagine esistenti come /solaranlage-mit-speicher e /bewilligungspflicht-solaranlage-schweiz. Stesso header, stesso footer, stessi colori, stessi componenti accordion per le FAQ, stessa stat-box orizzontale. La tabella deve essere stilizzata con lo stesso stile delle altre tabelle del sito.

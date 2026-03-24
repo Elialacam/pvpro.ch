@@ -450,6 +450,8 @@ export default function SolaranlageKostenPage() {
             <p className="text-center text-sm text-gray-500 mt-4">
               Möchten Sie zuerst Anbieter vergleichen?{' '}
               <a href="/vergleichsportal-photovoltaik-schweiz" className="text-[#F97316] hover:underline font-medium">Anbieter kostenlos vergleichen</a>
+              {' '}·{' '}
+              <a href="/solaranlage-installieren-schweiz" className="text-[#F97316] hover:underline font-medium">Was kostet die Installation?</a>
             </p>
           </div>
         </div>

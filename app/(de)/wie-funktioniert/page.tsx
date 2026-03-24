@@ -170,6 +170,12 @@ export default function WieFunktioniertPage() {
             >
               Kosten berechnen
             </Link>
+            <Link
+              href="/solaranlage-installieren-schweiz"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white/80 text-sm border border-white/20 hover:border-white/40 transition-colors"
+            >
+              Solaranlage installieren lassen
+            </Link>
           </div>
         </div>
       </section>
