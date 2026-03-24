@@ -5,8 +5,8 @@ import { Metadata } from 'next';
 import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
 
 export const metadata: Metadata = {
-  title: 'Impianto solare con accumulo: costi, vantaggi e dimensionamento | PVPro.ch',
-  description: 'Come funziona un impianto solare con accumulo? Costi, vantaggi, dimensionamento e autoconsumo in Svizzera.',
+  title: 'Impianto solare con accumulo: costi, vantaggi e funzionamento | PVPro.ch',
+  description: 'Come funziona un impianto solare con accumulo a batteria? Costi, vantaggi, dimensionamento e autoconsumo in Svizzera spiegati semplicemente.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/solare-con-accumulo',
     languages: {
@@ -20,22 +20,24 @@ export const metadata: Metadata = {
 };
 
 const vantaggi = [
-  { icon: TrendingUp, title: 'Meno energia dalla rete',  text: 'Acquisti molto meno energia dal fornitore — giorno dopo giorno.' },
-  { icon: Zap,        title: 'Costi energetici ridotti',  text: 'A lungo termine i tuoi costi energetici diminuiscono notevolmente, soprattutto con i prezzi in aumento.' },
-  { icon: Home,       title: 'Più indipendenza',          text: 'Meno dipendenza dal mercato dell\'energia — anche la sera e di notte.' },
-  { icon: Sun,        title: 'Usa l\'energia solare',     text: 'L\'energia autoprodotta non viene più immessa inutilizzata nella rete.' },
+  { icon: TrendingUp, title: 'Meno elettricità acquistata', text: 'Acquistate molto meno elettricità dal fornitore — giorno dopo giorno.' },
+  { icon: Zap,        title: 'Costi elettricità ridotti',   text: 'A lungo termine, i vostri costi elettrici si riducono notevolmente, soprattutto con l\'aumento dei prezzi.' },
+  { icon: Home,       title: 'Più indipendenza',            text: 'Meno dipendenza dal mercato dell\'elettricità — anche la sera e la notte.' },
+  { icon: Sun,        title: 'Utilizzare l\'energia solare', text: 'L\'elettricità autoprodotta non viene più immessa inutilizzata nella rete.' },
 ];
 
 const quandoUtile = [
-  'Un\'auto elettrica viene caricata',
-  'Una pompa di calore viene utilizzata',
-  'Il consumo di energia la sera è elevato',
-  'L\'obiettivo è utilizzare la massima energia solare in autoconsumo',
+  'Viene ricaricata un\'auto elettrica',
+  'Viene azionata una pompa di calore',
+  'Il consumo di elettricità serale è elevato',
+  'Si vuole utilizzare quanta più elettricità solare possibile in autoconsumo',
 ];
 
 export default function SolareConAccumuloPage() {
   return (
     <main className="min-h-screen bg-white">
+
+      {/* ── HERO ── */}
       <section className="relative pt-28 pb-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
         <div className="absolute inset-0 opacity-20">
           <Image src="/images/blog-3.png" alt="Impianto solare con accumulo" fill className="object-cover" priority />
@@ -46,6 +48,7 @@ export default function SolareConAccumuloPage() {
             <ChevronRight className="w-3.5 h-3.5" />
             <span className="text-gray-300 font-medium">Solare con accumulo</span>
           </nav>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5">
@@ -55,7 +58,7 @@ export default function SolareConAccumuloPage() {
                 Impianto solare con accumulo: costi, vantaggi e funzionamento
               </h1>
               <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                Un accumulo a batteria permette di utilizzare l'energia solare autoprodotta anche la sera e di notte — invece di immetterla nella rete.
+                Un accumulo a batteria permette di utilizzare l'elettricità solare autoprodotta anche la sera e la notte — invece di immetterla nella rete.
               </p>
               <div className="grid grid-cols-3 gap-4">
                 {[
@@ -70,6 +73,7 @@ export default function SolareConAccumuloPage() {
                 ))}
               </div>
             </div>
+
             <div className="rounded-3xl p-8" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
               <p className="text-white font-bold text-lg mb-6">Confronto autoconsumo</p>
               <div className="flex flex-col gap-6">
@@ -88,22 +92,74 @@ export default function SolareConAccumuloPage() {
                   </div>
                 ))}
               </div>
+              <p className="text-xs text-gray-500 mt-6">Valori medi per una casa unifamiliare con impianto solare da 10 kWp</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20">
+      {/* ── FUNZIONAMENTO ── */}
+      <section className="py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
-          <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Vantaggi</p>
-            <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Perché l'accumulo a batteria?</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Funzionamento</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">
+                Come funziona un impianto solare con accumulo?
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-5">
+                Un impianto fotovoltaico produce elettricità dall'energia solare durante il giorno. Questa viene prima utilizzata direttamente nella casa — per gli elettrodomestici, l'illuminazione o le pompe di calore.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                Se l'impianto produce più del necessario, il sistema di accumulo a batteria immagazzina automaticamente l'energia. La sera o la notte, la restituisce. Una regolazione intelligente garantisce una distribuzione ottimale.
+              </p>
+
+              <div className="flex items-center gap-3 flex-wrap">
+                {[
+                  { icon: Sun,     label: 'Impianto solare', color: '#F97316' },
+                  { icon: Battery, label: 'Accumulo',        color: '#3b82f6' },
+                  { icon: Home,    label: 'Casa',            color: '#10b981' },
+                ].map((item, i, arr) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.label} className="flex items-center gap-3">
+                      <div className="flex flex-col items-center gap-2 rounded-2xl px-5 py-4 border border-gray-100 shadow-sm">
+                        <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${item.color}18` }}>
+                          <Icon className="w-5 h-5" style={{ color: item.color }} />
+                        </div>
+                        <p className="text-xs font-bold text-gray-700">{item.label}</p>
+                      </div>
+                      {i < arr.length - 1 && <ArrowRight className="w-4 h-4 text-gray-300 flex-shrink-0" />}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <Image src="/images/hero-family-solar.png" alt="Impianto solare con accumulo a batteria" width={700} height={500} className="w-full h-auto object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── VANTAGGI ── */}
+      <section className="py-20" style={{ background: '#f9fafb' }}>
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="text-center mb-14">
+            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Perché conviene?</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+              I vantaggi di un accumulo a batteria
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
+              Senza accumulo, solo il <strong className="text-gray-800">30%</strong> dell'elettricità solare prodotta viene utilizzata direttamente. Con l'accumulo, questo valore sale al <strong className="text-gray-800">60–70%</strong>.
+            </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {vantaggi.map((v) => {
+            {vantaggi.map(v => {
               const Icon = v.icon;
               return (
-                <div key={v.title} className="rounded-2xl border border-gray-100 p-7 hover:shadow-lg transition-shadow">
+                <div key={v.title} className="rounded-2xl border border-gray-100 bg-white p-7 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
                     <Icon className="w-5 h-5 text-[#F97316]" />
                   </div>
@@ -116,69 +172,139 @@ export default function SolareConAccumuloPage() {
         </div>
       </section>
 
-      <section className="py-20" style={{ background: '#f9fafb' }}>
+      {/* ── COSTI ── */}
+      <section className="py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
-          <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Dimensionamento</p>
-            <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Quale dimensione di accumulo?</h2>
-            <p className="text-gray-500 mt-2 max-w-lg mx-auto">Il calcolatore indica la dimensione ottimale in base al tuo consumo.</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Costi & prezzi</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">
+                Quanto costa un impianto solare con accumulo?
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                I costi dipendono dalla dimensione dell'impianto, dalla capacità dell'accumulo, dal tipo di tetto e dalla qualità dei componenti. Ecco i valori orientativi tipici per una casa unifamiliare:
+              </p>
+
+              <div className="flex flex-col gap-3">
+                {[
+                  { label: 'Impianto fotovoltaico (ca. 10 kWp)', range: "18'000 – 25'000 CHF", highlight: false },
+                  { label: 'Accumulo a batteria',                  range: "8'000 – 15'000 CHF",  highlight: false },
+                  { label: 'Impianto completo',                    range: "25'000 – 40'000 CHF", highlight: true  },
+                ].map(row => (
+                  <div
+                    key={row.label}
+                    className={`flex items-center justify-between rounded-2xl px-6 py-4 ${row.highlight ? 'border-2 border-orange-200' : 'border border-gray-100'}`}
+                    style={row.highlight ? { background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' } : { background: '#f9fafb' }}
+                  >
+                    <p className={`font-medium text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-700'}`}>{row.label}</p>
+                    <p className={`font-bold ${row.highlight ? 'text-[#F97316] text-lg' : 'text-gray-900'}`}>{row.range}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-gray-400 mt-4">
+                Grazie ai programmi di sovvenzioni e al maggiore autoconsumo, l'impianto può essere economicamente vantaggioso nel corso degli anni.
+              </p>
+            </div>
+
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <Image src="/images/blog-5.png" alt="Costi impianto solare Svizzera" width={700} height={500} className="w-full h-auto object-cover" />
+            </div>
           </div>
-          <SpeicherGroesse />
         </div>
       </section>
 
-      <section className="py-20">
+      {/* ── DIMENSIONE ACCUMULO (INTERACTIVE) ── */}
+      <section className="py-20" style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Quando è utile?</p>
-              <h2 className="text-3xl font-bold text-gray-900 tracking-tight mb-6">L'accumulo conviene?</h2>
-              <p className="text-gray-600 leading-relaxed mb-6">Un sistema di accumulo a batteria è particolarmente conveniente nei seguenti casi:</p>
-              <div className="flex flex-col gap-3">
-                {quandoUtile.map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-[#F97316] flex-shrink-0" />
-                    <span className="text-gray-600">{item}</span>
+              <p className="text-sm font-semibold text-orange-400 uppercase tracking-widest mb-3">Dimensione dell'accumulo</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-6">
+                Quanto deve essere grande il vostro accumulo a batteria?
+              </h2>
+              <p className="text-gray-400 leading-relaxed mb-6">
+                La dimensione ideale dipende dal consumo elettrico della vostra casa e dalla dimensione del vostro impianto solare. Un accumulo troppo grande può essere meno sensato economicamente.
+              </p>
+              <p className="text-gray-400 leading-relaxed">
+                Selezionate il vostro profilo familiare per vedere la dimensione di accumulo raccomandata e l'autoconsumo previsto.
+              </p>
+            </div>
+            <SpeicherGroesse />
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRODUZIONE + QUANDO CONVIENE ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <Image src="/images/blog-1.png" alt="Produzione elettricità solare" width={700} height={500} className="w-full h-auto object-cover" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Produzione di elettricità</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">
+                Quanta elettricità produce un impianto solare?
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-5">
+                Un impianto tipico da 10 kWp in Svizzera produce annualmente circa <strong>9'000 – 11'000 kWh</strong> — ovvero circa <strong>25–40 kWh</strong> al giorno.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                La quantità esatta dipende dall'orientamento del tetto, dall'angolo di inclinazione e dall'irraggiamento solare regionale.
+              </p>
+
+              <p className="font-bold text-gray-900 mb-4">Un accumulo è particolarmente utile se…</p>
+              <div className="flex flex-col gap-2.5">
+                {quandoUtile.map(w => (
+                  <div key={w} className="flex items-center gap-3 rounded-xl px-4 py-3 bg-gray-50 border border-gray-100">
+                    <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+                    <p className="text-sm text-gray-700">{w}</p>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl p-8" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-              <p className="text-sm font-semibold text-orange-500 uppercase tracking-widest mb-3">Costo accumulo</p>
-              <h3 className="text-2xl font-bold text-gray-900 mb-5">Panoramica prezzi</h3>
-              {[
-                { size: '5 kWh',  price: "4'000 – 6'000 CHF" },
-                { size: '10 kWh', price: "7'000 – 10'000 CHF" },
-                { size: '15 kWh', price: "12'000 – 15'000 CHF" },
-              ].map((row) => (
-                <div key={row.size} className="flex justify-between items-center py-3 border-b border-orange-100 last:border-b-0">
-                  <span className="font-bold text-gray-900">{row.size}</span>
-                  <span className="font-bold text-[#F97316]">{row.price}</span>
-                </div>
-              ))}
-              <p className="text-xs text-gray-400 mt-4">Costi indicativi esclusa installazione.</p>
-            </div>
           </div>
         </div>
       </section>
 
+      {/* ── FAQ ── */}
       <section className="py-20" style={{ background: '#f9fafb' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
-          <SpeicherFAQ />
+          <div className="text-center mb-12">
+            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">FAQ</p>
+            <h2 className="text-3xl font-bold text-gray-900 tracking-tight">
+              Domande frequenti sull'accumulo a batteria
+            </h2>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <SpeicherFAQ />
+          </div>
         </div>
       </section>
 
-      <section className="py-20">
+      {/* ── CTA ── */}
+      <section className="py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
-          <div className="rounded-3xl p-10 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-            <h2 className="text-2xl font-bold text-gray-900 mb-3">Ricevi preventivi con accumulo</h2>
-            <p className="text-gray-600 mb-6 max-w-md mx-auto">Ricevi fino a 3 preventivi comparativi da installatori certificati.</p>
-            <Link href="/it/richiesta" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
-              Ottieni preventivi gratuiti <ArrowRight className="w-4 h-4" />
+          <div className="rounded-3xl p-10 sm:p-16 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
+            <p className="text-sm font-semibold text-orange-500 uppercase tracking-widest mb-4">Confronta le offerte</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Confronta ora il tuo impianto solare con accumulo
+            </h2>
+            <p className="text-gray-600 mb-8 max-w-lg mx-auto leading-relaxed">
+              I costi possono variare notevolmente a seconda dell'installatore e dei componenti. Richiedi gratuitamente fino a 3 preventivi e confrontali.
+            </p>
+            <Link
+              href="/it/richiesta"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity"
+              style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            >
+              Richiedi preventivi gratuiti
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
+
     </main>
   );
 }
