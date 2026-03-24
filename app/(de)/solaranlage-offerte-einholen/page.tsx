@@ -360,6 +360,9 @@ export default function SolaranlageOfferteEinholenPage() {
               <Link href="/photovoltaik-installation-schweiz" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Was passiert nach der Offerte?
               </Link>
+              <Link href="/photovoltaik-komplettloesung-schweiz" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Offerte für Komplettlösung anfragen
+              </Link>
               <Link href="/anfrage" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
                 style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
                 Offerte anfragen <ArrowRight className="w-4 h-4" />

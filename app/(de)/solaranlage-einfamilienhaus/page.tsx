@@ -358,6 +358,8 @@ export default function SolaranlageEinfamilienhausPage() {
             <Link href="/photovoltaik-schweizer-klima" className="text-[#F97316] hover:underline font-medium">Welche Module passen zum Schweizer Klima?</Link>
             {' '}·{' '}
             <Link href="/photovoltaik-installation-schweiz" className="text-[#F97316] hover:underline font-medium">Installationsablauf Schritt für Schritt</Link>
+            {' '}·{' '}
+            <Link href="/photovoltaik-komplettloesung-schweiz" className="text-[#F97316] hover:underline font-medium">Komplettlösung für Ihr Einfamilienhaus</Link>
           </p>
         </section>
 

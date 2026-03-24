@@ -301,6 +301,12 @@ export default function SolaranlageMitSpeicherPage() {
               Kostenlose Offerte anfordern
               <ArrowRight className="w-4 h-4" />
             </Link>
+            <Link
+              href="/photovoltaik-komplettloesung-schweiz"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-gray-700 text-sm border border-gray-300 hover:border-gray-500 transition-colors bg-white"
+            >
+              Photovoltaik Komplettlösung mit Speicher
+            </Link>
           </div>
         </div>
       </section>

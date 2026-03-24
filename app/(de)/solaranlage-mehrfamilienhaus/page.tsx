@@ -354,6 +354,8 @@ export default function SolaranlageMehrfamilienhausPage() {
             <Link href="/solaranlage-offerte-einholen" className="text-[#F97316] hover:underline font-medium">Offerten für Ihr Mehrfamilienhaus</Link>
             {' '}·{' '}
             <Link href="/photovoltaik-installation-schweiz" className="text-[#F97316] hover:underline font-medium">Ablauf der Photovoltaik Installation</Link>
+            {' '}·{' '}
+            <Link href="/photovoltaik-komplettloesung-schweiz" className="text-[#F97316] hover:underline font-medium">Komplettlösung für Mehrfamilienhäuser</Link>
           </p>
         </section>
 
