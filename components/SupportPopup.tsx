@@ -11,12 +11,48 @@ import { getFormUrl } from '@/lib/i18n/formUrls';
 
 const FORM_PATHS = ['/anfrage', '/fr/demande', '/en/request', '/it/richiesta'];
 
+const i18n: Record<string, { title: string; body: string; cta: string; close: string }> = {
+  de: {
+    title: 'Kostenlose Beratung',
+    body: 'Mit wenigen Klicks zu kostenlosen Offerten. Unser Team beantwortet Ihre Fragen.',
+    cta: 'Jetzt starten →',
+    close: 'Schliessen',
+  },
+  fr: {
+    title: 'Conseil gratuit',
+    body: 'Obtenez des offres gratuites en quelques clics. Notre équipe répond à vos questions.',
+    cta: 'Commencer →',
+    close: 'Fermer',
+  },
+  en: {
+    title: 'Free Consultation',
+    body: 'Get free quotes in just a few clicks. Our team is ready to answer your questions.',
+    cta: 'Get started →',
+    close: 'Close',
+  },
+  it: {
+    title: 'Consulenza gratuita',
+    body: 'Ricevi preventivi gratuiti in pochi clic. Il nostro team risponde alle tue domande.',
+    cta: 'Inizia ora →',
+    close: 'Chiudi',
+  },
+};
+
+function getLocale(pathname: string): string {
+  if (pathname.startsWith('/fr')) return 'fr';
+  if (pathname.startsWith('/en')) return 'en';
+  if (pathname.startsWith('/it')) return 'it';
+  return 'de';
+}
+
 export default function SupportPopup() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
 
   const formUrl = getFormUrl(pathname);
+  const locale = getLocale(pathname);
+  const t = i18n[locale];
 
   useEffect(() => {
     if (FORM_PATHS.includes(pathname)) return;
@@ -67,7 +103,7 @@ export default function SupportPopup() {
             <button
               onClick={dismiss}
               className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center transition-colors hover:bg-white/20 z-10"
-              aria-label="Schliessen"
+              aria-label={t.close}
             >
               <X className="w-4 h-4 text-white/70" />
             </button>
@@ -75,10 +111,10 @@ export default function SupportPopup() {
             <div className="flex-1 p-5 pr-3 flex flex-col justify-center gap-3">
               <div>
                 <p className="text-white font-bold text-lg leading-tight">
-                  Kostenlose Beratung
+                  {t.title}
                 </p>
                 <p className="text-white/75 text-sm mt-1 leading-snug">
-                  Mit wenigen Klicks zu kostenlosen Offerten. Unser Team beantwortet Ihre Fragen.
+                  {t.body}
                 </p>
               </div>
               <Link
@@ -86,7 +122,7 @@ export default function SupportPopup() {
                 onClick={dismiss}
                 className="inline-block bg-white text-[#1a2e4a] font-bold text-sm px-4 py-2.5 rounded-xl hover:bg-gray-100 transition-colors text-center"
               >
-                Jetzt starten →
+                {t.cta}
               </Link>
             </div>
 
