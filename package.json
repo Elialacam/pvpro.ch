@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/patch-next-sorted-routes.js && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "node scripts/patch-next-sorted-routes.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -31,6 +32,7 @@
     "@types/react-simple-maps": "^3.0.6",
     "eslint": "^8.57.1",
     "eslint-config-next": "14.2.22",
+    "patch-package": "^8.0.1",
     "playwright": "^1.56.1",
     "postcss": "^8.4.49",
     "sharp": "^0.34.4",

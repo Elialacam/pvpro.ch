@@ -18,6 +18,13 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   swcMinify: true,
+  async rewrites() {
+    return {
+      beforeFiles: [
+        { source: '/sitemap.xml', destination: '/api/sitemap' },
+      ],
+    };
+  },
   async headers() {
     return [
       {
