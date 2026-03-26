@@ -5,13 +5,13 @@ import { LocaleProvider } from "@/lib/LocaleContext";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.pvpro.ch/it',
+    canonical: 'https://pvpro.ch/it',
     languages: {
-      'de-CH': 'https://www.pvpro.ch',
-      'fr-CH': 'https://www.pvpro.ch/fr',
-      'en-CH': 'https://www.pvpro.ch/en',
-      'it-CH': 'https://www.pvpro.ch/it',
-      'x-default': 'https://www.pvpro.ch',
+      'de-CH': 'https://pvpro.ch',
+      'fr-CH': 'https://pvpro.ch/fr',
+      'en-CH': 'https://pvpro.ch/en',
+      'it-CH': 'https://pvpro.ch/it',
+      'x-default': 'https://pvpro.ch',
     },
   },
   title: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'it_CH',
-    url: 'https://www.pvpro.ch/it',
+    url: 'https://pvpro.ch/it',
     siteName: 'PV Pro',
     title: 'PV Pro - Confronta impianti fotovoltaici in Svizzera',
     description: 'Confronta gratuitamente diverse offerte di impianti fotovoltaici da installatori svizzeri certificati. Risparmia fino al 30%.',
@@ -73,8 +73,8 @@ export default function ItalianLayout({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "PV Pro",
-            "url": "https://www.pvpro.ch",
-            "logo": "https://www.pvpro.ch/logo-pvpro.png",
+            "url": "https://pvpro.ch",
+            "logo": "https://pvpro.ch/logo-pvpro.png",
             "sameAs": [
               "https://www.facebook.com/pvpro",
               "https://www.linkedin.com/company/pvpro"
@@ -96,7 +96,7 @@ export default function ItalianLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "url": "https://www.pvpro.ch/it",
+            "url": "https://pvpro.ch/it",
             "name": "PV Pro",
             "alternateName": "PVPro",
             "description": "Piattaforma di confronto per impianti fotovoltaici in Svizzera",
@@ -105,7 +105,7 @@ export default function ItalianLayout({
               "@type": "OrderAction",
               "target": {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://www.pvpro.ch/anfrage",
+                "urlTemplate": "https://pvpro.ch/anfrage",
                 "actionPlatform": [
                   "http://schema.org/DesktopWebPlatform",
                   "http://schema.org/MobileWebPlatform"

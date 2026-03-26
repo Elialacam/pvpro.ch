@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   title: 'Solar installation with battery storage: costs, benefits and how it works | PVPro.ch',
   description: 'How does a solar installation with battery storage work? Costs, benefits, storage size and self-consumption in Switzerland explained simply.',
   alternates: {
-    canonical: 'https://www.pvpro.ch/en/solar-with-battery',
+    canonical: 'https://pvpro.ch/en/solar-with-battery',
     languages: {
-      'de-CH': 'https://www.pvpro.ch/solaranlage-mit-speicher',
-      'fr-CH': 'https://www.pvpro.ch/fr/solaire-avec-batterie',
-      'en-CH': 'https://www.pvpro.ch/en/solar-with-battery',
-      'it-CH': 'https://www.pvpro.ch/it/solare-con-accumulo',
-      'x-default': 'https://www.pvpro.ch/solaranlage-mit-speicher',
+      'de-CH': 'https://pvpro.ch/solaranlage-mit-speicher',
+      'fr-CH': 'https://pvpro.ch/fr/solaire-avec-batterie',
+      'en-CH': 'https://pvpro.ch/en/solar-with-battery',
+      'it-CH': 'https://pvpro.ch/it/solare-con-accumulo',
+      'x-default': 'https://pvpro.ch/solaranlage-mit-speicher',
     },
   },
 };

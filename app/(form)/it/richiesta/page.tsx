@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Richiedi preventivi solari gratuiti | PVPro.ch',
   description: 'Ricevi in pochi minuti preventivi gratuiti da installatori solari certificati in Svizzera.',
   alternates: {
-    canonical: 'https://www.pvpro.ch/it/richiesta',
+    canonical: 'https://pvpro.ch/it/richiesta',
   },
   robots: {
     index: false,

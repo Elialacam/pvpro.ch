@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: 'Solaranlage Kanton Freiburg – Offerten vergleichen 2026 | PVPro',
   description: "Solaranlage im Kanton Freiburg: Bis zu 3 Offerten von geprüften Installateuren vergleichen. Förderungen EIV + kantonaler Beitrag. Unverbindlich & kostenlos.",
   alternates: {
-    canonical: 'https://www.pvpro.ch/solaranlage-freiburg',
+    canonical: 'https://pvpro.ch/solaranlage-freiburg',
     languages: {
-      'de-CH': 'https://www.pvpro.ch/solaranlage-freiburg',
-      'fr-CH': 'https://www.pvpro.ch/fr/solaire-fribourg',
-      'x-default': 'https://www.pvpro.ch/solaranlage-freiburg',
+      'de-CH': 'https://pvpro.ch/solaranlage-freiburg',
+      'fr-CH': 'https://pvpro.ch/fr/solaire-fribourg',
+      'x-default': 'https://pvpro.ch/solaranlage-freiburg',
     },
   },
 };

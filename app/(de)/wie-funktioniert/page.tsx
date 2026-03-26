@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   title: 'Wie funktioniert eine Solaranlage? Einfach erklärt (Schweiz) | PVPro.ch',
   description: 'Wie funktioniert eine Solaranlage? Einfache Erklärung mit Beispielen, Stromproduktion und Antworten auf häufige Fragen zur Photovoltaik.',
   alternates: {
-    canonical: 'https://www.pvpro.ch/wie-funktioniert',
+    canonical: 'https://pvpro.ch/wie-funktioniert',
     languages: {
-      'de-CH': 'https://www.pvpro.ch/wie-funktioniert',
-      'fr-CH': 'https://www.pvpro.ch/fr/fonctionnement-solaire',
-      'en-CH': 'https://www.pvpro.ch/en/how-solar-works',
-      'it-CH': 'https://www.pvpro.ch/it/come-funziona-solare',
-      'x-default': 'https://www.pvpro.ch/wie-funktioniert',
+      'de-CH': 'https://pvpro.ch/wie-funktioniert',
+      'fr-CH': 'https://pvpro.ch/fr/fonctionnement-solaire',
+      'en-CH': 'https://pvpro.ch/en/how-solar-works',
+      'it-CH': 'https://pvpro.ch/it/come-funziona-solare',
+      'x-default': 'https://pvpro.ch/wie-funktioniert',
     },
   },
 };

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Request free solar quotes | PVPro.ch',
   description: 'Receive free quotes from certified Swiss solar installers in just a few minutes.',
   alternates: {
-    canonical: 'https://www.pvpro.ch/en/request',
+    canonical: 'https://pvpro.ch/en/request',
   },
   robots: {
     index: false,

@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   title: "Comment ça marche – PVPro.ch | Devis solaires en 3 étapes",
   description: "Découvrez comment PVPro fonctionne : remplissez le formulaire, recevez jusqu'à 3 devis certifiés et choisissez le meilleur installateur. Gratuit et sans engagement.",
   alternates: {
-    canonical: 'https://www.pvpro.ch/fr/comment-ca-marche',
+    canonical: 'https://pvpro.ch/fr/comment-ca-marche',
     languages: {
-      'de-CH': 'https://www.pvpro.ch/wie-es-funktioniert',
-      'fr-CH': 'https://www.pvpro.ch/fr/comment-ca-marche',
-      'en-CH': 'https://www.pvpro.ch/en/how-it-works',
-      'it-CH': 'https://www.pvpro.ch/it/come-funziona',
-      'x-default': 'https://www.pvpro.ch/wie-es-funktioniert',
+      'de-CH': 'https://pvpro.ch/wie-es-funktioniert',
+      'fr-CH': 'https://pvpro.ch/fr/comment-ca-marche',
+      'en-CH': 'https://pvpro.ch/en/how-it-works',
+      'it-CH': 'https://pvpro.ch/it/come-funziona',
+      'x-default': 'https://pvpro.ch/wie-es-funktioniert',
     },
   },
 };

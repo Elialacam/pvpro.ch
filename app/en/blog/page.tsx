@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   title: 'Blog & Guides | PVPro.ch – Solar energy in Switzerland',
   description: 'Current guides, news and tips on solar installations, subsidies and photovoltaics in Switzerland.',
   alternates: {
-    canonical: 'https://www.pvpro.ch/en/blog',
+    canonical: 'https://pvpro.ch/en/blog',
     languages: {
-      'de-CH': 'https://www.pvpro.ch/blog',
-      'fr-CH': 'https://www.pvpro.ch/fr/blog',
-      'en-CH': 'https://www.pvpro.ch/en/blog',
-      'it-CH': 'https://www.pvpro.ch/it/blog',
-      'x-default': 'https://www.pvpro.ch/blog',
+      'de-CH': 'https://pvpro.ch/blog',
+      'fr-CH': 'https://pvpro.ch/fr/blog',
+      'en-CH': 'https://pvpro.ch/en/blog',
+      'it-CH': 'https://pvpro.ch/it/blog',
+      'x-default': 'https://pvpro.ch/blog',
     },
   },
 };

@@ -1,7 +1,7 @@
 import { cities } from '@/lib/cities';
 import { getBlogArticleSlugs } from '@/lib/blogArticles';
 
-const BASE = 'https://www.pvpro.ch';
+const BASE = 'https://pvpro.ch';
 const TODAY = new Date().toISOString().split('T')[0];
 
 // ── Helpers ────────────────────────────────────────────────────────────────────

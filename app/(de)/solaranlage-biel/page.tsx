@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: 'Solaranlage Biel/Bienne – Offerten vergleichen 2026 | PVPro',
   description: "Solaranlage in Biel/Bienne: Bis zu 3 Offerten vergleichen. Dreifache Förderung: EIV Bund + Kanton Bern + Energiefonds Stadt Biel. Unverbindlich & kostenlos.",
   alternates: {
-    canonical: 'https://www.pvpro.ch/solaranlage-biel',
+    canonical: 'https://pvpro.ch/solaranlage-biel',
     languages: {
-      'de-CH': 'https://www.pvpro.ch/solaranlage-biel',
-      'fr-CH': 'https://www.pvpro.ch/fr/solaire-bienne',
-      'x-default': 'https://www.pvpro.ch/solaranlage-biel',
+      'de-CH': 'https://pvpro.ch/solaranlage-biel',
+      'fr-CH': 'https://pvpro.ch/fr/solaire-bienne',
+      'x-default': 'https://pvpro.ch/solaranlage-biel',
     },
   },
 };

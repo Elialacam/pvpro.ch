@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Demander des devis solaires gratuits | PVPro.ch',
   description: 'Recevez en quelques minutes des devis gratuits d\'installateurs solaires certifiés en Suisse.',
   alternates: {
-    canonical: 'https://www.pvpro.ch/fr/demande',
+    canonical: 'https://pvpro.ch/fr/demande',
   },
   robots: {
     index: false,

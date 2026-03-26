@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   title: 'Installation solaire Canton de Fribourg – Comparez 3 offres 2026 | PVPro',
   description: "Panneau solaire à Fribourg : comparez jusqu'à 3 offres d'installateurs certifiés. Subventions RU fédérale + aide cantonale fribourgeoise. Gratuit & sans engagement.",
   alternates: {
-    canonical: 'https://www.pvpro.ch/fr/solaire-fribourg',
+    canonical: 'https://pvpro.ch/fr/solaire-fribourg',
     languages: {
-      'fr-CH': 'https://www.pvpro.ch/fr/solaire-fribourg',
-      'de-CH': 'https://www.pvpro.ch/solaranlage-freiburg',
-      'x-default': 'https://www.pvpro.ch/solaranlage-freiburg',
+      'fr-CH': 'https://pvpro.ch/fr/solaire-fribourg',
+      'de-CH': 'https://pvpro.ch/solaranlage-freiburg',
+      'x-default': 'https://pvpro.ch/solaranlage-freiburg',
     },
   },
 };

@@ -2,14 +2,14 @@ export default function StructuredData() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://www.pvpro.ch/#organization",
+    "@id": "https://pvpro.ch/#organization",
     "name": "PVPro",
     "alternateName": "Solar Heim",
-    "url": "https://www.pvpro.ch",
-    "logo": "https://www.pvpro.ch/logo-pvpro.png",
+    "url": "https://pvpro.ch",
+    "logo": "https://pvpro.ch/logo-pvpro.png",
     "image": [
-      "https://www.pvpro.ch/logo-pvpro.png",
-      "https://www.pvpro.ch/og-image.jpg"
+      "https://pvpro.ch/logo-pvpro.png",
+      "https://pvpro.ch/og-image.jpg"
     ],
     "description": "PVPro ist die führende Vergleichsplattform für Solaranlagen in der Schweiz. Wir vermitteln kostenlos Angebote von geprüften Solarteu ren und helfen Hausbesitzern, bis zu 30% zu sparen.",
     "telephone": "+41779770750",
@@ -56,7 +56,7 @@ export default function StructuredData() {
       "@type": "OrderAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://www.pvpro.ch/anfrage",
+        "urlTemplate": "https://pvpro.ch/anfrage",
         "actionPlatform": [
           "http://schema.org/DesktopWebPlatform",
           "http://schema.org/MobileWebPlatform"

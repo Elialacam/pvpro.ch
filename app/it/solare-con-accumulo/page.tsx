@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   title: 'Impianto solare con accumulo: costi, vantaggi e funzionamento | PVPro.ch',
   description: 'Come funziona un impianto solare con accumulo a batteria? Costi, vantaggi, dimensionamento e autoconsumo in Svizzera spiegati semplicemente.',
   alternates: {
-    canonical: 'https://www.pvpro.ch/it/solare-con-accumulo',
+    canonical: 'https://pvpro.ch/it/solare-con-accumulo',
     languages: {
-      'de-CH': 'https://www.pvpro.ch/solaranlage-mit-speicher',
-      'fr-CH': 'https://www.pvpro.ch/fr/solaire-avec-batterie',
-      'en-CH': 'https://www.pvpro.ch/en/solar-with-battery',
-      'it-CH': 'https://www.pvpro.ch/it/solare-con-accumulo',
-      'x-default': 'https://www.pvpro.ch/solaranlage-mit-speicher',
+      'de-CH': 'https://pvpro.ch/solaranlage-mit-speicher',
+      'fr-CH': 'https://pvpro.ch/fr/solaire-avec-batterie',
+      'en-CH': 'https://pvpro.ch/en/solar-with-battery',
+      'it-CH': 'https://pvpro.ch/it/solare-con-accumulo',
+      'x-default': 'https://pvpro.ch/solaranlage-mit-speicher',
     },
   },
 };

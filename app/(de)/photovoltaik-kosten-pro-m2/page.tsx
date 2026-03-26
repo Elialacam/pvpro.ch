@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   title: 'Photovoltaik Kosten pro m² Schweiz: Preise, Beispiele und Berechnung | PVPro.ch',
   description: 'Wie viel kostet Photovoltaik pro m² in der Schweiz? Preise, Beispiele und Kosten pro kWp einfach erklärt. Jetzt Angebote vergleichen.',
   alternates: {
-    canonical: 'https://www.pvpro.ch/photovoltaik-kosten-pro-m2',
+    canonical: 'https://pvpro.ch/photovoltaik-kosten-pro-m2',
     languages: {
-      'de-CH': 'https://www.pvpro.ch/photovoltaik-kosten-pro-m2',
-      'fr-CH': 'https://www.pvpro.ch/fr/cout-pv-par-m2',
-      'en-CH': 'https://www.pvpro.ch/en/solar-cost-per-m2',
-      'it-CH': 'https://www.pvpro.ch/it/costo-fv-per-m2',
-      'x-default': 'https://www.pvpro.ch/photovoltaik-kosten-pro-m2',
+      'de-CH': 'https://pvpro.ch/photovoltaik-kosten-pro-m2',
+      'fr-CH': 'https://pvpro.ch/fr/cout-pv-par-m2',
+      'en-CH': 'https://pvpro.ch/en/solar-cost-per-m2',
+      'it-CH': 'https://pvpro.ch/it/costo-fv-per-m2',
+      'x-default': 'https://pvpro.ch/photovoltaik-kosten-pro-m2',
     },
   },
 };

@@ -5,4 +5,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.pvpro.ch/sitemap.xml
+Sitemap: https://pvpro.ch/sitemap.xml
