@@ -18,6 +18,20 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   swcMinify: true,
+  async redirects() {
+    return [
+      // ── 404 city pages → nearest existing canton page (301 permanent) ──────────
+      { source: '/solaranlage-zuerich',                    destination: '/solaranlage-zurich',        permanent: true },
+      { source: '/solaranlage-genf',                       destination: '/fr/solaire-geneve',          permanent: true },
+      { source: '/solaranlage-fribourg',                   destination: '/solaranlage-freiburg',       permanent: true },
+      { source: '/solaranlage-chur',                       destination: '/solaranlage-graubunden',     permanent: true },
+      { source: '/solaranlage-thun',                       destination: '/solaranlage-bern',           permanent: true },
+      { source: '/solaranlage-baden',                      destination: '/solaranlage-aargau',         permanent: true },
+      { source: '/solaranlage-lugano',                     destination: '/it/fotovoltaico-ticino',     permanent: true },
+      { source: '/it/impianto-fotovoltaico-lugano',        destination: '/it/fotovoltaico-ticino',     permanent: true },
+      { source: '/it/impianto-fotovoltaico-ginevra',       destination: '/it',                         permanent: true },
+    ];
+  },
   async rewrites() {
     return {
       beforeFiles: [
