@@ -5,15 +5,9 @@
   "installCommand": "npm install",
   "redirects": [
     {
-      "source": "/",
+      "source": "/:path*",
       "has": [{ "type": "host", "value": "www.pvpro.ch" }],
-      "destination": "https://pvpro.ch/",
-      "permanent": true
-    },
-    {
-      "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "www.pvpro.ch" }],
-      "destination": "https://pvpro.ch/:path",
+      "destination": "https://pvpro.ch/:path*",
       "permanent": true
     }
   ]
