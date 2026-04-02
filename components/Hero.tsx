@@ -28,8 +28,8 @@ const heroContent: Record<Locale, {
   trustBadge: string;
 }> = {
   de: {
-    titleLine1: 'SOLARENERGIE.',
-    titleLine2: 'FÜR IHR ZUHAUSE.',
+    titleLine1: 'SOLAR-OFFERTEN.',
+    titleLine2: 'BIS 30% SPAREN.',
     subtitle: 'Kostenlos bis zu 3 geprüfte Offerten vergleichen — von zertifizierten Schweizer Solarteuren aus Ihrer Region.',
     cta: 'Kostenlose Offerten erhalten',
     trustBadge: '✓ Keine Werbeanrufe · ✓ Kostenlos & unverbindlich · ✓ Geprüfte Installateure',
