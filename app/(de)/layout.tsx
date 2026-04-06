@@ -6,13 +6,13 @@ import { LocaleProvider } from "@/lib/LocaleContext";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://pvpro.ch',
+    canonical: 'https://www.pvpro.ch',
     languages: {
-      'de-CH': 'https://pvpro.ch',
-      'fr-CH': 'https://pvpro.ch/fr',
-      'en-CH': 'https://pvpro.ch/en',
-      'it-CH': 'https://pvpro.ch/it',
-      'x-default': 'https://pvpro.ch',
+      'de-CH': 'https://www.pvpro.ch',
+      'fr-CH': 'https://www.pvpro.ch/fr',
+      'en-CH': 'https://www.pvpro.ch/en',
+      'it-CH': 'https://www.pvpro.ch/it',
+      'x-default': 'https://www.pvpro.ch',
     },
   },
   title: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'de_CH',
-    url: 'https://pvpro.ch',
+    url: 'https://www.pvpro.ch',
     siteName: 'PV Pro',
     title: 'PV Pro - Solaranlagen in der Schweiz vergleichen',
     description: 'Kostenlos mehrere Solaranlagen-Angebote von geprüften Schweizer Installateuren vergleichen. Bis zu 30% sparen.',
@@ -75,8 +75,8 @@ export default function GermanLayout({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "PV Pro",
-            "url": "https://pvpro.ch",
-            "logo": "https://pvpro.ch/logo-pvpro.png",
+            "url": "https://www.pvpro.ch",
+            "logo": "https://www.pvpro.ch/logo-pvpro.png",
             "sameAs": [
               "https://www.facebook.com/pvpro",
               "https://www.linkedin.com/company/pvpro"
@@ -98,7 +98,7 @@ export default function GermanLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "url": "https://pvpro.ch",
+            "url": "https://www.pvpro.ch",
             "name": "PV Pro",
             "alternateName": "PVPro",
             "description": "Vergleichsplattform für Solaranlagen in der Schweiz",
@@ -107,7 +107,7 @@ export default function GermanLayout({
               "@type": "OrderAction",
               "target": {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://pvpro.ch/anfrage",
+                "urlTemplate": "https://www.pvpro.ch/anfrage",
                 "actionPlatform": [
                   "http://schema.org/DesktopWebPlatform",
                   "http://schema.org/MobileWebPlatform"

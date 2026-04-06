@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   title: 'Installation solaire Biel/Bienne – Comparez 3 offres 2026 | PVPro',
   description: "Panneaux solaires à Bienne : comparez jusqu'à 3 offres certifiées. Triple subvention : RU fédérale + Canton de Berne + fonds énergie municipal. Gratuit & sans engagement.",
   alternates: {
-    canonical: 'https://pvpro.ch/fr/solaire-bienne',
+    canonical: 'https://www.pvpro.ch/fr/solaire-bienne',
     languages: {
-      'fr-CH': 'https://pvpro.ch/fr/solaire-bienne',
-      'de-CH': 'https://pvpro.ch/solaranlage-biel',
-      'x-default': 'https://pvpro.ch/solaranlage-biel',
+      'fr-CH': 'https://www.pvpro.ch/fr/solaire-bienne',
+      'de-CH': 'https://www.pvpro.ch/solaranlage-biel',
+      'x-default': 'https://www.pvpro.ch/solaranlage-biel',
     },
   },
 };

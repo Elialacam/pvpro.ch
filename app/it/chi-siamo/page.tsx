@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   title: 'Chi siamo – PVPro.ch | Piattaforma solare svizzera indipendente',
   description: 'Scopri PVPro.ch – la piattaforma svizzera indipendente che mette in contatto i proprietari con installatori fotovoltaici certificati.',
   alternates: {
-    canonical: 'https://pvpro.ch/it/chi-siamo',
+    canonical: 'https://www.pvpro.ch/it/chi-siamo',
     languages: {
-      'de-CH': 'https://pvpro.ch/ueber-uns',
-      'fr-CH': 'https://pvpro.ch/fr/a-propos',
-      'en-CH': 'https://pvpro.ch/en/about-us',
-      'it-CH': 'https://pvpro.ch/it/chi-siamo',
-      'x-default': 'https://pvpro.ch/ueber-uns',
+      'de-CH': 'https://www.pvpro.ch/ueber-uns',
+      'fr-CH': 'https://www.pvpro.ch/fr/a-propos',
+      'en-CH': 'https://www.pvpro.ch/en/about-us',
+      'it-CH': 'https://www.pvpro.ch/it/chi-siamo',
+      'x-default': 'https://www.pvpro.ch/ueber-uns',
     },
   },
 };

@@ -7,19 +7,16 @@ export const metadata: Metadata = {
   title: 'Bewilligungspflicht Solaranlage Schweiz 2026 – Was Sie wissen müssen | PVPro.ch',
   description: 'Braucht eine Solaranlage in der Schweiz eine Baubewilligung? Wir erklären die Regeln für alle Kantone, wann eine Bewilligung nötig ist und wie PVPro hilft.',
   alternates: {
-    canonical: 'https://pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
+    canonical: 'https://www.pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
     languages: {
-      'de-CH': 'https://pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
-      'fr-CH': 'https://pvpro.ch/fr/autorisation-installation-solaire-suisse',
-      'en-CH': 'https://pvpro.ch/en/solar-panel-permit-switzerland',
-      'it-CH': 'https://pvpro.ch/it/autorizzazione-impianto-solare-svizzera',
-      'x-default': 'https://pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
+      'de-CH': 'https://www.pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
+      'x-default': 'https://www.pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
     },
   },
   openGraph: {
     title: 'Bewilligungspflicht Solaranlage Schweiz 2026 – Was Sie wissen müssen',
     description: 'Braucht eine Solaranlage in der Schweiz eine Baubewilligung? Alle Regeln für Kantone, Meldepflicht und Ausnahmen.',
-    url: 'https://pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
+    url: 'https://www.pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
     type: 'website',
     locale: 'de_CH',
     siteName: 'PVPro',

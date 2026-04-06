@@ -28,29 +28,29 @@ const heroContent: Record<Locale, {
   trustBadge: string;
 }> = {
   de: {
-    titleLine1: 'SOLAR-OFFERTEN.',
-    titleLine2: 'BIS 30% SPAREN.',
+    titleLine1: 'SOLARENERGIE.',
+    titleLine2: 'FÜR IHR ZUHAUSE.',
     subtitle: 'Kostenlos bis zu 3 geprüfte Offerten vergleichen — von zertifizierten Schweizer Solarteuren aus Ihrer Region.',
     cta: 'Kostenlose Offerten erhalten',
     trustBadge: '✓ Keine Werbeanrufe · ✓ Kostenlos & unverbindlich · ✓ Geprüfte Installateure',
   },
   fr: {
-    titleLine1: 'OFFRES SOLAIRES.',
-    titleLine2: "ÉCONOMISEZ 30%.",
+    titleLine1: 'ÉNERGIE SOLAIRE.',
+    titleLine2: 'POUR VOTRE MAISON.',
     subtitle: 'Comparez gratuitement jusqu\'à 3 offres d\'installateurs solaires certifiés de votre région.',
     cta: 'Obtenir des offres gratuites',
     trustBadge: '✓ Pas d\'appels · ✓ Gratuit & sans engagement · ✓ Installateurs certifiés',
   },
   en: {
-    titleLine1: 'SOLAR QUOTES.',
-    titleLine2: 'SAVE UP TO 30%.',
+    titleLine1: 'SOLAR ENERGY.',
+    titleLine2: 'FOR YOUR HOME.',
     subtitle: 'Compare up to 3 certified solar installer quotes for free — from certified Swiss professionals in your region.',
     cta: 'Get free quotes',
     trustBadge: '✓ No sales calls · ✓ Free & no obligation · ✓ Certified installers',
   },
   it: {
-    titleLine1: 'OFFERTE SOLARI.',
-    titleLine2: 'RISPARMIA IL 30%.',
+    titleLine1: 'ENERGIA SOLARE.',
+    titleLine2: 'PER LA TUA CASA.',
     subtitle: 'Confronta gratuitamente fino a 3 preventivi da installatori solari certificati della tua regione.',
     cta: 'Ottieni preventivi gratuiti',
     trustBadge: '✓ Nessuna chiamata · ✓ Gratuito e senza impegno · ✓ Installatori certificati',

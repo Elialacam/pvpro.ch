@@ -1,6 +1,6 @@
 import { routeMap } from './routeMap';
 
-const BASE = 'https://pvpro.ch';
+const BASE = 'https://www.pvpro.ch';
 
 /**
  * Generate Next.js `alternates` metadata for a given pathname.

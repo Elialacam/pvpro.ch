@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   title: 'Solar Subsidies in Switzerland 2026 | PVPro.ch',
   description: 'One-time payment (OTP), cantonal programmes and tax deductions for photovoltaic installations in Switzerland. Calculate your subsidy now.',
   alternates: {
-    canonical: 'https://pvpro.ch/en/solar-subsidies',
+    canonical: 'https://www.pvpro.ch/en/solar-subsidies',
     languages: {
-      'de-CH': 'https://pvpro.ch/foerderungen',
-      'fr-CH': 'https://pvpro.ch/fr/subventions-solaires',
-      'en-CH': 'https://pvpro.ch/en/solar-subsidies',
-      'it-CH': 'https://pvpro.ch/it/incentivi-solari',
-      'x-default': 'https://pvpro.ch/foerderungen',
+      'de-CH': 'https://www.pvpro.ch/foerderungen',
+      'fr-CH': 'https://www.pvpro.ch/fr/subventions-solaires',
+      'en-CH': 'https://www.pvpro.ch/en/solar-subsidies',
+      'it-CH': 'https://www.pvpro.ch/it/incentivi-solari',
+      'x-default': 'https://www.pvpro.ch/foerderungen',
     },
   },
 };

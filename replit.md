@@ -5,10 +5,10 @@ PVPro is a multilingual solar panel comparison website for Switzerland. Its prim
 
 ## User Preferences
 - **Logo**: ALWAYS use `/logo-pvpro.png` as-is — NEVER apply CSS filters (`brightness`, `invert`, etc.) or any color transformation. The logo must always display in its original colors everywhere (header, footer, any page).
-- **Canonical domain**: Always use `https://pvpro.ch` — NEVER `https://www.pvpro.ch` (with www).
-- All `canonical` URLs, `metadataBase`, `og:url`, sitemap entries, structured data, and internal links must use `https://pvpro.ch`.
-- `robots.txt` Sitemap must point to `https://pvpro.ch/sitemap.xml`.
-- Vercel handles the redirect www.pvpro.ch → pvpro.ch at the infrastructure level (configured in `vercel.json` via `redirects` with host match).
+- **Canonical domain**: Always use `https://www.pvpro.ch` — NEVER `https://pvpro.ch` (without www).
+- All `canonical` URLs, `metadataBase`, `og:url`, sitemap entries, structured data, and internal links must use `https://www.pvpro.ch`.
+- `robots.txt` Sitemap must point to `https://www.pvpro.ch/sitemap.xml`.
+- Vercel handles the redirect pvpro.ch → www.pvpro.ch at the infrastructure level.
 - **Sitemap handler**: `app/api/sitemap/route.ts` — generates full XML with `xmlns:xhtml` namespace and `<xhtml:link hreflang>` tags (126 URLs, 4 locales each, includes photovoltaik-schweizer-klima group).
 - **Routing**: `next.config.js` uses `beforeFiles` rewrite `/sitemap.xml` → `/api/sitemap` (beforeFiles takes precedence over file-based routes).
 - **Stub files**: `app/sitemap.ts` (exports generateSitemaps stub) and `app/sitemap.xml/route.ts` (empty stub) — DO NOT DELETE these, they coexist via the Next.js patch.

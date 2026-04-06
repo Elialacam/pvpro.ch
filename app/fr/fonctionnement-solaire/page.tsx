@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   title: "Comment fonctionne une installation solaire ? Expliqué simplement (Suisse) | PVPro.ch",
   description: "Comment fonctionne une installation solaire ? Explication simple avec exemples, production d'électricité et réponses aux questions fréquentes sur le photovoltaïque.",
   alternates: {
-    canonical: 'https://pvpro.ch/fr/fonctionnement-solaire',
+    canonical: 'https://www.pvpro.ch/fr/fonctionnement-solaire',
     languages: {
-      'de-CH': 'https://pvpro.ch/wie-funktioniert',
-      'fr-CH': 'https://pvpro.ch/fr/fonctionnement-solaire',
-      'en-CH': 'https://pvpro.ch/en/how-solar-works',
-      'it-CH': 'https://pvpro.ch/it/come-funziona-solare',
-      'x-default': 'https://pvpro.ch/wie-funktioniert',
+      'de-CH': 'https://www.pvpro.ch/wie-funktioniert',
+      'fr-CH': 'https://www.pvpro.ch/fr/fonctionnement-solaire',
+      'en-CH': 'https://www.pvpro.ch/en/how-solar-works',
+      'it-CH': 'https://www.pvpro.ch/it/come-funziona-solare',
+      'x-default': 'https://www.pvpro.ch/wie-funktioniert',
     },
   },
 };

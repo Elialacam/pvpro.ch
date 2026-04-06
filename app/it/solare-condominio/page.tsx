@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   title: 'Impianto solare condominio Svizzera: costi, CEL e redditività | PVPro.ch',
   description: 'Quanto costa un impianto solare per un condominio? Costi, CEL, dimensioni e redditività per più unità abitative in Svizzera.',
   alternates: {
-    canonical: 'https://pvpro.ch/it/solare-condominio',
+    canonical: 'https://www.pvpro.ch/it/solare-condominio',
     languages: {
-      'de-CH': 'https://pvpro.ch/solaranlage-mehrfamilienhaus',
-      'fr-CH': 'https://pvpro.ch/fr/solaire-immeuble',
-      'en-CH': 'https://pvpro.ch/en/solar-apartment-building',
-      'it-CH': 'https://pvpro.ch/it/solare-condominio',
-      'x-default': 'https://pvpro.ch/solaranlage-mehrfamilienhaus',
+      'de-CH': 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus',
+      'fr-CH': 'https://www.pvpro.ch/fr/solaire-immeuble',
+      'en-CH': 'https://www.pvpro.ch/en/solar-apartment-building',
+      'it-CH': 'https://www.pvpro.ch/it/solare-condominio',
+      'x-default': 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus',
     },
   },
 };

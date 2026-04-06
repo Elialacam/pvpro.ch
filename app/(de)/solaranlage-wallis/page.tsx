@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Solaranlage Kanton Wallis – Sonnenstunden-Rekord nutzen 2026 | PVPro",
   description: "Solaranlage im Wallis: Der sonnenreichste Kanton der Schweiz – 1'849 Stunden/Jahr. Bis zu 3 Offerten vergleichen, hohe Kantonsförderung sichern. Kostenlos.",
   alternates: {
-    canonical: 'https://pvpro.ch/solaranlage-wallis',
+    canonical: 'https://www.pvpro.ch/solaranlage-wallis',
     languages: {
-      'de-CH': 'https://pvpro.ch/solaranlage-wallis',
-      'fr-CH': 'https://pvpro.ch/fr/solaire-valais',
-      'x-default': 'https://pvpro.ch/solaranlage-wallis',
+      'de-CH': 'https://www.pvpro.ch/solaranlage-wallis',
+      'fr-CH': 'https://www.pvpro.ch/fr/solaire-valais',
+      'x-default': 'https://www.pvpro.ch/solaranlage-wallis',
     },
   },
 };

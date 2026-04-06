@@ -107,12 +107,6 @@ export const routeMap: Record<string, Record<string, string>> = {
   '/en/imprint':        { de: '/impressum', fr: '/fr/mentions-legales', en: '/en/imprint', it: '/it/note-legali' },
   '/it/note-legali':    { de: '/impressum', fr: '/fr/mentions-legales', en: '/en/imprint', it: '/it/note-legali' },
 
-  // ─── Bewilligungspflicht / Solar permit ──────────────────────────────────────
-  '/bewilligungspflicht-solaranlage-schweiz':        { de: '/bewilligungspflicht-solaranlage-schweiz', fr: '/fr/autorisation-installation-solaire-suisse', en: '/en/solar-panel-permit-switzerland', it: '/it/autorizzazione-impianto-solare-svizzera' },
-  '/fr/autorisation-installation-solaire-suisse':    { de: '/bewilligungspflicht-solaranlage-schweiz', fr: '/fr/autorisation-installation-solaire-suisse', en: '/en/solar-panel-permit-switzerland', it: '/it/autorizzazione-impianto-solare-svizzera' },
-  '/en/solar-panel-permit-switzerland':              { de: '/bewilligungspflicht-solaranlage-schweiz', fr: '/fr/autorisation-installation-solaire-suisse', en: '/en/solar-panel-permit-switzerland', it: '/it/autorizzazione-impianto-solare-svizzera' },
-  '/it/autorizzazione-impianto-solare-svizzera':     { de: '/bewilligungspflicht-solaranlage-schweiz', fr: '/fr/autorisation-installation-solaire-suisse', en: '/en/solar-panel-permit-switzerland', it: '/it/autorizzazione-impianto-solare-svizzera' },
-
   // ─── Balkonkraftwerk (DE only — no translation) ──────────────────────────────
   '/balkonkraftwerk': { de: '/balkonkraftwerk', fr: '/fr/blog', en: '/en/blog', it: '/it/blog' },
 

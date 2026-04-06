@@ -53,7 +53,7 @@ export default function HomePage() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://pvpro.ch"
+                "item": "https://www.pvpro.ch"
               }
             ]
           })
