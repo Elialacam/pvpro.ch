@@ -26,6 +26,7 @@ const fr: BlogPostLocale[] = [
     author: 'PVPro Rédaction',
     date: '17 mars 2026',
     readMin: 7,
+    href: '/fr/blog/centrale-balcon-suisse',
   },
   {
     slug: 'solaranlage-winter-schweiz',
@@ -36,6 +37,7 @@ const fr: BlogPostLocale[] = [
     author: 'PVPro Rédaction',
     date: '12 mars 2026',
     readMin: 5,
+    href: '/fr/blog/panneaux-solaires-hiver-suisse',
   },
   {
     slug: 'foerderungen-photovoltaik-2026',
@@ -46,6 +48,7 @@ const fr: BlogPostLocale[] = [
     author: 'PVPro Rédaction',
     date: '5 mars 2026',
     readMin: 7,
+    href: '/fr/blog/subventions-photovoltaiques-2026',
   },
   {
     slug: 'batteriespeicher-solaranlage-lohnt-sich',
@@ -56,6 +59,7 @@ const fr: BlogPostLocale[] = [
     author: 'PVPro Rédaction',
     date: '27 février 2026',
     readMin: 6,
+    href: '/fr/blog/batterie-stockage-solaire-suisse',
   },
   {
     slug: 'richtigen-solarinstallateur-schweiz-waehlen',
@@ -66,6 +70,7 @@ const fr: BlogPostLocale[] = [
     author: 'PVPro Rédaction',
     date: '18 février 2026',
     readMin: 4,
+    href: '/fr/blog/choisir-installateur-solaire-suisse',
   },
   {
     slug: 'eigenverbrauch-optimieren-solar',
@@ -76,6 +81,7 @@ const fr: BlogPostLocale[] = [
     author: 'PVPro Rédaction',
     date: '10 février 2026',
     readMin: 5,
+    href: '/fr/blog/maximiser-autoconsommation-solaire',
   },
   {
     slug: 'roi-photovoltaik-schweiz',
@@ -86,6 +92,7 @@ const fr: BlogPostLocale[] = [
     author: 'PVPro Rédaction',
     date: '2 février 2026',
     readMin: 8,
+    href: '/fr/blog/retour-investissement-solaire-suisse',
   },
   {
     slug: 'vergleichsportal-photovoltaik-schweiz',
