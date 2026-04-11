@@ -177,7 +177,7 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
                     {relatedPosts.map((p) => (
                       <Link
                         key={p.slug}
-                        href={`${blogBase}/${p.slug}`}
+                        href={p.href ?? `${blogBase}/${p.slug}`}
                         className="block text-sm text-gray-700 hover:text-[#F97316] transition-colors leading-snug border-b border-gray-50 last:border-0 pb-2 last:pb-0"
                       >
                         → {p.title}

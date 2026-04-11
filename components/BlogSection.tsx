@@ -52,8 +52,9 @@ export default function BlogSection({ locale = 'de' }: Props) {
 
   const featured = allPosts.slice(0, 3);
 
-  function articleHref(slug: string) {
-    return locale === 'de' ? `/blog/${slug}` : `/${locale}/blog/${slug}`;
+  function articleHref(post: { slug: string; href?: string }) {
+    if (post.href) return post.href;
+    return locale === 'de' ? `/blog/${post.slug}` : `/${locale}/blog/${post.slug}`;
   }
 
   return (
@@ -82,7 +83,7 @@ export default function BlogSection({ locale = 'de' }: Props) {
           {featured.map((post) => (
             <Link
               key={post.slug}
-              href={articleHref(post.slug)}
+              href={articleHref(post)}
               className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
               {/* Image */}
