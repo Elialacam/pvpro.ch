@@ -68,6 +68,88 @@ const situationsTableau = [
   { situation: 'Maison individuelle standard Suisse', recommandation: 'Monocristallin', highlight: true },
 ];
 
+type ModuleType = {
+  name: string;
+  badge: string;
+  badgeColor: string;
+  intro: string;
+  avantages: string[];
+  inconvenients: string[];
+  fazit: string;
+};
+
+const modulesTypes: ModuleType[] = [
+  {
+    name: 'Modules monocristallins — le standard en Suisse',
+    badge: 'Recommandé pour la Suisse',
+    badgeColor: 'bg-orange-100 text-orange-700',
+    intro: "Les modules monocristallins sont aujourd'hui de loin le choix le plus fréquent pour les maisons individuelles suisses. Ils sont composés d'un seul cristal de silicium et présentent le rendement le plus élevé de toutes les technologies courantes.",
+    avantages: [
+      'Rendement le plus élevé (18–22%)',
+      'Meilleure performance par temps couvert et lumière diffuse',
+      'Compact — idéal pour les petites surfaces de toit',
+      'Longue durée de vie et haute fiabilité',
+      'Esthétique attrayante (uniformément noir)',
+    ],
+    inconvenients: [
+      'Coût plus élevé que les modules polycristallins',
+      'Légère réduction de performance à très haute température',
+    ],
+    fazit: "Pour la plupart des ménages suisses, le meilleur choix — surtout dans le Plateau souvent nuageux.",
+  },
+  {
+    name: "Modules polycristallins — l'option économique",
+    badge: 'Budget & grandes surfaces',
+    badgeColor: 'bg-blue-100 text-blue-700',
+    intro: "Les modules polycristallins sont composés de plusieurs cristaux de silicium et ont un rendement légèrement inférieur aux monocristallins. Ils sont de plus en plus remplacés par des alternatives plus performantes.",
+    avantages: [
+      "Moins chers à l'achat",
+      'Éprouvés et fiables',
+      'Bien adaptés aux grandes surfaces de toit',
+    ],
+    inconvenients: [
+      'Rendement plus faible (15–17%)',
+      'Plus grande surface nécessaire pour la même puissance',
+      'Reconnaissable à leur aspect bleu chatoyant',
+    ],
+    fazit: "Intéressant pour les grandes surfaces de toit avec un petit budget. De moins en moins répandu en Suisse.",
+  },
+  {
+    name: 'Modules à couche mince — pour les applications spéciales',
+    badge: 'Applications spéciales',
+    badgeColor: 'bg-gray-100 text-gray-700',
+    intro: "Les modules à couche mince sont déposés sur un support mince et sont plus flexibles que les modules cristallins. Ils conviennent particulièrement aux toits plats et aux applications non conventionnelles.",
+    avantages: [
+      'Légers et flexibles',
+      'Bon marché à la fabrication',
+      'Fonctionnent bien à haute température',
+    ],
+    inconvenients: [
+      'Rendement le plus faible (10–13%)',
+      'Nécessitent nettement plus de surface',
+      'Durée de vie plus courte que les modules cristallins',
+    ],
+    fazit: "Peu recommandable pour les installations standard en Suisse. Intéressant pour des applications spéciales comme l'intégration en façade.",
+  },
+  {
+    name: 'Modules bifaciaux — plus de courant grâce à la face arrière',
+    badge: 'Neige & toits plats',
+    badgeColor: 'bg-green-100 text-green-700',
+    intro: "Les modules bifaciaux produisent de l'électricité des deux côtés — à l'avant par la lumière directe du soleil, à l'arrière par la lumière réfléchie. Avec de la neige ou des revêtements de toit clairs, le surplus de production est particulièrement élevé.",
+    avantages: [
+      'Rendement le plus élevé dans les bonnes conditions',
+      'Particulièrement efficace avec la neige (réfléchit la lumière)',
+      'Idéal pour les toits plats avec espace sous les modules',
+    ],
+    inconvenients: [
+      'Plus cher que les modules monocristallins',
+      'Le surplus de production dépend fortement de la configuration',
+      'Pas toujours utile sur les toits en pente normaux',
+    ],
+    fazit: "Intéressant pour les régions enneigées et les toits plats. Pour les toits en pente normaux en Suisse, généralement pas d'avantage significatif.",
+  },
+];
+
 export default function ComparaisonTypesPanneauxSolairesPage() {
   return (
     <main className="min-h-screen bg-white">
@@ -110,6 +192,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 py-16 space-y-20">
 
+        {/* ── Tableau d'aperçu ── */}
         <section>
           <div className="mb-8">
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Vue d&apos;ensemble</p>
@@ -139,12 +222,82 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
           </div>
         </section>
 
+        {/* ── Les quatre types en détail ── */}
         <section>
           <div className="mb-8">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Aide à la décision</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Quel type me convient ?</h2>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Comparaison détaillée</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Les quatre types en détail</h2>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm max-w-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {modulesTypes.map((m, i) => (
+              <div key={i} className="rounded-3xl p-8 border border-gray-200 bg-white shadow-sm">
+                <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-4 ${m.badgeColor}`}>{m.badge}</span>
+                <h3 className="text-lg font-bold text-gray-900 mb-3">{m.name}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                  {i === 2
+                    ? <>Les modules à couche mince sont déposés sur un support mince et sont plus flexibles que les modules cristallins. Ils conviennent particulièrement aux{' '}
+                      <Link href="/fr/solaire-immeuble" className="text-[#F97316] hover:underline font-medium">toits plats</Link>{' '}
+                      et aux applications non conventionnelles.</>
+                    : i === 3
+                    ? <>Les modules bifaciaux produisent de l&apos;électricité des deux côtés — à l&apos;avant par la lumière directe du soleil, à l&apos;arrière par la lumière réfléchie. Avec de la neige ou des revêtements de toit clairs, le surplus de production est particulièrement élevé. Idéal pour les{' '}
+                      <Link href="/fr/solaire-immeuble" className="text-[#F97316] hover:underline font-medium">toits plats</Link>.</>
+                    : m.intro}
+                </p>
+                <div className="grid grid-cols-2 gap-4 mb-5">
+                  <div>
+                    <p className="text-xs font-bold text-green-700 uppercase tracking-widest mb-2">Avantages</p>
+                    <ul className="space-y-1.5">
+                      {m.avantages.map((v, j) => (
+                        <li key={j} className="flex items-start gap-1.5 text-sm text-gray-700">
+                          <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" />
+                          {v}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-red-700 uppercase tracking-widest mb-2">Inconvénients</p>
+                    <ul className="space-y-1.5">
+                      {m.inconvenients.map((n, j) => (
+                        <li key={j} className="flex items-start gap-1.5 text-sm text-gray-700">
+                          <XCircle className="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" />
+                          {n}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className="bg-orange-50 border border-orange-100 rounded-xl px-4 py-3">
+                  <p className="text-sm text-gray-700"><span className="font-bold text-orange-700">Conclusion : </span>{m.fazit}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Aide à la décision ── */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Aide à la décision</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
+              Quel type me convient ?
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Le choix dépend de votre situation concrète. Pour une{' '}
+              <Link href="/fr/solaire-maison-individuelle" className="text-[#F97316] hover:underline font-medium">maison individuelle</Link>{' '}
+              en Suisse, le monocristallin est presque toujours le meilleur choix — surtout dans le{' '}
+              <Link href="/fr/photovoltaique-climat-suisse" className="text-[#F97316] hover:underline font-medium">climat suisse</Link>{' '}
+              avec beaucoup de lumière diffuse.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              En pratique, un{' '}
+              <Link href="/fr/installer-panneau-solaire-suisse" className="text-[#F97316] hover:underline font-medium">installateur certifié</Link>{' '}
+              recommande le type de module adapté après inspection de votre toit. PVPro.ch met en relation avec des{' '}
+              <Link href="/fr/comparateur-photovoltaique-suisse" className="text-[#F97316] hover:underline font-medium">fournisseurs</Link>{' '}
+              qui connaissent toutes les technologies et conseillent de manière neutre.
+            </p>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
             <table className="w-full text-sm">
               <thead>
                 <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
@@ -164,6 +317,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
           </div>
         </section>
 
+        {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
           <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             <Zap className="w-7 h-7 text-white" />
@@ -172,12 +326,19 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Un installateur certifié de votre région analyse votre toit et recommande le type de module optimal pour votre situation — gratuitement et sans engagement.
           </p>
-          <Link href="/fr/demande" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
+          <Link href="/fr/demander-offre-panneau-solaire" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
             style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             Demander une offre gratuite <ArrowRight className="w-4 h-4" />
           </Link>
+          <p className="text-gray-500 text-sm mt-5">
+            D&apos;abord{' '}
+            <Link href="/fr/demander-offre-panneau-solaire" className="text-[#F97316] hover:underline font-medium">comparer des offres</Link>?{' '}
+            Plus d&apos;infos sur les{' '}
+            <Link href="/fr/cout-installation-solaire" className="text-[#F97316] hover:underline font-medium">coûts d&apos;une installation solaire</Link>.
+          </p>
         </section>
 
+        {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Questions fréquentes</p>
@@ -195,6 +356,27 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
                 </div>
               </details>
             ))}
+          </div>
+          <div className="text-center mt-10">
+            <p className="text-gray-500 text-sm mb-4">Plus d&apos;informations :</p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link href="/fr/cout-installation-solaire" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Coûts installation solaire
+              </Link>
+              <Link href="/fr/photovoltaique-climat-suisse" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Photovoltaïque et climat suisse
+              </Link>
+              <Link href="/fr/solaire-maison-individuelle" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Solaire maison individuelle
+              </Link>
+              <Link href="/fr/solaire-immeuble" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Solaire immeuble
+              </Link>
+              <Link href="/fr/demander-offre-panneau-solaire" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
+                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                Demander une offre <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </section>
       </div>

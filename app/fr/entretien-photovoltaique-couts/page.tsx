@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ChevronRight, ArrowRight, Wrench, CheckCircle } from 'lucide-react';
+import { ChevronRight, ArrowRight, Shield, Wrench, CheckCircle, AlertCircle } from 'lucide-react';
 import { Metadata } from 'next';
 import FaqSchema from '@/components/FaqSchema';
 
@@ -79,6 +79,12 @@ const frequences = [
   { mesure: "Remplacement onduleur", frequence: "Après 10–15 ans" },
 ];
 
+const garanties = [
+  { komp: 'Modules', text: '25–30 ans de garantie de performance (min. 80% de la puissance nominale)' },
+  { komp: 'Onduleur', text: '5–12 ans de garantie fabricant, prolongeable' },
+  { komp: 'Montage', text: "Dépend de l'installateur, typiquement 5–10 ans" },
+];
+
 export default function EntretienPhotovoltaiqueCoutsPage() {
   return (
     <main className="min-h-screen bg-white">
@@ -121,6 +127,37 @@ export default function EntretienPhotovoltaiqueCoutsPage() {
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 py-16 space-y-20">
 
+        {/* ── Pourquoi l'entretien est-il important ? ── */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Pourquoi ça vaut la peine</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
+              Pourquoi l&apos;entretien est-il important ?
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              Une installation négligée produit moins d&apos;électricité — souvent sans que le propriétaire s&apos;en aperçoive. Des modules encrassés, des connexions desserrées ou un onduleur vieillissant peuvent réduire la production de 10–20%.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Un entretien régulier protège votre investissement et garantit que l&apos;installation fonctionne toujours à un niveau optimal — pendant toute la durée de vie de 25 à 30 ans.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { icon: <AlertCircle className="w-5 h-5" />, label: 'Installation non entretenue', val: '−10–20% de rendement', color: 'bg-red-50 border-red-200 text-red-700' },
+              { icon: <CheckCircle className="w-5 h-5" />, label: 'Installation entretenue', val: '100% de performance', color: 'bg-green-50 border-green-200 text-green-700' },
+              { icon: <Shield className="w-5 h-5" />, label: 'Protection garantie', val: '25–30 ans', color: 'bg-blue-50 border-blue-200 text-blue-700' },
+              { icon: <Wrench className="w-5 h-5" />, label: "Coûts d'entretien", val: 'dès 150 CHF/an', color: 'bg-orange-50 border-orange-200 text-orange-700' },
+            ].map(item => (
+              <div key={item.label} className={`rounded-2xl p-5 border ${item.color} flex flex-col items-center text-center gap-2`}>
+                {item.icon}
+                <p className="text-xs font-semibold uppercase tracking-wide">{item.label}</p>
+                <p className="font-bold text-sm">{item.val}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Que comprend l'entretien ? ── */}
         <section>
           <div className="mb-10">
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Vue d&apos;ensemble des prestations</p>
@@ -139,6 +176,7 @@ export default function EntretienPhotovoltaiqueCoutsPage() {
           </div>
         </section>
 
+        {/* ── Coûts & Fréquences ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div>
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Aperçu des coûts</p>
@@ -169,7 +207,9 @@ export default function EntretienPhotovoltaiqueCoutsPage() {
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Intervalles d&apos;entretien</p>
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-5">À quelle fréquence l&apos;installation doit-elle être entretenue ?</h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-5">
-              Un bon installateur vous explique toutes les garanties et les intervalles d&apos;entretien recommandés de manière transparente avant l&apos;achat.
+              Pour une{' '}
+              <Link href="/fr/solution-complete-photovoltaique-suisse" className="text-[#F97316] hover:underline font-medium">solution complète</Link>{' '}
+              avec batterie et pompe à chaleur, les mêmes intervalles s&apos;appliquent — l&apos;installateur se charge de la coordination.
             </p>
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
               <table className="w-full text-sm">
@@ -192,6 +232,47 @@ export default function EntretienPhotovoltaiqueCoutsPage() {
           </div>
         </section>
 
+        {/* ── Soi-même & Garanties ── */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Travaux personnels</p>
+            <h2 className="text-xl font-bold text-gray-900 mb-5">Puis-je faire l&apos;entretien moi-même ?</h2>
+            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              L&apos;inspection visuelle et le nettoyage simple peuvent être réalisés par le propriétaire lui-même. Pour tout ce qui est électrique — connexions, onduleur, raccords — il faut obligatoirement faire appel à une entreprise spécialisée certifiée.
+            </p>
+            <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
+              <p className="text-orange-800 text-sm">
+                <strong className="text-orange-600">Important :</strong> Les travaux sur le toit doivent toujours être réalisés par des professionnels pour des raisons de sécurité.
+              </p>
+            </div>
+          </div>
+          <div className="rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
+            <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">Garanties</p>
+            <h2 className="text-xl font-bold text-white mb-5">
+              Quelles{' '}
+              <Link href="/fr/cout-installation-solaire" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">garanties</Link>{' '}
+              existent sur une installation solaire ?
+            </h2>
+            <ul className="space-y-4">
+              {garanties.map((g, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-white font-semibold text-sm">{g.komp}</p>
+                    <p className="text-gray-400 text-sm leading-relaxed">{g.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="text-gray-500 text-sm mt-5">
+              Un bon{' '}
+              <Link href="/fr/comparateur-photovoltaique-suisse" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">fournisseur</Link>{' '}
+              vous explique toutes les garanties et les intervalles d&apos;entretien recommandés de manière transparente avant l&apos;achat.
+            </p>
+          </div>
+        </section>
+
+        {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
           <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             <Wrench className="w-7 h-7 text-white" />
@@ -200,12 +281,19 @@ export default function EntretienPhotovoltaiqueCoutsPage() {
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Avez-vous une installation existante qui doit être entretenue ? Ou planifiez-vous une nouvelle installation et souhaitez-vous conclure un contrat d&apos;entretien ? Nous vous mettons en relation avec le bon partenaire.
           </p>
-          <Link href="/fr/demande" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
+          <Link href="/fr/demander-offre-panneau-solaire" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
             style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             Demander une offre gratuite <ArrowRight className="w-4 h-4" />
           </Link>
+          <p className="text-gray-500 text-sm mt-5">
+            D&apos;abord{' '}
+            <Link href="/fr/demander-offre-panneau-solaire" className="text-[#F97316] hover:underline font-medium">comparer des offres</Link>?{' '}
+            Ou tous les{' '}
+            <Link href="/fr/comparateur-photovoltaique-suisse" className="text-[#F97316] hover:underline font-medium">fournisseurs en un coup d&apos;œil</Link>?
+          </p>
         </section>
 
+        {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Questions fréquentes</p>
@@ -223,6 +311,27 @@ export default function EntretienPhotovoltaiqueCoutsPage() {
                 </div>
               </details>
             ))}
+          </div>
+          <div className="text-center mt-10">
+            <p className="text-gray-500 text-sm mb-4">Plus d&apos;informations :</p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link href="/fr/cout-installation-solaire" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Coûts installation solaire
+              </Link>
+              <Link href="/fr/comment-ca-marche" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Comment fonctionne une installation solaire ?
+              </Link>
+              <Link href="/fr/solaire-avec-batterie" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Solaire avec batterie
+              </Link>
+              <Link href="/fr/solution-complete-photovoltaique-suisse" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Solution complète
+              </Link>
+              <Link href="/fr/demander-offre-panneau-solaire" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
+                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                Demander une offre <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </section>
 
