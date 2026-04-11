@@ -68,6 +68,88 @@ const situazioniTabella = [
   { situazione: 'Casa unifamiliare standard Svizzera', raccomandazione: 'Monocristallino', highlight: true },
 ];
 
+type TipoModulo = {
+  nome: string;
+  badge: string;
+  badgeColor: string;
+  intro: string;
+  vantaggi: string[];
+  svantaggi: string[];
+  conclusione: string;
+};
+
+const tipiModulo: TipoModulo[] = [
+  {
+    nome: 'Moduli monocristallini — lo standard in Svizzera',
+    badge: 'Consigliato per la Svizzera',
+    badgeColor: 'bg-orange-100 text-orange-700',
+    intro: 'I moduli monocristallini sono oggi di gran lunga la scelta più frequente per le case unifamiliari svizzere. Sono composti da un singolo cristallo di silicio e hanno il rendimento più elevato tra tutte le tecnologie comuni.',
+    vantaggi: [
+      'Rendimento più elevato (18–22%)',
+      'Migliore prestazione con luce diffusa e cielo coperto',
+      'Compatto — ideale per superfici di tetto più piccole',
+      'Lunga durata di vita e alta affidabilità',
+      'Esteticamente attraente (uniformemente nero)',
+    ],
+    svantaggi: [
+      'Costo più elevato rispetto ai moduli policristallini',
+      'Leggera riduzione di prestazione a temperature molto elevate',
+    ],
+    conclusione: 'Per la maggior parte delle famiglie svizzere la scelta migliore — soprattutto nel nebbiosa Altopiano.',
+  },
+  {
+    nome: "Moduli policristallini — l'opzione economica",
+    badge: 'Budget & grandi superfici',
+    badgeColor: 'bg-blue-100 text-blue-700',
+    intro: 'I moduli policristallini sono composti da più cristalli di silicio e hanno un rendimento leggermente inferiore ai monocristallini. Vengono sempre più sostituiti da alternative più performanti.',
+    vantaggi: [
+      "Più economici all'acquisto",
+      'Collaudati e affidabili',
+      'Ben adatti a grandi superfici di tetto',
+    ],
+    svantaggi: [
+      'Rendimento più basso (15–17%)',
+      'Superficie maggiore necessaria per la stessa potenza',
+      'Riconoscibili dall\'aspetto blu scintillante',
+    ],
+    conclusione: 'Interessante per grandi superfici di tetto con budget ridotto. Sempre meno diffuso in Svizzera.',
+  },
+  {
+    nome: 'Moduli a film sottile — per applicazioni speciali',
+    badge: 'Applicazioni speciali',
+    badgeColor: 'bg-gray-100 text-gray-700',
+    intro: 'I moduli a film sottile vengono depositati su un substrato sottile e sono più flessibili dei moduli cristallini. Sono particolarmente adatti per tetti piani e applicazioni non convenzionali.',
+    vantaggi: [
+      'Leggeri e flessibili',
+      'Economici nella produzione',
+      'Funzionano bene ad alte temperature',
+    ],
+    svantaggi: [
+      'Rendimento più basso (10–13%)',
+      'Richiedono notevolmente più superficie',
+      'Durata di vita più breve dei moduli cristallini',
+    ],
+    conclusione: 'Raramente raccomandato per impianti standard in Svizzera. Interessante per applicazioni speciali come l\'integrazione in facciata.',
+  },
+  {
+    nome: 'Moduli bifacciali — più energia dal lato posteriore',
+    badge: 'Neve & tetti piani',
+    badgeColor: 'bg-green-100 text-green-700',
+    intro: 'I moduli bifacciali producono elettricità da entrambi i lati — davanti dalla luce solare diretta, dietro dalla luce riflessa. Con neve o rivestimenti di tetto chiari, il guadagno aggiuntivo è particolarmente elevato.',
+    vantaggi: [
+      'Resa più elevata nelle giuste condizioni',
+      'Particolarmente efficace con la neve (riflette la luce)',
+      'Ideale per tetti piani con spazio dalla superficie del tetto',
+    ],
+    svantaggi: [
+      'Più costoso dei moduli monocristallini',
+      'Il guadagno aggiuntivo dipende fortemente dall\'installazione',
+      'Non sempre vantaggioso sui normali tetti a falda',
+    ],
+    conclusione: 'Interessante per regioni con molta neve e per tetti piani. Per i normali tetti a falda in Svizzera solitamente nessun vantaggio significativo.',
+  },
+];
+
 export default function ConfrontoTipiImpiantiSolariPage() {
   return (
     <main className="min-h-screen bg-white">
@@ -110,6 +192,7 @@ export default function ConfrontoTipiImpiantiSolariPage() {
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 py-16 space-y-20">
 
+        {/* ── Tabella panoramica ── */}
         <section>
           <div className="mb-8">
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Panoramica</p>
@@ -139,12 +222,82 @@ export default function ConfrontoTipiImpiantiSolariPage() {
           </div>
         </section>
 
+        {/* ── I quattro tipi in dettaglio ── */}
         <section>
           <div className="mb-8">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Guida alla decisione</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Quale tipo è giusto per me?</h2>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Confronto dettagliato</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">I quattro tipi in dettaglio</h2>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm max-w-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {tipiModulo.map((m, i) => (
+              <div key={i} className="rounded-3xl p-8 border border-gray-200 bg-white shadow-sm">
+                <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-4 ${m.badgeColor}`}>{m.badge}</span>
+                <h3 className="text-lg font-bold text-gray-900 mb-3">{m.nome}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                  {i === 2
+                    ? <>I moduli a film sottile vengono depositati su un substrato sottile e sono più flessibili dei moduli cristallini. Sono particolarmente adatti per{' '}
+                      <Link href="/it/solare-condominio" className="text-[#F97316] hover:underline font-medium">tetti piani</Link>{' '}
+                      e applicazioni non convenzionali.</>
+                    : i === 3
+                    ? <>I moduli bifacciali producono elettricità da entrambi i lati — davanti dalla luce solare diretta, dietro dalla luce riflessa. Con neve o rivestimenti di tetto chiari, il guadagno aggiuntivo è particolarmente elevato. Ideale per{' '}
+                      <Link href="/it/solare-condominio" className="text-[#F97316] hover:underline font-medium">tetti piani</Link>.</>
+                    : m.intro}
+                </p>
+                <div className="grid grid-cols-2 gap-4 mb-5">
+                  <div>
+                    <p className="text-xs font-bold text-green-700 uppercase tracking-widest mb-2">Vantaggi</p>
+                    <ul className="space-y-1.5">
+                      {m.vantaggi.map((v, j) => (
+                        <li key={j} className="flex items-start gap-1.5 text-sm text-gray-700">
+                          <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" />
+                          {v}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-red-700 uppercase tracking-widest mb-2">Svantaggi</p>
+                    <ul className="space-y-1.5">
+                      {m.svantaggi.map((n, j) => (
+                        <li key={j} className="flex items-start gap-1.5 text-sm text-gray-700">
+                          <XCircle className="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" />
+                          {n}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className="bg-orange-50 border border-orange-100 rounded-xl px-4 py-3">
+                  <p className="text-sm text-gray-700"><span className="font-bold text-orange-700">Conclusione: </span>{m.conclusione}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Guida alla decisione ── */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Guida alla decisione</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
+              Quale tipo è giusto per me?
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              La scelta dipende dalla tua situazione concreta. Per una{' '}
+              <Link href="/it/solare-casa-unifamiliare" className="text-[#F97316] hover:underline font-medium">casa unifamiliare</Link>{' '}
+              in Svizzera il monocristallino è quasi sempre la scelta migliore — soprattutto nel{' '}
+              <Link href="/it/fotovoltaico-clima-svizzero" className="text-[#F97316] hover:underline font-medium">clima svizzero</Link>{' '}
+              con molta luce diffusa.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              In pratica un{' '}
+              <Link href="/it/installare-impianto-solare-svizzera" className="text-[#F97316] hover:underline font-medium">installatore certificato</Link>{' '}
+              consiglia il tipo di modulo giusto dopo aver ispezionato il tuo tetto. PVPro.ch mette in contatto con{' '}
+              <Link href="/it/comparatore-fotovoltaico-svizzera" className="text-[#F97316] hover:underline font-medium">fornitori</Link>{' '}
+              che conoscono tutte le tecnologie e danno consulenza neutrale.
+            </p>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
             <table className="w-full text-sm">
               <thead>
                 <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
@@ -164,6 +317,7 @@ export default function ConfrontoTipiImpiantiSolariPage() {
           </div>
         </section>
 
+        {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
           <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             <Zap className="w-7 h-7 text-white" />
@@ -172,12 +326,19 @@ export default function ConfrontoTipiImpiantiSolariPage() {
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Un installatore certificato della tua regione analizza il tuo tetto e consiglia il tipo di modulo ottimale per la tua situazione — gratuitamente e senza impegno.
           </p>
-          <Link href="/it/richiesta" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
+          <Link href="/it/richiedere-preventivo-solare" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
             style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             Richiedi preventivo gratuito <ArrowRight className="w-4 h-4" />
           </Link>
+          <p className="text-gray-500 text-sm mt-5">
+            Prima{' '}
+            <Link href="/it/richiedere-preventivo-solare" className="text-[#F97316] hover:underline font-medium">confrontare preventivi</Link>?{' '}
+            Di più sui{' '}
+            <Link href="/it/costi-impianto-solare" className="text-[#F97316] hover:underline font-medium">costi di un impianto solare</Link>.
+          </p>
         </section>
 
+        {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Domande frequenti</p>
@@ -196,7 +357,29 @@ export default function ConfrontoTipiImpiantiSolariPage() {
               </details>
             ))}
           </div>
+          <div className="text-center mt-10">
+            <p className="text-gray-500 text-sm mb-4">Ulteriori informazioni:</p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link href="/it/costi-impianto-solare" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Costi impianto solare
+              </Link>
+              <Link href="/it/fotovoltaico-clima-svizzero" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Fotovoltaico e clima svizzero
+              </Link>
+              <Link href="/it/solare-casa-unifamiliare" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Solare casa unifamiliare
+              </Link>
+              <Link href="/it/solare-condominio" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Solare condominio
+              </Link>
+              <Link href="/it/richiedere-preventivo-solare" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
+                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                Richiedi preventivo <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
         </section>
+
       </div>
       <FaqSchema faqs={faqs} />
     </main>

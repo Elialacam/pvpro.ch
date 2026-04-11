@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ChevronRight, ArrowRight, Wrench, CheckCircle } from 'lucide-react';
+import { ChevronRight, ArrowRight, Shield, Wrench, CheckCircle, AlertCircle } from 'lucide-react';
 import { Metadata } from 'next';
 import FaqSchema from '@/components/FaqSchema';
 
@@ -33,11 +33,11 @@ const faqs = [
   },
   {
     question: 'How much does a maintenance contract for a solar system cost?',
-    answer: "Many installers offer maintenance contracts for CHF 150–300 per year, which include an annual inspection and minor repairs.",
+    answer: 'Many installers offer maintenance contracts for CHF 150–300 per year, which include an annual inspection and minor repairs.',
   },
   {
     question: 'How long does an inverter last?',
-    answer: "Inverters typically last 10 to 15 years. A replacement costs between CHF 1,500 and 3,000 depending on the model.",
+    answer: 'Inverters typically last 10 to 15 years. A replacement costs between CHF 1,500 and 3,000 depending on the model.',
   },
   {
     question: 'Do I lose the warranty if I do the maintenance myself?',
@@ -45,7 +45,7 @@ const faqs = [
   },
   {
     question: 'How do I know if my system is not producing optimally?',
-    answer: "Via the digital monitoring of the inverter, you can track daily production. If production deviates significantly from the previous year without an obvious reason, you should request an inspection.",
+    answer: 'Via the digital monitoring of the inverter, you can track daily production. If production deviates significantly from the previous year without an obvious reason, you should request an inspection.',
   },
   {
     question: 'Who can carry out maintenance on my solar system?',
@@ -54,29 +54,35 @@ const faqs = [
 ];
 
 const services = [
-  { title: "Visual inspection of modules", text: "Once a year, the modules should be checked for dirt, cracks, discolouration or damage. Bird droppings, leaves and moss can noticeably reduce production." },
-  { title: "Module cleaning", text: "In Switzerland, rain is usually sufficient to keep the modules clean. In dusty regions or with heavy bird activity, manual cleaning may be useful." },
-  { title: "Inverter inspection", text: "The inverter is the heart of the system. It should be checked annually for errors, overheating and correct functioning." },
-  { title: "Electrical connection checks", text: "Cable connections, connectors and terminals can loosen over time. Regular checks prevent failures and fire risks." },
-  { title: "Production monitoring", text: "Modern systems have digital monitoring. Anyone who regularly monitors production data will immediately detect deviations." },
-  { title: "Roof inspection", text: "During the annual inspection, the roof around the mounting should also be checked — for watertightness and stability of the substructure." },
+  { title: 'Visual inspection of modules', text: 'Once a year, the modules should be checked for dirt, cracks, discolouration or damage. Bird droppings, leaves and moss can noticeably reduce production.' },
+  { title: 'Module cleaning', text: 'In Switzerland, rain is usually sufficient to keep the modules clean. In dusty regions or with heavy bird activity, manual cleaning may be useful.' },
+  { title: 'Inverter inspection', text: 'The inverter is the heart of the system. It should be checked annually for errors, overheating and correct functioning.' },
+  { title: 'Electrical connection checks', text: 'Cable connections, connectors and terminals can loosen over time. Regular checks prevent failures and fire risks.' },
+  { title: 'Production monitoring', text: 'Modern systems have digital monitoring. Anyone who regularly monitors production data will immediately detect deviations.' },
+  { title: 'Roof inspection', text: 'During the annual inspection, the roof around the mounting should also be checked — for watertightness and stability of the substructure.' },
 ];
 
 const costs = [
-  { service: "Annual inspection (without cleaning)", cost: "CHF 100–200" },
-  { service: "Module cleaning", cost: "CHF 100–300 depending on size" },
-  { service: "Inverter replacement (after 10–15 years)", cost: "CHF 1,500–3,000" },
-  { service: "Minor damage repair", cost: "CHF 200–500" },
-  { service: "Annual total costs (average)", cost: "CHF 150–300/year", highlight: true },
+  { service: 'Annual inspection (without cleaning)', cost: 'CHF 100–200' },
+  { service: 'Module cleaning', cost: 'CHF 100–300 depending on size' },
+  { service: 'Inverter replacement (after 10–15 years)', cost: 'CHF 1,500–3,000' },
+  { service: 'Minor damage repair', cost: 'CHF 200–500' },
+  { service: 'Annual total costs (average)', cost: 'CHF 150–300/year', highlight: true },
 ];
 
 const frequencies = [
-  { measure: "Visual inspection", frequency: "2x per year (recommended)" },
-  { measure: "Professional inspection", frequency: "1x per year" },
-  { measure: "Module cleaning", frequency: "As needed, min. 1x per year" },
-  { measure: "Inverter check", frequency: "1x per year" },
-  { measure: "Electrical check", frequency: "Every 2–3 years" },
-  { measure: "Inverter replacement", frequency: "After 10–15 years" },
+  { measure: 'Visual inspection', frequency: '2x per year (recommended)' },
+  { measure: 'Professional inspection', frequency: '1x per year' },
+  { measure: 'Module cleaning', frequency: 'As needed, min. 1x per year' },
+  { measure: 'Inverter check', frequency: '1x per year' },
+  { measure: 'Electrical check', frequency: 'Every 2–3 years' },
+  { measure: 'Inverter replacement', frequency: 'After 10–15 years' },
+];
+
+const warranties = [
+  { component: 'Modules', text: '25–30 years performance warranty (min. 80% of rated output)' },
+  { component: 'Inverter', text: '5–12 years manufacturer warranty, extendable' },
+  { component: 'Installation', text: 'Depends on installer, typically 5–10 years' },
 ];
 
 export default function SolarPanelMaintenanceCostsPage() {
@@ -105,9 +111,9 @@ export default function SolarPanelMaintenanceCostsPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: 'CHF 150–300', sub: "typical maintenance costs per year", note: "incl. inspection and minor cleaning" },
-              { val: '1x per year', sub: "recommended inspection", note: "professional by certified specialist" },
-              { val: '25–30 years', sub: "lifespan with good maintenance", note: "with manufacturer performance warranty" },
+              { val: 'CHF 150–300', sub: 'typical maintenance costs per year', note: 'incl. inspection and minor cleaning' },
+              { val: '1x per year', sub: 'recommended inspection', note: 'professional by certified specialist' },
+              { val: '25–30 years', sub: 'lifespan with good maintenance', note: 'with manufacturer performance warranty' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -121,6 +127,37 @@ export default function SolarPanelMaintenanceCostsPage() {
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 py-16 space-y-20">
 
+        {/* ── Why is maintenance important? ── */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Why it pays off</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
+              Why is maintenance important?
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              A neglected system produces less electricity — often without the owner noticing. Dirty modules, loose connections or an ageing inverter can reduce production by 10–20%.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Regular maintenance protects your investment and ensures the system always runs at the optimal level — over the entire lifespan of 25–30 years.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { icon: <AlertCircle className="w-5 h-5" />, label: 'Unmaintained system', val: '−10–20% output', color: 'bg-red-50 border-red-200 text-red-700' },
+              { icon: <CheckCircle className="w-5 h-5" />, label: 'Maintained system', val: '100% performance', color: 'bg-green-50 border-green-200 text-green-700' },
+              { icon: <Shield className="w-5 h-5" />, label: 'Warranty protection', val: '25–30 years', color: 'bg-blue-50 border-blue-200 text-blue-700' },
+              { icon: <Wrench className="w-5 h-5" />, label: 'Maintenance costs', val: 'from CHF 150/year', color: 'bg-orange-50 border-orange-200 text-orange-700' },
+            ].map(item => (
+              <div key={item.label} className={`rounded-2xl p-5 border ${item.color} flex flex-col items-center text-center gap-2`}>
+                {item.icon}
+                <p className="text-xs font-semibold uppercase tracking-wide">{item.label}</p>
+                <p className="font-bold text-sm">{item.val}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── What does maintenance include? ── */}
         <section>
           <div className="mb-10">
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Services overview</p>
@@ -139,6 +176,7 @@ export default function SolarPanelMaintenanceCostsPage() {
           </div>
         </section>
 
+        {/* ── Costs & Frequencies ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div>
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Cost overview</p>
@@ -169,7 +207,9 @@ export default function SolarPanelMaintenanceCostsPage() {
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Maintenance intervals</p>
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-5">How often should a solar system be maintained?</h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-5">
-              A good installer will explain all warranties and recommended maintenance intervals transparently before purchase.
+              For a complete{' '}
+              <Link href="/en/complete-solar-solution-switzerland" className="text-[#F97316] hover:underline font-medium">all-in-one solution</Link>{' '}
+              with battery and heat pump, the same intervals apply — the installer handles the coordination.
             </p>
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
               <table className="w-full text-sm">
@@ -192,6 +232,47 @@ export default function SolarPanelMaintenanceCostsPage() {
           </div>
         </section>
 
+        {/* ── DIY & Warranties ── */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">DIY work</p>
+            <h2 className="text-xl font-bold text-gray-900 mb-5">Can I do the maintenance myself?</h2>
+            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              The visual inspection and basic cleaning can be carried out by the homeowner. For everything electrical — connections, inverter, terminals — a certified specialist must be engaged.
+            </p>
+            <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
+              <p className="text-orange-800 text-sm">
+                <strong className="text-orange-600">Important:</strong> Roof work should always be carried out by professionals for safety reasons.
+              </p>
+            </div>
+          </div>
+          <div className="rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
+            <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">Warranties</p>
+            <h2 className="text-xl font-bold text-white mb-5">
+              What{' '}
+              <Link href="/en/solar-panel-costs" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">warranties</Link>{' '}
+              exist on a solar system?
+            </h2>
+            <ul className="space-y-4">
+              {warranties.map((w, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-white font-semibold text-sm">{w.component}</p>
+                    <p className="text-gray-400 text-sm leading-relaxed">{w.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="text-gray-500 text-sm mt-5">
+              A good{' '}
+              <Link href="/en/solar-comparison-portal-switzerland" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">provider</Link>{' '}
+              explains all warranties transparently before purchase.
+            </p>
+          </div>
+        </section>
+
+        {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
           <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             <Wrench className="w-7 h-7 text-white" />
@@ -200,12 +281,19 @@ export default function SolarPanelMaintenanceCostsPage() {
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Do you have an existing system that needs maintenance? Or are you planning a new system and would like to take out a maintenance contract straight away? We connect you with the right partner.
           </p>
-          <Link href="/en/request" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
+          <Link href="/en/get-solar-panel-quotes" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
             style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             Get free quote <ArrowRight className="w-4 h-4" />
           </Link>
+          <p className="text-gray-500 text-sm mt-5">
+            First{' '}
+            <Link href="/en/get-solar-panel-quotes" className="text-[#F97316] hover:underline font-medium">compare quotes</Link>?{' '}
+            Or all{' '}
+            <Link href="/en/solar-comparison-portal-switzerland" className="text-[#F97316] hover:underline font-medium">providers at a glance</Link>?
+          </p>
         </section>
 
+        {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Frequently asked questions</p>
@@ -223,6 +311,27 @@ export default function SolarPanelMaintenanceCostsPage() {
                 </div>
               </details>
             ))}
+          </div>
+          <div className="text-center mt-10">
+            <p className="text-gray-500 text-sm mb-4">More information:</p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link href="/en/solar-panel-costs" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Solar panel costs
+              </Link>
+              <Link href="/en/how-solar-works" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                How does a solar system work?
+              </Link>
+              <Link href="/en/solar-with-battery" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Solar with battery
+              </Link>
+              <Link href="/en/complete-solar-solution-switzerland" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Complete solution
+              </Link>
+              <Link href="/en/get-solar-panel-quotes" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
+                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                Get a quote <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </section>
 

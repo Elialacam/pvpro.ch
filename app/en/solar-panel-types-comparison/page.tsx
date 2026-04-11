@@ -68,6 +68,88 @@ const situationsTable = [
   { situation: 'Standard single-family home Switzerland', recommendation: 'Monocrystalline', highlight: true },
 ];
 
+type PanelType = {
+  name: string;
+  badge: string;
+  badgeColor: string;
+  intro: string;
+  pros: string[];
+  cons: string[];
+  verdict: string;
+};
+
+const panelTypes: PanelType[] = [
+  {
+    name: 'Monocrystalline panels — the standard in Switzerland',
+    badge: 'Recommended for Switzerland',
+    badgeColor: 'bg-orange-100 text-orange-700',
+    intro: 'Monocrystalline panels are today by far the most common choice for Swiss single-family homes. They consist of a single silicon crystal and have the highest efficiency of all common technologies.',
+    pros: [
+      'Highest efficiency (18–22%)',
+      'Best performance in diffuse light and overcast conditions',
+      'Compact — ideal for smaller roof areas',
+      'Long lifespan and high reliability',
+      'Aesthetically pleasing (uniformly black)',
+    ],
+    cons: [
+      'Higher cost than polycrystalline panels',
+      'Slight performance reduction at very high temperatures',
+    ],
+    verdict: 'For most Swiss households the best choice — especially in the often overcast Midlands.',
+  },
+  {
+    name: 'Polycrystalline panels — the budget option',
+    badge: 'Budget & large areas',
+    badgeColor: 'bg-blue-100 text-blue-700',
+    intro: 'Polycrystalline panels consist of multiple silicon crystals and have a slightly lower efficiency than monocrystalline. They are increasingly being replaced by higher-performance alternatives.',
+    pros: [
+      'Lower purchase price',
+      'Proven and reliable',
+      'Well suited for large roof areas',
+    ],
+    cons: [
+      'Lower efficiency (15–17%)',
+      'Larger area needed for the same output',
+      'Recognisable by their blue-shimmering appearance',
+    ],
+    verdict: 'Interesting for large roof areas with a small budget. Increasingly less common in Switzerland.',
+  },
+  {
+    name: 'Thin-film panels — for special applications',
+    badge: 'Special applications',
+    badgeColor: 'bg-gray-100 text-gray-700',
+    intro: 'Thin-film panels are deposited on a thin substrate and are more flexible than crystalline panels. They are particularly suitable for flat roofs and unconventional applications.',
+    pros: [
+      'Light and flexible',
+      'Low manufacturing cost',
+      'Perform well at high temperatures',
+    ],
+    cons: [
+      'Lowest efficiency (10–13%)',
+      'Require significantly more area',
+      'Shorter lifespan than crystalline panels',
+    ],
+    verdict: 'Rarely recommended for standard installations in Switzerland. Interesting for special applications such as façade integration.',
+  },
+  {
+    name: 'Bifacial panels — more power from the rear side',
+    badge: 'Snow & flat roofs',
+    badgeColor: 'bg-green-100 text-green-700',
+    intro: 'Bifacial panels generate electricity from both sides — from direct sunlight at the front, and from reflected light at the rear. The additional yield is particularly high with snow or light roof coverings.',
+    pros: [
+      'Highest yield under the right conditions',
+      'Particularly effective with snow (reflects light)',
+      'Ideal for flat roofs with gap to the roof surface',
+    ],
+    cons: [
+      'More expensive than monocrystalline panels',
+      'Additional yield depends strongly on installation',
+      'Not always beneficial on normal pitched roofs',
+    ],
+    verdict: 'Interesting for snow regions and flat roofs. For normal pitched roofs in Switzerland, usually no significant advantage.',
+  },
+];
+
 export default function SolarPanelTypesComparisonPage() {
   return (
     <main className="min-h-screen bg-white">
@@ -110,6 +192,7 @@ export default function SolarPanelTypesComparisonPage() {
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 py-16 space-y-20">
 
+        {/* ── Overview table ── */}
         <section>
           <div className="mb-8">
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Overview</p>
@@ -139,12 +222,82 @@ export default function SolarPanelTypesComparisonPage() {
           </div>
         </section>
 
+        {/* ── The four types in detail ── */}
         <section>
           <div className="mb-8">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Decision guide</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Which type is right for me?</h2>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Detailed comparison</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">The four types in detail</h2>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm max-w-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {panelTypes.map((m, i) => (
+              <div key={i} className="rounded-3xl p-8 border border-gray-200 bg-white shadow-sm">
+                <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-4 ${m.badgeColor}`}>{m.badge}</span>
+                <h3 className="text-lg font-bold text-gray-900 mb-3">{m.name}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                  {i === 2
+                    ? <>Thin-film panels are deposited on a thin substrate and are more flexible than crystalline panels. They are particularly suitable for{' '}
+                      <Link href="/en/solar-apartment-building" className="text-[#F97316] hover:underline font-medium">flat roofs</Link>{' '}
+                      and unconventional applications.</>
+                    : i === 3
+                    ? <>Bifacial panels generate electricity from both sides — from direct sunlight at the front, and from reflected light at the rear. The additional yield is particularly high with snow or light roof coverings. Ideal for{' '}
+                      <Link href="/en/solar-apartment-building" className="text-[#F97316] hover:underline font-medium">flat roofs</Link>.</>
+                    : m.intro}
+                </p>
+                <div className="grid grid-cols-2 gap-4 mb-5">
+                  <div>
+                    <p className="text-xs font-bold text-green-700 uppercase tracking-widest mb-2">Advantages</p>
+                    <ul className="space-y-1.5">
+                      {m.pros.map((v, j) => (
+                        <li key={j} className="flex items-start gap-1.5 text-sm text-gray-700">
+                          <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" />
+                          {v}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-red-700 uppercase tracking-widest mb-2">Disadvantages</p>
+                    <ul className="space-y-1.5">
+                      {m.cons.map((n, j) => (
+                        <li key={j} className="flex items-start gap-1.5 text-sm text-gray-700">
+                          <XCircle className="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" />
+                          {n}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className="bg-orange-50 border border-orange-100 rounded-xl px-4 py-3">
+                  <p className="text-sm text-gray-700"><span className="font-bold text-orange-700">Verdict: </span>{m.verdict}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Decision guide ── */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Decision guide</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
+              Which type is right for me?
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              The choice depends on your specific situation. For a{' '}
+              <Link href="/en/solar-detached-house" className="text-[#F97316] hover:underline font-medium">single-family home</Link>{' '}
+              in Switzerland, monocrystalline is almost always the best choice — especially in the{' '}
+              <Link href="/en/solar-panels-swiss-climate" className="text-[#F97316] hover:underline font-medium">Swiss climate</Link>{' '}
+              with a lot of diffuse light.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              In practice, a certified{' '}
+              <Link href="/en/solar-panel-installation-switzerland" className="text-[#F97316] hover:underline font-medium">installer</Link>{' '}
+              recommends the right panel type after inspecting your roof. PVPro.ch connects you with{' '}
+              <Link href="/en/solar-comparison-portal-switzerland" className="text-[#F97316] hover:underline font-medium">providers</Link>{' '}
+              who know all technologies and give neutral advice.
+            </p>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
             <table className="w-full text-sm">
               <thead>
                 <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
@@ -164,6 +317,7 @@ export default function SolarPanelTypesComparisonPage() {
           </div>
         </section>
 
+        {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
           <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             <Zap className="w-7 h-7 text-white" />
@@ -172,12 +326,19 @@ export default function SolarPanelTypesComparisonPage() {
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             A certified installer from your region will analyse your roof and recommend the optimal panel type for your situation — free of charge and without obligation.
           </p>
-          <Link href="/en/request" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
+          <Link href="/en/get-solar-panel-quotes" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
             style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             Get free quote <ArrowRight className="w-4 h-4" />
           </Link>
+          <p className="text-gray-500 text-sm mt-5">
+            First{' '}
+            <Link href="/en/get-solar-panel-quotes" className="text-[#F97316] hover:underline font-medium">compare quotes</Link>?{' '}
+            More about the{' '}
+            <Link href="/en/solar-panel-costs" className="text-[#F97316] hover:underline font-medium">costs of a solar system</Link>.
+          </p>
         </section>
 
+        {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Frequently asked questions</p>
@@ -196,7 +357,29 @@ export default function SolarPanelTypesComparisonPage() {
               </details>
             ))}
           </div>
+          <div className="text-center mt-10">
+            <p className="text-gray-500 text-sm mb-4">More information:</p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link href="/en/solar-panel-costs" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Solar panel costs
+              </Link>
+              <Link href="/en/solar-panels-swiss-climate" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Solar panels in the Swiss climate
+              </Link>
+              <Link href="/en/solar-detached-house" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Solar for detached house
+              </Link>
+              <Link href="/en/solar-apartment-building" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Solar for apartment building
+              </Link>
+              <Link href="/en/get-solar-panel-quotes" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
+                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                Get a quote <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
         </section>
+
       </div>
       <FaqSchema faqs={faqs} />
     </main>

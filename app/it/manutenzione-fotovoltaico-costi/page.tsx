@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ChevronRight, ArrowRight, Wrench, CheckCircle } from 'lucide-react';
+import { ChevronRight, ArrowRight, Shield, Wrench, CheckCircle, AlertCircle } from 'lucide-react';
 import { Metadata } from 'next';
 import FaqSchema from '@/components/FaqSchema';
 
@@ -79,6 +79,12 @@ const frequenze = [
   { misura: "Sostituzione inverter", frequenza: "Dopo 10–15 anni" },
 ];
 
+const garanzie = [
+  { comp: 'Moduli', testo: '25–30 anni di garanzia di prestazione (min. 80% della potenza nominale)' },
+  { comp: 'Inverter', testo: '5–12 anni di garanzia del produttore, prorogabile' },
+  { comp: 'Montaggio', testo: "Dipende dall'installatore, tipicamente 5–10 anni" },
+];
+
 export default function ManutenzioneFotovoltaicoCostiPage() {
   return (
     <main className="min-h-screen bg-white">
@@ -121,6 +127,37 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 py-16 space-y-20">
 
+        {/* ── Perché la manutenzione è importante? ── */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Perché conviene</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
+              Perché la manutenzione è importante?
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              Un impianto trascurato produce meno elettricità — spesso senza che il proprietario se ne accorga. Moduli sporchi, connessioni allentate o un inverter che invecchia possono ridurre la produzione del 10–20%.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Una manutenzione regolare protegge il tuo investimento e garantisce che l&apos;impianto funzioni sempre al livello ottimale — per tutta la durata di vita di 25–30 anni.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { icon: <AlertCircle className="w-5 h-5" />, label: 'Impianto non manutenuto', val: '−10–20% di resa', color: 'bg-red-50 border-red-200 text-red-700' },
+              { icon: <CheckCircle className="w-5 h-5" />, label: 'Impianto manutenuto', val: '100% di prestazione', color: 'bg-green-50 border-green-200 text-green-700' },
+              { icon: <Shield className="w-5 h-5" />, label: 'Protezione garanzia', val: '25–30 anni', color: 'bg-blue-50 border-blue-200 text-blue-700' },
+              { icon: <Wrench className="w-5 h-5" />, label: 'Costi di manutenzione', val: 'da CHF 150/anno', color: 'bg-orange-50 border-orange-200 text-orange-700' },
+            ].map(item => (
+              <div key={item.label} className={`rounded-2xl p-5 border ${item.color} flex flex-col items-center text-center gap-2`}>
+                {item.icon}
+                <p className="text-xs font-semibold uppercase tracking-wide">{item.label}</p>
+                <p className="font-bold text-sm">{item.val}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Cosa comprende la manutenzione? ── */}
         <section>
           <div className="mb-10">
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Panoramica prestazioni</p>
@@ -139,6 +176,7 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
           </div>
         </section>
 
+        {/* ── Costi & Frequenze ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div>
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Panoramica costi</p>
@@ -169,7 +207,9 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Intervalli di manutenzione</p>
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-5">Con quale frequenza deve essere mantenuto un impianto solare?</h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-5">
-              Un buon installatore spiega tutte le garanzie e gli intervalli di manutenzione raccomandati in modo trasparente prima dell&apos;acquisto.
+              Per una{' '}
+              <Link href="/it/soluzione-completa-fotovoltaico-svizzera" className="text-[#F97316] hover:underline font-medium">soluzione completa</Link>{' '}
+              con accumulo e pompa di calore valgono gli stessi intervalli — l&apos;installatore gestisce il coordinamento.
             </p>
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
               <table className="w-full text-sm">
@@ -192,20 +232,68 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
           </div>
         </section>
 
+        {/* ── Fai da te & Garanzie ── */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Lavori in proprio</p>
+            <h2 className="text-xl font-bold text-gray-900 mb-5">Posso fare la manutenzione da solo?</h2>
+            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              L&apos;ispezione visiva e la pulizia semplice possono essere effettuate dal proprietario dell&apos;immobile. Per tutto ciò che riguarda l&apos;elettrica — connessioni, inverter, raccordi — è obbligatorio incaricare un&apos;azienda specializzata certificata.
+            </p>
+            <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
+              <p className="text-orange-800 text-sm">
+                <strong className="text-orange-600">Importante:</strong> I lavori sul tetto devono sempre essere eseguiti da professionisti per ragioni di sicurezza.
+              </p>
+            </div>
+          </div>
+          <div className="rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
+            <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">Garanzie</p>
+            <h2 className="text-xl font-bold text-white mb-5">
+              Quali{' '}
+              <Link href="/it/costi-impianto-solare" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">garanzie</Link>{' '}
+              esistono su un impianto solare?
+            </h2>
+            <ul className="space-y-4">
+              {garanzie.map((g, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-white font-semibold text-sm">{g.comp}</p>
+                    <p className="text-gray-400 text-sm leading-relaxed">{g.testo}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="text-gray-500 text-sm mt-5">
+              Un buon{' '}
+              <Link href="/it/comparatore-fotovoltaico-svizzera" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">fornitore</Link>{' '}
+              ti spiega tutte le garanzie e gli intervalli di manutenzione raccomandati in modo trasparente prima dell&apos;acquisto.
+            </p>
+          </div>
+        </section>
+
+        {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
           <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             <Wrench className="w-7 h-7 text-white" />
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Presenta ora una richiesta di manutenzione</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Invia subito una richiesta di manutenzione</h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Hai un impianto esistente che deve essere mantenuto? O stai pianificando un nuovo impianto e vuoi subito concludere un contratto di manutenzione? Ti mettiamo in contatto con il partner giusto.
           </p>
-          <Link href="/it/richiesta" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
+          <Link href="/it/richiedere-preventivo-solare" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
             style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
             Richiedi preventivo gratuito <ArrowRight className="w-4 h-4" />
           </Link>
+          <p className="text-gray-500 text-sm mt-5">
+            Prima{' '}
+            <Link href="/it/richiedere-preventivo-solare" className="text-[#F97316] hover:underline font-medium">confrontare preventivi</Link>?{' '}
+            O tutti i{' '}
+            <Link href="/it/comparatore-fotovoltaico-svizzera" className="text-[#F97316] hover:underline font-medium">fornitori in una panoramica</Link>?
+          </p>
         </section>
 
+        {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Domande frequenti</p>
@@ -223,6 +311,27 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
                 </div>
               </details>
             ))}
+          </div>
+          <div className="text-center mt-10">
+            <p className="text-gray-500 text-sm mb-4">Ulteriori informazioni:</p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link href="/it/costi-impianto-solare" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Costi impianto solare
+              </Link>
+              <Link href="/it/come-funziona-solare" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Come funziona un impianto solare?
+              </Link>
+              <Link href="/it/solare-con-accumulo" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Solare con accumulo
+              </Link>
+              <Link href="/it/soluzione-completa-fotovoltaico-svizzera" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Soluzione completa
+              </Link>
+              <Link href="/it/richiedere-preventivo-solare" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
+                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                Richiedi preventivo <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </section>
 
