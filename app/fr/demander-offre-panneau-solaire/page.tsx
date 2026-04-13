@@ -218,7 +218,7 @@ export default function DemanderOffrePanneauSolairePage() {
         {/* ── Que contient une bonne offre ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <img src="/images/asset-beratung-indoor-2.png" alt="Offre panneau solaire Suisse" className="w-full h-72 object-cover rounded-3xl" />
+            <img loading="lazy" src="/images/asset-beratung-indoor-2.webp" alt="Offre panneau solaire Suisse" className="w-full h-72 object-cover rounded-3xl" />
           </div>
           <div>
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Liste de contrôle</p>

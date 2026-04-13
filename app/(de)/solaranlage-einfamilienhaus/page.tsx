@@ -145,7 +145,7 @@ export default function SolaranlageEinfamilienhausPage() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img src="/images/asset-installateur-dach-1.png" alt="Solaranlage Einfamilienhaus Schweiz" className="w-full h-80 object-cover" />
+            <img loading="lazy" src="/images/asset-installateur-dach-1.webp" alt="Solaranlage Einfamilienhaus Schweiz" className="w-full h-80 object-cover" />
           </div>
         </section>
 
@@ -180,7 +180,7 @@ export default function SolaranlageEinfamilienhausPage() {
               ))}
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img src="/images/asset-haus-luftbild-1.png" alt="Einfamilienhaus mit Solaranlage" className="w-full h-72 object-cover" />
+              <img loading="lazy" src="/images/asset-haus-luftbild-1.webp" alt="Einfamilienhaus mit Solaranlage" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>
@@ -188,7 +188,7 @@ export default function SolaranlageEinfamilienhausPage() {
         {/* ── Lohnt sich ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img src="/images/asset-beratung-indoor-2.png" alt="Solaranlage Beratung" className="w-full h-80 object-cover" />
+            <img loading="lazy" src="/images/asset-beratung-indoor-2.webp" alt="Solaranlage Beratung" className="w-full h-80 object-cover" />
           </div>
           <div>
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Wirtschaftlichkeit</p>

@@ -1,4 +1,3 @@
-import Script from 'next/script'
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -41,10 +40,6 @@ export default function RootLayout({
     <html lang="de-CH" className={`scroll-smooth ${inter.variable}`} suppressHydrationWarning>
       <head />
       <body className={inter.className}>
-        <Script
-          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
-          strategy="afterInteractive"
-        />
         <Suspense fallback={null}>
           <TrackingScripts />
         </Suspense>

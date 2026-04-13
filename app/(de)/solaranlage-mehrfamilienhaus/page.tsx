@@ -133,7 +133,7 @@ export default function SolaranlageMehrfamilienhausPage() {
           </div>
           {/* ZEV flow diagram */}
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img src="/images/asset-haus-luftbild-3.png" alt="Mehrfamilienhaus mit Solaranlage" className="w-full h-80 object-cover" />
+            <img loading="lazy" src="/images/asset-haus-luftbild-3.webp" alt="Mehrfamilienhaus mit Solaranlage" className="w-full h-80 object-cover" />
           </div>
         </section>
 
@@ -190,7 +190,7 @@ export default function SolaranlageMehrfamilienhausPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <img src="/images/asset-installateur-dach-5.png" alt="Solaranlage Mehrfamilienhaus Montage" className="w-full h-72 object-cover" />
+              <img loading="lazy" src="/images/asset-installateur-dach-5.webp" alt="Solaranlage Mehrfamilienhaus Montage" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>
@@ -270,7 +270,7 @@ export default function SolaranlageMehrfamilienhausPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img src="/images/asset-haus-solar-ev-1.png" alt="Mehrfamilienhaus Solaranlage Investition" className="w-full h-72 object-cover" />
+              <img loading="lazy" src="/images/asset-haus-solar-ev-1.webp" alt="Mehrfamilienhaus Solaranlage Investition" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>
@@ -317,7 +317,7 @@ export default function SolaranlageMehrfamilienhausPage() {
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <img src="/images/asset-beratung-indoor-3.png" alt="Mehrfamilienhaus Solaranlage Planung" className="w-full h-72 object-cover" />
+              <img loading="lazy" src="/images/asset-beratung-indoor-3.webp" alt="Mehrfamilienhaus Solaranlage Planung" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>

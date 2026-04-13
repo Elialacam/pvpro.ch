@@ -160,7 +160,7 @@ export default function BewilligungspflichtPage() {
           {/* Visual side */}
           <div className="rounded-3xl overflow-hidden">
             <img
-              src="/images/asset-installateur-dach-3.png"
+              src="/images/asset-installateur-dach-3.webp"
               alt="Techniker auf Dach mit Solarpanelen – Bewilligungspflicht Schweiz"
               className="w-full h-72 object-cover rounded-3xl"
             />

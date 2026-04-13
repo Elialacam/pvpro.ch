@@ -132,7 +132,7 @@ export default function SolaireImmeubleePage() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img src="/images/asset-haus-luftbild-3.png" alt="Immeuble avec installation solaire" className="w-full h-80 object-cover" />
+            <img loading="lazy" src="/images/asset-haus-luftbild-3.webp" alt="Immeuble avec installation solaire" className="w-full h-80 object-cover" />
           </div>
         </section>
 
@@ -189,7 +189,7 @@ export default function SolaireImmeubleePage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <img src="/images/asset-installateur-dach-5.png" alt="Montage installation solaire immeuble" className="w-full h-72 object-cover" />
+              <img loading="lazy" src="/images/asset-installateur-dach-5.webp" alt="Montage installation solaire immeuble" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>
@@ -269,7 +269,7 @@ export default function SolaireImmeubleePage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img src="/images/asset-haus-solar-ev-1.png" alt="Immeuble solaire investissement" className="w-full h-72 object-cover" />
+              <img loading="lazy" src="/images/asset-haus-solar-ev-1.webp" alt="Immeuble solaire investissement" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>
@@ -316,7 +316,7 @@ export default function SolaireImmeubleePage() {
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <img src="/images/asset-beratung-indoor-3.png" alt="Planification installation solaire immeuble" className="w-full h-72 object-cover" />
+              <img loading="lazy" src="/images/asset-beratung-indoor-3.webp" alt="Planification installation solaire immeuble" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>

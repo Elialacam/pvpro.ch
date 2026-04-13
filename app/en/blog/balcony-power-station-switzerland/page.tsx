@@ -67,7 +67,7 @@ export default function BalconyPowerStationSwitzerlandPage() {
             </div>
             <div className="relative h-80 lg:h-[440px] rounded-t-2xl overflow-hidden self-end">
               <img
-                src="/images/balkonkraftwerk-schweiz.png"
+                src="/images/balkonkraftwerk-schweiz.webp"
                 alt="Balcony power station in Switzerland – mini solar system on balcony with view of the Alps"
                 className="w-full h-full object-cover object-top"
               />

@@ -40,7 +40,7 @@ export default function SolarWithBatteryPage() {
       {/* ── HERO ── */}
       <section className="relative pt-28 pb-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
         <div className="absolute inset-0 opacity-20">
-          <Image src="/images/blog-3.png" alt="Solar installation with battery storage" fill className="object-cover" priority />
+          <Image src="/images/blog-3.webp" alt="Solar installation with battery storage" fill className="object-cover" priority />
         </div>
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-gray-500 mb-10">
@@ -137,7 +137,7 @@ export default function SolarWithBatteryPage() {
             </div>
 
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/hero-family-solar.png" alt="Solar installation with battery storage" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/hero-family-solar.webp" alt="Solar installation with battery storage" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -207,7 +207,7 @@ export default function SolarWithBatteryPage() {
             </div>
 
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/blog-5.png" alt="Solar installation costs Switzerland" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/blog-5.webp" alt="Solar installation costs Switzerland" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -239,7 +239,7 @@ export default function SolarWithBatteryPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/blog-1.png" alt="Solar electricity production" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/blog-1.webp" alt="Solar electricity production" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
             <div>
               <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Electricity production</p>

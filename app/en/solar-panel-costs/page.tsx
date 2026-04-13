@@ -164,7 +164,7 @@ export default function SolarPanelCostsPage() {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/asset-haus-luftbild-2.png"
+                src="/images/asset-haus-luftbild-2.webp"
                 alt="Solar installation on a Swiss detached house – aerial view"
                 width={700}
                 height={500}
