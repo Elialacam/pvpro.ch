@@ -1,8 +1,6 @@
 "use client";
 
-import PhoneLink from '@/components/PhoneLink';
 import { CheckCircle, Mail, Phone, Clock, Star } from 'lucide-react';
-import Link from 'next/link';
 import { useEffect } from 'react';
 import Script from 'next/script';
 
@@ -68,97 +66,33 @@ export default function ThankYouPage() {
         strategy="lazyOnload"
       />
 
-      <section className="section-padding bg-gradient-to-b from-primary-50 to-white min-h-[80vh] flex items-center">
-        <div className="container-custom max-w-3xl">
+      <section className="min-h-[80vh] flex items-center bg-gradient-to-b from-orange-50 to-white pt-28 pb-20">
+        <div className="max-w-3xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
           <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 sm:p-12 text-center">
-            {/* Success Icon */}
-            <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="w-12 h-12 text-white" />
+            <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
+              <CheckCircle className="w-10 h-10 text-[#F97316]" />
             </div>
-
-            <h1 className="text-3xl sm:text-4xl font-sans font-semibold tracking-normal text-gray-900 mb-4">
-              Vielen Dank für Ihre Anfrage!
-            </h1>
-
-            <p className="text-xl text-gray-600 mb-12">
-              Wir haben Ihre Anfrage erhalten und werden Sie in Kürze mit passenden Angeboten kontaktieren.
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Vielen Dank für Ihre Anfrage!</h1>
+            <p className="text-gray-600 text-lg mb-8 max-w-xl mx-auto leading-relaxed">
+              Ihre Anfrage wurde erfolgreich empfangen. Unsere zertifizierten Partnerinstallateure werden Sie innerhalb von <strong>24–48 Stunden</strong> mit ihren besten Angeboten kontaktieren.
             </p>
 
-            {/* What Happens Next */}
-            <div className="text-left mb-12">
-              <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mb-6 text-center">
-                Was passiert als Nächstes?
-              </h2>
-
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg font-sans font-semibold tracking-normal text-primary">1</span>
-                  </div>
-                  <div>
-                    <h3 className="font-sans font-semibold tracking-normal text-gray-900 mb-1">Wir prüfen Ihre Angaben</h3>
-                    <p className="text-gray-600">
-                      Unser Team überprüft Ihre Anfrage und sucht die passenden Solarteure in Ihrer Region.
-                    </p>
-                  </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+              {[
+                { Icon: Clock, title: '24–48 Stunden', text: 'Typische Antwortzeit' },
+                { Icon: Mail,  title: 'Bis zu 3 Offerten', text: 'Von zertifizierten Installateuren' },
+                { Icon: Phone, title: 'Direktkontakt', text: 'Per Telefon oder E-Mail' },
+              ].map(({ Icon, title, text }) => (
+                <div key={title} className="rounded-xl p-5 border border-gray-100">
+                  <Icon className="w-6 h-6 text-[#F97316] mx-auto mb-2" />
+                  <p className="font-bold text-gray-900 text-sm mb-1">{title}</p>
+                  <p className="text-xs text-gray-500">{text}</p>
                 </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg font-sans font-semibold tracking-normal text-primary">2</span>
-                  </div>
-                  <div>
-                    <h3 className="font-sans font-semibold tracking-normal text-gray-900 mb-1">Wir kontaktieren lokale Installateure</h3>
-                    <p className="text-gray-600">
-                      Bis zu 3 geprüfte Fachbetriebe erstellen individuelle Angebote für Ihr Solarprojekt.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg font-sans font-semibold tracking-normal text-primary">3</span>
-                  </div>
-                  <div>
-                    <h3 className="font-sans font-semibold tracking-normal text-gray-900 mb-1">Sie erhalten Ihre Offerten</h3>
-                    <p className="text-gray-600">
-                      Innerhalb von 2-5 Werktagen erhalten Sie bis zu 3 kostenlose Offerten per E-Mail.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Info */}
-            <div className="bg-gray-50 rounded-xl p-6 mb-8">
-              <h3 className="font-sans font-semibold tracking-normal text-gray-900 mb-4">Fragen? Wir sind für Sie da</h3>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm">
-                <a href="mailto:anfrage@pvpro.ch" className="flex items-center justify-center gap-2 text-gray-700 hover:text-primary transition-colors">
-                  <Mail className="w-4 h-4" />
-                  anfrage@pvpro.ch
-                </a>
-                <PhoneLink phone="+41779770750" location="content" className="flex items-center justify-center gap-2 text-gray-700 hover:text-primary transition-colors">
-                  <Phone className="w-4 h-4" />
-                  +41 77 977 07 50
-                </PhoneLink>
-              </div>
-            </div>
-
-            {/* Info Box */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
-              <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-trust flex-shrink-0 mt-0.5" />
-                <div className="text-left">
-                  <p className="text-sm text-gray-700">
-                    <strong>Hinweis:</strong> Bitte überprüfen Sie auch Ihren Spam-Ordner. Manchmal landen unsere E-Mails dort.
-                    Fügen Sie anfrage@pvpro.ch zu Ihren Kontakten hinzu, um alle Nachrichten zu erhalten.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
 
             {/* Trustpilot Review Collector */}
-            <div className="mb-8">
+            <div>
               <div className="flex items-center justify-center gap-2 mb-3">
                 <Star className="w-4 h-4 text-[#00b67a]" />
                 <p className="text-sm font-semibold text-gray-700">Wie war Ihr Erlebnis? Hinterlassen Sie uns eine Bewertung</p>
@@ -174,16 +108,6 @@ export default function ThankYouPage() {
               >
                 <a href="https://de.trustpilot.com/review/pvpro.ch" target="_blank" rel="noopener">Trustpilot</a>
               </div>
-            </div>
-
-            {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/" className="btn-primary">
-                Zurück zur Startseite
-              </Link>
-              <Link href="/solarrechner" className="btn-secondary">
-                Solarrechner nutzen
-              </Link>
             </div>
           </div>
         </div>

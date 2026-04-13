@@ -1,6 +1,5 @@
 "use client";
 
-import Link from 'next/link';
 import { CheckCircle, Mail, Phone, Clock, Star } from 'lucide-react';
 import { useEffect } from 'react';
 import Script from 'next/script';
@@ -43,7 +42,7 @@ export default function GrazieItPage() {
             </div>
 
             {/* Trustpilot Review Collector */}
-            <div className="mb-8">
+            <div>
               <div className="flex items-center justify-center gap-2 mb-3">
                 <Star className="w-4 h-4 text-[#00b67a]" />
                 <p className="text-sm font-semibold text-gray-700">Com'è stata la tua esperienza? Lasciaci una recensione</p>
@@ -59,15 +58,6 @@ export default function GrazieItPage() {
               >
                 <a href="https://it.trustpilot.com/review/pvpro.ch" target="_blank" rel="noopener">Trustpilot</a>
               </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/it" className="px-6 py-3 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
-                Torna alla home
-              </Link>
-              <Link href="/it/come-funziona" className="px-6 py-3 rounded-full font-bold text-gray-700 text-sm border border-gray-200 hover:bg-gray-50 transition-colors">
-                Come funziona?
-              </Link>
             </div>
           </div>
         </div>

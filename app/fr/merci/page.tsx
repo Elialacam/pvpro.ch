@@ -1,6 +1,5 @@
 "use client";
 
-import Link from 'next/link';
 import { CheckCircle, Mail, Phone, Clock, Star } from 'lucide-react';
 import { useEffect } from 'react';
 import Script from 'next/script';
@@ -43,7 +42,7 @@ export default function MerciPage() {
             </div>
 
             {/* Trustpilot Review Collector */}
-            <div className="mb-8">
+            <div>
               <div className="flex items-center justify-center gap-2 mb-3">
                 <Star className="w-4 h-4 text-[#00b67a]" />
                 <p className="text-sm font-semibold text-gray-700">Comment s'est passée votre expérience ? Laissez-nous un avis</p>
@@ -59,15 +58,6 @@ export default function MerciPage() {
               >
                 <a href="https://fr.trustpilot.com/review/pvpro.ch" target="_blank" rel="noopener">Trustpilot</a>
               </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/fr" className="px-6 py-3 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
-                Retour à l'accueil
-              </Link>
-              <Link href="/fr/comment-ca-marche" className="px-6 py-3 rounded-full font-bold text-gray-700 text-sm border border-gray-200 hover:bg-gray-50 transition-colors">
-                Comment ça marche ?
-              </Link>
             </div>
           </div>
         </div>
