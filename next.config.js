@@ -18,6 +18,25 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   swcMinify: true,
+  async redirects() {
+    return [
+      { source: '/fotovoltaico-ticino',                        destination: '/it/fotovoltaico-ticino',  permanent: true },
+      { source: '/it/impianto-fotovoltaico-ginevra',           destination: '/fr/solaire-geneve',       permanent: true },
+      { source: '/it/impianto-fotovoltaico-lugano',            destination: '/it/fotovoltaico-ticino',  permanent: true },
+      { source: '/solaranlage-fribourg',                       destination: '/solaranlage-freiburg',    permanent: true },
+      { source: '/solaranlage-genf',                           destination: '/fr/solaire-geneve',       permanent: true },
+      { source: '/solaranlage-zuerich',                        destination: '/solaranlage-zurich',      permanent: true },
+      { source: '/solaranlage-koeniz',                         destination: '/solaranlage-bern',        permanent: true },
+      { source: '/solaire-geneve',                             destination: '/fr/solaire-geneve',       permanent: true },
+      { source: '/solaranlage-baden',                          destination: '/solaranlage-aargau',      permanent: true },
+      { source: '/solaranlage-lugano',                         destination: '/it/fotovoltaico-ticino',  permanent: true },
+      { source: '/solaranlage-thun',                           destination: '/solaranlage-bern',        permanent: true },
+      { source: '/www.pvpro.ch/solaranlage-fribourg',          destination: '/solaranlage-freiburg',    permanent: true },
+      { source: '/www.pvpro.ch/solaranlage-genf',              destination: '/fr/solaire-geneve',       permanent: true },
+      { source: '/www.pvpro.ch/solaranlage-zuerich',           destination: '/solaranlage-zurich',      permanent: true },
+      { source: '/www.pvpro.ch/it/impianto-fotovoltaico-lugano', destination: '/it/fotovoltaico-ticino', permanent: true },
+    ];
+  },
   async rewrites() {
     return {
       beforeFiles: [
