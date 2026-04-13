@@ -4,7 +4,7 @@
 PVPro is a multilingual solar panel comparison website for Switzerland. Its primary purpose is to help users compare solar panel providers, obtain quotes, and locate certified installers in their region, facilitating the transition to solar energy across Switzerland.
 
 ## User Preferences
-- **Logo**: ALWAYS use `/logo-pvpro.png` as-is — NEVER apply CSS filters (`brightness`, `invert`, etc.) or any color transformation. The logo must always display in its original colors everywhere (header, footer, any page).
+- **Logo**: In the **header**, ALWAYS use `/logo-pvpro.png` as-is — NEVER apply CSS filters (`brightness`, `invert`, etc.) or any color transformation. In the **footer** (dark background), use `/logo-pvpro-white.png` — a pre-generated white version of the logo (created via ImageMagick, no CSS filter applied). NEVER use CSS filters on the logo anywhere.
 - **Canonical domain**: Always use `https://www.pvpro.ch` — NEVER `https://pvpro.ch` (without www).
 - All `canonical` URLs, `metadataBase`, `og:url`, sitemap entries, structured data, and internal links must use `https://www.pvpro.ch`.
 - `robots.txt` Sitemap must point to `https://www.pvpro.ch/sitemap.xml`.

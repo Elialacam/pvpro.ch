@@ -174,7 +174,7 @@ export default function Footer() {
           <div className="flex flex-col gap-6 lg:pr-4">
             <Link href={homeHref}>
               <Image
-                src="/logo-pvpro.png"
+                src="/logo-pvpro-white.png"
                 alt="PVPro.ch"
                 width={130}
                 height={36}
