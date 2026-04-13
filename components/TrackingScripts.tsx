@@ -8,6 +8,7 @@ import { type CookieConsent, getConsent } from '@/lib/cookieConsent';
 export default function TrackingScripts() {
   const [consent, setConsent] = useState<CookieConsent | null>(null);
   const [loaded, setLoaded] = useState(false);
+  const [delayed, setDelayed] = useState(false);
 
   useEffect(() => {
     const existing = getConsent();
@@ -16,6 +17,24 @@ export default function TrackingScripts() {
     }
     setLoaded(true);
   }, []);
+
+  useEffect(() => {
+    if (delayed) return;
+
+    const activate = () => {
+      setDelayed(true);
+      window.removeEventListener('scroll', activate, { capture: true });
+      clearTimeout(timer);
+    };
+
+    const timer = setTimeout(activate, 3500);
+    window.addEventListener('scroll', activate, { once: true, capture: true, passive: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', activate, { capture: true });
+    };
+  }, [delayed]);
 
   const handleConsentChange = useCallback((newConsent: CookieConsent) => {
     setConsent(newConsent);
@@ -30,24 +49,26 @@ export default function TrackingScripts() {
     <>
       {showMarketing && (
         <>
-          <Script
-            id="meta-pixel"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-                !function(f,b,e,v,n,t,s)
-                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                n.queue=[];t=b.createElement(e);t.async=!0;
-                t.src=v;s=b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t,s)}(window, document,'script',
-                'https://connect.facebook.net/en_US/fbevents.js');
-                fbq('init', '1848326999213371');
-                fbq('track', 'PageView');
-              `,
-            }}
-          />
+          {delayed && (
+            <Script
+              id="meta-pixel"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  !function(f,b,e,v,n,t,s)
+                  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                  n.queue=[];t=b.createElement(e);t.async=!0;
+                  t.src=v;s=b.getElementsByTagName(e)[0];
+                  s.parentNode.insertBefore(t,s)}(window, document,'script',
+                  'https://connect.facebook.net/en_US/fbevents.js');
+                  fbq('init', '1848326999213371');
+                  fbq('track', 'PageView');
+                `,
+              }}
+            />
+          )}
           <Script
             id="google-ads-tag"
             strategy="afterInteractive"
@@ -87,19 +108,21 @@ export default function TrackingScripts() {
               `,
             }}
           />
-          <Script
-            id="clarity-script"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-                (function(c,l,a,r,i,t,y){
-                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-                })(window, document, "clarity", "script", "u1ur4kb2kq");
-              `,
-            }}
-          />
+          {delayed && (
+            <Script
+              id="clarity-script"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                  })(window, document, "clarity", "script", "u1ur4kb2kq");
+                `,
+              }}
+            />
+          )}
         </>
       )}
 

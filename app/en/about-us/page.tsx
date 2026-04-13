@@ -71,7 +71,7 @@ export default function AboutUsPage() {
           </div>
           <div className="rounded-2xl overflow-hidden shadow-xl">
             <Image
-              src="/team-new.png"
+              src="/team-new.webp"
               alt="The PVPro team"
               width={800}
               height={500}
@@ -122,7 +122,7 @@ export default function AboutUsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
           <div className="rounded-2xl overflow-hidden shadow-xl order-2 lg:order-1">
             <Image
-              src="/images/hero-family-solar.png"
+              src="/images/hero-family-solar.webp"
               alt="Family with solar installation"
               width={800}
               height={500}

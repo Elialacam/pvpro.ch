@@ -128,7 +128,7 @@ export default function CoutPVParM2Page() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img src="/images/asset-panel-closeup-1.png" alt="Panneaux solaires Suisse" className="w-full h-72 object-cover" />
+            <img loading="lazy" src="/images/asset-panel-closeup-1.webp" alt="Panneaux solaires Suisse" className="w-full h-72 object-cover" />
           </div>
         </section>
 
@@ -153,7 +153,7 @@ export default function CoutPVParM2Page() {
         {/* ── Example ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img src="/images/asset-haus-luftbild-2.png" alt="Maison individuelle avec installation solaire" className="w-full h-72 object-cover" />
+            <img loading="lazy" src="/images/asset-haus-luftbild-2.webp" alt="Maison individuelle avec installation solaire" className="w-full h-72 object-cover" />
           </div>
           <div>
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Exemple de calcul</p>
@@ -259,7 +259,7 @@ export default function CoutPVParM2Page() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img src="/images/asset-beratung-indoor-1.png" alt="Conseil installation solaire Suisse" className="w-full h-72 object-cover" />
+            <img loading="lazy" src="/images/asset-beratung-indoor-1.webp" alt="Conseil installation solaire Suisse" className="w-full h-72 object-cover" />
           </div>
         </section>
 

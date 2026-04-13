@@ -59,7 +59,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── ZÜRICH (DE) ─────────────────────────────────────────────────────────────
   zurich: {
     slug: 'zurich',
-    image: '/images/asset-haus-luftbild-2.png',
+    image: '/images/asset-haus-luftbild-2.webp',
     heroHeadline: 'Solaranlage in Zürich',
     heroSubheadline: 'Jetzt Solarpflicht nutzen – Förderung sichern',
     heroDescription: 'Zürich ist Vorreiterkanton: Neubauten und grosse Dachsanierungen sind seit 2023 solar­pflichtig. Nutzen Sie die Pflicht als Chance – vergleichen Sie bis zu 3 geprüfte Offerten und sichern Sie sich die EIV-Förderung 2026.',
@@ -120,7 +120,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── BERN (DE) ───────────────────────────────────────────────────────────────
   bern: {
     slug: 'bern',
-    image: '/images/asset-haus-modern-1.png',
+    image: '/images/asset-haus-modern-1.webp',
     heroHeadline: 'Solaranlage in Bern',
     heroSubheadline: 'Die Bundesstadt macht die Energiewende vor',
     heroDescription: 'Bern hat 1\'694 Sonnenstunden pro Jahr – deutlich mehr als viele denken. Als Bundeshauptstadt setzt der Kanton mit einem starken Förderprogramm und ehrgeizigen Klimazielen ein Zeichen. Vergleichen Sie jetzt bis zu 3 Offerten.',
@@ -181,7 +181,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── BASEL (DE) ──────────────────────────────────────────────────────────────
   basel: {
     slug: 'basel',
-    image: '/images/asset-panel-closeup-1.png',
+    image: '/images/asset-panel-closeup-1.webp',
     heroHeadline: 'Solaranlage in Basel',
     heroSubheadline: 'Industriestandort auf Kurs zur Energiewende',
     heroDescription: 'Basel ist nicht nur die Pharmahauptstadt der Welt – der Kanton BS/BL zählt auch zu den innovativsten beim Thema Solar. Dichte Bebauung, starke Industrie und attraktive Förderprogramme machen Basel zu einem idealen Solar-Standort.',
@@ -242,7 +242,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── LUZERN (DE) ─────────────────────────────────────────────────────────────
   luzern: {
     slug: 'luzern',
-    image: '/images/asset-haus-alpen-1.png',
+    image: '/images/asset-haus-alpen-1.webp',
     heroHeadline: 'Solaranlage in Luzern',
     heroSubheadline: 'Zentralschweizer Nachhaltigkeit – von Tourismus bis Eigenheim',
     heroDescription: 'Luzern kombiniert malerische Landschaft mit handfesten Solarvorteilen: 1\'598 Sonnenstunden, ein starkes kantonales Förderprogramm und lokale Installateure, die alpine Bedingungen kennen. Holen Sie jetzt Ihre kostenlose Vergleichsofferte.',
@@ -302,7 +302,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── THURGAU (DE) ────────────────────────────────────────────────────────────
   thurgau: {
     slug: 'thurgau',
-    image: '/images/asset-installateur-dach-3.png',
+    image: '/images/asset-installateur-dach-3.webp',
     heroHeadline: 'Solaranlage im Thurgau',
     heroSubheadline: 'Landwirtschaft trifft Solarenergie am Bodensee',
     heroDescription: 'Der Thurgau ist der Kanton der grossen Dachflächen: Landwirtschaftsbetriebe, Einfamilienhäuser und Gewerbegebäude bieten ideale Voraussetzungen für Solaranlagen. Mit dem Bodensee-Mikroklima und 1\'566 Sonnenstunden lohnt sich die Investition.',
@@ -362,7 +362,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── ST. GALLEN (DE) ─────────────────────────────────────────────────────────
   'st-gallen': {
     slug: 'st-gallen',
-    image: '/images/asset-installateur-dach-4.png',
+    image: '/images/asset-installateur-dach-4.webp',
     heroHeadline: 'Solaranlage in St. Gallen',
     heroSubheadline: 'Ostschweiz nutzt jede Sonnenstunde optimal',
     heroDescription: 'St. Gallen hat mit 1\'522 Stunden die tiefsten Sonnenstunden unter den Deutschschweizer Kantonen – und trotzdem rechnen sich Solaranlagen. Denn was an direkter Sonne fehlt, kompensiert die exzellente Bundesförderung. Holen Sie jetzt 3 Vergleichsofferten.',
@@ -422,7 +422,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── SCHWYZ (DE) ─────────────────────────────────────────────────────────────
   schwyz: {
     slug: 'schwyz',
-    image: '/images/asset-haus-alpen-2.png',
+    image: '/images/asset-haus-alpen-2.webp',
     heroHeadline: 'Solaranlage Schwyz',
     heroSubheadline: 'Wo die Schweiz begann, startet die Energiewende',
     heroDescription: 'Der Urkanton Schwyz schreibt Geschichte – jetzt auch in der Energieproduktion. Mit 1\'694 Sonnenstunden und einer Kultur der Unabhängigkeit ist Solar für Schwyzer Hauseigentümer nicht nur Ökologie, sondern auch eine Frage der Selbstbestimmung.',
@@ -482,7 +482,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── URI (DE) ────────────────────────────────────────────────────────────────
   uri: {
     slug: 'uri',
-    image: '/images/asset-haus-alpen-3.png',
+    image: '/images/asset-haus-alpen-3.webp',
     heroHeadline: 'Solaranlage Uri',
     heroSubheadline: 'Netzunabhängigkeit im Gotthardkanton',
     heroDescription: 'Uri ist klein, aber energiepolitisch bedeutsam: Der Gotthardkanton hat 1\'694 Sonnenstunden und viele Gebäude an Südhängen – ideal für Solar. Dazu kommt die Idee der Selbstversorgung, die in Uri tief verwurzelt ist.',
@@ -542,7 +542,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── SCHAFFHAUSEN (DE) ───────────────────────────────────────────────────────
   schaffhausen: {
     slug: 'schaffhausen',
-    image: '/images/asset-panel-closeup-3.png',
+    image: '/images/asset-panel-closeup-3.webp',
     heroHeadline: 'Solaranlage Schaffhausen',
     heroSubheadline: 'Nördlichster Kanton setzt auf Solarstrom am Rhein',
     heroDescription: 'Schaffhausen am Rhein – nördlichster Schweizer Kanton und Heimat des grössten Wasserfalls Europas – hat 1\'644 Sonnenstunden pro Jahr. Starke Industrie, Weinbau und Einfamilienhäuser machen Solar im Kanton zu einer lohnenden Investition.',
@@ -602,7 +602,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── APPENZELL (DE) ──────────────────────────────────────────────────────────
   appenzell: {
     slug: 'appenzell',
-    image: '/images/asset-installateur-dach-1.png',
+    image: '/images/asset-installateur-dach-1.webp',
     heroHeadline: 'Solaranlage Appenzell',
     heroSubheadline: 'Traditionsbewusstsein trifft moderne Energie',
     heroDescription: 'Appenzell Innerrhoden und Ausserrhoden stehen für Tradition und Bodenständigkeit – und genau diese Qualitäten machen Solar so attraktiv: zuverlässig, langlebig und unabhängig von Energielieferanten. 1\'720 Sonnenstunden Jahr für Jahr.',
@@ -662,7 +662,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── GRAUBÜNDEN (DE) ─────────────────────────────────────────────────────────
   graubunden: {
     slug: 'graubunden',
-    image: '/images/asset-installateur-dach-5.png',
+    image: '/images/asset-installateur-dach-5.webp',
     heroHeadline: 'Solaranlage Graubünden',
     heroSubheadline: 'Alpines Klima, maximale Solarausbeute auf 1\'800m',
     heroDescription: 'Graubünden – der grösste Schweizer Kanton – bietet die besten natürlichen Voraussetzungen für Solar: 1\'803 Sonnenstunden, Höhenlagen mit weniger Luftfilterung und eine Skitourismus-Infrastruktur, die zunehmend auf Solarstrom umsteigt.',
@@ -722,7 +722,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── GLARUS (DE) ─────────────────────────────────────────────────────────────
   glarus: {
     slug: 'glarus',
-    image: '/images/asset-haus-luftbild-3.png',
+    image: '/images/asset-haus-luftbild-3.webp',
     heroHeadline: 'Solaranlage Glarus',
     heroSubheadline: 'Kleiner Kanton, grosse Solarambitionen',
     heroDescription: 'Glarus ist der flächenkleinste Kanton der Schweiz – aber in Sachen Solar geht man grosse Schritte. Mit 1\'605 Sonnenstunden, einer aktiven Gemeinde und dem Wandel vom Textil- zum Solarstandort setzt Glarus ein Zeichen.',
@@ -782,7 +782,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── ZUG (DE) ────────────────────────────────────────────────────────────────
   zug: {
     slug: 'zug',
-    image: '/images/asset-haus-modern-2.png',
+    image: '/images/asset-haus-modern-2.webp',
     heroHeadline: 'Solaranlage Zug',
     heroSubheadline: 'Crypto Valley investiert in saubere Solarenergie',
     heroDescription: 'Zug – Schweizer Steueroase, Heimat von Blockchain-Unternehmen und Top-Wirtschaftsstandort – setzt auf Premium-Solaranlagen. Hochwertige Indachsysteme, grösste Batteriespeicher und beste Installateure: In Zug wird Solar zur Chefsache.',
@@ -842,7 +842,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── UNTERWALDEN (DE) ────────────────────────────────────────────────────────
   unterwalden: {
     slug: 'unterwalden',
-    image: '/images/asset-haus-luftbild-1.png',
+    image: '/images/asset-haus-luftbild-1.webp',
     heroHeadline: 'Solaranlage Unterwalden',
     heroSubheadline: 'Vierwaldstättersee-Region setzt ein Zeichen',
     heroDescription: 'Ob Stans in Nidwalden oder Sarnen in Obwalden – die Region Unterwalden am Vierwaldstättersee bietet 1\'739 Sonnenstunden und ein mildes Seeklima, das Solaranlagen optimale Produktionsbedingungen bietet.',
@@ -902,7 +902,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── SOLOTHURN (DE) ──────────────────────────────────────────────────────────
   solothurn: {
     slug: 'solothurn',
-    image: '/images/asset-installateur-tablet.png',
+    image: '/images/asset-installateur-tablet.webp',
     heroHeadline: 'Solaranlage Solothurn',
     heroSubheadline: 'Schweizer Präzision trifft saubere Energie im Aareraum',
     heroDescription: 'Solothurn – Stadt der Barockkirchen und präzisen Uhrmacher – verbindet Tradition mit Moderne. Mit 1\'631 Sonnenstunden und einem starken Gebäudeprogramm lohnt sich Photovoltaik im gesamten Aarekorridor besonders.',
@@ -962,7 +962,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── AARGAU (DE) ─────────────────────────────────────────────────────────────
   aargau: {
     slug: 'aargau',
-    image: '/images/asset-haus-luftbild-4.png',
+    image: '/images/asset-haus-luftbild-4.webp',
     heroHeadline: 'Solaranlage Aargau',
     heroSubheadline: 'Von der Atomkraft zur Solarenergie – der Wandel beginnt',
     heroDescription: 'Aargau – einst Heimat von Kernkraftwerken – ist auf Kurs zur Solarrepublik. Bevölkerungsreichster Kanton nach Zürich, hohe Eigenheimquote und attraktive Förderung: Im Aargau lohnt sich die Solarinvestition besonders.',
@@ -1022,7 +1022,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── GENÈVE (FR) ─────────────────────────────────────────────────────────────
   geneve: {
     slug: 'geneve',
-    image: '/images/asset-beratung-indoor-1.png',
+    image: '/images/asset-beratung-indoor-1.webp',
     heroHeadline: 'Installation Solaire à Genève',
     heroSubheadline: 'La Cité Internationale en tête du solaire suisse',
     heroDescription: "Genève bénéficie de 1'849 heures de soleil par an, d'une obligation solaire en vigueur et du programme SIG Prime Énergie. La Cité Internationale est devenue un leader européen de l'installation photovoltaïque. Demandez 3 offres gratuites maintenant.",
@@ -1082,7 +1082,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── VAUD (FR) ───────────────────────────────────────────────────────────────
   vaud: {
     slug: 'vaud',
-    image: '/images/asset-beratung-indoor-2.png',
+    image: '/images/asset-beratung-indoor-2.webp',
     heroHeadline: "Installation Solaire dans le Canton de Vaud",
     heroSubheadline: "Du Léman aux Alpes – le solaire vaudois en plein essor",
     heroDescription: "Vaud bénéficie de 1'821 heures de soleil, d'un réseau d'installateurs dense autour de Lausanne et d'un programme cantonal d'aides attrayant. Du vignoble lavallois aux chalets du Pays-d'Enhaut, chaque toit est une opportunité.",
@@ -1142,7 +1142,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── VALAIS (FR) ─────────────────────────────────────────────────────────────
   valais: {
     slug: 'valais',
-    image: '/images/asset-installateur-montage-1.png',
+    image: '/images/asset-installateur-montage-1.webp',
     heroHeadline: "Installation Solaire en Valais",
     heroSubheadline: "Le Champion Suisse du Solaire alpin",
     heroDescription: "Le Valais est le deuxième canton le plus ensoleillé de Suisse avec 1'849 heures par an et une irradiance alpine exceptionnelle. Des stations comme Zermatt et Sion ont fait du Valais la vitrine nationale de l'énergie solaire. Demandez vos offres maintenant.",
@@ -1202,7 +1202,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── TICINO (IT) ─────────────────────────────────────────────────────────────
   ticino: {
     slug: 'ticino',
-    image: '/images/asset-haus-solar-ev-1.png',
+    image: '/images/asset-haus-solar-ev-1.webp',
     heroHeadline: 'Impianto Fotovoltaico in Ticino',
     heroSubheadline: 'Il Cantone con il sole migliore della Svizzera',
     heroDescription: "Il Ticino è il paradiso svizzero del solare: 2'157 ore di sole all'anno, clima mediterraneo e il ROI più breve di tutta la Svizzera (4–6 anni). Ogni tetto ticinese è un potenziale generatore di energia pulita e risparmio.",
@@ -1262,7 +1262,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── FREIBURG (DE) ───────────────────────────────────────────────────────────
   freiburg: {
     slug: 'freiburg',
-    image: '/images/asset-haus-alpen-1.png',
+    image: '/images/asset-haus-alpen-1.webp',
     heroHeadline: 'Solaranlage im Kanton Freiburg',
     heroSubheadline: 'Zweisprachig. Förderungsstark. Zukunftsorientiert.',
     heroDescription: 'Der Kanton Freiburg vereint deutsch- und frankophone Traditionen – und fördert Solaranlagen in beiden Landesteilen mit attraktiven Kantonsprogrammen. Vergleichen Sie bis zu 3 geprüfte Offerten und sichern Sie sich Ihre EIV-Förderung 2026.',
@@ -1331,7 +1331,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── BIEL/BIENNE (DE) ────────────────────────────────────────────────────────
   biel: {
     slug: 'biel',
-    image: '/images/asset-haus-luftbild-1.png',
+    image: '/images/asset-haus-luftbild-1.webp',
     heroHeadline: 'Solaranlage in Biel/Bienne',
     heroSubheadline: 'Die Uhrenhauptstadt setzt auf Solarenergie',
     heroDescription: "Biel/Bienne liegt im Herzen des Berner Juras – und profitiert von einer begünstigten Sonnenlage am Bielersee. Vergleichen Sie jetzt bis zu 3 geprüfte Offerten von zertifizierten Solarinstallateuren in der Region Biel.",
@@ -1400,7 +1400,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── WALLIS (DE) ─────────────────────────────────────────────────────────────
   wallis: {
     slug: 'wallis',
-    image: '/images/asset-haus-alpen-2.png',
+    image: '/images/asset-haus-alpen-2.webp',
     heroHeadline: 'Solaranlage im Kanton Wallis',
     heroSubheadline: "Schweizer Sonnenstunden-Rekord – jetzt nutzen",
     heroDescription: "Das Wallis empfängt mehr Sonnenstunden als jeder andere deutschschweizerische Kanton. Mit 1'849 Stunden pro Jahr und einer der höchsten kantonalen Förderungen der Schweiz ist jetzt der ideale Zeitpunkt für Ihre Solaranlage.",
@@ -1469,7 +1469,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── FRIBOURG (FR) ───────────────────────────────────────────────────────────
   fribourg: {
     slug: 'fribourg',
-    image: '/images/asset-haus-alpen-1.png',
+    image: '/images/asset-haus-alpen-1.webp',
     heroHeadline: 'Installation solaire dans le Canton de Fribourg',
     heroSubheadline: 'Bilingue. Engagé. Productif.',
     heroDescription: "Le Canton de Fribourg combine tradition agricole et ambitions climatiques fortes. Profitez des subventions cantonales attractives et comparez jusqu'à 3 offres d'installateurs certifiés dans votre région.",
@@ -1538,7 +1538,7 @@ export const cityContents: Record<string, CityContent> = {
   // ─── BIEL/BIENNE (FR) ────────────────────────────────────────────────────────
   bienne: {
     slug: 'bienne',
-    image: '/images/asset-haus-luftbild-1.png',
+    image: '/images/asset-haus-luftbild-1.webp',
     heroHeadline: 'Installation solaire à Biel/Bienne',
     heroSubheadline: "La capitale de l'horlogerie mise sur l'énergie solaire",
     heroDescription: "Biel/Bienne bénéficie d'un microclimat favorable au bord du lac de Bienne et d'une politique énergétique municipale ambitieuse. Comparez jusqu'à 3 offres d'installateurs certifiés dans la région biennoise.",

@@ -224,7 +224,7 @@ function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCa
       }}
     >
       <div className="flex-1 flex items-center justify-center w-full">
-        <img src={imageSrc} alt={label} className="w-full h-full object-contain max-h-28 sm:max-h-32" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
+        <img loading="lazy" src={imageSrc} alt={label} className="w-full h-full object-contain max-h-28 sm:max-h-32" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
       </div>
       <p className="text-sm sm:text-base font-bold text-gray-900 text-center leading-tight mt-3">
         {label}
@@ -289,6 +289,8 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   }, [errorMsg]);
 
   useEffect(() => {
+    if (step !== 5) return;
+
     const init = () => {
       if (window.google?.maps?.places) {
         autocompleteService.current = new window.google.maps.places.AutocompleteService();
@@ -296,10 +298,22 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         placesService.current = new window.google.maps.places.PlacesService(div);
       }
     };
+
     if (window.google?.maps?.places) { init(); return; }
+
+    const scriptId = 'google-maps-places';
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`;
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
     const iv = setInterval(() => { if (window.google?.maps?.places) { init(); clearInterval(iv); } }, 100);
     return () => clearInterval(iv);
-  }, []);
+  }, [step]);
 
   const handleAddressChange = (value: string) => {
     setFormData({ ...formData, address: value });
@@ -502,39 +516,39 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       case 1: return (
         <StepWrapper title={t.step1Title} sub={t.step1Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label={t.yes} isSelected={formData.isOwner === 'yes'} onClick={() => handleSelect('isOwner', 'yes')} imageSrc="/icons/icon-check.png" />
-            <OptionCard label={t.no} isSelected={formData.isOwner === 'no'} onClick={() => handleSelect('isOwner', 'no')} imageSrc="/icons/icon-x.png" />
+            <OptionCard label={t.yes} isSelected={formData.isOwner === 'yes'} onClick={() => handleSelect('isOwner', 'yes')} imageSrc="/icons/icon-check.webp" />
+            <OptionCard label={t.no} isSelected={formData.isOwner === 'no'} onClick={() => handleSelect('isOwner', 'no')} imageSrc="/icons/icon-x.webp" />
           </div>
         </StepWrapper>
       );
       case 2: return (
         <StepWrapper title={t.step2Title} sub={t.step2Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label={t.detachedHouse} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelect('propertyType', 'einfamilienhaus')} imageSrc="/icons/icon-einfamilienhaus.png" />
-            <OptionCard label={t.apartmentBuilding} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelect('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/icon-mehrfamilienhaus.png" />
-            <OptionCard label={t.commercial} isSelected={formData.propertyType === 'gewerbe'} onClick={() => handleSelect('propertyType', 'gewerbe')} imageSrc="/icons/icon-gewerbe.png" />
-            <OptionCard label={t.other} isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelect('propertyType', 'sonstiges')} imageSrc="/icons/icon-question.png" />
+            <OptionCard label={t.detachedHouse} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelect('propertyType', 'einfamilienhaus')} imageSrc="/icons/icon-einfamilienhaus.webp" />
+            <OptionCard label={t.apartmentBuilding} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelect('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/icon-mehrfamilienhaus.webp" />
+            <OptionCard label={t.commercial} isSelected={formData.propertyType === 'gewerbe'} onClick={() => handleSelect('propertyType', 'gewerbe')} imageSrc="/icons/icon-gewerbe.webp" />
+            <OptionCard label={t.other} isSelected={formData.propertyType === 'sonstiges'} onClick={() => handleSelect('propertyType', 'sonstiges')} imageSrc="/icons/icon-question.webp" />
           </div>
         </StepWrapper>
       );
       case 3: return (
         <StepWrapper title={t.step3Title} sub={t.step3Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label={t.pitchedRoof} isSelected={formData.roofType === 'pitched'} onClick={() => handleSelect('roofType', 'pitched')} imageSrc="/icons/icon-satteldach.png" />
-            <OptionCard label={t.monopitchRoof} isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelect('roofType', 'monopitch')} imageSrc="/icons/icon-pultdach.png" />
-            <OptionCard label={t.flatRoof} isSelected={formData.roofType === 'flat'} onClick={() => handleSelect('roofType', 'flat')} imageSrc="/icons/icon-flachdach.png" />
-            <OptionCard label={t.other} isSelected={formData.roofType === 'other'} onClick={() => handleSelect('roofType', 'other')} imageSrc="/icons/icon-question.png" />
+            <OptionCard label={t.pitchedRoof} isSelected={formData.roofType === 'pitched'} onClick={() => handleSelect('roofType', 'pitched')} imageSrc="/icons/icon-satteldach.webp" />
+            <OptionCard label={t.monopitchRoof} isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelect('roofType', 'monopitch')} imageSrc="/icons/icon-pultdach.webp" />
+            <OptionCard label={t.flatRoof} isSelected={formData.roofType === 'flat'} onClick={() => handleSelect('roofType', 'flat')} imageSrc="/icons/icon-flachdach.webp" />
+            <OptionCard label={t.other} isSelected={formData.roofType === 'other'} onClick={() => handleSelect('roofType', 'other')} imageSrc="/icons/icon-question.webp" />
           </div>
         </StepWrapper>
       );
       case 4: return (
         <StepWrapper title={t.step4Title} sub={t.step4Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <OptionCard label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelect('wantsBattery', 'yes')} imageSrc="/icons/icon-check.png" />
-            <OptionCard label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelect('wantsBattery', 'no')} imageSrc="/icons/icon-x.png" />
+            <OptionCard label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelect('wantsBattery', 'yes')} imageSrc="/icons/icon-check.webp" />
+            <OptionCard label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelect('wantsBattery', 'no')} imageSrc="/icons/icon-x.webp" />
             <div className="col-span-2 flex justify-center">
               <div className="w-1/2 pr-1.5">
-                <OptionCard label={t.dontKnow} isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelect('wantsBattery', 'unknown')} imageSrc="/icons/icon-question.png" />
+                <OptionCard label={t.dontKnow} isSelected={formData.wantsBattery === 'unknown'} onClick={() => handleSelect('wantsBattery', 'unknown')} imageSrc="/icons/icon-question.webp" />
               </div>
             </div>
           </div>

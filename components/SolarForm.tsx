@@ -278,7 +278,7 @@ function BigCard({ label, subLabel, isSelected, onClick, icon, imageSrc, color =
     >
       {imageSrc ? (
         <div className="w-20 h-20 flex items-center justify-center mb-3">
-          <img src={imageSrc} alt={label} className="w-full h-full object-contain mix-blend-multiply" />
+          <img loading="lazy" src={imageSrc} alt={label} className="w-full h-full object-contain mix-blend-multiply" />
         </div>
       ) : icon === 'check' ? (
         <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-3" style={{ background: 'white', border: `2px solid ${s.border}` }}>
@@ -549,8 +549,8 @@ export default function SolarForm() {
               <p className="text-sm text-gray-400">{t.step2Sub}</p>
             </div>
             <div className="grid grid-cols-2 gap-4 pt-2">
-              <BigCard label={t.singleFamily} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelection('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.png" color="amber" />
-              <BigCard label={t.multiFamily} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelection('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.png" color="amber" />
+              <BigCard label={t.singleFamily} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelection('propertyType', 'einfamilienhaus')} imageSrc="/icons/single-family.webp" color="amber" />
+              <BigCard label={t.multiFamily} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelection('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/multi-family.webp" color="amber" />
             </div>
             <div className="flex justify-center">
               <div className="w-1/2">
@@ -568,9 +568,9 @@ export default function SolarForm() {
               <p className="text-sm text-gray-400">{t.step3Sub}</p>
             </div>
             <div className="grid grid-cols-2 gap-4 pt-2">
-              <BigCard label={t.pitchedRoof} isSelected={formData.roofType === 'pitched'} onClick={() => handleSelection('roofType', 'pitched')} imageSrc="/icons/pitched-roof.png" color="amber" />
-              <BigCard label={t.monopitchRoof} isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelection('roofType', 'monopitch')} imageSrc="/icons/monopitch-roof.png" color="amber" />
-              <BigCard label={t.flatRoof} isSelected={formData.roofType === 'flat'} onClick={() => handleSelection('roofType', 'flat')} imageSrc="/icons/flat-roof.png" color="amber" />
+              <BigCard label={t.pitchedRoof} isSelected={formData.roofType === 'pitched'} onClick={() => handleSelection('roofType', 'pitched')} imageSrc="/icons/pitched-roof.webp" color="amber" />
+              <BigCard label={t.monopitchRoof} isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelection('roofType', 'monopitch')} imageSrc="/icons/monopitch-roof.webp" color="amber" />
+              <BigCard label={t.flatRoof} isSelected={formData.roofType === 'flat'} onClick={() => handleSelection('roofType', 'flat')} imageSrc="/icons/flat-roof.webp" color="amber" />
               <BigCard label={t.other} isSelected={formData.roofType === 'other'} onClick={() => handleSelection('roofType', 'other')} icon="question" color="gray" />
             </div>
             <TrustBadges />

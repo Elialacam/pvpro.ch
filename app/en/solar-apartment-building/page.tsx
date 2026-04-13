@@ -132,7 +132,7 @@ export default function SolarApartmentBuildingPage() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img src="/images/asset-haus-luftbild-3.png" alt="Apartment building with solar installation" className="w-full h-80 object-cover" />
+            <img loading="lazy" src="/images/asset-haus-luftbild-3.webp" alt="Apartment building with solar installation" className="w-full h-80 object-cover" />
           </div>
         </section>
 
@@ -189,7 +189,7 @@ export default function SolarApartmentBuildingPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <img src="/images/asset-installateur-dach-5.png" alt="Solar installation apartment building" className="w-full h-72 object-cover" />
+              <img loading="lazy" src="/images/asset-installateur-dach-5.webp" alt="Solar installation apartment building" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>
@@ -269,7 +269,7 @@ export default function SolarApartmentBuildingPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img src="/images/asset-haus-solar-ev-1.png" alt="Apartment building solar investment" className="w-full h-72 object-cover" />
+              <img loading="lazy" src="/images/asset-haus-solar-ev-1.webp" alt="Apartment building solar investment" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>
@@ -316,7 +316,7 @@ export default function SolarApartmentBuildingPage() {
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <img src="/images/asset-beratung-indoor-3.png" alt="Solar planning for apartment building" className="w-full h-72 object-cover" />
+              <img loading="lazy" src="/images/asset-beratung-indoor-3.webp" alt="Solar planning for apartment building" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>

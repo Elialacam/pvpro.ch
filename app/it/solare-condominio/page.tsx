@@ -132,7 +132,7 @@ export default function SolareCondominioPage() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img src="/images/asset-haus-luftbild-3.png" alt="Condominio con impianto solare" className="w-full h-80 object-cover" />
+            <img loading="lazy" src="/images/asset-haus-luftbild-3.webp" alt="Condominio con impianto solare" className="w-full h-80 object-cover" />
           </div>
         </section>
 
@@ -189,7 +189,7 @@ export default function SolareCondominioPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <img src="/images/asset-installateur-dach-5.png" alt="Montaggio impianto solare condominio" className="w-full h-72 object-cover" />
+              <img loading="lazy" src="/images/asset-installateur-dach-5.webp" alt="Montaggio impianto solare condominio" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>
@@ -269,7 +269,7 @@ export default function SolareCondominioPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img src="/images/asset-haus-solar-ev-1.png" alt="Condominio solare investimento" className="w-full h-72 object-cover" />
+              <img loading="lazy" src="/images/asset-haus-solar-ev-1.webp" alt="Condominio solare investimento" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>
@@ -316,7 +316,7 @@ export default function SolareCondominioPage() {
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <img src="/images/asset-beratung-indoor-3.png" alt="Pianificazione impianto solare condominio" className="w-full h-72 object-cover" />
+              <img loading="lazy" src="/images/asset-beratung-indoor-3.webp" alt="Pianificazione impianto solare condominio" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>

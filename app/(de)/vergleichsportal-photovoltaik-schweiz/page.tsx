@@ -158,7 +158,7 @@ export default function VergleichsportalPage() {
           </div>
           <div className="rounded-3xl overflow-hidden">
             <img
-              src="/images/asset-beratung-indoor-2.png"
+              src="/images/asset-beratung-indoor-2.webp"
               alt="Vergleich Photovoltaik Anbieter Schweiz"
               className="w-full h-72 object-cover rounded-3xl"
             />
@@ -216,7 +216,7 @@ export default function VergleichsportalPage() {
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="rounded-3xl overflow-hidden">
             <img
-              src="/images/asset-installateur-dach-2.png"
+              src="/images/asset-installateur-dach-2.webp"
               alt="Zertifizierter Photovoltaik Installateur Schweiz"
               className="w-full h-72 object-cover rounded-3xl object-top"
             />

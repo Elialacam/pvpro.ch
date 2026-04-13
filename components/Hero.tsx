@@ -10,14 +10,14 @@ import { Locale } from '@/lib/i18n';
 import HeroWidget from './HeroWidget';
 
 const slides = [
-  '/images/hero-family-solar.png',
-  '/images/hero-2.png',
-  '/images/hero-3.png',
-  '/images/hero-4.png',
-  '/images/hero-5.png',
-  '/images/hero-6.png',
-  '/images/hero-7.png',
-  '/images/hero-8.png',
+  '/images/hero-family-solar.webp',
+  '/images/hero-2.webp',
+  '/images/hero-3.webp',
+  '/images/hero-4.webp',
+  '/images/hero-5.webp',
+  '/images/hero-6.webp',
+  '/images/hero-7.webp',
+  '/images/hero-8.webp',
 ];
 
 const heroContent: Record<Locale, {

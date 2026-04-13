@@ -154,7 +154,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
           </div>
           <div className="rounded-3xl overflow-hidden">
             <img
-              src="/images/asset-beratung-indoor-2.png"
+              src="/images/asset-beratung-indoor-2.webp"
               alt="Compare solar panel providers Switzerland"
               className="w-full h-72 object-cover rounded-3xl"
             />
@@ -200,7 +200,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="rounded-3xl overflow-hidden">
             <img
-              src="/images/asset-installateur-dach-2.png"
+              src="/images/asset-installateur-dach-2.webp"
               alt="Certified solar installer Switzerland"
               className="w-full h-72 object-cover rounded-3xl object-top"
             />

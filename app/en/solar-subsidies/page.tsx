@@ -107,7 +107,7 @@ export default function SolarSubsidiesPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/blog-2.png" alt="Solar subsidy Switzerland" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/blog-2.webp" alt="Solar subsidy Switzerland" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -194,7 +194,7 @@ export default function SolarSubsidiesPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/hero-family-solar.png" alt="Detached house with solar installation" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/hero-family-solar.webp" alt="Detached house with solar installation" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
             <div>
               <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Calculation example</p>
@@ -246,7 +246,7 @@ export default function SolarSubsidiesPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/blog-5.png" alt="Solar installation profitability" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/blog-5.webp" alt="Solar installation profitability" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>

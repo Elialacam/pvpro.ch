@@ -154,7 +154,7 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
           </div>
           <div className="rounded-3xl overflow-hidden">
             <img
-              src="/images/asset-beratung-indoor-2.png"
+              src="/images/asset-beratung-indoor-2.webp"
               alt="Comparaison installateurs photovoltaïques Suisse"
               className="w-full h-72 object-cover rounded-3xl"
             />
@@ -200,7 +200,7 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="rounded-3xl overflow-hidden">
             <img
-              src="/images/asset-installateur-dach-2.png"
+              src="/images/asset-installateur-dach-2.webp"
               alt="Installateur photovoltaïque certifié Suisse"
               className="w-full h-72 object-cover rounded-3xl object-top"
             />

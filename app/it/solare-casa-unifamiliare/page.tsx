@@ -145,7 +145,7 @@ export default function SolareCasaUnifamiliarePage() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img src="/images/asset-installateur-dach-1.png" alt="Impianto solare casa unifamiliare Svizzera" className="w-full h-80 object-cover" />
+            <img loading="lazy" src="/images/asset-installateur-dach-1.webp" alt="Impianto solare casa unifamiliare Svizzera" className="w-full h-80 object-cover" />
           </div>
         </section>
 
@@ -180,7 +180,7 @@ export default function SolareCasaUnifamiliarePage() {
               ))}
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img src="/images/asset-haus-luftbild-1.png" alt="Casa unifamiliare con impianto solare" className="w-full h-72 object-cover" />
+              <img loading="lazy" src="/images/asset-haus-luftbild-1.webp" alt="Casa unifamiliare con impianto solare" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>
@@ -188,7 +188,7 @@ export default function SolareCasaUnifamiliarePage() {
         {/* ── Conviene? ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img src="/images/asset-beratung-indoor-2.png" alt="Consulenza impianto solare" className="w-full h-80 object-cover" />
+            <img loading="lazy" src="/images/asset-beratung-indoor-2.webp" alt="Consulenza impianto solare" className="w-full h-80 object-cover" />
           </div>
           <div>
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Redditività</p>
