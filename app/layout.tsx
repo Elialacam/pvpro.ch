@@ -5,6 +5,7 @@ import "./globals.css";
 import { Suspense } from "react";
 import TrackingScripts from '@/components/TrackingScripts';
 import SupportPopup from '@/components/SupportPopup';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({
         </Suspense>
         {children}
         <SupportPopup />
+        <Analytics />
       </body>
     </html>
   );
