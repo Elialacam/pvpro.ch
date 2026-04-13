@@ -69,7 +69,7 @@ export default function CentraleBalconSuissePage() {
               <img
                 src="/images/balkonkraftwerk-schweiz.webp"
                 alt="Centrale solaire de balcon en Suisse – Mini-installation sur balcon avec vue sur les Alpes"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f1f3d]/60 to-transparent" />
             </div>

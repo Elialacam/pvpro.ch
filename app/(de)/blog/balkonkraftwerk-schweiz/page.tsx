@@ -59,7 +59,7 @@ export default function BalkonkraftwerkSchweizPage() {
               <img
                 src="/images/balkonkraftwerk-schweiz.webp"
                 alt="Balkonkraftwerk Schweiz – Mini-Solaranlage auf Balkon mit Alpenblick"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f1f3d]/60 to-transparent" />
             </div>
