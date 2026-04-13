@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { hasConsent } from '@/lib/cookieConsent';
 import { getFormUrl } from '@/lib/i18n/formUrls';
 
-const FORM_PATHS = ['/anfrage', '/fr/demande', '/en/request', '/it/richiesta'];
+const FORM_PATHS = ['/anfrage', '/fr/demande', '/en/request', '/it/richiesta', '/danke', '/en/thank-you', '/fr/merci', '/it/grazie'];
 
 const i18n: Record<string, { title: string; body: string; cta: string; close: string }> = {
   de: {
