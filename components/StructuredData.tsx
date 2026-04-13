@@ -74,11 +74,6 @@ export default function StructuredData() {
         "@type": "Order",
         "name": "Kostenlose Solaranlage Offerte"
       }
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "1247"
     }
   };
 
