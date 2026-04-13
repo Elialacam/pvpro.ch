@@ -48,6 +48,14 @@ export default function StructuredData() {
         "closes": "18:00"
       }
     ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+41779770750",
+      "contactType": "customer service",
+      "email": "anfrage@pvpro.ch",
+      "areaServed": "CH",
+      "availableLanguage": ["de", "fr", "en", "it"]
+    },
     "sameAs": [
       "https://www.facebook.com/pvpro",
       "https://www.linkedin.com/company/pvpro"

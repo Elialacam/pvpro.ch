@@ -73,30 +73,6 @@ export default function GermanLayout({
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "PV Pro",
-            "url": "https://www.pvpro.ch",
-            "logo": "https://www.pvpro.ch/logo-pvpro.png",
-            "sameAs": [
-              "https://www.facebook.com/pvpro",
-              "https://www.linkedin.com/company/pvpro"
-            ],
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+41779770750",
-              "contactType": "customer service",
-              "email": "anfrage@pvpro.ch",
-              "areaServed": "CH",
-              "availableLanguage": ["de", "fr", "en"]
-            }
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
             "@type": "WebSite",
             "url": "https://www.pvpro.ch",
             "name": "PV Pro",
