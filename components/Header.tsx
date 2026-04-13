@@ -339,6 +339,8 @@ export default function Header() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
+  const THANK_YOU_PATHS = ['/danke', '/en/thank-you', '/fr/merci', '/it/grazie'];
+
   const isHome = HOME_PATHS.includes(pathname);
   const transparent = isHome && !scrolled;
   const navItems = getNavItems(locale);
@@ -364,6 +366,8 @@ export default function Header() {
   const cta = ctaLabels[locale] || ctaLabels.de;
   const homeHref = homeLinks[locale] || '/';
   const formUrl = getFormUrl(pathname);
+
+  if (THANK_YOU_PATHS.includes(pathname)) return null;
 
   return (
     <header

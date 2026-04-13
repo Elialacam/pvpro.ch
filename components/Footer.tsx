@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale } from '@/lib/LocaleContext';
+import { usePathname } from 'next/navigation';
 
 const instagramUrl = 'https://www.instagram.com/pvpro.ch/';
 const facebookUrl  = 'https://www.facebook.com/pvpro.ch/';
@@ -156,7 +157,11 @@ const footerContent: Record<string, {
 
 export default function Footer() {
   const locale = useLocale();
+  const pathname = usePathname();
   const homeHref = locale === 'de' ? '/' : `/${locale}`;
+
+  const THANK_YOU_PATHS = ['/danke', '/en/thank-you', '/fr/merci', '/it/grazie'];
+  if (THANK_YOU_PATHS.includes(pathname)) return null;
   const content = footerContent[locale] || footerContent.de;
 
   return (

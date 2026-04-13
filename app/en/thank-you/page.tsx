@@ -16,7 +16,7 @@ export default function ThankYouEnPage() {
         strategy="lazyOnload"
       />
 
-      <section className="min-h-[80vh] flex items-center bg-gradient-to-b from-orange-50 to-white pt-28 pb-20">
+      <section className="min-h-screen flex items-center -mt-20 bg-gradient-to-b from-orange-50 to-white py-8">
         <div className="max-w-3xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
           <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 sm:p-12 text-center">
             <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
