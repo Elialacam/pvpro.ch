@@ -25,10 +25,16 @@ export default function BalkonkraftwerkSchweizPage() {
     <main className="min-h-screen bg-white">
 
       {/* ── Hero mit Foto ── */}
-      <section className="relative bg-[#0f1f3d] pt-28 pb-0 overflow-hidden">
+      <section className="relative bg-[#0f1f3d] pt-28 pb-16 overflow-hidden min-h-[480px] flex flex-col justify-end">
+        <img
+          src="/images/balkonkraftwerk-schweiz.webp"
+          alt="Balkonkraftwerk Schweiz – Mini-Solaranlage auf Balkon mit Alpenblick"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-[#0f1f3d]/70" />
         <div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
-        <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="relative z-10 max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 w-full">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-8">
             <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5" />
@@ -36,33 +42,22 @@ export default function BalkonkraftwerkSchweizPage() {
             <ChevronRight className="w-3.5 h-3.5" />
             <span className="text-white/70">Balkonkraftwerk Schweiz</span>
           </nav>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end pb-0">
-            <div className="pb-12">
-              <div className="flex items-center gap-3 mb-5">
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#F97316]/20 text-orange-400 uppercase tracking-widest">Ratgeber</span>
-                <span className="flex items-center gap-1.5 text-white/40 text-xs">
-                  <Calendar className="w-3.5 h-3.5" /> 17. März 2026
-                </span>
-                <span className="flex items-center gap-1.5 text-white/40 text-xs">
-                  <Clock className="w-3.5 h-3.5" /> 7 Min. Lesezeit
-                </span>
-              </div>
-              <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
-                Balkonkraftwerk Schweiz: Was ist erlaubt — und lohnt es sich wirklich?
-              </h1>
-              <p className="text-white/70 text-lg leading-relaxed">
-                Ein Balkonkraftwerk klingt verlockend. Doch wie viel Strom produziert es wirklich — und wann ist eine vollwertige Solaranlage die deutlich bessere Wahl?
-              </p>
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#F97316]/20 text-orange-400 uppercase tracking-widest">Ratgeber</span>
+              <span className="flex items-center gap-1.5 text-white/40 text-xs">
+                <Calendar className="w-3.5 h-3.5" /> 17. März 2026
+              </span>
+              <span className="flex items-center gap-1.5 text-white/40 text-xs">
+                <Clock className="w-3.5 h-3.5" /> 7 Min. Lesezeit
+              </span>
             </div>
-            <div className="relative h-80 lg:h-[440px] rounded-t-2xl overflow-hidden self-end">
-              <img
-                src="/images/balkonkraftwerk-schweiz.webp"
-                alt="Balkonkraftwerk Schweiz – Mini-Solaranlage auf Balkon mit Alpenblick"
-                className="w-full h-full object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f1f3d]/60 to-transparent" />
-            </div>
+            <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
+              Balkonkraftwerk Schweiz: Was ist erlaubt — und lohnt es sich wirklich?
+            </h1>
+            <p className="text-white/70 text-lg leading-relaxed">
+              Ein Balkonkraftwerk klingt verlockend. Doch wie viel Strom produziert es wirklich — und wann ist eine vollwertige Solaranlage die deutlich bessere Wahl?
+            </p>
           </div>
         </div>
       </section>

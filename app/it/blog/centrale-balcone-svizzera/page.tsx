@@ -35,10 +35,16 @@ export default function CentraleBalconeSvizzeraPage() {
     <main className="min-h-screen bg-white">
 
       {/* ── Hero ── */}
-      <section className="relative bg-[#0f1f3d] pt-28 pb-0 overflow-hidden">
+      <section className="relative bg-[#0f1f3d] pt-28 pb-16 overflow-hidden min-h-[480px] flex flex-col justify-end">
+        <img
+          src="/images/balkonkraftwerk-schweiz.webp"
+          alt="Centrale solare da balcone in Svizzera – mini-impianto su balcone con vista sulle Alpi"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-[#0f1f3d]/70" />
         <div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
-        <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="relative z-10 max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 w-full">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-8">
             <Link href="/it" className="hover:text-white/70 transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5" />
@@ -46,37 +52,25 @@ export default function CentraleBalconeSvizzeraPage() {
             <ChevronRight className="w-3.5 h-3.5" />
             <span className="text-white/70">Centrale solare da balcone Svizzera</span>
           </nav>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end pb-0">
-            <div className="pb-12">
-              <div className="flex items-center gap-3 mb-5">
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#F97316]/20 text-orange-400 uppercase tracking-widest">Guida</span>
-                <span className="flex items-center gap-1.5 text-white/40 text-xs">
-                  <Calendar className="w-3.5 h-3.5" /> 17 marzo 2026
-                </span>
-                <span className="flex items-center gap-1.5 text-white/40 text-xs">
-                  <Clock className="w-3.5 h-3.5" /> 7 min. di lettura
-                </span>
-              </div>
-              <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
-                Centrale solare da balcone in Svizzera: cosa è permesso — e conviene davvero?
-              </h1>
-              <p className="text-white/70 text-lg leading-relaxed">
-                Una centrale solare da balcone sembra allettante. Ma quanta elettricità produce davvero — e quando un impianto solare completo è la scelta nettamente migliore?
-              </p>
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#F97316]/20 text-orange-400 uppercase tracking-widest">Guida</span>
+              <span className="flex items-center gap-1.5 text-white/40 text-xs">
+                <Calendar className="w-3.5 h-3.5" /> 17 marzo 2026
+              </span>
+              <span className="flex items-center gap-1.5 text-white/40 text-xs">
+                <Clock className="w-3.5 h-3.5" /> 7 min. di lettura
+              </span>
             </div>
-            <div className="relative h-80 lg:h-[440px] rounded-t-2xl overflow-hidden self-end">
-              <img
-                src="/images/balkonkraftwerk-schweiz.webp"
-                alt="Centrale solare da balcone in Svizzera – mini-impianto su balcone con vista sulle Alpi"
-                className="w-full h-full object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f1f3d]/60 to-transparent" />
-            </div>
+            <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
+              Centrale solare da balcone in Svizzera: cosa è permesso — e conviene davvero?
+            </h1>
+            <p className="text-white/70 text-lg leading-relaxed">
+              Una centrale solare da balcone sembra allettante. Ma quanta elettricità produce davvero — e quando un impianto solare completo è la scelta nettamente migliore?
+            </p>
           </div>
         </div>
       </section>
-
       {/* ── Corpo dell'articolo ── */}
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
