@@ -107,7 +107,7 @@ export default function IncentiviSolariPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/blog-2.webp" alt="Incentivi solari Svizzera" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/blog-2.png" alt="Incentivi solari Svizzera" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -194,7 +194,7 @@ export default function IncentiviSolariPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/hero-family-solar.webp" alt="Casa unifamiliare con impianto solare" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/hero-family-solar.png" alt="Casa unifamiliare con impianto solare" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
             <div>
               <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Esempio di calcolo</p>
@@ -246,7 +246,7 @@ export default function IncentiviSolariPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/blog-5.webp" alt="Redditività impianto solare" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/blog-5.png" alt="Redditività impianto solare" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>

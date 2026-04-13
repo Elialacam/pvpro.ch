@@ -278,7 +278,7 @@ function BigCard({ label, subLabel, isSelected, onClick, icon, imageSrc, color =
     >
       {imageSrc ? (
         <div className="w-20 h-20 flex items-center justify-center mb-3">
-          <img loading="lazy" src={imageSrc} alt={label} className="w-full h-full object-contain mix-blend-multiply" />
+          <img src={imageSrc} alt={label} className="w-full h-full object-contain mix-blend-multiply" />
         </div>
       ) : icon === 'check' ? (
         <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-3" style={{ background: 'white', border: `2px solid ${s.border}` }}>

@@ -123,7 +123,7 @@ export default function UeberUnsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
           <div className="rounded-2xl overflow-hidden shadow-xl order-2 lg:order-1">
             <Image
-              src="/images/hero-family-solar.webp"
+              src="/images/hero-family-solar.png"
               alt="Familie mit Solaranlage"
               width={800}
               height={500}

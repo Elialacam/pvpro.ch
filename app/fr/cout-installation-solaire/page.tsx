@@ -164,7 +164,7 @@ export default function CoutInstallationSolairePage() {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/asset-haus-luftbild-2.webp"
+                src="/images/asset-haus-luftbild-2.png"
                 alt="Installation solaire sur une maison individuelle suisse – vue aérienne"
                 width={700}
                 height={500}

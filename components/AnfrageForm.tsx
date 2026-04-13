@@ -224,7 +224,7 @@ function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCa
       }}
     >
       <div className="flex-1 flex items-center justify-center w-full">
-        <img loading="lazy" src={imageSrc} alt={label} className="w-full h-full object-contain max-h-28 sm:max-h-32" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
+        <img src={imageSrc} alt={label} className="w-full h-full object-contain max-h-28 sm:max-h-32" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
       </div>
       <p className="text-sm sm:text-base font-bold text-gray-900 text-center leading-tight mt-3">
         {label}

@@ -107,7 +107,7 @@ export default function SubventionsSolairesPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/blog-2.webp" alt="Subvention solaire Suisse" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/blog-2.png" alt="Subvention solaire Suisse" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -194,7 +194,7 @@ export default function SubventionsSolairesPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/hero-family-solar.webp" alt="Maison individuelle avec installation solaire" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/hero-family-solar.png" alt="Maison individuelle avec installation solaire" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
             <div>
               <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Exemple de calcul</p>
@@ -246,7 +246,7 @@ export default function SubventionsSolairesPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/blog-5.webp" alt="Rentabilité installation solaire" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/blog-5.png" alt="Rentabilité installation solaire" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>

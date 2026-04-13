@@ -145,7 +145,7 @@ export default function SolarDetachedHousePage() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img loading="lazy" src="/images/asset-installateur-dach-1.webp" alt="Solar installation detached house Switzerland" className="w-full h-80 object-cover" />
+            <img src="/images/asset-installateur-dach-1.png" alt="Solar installation detached house Switzerland" className="w-full h-80 object-cover" />
           </div>
         </section>
 
@@ -180,7 +180,7 @@ export default function SolarDetachedHousePage() {
               ))}
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img loading="lazy" src="/images/asset-haus-luftbild-1.webp" alt="Detached house with solar installation" className="w-full h-72 object-cover" />
+              <img src="/images/asset-haus-luftbild-1.png" alt="Detached house with solar installation" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>
@@ -188,7 +188,7 @@ export default function SolarDetachedHousePage() {
         {/* ── Is it worth it ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img loading="lazy" src="/images/asset-beratung-indoor-2.webp" alt="Solar installation consultation" className="w-full h-80 object-cover" />
+            <img src="/images/asset-beratung-indoor-2.png" alt="Solar installation consultation" className="w-full h-80 object-cover" />
           </div>
           <div>
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Profitability</p>

@@ -128,7 +128,7 @@ export default function PhotovoltaikKostenProM2Page() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img loading="lazy" src="/images/asset-panel-closeup-1.webp" alt="Solarpanele Schweiz" className="w-full h-72 object-cover" />
+            <img src="/images/asset-panel-closeup-1.png" alt="Solarpanele Schweiz" className="w-full h-72 object-cover" />
           </div>
         </section>
 
@@ -153,7 +153,7 @@ export default function PhotovoltaikKostenProM2Page() {
         {/* ── Example ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img loading="lazy" src="/images/asset-haus-luftbild-2.webp" alt="Einfamilienhaus mit Solaranlage" className="w-full h-72 object-cover" />
+            <img src="/images/asset-haus-luftbild-2.png" alt="Einfamilienhaus mit Solaranlage" className="w-full h-72 object-cover" />
           </div>
           <div>
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Rechenbeispiel</p>
@@ -259,7 +259,7 @@ export default function PhotovoltaikKostenProM2Page() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img loading="lazy" src="/images/asset-beratung-indoor-1.webp" alt="Solaranlage Beratung Schweiz" className="w-full h-72 object-cover" />
+            <img src="/images/asset-beratung-indoor-1.png" alt="Solaranlage Beratung Schweiz" className="w-full h-72 object-cover" />
           </div>
         </section>
 

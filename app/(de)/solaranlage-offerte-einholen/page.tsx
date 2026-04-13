@@ -218,7 +218,7 @@ export default function SolaranlageOfferteEinholenPage() {
         {/* ── Was steht in einer guten Offerte ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <img loading="lazy" src="/images/asset-beratung-indoor-2.webp" alt="Solaranlage Offerte Schweiz" className="w-full h-72 object-cover rounded-3xl" />
+            <img src="/images/asset-beratung-indoor-2.png" alt="Solaranlage Offerte Schweiz" className="w-full h-72 object-cover rounded-3xl" />
           </div>
           <div>
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Checkliste</p>

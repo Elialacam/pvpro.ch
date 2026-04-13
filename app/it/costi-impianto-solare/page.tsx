@@ -164,7 +164,7 @@ export default function CostiImpiantoSolarePage() {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/asset-haus-luftbild-2.webp"
+                src="/images/asset-haus-luftbild-2.png"
                 alt="Impianto solare su casa unifamiliare svizzera – vista aerea"
                 width={700}
                 height={500}

@@ -70,7 +70,7 @@ export default function ComeFunzionaSolarePage() {
             </div>
             <div className="relative rounded-3xl overflow-hidden self-center shadow-2xl mb-8">
               <img
-                src="/images/wie-funktioniert-solaranlage.webp"
+                src="/images/wie-funktioniert-solaranlage.png"
                 alt="Come funziona un impianto solare – illustrazione con sole, moduli solari, inverter, accumulo ed elettricità domestica"
                 className="w-full h-auto block"
               />

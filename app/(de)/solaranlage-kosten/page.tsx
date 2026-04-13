@@ -165,7 +165,7 @@ export default function SolaranlageKostenPage() {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/asset-haus-luftbild-2.webp"
+                src="/images/asset-haus-luftbild-2.png"
                 alt="Solaranlage auf Schweizer Einfamilienhaus – Luftaufnahme"
                 width={700}
                 height={500}
