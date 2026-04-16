@@ -393,12 +393,9 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         if (p.length === 10 && p.startsWith('0')) return `${p.slice(0,3)} ${p.slice(3,6)} ${p.slice(6,8)} ${p.slice(8,10)}`;
         return p;
       };
-      const res = await fetch('https://lead-suryoyo.replit.app/api/webhook/form', {
+      const res = await fetch('/api/anfrage', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': 'f528ee7621a5c97665efd7561ac35a3ae0ab10eb4eef03b1',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           'FULL NAME': fullName,
           'PHONE NUMBER': formatPhone(formData.phone),
