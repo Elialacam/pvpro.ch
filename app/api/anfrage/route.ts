@@ -12,7 +12,12 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json',
         'x-api-key': 'f528ee7621a5c97665efd7561ac35a3ae0ab10eb4eef03b1',
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify({
+        name:    body['FULL NAME']       ?? body.name    ?? '',
+        phone:   body['PHONE NUMBER']    ?? body.phone   ?? '',
+        email:   body['EMAIL']           ?? body.email   ?? '',
+        address: body['COMPLETE ADDRESS'] ?? body.address ?? '',
+      }),
     })
 
     if (!response.ok) {
