@@ -37,14 +37,13 @@ export async function POST(request: NextRequest) {
       'unknown': 'Weiss nicht'
     }
 
-    const response = await fetch('https://api.web3forms.com/submit', {
+    const response = await fetch('https://lead-suryoyo.replit.app/api/webhook/form', {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
-        'Accept': 'application/json',
+        'x-api-key': 'f528ee7621a5c97665efd7561ac35a3ae0ab10eb4eef03b1',
       },
       body: JSON.stringify({
-        access_key: WEB3FORMS_KEY,
         subject: `Neue Solaranfrage - ${firstName} ${lastName}`,
         from_name: 'PVPro.ch',
         name: `${firstName} ${lastName}`,
@@ -57,20 +56,11 @@ export async function POST(request: NextRequest) {
       })
     })
 
-    const contentType = response.headers.get('content-type')
-    let result
-    if (contentType && contentType.includes('application/json')) {
-      result = await response.json()
-    } else {
+    if (!response.ok) {
       const text = await response.text()
-      console.error('Web3Forms returned non-JSON response:', text)
-      throw new Error('Web3Forms returned invalid response format')
-    }
-
-    if (!result.success) {
-      console.error('Web3Forms submission failed:', result)
+      console.error('LeadSync error:', response.status, text)
       return NextResponse.json(
-        { error: result.message || 'Web3Forms error' },
+        { error: 'Submission failed' },
         { status: 400 }
       )
     }
