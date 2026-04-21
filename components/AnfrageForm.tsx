@@ -393,18 +393,18 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         if (p.length === 10 && p.startsWith('0')) return `${p.slice(0,3)} ${p.slice(3,6)} ${p.slice(6,8)} ${p.slice(8,10)}`;
         return p;
       };
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/api/anfrage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: 'e5917515-5373-450c-963d-d6dcb976be42',
           'FULL NAME': fullName,
           'PHONE NUMBER': formatPhone(formData.phone),
           EMAIL: formData.email.trim(),
           'COMPLETE ADDRESS': formData.address,
         }),
       });
-      if (res.ok) {
+      const data = await res.json();
+      if (data.success) {
         trackStep(6);
         (window as any).fbq?.('track', 'Lead', { content_name: 'Solar Quote Request', value: 50.0, currency: 'CHF' });
         (window as any).gtag?.('event', 'conversion', { send_to: 'AW-17901154625/LyaGCIXE-fUbEMHi99dC', value: 1.0, currency: 'CHF' });
