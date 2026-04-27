@@ -393,6 +393,11 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         if (p.length === 10 && p.startsWith('0')) return `${p.slice(0,3)} ${p.slice(3,6)} ${p.slice(6,8)} ${p.slice(8,10)}`;
         return p;
       };
+      const utm_source =
+        new URLSearchParams(window.location.search).get('utm_source') ??
+        sessionStorage.getItem('utm_source') ??
+        '';
+
       const res = await fetch('/api/anfrage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -401,6 +406,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           'PHONE NUMBER': formatPhone(formData.phone),
           EMAIL: formData.email.trim(),
           'COMPLETE ADDRESS': formData.address,
+          ...(utm_source ? { utm_source } : {}),
         }),
       });
       const data = await res.json();

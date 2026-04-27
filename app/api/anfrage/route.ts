@@ -52,11 +52,12 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
 
-    const name    = body['FULL NAME']        ?? body.name    ?? ''
-    const phone   = body['PHONE NUMBER']     ?? body.phone   ?? ''
-    const email   = body['EMAIL']            ?? body.email   ?? ''
-    const address = body['COMPLETE ADDRESS'] ?? body.address ?? ''
-    const sourceUrl = request.headers.get('referer') ?? ''
+    const name       = body['FULL NAME']        ?? body.name       ?? ''
+    const phone      = body['PHONE NUMBER']     ?? body.phone      ?? ''
+    const email      = body['EMAIL']            ?? body.email      ?? ''
+    const address    = body['COMPLETE ADDRESS'] ?? body.address    ?? ''
+    const utm_source = body.utm_source ?? ''
+    const sourceUrl  = request.headers.get('referer') ?? ''
 
     // Send to LeadSync and Meta CAPI in parallel
     const [leadsyncRes] = await Promise.all([
@@ -66,7 +67,7 @@ export async function POST(request: NextRequest) {
           'Content-Type': 'application/json',
           'x-api-key': 'f528ee7621a5c97665efd7561ac35a3ae0ab10eb4eef03b1',
         },
-        body: JSON.stringify({ name, phone, email, address }),
+        body: JSON.stringify({ name, phone, email, address, ...(utm_source ? { utm_source } : {}) }),
       }),
       sendMetaCAPI(email, phone, sourceUrl),
     ])
