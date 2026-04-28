@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
           'Content-Type': 'application/json',
           'x-api-key': 'f528ee7621a5c97665efd7561ac35a3ae0ab10eb4eef03b1',
         },
-        body: JSON.stringify({ name, phone, email, address, ...(utm_source ? { utm_source } : {}) }),
+        body: JSON.stringify({ name, phone, email, address, utm_source: utm_source || 'organic' }),
       }),
       sendMetaCAPI(email, phone, sourceUrl),
     ])

@@ -396,7 +396,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       const utm_source =
         new URLSearchParams(window.location.search).get('utm_source') ??
         sessionStorage.getItem('utm_source') ??
-        '';
+        'organic';
 
       const res = await fetch('/api/anfrage', {
         method: 'POST',
