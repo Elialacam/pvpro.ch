@@ -1,7 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 
-const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content']
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'fbclid']
 
 export default function UtmTracker() {
   useEffect(() => {

@@ -398,6 +398,11 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         sessionStorage.getItem('utm_source') ??
         'organic';
 
+      const fbclid =
+        new URLSearchParams(window.location.search).get('fbclid') ??
+        sessionStorage.getItem('fbclid') ??
+        '';
+
       const res = await fetch('/api/anfrage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -406,7 +411,8 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           'PHONE NUMBER': formatPhone(formData.phone),
           EMAIL: formData.email.trim(),
           'COMPLETE ADDRESS': formData.address,
-          ...(utm_source ? { utm_source } : {}),
+          utm_source,
+          ...(fbclid ? { fbclid } : {}),
         }),
       });
       const data = await res.json();

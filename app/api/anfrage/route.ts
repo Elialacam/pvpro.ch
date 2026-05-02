@@ -9,11 +9,20 @@ function sha256(value: string): string {
   return createHash('sha256').update(value.trim().toLowerCase()).digest('hex')
 }
 
-async function sendMetaCAPI(email: string, phone: string, sourceUrl: string) {
+async function sendMetaCAPI(email: string, phone: string, sourceUrl: string, fbclid?: string) {
   const token = process.env.META_CAPI_TOKEN
   if (!token) return
 
   const normalizedPhone = phone.replace(/\s+/g, '').replace(/^\+41/, '0041')
+
+  const userData: Record<string, any> = {
+    em: [sha256(email)],
+    ph: [sha256(normalizedPhone)],
+  }
+
+  if (fbclid) {
+    userData.fbc = `fb.1.${Date.now()}.${fbclid}`
+  }
 
   const payload = {
     data: [{
@@ -21,10 +30,7 @@ async function sendMetaCAPI(email: string, phone: string, sourceUrl: string) {
       event_time: Math.floor(Date.now() / 1000),
       action_source: 'website',
       event_source_url: sourceUrl || 'https://www.pvpro.ch/anfrage',
-      user_data: {
-        em: [sha256(email)],
-        ph: [sha256(normalizedPhone)],
-      },
+      user_data: userData,
     }],
   }
 
@@ -57,6 +63,7 @@ export async function POST(request: NextRequest) {
     const email      = body['EMAIL']            ?? body.email      ?? ''
     const address    = body['COMPLETE ADDRESS'] ?? body.address    ?? ''
     const utm_source = body.utm_source ?? ''
+    const fbclid     = body.fbclid     ?? ''
     const sourceUrl  = request.headers.get('referer') ?? ''
 
     // Send to LeadSync and Meta CAPI in parallel
@@ -67,9 +74,9 @@ export async function POST(request: NextRequest) {
           'Content-Type': 'application/json',
           'x-api-key': 'f528ee7621a5c97665efd7561ac35a3ae0ab10eb4eef03b1',
         },
-        body: JSON.stringify({ name, phone, email, address, utm_source: utm_source || 'organic' }),
+        body: JSON.stringify({ name, phone, email, address, utm_source: utm_source || 'organic', ...(fbclid ? { fbclid } : {}) }),
       }),
-      sendMetaCAPI(email, phone, sourceUrl),
+      sendMetaCAPI(email, phone, sourceUrl, fbclid || undefined),
     ])
 
     if (!leadsyncRes.ok) {
