@@ -12,6 +12,36 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'solaranlage-waermepumpe-kombinieren-schweiz',
+    title: 'Solaranlage mit Wärmepumpe kombinieren in der Schweiz — lohnt es sich 2026?',
+    excerpt: 'Solaranlage mit Wärmepumpe kombinieren und bis zu 70% Heizkosten sparen. Kosten, Förderungen, Amortisation und Rechenbeispiel für Schweizer Einfamilienhäuser.',
+    image: '/images/blog-5.webp',
+    author: 'PVPro Redaktion',
+    date: '3. Mai 2026',
+    readMin: 10,
+    tag: 'Ratgeber',
+  },
+  {
+    slug: 'solaranlage-steuerabzug-schweiz-2026',
+    title: 'Solaranlage von der Steuer abziehen Schweiz 2026 — Letzte Chance bis 2027',
+    excerpt: "Solaranlage von der Steuer abziehen in der Schweiz: Bis Ende 2027 können Sie CHF 4'000–10'000 sparen. Kantonalvergleich, Rechenbeispiele und warum jetzt handeln.",
+    image: '/images/blog-2.webp',
+    author: 'PVPro Redaktion',
+    date: '3. Mai 2026',
+    readMin: 10,
+    tag: 'Förderung & Steuern',
+  },
+  {
+    slug: 'lohnt-sich-solaranlage-schweiz-2026',
+    title: 'Lohnt sich eine Solaranlage in der Schweiz 2026?',
+    excerpt: "Lohnt sich eine Solaranlage in der Schweiz 2026 wirklich? Kosten, Förderung, Amortisation und Vergleich nach Kanton — mit echten Zahlen und ohne Schönfärberei.",
+    image: '/images/blog-6.webp',
+    author: 'PVPro Redaktion',
+    date: '3. Mai 2026',
+    readMin: 10,
+    tag: 'Ratgeber',
+  },
+  {
     slug: 'balkonkraftwerk-schweiz',
     title: 'Balkonkraftwerk Schweiz: erlaubt, Kosten und lohnt es sich wirklich?',
     excerpt: 'Sind Balkonkraftwerke in der Schweiz erlaubt? Kosten, Regeln und ob sich ein Balkonkraftwerk lohnt – mit ehrlichem Vergleich zur vollwertigen Solaranlage.',

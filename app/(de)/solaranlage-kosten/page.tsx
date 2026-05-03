@@ -345,6 +345,13 @@ export default function SolaranlageKostenPage() {
             >
               → Mehr Informationen: Solaranlage mit Speicher
             </Link>
+            <p className="text-sm text-gray-500 mt-4">
+              <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#F97316] hover:underline">Lohnt sich eine Solaranlage 2026?</Link>
+              {' '}·{' '}
+              <Link href="/blog/solaranlage-steuerabzug-schweiz-2026" className="text-[#F97316] hover:underline">Steuerabzug Solaranlage Schweiz 2026</Link>
+              {' '}·{' '}
+              <Link href="/blog/solaranlage-waermepumpe-kombinieren-schweiz" className="text-[#F97316] hover:underline">Solaranlage + Wärmepumpe</Link>
+            </p>
           </div>
         </div>
       </section>

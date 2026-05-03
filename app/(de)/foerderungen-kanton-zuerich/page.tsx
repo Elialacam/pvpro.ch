@@ -167,6 +167,9 @@ export default function FoerderungenKantonZuerichPage() {
                   </div>
                 ))}
               </div>
+              <p className="text-white/50 text-xs mt-5">
+                <Link href="/blog/solaranlage-steuerabzug-schweiz-2026" className="text-orange-400 hover:underline">Steuerabzug im Kanton Zürich — alle Details</Link>
+              </p>
             </div>
           </div>
         </section>

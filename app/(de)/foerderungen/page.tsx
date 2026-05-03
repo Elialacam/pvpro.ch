@@ -320,6 +320,13 @@ export default function FoerderungenPage() {
               <p className="text-gray-600 leading-relaxed mb-5">
                 Dank staatlicher Förderungen und steigender Strompreise lohnt sich eine Solaranlage für viele Schweizer Haushalte. Viele Anlagen amortisieren sich innerhalb von <strong>10–15 Jahren</strong> bei einer Lebensdauer von 25–30 Jahren.
               </p>
+              <p className="text-gray-500 text-sm leading-relaxed mt-1 mb-3">
+                <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#F97316] hover:underline font-medium">Lohnt sich eine Solaranlage mit Förderung?</Link>
+                {' '}·{' '}
+                <Link href="/blog/solaranlage-steuerabzug-schweiz-2026" className="text-[#F97316] hover:underline font-medium">Solaranlage steuerlich abziehen — wie geht das?</Link>
+                {' '}·{' '}
+                <Link href="/blog/solaranlage-waermepumpe-kombinieren-schweiz" className="text-[#F97316] hover:underline font-medium">Solaranlage + Wärmepumpe kombinieren</Link>
+              </p>
               <p className="text-gray-600 leading-relaxed mb-8">
                 Die tatsächliche Wirtschaftlichkeit hängt von folgenden Faktoren ab:
               </p>

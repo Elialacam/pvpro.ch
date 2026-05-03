@@ -70,7 +70,12 @@ const komponenten = [
   {
     icon: <Thermometer className="w-6 h-6 text-[#F97316]" />,
     title: 'Wärmepumpe',
-    text: 'Nutzt den selbst produzierten Solarstrom für Heizung und Warmwasser. Eine der effektivsten Möglichkeiten, den Eigenverbrauch zu maximieren.',
+    text: (
+      <>
+        Nutzt den selbst produzierten Solarstrom für Heizung und Warmwasser. Eine der effektivsten Möglichkeiten, den Eigenverbrauch zu maximieren.{' '}
+        <Link href="/blog/solaranlage-waermepumpe-kombinieren-schweiz" className="text-[#F97316] hover:underline font-medium">Solaranlage + Wärmepumpe kombinieren →</Link>
+      </>
+    ),
   },
   {
     icon: <Car className="w-6 h-6 text-[#F97316]" />,

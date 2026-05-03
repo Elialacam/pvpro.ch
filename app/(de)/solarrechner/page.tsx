@@ -342,6 +342,8 @@ export default function SolarrechnerPage() {
           <p className="text-center text-xs text-gray-400 mt-6">
             Richtwerte 2026. Tatsächliche Kosten können je nach Installateur, Kanton und Anlage abweichen.
             <Link href="/solaranlage-kosten" className="text-[#F97316] ml-1 hover:underline">Detaillierte Kostenübersicht →</Link>
+            {' '}·{' '}
+            <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#F97316] ml-1 hover:underline">Lohnt sich eine Solaranlage in Ihrem Kanton? →</Link>
           </p>
         </div>
       </section>

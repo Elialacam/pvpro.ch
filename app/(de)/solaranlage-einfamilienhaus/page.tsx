@@ -198,6 +198,13 @@ export default function SolaranlageEinfamilienhausPage() {
             <p className="text-gray-500 leading-relaxed mb-6">
               Ja, in den meisten Fällen lohnt sich eine Photovoltaikanlage langfristig. Durch Eigenverbrauch und Förderungen amortisiert sich die Anlage über die Jahre.
             </p>
+            <p className="text-gray-500 text-sm leading-relaxed mb-4">
+              <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#F97316] hover:underline font-medium">Lohnt sich Solar für Ihr Haus?</Link>
+              {' '}·{' '}
+              <Link href="/blog/solaranlage-steuerabzug-schweiz-2026" className="text-[#F97316] hover:underline font-medium">Solaranlage von Steuern abziehen</Link>
+              {' '}·{' '}
+              <Link href="/blog/solaranlage-waermepumpe-kombinieren-schweiz" className="text-[#F97316] hover:underline font-medium">Solaranlage + Wärmepumpe kombinieren</Link>
+            </p>
             <div className="space-y-3">
               {benefits.map((b) => (
                 <div key={b} className="flex items-start gap-3">

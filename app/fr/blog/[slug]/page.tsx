@@ -8,6 +8,9 @@ interface Props {
 }
 
 const frSlugToDeSlug: Record<string, string> = {
+  'panneaux-solaires-pompe-chaleur-suisse':        'solaranlage-waermepumpe-kombinieren-schweiz',
+  'deduction-fiscale-panneau-solaire-suisse-2026': 'solaranlage-steuerabzug-schweiz-2026',
+  'rentabilite-panneau-solaire-suisse-2026':       'lohnt-sich-solaranlage-schweiz-2026',
   'centrale-balcon-suisse':            'balkonkraftwerk-schweiz',
   'panneaux-solaires-hiver-suisse':    'solaranlage-winter-schweiz',
   'subventions-photovoltaiques-2026':  'foerderungen-photovoltaik-2026',

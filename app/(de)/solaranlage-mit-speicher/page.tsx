@@ -262,6 +262,9 @@ export default function SolaranlageMitSpeicherPage() {
                   </div>
                 ))}
               </div>
+              <p className="text-sm text-gray-500 mt-4">
+                <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#F97316] hover:underline">Lohnt sich Solaranlage mit Speicher 2026?</Link>
+              </p>
             </div>
           </div>
         </div>

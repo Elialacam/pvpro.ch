@@ -144,6 +144,9 @@ export default function VergleichsportalPage() {
             <p className="text-gray-600 leading-relaxed mb-5">
               Viele Hausbesitzer kontaktieren nur einen einzigen Installateur und unterschreiben das erste Angebot. Das ist oft ein teurer Fehler. Für die gleiche Anlage können die Preise zwischen verschiedenen Installateuren um mehrere tausend Franken variieren.
             </p>
+            <p className="text-gray-500 text-sm mb-3">
+              <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#F97316] hover:underline font-medium">Wann lohnt sich eine Solaranlage? →</Link>
+            </p>
             <p className="text-gray-700 font-semibold mb-4">Ein Vergleich lohnt sich aus drei Gründen:</p>
             <ul className="space-y-4">
               {reasons.map(r => (
