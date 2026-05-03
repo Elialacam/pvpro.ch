@@ -12,6 +12,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'besten-solarinstallateur-schweiz-finden',
+    title: 'Besten Solarinstallateur in der Schweiz finden 2026 – So geht\'s richtig',
+    excerpt: 'Wie finden Sie den besten Solarinstallateur in Ihrer Region? Warum lokale Fachbetriebe besser sind, worauf Sie achten müssen und wie PVPro.ch die Suche für Sie übernimmt.',
+    image: '/images/blog-3.webp',
+    author: 'PVPro Redaktion',
+    date: '3. Mai 2026',
+    readMin: 10,
+    tag: 'Ratgeber',
+  },
+  {
     slug: 'solaranlage-waermepumpe-kombinieren-schweiz',
     title: 'Solaranlage mit Wärmepumpe kombinieren in der Schweiz — lohnt es sich 2026?',
     excerpt: 'Solaranlage mit Wärmepumpe kombinieren und bis zu 70% Heizkosten sparen. Kosten, Förderungen, Amortisation und Rechenbeispiel für Schweizer Einfamilienhäuser.',

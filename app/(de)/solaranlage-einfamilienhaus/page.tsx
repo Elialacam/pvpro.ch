@@ -204,6 +204,8 @@ export default function SolaranlageEinfamilienhausPage() {
               <Link href="/blog/solaranlage-steuerabzug-schweiz-2026" className="text-[#F97316] hover:underline font-medium">Solaranlage von Steuern abziehen</Link>
               {' '}·{' '}
               <Link href="/blog/solaranlage-waermepumpe-kombinieren-schweiz" className="text-[#F97316] hover:underline font-medium">Solaranlage + Wärmepumpe kombinieren</Link>
+              {' '}·{' '}
+              <Link href="/blog/besten-solarinstallateur-schweiz-finden" className="text-[#F97316] hover:underline font-medium">Solarinstallateur für Einfamilienhaus finden</Link>
             </p>
             <div className="space-y-3">
               {benefits.map((b) => (

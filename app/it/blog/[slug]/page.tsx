@@ -8,6 +8,7 @@ interface Props {
 }
 
 const itSlugToDeSlug: Record<string, string> = {
+  'trovare-miglior-installatore-solare-svizzera':     'besten-solarinstallateur-schweiz-finden',
   'impianto-solare-pompa-calore-svizzera':            'solaranlage-waermepumpe-kombinieren-schweiz',
   'detrazione-fiscale-impianto-solare-svizzera-2026': 'solaranlage-steuerabzug-schweiz-2026',
   'vale-la-pena-impianto-solare-svizzera-2026':       'lohnt-sich-solaranlage-schweiz-2026',

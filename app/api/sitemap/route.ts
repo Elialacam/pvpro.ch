@@ -133,7 +133,8 @@ ${entry4('/blog', '/fr/blog', '/en/blog', '/it/blog', 0.7, 'weekly')}
 ${entry4('/blog/lohnt-sich-solaranlage-schweiz-2026', '/fr/blog/rentabilite-panneau-solaire-suisse-2026', '/en/blog/is-solar-worth-it-switzerland-2026', '/it/blog/vale-la-pena-impianto-solare-svizzera-2026', 0.75)}
 ${entry4('/blog/solaranlage-steuerabzug-schweiz-2026', '/fr/blog/deduction-fiscale-panneau-solaire-suisse-2026', '/en/blog/solar-panel-tax-deduction-switzerland-2026', '/it/blog/detrazione-fiscale-impianto-solare-svizzera-2026', 0.75)}
 ${entry4('/blog/solaranlage-waermepumpe-kombinieren-schweiz', '/fr/blog/panneaux-solaires-pompe-chaleur-suisse', '/en/blog/solar-panels-heat-pump-combination-switzerland', '/it/blog/impianto-solare-pompa-calore-svizzera', 0.75)}
-${blogSlugs.filter(slug => slug !== 'lohnt-sich-solaranlage-schweiz-2026' && slug !== 'solaranlage-steuerabzug-schweiz-2026' && slug !== 'solaranlage-waermepumpe-kombinieren-schweiz').map((slug) => entry4(`/blog/${slug}`, `/fr/blog/${slug}`, `/en/blog/${slug}`, `/it/blog/${slug}`, 0.6)).join('')}
+${entry4('/blog/besten-solarinstallateur-schweiz-finden', '/fr/blog/trouver-meilleur-installateur-solaire-suisse', '/en/blog/find-best-solar-installer-switzerland', '/it/blog/trovare-miglior-installatore-solare-svizzera', 0.75)}
+${blogSlugs.filter(slug => slug !== 'lohnt-sich-solaranlage-schweiz-2026' && slug !== 'solaranlage-steuerabzug-schweiz-2026' && slug !== 'solaranlage-waermepumpe-kombinieren-schweiz' && slug !== 'besten-solarinstallateur-schweiz-finden').map((slug) => entry4(`/blog/${slug}`, `/fr/blog/${slug}`, `/en/blog/${slug}`, `/it/blog/${slug}`, 0.6)).join('')}
 
   <!-- ── Balcony power station (4 languages) ───────────────────────────────── -->
 ${entry4('/balkonkraftwerk', '/fr/centrale-balcon', '/en/balcony-power-station', '/it/centrale-balcone', 0.7)}

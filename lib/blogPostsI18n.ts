@@ -18,6 +18,17 @@ export interface BlogPostLocale {
 
 const fr: BlogPostLocale[] = [
   {
+    slug: 'besten-solarinstallateur-schweiz-finden',
+    title: 'Trouver le meilleur installateur solaire en Suisse en 2026 – Le guide complet',
+    excerpt: "Comment trouver le meilleur installateur solaire dans votre région? Pourquoi les entreprises locales sont meilleures, les critères essentiels et comment PVPro.ch prend en charge la recherche pour vous.",
+    tag: 'Guide',
+    image: '/images/blog-3.webp',
+    author: 'PVPro Rédaction',
+    date: '3 mai 2026',
+    readMin: 10,
+    href: '/fr/blog/trouver-meilleur-installateur-solaire-suisse',
+  },
+  {
     slug: 'solaranlage-waermepumpe-kombinieren-schweiz',
     title: 'Combiner panneau solaire et pompe à chaleur en Suisse — est-ce rentable en 2026?',
     excerpt: "Combiner panneau solaire et pompe à chaleur pour économiser jusqu'à 70% sur le chauffage. Coûts, subventions, amortissement et exemple de calcul pour les maisons suisses.",
@@ -230,6 +241,17 @@ const fr: BlogPostLocale[] = [
 
 const en: BlogPostLocale[] = [
   {
+    slug: 'besten-solarinstallateur-schweiz-finden',
+    title: 'How to Find the Best Solar Installer in Switzerland 2026 – The Complete Guide',
+    excerpt: 'How to find the best solar installer in your region in Switzerland? Why local specialists are better, the key criteria, and how PVPro.ch does the search for you.',
+    tag: 'Guide',
+    image: '/images/blog-3.webp',
+    author: 'PVPro Editorial',
+    date: '3 May 2026',
+    readMin: 10,
+    href: '/en/blog/find-best-solar-installer-switzerland',
+  },
+  {
     slug: 'solaranlage-waermepumpe-kombinieren-schweiz',
     title: 'Combining Solar Panels and Heat Pump in Switzerland — Is It Worth It in 2026?',
     excerpt: 'Combine solar panels with a heat pump and save up to 70% on heating costs. Costs, subsidies, payback and calculation example for Swiss homeowners.',
@@ -441,6 +463,17 @@ const en: BlogPostLocale[] = [
 ];
 
 const it: BlogPostLocale[] = [
+  {
+    slug: 'besten-solarinstallateur-schweiz-finden',
+    title: 'Come trovare il miglior installatore solare in Svizzera nel 2026 – La guida completa',
+    excerpt: 'Come trovare il miglior installatore solare nella tua regione in Svizzera? Perché le aziende locali sono migliori, i criteri essenziali e come PVPro.ch si occupa della ricerca per voi.',
+    tag: 'Guida',
+    image: '/images/blog-3.webp',
+    author: 'PVPro Redazione',
+    date: '3 maggio 2026',
+    readMin: 10,
+    href: '/it/blog/trovare-miglior-installatore-solare-svizzera',
+  },
   {
     slug: 'solaranlage-waermepumpe-kombinieren-schweiz',
     title: 'Combinare impianto solare e pompa di calore in Svizzera — conviene nel 2026?',

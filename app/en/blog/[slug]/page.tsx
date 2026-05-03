@@ -8,6 +8,7 @@ interface Props {
 }
 
 const enSlugToDeSlug: Record<string, string> = {
+  'find-best-solar-installer-switzerland':          'besten-solarinstallateur-schweiz-finden',
   'solar-panels-heat-pump-combination-switzerland': 'solaranlage-waermepumpe-kombinieren-schweiz',
   'solar-panel-tax-deduction-switzerland-2026': 'solaranlage-steuerabzug-schweiz-2026',
   'is-solar-worth-it-switzerland-2026':         'lohnt-sich-solaranlage-schweiz-2026',
