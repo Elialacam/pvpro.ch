@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 import { LocaleProvider } from "@/lib/LocaleContext";
 
 export const metadata: Metadata = {
@@ -64,7 +65,7 @@ export default function EnglishLayout({
   return (
     <LocaleProvider locale="en">
       <Header />
-      <main className="min-h-screen pt-20">{children}</main>
+      <main className="min-h-screen pt-20"><PageTransition>{children}</PageTransition></main>
       <Footer />
       <script
         type="application/ld+json"

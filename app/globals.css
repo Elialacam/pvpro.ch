@@ -45,8 +45,17 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
   body {
     @apply antialiased text-gray-900 bg-white;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 

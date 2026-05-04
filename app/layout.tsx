@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import TrackingScripts from '@/components/TrackingScripts';
 import UtmTracker from '@/components/UtmTracker';
 import SupportPopup from '@/components/SupportPopup';
+import NavigationProgress from '@/components/NavigationProgress';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
@@ -45,6 +46,7 @@ export default function RootLayout({
           <TrackingScripts />
         </Suspense>
         <UtmTracker />
+        <NavigationProgress />
         {children}
         <SupportPopup />
         <Analytics />
