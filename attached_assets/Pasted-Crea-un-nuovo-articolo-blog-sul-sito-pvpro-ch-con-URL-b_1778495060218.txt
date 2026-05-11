@@ -1,0 +1,212 @@
+Crea un nuovo articolo blog sul sito pvpro.ch con URL /blog/solaranlage-versicherung-schweiz.
+Crea anche le versioni nelle altre lingue:
+
+Francese: /fr/blog/assurance-installation-solaire-suisse
+Inglese: /en/blog/solar-panel-insurance-switzerland
+Italiano: /it/blog/assicurazione-impianto-solare-svizzera
+
+SEO TECNICO:
+
+Title tag: Solaranlage versichern Schweiz 2026 – Was ist gedeckt? Vollständiger Guide | PVPro.ch
+Meta description: Solaranlage versichern in der Schweiz: Was deckt die kantonale Gebäudeversicherung? Was nicht? Hagel, Diebstahl, Kurzschluss — alles erklärt mit kantonalen Unterschieden.
+H1: Solaranlage und Hausversicherung Schweiz — was ist gedeckt und was nicht?
+Canonical URL: https://www.pvpro.ch/blog/solaranlage-versicherung-schweiz
+Kategorie: Ratgeber
+Lingua: de
+
+
+IMPORTANTE — TRADUZIONI:
+Crea le versioni in tutte e 4 le lingue con il contenuto completo tradotto. Non accorciare, non riassumere, non omettere nessuna sezione. Ogni versione identica nella struttura e nella lunghezza all'originale tedesco, tradotta fedelmente e naturalmente. Includi tag hreflang che collegano le 4 versioni tra loro.
+
+CONTENUTO:
+[Tag categoria] Ratgeber
+[Datum] Mai 2026
+[Lesezeit] 10 Min.
+[H1] Solaranlage und Hausversicherung Schweiz — was ist gedeckt und was nicht?
+[Testo introduttivo]
+Eine Solaranlage kostet CHF 15'000–30'000. Was passiert, wenn Hagel die Module zerstört? Was wenn ein Kurzschluss den Wechselrichter beschädigt? Was wenn jemand die Anlage stiehlt? Viele Schweizer Hausbesitzer gehen davon aus, dass ihre Gebäudeversicherung alles deckt — und erleben im Schadensfall eine böse Überraschung. Dieser Artikel erklärt klar, was die kantonale Gebäudeversicherung abdeckt, was nicht, und wie Sie Ihre Investition vollständig schützen.
+[3 Stat-Boxen orizzontali]
+
+Box 1: Feuer & Elementar / KGV deckt — aber nicht alles
+Box 2: Diebstahl, Kurzschluss / KGV deckt NICHT
+Box 3: Ab CHF 100/Jahr / Zusatzversicherung für vollen Schutz
+
+
+[H2] Das Schweizer Versicherungssystem für Gebäude — kurz erklärt
+In der Schweiz funktioniert die Gebäudeversicherung anders als in den meisten anderen Ländern. Es gibt zwei verschiedene Systeme:
+System 1 — Kantone mit obligatorischer Gebäudeversicherung (KGV)
+In 19 Kantonen gibt es eine obligatorische, staatliche Gebäudeversicherung — zum Beispiel in Zürich (GVZ), Bern (GVB), Aargau, Luzern, St. Gallen. Jeder Hausbesitzer ist automatisch versichert.
+System 2 — GUSTAVO-Kantone ohne obligatorische KGV
+In 7 Kantonen — Genf, Uri, Schwyz, Tessin, Appenzell Innerrhoden, Obwalden und Wallis — gibt es keine obligatorische staatliche Gebäudeversicherung. Hier müssen Hausbesitzer selbst eine private Gebäudeversicherung abschliessen.
+Wichtig für Solaranlagenbesitzer: In beiden Systemen gelten ähnliche Grundprinzipien — aber die Details variieren. Im Zweifelsfall immer bei Ihrer kantonalen Versicherung nachfragen.
+
+[H2] Was deckt die kantonale Gebäudeversicherung (KGV) für Solaranlagen?
+Die gute Nachricht: Ihre Solaranlage ist in den meisten Kantonen automatisch als Gebäudebestandteil in der KGV mitversichert — sofern Sie die Installation der Versicherung gemeldet haben.
+Was die KGV deckt:
+✅ Feuerschäden — Brand, Blitzschlag, Explosion
+✅ Elementarschäden — Hagel, Sturm, Überschwemmung, Schneedruck, Erdrutsch
+✅ Wasserschäden durch Rohrbruch (in manchen Kantonen)
+Das klingt gut — aber es gibt einen grossen Haken:
+Die KGV deckt nur die Grundsubstanz. Was Sie oft NICHT erhalten:
+
+Gerüstkosten für die Reparatur
+Ertragsausfall während der Reparaturzeit
+Mehrkosten durch behördliche Auflagen
+Entsorgungskosten beschädigter Module
+
+
+[H2] Was die KGV NICHT deckt — die gefährlichen Lücken
+Das ist das Herzstück dieses Artikels — denn hier erleben viele Hausbesitzer eine böse Überraschung:
+❌ Diebstahl — Solarmodule vom Dach gestohlen? KGV zahlt nicht.
+❌ Vandalismus — jemand beschädigt absichtlich Ihre Anlage? KGV zahlt nicht.
+❌ Kurzschluss — technischer Defekt zerstört den Wechselrichter? KGV zahlt nicht.
+❌ Überspannung — Blitz trifft das Stromnetz und zerstört die Elektronik? KGV zahlt nicht (obwohl Blitz an sich gedeckt ist — der Überspannungsschaden ist es nicht).
+❌ Tierbisse — Marder oder Vögel beschädigen die Kabel? KGV zahlt nicht.
+❌ Bedienungsfehler — falsche Einstellung beschädigt die Anlage? KGV zahlt nicht.
+❌ Ertragsausfall — Anlage steht still wegen Reparatur? KGV zahlt nicht.
+❌ Konstruktionsfehler — Fabrikationsfehler am Modul? KGV zahlt nicht.
+Realitätscheck: Die häufigsten Schadenursachen bei Solaranlagen in der Schweiz sind Hagel, Überspannung und technische Defekte. Hagel ist gedeckt — Überspannung und technische Defekte sind es nicht.
+
+[H2] Die GUSTAVO-Kantone — Sonderfall Tessin, Wallis, Genf
+In den GUSTAVO-Kantonen (GE, UR, SZ, TI, AI, OW, VS) gibt es keine obligatorische staatliche Gebäudeversicherung. Das bedeutet:
+
+Hausbesitzer müssen selbst eine private Gebäudeversicherung abschliessen
+Der Versicherungsumfang hängt von der gewählten Police ab
+Feuer und Elementarschäden sind nicht automatisch gedeckt
+
+Für Solaranlagenbesitzer in diesen Kantonen: Es ist besonders wichtig, die Police genau zu prüfen und sicherzustellen, dass die Solaranlage explizit mitversichert ist.
+
+[H2] Was ist eine Haustechnikversicherung und brauche ich sie?
+Die Haustechnikversicherung (auch Solaranlagenversicherung oder Photovoltaikversicherung genannt) schliesst die Lücken der KGV. Sie deckt alle Schäden, die die KGV nicht übernimmt:
+Was eine gute Haustechnikversicherung abdeckt:
+✅ Kurzschluss und Überspannungsschäden
+✅ Diebstahl (Module, Wechselrichter, Speicher)
+✅ Vandalismus
+✅ Tierbisse (Marder, Vögel)
+✅ Bedienungsfehler
+✅ Konstruktions- und Fabrikationsfehler
+✅ Ertragsausfall (während der Reparaturzeit)
+✅ Gerüstkosten für Reparaturen auf dem Dach
+✅ Mehrkosten durch behördliche Auflagen
+✅ Batteriespeicher (sofern mitversichert)
+Kosten: Eine Haustechnikversicherung für eine typische 10-kWp-Anlage kostet in der Schweiz ca. CHF 100–200 pro Jahr — das sind CHF 8–17 pro Monat für eine CHF 20'000-Investition.
+
+[H2] Welche Versicherer bieten Solarversicherungen in der Schweiz an?
+Folgende Anbieter sind in der Schweiz bekannt für Solaranlagenversicherungen:
+AnbieterProduktBesonderheitGVB Solar (Bern)Spezialversicherung PVAuf Kantonsversicherung aufbauendHelvetiaPhotovoltaikversicherungInkl. ErtragsausfallZurichErneuerbare EnergienInkl. WärmepumpeMobiliarHaustechnikKombinierbar mit GebäudeAXAGebäudeversicherung +ErweiterungsoptionAllianzSolarversicherungBundesweit anerkannte Policen
+Empfehlung: Fragen Sie zuerst bei Ihrer bestehenden Gebäudeversicherung nach — oft können Sie die Solaranlage einfach als Zusatzoption einschliessen, ohne eine neue Police abzuschliessen.
+
+[H2] Muss ich die Solaranlage bei der Versicherung melden?
+Ja — und das ist sehr wichtig.
+In Kantonen mit KGV gilt die Solaranlage als Gebäudebestandteil. Damit sie gedeckt ist, müssen Sie die Installation der kantonalen Gebäudeversicherung melden und den Gebäudewert entsprechend anpassen.
+Wenn Sie die Anlage nicht melden:
+
+Besteht möglicherweise kein Versicherungsschutz bei Feuer- oder Elementarschäden
+Kann die Versicherung im Schadensfall die Leistung kürzen
+
+Wann melden: Idealerweise direkt nach der Installation, spätestens innerhalb von 30 Tagen.
+Wer meldet: In der Praxis übernimmt oft der Installateur diese Meldung. Fragen Sie ihn explizit danach.
+
+[H2] Was ist mit dem Batteriespeicher?
+Der Batteriespeicher ist ein teures Gerät (CHF 7'000–12'000) — und er hat einen eigenen Versicherungsstatus:
+KGV: Der Speicher im Keller ist in den meisten Kantonen als Gebäudebestandteil mitversichert — aber nur gegen Feuer und Elementarschäden.
+Nicht gedeckt durch KGV: Technische Defekte, Überspannung, Kurzschluss des Speichers.
+Zusatzversicherung: Die meisten Haustechnikversicherungen decken den Speicher mit ab — aber prüfen Sie das explizit in den Versicherungsbedingungen. Manchmal muss er separat angegeben werden.
+
+[H2] Hagel — der häufigste Schadensfall in der Schweiz
+Die Schweiz hat eines der höchsten Hagelrisiken Europas — besonders im Kanton Bern, in der Nordwestschweiz und in Teilen des Mittellandes.
+Was wissen Sie über Hagelschutz bei Modulen?
+
+Mindeststandard nach EU-Norm: Module halten 25-mm-Hagelkörnern stand
+Empfohlen für Schweizer Verhältnisse: 30-mm-Zertifizierung (IEC 61215)
+Beste Klasse: Module, die 40-mm-Hagel überstehen
+
+In hagelgefährdeten Regionen sollten Sie bei der Offerte explizit nach der Hagelschutzklasse der Module fragen. Das Institut für Solartechnik in Rapperswil (OST) zertifiziert Module nach Hagelresistenz — ein verlässliches Qualitätsmerkmal.
+
+[H2] Checkliste — Versicherungsschutz für Ihre Solaranlage
+✅ Installation der kantonalen Gebäudeversicherung gemeldet?
+✅ Gebäudewert entsprechend der Anlage angepasst?
+✅ Haustechnikversicherung für Kurzschluss, Diebstahl, Tierbisse abgeschlossen?
+✅ Ertragsausfall in der Zusatzversicherung enthalten?
+✅ Batteriespeicher explizit mitversichert?
+✅ Hagelschutzklasse der Module bekannt?
+✅ In GUSTAVO-Kanton: private Gebäudeversicherung mit PV-Deckung?
+
+[H2] Häufig gestellte Fragen
+Füge queste come FAQ a fisarmonica (Accordion), con schema JSON-LD FAQPage:
+F: Ist meine Solaranlage automatisch durch die Gebäudeversicherung gedeckt?
+A: In Kantonen mit obligatorischer KGV ja — aber nur für Feuer- und Elementarschäden, und nur wenn Sie die Installation gemeldet haben. Diebstahl, Kurzschluss und technische Defekte sind nicht gedeckt. Eine Zusatzversicherung ist empfohlen.
+F: Was kostet eine Solaranlagenversicherung in der Schweiz?
+A: Eine Haustechnik- oder Solaranlagenversicherung kostet für eine typische 10-kWp-Anlage ca. CHF 100–200 pro Jahr. Das entspricht CHF 8–17 pro Monat für eine Investition von CHF 20'000.
+F: Was passiert wenn Hagel meine Solarmodule beschädigt?
+A: Hagelschäden sind durch die kantonale Gebäudeversicherung gedeckt — vorausgesetzt, Sie haben die Anlage gemeldet. Gerüstkosten und Ertragsausfall während der Reparaturzeit sind jedoch oft nicht inbegriffen und erfordern eine Zusatzversicherung.
+F: Ist Diebstahl von Solarmodulen versichert?
+A: Nicht durch die KGV. Diebstahl ist nur durch eine private Zusatzversicherung (Haustechnik- oder Solaranlagenversicherung) gedeckt. Sprechen Sie Ihren Versicherer an.
+F: Muss ich die Solaranlage der Versicherung melden?
+A: Ja. Melden Sie die Installation nach Abschluss der kantonalen Gebäudeversicherung — idealerweise innerhalb von 30 Tagen. Fragen Sie Ihren Installateur, ob er diese Meldung für Sie übernimmt.
+F: Ich wohne im Tessin — wie funktioniert die Versicherung?
+A: Der Tessin ist ein GUSTAVO-Kanton ohne obligatorische Gebäudeversicherung. Sie brauchen eine private Gebäudeversicherung, die explizit die Solaranlage mitversichert — inkl. Feuer, Elementar und idealerweise Zusatzrisiken.
+F: Ist der Batteriespeicher mitversichert?
+A: In der KGV als Gebäudebestandteil gegen Feuer und Elementar — ja. Für technische Defekte und Kurzschluss brauchen Sie eine Zusatzversicherung. Prüfen Sie, ob der Speicher in den Versicherungsbedingungen explizit erwähnt wird.
+
+[CTA Box finale]
+Titel: Jetzt Offerte für Ihre Solaranlage einholen — inkl. Versicherungsberatung
+Text: Unsere zertifizierten Installateure beraten Sie auch zu den Versicherungsfragen rund um Ihre neue Solaranlage — und melden die Installation korrekt bei der Gebäudeversicherung. Kostenlos bis zu 3 Offerten vergleichen.
+Button: Kostenlose Offerte anfordern → link a /anfrage
+
+LINK INTERNI:
+
+Dove menzioni "Batteriespeicher" → linka a /solaranlage-mit-speicher
+Dove menzioni "Kosten Solaranlage" → linka a /solaranlage-kosten
+Dove menzioni "Installateur finden" → linka a /vergleichsportal-photovoltaik-schweiz
+Dove menzioni "Offerten vergleichen" → linka a /solaranlage-offerte-einholen
+Dove menzioni "Tessin" → linka a /it/fotovoltaico-ticino
+Dove menzioni "Kanton Bern" → linka a /solaranlage-bern
+Dove menzioni "Insolvenz Installateur" → linka a /blog/solaranlage-installateur-konkurs-garantie-schweiz
+Dove menzioni "Brandgefahr Batteriespeicher" → linka a /blog/batteriespeicher-brandgefahr-sicherheit-schweiz
+Dove menzioni "lohnt sich" → linka a /blog/lohnt-sich-solaranlage-schweiz-2026
+
+
+LINK INTERNI INVERSI:
+
+/solaranlage-mit-speicher → anchor text Batteriespeicher richtig versichern
+/solaranlage-kosten → anchor text Versicherungskosten für Solaranlagen
+/blog/batteriespeicher-brandgefahr-sicherheit-schweiz → anchor text Versicherung und Brandschutz Batteriespeicher
+/blog/solaranlage-installateur-konkurs-garantie-schweiz → anchor text Versicherung bei Insolvenz des Installateurs
+/solaranlage-einfamilienhaus → anchor text Solaranlage versichern — was Sie wissen müssen
+/foerderungen → anchor text Förderung und Versicherung kombinieren
+
+
+FOOTER: aggiungi nella sezione "Notizie & Consigli":
+
+Solaranlage versichern → /blog/solaranlage-versicherung-schweiz
+Assicurati che appaia anche nelle versioni FR, EN, IT del footer.
+
+
+SITEMAP:
+xml<url>
+  <loc>https://www.pvpro.ch/blog/solaranlage-versicherung-schweiz</loc>
+  <lastmod>2026-05-03</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/fr/blog/assurance-installation-solaire-suisse</loc>
+  <lastmod>2026-05-03</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/en/blog/solar-panel-insurance-switzerland</loc>
+  <lastmod>2026-05-03</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://www.pvpro.ch/it/blog/assicurazione-impianto-solare-svizzera</loc>
+  <lastmod>2026-05-03</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
+
+STILE VISIVO — usa esattamente lo stesso layout degli articoli blog esistenti. Stesso header con immagine di copertina, stesso footer, stessi componenti accordion per le FAQ, stesse tabelle stilizzate.
