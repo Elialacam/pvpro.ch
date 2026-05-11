@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { ChevronRight, Calendar, Clock, ArrowRight, AlertTriangle, CheckCircle2 } from 'lucide-react';
 import { BlogArticle } from '@/lib/blogArticles';
 import { blogPosts } from '@/lib/blogPosts';
@@ -47,8 +46,17 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
     <main className="min-h-screen bg-white">
 
       {/* ── HERO ── */}
-      <section className="relative pt-28 pb-0 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 30%, #F97316 0%, transparent 60%)' }} />
+      <section className="relative pt-28 pb-14 overflow-hidden min-h-[540px]">
+        {/* Background image */}
+        <img
+          src={article.image}
+          alt={article.title}
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(13,17,23,0.88) 0%, rgba(26,34,54,0.82) 100%)' }} />
+        {/* Orange radial glow */}
+        <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(circle at 70% 30%, #F97316 0%, transparent 55%)' }} />
 
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
 
@@ -77,32 +85,20 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-6">
               {article.title}
             </h1>
-            <p className="text-gray-400 text-lg leading-relaxed">{article.intro}</p>
+            <p className="text-white/70 text-lg leading-relaxed">{article.intro}</p>
           </div>
 
           {/* Hero stats cards */}
           {heroStats.length > 0 && (
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pb-10">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {heroStats.map(s => (
-                <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)' }}>
                   <p className="text-lg font-bold text-white mb-0.5">{s.value}</p>
                   <p className="text-[#F97316] text-xs font-semibold leading-tight">{s.label}</p>
                 </div>
               ))}
             </div>
           )}
-        </div>
-
-        {/* Article image — full-width strip at bottom of hero */}
-        <div className="relative w-full mt-4" style={{ height: '380px' }}>
-          <Image
-            src={article.image}
-            alt={article.title}
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(13,17,23,0.3) 0%, rgba(13,17,23,0) 40%, rgba(255,255,255,0) 100%)' }} />
         </div>
       </section>
 
