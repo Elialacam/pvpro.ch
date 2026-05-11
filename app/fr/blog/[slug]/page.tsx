@@ -8,6 +8,7 @@ interface Props {
 }
 
 const frSlugToDeSlug: Record<string, string> = {
+  'installateur-solaire-faillite-garantie-suisse':    'solaranlage-installateur-konkurs-garantie-schweiz',
   'batterie-solaire-danger-incendie-securite-suisse': 'batteriespeicher-brandgefahr-sicherheit-schweiz',
   'trouver-meilleur-installateur-solaire-suisse':  'besten-solarinstallateur-schweiz-finden',
   'panneaux-solaires-pompe-chaleur-suisse':        'solaranlage-waermepumpe-kombinieren-schweiz',

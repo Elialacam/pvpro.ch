@@ -18,6 +18,17 @@ export interface BlogPostLocale {
 
 const fr: BlogPostLocale[] = [
   {
+    slug: 'solaranlage-installateur-konkurs-garantie-schweiz',
+    title: "Que se passe-t-il avec mon installation solaire si l'installateur fait faillite?",
+    excerpt: "Installateur solaire insolvable — que devient la garantie? Tout ce que les propriétaires suisses doivent savoir pour se protéger. Avec checklist.",
+    tag: 'Guide',
+    image: '/images/blog-6.webp',
+    author: 'PVPro Rédaction',
+    date: '3 mai 2026',
+    readMin: 10,
+    href: '/fr/blog/installateur-solaire-faillite-garantie-suisse',
+  },
+  {
     slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
     title: "Un système de stockage de batteries est-il dangereux? Ce que vous devez vraiment savoir",
     excerpt: "Risque d'incendie de seulement 0.005% selon l'étude RWTH 2024. Ce qu'il faut savoir sur les batteries LFP, les normes de sécurité et le lieu d'installation en Suisse.",
@@ -252,6 +263,17 @@ const fr: BlogPostLocale[] = [
 
 const en: BlogPostLocale[] = [
   {
+    slug: 'solaranlage-installateur-konkurs-garantie-schweiz',
+    title: 'What happens to my solar system if the installer goes bankrupt?',
+    excerpt: 'Solar installer insolvent — what happens to the warranty and guarantee? Everything Swiss homeowners need to know to protect themselves. With checklist.',
+    tag: 'Guide',
+    image: '/images/blog-6.webp',
+    author: 'PVPro Editorial',
+    date: '3 May 2026',
+    readMin: 10,
+    href: '/en/blog/solar-installer-bankruptcy-guarantee-switzerland',
+  },
+  {
     slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
     title: 'Are solar battery storage systems dangerous? What you really need to know',
     excerpt: 'Fire risk of only 0.005% according to the RWTH study 2024. What you need to know about LFP batteries, safety standards and the right installation location in Switzerland.',
@@ -485,6 +507,17 @@ const en: BlogPostLocale[] = [
 ];
 
 const it: BlogPostLocale[] = [
+  {
+    slug: 'solaranlage-installateur-konkurs-garantie-schweiz',
+    title: "Cosa succede al mio impianto solare se l'installatore fallisce?",
+    excerpt: "Installatore solare insolvente — cosa succede alla garanzia? Tutto quello che i proprietari svizzeri devono sapere per proteggersi. Con checklist.",
+    tag: 'Guida',
+    image: '/images/blog-6.webp',
+    author: 'PVPro Redazione',
+    date: '3 maggio 2026',
+    readMin: 10,
+    href: '/it/blog/installatore-solare-fallimento-garanzia-svizzera',
+  },
   {
     slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
     title: "Un sistema di accumulo a batterie è pericoloso? Quello che dovete sapere davvero",

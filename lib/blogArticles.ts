@@ -3218,7 +3218,7 @@ const articles: BlogArticle[] = [
     ctaText: 'PVPro.ch übernimmt die Suche für Sie. In 2 Minuten Formular ausfüllen — wir vermitteln Ihnen bis zu 3 geprüfte, zertifizierte Installateure aus Ihrer Region. Kostenlos, unverbindlich, ohne Werbeanrufe.',
     ctaButton: 'Kostenlose Offerte anfordern',
     formUrl: '/anfrage',
-    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'richtigen-solarinstallateur-schweiz-waehlen', 'solaranlage-waermepumpe-kombinieren-schweiz'],
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'richtigen-solarinstallateur-schweiz-waehlen', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
     relatedPageLinks: [
       { label: 'Offerten einholen & vergleichen', href: '/solaranlage-offerte-einholen' },
       { label: 'Solaranlage Kosten Schweiz', href: '/solaranlage-kosten' },
@@ -3345,7 +3345,7 @@ const articles: BlogArticle[] = [
     ctaText: "PVPro.ch prend en charge la recherche pour vous. Remplissez le formulaire en 2 minutes — nous vous mettons en contact avec jusqu'à 3 installateurs vérifiés et certifiés de votre région. Gratuit, sans engagement, sans appels publicitaires.",
     ctaButton: 'Demander un devis gratuit',
     formUrl: '/fr/demande',
-    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'richtigen-solarinstallateur-schweiz-waehlen', 'solaranlage-waermepumpe-kombinieren-schweiz'],
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'richtigen-solarinstallateur-schweiz-waehlen', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
     relatedPageLinks: [
       { label: 'Demander des offres et comparer', href: '/fr/demander-offre-panneau-solaire' },
       { label: 'Coût installation solaire Suisse', href: '/fr/cout-installation-solaire' },
@@ -3472,7 +3472,7 @@ const articles: BlogArticle[] = [
     ctaText: 'PVPro.ch takes care of the search for you. Fill in the form in 2 minutes — we connect you with up to 3 verified, certified installers from your region. Free, no obligation, no advertising calls.',
     ctaButton: 'Request a free quote',
     formUrl: '/en/request',
-    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'richtigen-solarinstallateur-schweiz-waehlen', 'solaranlage-waermepumpe-kombinieren-schweiz'],
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'richtigen-solarinstallateur-schweiz-waehlen', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
     relatedPageLinks: [
       { label: 'Get & compare quotes', href: '/en/get-solar-panel-quotes' },
       { label: 'Solar system costs Switzerland', href: '/en/solar-panel-costs' },
@@ -3599,7 +3599,7 @@ const articles: BlogArticle[] = [
     ctaText: "PVPro.ch si occupa della ricerca per voi. Compilate il modulo in 2 minuti — vi mettiamo in contatto con fino a 3 installatori verificati e certificati della vostra regione. Gratuito, senza impegno, senza chiamate pubblicitarie.",
     ctaButton: 'Richiedere un preventivo gratuito',
     formUrl: '/it/richiesta',
-    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'richtigen-solarinstallateur-schweiz-waehlen', 'solaranlage-waermepumpe-kombinieren-schweiz'],
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'richtigen-solarinstallateur-schweiz-waehlen', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
     relatedPageLinks: [
       { label: 'Richiedere preventivi e confrontare', href: '/it/richiedere-preventivo-solare' },
       { label: 'Costi impianto solare Svizzera', href: '/it/costi-impianto-solare' },
@@ -3746,7 +3746,7 @@ const articles: BlogArticle[] = [
     ctaText: 'PVPro.ch vermittelt nur zertifizierte Installateure, die ausschliesslich geprüfte LFP-Speicher mit anerkannten Sicherheitszertifizierungen verbauen. Kostenlos bis zu 3 Offerten einholen — und sicher investieren.',
     ctaButton: 'Kostenlose Offerte anfordern',
     formUrl: '/anfrage',
-    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-waermepumpe-kombinieren-schweiz'],
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
     relatedPageLinks: [
       { label: 'Solaranlage mit Batteriespeicher', href: '/solaranlage-mit-speicher' },
       { label: 'Förderungen & EIV', href: '/foerderungen' },
@@ -3885,7 +3885,7 @@ const articles: BlogArticle[] = [
     ctaText: "PVPro.ch ne met en relation qu'avec des installateurs certifiés qui n'installent que des systèmes LFP vérifiés avec des certifications de sécurité reconnues. Obtenez gratuitement jusqu'à 3 devis — et investissez en toute sécurité.",
     ctaButton: 'Demander un devis gratuit',
     formUrl: '/fr/demande',
-    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-waermepumpe-kombinieren-schweiz'],
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
     relatedPageLinks: [
       { label: 'Solaire avec batterie', href: '/fr/solaire-avec-batterie' },
       { label: 'Subventions & EIV', href: '/fr/subventions-solaires' },
@@ -4024,7 +4024,7 @@ const articles: BlogArticle[] = [
     ctaText: 'PVPro.ch only brokers certified installers who exclusively install verified LFP systems with recognised safety certifications. Get up to 3 quotes for free — and invest safely.',
     ctaButton: 'Request a free quote',
     formUrl: '/en/request',
-    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-waermepumpe-kombinieren-schweiz'],
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
     relatedPageLinks: [
       { label: 'Solar with battery storage', href: '/en/solar-with-battery' },
       { label: 'Subsidies & EIV', href: '/en/solar-subsidies' },
@@ -4163,12 +4163,549 @@ const articles: BlogArticle[] = [
     ctaText: "PVPro.ch mette in contatto solo con installatori certificati che installano esclusivamente sistemi LFP verificati con certificazioni di sicurezza riconosciute. Richiedete gratuitamente fino a 3 preventivi — e investite in sicurezza.",
     ctaButton: 'Richiedere preventivo gratuito',
     formUrl: '/it/richiesta',
-    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-waermepumpe-kombinieren-schweiz'],
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
     relatedPageLinks: [
       { label: 'Solare con accumulo', href: '/it/solare-con-accumulo' },
       { label: 'Incentivi & EIV', href: '/it/incentivi-solari' },
       { label: 'Costi impianto solare', href: '/it/costi-impianto-solare' },
       { label: 'Confronta preventivi', href: '/it/preventivo-solare' },
+    ],
+  },
+
+  // ─── INSTALLATEUR KONKURS GARANTIE (DE) ──────────────────────────────────────
+  {
+    slug: 'solaranlage-installateur-konkurs-garantie-schweiz',
+    locale: 'de',
+    title: 'Was passiert mit meiner Solaranlage wenn der Installateur pleite geht?',
+    metaDescription: 'Solarinstallateur insolvent — was passiert mit Garantie und Gewährleistung? Alles was Schweizer Hausbesitzer wissen müssen, um sich zu schützen. Mit Checkliste.',
+    image: '/images/blog-6.webp',
+    date: '3. Mai 2026',
+    readMin: 10,
+    tag: 'Ratgeber',
+    intro: 'Die Solarbranche wächst rasant — und wie in jedem Wachstumsmarkt gibt es auch Unternehmen, die scheitern. Was passiert mit Ihrer Solaranlage, wenn der Installateur Konkurs anmeldet? Verlieren Sie Ihre Garantie? Wer kümmert sich um Reparaturen? Und was können Sie tun, um sich zu schützen, bevor das überhaupt passiert? Dieser Artikel beantwortet alle diese Fragen — klar, ehrlich und ohne Panik zu machen. Denn die gute Nachricht lautet: Eine Insolvenz des Installateurs ist kein Katastrophenszenario — wenn Sie vorbereitet sind.',
+    sections: [
+      {
+        heading: 'Der wichtigste Unterschied: Gewährleistung vs. Garantie',
+        content: [
+          'Bevor wir erklären, was bei einer Insolvenz passiert, müssen wir einen entscheidenden Unterschied verstehen — den zwischen Gewährleistung und Garantie. Die meisten Hausbesitzer verwechseln diese beiden Begriffe, aber sie sind rechtlich völlig verschieden.',
+          'Gewährleistung: Gesetzlich vorgeschrieben — kein Vertrag nötig. Richtet sich gegen den Installateur (Verkäufer der Anlage). In der Schweiz: 2 Jahre für bewegliche Teile, 5 Jahre für fest verbaute Teile (z.B. Dachkonstruktion). Deckt Mängel, die bei der Installation vorhanden waren. Bei Insolvenz des Installateurs: praktisch wertlos — kein Ansprechpartner mehr.',
+          'Garantie: Freiwilliges Versprechen des Herstellers der einzelnen Komponenten — unabhängig vom Installateur. Solarmodule: 10–15 Jahre Produktgarantie, 25–30 Jahre Leistungsgarantie. Wechselrichter: 5–10 Jahre Herstellergarantie. Batteriespeicher: meist 10 Jahre. Bei Insolvenz des Installateurs: bleibt vollständig bestehen.',
+          'Das Fazit: Wenn Ihr Installateur pleite geht, verlieren Sie Ihre Gewährleistungsansprüche — aber Ihre wertvollen Herstellergarantien auf Module, Wechselrichter und Speicher bleiben vollständig erhalten.',
+        ],
+        stats: [
+          { value: '25–30 Jahre', label: 'Leistungsgarantie der Module bleibt bestehen' },
+          { value: 'Gewährleistung', label: 'vs. Garantie — der entscheidende Unterschied' },
+          { value: 'Lokale Betriebe', label: 'haben tieferes Insolvenzrisiko' },
+        ],
+      },
+      {
+        heading: 'Was passiert konkret bei einer Insolvenz des Installateurs?',
+        content: [
+          'Szenario 1 — Anlage bereits vollständig installiert und in Betrieb: Das ist das beste Szenario. Die Anlage läuft, alles ist fertig. Was Sie verlieren: Ihre Gewährleistungsansprüche gegen den Installateur für Installationsfehler, allfällige Wartungsverträge mit dem Betrieb und den direkten Ansprechpartner für kleinere Probleme. Was bleibt: alle Herstellergarantien auf Module, Wechselrichter und Speicher, die Anlage produziert weiterhin Strom, und die Einmalvergütung (EIV) ist bereits beantragt oder ausbezahlt.',
+          'Handlung: Bewahren Sie alle Unterlagen sorgfältig auf — Rechnungen, Garantiezertifikate, technische Datenblätter, Seriennummern aller Komponenten. Das ist Ihr Schutzschild.',
+          'Szenario 2 — Anlage ist halb fertig: Das ist das schwierigste Szenario. Der Insolvenzverwalter entscheidet, ob das Projekt weitergeführt wird. In den meisten Fällen müssen Sie einen neuen Installateur beauftragen, der das Projekt übernimmt. Bereits bezahlte Anzahlungen sind gefährdet — Sie werden zum Gläubiger. Handlung: Forderungen sofort beim Insolvenzverwalter anmelden, einen neuen lokalen Installateur kontaktieren und bei Kreditkartenzahlung einen Chargeback einleiten.',
+          'Szenario 3 — Vertrag unterschrieben, Bau noch nicht begonnen: Anzahlungen sind gefährdet. Handeln Sie sofort: Forderung beim Insolvenzverwalter anmelden, Chargeback bei Kreditkartenzahlung prüfen, und Ihre Hausratversicherung auf Anzahlungsschutz prüfen.',
+        ],
+      },
+      {
+        heading: 'Wie lange dauert ein Insolvenzverfahren in der Schweiz?',
+        content: [
+          'Ein Schweizer Konkursverfahren dauert typischerweise 1–3 Jahre. In dieser Zeit können Sie Forderungen beim Konkursamt anmelden und erhalten am Ende eine Quote — oft im einstelligen Prozentbereich. Herstellergarantien bleiben davon vollständig unberührt.',
+          'Realitätscheck: Die Erfahrung zeigt, dass Gläubiger am Ende eines Insolvenzverfahrens typischerweise nur 3–10% ihrer Forderungen zurückerhalten. Setzen Sie Ihre Energie lieber auf die Herstellergarantien und auf die Suche nach einem neuen lokalen Fachbetrieb für Wartung und Service.',
+        ],
+        bullets: [
+          'Forderungen sofort beim Konkursamt anmelden',
+          'Herstellergarantien direkt mit den Herstellern klären',
+          'Neuen lokalen Installateur für Wartung und Reparaturen suchen',
+          'Alle Dokumente und Garantiezertifikate sorgfältig sichern',
+        ],
+      },
+      {
+        heading: 'Was passiert mit der Garantie der Hersteller?',
+        content: [
+          'Das ist die eigentlich wichtige Frage — und die Antwort ist beruhigend. Herstellergarantien auf Module: Die Leistungsgarantie (25–30 Jahre) richtet sich direkt gegen den Modulhersteller — nicht gegen den Installateur. Wenn ein Modul nach 10 Jahren nicht mehr die garantierte Leistung bringt, wenden Sie sich direkt an den Hersteller. Der Installateur ist dabei irrelevant.',
+          'Herstellergarantien auf Wechselrichter: Gleiche Logik — die Garantie besteht zwischen Ihnen und dem Hersteller. Fronius, SMA, Huawei haben eigene Service-Hotlines und Servicepartner in der Schweiz. Was Sie brauchen: Seriennummer des Wechselrichters, Kaufbeleg/Rechnung und das Garantiezertifikat vom Hersteller. Mit diesen Dokumenten können Sie direkt beim Hersteller einen Garantiefall einleiten — ohne den Installateur.',
+          'Achtung bei günstigen No-Name-Produkten: Bei unbekannten Herstellern ohne Schweizer Niederlassung wird die Garantiedurchsetzung im Schadensfall sehr schwierig. Das ist ein weiterer Grund, warum PVPro.ch nur Installationen mit Komponenten von etablierten Markenherstellern vermittelt.',
+        ],
+      },
+      {
+        heading: 'Woran erkennt man einen Installateur in finanziellen Schwierigkeiten?',
+        content: [
+          'Es gibt Warnsignale, die Sie vor einer Insolvenz erkennen können:',
+        ],
+        bullets: [
+          '🔴 Alarmsignal 1: Sehr hohe Anzahlung verlangt (mehr als 30%) lange vor Baubeginn',
+          '🔴 Alarmsignal 2: Vereinbarte Liefertermine werden wiederholt ohne Erklärung verschoben',
+          '🔴 Alarmsignal 3: Der Ansprechpartner ist plötzlich schwer erreichbar — E-Mails bleiben unbeantwortet',
+          '🔴 Alarmsignal 4: Die Website des Unternehmens ist nicht mehr verfügbar',
+          '🔴 Alarmsignal 5: Material wird kurz vor der Installation durch günstigere Alternativen ersetzt',
+          '🔴 Alarmsignal 6: Andere Kunden berichten in Online-Bewertungen von ähnlichen Problemen',
+        ],
+      },
+      {
+        heading: 'Wie schützen Sie sich präventiv?',
+        content: [
+          '1. Nur zertifizierte lokale Betriebe beauftragen: Kleine, lokale Fachbetriebe mit langjähriger Präsenz in der Region haben ein deutlich tieferes Insolvenzrisiko als schnell gewachsene nationale Anbieter. Sie kennen ihre Kunden persönlich und haben einen guten Ruf zu verlieren.',
+          '2. Anzahlungen minimieren: Zahlen Sie nie mehr als 20–30% im Voraus. Professionelle Installateure verlangen keine überhöhten Anzahlungen. Staffelzahlungen — z.B. 30% bei Bestellung, 60% bei Montage, 10% bei Inbetriebnahme — sind Standard.',
+          '3. Alles schriftlich: Bestehen Sie auf einem detaillierten Werkvertrag mit genauer Auflistung der Komponenten, Garantien, Fristen und Zahlungsbedingungen.',
+          '4. Herstellergarantien separat dokumentieren: Verlangen Sie bei der Übergabe alle Garantiezertifikate direkt vom Installateur. Bewahren Sie diese getrennt auf.',
+          '5. Markenhersteller bevorzugen: Komponenten von Fronius, SMA, BYD, Huawei haben eigene Service-Netzwerke in der Schweiz — unabhängig vom Installateur.',
+          '6. Referenzen prüfen: Fragen Sie nach Referenzkunden und rufen Sie diese an. Ein seriöser Betrieb hat zufriedene Kunden, die gerne Auskunft geben.',
+        ],
+      },
+      {
+        heading: 'Warum lokale Installateure das tiefere Risiko haben',
+        content: [
+          "Aus unserer Erfahrung mit über 1'000 vermittelten Anlagen in der Schweiz können wir sagen: Grosse, national tätige Anbieter mit viel Werbung haben nicht automatisch das tiefste Insolvenzrisiko. Im Gegenteil — schnell gewachsene Unternehmen schrumpfen auch schnell.",
+        ],
+        bullets: [
+          'Oft 10–30 Jahre Betriebserfahrung in der Region',
+          'Kennen ihre Kunden persönlich',
+          'Haben einen guten Ruf zu verlieren — und pflegen ihn',
+          'Nicht abhängig von nationalem Auftragsvolumen',
+          'Reagieren schneller bei Problemen — weil sie nebenan sind',
+        ],
+        highlight: 'PVPro.ch vermittelt ausschliesslich geprüfte lokale Fachbetriebe — keine nationalen Call-Center-Anbieter, die Aufträge an Subunternehmer weiterverkaufen.',
+      },
+      {
+        heading: 'Checkliste — Was Sie nach der Installation aufbewahren müssen',
+        content: [
+          'Drucken Sie diese Liste aus und legen Sie alles in einem Ordner ab:',
+        ],
+        bullets: [
+          '✅ Rechnung mit Auflistung aller Komponenten und Seriennummern',
+          '✅ Werkvertrag mit Garantie- und Gewährleistungsvereinbarungen',
+          '✅ Garantiezertifikate für Module (Produkt- und Leistungsgarantie)',
+          '✅ Garantiezertifikat für Wechselrichter',
+          '✅ Garantiezertifikat für Batteriespeicher (falls vorhanden)',
+          '✅ Inbetriebnahmeprotokoll mit Unterschrift des Installateurs',
+          '✅ EIV-Anmeldebestätigung von Pronovo',
+          '✅ Anmeldung beim lokalen Netzbetreiber',
+          '✅ Technische Datenblätter aller Hauptkomponenten',
+          '✅ Fotos der Anlage und der Kabelführung (vor Verkleidung)',
+        ],
+      },
+    ],
+    faqs: [
+      { question: 'Was passiert mit der Garantie meiner Solaranlage wenn der Installateur pleite geht?', answer: 'Die Herstellergarantien auf Module (25–30 Jahre), Wechselrichter (5–10 Jahre) und Batteriespeicher (10 Jahre) bleiben vollständig bestehen — sie richten sich direkt gegen die Hersteller, nicht gegen den Installateur. Was Sie verlieren, ist die Gewährleistung des Installateurs für Installationsfehler.' },
+      { question: 'Kann ich meine Anzahlung zurückbekommen wenn der Installateur Konkurs macht?', answer: 'Sie können Ihre Forderung beim Konkursamt anmelden. Die Erfahrung zeigt jedoch, dass Gläubiger typischerweise nur 3–10% ihrer Forderungen zurückerhalten. Bei Kreditkartenzahlung ist ein Chargeback möglich.' },
+      { question: 'Wer repariert meine Solaranlage wenn der Installateur nicht mehr existiert?', answer: 'Für Reparaturen innerhalb der Herstellergarantie wenden Sie sich direkt an den Hersteller der defekten Komponente. Für sonstige Wartungsarbeiten beauftragen Sie einen anderen lokalen Fachbetrieb — PVPro.ch kann Ihnen dabei helfen.' },
+      { question: 'Wie erkenne ich einen seriösen Installateur?', answer: 'Achten Sie auf: lokale Präsenz seit mindestens 5 Jahren, anerkannte Zertifizierung (Swissolar), keine überhöhten Anzahlungen, schriftlicher Werkvertrag mit detaillierten Angaben, und nachprüfbare Referenzen in Ihrer Region.' },
+      { question: 'Sind lokale Installateure sicherer als nationale Anbieter?', answer: 'In der Regel ja. Kleine lokale Fachbetriebe mit langjähriger Präsenz haben oft ein tieferes Insolvenzrisiko als schnell gewachsene nationale Anbieter. Zudem reagieren sie schneller bei Problemen und kennen die lokalen Gegebenheiten besser.' },
+      { question: 'Was muss ich nach der Installation aufbewahren?', answer: 'Rechnung mit Seriennummern aller Komponenten, Werkvertrag, alle Garantiezertifikate (Module, Wechselrichter, Speicher), Inbetriebnahmeprotokoll, EIV-Bestätigung und Anmeldung beim Netzbetreiber. Diese Dokumente sind Ihr Schutzschild im Schadensfall.' },
+    ],
+    ctaHeading: 'Nur geprüfte lokale Installateure — mit PVPro.ch',
+    ctaText: 'PVPro.ch vermittelt ausschliesslich zertifizierte lokale Fachbetriebe mit nachgewiesener Erfahrung in Ihrer Region. Kein nationales Call-Center, kein Weiterverkauf an Subunternehmer. Kostenlos bis zu 3 Offerten einholen.',
+    ctaButton: 'Kostenlose Offerte anfordern',
+    formUrl: '/anfrage',
+    relatedSlugs: ['besten-solarinstallateur-schweiz-finden', 'batteriespeicher-brandgefahr-sicherheit-schweiz', 'lohnt-sich-solaranlage-schweiz-2026'],
+    relatedPageLinks: [
+      { label: 'Förderungen & Einmalvergütung (EIV)', href: '/foerderungen' },
+      { label: 'Offerten einholen und vergleichen', href: '/solaranlage-offerte-einholen' },
+      { label: 'Vergleichsportal Photovoltaik', href: '/vergleichsportal-photovoltaik-schweiz' },
+      { label: 'Solaranlage mit Batteriespeicher', href: '/solaranlage-mit-speicher' },
+    ],
+  },
+
+  // ─── INSTALLATEUR KONKURS GARANTIE (FR) ──────────────────────────────────────
+  {
+    slug: 'solaranlage-installateur-konkurs-garantie-schweiz',
+    locale: 'fr',
+    title: "Que se passe-t-il avec mon installation solaire si l'installateur fait faillite?",
+    metaDescription: "Installateur solaire insolvable — que devient la garantie? Tout ce que les propriétaires suisses doivent savoir pour se protéger. Avec checklist.",
+    image: '/images/blog-6.webp',
+    date: '3 mai 2026',
+    readMin: 10,
+    tag: 'Guide',
+    intro: "Le secteur solaire croît rapidement — et comme dans tout marché en expansion, certaines entreprises échouent. Que se passe-t-il avec votre installation solaire si l'installateur dépose le bilan? Perdez-vous votre garantie? Qui s'occupe des réparations? Et que pouvez-vous faire pour vous protéger avant que cela n'arrive? Cet article répond à toutes ces questions — clairement, honnêtement et sans dramatiser. Car la bonne nouvelle est la suivante: une insolvabilité de l'installateur n'est pas une catastrophe — si vous êtes préparé.",
+    sections: [
+      {
+        heading: 'La différence essentielle: garantie légale vs. garantie fabricant',
+        content: [
+          "Avant d'expliquer ce qui se passe en cas d'insolvabilité, il faut comprendre une distinction cruciale — entre la garantie légale (garantie des vices) et la garantie fabricant. La plupart des propriétaires confondent ces deux notions, mais elles sont juridiquement très différentes.",
+          "Garantie légale: obligatoire par la loi — aucun contrat nécessaire. S'exerce contre l'installateur (vendeur de l'installation). En Suisse: 2 ans pour les pièces mobiles, 5 ans pour les éléments intégrés (ex. structure de toiture). Couvre les défauts présents lors de l'installation. En cas d'insolvabilité de l'installateur: pratiquement sans valeur — plus d'interlocuteur.",
+          "Garantie fabricant: promesse volontaire du fabricant des composants — indépendante de l'installateur. Panneaux solaires: 10–15 ans de garantie produit, 25–30 ans de garantie de performance. Onduleur: 5–10 ans de garantie fabricant. Système de stockage: généralement 10 ans. En cas d'insolvabilité de l'installateur: reste entièrement valide.",
+          "Conclusion: si votre installateur fait faillite, vous perdez vos droits à la garantie légale — mais vos précieuses garanties fabricant sur les panneaux, l'onduleur et le système de stockage restent entièrement valides.",
+        ],
+        stats: [
+          { value: '25–30 ans', label: 'la garantie de performance des panneaux reste valide' },
+          { value: 'Garantie légale', label: 'vs. garantie fabricant — la différence décisive' },
+          { value: 'Entreprises locales', label: 'présentent un risque de faillite plus faible' },
+        ],
+      },
+      {
+        heading: "Que se passe-t-il concrètement en cas d'insolvabilité de l'installateur?",
+        content: [
+          "Scénario 1 — Installation déjà entièrement réalisée et en service: C'est le meilleur scénario. L'installation fonctionne, tout est terminé. Ce que vous perdez: vos droits à la garantie légale pour les défauts d'installation, les éventuels contrats de maintenance et votre interlocuteur direct. Ce qui reste: toutes les garanties fabricant sur les panneaux, l'onduleur et le système de stockage, l'installation continue de produire de l'électricité, et la subvention (SRI) est déjà demandée ou versée. Action: conservez soigneusement tous les documents — factures, certificats de garantie, fiches techniques, numéros de série de tous les composants.",
+          "Scénario 2 — Installation à moitié réalisée: C'est le scénario le plus difficile. Le liquidateur judiciaire décide si le projet est poursuivi. Dans la plupart des cas, vous devez mandater un nouvel installateur. Les acomptes déjà versés sont en danger — vous devenez créancier. Action: déposez immédiatement une créance auprès du liquidateur, contactez un nouvel installateur local et initiez un chargeback si vous avez payé par carte de crédit.",
+          "Scénario 3 — Contrat signé, travaux pas encore commencés: Les acomptes sont en danger. Agissez immédiatement: déposez une créance auprès du liquidateur, vérifiez la possibilité d'un chargeback par carte de crédit et vérifiez si votre assurance ménage couvre la perte d'acompte.",
+        ],
+      },
+      {
+        heading: "Combien de temps dure une procédure d'insolvabilité en Suisse?",
+        content: [
+          "Une procédure de faillite suisse dure typiquement 1 à 3 ans. Pendant cette période, vous pouvez déposer des créances auprès de l'office des poursuites et obtiendrez finalement un dividende — souvent dans les chiffres à un seul chiffre en pourcentage. Les garanties fabricant restent totalement indépendantes de ce processus.",
+          "Vérification de la réalité: l'expérience montre que les créanciers ne récupèrent généralement que 3 à 10% de leurs créances au terme d'une procédure d'insolvabilité. Concentrez plutôt votre énergie sur les garanties fabricant et la recherche d'un nouveau prestataire local.",
+        ],
+        bullets: [
+          "Déposer immédiatement une créance auprès de l'office des poursuites",
+          'Clarifier les garanties fabricant directement avec les fabricants',
+          'Chercher un nouvel installateur local pour la maintenance et les réparations',
+          'Sécuriser soigneusement tous les documents et certificats de garantie',
+        ],
+      },
+      {
+        heading: "Que se passe-t-il avec les garanties des fabricants?",
+        content: [
+          "C'est la vraie question importante — et la réponse est rassurante. Garanties fabricant sur les panneaux: la garantie de performance (25–30 ans) s'exerce directement contre le fabricant des panneaux — pas contre l'installateur. Si un panneau ne produit plus la performance garantie après 10 ans, adressez-vous directement au fabricant. L'installateur n'est pas impliqué.",
+          "Garanties fabricant sur l'onduleur: même logique — la garantie existe entre vous et le fabricant. Fronius, SMA, Huawei ont leurs propres hotlines de service et partenaires de service en Suisse. Ce dont vous avez besoin: numéro de série de l'onduleur, preuve d'achat/facture et le certificat de garantie du fabricant.",
+          "Attention aux produits bon marché sans marque: chez des fabricants inconnus sans représentation suisse, faire valoir la garantie en cas de sinistre devient très difficile. C'est une raison supplémentaire pour laquelle PVPro.ch ne s'occupe que d'installations avec des composants de fabricants de marque établis.",
+        ],
+      },
+      {
+        heading: "Comment reconnaître un installateur en difficulté financière?",
+        content: [
+          "Il existe des signaux d'alarme que vous pouvez détecter avant une insolvabilité:",
+        ],
+        bullets: [
+          "🔴 Signal 1: L'installateur exige un acompte très élevé (plus de 30%) bien avant le début des travaux",
+          '🔴 Signal 2: Les délais de livraison convenus sont reportés à plusieurs reprises sans explication',
+          "🔴 Signal 3: L'interlocuteur devient soudainement difficile à joindre — les e-mails restent sans réponse",
+          "🔴 Signal 4: Le site web de l'entreprise n'est plus accessible",
+          '🔴 Signal 5: Le matériel est remplacé juste avant l\'installation par des alternatives moins chères sans concertation',
+          "🔴 Signal 6: D'autres clients signalent des problèmes similaires dans les avis en ligne",
+        ],
+      },
+      {
+        heading: 'Comment vous protéger de façon préventive?',
+        content: [
+          "1. Ne mandater que des entreprises locales certifiées: Les petits prestataires locaux avec une présence de longue date dans la région ont un risque d'insolvabilité nettement plus faible que les prestataires nationaux à croissance rapide. Ils connaissent leurs clients personnellement et ont une réputation à préserver.",
+          "2. Minimiser les acomptes: Ne payez jamais plus de 20 à 30% à l'avance. Des paiements échelonnés — par ex. 30% à la commande, 60% à la pose, 10% à la mise en service — sont la norme.",
+          "3. Tout par écrit: Insistez sur un contrat d'entreprise détaillé avec une liste précise des composants, des garanties, des délais et des conditions de paiement.",
+          "4. Documenter les garanties fabricant séparément: Exigez à la livraison tous les certificats de garantie directement de l'installateur. Conservez-les séparément.",
+          "5. Préférer les fabricants de marque: Les composants de Fronius, SMA, BYD, Huawei ont leurs propres réseaux de service en Suisse — indépendamment de l'installateur.",
+          "6. Vérifier les références: Demandez des clients de référence et appelez-les. Un prestataire sérieux a des clients satisfaits qui donnent volontiers des informations.",
+        ],
+      },
+      {
+        heading: 'Pourquoi les installateurs locaux présentent un risque plus faible',
+        content: [
+          "D'après notre expérience avec plus de 1'000 installations réalisées en Suisse, nous pouvons affirmer: les grands prestataires nationaux avec beaucoup de publicité n'ont pas automatiquement le risque d'insolvabilité le plus faible. Au contraire — les entreprises à croissance rapide déclinent aussi rapidement.",
+        ],
+        bullets: [
+          'Souvent 10 à 30 ans d\'expérience dans la région',
+          'Connaissent leurs clients personnellement',
+          'Ont une réputation à préserver — et la chérissent',
+          'Ne dépendent pas du volume de commandes national',
+          'Réagissent plus vite en cas de problèmes — car ils sont à proximité',
+        ],
+        highlight: "PVPro.ch s'occupe exclusivement de prestataires locaux vérifiés — aucun centre d'appels national qui revend les mandats à des sous-traitants.",
+      },
+      {
+        heading: 'Checklist — Ce que vous devez conserver après l\'installation',
+        content: [
+          'Imprimez cette liste et rassemblez tout dans un classeur:',
+        ],
+        bullets: [
+          '✅ Facture avec liste de tous les composants et numéros de série',
+          '✅ Contrat d\'entreprise avec accords de garantie légale et fabricant',
+          '✅ Certificats de garantie pour les panneaux (garantie produit et de performance)',
+          '✅ Certificat de garantie pour l\'onduleur',
+          '✅ Certificat de garantie pour le système de stockage (le cas échéant)',
+          '✅ Protocole de mise en service avec signature de l\'installateur',
+          '✅ Confirmation d\'inscription SRI de Pronovo',
+          '✅ Inscription auprès du gestionnaire de réseau local',
+          '✅ Fiches techniques de tous les composants principaux',
+          '✅ Photos de l\'installation et du câblage (avant habillage)',
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Que se passe-t-il avec la garantie de mon installation solaire si l'installateur fait faillite?", answer: "Les garanties fabricant sur les panneaux (25–30 ans), l'onduleur (5–10 ans) et le système de stockage (10 ans) restent entièrement valides — elles s'exercent directement contre les fabricants, pas contre l'installateur. Ce que vous perdez, c'est la garantie légale de l'installateur pour les défauts d'installation." },
+      { question: "Puis-je récupérer mon acompte si l'installateur fait faillite?", answer: "Vous pouvez déposer votre créance auprès de l'office des poursuites. L'expérience montre cependant que les créanciers ne récupèrent généralement que 3 à 10% de leurs créances. En cas de paiement par carte de crédit, un chargeback est possible." },
+      { question: "Qui répare mon installation solaire si l'installateur n'existe plus?", answer: "Pour les réparations couvertes par la garantie fabricant, adressez-vous directement au fabricant du composant défectueux. Pour les autres travaux de maintenance, mandatez un autre prestataire local — PVPro.ch peut vous y aider." },
+      { question: 'Comment reconnaître un installateur sérieux?', answer: "Veillez à: une présence locale depuis au moins 5 ans, une certification reconnue (Swissolar), aucun acompte excessif, un contrat d'entreprise écrit avec des informations détaillées, et des références vérifiables dans votre région." },
+      { question: 'Les installateurs locaux sont-ils plus sûrs que les prestataires nationaux?', answer: "En règle générale, oui. Les petits prestataires locaux avec une présence de longue date ont souvent un risque d'insolvabilité plus faible que les prestataires nationaux à croissance rapide. De plus, ils réagissent plus rapidement en cas de problèmes." },
+      { question: "Que dois-je conserver après l'installation?", answer: "Facture avec numéros de série de tous les composants, contrat d'entreprise, tous les certificats de garantie (panneaux, onduleur, stockage), protocole de mise en service, confirmation SRI et inscription auprès du gestionnaire de réseau. Ces documents sont votre bouclier en cas de sinistre." },
+    ],
+    ctaHeading: 'Uniquement des installateurs locaux vérifiés — avec PVPro.ch',
+    ctaText: "PVPro.ch ne s'occupe qu'avec des prestataires locaux certifiés avec une expérience prouvée dans votre région. Aucun centre d'appels national, aucune revente à des sous-traitants. Obtenez gratuitement jusqu'à 3 devis.",
+    ctaButton: 'Demander un devis gratuit',
+    formUrl: '/fr/demande',
+    relatedSlugs: ['besten-solarinstallateur-schweiz-finden', 'batteriespeicher-brandgefahr-sicherheit-schweiz', 'lohnt-sich-solaranlage-schweiz-2026'],
+    relatedPageLinks: [
+      { label: 'Subventions & SRI', href: '/fr/subventions-solaires' },
+      { label: 'Comparer les offres', href: '/fr/offre-solaire' },
+      { label: 'Portail comparatif PV', href: '/fr/comparateur-photovoltaique' },
+      { label: 'Solaire avec batterie', href: '/fr/solaire-avec-batterie' },
+    ],
+  },
+
+  // ─── INSTALLATEUR KONKURS GARANTIE (EN) ──────────────────────────────────────
+  {
+    slug: 'solaranlage-installateur-konkurs-garantie-schweiz',
+    locale: 'en',
+    title: 'What happens to my solar system if the installer goes bankrupt?',
+    metaDescription: 'Solar installer insolvent — what happens to the warranty and guarantee? Everything Swiss homeowners need to know to protect themselves. With checklist.',
+    image: '/images/blog-6.webp',
+    date: '3 May 2026',
+    readMin: 10,
+    tag: 'Guide',
+    intro: 'The solar industry is growing rapidly — and as in any growth market, some companies fail. What happens to your solar system if the installer files for bankruptcy? Do you lose your warranty? Who takes care of repairs? And what can you do to protect yourself before it happens? This article answers all these questions — clearly, honestly and without panic. Because the good news is: an insolvency of the installer is not a catastrophic scenario — if you are prepared.',
+    sections: [
+      {
+        heading: 'The crucial difference: statutory warranty vs. manufacturer guarantee',
+        content: [
+          'Before we explain what happens in the event of insolvency, we need to understand a crucial distinction — between the statutory warranty and the manufacturer guarantee. Most homeowners confuse these two terms, but they are legally completely different.',
+          'Statutory warranty: required by law — no contract needed. Directed against the installer (seller of the system). In Switzerland: 2 years for movable parts, 5 years for permanently installed parts (e.g. roof structure). Covers defects that existed at the time of installation. In the event of installer insolvency: practically worthless — no contact person anymore.',
+          'Manufacturer guarantee: voluntary promise by the manufacturer of the individual components — independent of the installer. Solar panels: 10–15 years product guarantee, 25–30 years performance guarantee. Inverter: 5–10 years manufacturer guarantee. Battery storage: usually 10 years. In the event of installer insolvency: remains fully valid.',
+          'The conclusion: if your installer goes bankrupt, you lose your statutory warranty claims — but your valuable manufacturer guarantees on panels, inverter and storage remain fully intact.',
+        ],
+        stats: [
+          { value: '25–30 years', label: 'panel performance guarantee remains valid' },
+          { value: 'Statutory warranty', label: 'vs. manufacturer guarantee — the crucial difference' },
+          { value: 'Local firms', label: 'have a lower insolvency risk' },
+        ],
+      },
+      {
+        heading: 'What specifically happens in the event of installer insolvency?',
+        content: [
+          'Scenario 1 — System already fully installed and operational: This is the best scenario. The system is running, everything is complete. What you lose: your statutory warranty claims against the installer for installation defects, any maintenance contracts with the company, and the direct contact person. What remains: all manufacturer guarantees on panels, inverter and storage, the system continues to generate electricity, and the one-time payment (OTP) has already been applied for or paid out. Action: keep all documents carefully — invoices, warranty certificates, technical data sheets, serial numbers of all components.',
+          'Scenario 2 — System half-finished: This is the most difficult scenario. The insolvency administrator decides whether the project is continued. In most cases, you need to engage a new installer to take over the project. Advance payments already made are at risk — you become a creditor. Action: register claims with the insolvency administrator immediately, contact a new local installer, and initiate a chargeback if you paid by credit card.',
+          'Scenario 3 — Contract signed, construction not yet started: Advance payments are at risk. Act immediately: register a claim with the insolvency administrator, check if a credit card chargeback is possible, and check your household insurance for advance payment coverage.',
+        ],
+      },
+      {
+        heading: 'How long does insolvency proceedings take in Switzerland?',
+        content: [
+          'A Swiss bankruptcy proceeding typically takes 1–3 years. During this time, you can register claims with the bankruptcy office and will ultimately receive a dividend — often in the single-digit percentage range. Manufacturer guarantees remain completely unaffected by this process.',
+          'Reality check: experience shows that creditors typically only recover 3–10% of their claims at the end of insolvency proceedings. Better to focus your energy on manufacturer guarantees and finding a new local specialist for maintenance and service.',
+        ],
+        bullets: [
+          'Register claims with the bankruptcy office immediately',
+          'Clarify manufacturer guarantees directly with the manufacturers',
+          'Find a new local installer for maintenance and repairs',
+          'Carefully secure all documents and guarantee certificates',
+        ],
+      },
+      {
+        heading: 'What happens to the manufacturer guarantees?',
+        content: [
+          'This is the truly important question — and the answer is reassuring. Manufacturer guarantees on panels: the performance guarantee (25–30 years) is directed directly against the panel manufacturer — not against the installer. If a panel no longer produces the guaranteed output after 10 years, contact the manufacturer directly. The installer is irrelevant in this case.',
+          'Manufacturer guarantees on inverters: same logic — the guarantee exists between you and the manufacturer. Fronius, SMA, Huawei have their own service hotlines and service partners in Switzerland. What you need: serial number of the inverter, proof of purchase/invoice, and the warranty certificate from the manufacturer. With these documents, you can open a warranty claim directly with the manufacturer — without the installer.',
+          'Warning with cheap no-name products: with unknown manufacturers without a Swiss office, enforcing the guarantee in the event of a claim becomes very difficult. This is another reason why PVPro.ch only arranges installations with components from established brand manufacturers.',
+        ],
+      },
+      {
+        heading: 'How to recognise an installer in financial difficulty?',
+        content: [
+          'There are warning signs you can spot before an insolvency:',
+        ],
+        bullets: [
+          '🔴 Warning sign 1: The installer demands a very high advance payment (more than 30%) long before construction begins',
+          '🔴 Warning sign 2: Agreed delivery dates are repeatedly postponed without explanation',
+          '🔴 Warning sign 3: The contact person suddenly becomes difficult to reach — emails go unanswered',
+          '🔴 Warning sign 4: The company website is no longer accessible',
+          '🔴 Warning sign 5: Materials are replaced by cheaper alternatives just before installation without consultation',
+          '🔴 Warning sign 6: Other customers report similar problems in online reviews',
+        ],
+      },
+      {
+        heading: 'How to protect yourself preventively',
+        content: [
+          '1. Only engage certified local firms: small, local specialist companies with a long-standing regional presence have a significantly lower insolvency risk than rapidly grown national providers. They know their customers personally and have a reputation to protect.',
+          '2. Minimise advance payments: never pay more than 20–30% upfront. Professional installers do not demand excessive advance payments. Staged payments — e.g. 30% on order, 60% on installation, 10% on commissioning — are standard.',
+          '3. Everything in writing: insist on a detailed works contract with a precise list of components, warranties, deadlines and payment terms.',
+          '4. Document manufacturer guarantees separately: request all warranty certificates directly from the installer at handover. Keep them separately.',
+          '5. Prefer brand manufacturers: components from Fronius, SMA, BYD, Huawei have their own service networks in Switzerland — independent of the installer.',
+          '6. Check references: ask for reference customers and call them. A reputable company has satisfied customers who are happy to provide information.',
+        ],
+      },
+      {
+        heading: 'Why local installers carry a lower risk',
+        content: [
+          "From our experience with over 1'000 arranged installations in Switzerland, we can say: large, nationally operating providers with lots of advertising do not automatically have the lowest insolvency risk. On the contrary — companies that grow fast also shrink fast.",
+        ],
+        bullets: [
+          'Often 10–30 years of operating experience in the region',
+          'Know their customers personally',
+          'Have a good reputation to lose — and nurture it',
+          'Not dependent on national order volume',
+          'React faster to problems — because they are nearby',
+        ],
+        highlight: 'PVPro.ch exclusively connects with verified local specialist firms — no national call-centre providers who resell orders to subcontractors.',
+      },
+      {
+        heading: 'Checklist — What you must keep after installation',
+        content: [
+          'Print this list out and file everything in a folder:',
+        ],
+        bullets: [
+          '✅ Invoice listing all components and serial numbers',
+          '✅ Works contract with warranty and guarantee agreements',
+          '✅ Guarantee certificates for panels (product and performance guarantee)',
+          '✅ Guarantee certificate for inverter',
+          '✅ Guarantee certificate for battery storage (if applicable)',
+          '✅ Commissioning report with installer signature',
+          '✅ OTP registration confirmation from Pronovo',
+          '✅ Registration with the local grid operator',
+          '✅ Technical data sheets for all main components',
+          '✅ Photos of the system and cable routing (before cladding)',
+        ],
+      },
+    ],
+    faqs: [
+      { question: 'What happens to my solar system warranty if the installer goes bankrupt?', answer: 'The manufacturer guarantees on panels (25–30 years), inverter (5–10 years) and battery storage (10 years) remain fully valid — they are directed against the manufacturers, not the installer. What you lose is the statutory warranty from the installer for installation defects.' },
+      { question: 'Can I get my advance payment back if the installer goes bankrupt?', answer: 'You can register your claim with the bankruptcy office. Experience shows, however, that creditors typically only recover 3–10% of their claims. A chargeback is possible if you paid by credit card.' },
+      { question: 'Who repairs my solar system if the installer no longer exists?', answer: 'For repairs covered by the manufacturer guarantee, contact the manufacturer of the faulty component directly. For other maintenance work, engage another local specialist — PVPro.ch can help you with this.' },
+      { question: 'How do I recognise a reputable installer?', answer: 'Look for: local presence for at least 5 years, recognised certification (Swissolar), no excessive advance payments, written works contract with detailed information, and verifiable references in your region.' },
+      { question: 'Are local installers safer than national providers?', answer: 'Generally yes. Small local specialist companies with a long-standing presence often have a lower insolvency risk than rapidly grown national providers. They also respond more quickly to problems and know the local conditions better.' },
+      { question: 'What must I keep after installation?', answer: 'Invoice with serial numbers of all components, works contract, all guarantee certificates (panels, inverter, storage), commissioning report, OTP confirmation and registration with the grid operator. These documents are your shield in the event of a claim.' },
+    ],
+    ctaHeading: 'Only verified local installers — with PVPro.ch',
+    ctaText: 'PVPro.ch exclusively connects with certified local specialist companies with proven experience in your region. No national call centre, no resale to subcontractors. Get up to 3 quotes for free.',
+    ctaButton: 'Request free quote',
+    formUrl: '/en/request',
+    relatedSlugs: ['besten-solarinstallateur-schweiz-finden', 'batteriespeicher-brandgefahr-sicherheit-schweiz', 'lohnt-sich-solaranlage-schweiz-2026'],
+    relatedPageLinks: [
+      { label: 'Subsidies & OTP', href: '/en/solar-subsidies' },
+      { label: 'Compare quotes', href: '/en/solar-quote' },
+      { label: 'PV comparison portal', href: '/en/solar-comparison' },
+      { label: 'Solar with battery storage', href: '/en/solar-with-battery' },
+    ],
+  },
+
+  // ─── INSTALLATEUR KONKURS GARANTIE (IT) ──────────────────────────────────────
+  {
+    slug: 'solaranlage-installateur-konkurs-garantie-schweiz',
+    locale: 'it',
+    title: 'Cosa succede al mio impianto solare se l\'installatore fallisce?',
+    metaDescription: 'Installatore solare insolvente — cosa succede alla garanzia? Tutto quello che i proprietari svizzeri devono sapere per proteggersi. Con checklist.',
+    image: '/images/blog-6.webp',
+    date: '3 maggio 2026',
+    readMin: 10,
+    tag: 'Guida',
+    intro: "Il settore solare è in rapida crescita — e come in ogni mercato in espansione, alcune aziende falliscono. Cosa succede al vostro impianto solare se l'installatore dichiara bancarotta? Perdete la garanzia? Chi si occupa delle riparazioni? E cosa potete fare per proteggervi prima che accada? Questo articolo risponde a tutte queste domande — chiaramente, onestamente e senza allarmismo. Perché la buona notizia è: l'insolvenza dell'installatore non è uno scenario catastrofico — se siete preparati.",
+    sections: [
+      {
+        heading: 'La differenza fondamentale: garanzia legale vs. garanzia del produttore',
+        content: [
+          "Prima di spiegare cosa succede in caso di insolvenza, dobbiamo capire una distinzione fondamentale — quella tra la garanzia legale (garanzia per vizi) e la garanzia del produttore. La maggior parte dei proprietari confonde questi due termini, ma sono giuridicamente completamente diversi.",
+          "Garanzia legale: obbligatoria per legge — nessun contratto necessario. Si esercita contro l'installatore (venditore dell'impianto). In Svizzera: 2 anni per le parti mobili, 5 anni per le parti fisse (es. struttura del tetto). Copre i difetti presenti al momento dell'installazione. In caso di insolvenza dell'installatore: praticamente priva di valore — nessun interlocutore.",
+          "Garanzia del produttore: promessa volontaria del produttore dei singoli componenti — indipendente dall'installatore. Pannelli solari: 10–15 anni di garanzia prodotto, 25–30 anni di garanzia di prestazione. Inverter: 5–10 anni di garanzia del produttore. Sistema di accumulo: generalmente 10 anni. In caso di insolvenza dell'installatore: rimane completamente valida.",
+          "Conclusione: se il vostro installatore fallisce, perdete i diritti alla garanzia legale — ma le preziose garanzie del produttore su pannelli, inverter e sistema di accumulo rimangono completamente valide.",
+        ],
+        stats: [
+          { value: '25–30 anni', label: 'la garanzia di prestazione dei pannelli rimane valida' },
+          { value: 'Garanzia legale', label: 'vs. garanzia produttore — la differenza decisiva' },
+          { value: 'Aziende locali', label: 'hanno un rischio di insolvenza più basso' },
+        ],
+      },
+      {
+        heading: "Cosa succede concretamente in caso di insolvenza dell'installatore?",
+        content: [
+          "Scenario 1 — Impianto già completamente installato e in funzione: È lo scenario migliore. L'impianto funziona, tutto è terminato. Cosa perdete: i diritti alla garanzia legale contro l'installatore per difetti di installazione, eventuali contratti di manutenzione e il vostro interlocutore diretto. Cosa rimane: tutte le garanzie del produttore su pannelli, inverter e sistema di accumulo, l'impianto continua a produrre corrente e il contributo unico (CUB) è già stato richiesto o versato. Azione: conservate con cura tutti i documenti — fatture, certificati di garanzia, schede tecniche, numeri di serie di tutti i componenti.",
+          "Scenario 2 — Impianto a metà: È lo scenario più difficile. Il curatore fallimentare decide se il progetto viene continuato. Nella maggior parte dei casi dovete incaricare un nuovo installatore che subentri nel progetto. Gli acconti già versati sono a rischio — diventate creditori. Azione: registrate immediatamente i crediti presso il curatore, contattate un nuovo installatore locale e avviate un chargeback se avete pagato con carta di credito.",
+          "Scenario 3 — Contratto firmato, lavori non ancora iniziati: Gli acconti sono a rischio. Agite immediatamente: registrate un credito presso il curatore, verificate la possibilità di un chargeback con carta di credito e verificate se la vostra assicurazione familiare copre la perdita dell'acconto.",
+        ],
+      },
+      {
+        heading: 'Quanto dura una procedura concorsuale in Svizzera?',
+        content: [
+          "Una procedura fallimentare svizzera dura tipicamente 1–3 anni. In questo periodo potete registrare crediti presso l'ufficio fallimenti e riceverete alla fine una quota — spesso nell'ordine di cifre a una sola cifra percentuale. Le garanzie del produttore rimangono completamente indipendenti da questo processo.",
+          "Verifica della realtà: l'esperienza mostra che i creditori recuperano tipicamente solo il 3–10% dei loro crediti al termine di una procedura concorsuale. Concentrate piuttosto la vostra energia sulle garanzie del produttore e sulla ricerca di un nuovo specialista locale.",
+        ],
+        bullets: [
+          "Registrare immediatamente i crediti presso l'ufficio fallimenti",
+          'Chiarire le garanzie del produttore direttamente con i produttori',
+          'Cercare un nuovo installatore locale per manutenzione e riparazioni',
+          'Mettere al sicuro con cura tutti i documenti e certificati di garanzia',
+        ],
+      },
+      {
+        heading: 'Cosa succede alle garanzie dei produttori?',
+        content: [
+          "Questa è la domanda davvero importante — e la risposta è rassicurante. Garanzie del produttore sui pannelli: la garanzia di prestazione (25–30 anni) si esercita direttamente contro il produttore dei pannelli — non contro l'installatore. Se un pannello non produce più la prestazione garantita dopo 10 anni, rivolgetevi direttamente al produttore. L'installatore non è rilevante.",
+          "Garanzie del produttore sugli inverter: stessa logica — la garanzia esiste tra voi e il produttore. Fronius, SMA, Huawei hanno proprie hotline di assistenza e partner di assistenza in Svizzera. Di cosa avete bisogno: numero di serie dell'inverter, prova d'acquisto/fattura e il certificato di garanzia del produttore.",
+          "Attenzione ai prodotti economici senza marchio: con produttori sconosciuti senza sede svizzera, far valere la garanzia in caso di sinistro diventa molto difficile. Questo è un ulteriore motivo per cui PVPro.ch si occupa solo di installazioni con componenti di produttori di marca affermati.",
+        ],
+      },
+      {
+        heading: "Come riconoscere un installatore in difficoltà finanziaria?",
+        content: [
+          "Esistono segnali di allarme che potete rilevare prima di un'insolvenza:",
+        ],
+        bullets: [
+          "🔴 Segnale 1: L'installatore richiede un acconto molto elevato (più del 30%) molto prima dell'inizio dei lavori",
+          '🔴 Segnale 2: Le date di consegna concordate vengono ripetutamente posticipate senza spiegazione',
+          '🔴 Segnale 3: L\'interlocutore diventa improvvisamente difficile da raggiungere — le e-mail rimangono senza risposta',
+          "🔴 Segnale 4: Il sito web dell'azienda non è più accessibile",
+          '🔴 Segnale 5: Il materiale viene sostituito poco prima dell\'installazione con alternative più economiche senza consultazione',
+          "🔴 Segnale 6: Altri clienti segnalano problemi simili nelle recensioni online",
+        ],
+      },
+      {
+        heading: 'Come proteggersi in modo preventivo?',
+        content: [
+          "1. Incaricare solo aziende locali certificate: le piccole aziende specializzate locali con una presenza pluriennale nella regione hanno un rischio di insolvenza notevolmente più basso rispetto ai fornitori nazionali a crescita rapida. Conoscono i loro clienti personalmente e hanno una reputazione da preservare.",
+          "2. Minimizzare gli acconti: non pagate mai più del 20–30% in anticipo. I pagamenti scaglionati — es. 30% all'ordine, 60% al montaggio, 10% alla messa in servizio — sono la norma.",
+          "3. Tutto per iscritto: insistete su un contratto d'appalto dettagliato con un elenco preciso dei componenti, delle garanzie, dei termini e delle condizioni di pagamento.",
+          "4. Documentare le garanzie del produttore separatamente: richiedete alla consegna tutti i certificati di garanzia direttamente dall'installatore. Conservateli separatamente.",
+          "5. Preferire i produttori di marca: i componenti di Fronius, SMA, BYD, Huawei hanno proprie reti di assistenza in Svizzera — indipendentemente dall'installatore.",
+          "6. Verificare i riferimenti: chiedete clienti di riferimento e chiamateli. Un'azienda seria ha clienti soddisfatti che forniscono volentieri informazioni.",
+        ],
+      },
+      {
+        heading: 'Perché le aziende installatrici locali hanno un rischio più basso',
+        content: [
+          "Dalla nostra esperienza con oltre 1'000 impianti installati in Svizzera possiamo affermare: i grandi fornitori nazionali con molta pubblicità non hanno automaticamente il rischio di insolvenza più basso. Al contrario — le aziende che crescono velocemente calano anche velocemente.",
+        ],
+        bullets: [
+          'Spesso 10–30 anni di esperienza operativa nella regione',
+          'Conoscono i loro clienti personalmente',
+          'Hanno una buona reputazione da preservare — e la curano',
+          'Non dipendono dal volume di ordini nazionale',
+          'Reagiscono più rapidamente ai problemi — perché sono vicini',
+        ],
+        highlight: "PVPro.ch si avvale esclusivamente di aziende specializzate locali verificate — nessun fornitore nazionale che rivende gli incarichi a subappaltatori.",
+      },
+      {
+        heading: 'Checklist — Cosa dovete conservare dopo l\'installazione',
+        content: [
+          'Stampate questo elenco e archiviate tutto in una cartella:',
+        ],
+        bullets: [
+          '✅ Fattura con elenco di tutti i componenti e numeri di serie',
+          '✅ Contratto d\'appalto con accordi di garanzia legale e del produttore',
+          '✅ Certificati di garanzia per i pannelli (garanzia prodotto e di prestazione)',
+          '✅ Certificato di garanzia per l\'inverter',
+          '✅ Certificato di garanzia per il sistema di accumulo (se applicabile)',
+          '✅ Protocollo di messa in servizio con firma dell\'installatore',
+          '✅ Conferma di registrazione CUB di Pronovo',
+          '✅ Registrazione presso il gestore di rete locale',
+          '✅ Schede tecniche di tutti i componenti principali',
+          '✅ Fotografie dell\'impianto e del percorso dei cavi (prima della copertura)',
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Cosa succede alla garanzia del mio impianto solare se l'installatore fallisce?", answer: "Le garanzie del produttore su pannelli (25–30 anni), inverter (5–10 anni) e sistema di accumulo (10 anni) rimangono completamente valide — si esercitano direttamente contro i produttori, non contro l'installatore. Quello che perdete è la garanzia legale dell'installatore per i difetti di installazione." },
+      { question: "Posso recuperare l'acconto se l'installatore fallisce?", answer: "Potete registrare il vostro credito presso l'ufficio fallimenti. L'esperienza mostra tuttavia che i creditori recuperano tipicamente solo il 3–10% dei loro crediti. In caso di pagamento con carta di credito è possibile un chargeback." },
+      { question: "Chi ripara il mio impianto solare se l'installatore non esiste più?", answer: "Per le riparazioni coperte dalla garanzia del produttore, rivolgetevi direttamente al produttore del componente difettoso. Per altri lavori di manutenzione, incaricate un altro specialista locale — PVPro.ch può aiutarvi." },
+      { question: 'Come riconosco un installatore serio?', answer: "Verificate: presenza locale da almeno 5 anni, certificazione riconosciuta (Swissolar), nessun acconto eccessivo, contratto d'appalto scritto con informazioni dettagliate e riferimenti verificabili nella vostra regione." },
+      { question: 'Le aziende installatrici locali sono più sicure dei fornitori nazionali?', answer: "In linea di principio sì. Le piccole aziende specializzate locali con una presenza pluriennale hanno spesso un rischio di insolvenza più basso rispetto ai fornitori nazionali a crescita rapida. Reagiscono anche più rapidamente ai problemi." },
+      { question: "Cosa devo conservare dopo l'installazione?", answer: "Fattura con numeri di serie di tutti i componenti, contratto d'appalto, tutti i certificati di garanzia (pannelli, inverter, accumulo), protocollo di messa in servizio, conferma CUB e registrazione presso il gestore di rete. Questi documenti sono il vostro scudo in caso di sinistro." },
+    ],
+    ctaHeading: 'Solo installatori locali verificati — con PVPro.ch',
+    ctaText: "PVPro.ch si avvale esclusivamente di aziende specializzate locali certificate con comprovata esperienza nella vostra regione. Nessun call center nazionale, nessuna rivendita a subappaltatori. Richiedete gratuitamente fino a 3 preventivi.",
+    ctaButton: 'Richiedere preventivo gratuito',
+    formUrl: '/it/richiesta',
+    relatedSlugs: ['besten-solarinstallateur-schweiz-finden', 'batteriespeicher-brandgefahr-sicherheit-schweiz', 'lohnt-sich-solaranlage-schweiz-2026'],
+    relatedPageLinks: [
+      { label: 'Incentivi & CUB', href: '/it/incentivi-solari' },
+      { label: 'Confronta preventivi', href: '/it/preventivo-solare' },
+      { label: 'Portale comparativo FV', href: '/it/portale-confronto-fotovoltaico' },
+      { label: 'Solare con accumulo', href: '/it/solare-con-accumulo' },
     ],
   },
 

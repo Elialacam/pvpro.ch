@@ -292,6 +292,9 @@ export default function SolaranlageEinfamilienhausPage() {
           <Link href="/blog/batteriespeicher-brandgefahr-sicherheit-schweiz" className="inline-flex items-center gap-2 mt-3 text-sm font-semibold text-gray-500 hover:text-[#F97316] hover:underline">
             Batteriespeicher sicher installieren <ArrowRight className="w-4 h-4" />
           </Link>
+          <Link href="/blog/solaranlage-installateur-konkurs-garantie-schweiz" className="inline-flex items-center gap-2 mt-3 text-sm font-semibold text-gray-500 hover:text-[#F97316] hover:underline">
+            Was passiert wenn der Installateur pleite geht? <ArrowRight className="w-4 h-4" />
+          </Link>
         </section>
 
         {/* ── Factors ── */}

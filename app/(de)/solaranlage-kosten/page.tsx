@@ -351,6 +351,8 @@ export default function SolaranlageKostenPage() {
               <Link href="/blog/solaranlage-steuerabzug-schweiz-2026" className="text-[#F97316] hover:underline">Steuerabzug Solaranlage Schweiz 2026</Link>
               {' '}·{' '}
               <Link href="/blog/solaranlage-waermepumpe-kombinieren-schweiz" className="text-[#F97316] hover:underline">Solaranlage + Wärmepumpe</Link>
+              {' '}·{' '}
+              <Link href="/blog/solaranlage-installateur-konkurs-garantie-schweiz" className="text-[#F97316] hover:underline">Garantie und Schutz bei Insolvenz</Link>
             </p>
           </div>
         </div>

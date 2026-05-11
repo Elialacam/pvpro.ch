@@ -8,6 +8,7 @@ interface Props {
 }
 
 const enSlugToDeSlug: Record<string, string> = {
+  'solar-installer-bankruptcy-guarantee-switzerland': 'solaranlage-installateur-konkurs-garantie-schweiz',
   'solar-battery-fire-risk-safety-switzerland':     'batteriespeicher-brandgefahr-sicherheit-schweiz',
   'find-best-solar-installer-switzerland':          'besten-solarinstallateur-schweiz-finden',
   'solar-panels-heat-pump-combination-switzerland': 'solaranlage-waermepumpe-kombinieren-schweiz',

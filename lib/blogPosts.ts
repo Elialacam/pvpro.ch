@@ -12,6 +12,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'solaranlage-installateur-konkurs-garantie-schweiz',
+    title: 'Was passiert mit meiner Solaranlage wenn der Installateur pleite geht?',
+    excerpt: 'Solarinstallateur insolvent — was passiert mit Garantie und Gewährleistung? Alles was Schweizer Hausbesitzer wissen müssen, um sich zu schützen. Mit Checkliste.',
+    image: '/images/blog-6.webp',
+    author: 'PVPro Redaktion',
+    date: '3. Mai 2026',
+    readMin: 10,
+    tag: 'Ratgeber',
+  },
+  {
     slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
     title: 'Ist ein Batteriespeicher gefährlich? Was Sie wirklich wissen müssen',
     excerpt: 'Brandrisiko nur 0.005% laut RWTH-Studie 2024. Was Sie über LFP-Batterien, Sicherheitsstandards und den richtigen Aufstellort für Ihren Batteriespeicher in der Schweiz wissen müssen.',

@@ -365,6 +365,9 @@ export default function VergleichsportalPage() {
               <Link href="/blog/batteriespeicher-brandgefahr-sicherheit-schweiz" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Sichere Batteriespeicher vergleichen
               </Link>
+              <Link href="/blog/solaranlage-installateur-konkurs-garantie-schweiz" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Was passiert bei Insolvenz des Installateurs?
+              </Link>
               <Link href="/photovoltaik-komplettloesung-schweiz" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Anbieter für Komplettlösungen
               </Link>
