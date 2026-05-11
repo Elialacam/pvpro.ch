@@ -321,6 +321,12 @@ export default function PhotovoltaikSchweizKlimaPage() {
               <Link href="/solaranlagen-typen-vergleich" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Welche Module eignen sich für die Schweiz?
               </Link>
+              <Link href="/blog/chinesische-vs-europaeische-solarmodule-schweiz" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Welche Module eignen sich für das Schweizer Klima?
+              </Link>
+              <Link href="/blog/solaranlage-norddach-schweiz" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Solaranlage auf dem Norddach — lohnt es sich?
+              </Link>
               <Link href="/blog/solaranlage-winter-schweiz" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Solaranlage im Winter
               </Link>

@@ -3746,7 +3746,7 @@ const articles: BlogArticle[] = [
     ctaText: 'PVPro.ch vermittelt nur zertifizierte Installateure, die ausschliesslich geprüfte LFP-Speicher mit anerkannten Sicherheitszertifizierungen verbauen. Kostenlos bis zu 3 Offerten einholen — und sicher investieren.',
     ctaButton: 'Kostenlose Offerte anfordern',
     formUrl: '/anfrage',
-    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-versicherung-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
     relatedPageLinks: [
       { label: 'Solaranlage mit Batteriespeicher', href: '/solaranlage-mit-speicher' },
       { label: 'Förderungen & EIV', href: '/foerderungen' },
@@ -3885,7 +3885,7 @@ const articles: BlogArticle[] = [
     ctaText: "PVPro.ch ne met en relation qu'avec des installateurs certifiés qui n'installent que des systèmes LFP vérifiés avec des certifications de sécurité reconnues. Obtenez gratuitement jusqu'à 3 devis — et investissez en toute sécurité.",
     ctaButton: 'Demander un devis gratuit',
     formUrl: '/fr/demande',
-    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-versicherung-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
     relatedPageLinks: [
       { label: 'Solaire avec batterie', href: '/fr/solaire-avec-batterie' },
       { label: 'Subventions & EIV', href: '/fr/subventions-solaires' },
@@ -4024,7 +4024,7 @@ const articles: BlogArticle[] = [
     ctaText: 'PVPro.ch only brokers certified installers who exclusively install verified LFP systems with recognised safety certifications. Get up to 3 quotes for free — and invest safely.',
     ctaButton: 'Request a free quote',
     formUrl: '/en/request',
-    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-versicherung-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
     relatedPageLinks: [
       { label: 'Solar with battery storage', href: '/en/solar-with-battery' },
       { label: 'Subsidies & EIV', href: '/en/solar-subsidies' },
@@ -4163,7 +4163,7 @@ const articles: BlogArticle[] = [
     ctaText: "PVPro.ch mette in contatto solo con installatori certificati che installano esclusivamente sistemi LFP verificati con certificazioni di sicurezza riconosciute. Richiedete gratuitamente fino a 3 preventivi — e investite in sicurezza.",
     ctaButton: 'Richiedere preventivo gratuito',
     formUrl: '/it/richiesta',
-    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'besten-solarinstallateur-schweiz-finden', 'solaranlage-installateur-konkurs-garantie-schweiz', 'solaranlage-versicherung-schweiz', 'solaranlage-waermepumpe-kombinieren-schweiz'],
     relatedPageLinks: [
       { label: 'Solare con accumulo', href: '/it/solare-con-accumulo' },
       { label: 'Incentivi & EIV', href: '/it/incentivi-solari' },
@@ -4706,6 +4706,1579 @@ const articles: BlogArticle[] = [
       { label: 'Confronta preventivi', href: '/it/preventivo-solare' },
       { label: 'Portale comparativo FV', href: '/it/portale-confronto-fotovoltaico' },
       { label: 'Solare con accumulo', href: '/it/solare-con-accumulo' },
+    ],
+  },
+
+
+  // ─── VERSICHERUNG (DE) ───────────────────────────────────────────────────────
+  {
+    slug: 'solaranlage-versicherung-schweiz',
+    locale: 'de',
+    title: 'Solaranlage und Hausversicherung Schweiz — was ist gedeckt und was nicht?',
+    metaDescription: 'Solaranlage versichern in der Schweiz: Was deckt die kantonale Gebäudeversicherung? Was nicht? Hagel, Diebstahl, Kurzschluss — alles erklärt mit kantonalen Unterschieden.',
+    image: '/images/blog-1.webp',
+    date: '10. Mai 2026',
+    readMin: 10,
+    tag: 'Ratgeber',
+    intro: "Eine Solaranlage kostet CHF 15'000–30'000. Was passiert, wenn Hagel die Module zerstört? Was wenn ein Kurzschluss den Wechselrichter beschädigt? Was wenn jemand die Anlage stiehlt? Viele Schweizer Hausbesitzer gehen davon aus, dass ihre Gebäudeversicherung alles deckt — und erleben im Schadensfall eine böse Überraschung. Dieser Artikel erklärt klar, was die kantonale Gebäudeversicherung abdeckt, was nicht, und wie Sie Ihre Investition vollständig schützen.",
+    sections: [
+      {
+        heading: 'Das Schweizer Versicherungssystem für Gebäude — kurz erklärt',
+        content: [
+          'In der Schweiz gibt es zwei Versicherungssysteme für Gebäude:',
+          'System 1 — Kantone mit obligatorischer KGV (19 Kantone): Zürich (GVZ), Bern (GVB), Aargau, Luzern, St. Gallen und weitere haben eine obligatorische staatliche Gebäudeversicherung. Jeder Hausbesitzer ist automatisch versichert. Die Solaranlage ist als Gebäudebestandteil mitversichert — sofern gemeldet.',
+          'System 2 — GUSTAVO-Kantone (7 Kantone ohne obligatorische KGV): Genf, Uri, Schwyz, Tessin, Appenzell Innerrhoden, Obwalden und Wallis. Hausbesitzer müssen selbst eine private Gebäudeversicherung abschliessen. Der Schutz hängt von der gewählten Police ab.',
+          'Fazit: In beiden Systemen gilt — melden Sie Ihre Solaranlage, und prüfen Sie genau, welche Risiken abgedeckt sind.',
+        ],
+        stats: [
+          { value: 'Feuer & Elementar', label: 'KGV deckt — aber nicht alles' },
+          { value: 'Diebstahl, Kurzschluss', label: 'KGV deckt NICHT' },
+          { value: "Ab CHF 100/Jahr", label: 'Zusatzversicherung für vollen Schutz' },
+        ],
+      },
+      {
+        heading: 'Was deckt die kantonale Gebäudeversicherung (KGV) für Solaranlagen?',
+        content: [
+          'Ihre Solaranlage ist in den meisten Kantonen automatisch als Gebäudebestandteil in der KGV mitversichert — sofern Sie die Installation gemeldet haben.',
+          'Was die KGV deckt:',
+          'Der grosse Haken: Die KGV deckt nur die Grundsubstanz. Was Sie oft NICHT erhalten: Gerüstkosten für die Reparatur, Ertragsausfall während der Reparaturzeit, Mehrkosten durch behördliche Auflagen, Entsorgungskosten beschädigter Module.',
+        ],
+        bullets: [
+          '✅ Feuerschäden — Brand, Blitzschlag, Explosion',
+          '✅ Elementarschäden — Hagel, Sturm, Überschwemmung, Schneedruck, Erdrutsch',
+          '✅ Wasserschäden durch Rohrbruch (in manchen Kantonen)',
+        ],
+      },
+      {
+        heading: 'Was die KGV NICHT deckt — die gefährlichen Lücken',
+        content: [
+          'Hier erleben viele Hausbesitzer eine böse Überraschung. Die häufigsten Schadenursachen bei Solaranlagen sind Hagel, Überspannung und technische Defekte. Hagel ist gedeckt — Überspannung und Defekte sind es nicht:',
+        ],
+        bullets: [
+          '❌ Diebstahl — Solarmodule vom Dach gestohlen? KGV zahlt nicht.',
+          '❌ Vandalismus — absichtliche Beschädigung? KGV zahlt nicht.',
+          '❌ Kurzschluss — technischer Defekt zerstört den Wechselrichter? KGV zahlt nicht.',
+          '❌ Überspannung — Blitz trifft das Stromnetz, Elektronik wird zerstört? KGV zahlt nicht.',
+          '❌ Tierbisse — Marder oder Vögel beschädigen die Kabel? KGV zahlt nicht.',
+          '❌ Bedienungsfehler — falsche Einstellung beschädigt die Anlage? KGV zahlt nicht.',
+          '❌ Ertragsausfall — Anlage steht still wegen Reparatur? KGV zahlt nicht.',
+          '❌ Konstruktionsfehler — Fabrikationsfehler am Modul? KGV zahlt nicht.',
+        ],
+      },
+      {
+        heading: 'Die GUSTAVO-Kantone — Sonderfall Tessin, Wallis, Genf',
+        content: [
+          'In den GUSTAVO-Kantonen (GE, UR, SZ, TI, AI, OW, VS) gibt es keine obligatorische staatliche Gebäudeversicherung. Das bedeutet: Hausbesitzer müssen selbst eine private Gebäudeversicherung abschliessen. Feuer und Elementarschäden sind nicht automatisch gedeckt. Der Versicherungsumfang hängt vollständig von der gewählten Police ab.',
+          'Für Solaranlagenbesitzer in diesen Kantonen: Prüfen Sie Ihre Police genau und stellen Sie sicher, dass die Solaranlage explizit mitversichert ist — inkl. Feuer, Elementarschäden und idealerweise Zusatzrisiken.',
+        ],
+      },
+      {
+        heading: 'Die Haustechnikversicherung — so schliessen Sie die Lücken',
+        content: [
+          "Die Haustechnikversicherung (auch Solaranlagenversicherung oder Photovoltaikversicherung) deckt alle Risiken, die die KGV nicht übernimmt. Für eine typische 10-kWp-Anlage kostet sie ca. CHF 100–200 pro Jahr — CHF 8–17 pro Monat für eine CHF 20'000-Investition.",
+          'Was eine gute Haustechnikversicherung abdeckt:',
+        ],
+        bullets: [
+          '✅ Kurzschluss und Überspannungsschäden',
+          '✅ Diebstahl — Module, Wechselrichter, Speicher',
+          '✅ Vandalismus',
+          '✅ Tierbisse — Marder, Vögel',
+          '✅ Bedienungsfehler',
+          '✅ Konstruktions- und Fabrikationsfehler',
+          '✅ Ertragsausfall während der Reparaturzeit',
+          '✅ Gerüstkosten für Reparaturen auf dem Dach',
+          '✅ Mehrkosten durch behördliche Auflagen',
+          '✅ Batteriespeicher (sofern mitversichert)',
+        ],
+      },
+      {
+        heading: 'Welche Versicherer bieten Solarversicherungen in der Schweiz an?',
+        content: [
+          'Diese Anbieter sind bekannt für Solaranlagenversicherungen in der Schweiz:',
+          'GVB Solar (Bern): Spezialversicherung PV, auf Kantonsversicherung aufbauend. Helvetia: Photovoltaikversicherung inkl. Ertragsausfall. Zurich: Erneuerbare Energien inkl. Wärmepumpe. Mobiliar: Haustechnikversicherung, kombinierbar mit Gebäude. AXA: Gebäudeversicherung+ mit Erweiterungsoption. Allianz: Solarversicherung mit anerkannten Policen.',
+          'Empfehlung: Fragen Sie zuerst bei Ihrer bestehenden Gebäudeversicherung nach — oft können Sie die Solaranlage einfach als Zusatzoption einschliessen.',
+        ],
+      },
+      {
+        heading: 'Muss ich die Solaranlage bei der Versicherung melden?',
+        content: [
+          'Ja — und das ist sehr wichtig. In Kantonen mit KGV gilt die Solaranlage als Gebäudebestandteil. Damit sie gedeckt ist, müssen Sie die Installation melden und den Gebäudewert anpassen. Wenn Sie die Anlage nicht melden, besteht möglicherweise kein Versicherungsschutz — und die Versicherung kann im Schadensfall die Leistung kürzen.',
+          'Wann melden: Idealerweise direkt nach der Installation, spätestens innerhalb von 30 Tagen. In der Praxis übernimmt oft der Installateur diese Meldung — fragen Sie ihn explizit danach.',
+        ],
+      },
+      {
+        heading: 'Batteriespeicher — eigener Versicherungsstatus',
+        content: [
+          "Der Batteriespeicher (CHF 7'000–12'000) hat einen eigenen Versicherungsstatus. KGV: Der Speicher im Keller ist in den meisten Kantonen als Gebäudebestandteil mitversichert — aber nur gegen Feuer und Elementarschäden. Nicht gedeckt: Technische Defekte, Überspannung, Kurzschluss.",
+          'Haustechnikversicherung: Die meisten Policen decken den Speicher mit ab — prüfen Sie aber explizit, ob er in den Versicherungsbedingungen erwähnt wird. Manchmal muss er separat angegeben werden.',
+        ],
+      },
+      {
+        heading: 'Hagel — der häufigste Schadensfall in der Schweiz',
+        content: [
+          'Die Schweiz hat eines der höchsten Hagelrisiken Europas — besonders im Kanton Bern, in der Nordwestschweiz und im Mittelland. Hagelschäden sind durch die KGV gedeckt — Gerüstkosten und Ertragsausfall jedoch nicht.',
+          'Hagelschutzstandards bei Modulen: Mindeststandard hält 25-mm-Hagel stand. Empfohlen für die Schweiz: 30-mm-Zertifizierung (IEC 61215). Beste Klasse: 40-mm-Hagel. In hagelgefährdeten Regionen: Fragen Sie bei der Offerte explizit nach der Hagelschutzklasse.',
+        ],
+      },
+      {
+        heading: 'Checkliste — Versicherungsschutz für Ihre Solaranlage',
+        content: [
+          'Gehen Sie diese Punkte nach der Installation ab:',
+        ],
+        bullets: [
+          '✅ Installation bei der kantonalen Gebäudeversicherung gemeldet?',
+          '✅ Gebäudewert entsprechend der Anlage angepasst?',
+          '✅ Haustechnikversicherung für Kurzschluss, Diebstahl, Tierbisse abgeschlossen?',
+          '✅ Ertragsausfall in der Zusatzversicherung enthalten?',
+          '✅ Batteriespeicher explizit mitversichert?',
+          '✅ Hagelschutzklasse der Module bekannt?',
+          '✅ In GUSTAVO-Kanton: private Gebäudeversicherung mit PV-Deckung?',
+        ],
+      },
+    ],
+    faqs: [
+      { question: 'Ist meine Solaranlage automatisch durch die Gebäudeversicherung gedeckt?', answer: 'In Kantonen mit obligatorischer KGV ja — aber nur für Feuer- und Elementarschäden, und nur wenn Sie die Installation gemeldet haben. Diebstahl, Kurzschluss und technische Defekte sind nicht gedeckt. Eine Zusatzversicherung wird empfohlen.' },
+      { question: 'Was kostet eine Solaranlagenversicherung in der Schweiz?', answer: "Eine Haustechnik- oder Solaranlagenversicherung kostet für eine typische 10-kWp-Anlage ca. CHF 100–200 pro Jahr — das entspricht CHF 8–17 pro Monat für eine Investition von CHF 20'000." },
+      { question: 'Was passiert wenn Hagel meine Solarmodule beschädigt?', answer: 'Hagelschäden sind durch die KGV gedeckt — vorausgesetzt, Sie haben die Anlage gemeldet. Gerüstkosten und Ertragsausfall während der Reparaturzeit sind jedoch oft nicht inbegriffen und erfordern eine Zusatzversicherung.' },
+      { question: 'Ist Diebstahl von Solarmodulen versichert?', answer: 'Nicht durch die KGV. Diebstahl ist nur durch eine Zusatzversicherung gedeckt. Sprechen Sie Ihren Versicherer an.' },
+      { question: 'Muss ich die Solaranlage der Versicherung melden?', answer: 'Ja. Melden Sie die Installation idealerweise innerhalb von 30 Tagen nach Abschluss. Fragen Sie Ihren Installateur, ob er diese Meldung für Sie übernimmt.' },
+      { question: 'Ich wohne im Tessin — wie funktioniert die Versicherung?', answer: 'Der Tessin ist ein GUSTAVO-Kanton ohne obligatorische Gebäudeversicherung. Sie brauchen eine private Gebäudeversicherung, die explizit die Solaranlage mitversichert — inkl. Feuer, Elementar und idealerweise Zusatzrisiken.' },
+      { question: 'Ist der Batteriespeicher mitversichert?', answer: 'Durch die KGV gegen Feuer und Elementar — ja. Für technische Defekte und Kurzschluss brauchen Sie eine Zusatzversicherung. Prüfen Sie, ob der Speicher in den Versicherungsbedingungen explizit erwähnt wird.' },
+    ],
+    ctaHeading: 'Jetzt Offerte einholen — inkl. Versicherungsberatung',
+    ctaText: 'Unsere zertifizierten Installateure beraten Sie auch zu Versicherungsfragen und melden die Installation korrekt bei der Gebäudeversicherung. Kostenlos bis zu 3 Offerten vergleichen.',
+    ctaButton: 'Kostenlose Offerte anfordern',
+    formUrl: '/anfrage',
+    relatedSlugs: ['batteriespeicher-brandgefahr-sicherheit-schweiz', 'solaranlage-installateur-konkurs-garantie-schweiz', 'lohnt-sich-solaranlage-schweiz-2026'],
+    relatedPageLinks: [
+      { label: 'Förderungen & EIV', href: '/foerderungen' },
+      { label: 'Solaranlage Kosten Schweiz', href: '/solaranlage-kosten' },
+      { label: 'Solaranlage mit Batteriespeicher', href: '/solaranlage-mit-speicher' },
+      { label: 'Installateure vergleichen', href: '/vergleichsportal-photovoltaik-schweiz' },
+    ],
+  },
+
+  // ─── VERSICHERUNG (FR) ───────────────────────────────────────────────────────
+  {
+    slug: 'solaranlage-versicherung-schweiz',
+    locale: 'fr',
+    title: "Installation solaire et assurance en Suisse — ce qui est couvert et ce qui ne l'est pas",
+    metaDescription: "Assurer votre installation solaire en Suisse: Que couvre l'assurance cantonale des bâtiments? Que ne couvre-t-elle pas? Grêle, vol, court-circuit — tout expliqué avec les différences cantonales.",
+    image: '/images/blog-1.webp',
+    date: '10 mai 2026',
+    readMin: 10,
+    tag: 'Guide',
+    intro: "Une installation solaire coûte CHF 15'000–30'000. Que se passe-t-il si la grêle détruit les panneaux? Et si un court-circuit endommage l'onduleur? Et si quelqu'un vole l'installation? De nombreux propriétaires suisses supposent que leur assurance bâtiment couvre tout — et ont la mauvaise surprise lors d'un sinistre. Cet article explique clairement ce que l'assurance cantonale des bâtiments (ACB) couvre, ce qu'elle ne couvre pas, et comment protéger intégralement votre investissement.",
+    sections: [
+      {
+        heading: "Le système d'assurance bâtiment en Suisse — en bref",
+        content: [
+          "La Suisse dispose de deux systèmes d'assurance pour les bâtiments:",
+          "Système 1 — ACB obligatoire (19 cantons): Zurich (GVZ), Berne (GVB), Argovie, Lucerne, Saint-Gall etc. ont une assurance bâtiment étatique obligatoire. Chaque propriétaire est automatiquement assuré. L'installation solaire est couverte en tant que partie du bâtiment — si déclarée.",
+          "Système 2 — Cantons GUSTAVO (7 cantons sans ACB obligatoire): Genève, Uri, Schwytz, Tessin, Appenzell Rhodes-Intérieures, Obwald, Valais. Les propriétaires doivent souscrire une assurance privée. La couverture dépend de la police choisie.",
+          "Conclusion: Dans les deux systèmes — déclarez votre installation et vérifiez ce qui est couvert.",
+        ],
+        stats: [
+          { value: 'Feu & éléments', label: "ACB couvre — mais pas tout" },
+          { value: 'Vol, court-circuit', label: "ACB ne couvre PAS" },
+          { value: "Dès CHF 100/an", label: 'Assurance complémentaire pour protection totale' },
+        ],
+      },
+      {
+        heading: "Ce que l'ACB couvre pour les installations solaires",
+        content: [
+          "Bonne nouvelle: Votre installation solaire est dans la plupart des cantons automatiquement couverte comme partie du bâtiment — à condition de l'avoir déclarée.",
+          "L'ACB couvre:",
+          "Le grand inconvénient: L'ACB ne couvre que la substance de base. Ce que vous n'obtenez souvent PAS: frais d'échafaudage, perte de revenus pendant la réparation, frais administratifs supplémentaires, frais d'élimination des modules.",
+        ],
+        bullets: [
+          '✅ Dommages incendie — feu, foudre, explosion',
+          '✅ Dommages élémentaires — grêle, tempête, inondation, poids neige, glissement',
+          '✅ Dommages eau par rupture de canalisation (certains cantons)',
+        ],
+      },
+      {
+        heading: "Ce que l'ACB ne couvre PAS — les lacunes dangereuses",
+        content: [
+          "C'est le cœur de cet article. Les causes les plus fréquentes de sinistres: grêle, surtension, défauts techniques. La grêle est couverte — la surtension et les défauts ne le sont pas:",
+        ],
+        bullets: [
+          "❌ Vol — panneaux volés sur le toit? L'ACB ne paie pas.",
+          "❌ Vandalisme — dommages intentionnels? L'ACB ne paie pas.",
+          "❌ Court-circuit — défaut technique détruit l'onduleur? L'ACB ne paie pas.",
+          "❌ Surtension — foudre sur le réseau, électronique détruite? L'ACB ne paie pas.",
+          "❌ Morsures d'animaux — martres ou oiseaux endommagent les câbles? L'ACB ne paie pas.",
+          "❌ Erreur de manipulation — mauvais réglage endommage l'installation? L'ACB ne paie pas.",
+          "❌ Perte de revenus — installation à l'arrêt pour réparation? L'ACB ne paie pas.",
+          "❌ Défaut de fabrication — défaut d'usine sur le module? L'ACB ne paie pas.",
+        ],
+      },
+      {
+        heading: "Les cantons GUSTAVO — cas particulier Tessin, Valais, Genève",
+        content: [
+          "Dans les cantons GUSTAVO (GE, UR, SZ, TI, AI, OW, VS), il n'y a pas d'assurance bâtiment étatique obligatoire: les propriétaires doivent souscrire une assurance privée, la couverture feu et éléments n'est pas automatique.",
+          "Pour les propriétaires solaires dans ces cantons: Vérifiez votre police et assurez-vous que l'installation solaire est explicitement couverte.",
+        ],
+      },
+      {
+        heading: "L'assurance techniques du bâtiment — pour combler les lacunes",
+        content: [
+          "L'assurance techniques du bâtiment (aussi appelée assurance photovoltaïque) couvre tous les risques non pris en charge par l'ACB. Pour une installation de 10 kWc typique: env. CHF 100–200 par an.",
+          "Ce qu'elle couvre:",
+        ],
+        bullets: [
+          '✅ Dommages court-circuit et surtension',
+          '✅ Vol — panneaux, onduleur, stockage',
+          '✅ Vandalisme',
+          "✅ Morsures d'animaux — martres, oiseaux",
+          '✅ Erreur de manipulation',
+          '✅ Défauts de construction et de fabrication',
+          '✅ Perte de revenus pendant la réparation',
+          "✅ Frais d'échafaudage pour réparations sur le toit",
+          '✅ Frais supplémentaires prescrits par les autorités',
+          '✅ Système de stockage batteries (si couvert)',
+        ],
+      },
+      {
+        heading: "Quels assureurs proposent des assurances solaires en Suisse?",
+        content: [
+          "Prestataires reconnus pour assurances installations solaires en Suisse:",
+          "GVB Solar (Berne): Assurance spéciale PV, sur base de l'assurance cantonale. Helvetia: Assurance photovoltaïque incl. perte de revenus. Zurich: Énergies renouvelables incl. pompe à chaleur. Mobiliar: Techniques du bâtiment, combinable avec bâtiment. AXA: Assurance bâtiment+ avec option d'extension. Allianz: Assurance solaire reconnue.",
+          "Recommandation: Renseignez-vous d'abord auprès de votre assurance bâtiment existante — souvent vous pouvez ajouter l'installation comme option.",
+        ],
+      },
+      {
+        heading: "Dois-je déclarer l'installation solaire à mon assurance?",
+        content: [
+          "Oui — c'est très important. Dans les cantons avec ACB, l'installation est considérée comme partie du bâtiment. Déclarez-la et adaptez la valeur assurée. Sans déclaration, il peut n'y avoir aucune couverture en cas de sinistre.",
+          "Quand déclarer: Idéalement dans les 30 jours après l'installation. L'installateur effectue souvent cette démarche — demandez-lui explicitement.",
+        ],
+      },
+      {
+        heading: "Système de stockage batteries — statut d'assurance propre",
+        content: [
+          "Le système de stockage (CHF 7'000–12'000) a son propre statut: ACB couvre contre feu et éléments. Non couvert: défauts techniques, surtension, court-circuit.",
+          "Assurance complémentaire: La plupart des polices couvrent aussi le stockage — mais vérifiez-le explicitement dans les conditions. Parfois il doit être indiqué séparément.",
+        ],
+      },
+      {
+        heading: "Grêle — le sinistre le plus fréquent en Suisse",
+        content: [
+          "La Suisse présente l'un des risques de grêle les plus élevés d'Europe — surtout dans le canton de Berne, en Suisse du Nord-Ouest et dans le Plateau. Les dommages grêle sont couverts par l'ACB — mais pas les frais d'échafaudage et la perte de revenus.",
+          "Standards de protection: Minimum 25 mm de grêle (IEC standard). Recommandé pour la Suisse: certification 30 mm. Meilleure classe: résistance 40 mm. Dans les régions à risque: demandez la classe de protection lors du devis.",
+        ],
+      },
+      {
+        heading: "Checklist — protection d'assurance pour votre installation solaire",
+        content: [
+          "Vérifiez ces points après l'installation:",
+        ],
+        bullets: [
+          "✅ Installation déclarée à l'ACB?",
+          "✅ Valeur du bâtiment adaptée?",
+          "✅ Assurance techniques du bâtiment souscrite (court-circuit, vol, animaux)?",
+          "✅ Perte de revenus incluse dans l'assurance complémentaire?",
+          "✅ Système de stockage explicitement couvert?",
+          "✅ Classe de protection anti-grêle des modules connue?",
+          "✅ Canton GUSTAVO: assurance privée avec couverture PV?",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Mon installation solaire est-elle automatiquement couverte par l'assurance bâtiment?", answer: "Dans les cantons avec ACB obligatoire oui — mais uniquement pour feu et éléments, et seulement si vous avez déclaré l'installation. Vol, court-circuit et défauts techniques ne sont pas couverts. Une assurance complémentaire est recommandée." },
+      { question: "Quel est le coût d'une assurance installation solaire en Suisse?", answer: "Une assurance techniques du bâtiment coûte pour une installation de 10 kWc typique env. CHF 100–200 par an — soit CHF 8–17 par mois pour un investissement de CHF 20'000." },
+      { question: "Que se passe-t-il si la grêle endommage mes panneaux?", answer: "Les dommages grêle sont couverts par l'ACB — à condition d'avoir déclaré l'installation. Les frais d'échafaudage et la perte de revenus ne sont pas inclus et nécessitent une assurance complémentaire." },
+      { question: "Le vol de panneaux solaires est-il assuré?", answer: "Pas par l'ACB. Le vol n'est couvert que par une assurance complémentaire privée." },
+      { question: "Dois-je déclarer l'installation à mon assurance?", answer: "Oui. Déclarez l'installation idéalement dans les 30 jours après la fin des travaux. Votre installateur peut souvent le faire pour vous — demandez-lui." },
+      { question: "J'habite au Tessin — comment fonctionne l'assurance?", answer: "Le Tessin est un canton GUSTAVO sans assurance bâtiment obligatoire. Vous avez besoin d'une assurance privée couvrant explicitement l'installation solaire — feu, éléments et idéalement risques supplémentaires." },
+      { question: "Le système de stockage batteries est-il couvert?", answer: "Par l'ACB contre feu et éléments — oui. Pour défauts techniques et court-circuit, vous avez besoin d'une assurance complémentaire. Vérifiez que le stockage est explicitement mentionné dans les conditions." },
+    ],
+    ctaHeading: "Obtenir un devis maintenant — incl. conseils en assurance",
+    ctaText: "Nos installateurs certifiés vous conseillent sur les questions d'assurance et déclarent l'installation correctement. Comparez gratuitement jusqu'à 3 devis.",
+    ctaButton: 'Demander un devis gratuit',
+    formUrl: '/fr/demande',
+    relatedSlugs: ['batteriespeicher-brandgefahr-sicherheit-schweiz', 'solaranlage-installateur-konkurs-garantie-schweiz', 'lohnt-sich-solaranlage-schweiz-2026'],
+    relatedPageLinks: [
+      { label: 'Subventions & SRI', href: '/fr/subventions-solaires' },
+      { label: "Coûts installation solaire", href: '/fr/cout-installation-solaire' },
+      { label: 'Solaire avec batterie', href: '/fr/solaire-avec-batterie' },
+      { label: 'Comparer les installateurs', href: '/fr/comparateur-photovoltaique' },
+    ],
+  },
+
+  // ─── VERSICHERUNG (EN) ───────────────────────────────────────────────────────
+  {
+    slug: 'solaranlage-versicherung-schweiz',
+    locale: 'en',
+    title: 'Solar panel insurance in Switzerland — what is covered and what is not?',
+    metaDescription: 'Insuring your solar system in Switzerland: What does the cantonal building insurance cover? What not? Hail, theft, short circuit — all explained with cantonal differences.',
+    image: '/images/blog-1.webp',
+    date: '10 May 2026',
+    readMin: 10,
+    tag: 'Guide',
+    intro: "A solar system costs CHF 15'000–30'000. What happens if hail destroys the panels? What if a short circuit damages the inverter? What if someone steals the system? Many Swiss homeowners assume their building insurance covers everything — and get an unpleasant surprise when making a claim. This article clearly explains what the cantonal building insurance (CBI) covers, what it does not, and how to fully protect your investment.",
+    sections: [
+      {
+        heading: "Switzerland's building insurance system — briefly explained",
+        content: [
+          "Switzerland has two building insurance systems:",
+          "System 1 — Mandatory CBI (19 cantons): Zurich (GVZ), Berne (GVB), Aargau, Lucerne, St. Gallen and others have mandatory state building insurance. Every homeowner is automatically covered. The solar system is covered as part of the building — if declared.",
+          "System 2 — GUSTAVO cantons (7 cantons without mandatory CBI): Geneva, Uri, Schwyz, Ticino, Appenzell Innerrhoden, Obwalden, Valais. Homeowners must take out private building insurance. Coverage depends on the policy chosen.",
+          "Conclusion: In both systems — declare your solar installation and check exactly what risks are covered.",
+        ],
+        stats: [
+          { value: 'Fire & elements', label: 'CBI covers — but not everything' },
+          { value: 'Theft, short circuit', label: 'CBI does NOT cover' },
+          { value: 'From CHF 100/year', label: 'Additional insurance for full protection' },
+        ],
+      },
+      {
+        heading: 'What does cantonal building insurance cover for solar systems?',
+        content: [
+          "Your solar system is in most cantons automatically covered as part of the building — provided you have declared the installation.",
+          "What the CBI covers:",
+          "The big catch: The CBI only covers the basic structure. What you often do NOT receive: scaffolding costs for repairs, lost revenue during repair time, additional costs from regulatory requirements, disposal costs for damaged modules.",
+        ],
+        bullets: [
+          '✅ Fire damage — fire, lightning strike, explosion',
+          '✅ Natural hazard damage — hail, storm, flooding, snow load, landslide',
+          '✅ Water damage from pipe bursts (in some cantons)',
+        ],
+      },
+      {
+        heading: 'What the CBI does NOT cover — the dangerous gaps',
+        content: [
+          "This is the core of this article. The most common causes of claims for solar systems are hail, overvoltage and technical defects. Hail is covered — overvoltage and defects are not:",
+        ],
+        bullets: [
+          '❌ Theft — solar panels stolen from the roof? CBI does not pay.',
+          '❌ Vandalism — intentional damage? CBI does not pay.',
+          '❌ Short circuit — technical defect destroys the inverter? CBI does not pay.',
+          '❌ Overvoltage — lightning hits the grid, electronics destroyed? CBI does not pay.',
+          '❌ Animal bites — martens or birds damage cables? CBI does not pay.',
+          '❌ Operating errors — wrong settings damage the system? CBI does not pay.',
+          '❌ Lost revenue — system out of service for repairs? CBI does not pay.',
+          '❌ Manufacturing defects — factory fault in the module? CBI does not pay.',
+        ],
+      },
+      {
+        heading: 'GUSTAVO cantons — Ticino, Valais, Geneva special case',
+        content: [
+          "In the GUSTAVO cantons (GE, UR, SZ, TI, AI, OW, VS), there is no mandatory state building insurance. This means: homeowners must take out private building insurance, fire and natural hazard damage is not automatically covered.",
+          "For solar system owners in these cantons: Check your policy carefully and ensure the solar installation is explicitly covered — including fire, natural hazards and ideally additional risks.",
+        ],
+      },
+      {
+        heading: 'Building services insurance — how to close the gaps',
+        content: [
+          "Building services insurance (also called solar system insurance or photovoltaic insurance) covers all risks not handled by the CBI. For a typical 10 kWp system: approx. CHF 100–200 per year.",
+          "What a good building services insurance covers:",
+        ],
+        bullets: [
+          '✅ Short circuit and overvoltage damage',
+          '✅ Theft — panels, inverter, storage system',
+          '✅ Vandalism',
+          '✅ Animal bites — martens, birds',
+          '✅ Operating errors',
+          '✅ Construction and manufacturing defects',
+          '✅ Lost revenue during repair time',
+          '✅ Scaffolding costs for roof repairs',
+          '✅ Additional costs from regulatory requirements',
+          '✅ Battery storage system (if covered)',
+        ],
+      },
+      {
+        heading: 'Which insurers offer solar insurance in Switzerland?',
+        content: [
+          "Known providers for solar system insurance in Switzerland:",
+          "GVB Solar (Berne canton): Special PV insurance, building on cantonal insurance. Helvetia: Photovoltaic insurance incl. lost revenue. Zurich: Renewable energy incl. heat pump. Mobiliar: Building services insurance, combinable with building. AXA: Building insurance+ with extension option. Allianz: Solar insurance with recognised policies.",
+          "Recommendation: Ask your existing building insurer first — you can often simply add the solar system as an additional option without taking out a new policy.",
+        ],
+      },
+      {
+        heading: 'Do I need to register my solar system with my insurer?',
+        content: [
+          "Yes — this is very important. In cantons with CBI, the solar system counts as part of the building. To be covered, you must register the installation and adjust the building value. If you do not register, there may be no coverage for fire or natural hazard claims.",
+          "When to register: Ideally immediately after installation, at the latest within 30 days. In practice, the installer often handles this — ask them explicitly.",
+        ],
+      },
+      {
+        heading: 'Battery storage — its own insurance status',
+        content: [
+          "The battery storage system (CHF 7'000–12'000) has its own insurance status. CBI: The storage system in the cellar is covered in most cantons against fire and natural hazards. Not covered: technical defects, overvoltage, short circuit.",
+          "Building services insurance: Most policies also cover the storage system — but check explicitly that it is mentioned in the insurance conditions. Sometimes it must be listed separately.",
+        ],
+      },
+      {
+        heading: 'Hail — the most common claim in Switzerland',
+        content: [
+          "Switzerland has one of the highest hail risks in Europe — particularly in the canton of Berne, north-west Switzerland and the Plateau. Hail damage is covered by the CBI — but scaffolding costs and lost revenue are not.",
+          "Hail protection standards: Minimum standard withstands 25 mm hail. Recommended for Switzerland: 30 mm certification (IEC 61215). Best class: withstands 40 mm hail. In hail-prone regions: ask explicitly about the hail protection class when requesting quotes.",
+        ],
+      },
+      {
+        heading: 'Checklist — insurance protection for your solar system',
+        content: [
+          "Check these points after installation:",
+        ],
+        bullets: [
+          '✅ Installation registered with cantonal building insurance?',
+          '✅ Building value adjusted to account for the installation?',
+          '✅ Building services insurance taken out (short circuit, theft, animal bites)?',
+          '✅ Lost revenue included in additional insurance?',
+          '✅ Battery storage system explicitly covered?',
+          '✅ Hail protection class of the modules known?',
+          '✅ In GUSTAVO canton: private building insurance with PV coverage?',
+        ],
+      },
+    ],
+    faqs: [
+      { question: 'Is my solar system automatically covered by building insurance?', answer: 'In cantons with mandatory CBI yes — but only for fire and natural hazard damage, and only if you have registered the installation. Theft, short circuit and technical defects are not covered. Additional insurance is recommended.' },
+      { question: 'What does solar system insurance cost in Switzerland?', answer: "A building services insurance or solar system insurance costs approx. CHF 100–200 per year for a typical 10 kWp system — that is CHF 8–17 per month for a CHF 20'000 investment." },
+      { question: 'What happens if hail damages my solar panels?', answer: "Hail damage is covered by the CBI — provided you have registered the installation. Scaffolding costs and lost revenue during repair time are often not included and require additional insurance." },
+      { question: 'Is theft of solar panels covered?', answer: 'Not by the CBI. Theft is only covered by private additional insurance (building services or solar system insurance).' },
+      { question: 'Do I need to register the solar system with my insurer?', answer: 'Yes. Register the installation ideally within 30 days of completion. Your installer can often handle this for you — ask them explicitly.' },
+      { question: 'I live in Ticino — how does insurance work?', answer: 'Ticino is a GUSTAVO canton without mandatory building insurance. You need private building insurance that explicitly covers the solar installation — including fire, natural hazards and ideally additional risks.' },
+      { question: 'Is the battery storage system covered?', answer: 'By the CBI against fire and natural hazards — yes. For technical defects and short circuit you need additional insurance. Check that the storage system is explicitly mentioned in the insurance conditions.' },
+    ],
+    ctaHeading: 'Get a quote now — incl. insurance advice',
+    ctaText: 'Our certified installers also advise on insurance questions and correctly register the installation with building insurance. Get up to 3 quotes for free.',
+    ctaButton: 'Request free quote',
+    formUrl: '/en/request',
+    relatedSlugs: ['batteriespeicher-brandgefahr-sicherheit-schweiz', 'solaranlage-installateur-konkurs-garantie-schweiz', 'lohnt-sich-solaranlage-schweiz-2026'],
+    relatedPageLinks: [
+      { label: 'Subsidies & OTP', href: '/en/solar-subsidies' },
+      { label: 'Solar system costs', href: '/en/solar-costs' },
+      { label: 'Solar with battery storage', href: '/en/solar-with-battery' },
+      { label: 'Compare installers', href: '/en/solar-comparison' },
+    ],
+  },
+
+  // ─── VERSICHERUNG (IT) ───────────────────────────────────────────────────────
+  {
+    slug: 'solaranlage-versicherung-schweiz',
+    locale: 'it',
+    title: "Impianto solare e assicurazione in Svizzera — cosa è coperto e cosa non lo è?",
+    metaDescription: "Assicurare il vostro impianto solare in Svizzera: Cosa copre l'assicurazione cantonale degli edifici? Cosa no? Grandine, furto, cortocircuito — tutto spiegato con le differenze cantonali.",
+    image: '/images/blog-1.webp',
+    date: '10 maggio 2026',
+    readMin: 10,
+    tag: 'Guida',
+    intro: "Un impianto solare costa CHF 15'000–30'000. Cosa succede se la grandine distrugge i pannelli? Se un cortocircuito danneggia l'inverter? Se qualcuno ruba l'impianto? Molti proprietari svizzeri presumono che la loro assicurazione edilizia copra tutto — e ricevono una brutta sorpresa in caso di sinistro. Questo articolo spiega chiaramente cosa copre l'assicurazione cantonale degli edifici (ACE), cosa non copre, e come proteggere integralmente il vostro investimento.",
+    sections: [
+      {
+        heading: "Il sistema assicurativo per gli edifici in Svizzera — in breve",
+        content: [
+          "La Svizzera ha due sistemi assicurativi per gli edifici:",
+          "Sistema 1 — ACE obbligatoria (19 cantoni): Zurigo (GVZ), Berna (GVB), Argovia, Lucerna, San Gallo e altri hanno un'assicurazione edilizia statale obbligatoria. Ogni proprietario è automaticamente assicurato. L'impianto solare è coperto come parte dell'edificio — se dichiarato.",
+          "Sistema 2 — Cantoni GUSTAVO (7 cantoni senza ACE obbligatoria): Ginevra, Uri, Svitto, Ticino, Appenzello Interno, Obvaldo, Vallese. I proprietari devono stipulare un'assicurazione privata. La copertura dipende dalla polizza scelta.",
+          "Conclusione: In entrambi i sistemi — dichiarate il vostro impianto e verificate esattamente quali rischi sono coperti.",
+        ],
+        stats: [
+          { value: 'Fuoco & elementi', label: "ACE copre — ma non tutto" },
+          { value: 'Furto, cortocircuito', label: "ACE NON copre" },
+          { value: "Da CHF 100/anno", label: 'Assicurazione complementare per protezione totale' },
+        ],
+      },
+      {
+        heading: "Cosa copre l'ACE per gli impianti solari?",
+        content: [
+          "Il vostro impianto solare è nella maggior parte dei cantoni automaticamente coperto come parte dell'edificio — a condizione di averlo dichiarato.",
+          "Cosa copre l'ACE:",
+          "Il grande problema: L'ACE copre solo la sostanza di base. Cosa spesso NON ricevete: costi di ponteggio per le riparazioni, perdita di reddito durante la riparazione, costi aggiuntivi per prescrizioni delle autorità, costi di smaltimento dei moduli danneggiati.",
+        ],
+        bullets: [
+          '✅ Danni da incendio — fuoco, fulmine, esplosione',
+          '✅ Danni elementari — grandine, tempesta, inondazione, carico neve, smottamento',
+          '✅ Danni da rottura tubazioni (in alcuni cantoni)',
+        ],
+      },
+      {
+        heading: "Cosa l'ACE NON copre — le lacune pericolose",
+        content: [
+          "Questo è il cuore di questo articolo. Le cause più frequenti di sinistri per gli impianti solari: grandine, sovratensione e difetti tecnici. La grandine è coperta — la sovratensione e i difetti no:",
+        ],
+        bullets: [
+          "❌ Furto — pannelli rubati dal tetto? L'ACE non paga.",
+          "❌ Vandalismo — danni intenzionali? L'ACE non paga.",
+          "❌ Cortocircuito — difetto tecnico distrugge l'inverter? L'ACE non paga.",
+          "❌ Sovratensione — fulmine sulla rete, elettronica distrutta? L'ACE non paga.",
+          "❌ Morsi di animali — faine o uccelli danneggiano i cavi? L'ACE non paga.",
+          "❌ Errori di utilizzo — impostazioni errate danneggiano l'impianto? L'ACE non paga.",
+          "❌ Perdita di reddito — impianto fermo per riparazione? L'ACE non paga.",
+          "❌ Difetti di fabbricazione — difetto di produzione nel modulo? L'ACE non paga.",
+        ],
+      },
+      {
+        heading: "Cantoni GUSTAVO — caso speciale Ticino, Vallese, Ginevra",
+        content: [
+          "Nei cantoni GUSTAVO (GE, UR, SZ, TI, AI, OW, VS) non esiste un'assicurazione edilizia statale obbligatoria: i proprietari devono stipulare un'assicurazione privata, la copertura da fuoco ed elementi non è automatica.",
+          "Per i proprietari di impianti solari in questi cantoni: Verificate attentamente la polizza e assicuratevi che l'impianto solare sia esplicitamente coperto.",
+        ],
+      },
+      {
+        heading: "L'assicurazione tecnica degli edifici — per colmare le lacune",
+        content: [
+          "L'assicurazione tecnica degli edifici (anche detta assicurazione fotovoltaica) copre tutti i rischi non assunti dall'ACE. Per un impianto tipico da 10 kWp: ca. CHF 100–200 all'anno.",
+          "Cosa copre:",
+        ],
+        bullets: [
+          '✅ Danni da cortocircuito e sovratensione',
+          '✅ Furto — pannelli, inverter, sistema di accumulo',
+          '✅ Vandalismo',
+          '✅ Morsi di animali — faine, uccelli',
+          '✅ Errori di utilizzo',
+          '✅ Difetti di costruzione e fabbricazione',
+          '✅ Perdita di reddito durante la riparazione',
+          '✅ Costi di ponteggio per riparazioni sul tetto',
+          '✅ Costi aggiuntivi per prescrizioni delle autorità',
+          '✅ Sistema di accumulo a batterie (se coperto)',
+        ],
+      },
+      {
+        heading: "Quali assicuratori offrono assicurazioni solari in Svizzera?",
+        content: [
+          "Fornitori noti per assicurazioni impianti solari in Svizzera:",
+          "GVB Solar (Berna): Assicurazione speciale PV, basata sull'assicurazione cantonale. Helvetia: Assicurazione fotovoltaica incl. perdita di reddito. Zurich: Energie rinnovabili incl. pompa di calore. Mobiliar: Tecnica degli edifici, combinabile con edificio. AXA: Assicurazione edifici+ con opzione di estensione. Allianz: Assicurazione solare con polizze riconosciute.",
+          "Raccomandazione: Chiedete prima alla vostra assicurazione edilizia esistente — spesso potete semplicemente includere l'impianto solare come opzione aggiuntiva.",
+        ],
+      },
+      {
+        heading: "Devo dichiarare l'impianto solare all'assicurazione?",
+        content: [
+          "Sì — ed è molto importante. Nei cantoni con ACE, l'impianto solare è considerato parte dell'edificio. Per essere coperti, dovete dichiarare l'installazione e adeguare il valore dell'edificio. Senza dichiarazione potrebbe non esserci copertura in caso di sinistro.",
+          "Quando dichiarare: Idealmente subito dopo l'installazione, al più tardi entro 30 giorni. Spesso l'installatore effettua questa dichiarazione — chiedetegli esplicitamente.",
+        ],
+      },
+      {
+        heading: "Sistema di accumulo a batterie — proprio status assicurativo",
+        content: [
+          "Il sistema di accumulo (CHF 7'000–12'000) ha il proprio status: ACE copre contro fuoco ed elementi. Non coperto: difetti tecnici, sovratensione, cortocircuito.",
+          "Assicurazione complementare: La maggior parte delle polizze copre anche il sistema di accumulo — verificate esplicitamente nelle condizioni. A volte deve essere indicato separatamente.",
+        ],
+      },
+      {
+        heading: "Grandine — il sinistro più frequente in Svizzera",
+        content: [
+          "La Svizzera ha uno dei rischi di grandine più elevati d'Europa — specialmente nel Canton Berna, nella Svizzera nord-occidentale e nell'Altopiano. I danni da grandine sono coperti dall'ACE — ma non i costi di ponteggio e la perdita di reddito.",
+          "Standard di protezione contro la grandine: Minimo 25 mm di grandine (standard IEC). Raccomandato per la Svizzera: certificazione 30 mm. Migliore classe: resistenza 40 mm. Nelle regioni a rischio: chiedete la classe di protezione al momento del preventivo.",
+        ],
+      },
+      {
+        heading: "Checklist — protezione assicurativa per il vostro impianto solare",
+        content: [
+          "Verificate questi punti dopo l'installazione:",
+        ],
+        bullets: [
+          "✅ Installazione dichiarata all'ACE?",
+          "✅ Valore dell'edificio adeguato?",
+          "✅ Assicurazione tecnica stipulata (cortocircuito, furto, morsi di animali)?",
+          "✅ Perdita di reddito inclusa nell'assicurazione complementare?",
+          "✅ Sistema di accumulo esplicitamente coperto?",
+          "✅ Classe di protezione contro la grandine dei moduli nota?",
+          "✅ Canton GUSTAVO: assicurazione privata con copertura PV?",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Il mio impianto solare è automaticamente coperto dall'assicurazione edilizia?", answer: "Nei cantoni con ACE obbligatoria sì — ma solo per danni da fuoco ed elementi, e solo se avete dichiarato l'installazione. Furto, cortocircuito e difetti tecnici non sono coperti. Si raccomanda un'assicurazione complementare." },
+      { question: "Quanto costa un'assicurazione per impianto solare in Svizzera?", answer: "Un'assicurazione tecnica degli edifici costa per un impianto tipico da 10 kWp ca. CHF 100–200 all'anno — pari a CHF 8–17 al mese per un investimento di CHF 20'000." },
+      { question: "Cosa succede se la grandine danneggia i miei pannelli solari?", answer: "I danni da grandine sono coperti dall'ACE — a condizione di aver dichiarato l'installazione. I costi di ponteggio e la perdita di reddito durante la riparazione non sono inclusi e richiedono un'assicurazione complementare." },
+      { question: "Il furto di pannelli solari è assicurato?", answer: "Non dall'ACE. Il furto è coperto solo da un'assicurazione complementare privata." },
+      { question: "Devo dichiarare l'impianto solare all'assicurazione?", answer: "Sì. Dichiarate l'installazione idealmente entro 30 giorni dalla fine dei lavori. Il vostro installatore può spesso farlo per voi — chiedetegli esplicitamente." },
+      { question: "Abito in Ticino — come funziona l'assicurazione?", answer: "Il Ticino è un cantone GUSTAVO senza assicurazione edilizia obbligatoria. Avete bisogno di un'assicurazione privata che copra esplicitamente l'impianto solare — fuoco, elementi e idealmente rischi aggiuntivi." },
+      { question: "Il sistema di accumulo a batterie è coperto?", answer: "Dall'ACE contro fuoco ed elementi — sì. Per difetti tecnici e cortocircuito avete bisogno di un'assicurazione complementare. Verificate che il sistema di accumulo sia esplicitamente menzionato nelle condizioni." },
+    ],
+    ctaHeading: "Richiedete ora un preventivo — incl. consulenza assicurativa",
+    ctaText: "I nostri installatori certificati vi consigliano anche sulle questioni assicurative e dichiarano correttamente l'installazione all'assicurazione edilizia. Richiedete gratuitamente fino a 3 preventivi.",
+    ctaButton: 'Richiedere preventivo gratuito',
+    formUrl: '/it/richiesta',
+    relatedSlugs: ['batteriespeicher-brandgefahr-sicherheit-schweiz', 'solaranlage-installateur-konkurs-garantie-schweiz', 'lohnt-sich-solaranlage-schweiz-2026'],
+    relatedPageLinks: [
+      { label: 'Incentivi & CUB', href: '/it/incentivi-solari' },
+      { label: 'Costi impianto solare', href: '/it/costi-impianto-solare' },
+      { label: 'Solare con accumulo', href: '/it/solare-con-accumulo' },
+      { label: 'Confronta installatori', href: '/it/portale-confronto-fotovoltaico' },
+    ],
+  },
+
+  // ─── CHINESISCH VS. EUROPÄISCH (DE) ──────────────────────────────────────────
+  {
+    slug: 'chinesische-vs-europaeische-solarmodule-schweiz',
+    locale: 'de',
+    title: 'Chinesische vs. europäische Solarmodule — ehrlicher Vergleich für die Schweiz 2026',
+    metaDescription: 'Sind chinesische Solarmodule wirklich schlechter als europäische? Qualität, Garantie, Preis und Risiken im direkten Vergleich — für Schweizer Hausbesitzer 2026.',
+    image: '/images/blog-2.webp',
+    date: '17. Mai 2026',
+    readMin: 10,
+    tag: 'Ratgeber',
+    intro: '"Chinesische Module kaufe ich nicht" — diesen Satz hören wir oft. Die Realität sieht anders aus: Über 80% aller in der Schweiz installierten Solarmodule kommen aus China. Nicht weil die Installateure keine Wahl hätten — sondern weil chinesische Tier-1-Hersteller heute Qualität liefern, die europäischen Produkten in vielen Bereichen gleichwertig ist. Dieser Artikel erklärt ehrlich, wo chinesische Module gut sind, wo europäische besser sind — und worauf es wirklich ankommt.',
+    sections: [
+      {
+        heading: 'Warum haben chinesische Module einen schlechten Ruf?',
+        content: [
+          'Der schlechte Ruf stammt aus den frühen 2010er Jahren — als minderwertige No-Name-Produkte den Markt überschwemmten. Diese Module hatten tatsächlich Qualitätsprobleme: schnellere Degradation, schwache Garantien, schlechter Kundendienst.',
+          'Seitdem hat sich die Branche fundamental verändert. Die grossen chinesischen Hersteller — JinkoSolar, LONGi, Trina Solar, JA Solar, Canadian Solar — haben Milliarden in Forschung und Entwicklung investiert. Heute sind sie nach Wirkungsgrad, Zuverlässigkeit und Garantielaufzeit mit europäischen Herstellern mindestens gleichauf.',
+          'Der Unterschied liegt nicht mehr zwischen "chinesisch" und "europäisch" — sondern zwischen Tier-1-Herstellern und No-Name-Produkten.',
+        ],
+        stats: [
+          { value: '80%+', label: 'aller CH-Anlagen mit chinesischen Modulen' },
+          { value: '20–30%', label: 'günstiger als europäische Alternativen' },
+          { value: 'Tier-1', label: 'ist das entscheidende Qualitätsmerkmal' },
+        ],
+      },
+      {
+        heading: 'Was bedeutet Tier-1 — und warum ist das wichtiger als die Herkunft?',
+        content: [
+          'Der Bloomberg Tier-1-Status ist das wichtigste Qualitätsmerkmal bei Solarmodulen. Um als Tier-1-Hersteller anerkannt zu werden, muss ein Unternehmen: Module für mindestens 6 bankfinanzierte Projekte geliefert haben, von unabhängigen Banken als zuverlässiger Lieferant eingestuft worden sein, nachgewiesene Produktions- und Qualitätskontrollstandards erfüllen, und finanziell stabil genug sein, um Garantien langfristig zu erfüllen.',
+          'Tier-1-Hersteller aus China: JinkoSolar, LONGi, Trina Solar, JA Solar, Canadian Solar, Risen Energy, Huasun.',
+          'Tier-1-Hersteller aus Europa: Meyer Burger (CH/DE), REC Group (NO), Luxor Solar (DE), SoliTek (LT).',
+          'Fazit: Ein Tier-1-Modul aus China ist zuverlässiger als ein No-Name-Modul aus Europa.',
+        ],
+      },
+      {
+        heading: 'Direkter Vergleich: Chinesisch vs. Europäisch',
+        content: [
+          'Preis: Chinesisch ✅ 20–30% günstiger | Europäisch ❌ deutlich teurer.',
+          'Wirkungsgrad: Chinesisch ✅ bis 23.8% (AIKO, LONGi) | Europäisch ✅ bis 23.5% (Meyer Burger HJT).',
+          'Produktgarantie: Chinesisch ✅ 25 Jahre Standard | Europäisch ✅ 25–30 Jahre.',
+          'Leistungsgarantie: Chinesisch ✅ 85–90% nach 25 Jahren | Europäisch ✅ 88–94% nach 25 Jahren.',
+          'Garantieabwicklung: Chinesisch ⚠️ oft über Schweizer Importeur | Europäisch ✅ direkter europäischer Ansprechpartner.',
+          'Hagelschutz Schweiz: Chinesisch ⚠️ variiert je nach Modell | Europäisch ✅ oft besser zertifiziert.',
+          'Ökobilanz: Chinesisch ❌ längere Transportwege | Europäisch ✅ kürzere Transportwege.',
+        ],
+      },
+      {
+        heading: 'Die grössten chinesischen Hersteller im Überblick',
+        content: [
+          "LONGi — Weltmarktführer Monokristallin: LONGi aus Xi'an ist der grösste Hersteller monokristalliner Wafer weltweit. Die Hi-MO-Serie ist eines der meistverkauften Module in der Schweiz. Wirkungsgrad bis 23.2%, Produktgarantie 25 Jahre, PVEL Top-Performer 2024.",
+          'JinkoSolar — Tiger Neo Serie: Einer der grössten Hersteller weltweit. Tiger Neo mit N-Type TOPCon erreicht bis 23.3% Wirkungsgrad und bifazialer Glas-Glas-Konstruktion. PVEL Top-Performer seit mehreren Jahren.',
+          'Trina Solar — Vertex S+: Gegründet 1997, einer der zuverlässigsten Hersteller. Vertex S+ bietet exzellentes Preis-Leistungs-Verhältnis bei 22.3% Wirkungsgrad. PVEL Top-Performer elfmal ausgezeichnet.',
+          'AIKO Solar: Mit ABC-Technologie bis zu 23.8% Wirkungsgrad — aktuell einer der höchsten kommerziell verfügbaren. PVEL Top-Performer viermal ausgezeichnet.',
+        ],
+      },
+      {
+        heading: 'Die europäischen Hersteller im Überblick',
+        content: [
+          'Meyer Burger — Das Schweizer Modul: Meyer Burger aus Thun (CH) ist der einzige Schweizer Modulhersteller. HJT-Technologie erreicht bis 23.5% Wirkungsgrad, Leistungsgarantie 92% nach 25 Jahren. Preis ca. 20–30% teurer als chinesische Module. Garantieabwicklung direkt in der Schweiz.',
+          'REC Group — Norwegen: Gegründet 1996, hohe Qualitätsstandards, starke Leistungsgarantien, europäisches Recht. Guter Ruf in der Schweiz.',
+          'Luxor Solar — Deutschland: Eco Line HJT Bifacial mit 30 Jahren Produktgarantie und ausgezeichnetem Temperaturverhalten. Empfehlenswert für Schweizer Verhältnisse.',
+          'SoliTek — Litauen: Europäische Produktion, 30 Jahre Produktgarantie, HW4-Hagelzertifizierung.',
+        ],
+      },
+      {
+        heading: 'Für wen lohnen sich europäische Module?',
+        content: [
+          'Wenn die Garantieabwicklung entscheidend ist: Bei einem Defekt nach 10 Jahren ist die Garantieabwicklung mit einem europäischen Hersteller deutlich einfacher — kein Sprachbarrieren, europäisches Recht, direkter Ansprechpartner.',
+          'Wenn Hagelschutz prioritär ist: In hagelgefährdeten Regionen der Schweiz empfehlen sich Module mit HW4 oder HW5 Hagelzertifizierung. Meyer Burger und Luxor Solar sind hier stark.',
+          'Wenn Ökobilanz ein Faktor ist: Kürzere Transportwege, europäische Produktionsstandards, bessere Recyclinginfrastruktur.',
+          'Wenn Schweizer Qualität ein Verkaufsargument ist: Meyer Burger aus der Schweiz hat emotionalen Wert für viele Hausbesitzer.',
+        ],
+      },
+      {
+        heading: 'Für wen sind chinesische Tier-1-Module die richtige Wahl?',
+        content: [
+          'Wenn Budget eine Rolle spielt: Für dasselbe Geld bekommen Sie mit chinesischen Modulen eine grössere Anlage oder können einen Batteriespeicher mitfinanzieren.',
+          'Wenn Wirkungsgrad maximiert werden soll: AIKO Solar und LONGi bieten aktuell die höchsten Wirkungsgrade auf dem Markt.',
+          'Wenn der Installateur Erfahrung mit dem Hersteller hat: Ein lokaler Installateur, der seit Jahren JinkoSolar oder Trina Solar verbaut, kennt die Produkte, die Montage und den Garantieprozess.',
+        ],
+      },
+      {
+        heading: 'Was ist mit No-Name-Modulen aus China?',
+        content: [
+          'Das ist der eigentliche Risikofaktor — nicht "chinesisch" generell, sondern unbekannte Hersteller ohne Tier-1-Status. Warnsignale:',
+        ],
+        bullets: [
+          '⚠️ Kein Bloomberg Tier-1-Status',
+          '⚠️ Keine PVEL-Zertifizierung',
+          '⚠️ Produktgarantie unter 15 Jahren',
+          '⚠️ Leistungsgarantie unter 80% nach 25 Jahren',
+          '⚠️ Kein europäischer Servicepartner',
+          '⚠️ Preis deutlich unter dem Marktdurchschnitt',
+        ],
+        highlight: 'Fragen Sie Ihren Installateur explizit nach dem Hersteller und dem Tier-1-Status der Module. Ein seriöser Installateur verbaut keine unbekannten No-Name-Produkte.',
+      },
+      {
+        heading: 'Welche Module empfiehlt PVPro.ch für die Schweiz?',
+        content: [
+          'Wir empfehlen keine spezifischen Produkte — das ist Aufgabe des lokalen Installateurs, der Ihr Dach kennt. Aber wir empfehlen folgende Mindestanforderungen:',
+        ],
+        bullets: [
+          '✅ Bloomberg Tier-1-Status oder äquivalente Zertifizierung',
+          '✅ Produktgarantie mindestens 15 Jahre (besser 25)',
+          '✅ Leistungsgarantie mindestens 85% nach 25 Jahren',
+          '✅ IEC 61215 Zertifizierung',
+          '✅ Hagelschutz mindestens HW3 (HW4–HW5 für hagelgefährdete Regionen)',
+          '✅ Glas-Glas-Bauweise für hagelgefährdete Regionen',
+        ],
+      },
+    ],
+    faqs: [
+      { question: 'Sind chinesische Solarmodule schlechter als europäische?', answer: 'Nein — nicht pauschal. Chinesische Tier-1-Hersteller wie LONGi, JinkoSolar und Trina Solar liefern Qualität, die europäischen Produkten gleichwertig oder überlegen ist. Der entscheidende Unterschied liegt nicht zwischen "chinesisch" und "europäisch", sondern zwischen Tier-1-Herstellern und No-Name-Produkten.' },
+      { question: 'Welche chinesischen Solarmodule sind empfehlenswert für die Schweiz?', answer: 'LONGi (Hi-MO Serie), JinkoSolar (Tiger Neo), Trina Solar (Vertex S+), JA Solar und AIKO Solar sind Tier-1-Hersteller mit nachgewiesener Zuverlässigkeit, langen Garantien und PVEL-Zertifizierungen.' },
+      { question: 'Was kosten europäische Solarmodule im Vergleich zu chinesischen?', answer: "Europäische Module sind typischerweise 20–30% teurer als vergleichbare chinesische Tier-1-Module. Für eine 10-kWp-Anlage entspricht das einem Mehrpreis von ca. CHF 1'500–3'000." },
+      { question: 'Lohnen sich Schweizer Module von Meyer Burger?', answer: 'Meyer Burger bietet hohe Qualität, exzellente Leistungsgarantien und unkomplizierte Garantieabwicklung in der Schweiz. Der Mehrpreis gegenüber chinesischen Alternativen beträgt ca. 20–30%. Für Hausbesitzer, die Wert auf Schweizer Qualität legen, ist Meyer Burger eine ausgezeichnete Wahl.' },
+      { question: 'Was ist der Bloomberg Tier-1-Status?', answer: 'Der Bloomberg Tier-1-Status belegt, dass der Hersteller für bankfinanzierte Projekte als zuverlässiger Lieferant anerkannt ist und Produktions- und Qualitätsstandards erfüllt. Tier-1-Module kommen von Herstellern, die langfristig ihre Garantien erfüllen können.' },
+      { question: 'Welche Module sind am besten für hagelgefährdete Regionen in der Schweiz?', answer: 'Für hagelgefährdete Regionen wie den Kanton Bern empfehlen sich Module mit HW4 oder HW5 Hagelzertifizierung und Glas-Glas-Bauweise: FuturaSun Silk Rhino (HW5), Luxor Eco Line HJT, Meyer Burger Glass, SoliTek Solid.' },
+    ],
+    ctaHeading: 'Welche Module passen zu Ihrem Dach? Jetzt Offerte einholen',
+    ctaText: 'Unsere zertifizierten lokalen Installateure kennen die besten Module für Ihren Standort — ob chinesische Tier-1 oder europäische Premium-Module. Kostenlos bis zu 3 Offerten vergleichen.',
+    ctaButton: 'Kostenlose Offerte anfordern',
+    formUrl: '/anfrage',
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'solaranlage-versicherung-schweiz', 'besten-solarinstallateur-schweiz-finden'],
+    relatedPageLinks: [
+      { label: 'Modultypen vergleichen', href: '/solaranlagen-typen-vergleich' },
+      { label: 'Solaranlage Kosten Schweiz', href: '/solaranlage-kosten' },
+      { label: 'Installateure vergleichen', href: '/vergleichsportal-photovoltaik-schweiz' },
+      { label: 'Förderungen & EIV', href: '/foerderungen' },
+    ],
+  },
+
+  // ─── CHINESISCH VS. EUROPÄISCH (FR) ──────────────────────────────────────────
+  {
+    slug: 'chinesische-vs-europaeische-solarmodule-schweiz',
+    locale: 'fr',
+    title: 'Panneaux solaires chinois vs. européens — comparaison honnête pour la Suisse 2026',
+    metaDescription: 'Les panneaux solaires chinois sont-ils vraiment moins bons que les européens? Qualité, garantie, prix et risques en comparaison directe — pour les propriétaires suisses 2026.',
+    image: '/images/blog-2.webp',
+    date: '17 mai 2026',
+    readMin: 10,
+    tag: 'Guide',
+    intro: '"Je n\'achète pas de panneaux chinois" — cette phrase, nous l\'entendons souvent. La réalité est différente: plus de 80% de tous les panneaux solaires installés en Suisse viennent de Chine. Non pas parce que les installateurs n\'auraient pas le choix — mais parce que les fabricants chinois Tier-1 livrent aujourd\'hui une qualité équivalente aux produits européens dans de nombreux domaines. Cet article explique honnêtement où les panneaux chinois sont bons, où les européens sont meilleurs — et ce qui compte vraiment.',
+    sections: [
+      {
+        heading: 'Pourquoi les panneaux chinois ont-ils une mauvaise réputation?',
+        content: [
+          "La mauvaise réputation vient du début des années 2010 — quand des produits sans marque de mauvaise qualité ont inondé le marché. Ces panneaux avaient de vrais problèmes: dégradation plus rapide, garanties faibles, mauvais service client.",
+          "Depuis lors, le secteur a fondamentalement changé. Les grands fabricants chinois — JinkoSolar, LONGi, Trina Solar, JA Solar — ont investi des milliards en R&D. Aujourd'hui, ils sont au moins à égalité avec les fabricants européens en termes de rendement, fiabilité et durée de garantie.",
+          'La différence n\'est plus entre "chinois" et "européen" — mais entre fabricants Tier-1 et produits sans marque.',
+        ],
+        stats: [
+          { value: '80%+', label: 'des installations CH avec panneaux chinois' },
+          { value: '20–30%', label: 'moins chers que les alternatives européennes' },
+          { value: 'Tier-1', label: "est le critère de qualité décisif" },
+        ],
+      },
+      {
+        heading: 'Que signifie Tier-1 — et pourquoi est-ce plus important que l\'origine?',
+        content: [
+          "Le statut Tier-1 Bloomberg est le critère de qualité le plus important pour les panneaux solaires. Pour être reconnu comme fabricant Tier-1, une entreprise doit: avoir livré des panneaux pour au moins 6 projets financés par des banques, être classée comme fournisseur fiable par des banques indépendantes, satisfaire à des normes de production et de contrôle qualité prouvées, et être financièrement stable pour honorer les garanties à long terme.",
+          "Fabricants Tier-1 de Chine: JinkoSolar, LONGi, Trina Solar, JA Solar, Canadian Solar, Risen Energy.",
+          "Fabricants Tier-1 d'Europe: Meyer Burger (CH/DE), REC Group (NO), Luxor Solar (DE), SoliTek (LT).",
+          "Conclusion: Un panneau Tier-1 de Chine est plus fiable qu'un panneau sans marque d'Europe.",
+        ],
+      },
+      {
+        heading: 'Comparaison directe: Chinois vs. Européens',
+        content: [
+          "Prix: Chinois ✅ 20–30% moins chers | Européens ❌ nettement plus chers.",
+          "Rendement: Chinois ✅ jusqu'à 23.8% (AIKO, LONGi) | Européens ✅ jusqu'à 23.5% (Meyer Burger HJT).",
+          "Garantie produit: Chinois ✅ 25 ans standard | Européens ✅ 25–30 ans.",
+          "Garantie de performance: Chinois ✅ 85–90% après 25 ans | Européens ✅ 88–94% après 25 ans.",
+          "Gestion des garanties: Chinois ⚠️ souvent via importateur suisse | Européens ✅ interlocuteur européen direct.",
+          "Protection anti-grêle CH: Chinois ⚠️ varie selon le modèle | Européens ✅ souvent mieux certifiés.",
+          "Bilan écologique: Chinois ❌ transport plus long | Européens ✅ transport plus court.",
+        ],
+      },
+      {
+        heading: "Les plus grands fabricants chinois",
+        content: [
+          "LONGi: Leader mondial du monocristallin. La série Hi-MO est l'une des plus vendues en Suisse. Rendement jusqu'à 23.2%, garantie produit 25 ans, PVEL Top Performer 2024.",
+          "JinkoSolar — Tiger Neo: Série N-Type TOPCon avec rendement jusqu'à 23.3% et construction verre-verre bifaciale. PVEL Top Performer depuis plusieurs années.",
+          "Trina Solar — Vertex S+: Fondé en 1997, excellent rapport qualité-prix à 22.3% de rendement. PVEL Top Performer onze fois.",
+          "AIKO Solar: Technologie ABC avec rendement jusqu'à 23.8% — l'un des plus élevés disponibles commercialement.",
+        ],
+      },
+      {
+        heading: "Les fabricants européens",
+        content: [
+          "Meyer Burger — Le panneau suisse: Seul fabricant suisse de panneaux. Technologie HJT jusqu'à 23.5% de rendement, garantie de performance 92% après 25 ans. Prix ca. 20–30% plus cher. Service garantie directement en Suisse.",
+          "REC Group — Norvège: Fondé en 1996, hauts standards de qualité, fortes garanties de performance, droit européen.",
+          "Luxor Solar — Allemagne: Eco Line HJT Bifacial avec 30 ans de garantie produit et excellent comportement thermique.",
+          "SoliTek — Lituanie: Production européenne, 30 ans de garantie produit, certification anti-grêle HW4.",
+        ],
+      },
+      {
+        heading: "Pour qui les panneaux européens valent-ils la peine?",
+        content: [
+          "Si la gestion des garanties est décisive: En cas de défaut après 10 ans, la gestion de garantie avec un fabricant européen est beaucoup plus simple — pas de barrière linguistique, droit européen, interlocuteur direct.",
+          "Si la protection anti-grêle est prioritaire: Dans les régions à risque de grêle, les panneaux avec certification HW4 ou HW5 sont recommandés. Meyer Burger et Luxor Solar excellent ici.",
+          "Si le bilan écologique compte: Transports plus courts, normes de production européennes, meilleure infrastructure de recyclage.",
+          "Si la qualité suisse est un argument: Meyer Burger de Suisse a une valeur émotionnelle pour de nombreux propriétaires.",
+        ],
+      },
+      {
+        heading: "Pour qui les panneaux chinois Tier-1 sont-ils le bon choix?",
+        content: [
+          "Si le budget est un facteur: Pour le même argent, vous obtenez avec des panneaux chinois une installation plus grande ou pouvez financer un système de stockage.",
+          "Si le rendement doit être maximisé: AIKO Solar et LONGi offrent actuellement les rendements les plus élevés du marché.",
+          "Si l'installateur a de l'expérience avec le fabricant: Un installateur local qui installe depuis des années JinkoSolar ou Trina Solar connaît les produits, le montage et le processus de garantie.",
+        ],
+      },
+      {
+        heading: "Les panneaux sans marque de Chine — le vrai facteur de risque",
+        content: [
+          "C'est le vrai facteur de risque — pas \"chinois\" en général, mais les fabricants inconnus sans statut Tier-1. Signes d'alarme:",
+        ],
+        bullets: [
+          '⚠️ Pas de statut Bloomberg Tier-1',
+          '⚠️ Pas de certification PVEL',
+          '⚠️ Garantie produit inférieure à 15 ans',
+          '⚠️ Garantie de performance inférieure à 80% après 25 ans',
+          '⚠️ Pas de partenaire de service européen',
+          '⚠️ Prix nettement en dessous de la moyenne du marché',
+        ],
+        highlight: "Demandez explicitement à votre installateur le fabricant et le statut Tier-1 des panneaux. Un installateur sérieux n'installe pas de produits sans marque inconnus.",
+      },
+      {
+        heading: "Quels panneaux PVPro.ch recommande-t-il pour la Suisse?",
+        content: [
+          "Nous ne recommandons pas de produits spécifiques — c'est le rôle de l'installateur local qui connaît votre toit. Mais nous recommandons ces critères minimaux:",
+        ],
+        bullets: [
+          '✅ Statut Bloomberg Tier-1 ou certification équivalente',
+          '✅ Garantie produit au moins 15 ans (mieux 25)',
+          '✅ Garantie de performance au moins 85% après 25 ans',
+          '✅ Certification IEC 61215',
+          "✅ Protection anti-grêle au moins HW3 (HW4–HW5 pour régions à risque)",
+          "✅ Construction verre-verre pour régions à risque de grêle",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Les panneaux solaires chinois sont-ils moins bons que les européens?", answer: "Non — pas de manière générale. Les fabricants chinois Tier-1 comme LONGi, JinkoSolar et Trina Solar livrent une qualité équivalente ou supérieure aux produits européens. La différence décisive n'est pas entre \"chinois\" et \"européen\", mais entre fabricants Tier-1 et produits sans marque." },
+      { question: "Quels panneaux chinois sont recommandables pour la Suisse?", answer: "LONGi (série Hi-MO), JinkoSolar (Tiger Neo), Trina Solar (Vertex S+), JA Solar et AIKO Solar sont des fabricants Tier-1 avec fiabilité prouvée, longues garanties et certifications PVEL." },
+      { question: "Quel est le surcoût des panneaux européens par rapport aux chinois?", answer: "Les panneaux européens sont typiquement 20–30% plus chers que les panneaux chinois Tier-1 comparables. Pour une installation de 10 kWc, cela représente un surcoût d'env. CHF 1'500–3'000." },
+      { question: "Les panneaux Meyer Burger valent-ils la peine?", answer: "Meyer Burger offre haute qualité, excellentes garanties de performance et gestion de garantie simple en Suisse. Le surcoût par rapport aux alternatives chinoises est d'env. 20–30%. Pour les propriétaires attachés à la qualité suisse, Meyer Burger est un excellent choix." },
+      { question: "Qu'est-ce que le statut Tier-1 Bloomberg?", answer: "Le statut Tier-1 Bloomberg atteste que le fabricant est reconnu comme fournisseur fiable pour des projets financés par des banques et satisfait aux normes de qualité. Les panneaux Tier-1 viennent de fabricants capables d'honorer leurs garanties à long terme." },
+      { question: "Quels panneaux sont les meilleurs pour les régions à risque de grêle en Suisse?", answer: "Pour les régions à risque comme le canton de Berne: panneaux avec certification anti-grêle HW4 ou HW5 et construction verre-verre: FuturaSun Silk Rhino (HW5), Luxor Eco Line HJT, Meyer Burger Glass, SoliTek Solid." },
+    ],
+    ctaHeading: "Quels panneaux pour votre toit? Demander un devis maintenant",
+    ctaText: "Nos installateurs locaux certifiés connaissent les meilleurs panneaux pour votre emplacement — qu'il s'agisse de Tier-1 chinois ou de panneaux premium européens. Comparez gratuitement jusqu'à 3 devis.",
+    ctaButton: 'Demander un devis gratuit',
+    formUrl: '/fr/demande',
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'solaranlage-versicherung-schweiz', 'besten-solarinstallateur-schweiz-finden'],
+    relatedPageLinks: [
+      { label: 'Comparer les types de panneaux', href: '/fr/types-panneaux-solaires' },
+      { label: "Coûts installation solaire", href: '/fr/cout-installation-solaire' },
+      { label: 'Comparer les installateurs', href: '/fr/comparateur-photovoltaique' },
+      { label: 'Subventions & SRI', href: '/fr/subventions-solaires' },
+    ],
+  },
+
+  // ─── CHINESISCH VS. EUROPÄISCH (EN) ──────────────────────────────────────────
+  {
+    slug: 'chinesische-vs-europaeische-solarmodule-schweiz',
+    locale: 'en',
+    title: 'Chinese vs. European solar panels — an honest comparison for Switzerland 2026',
+    metaDescription: 'Are Chinese solar panels really worse than European ones? Quality, warranty, price and risks in direct comparison — for Swiss homeowners 2026.',
+    image: '/images/blog-2.webp',
+    date: '17 May 2026',
+    readMin: 10,
+    tag: 'Guide',
+    intro: '"I won\'t buy Chinese panels" — we hear this often. The reality is different: over 80% of all solar panels installed in Switzerland come from China. Not because installers have no choice — but because Chinese Tier-1 manufacturers now deliver quality that is equivalent to European products in many areas. This article honestly explains where Chinese panels excel, where European ones are better — and what really matters.',
+    sections: [
+      {
+        heading: 'Why do Chinese panels have a bad reputation?',
+        content: [
+          "The bad reputation dates back to the early 2010s — when low-quality no-name products flooded the market. These modules genuinely had quality problems: faster degradation, weak warranties, poor customer service.",
+          "Since then, the industry has fundamentally changed. The major Chinese manufacturers — JinkoSolar, LONGi, Trina Solar, JA Solar, Canadian Solar — have invested billions in research and development. Today they are at least on par with European manufacturers in terms of efficiency, reliability and warranty duration.",
+          'The difference is no longer between "Chinese" and "European" — but between Tier-1 manufacturers and no-name products.',
+        ],
+        stats: [
+          { value: '80%+', label: 'of Swiss installations use Chinese panels' },
+          { value: '20–30%', label: 'cheaper than European alternatives' },
+          { value: 'Tier-1', label: 'is the decisive quality criterion' },
+        ],
+      },
+      {
+        heading: 'What does Tier-1 mean — and why is it more important than the origin?',
+        content: [
+          "The Bloomberg Tier-1 status is the most important quality criterion for solar panels. To be recognised as a Tier-1 manufacturer, a company must: have delivered modules for at least 6 bank-financed projects, be rated as a reliable supplier by independent banks, meet proven production and quality control standards, and be financially stable enough to honour warranties long-term.",
+          "Tier-1 manufacturers from China: JinkoSolar, LONGi, Trina Solar, JA Solar, Canadian Solar, Risen Energy.",
+          "Tier-1 manufacturers from Europe: Meyer Burger (CH/DE), REC Group (NO), Luxor Solar (DE), SoliTek (LT).",
+          "Conclusion: A Tier-1 module from China is more reliable than a no-name module from Europe.",
+        ],
+      },
+      {
+        heading: 'Direct comparison: Chinese vs. European',
+        content: [
+          "Price: Chinese ✅ 20–30% cheaper | European ❌ significantly more expensive.",
+          "Efficiency: Chinese ✅ up to 23.8% (AIKO, LONGi) | European ✅ up to 23.5% (Meyer Burger HJT).",
+          "Product warranty: Chinese ✅ 25 years standard | European ✅ 25–30 years.",
+          "Performance warranty: Chinese ✅ 85–90% after 25 years | European ✅ 88–94% after 25 years.",
+          "Warranty handling: Chinese ⚠️ often via Swiss importer | European ✅ direct European contact.",
+          "Hail protection Switzerland: Chinese ⚠️ varies by model | European ✅ often better certified.",
+          "Environmental footprint: Chinese ❌ longer transport | European ✅ shorter transport.",
+        ],
+      },
+      {
+        heading: 'The major Chinese manufacturers',
+        content: [
+          "LONGi — world market leader in monocrystalline: The Hi-MO Series is one of the best-selling modules in Switzerland. Efficiency up to 23.2%, 25-year product warranty, PVEL Top Performer 2024.",
+          "JinkoSolar — Tiger Neo Series: N-Type TOPCon technology with up to 23.3% efficiency and bifacial glass-glass construction. PVEL Top Performer for several years.",
+          "Trina Solar — Vertex S+: Founded in 1997, excellent value for money at 22.3% efficiency. PVEL Top Performer eleven times.",
+          "AIKO Solar: ABC technology with up to 23.8% efficiency — currently one of the highest commercially available.",
+        ],
+      },
+      {
+        heading: 'The European manufacturers',
+        content: [
+          "Meyer Burger — the Swiss panel: The only Swiss panel manufacturer. HJT technology up to 23.5% efficiency, 92% performance warranty after 25 years. Price approx. 20–30% more expensive. Warranty handling directly in Switzerland.",
+          "REC Group — Norway: Founded in 1996, high quality standards, strong performance warranties, European law.",
+          "Luxor Solar — Germany: Eco Line HJT Bifacial with 30-year product warranty and excellent temperature behaviour.",
+          "SoliTek — Lithuania: European production, 30-year product warranty, HW4 hail certification.",
+        ],
+      },
+      {
+        heading: 'Who benefits from European panels?',
+        content: [
+          "If warranty handling is decisive: In the event of a defect after 10 years, warranty handling with a European manufacturer is much simpler — no language barriers, European law, direct contact.",
+          "If hail protection is a priority: In hail-prone regions, panels with HW4 or HW5 hail certification are recommended. Meyer Burger and Luxor Solar excel here.",
+          "If environmental footprint matters: Shorter transport routes, European production standards, better recycling infrastructure.",
+          "If Swiss quality is a selling point: Meyer Burger from Switzerland has emotional value for many homeowners.",
+        ],
+      },
+      {
+        heading: 'Who should choose Chinese Tier-1 panels?',
+        content: [
+          "If budget plays a role: For the same money, Chinese panels give you a larger system or allow you to also finance battery storage.",
+          "If maximum efficiency is the goal: AIKO Solar and LONGi currently offer the highest efficiencies on the market.",
+          "If the installer has experience with the manufacturer: A local installer who has been working with JinkoSolar or Trina Solar for years knows the products, the installation and the warranty process.",
+        ],
+      },
+      {
+        heading: 'No-name modules from China — the real risk',
+        content: [
+          'The real risk factor is not "Chinese" in general — but unknown manufacturers without Tier-1 status. Warning signs:',
+        ],
+        bullets: [
+          '⚠️ No Bloomberg Tier-1 status',
+          '⚠️ No PVEL certification',
+          '⚠️ Product warranty under 15 years',
+          '⚠️ Performance warranty under 80% after 25 years',
+          '⚠️ No European service partner',
+          '⚠️ Price significantly below market average',
+        ],
+        highlight: 'Ask your installer explicitly about the manufacturer and Tier-1 status of the panels. A reputable installer does not install unknown no-name products.',
+      },
+      {
+        heading: 'Which panels does PVPro.ch recommend for Switzerland?',
+        content: [
+          "We don't recommend specific products — that is the job of the local installer who knows your roof. But we recommend these minimum requirements:",
+        ],
+        bullets: [
+          '✅ Bloomberg Tier-1 status or equivalent certification',
+          '✅ Product warranty at least 15 years (25 preferred)',
+          '✅ Performance warranty at least 85% after 25 years',
+          '✅ IEC 61215 certification',
+          '✅ Hail protection at least HW3 (HW4–HW5 for hail-prone regions)',
+          '✅ Glass-glass construction for hail-prone regions',
+        ],
+      },
+    ],
+    faqs: [
+      { question: 'Are Chinese solar panels worse than European ones?', answer: 'No — not categorically. Chinese Tier-1 manufacturers like LONGi, JinkoSolar and Trina Solar deliver quality equivalent or superior to European products. The decisive difference is not between "Chinese" and "European", but between Tier-1 manufacturers and no-name products.' },
+      { question: 'Which Chinese solar panels are recommendable for Switzerland?', answer: 'LONGi (Hi-MO Series), JinkoSolar (Tiger Neo), Trina Solar (Vertex S+), JA Solar and AIKO Solar are Tier-1 manufacturers with proven reliability, long warranties and PVEL certifications.' },
+      { question: 'What is the price difference between European and Chinese panels?', answer: "European panels are typically 20–30% more expensive than comparable Chinese Tier-1 panels. For a 10 kWp system, this represents a premium of approx. CHF 1'500–3'000." },
+      { question: 'Are Meyer Burger panels worth it?', answer: 'Meyer Burger offers high quality, excellent performance warranties and uncomplicated warranty handling in Switzerland. The price premium over Chinese alternatives is approx. 20–30%. For homeowners who value Swiss quality, Meyer Burger is an excellent choice.' },
+      { question: 'What is Bloomberg Tier-1 status?', answer: 'Bloomberg Tier-1 status certifies that the manufacturer is recognised as a reliable supplier for bank-financed projects and meets quality standards. Tier-1 modules come from manufacturers capable of honouring their warranties long-term.' },
+      { question: 'Which panels are best for hail-prone regions in Switzerland?', answer: 'For hail-prone regions like the canton of Berne: panels with HW4 or HW5 hail certification and glass-glass construction. Recommended: FuturaSun Silk Rhino (HW5), Luxor Eco Line HJT, Meyer Burger Glass, SoliTek Solid.' },
+    ],
+    ctaHeading: 'Which panels suit your roof? Get a quote now',
+    ctaText: 'Our certified local installers know the best panels for your location — whether Chinese Tier-1 or European premium. Get up to 3 quotes for free.',
+    ctaButton: 'Request free quote',
+    formUrl: '/en/request',
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'solaranlage-versicherung-schweiz', 'besten-solarinstallateur-schweiz-finden'],
+    relatedPageLinks: [
+      { label: 'Compare panel types', href: '/en/solar-panel-types' },
+      { label: 'Solar system costs', href: '/en/solar-costs' },
+      { label: 'Compare installers', href: '/en/solar-comparison' },
+      { label: 'Subsidies & OTP', href: '/en/solar-subsidies' },
+    ],
+  },
+
+  // ─── CHINESISCH VS. EUROPÄISCH (IT) ──────────────────────────────────────────
+  {
+    slug: 'chinesische-vs-europaeische-solarmodule-schweiz',
+    locale: 'it',
+    title: 'Pannelli solari cinesi vs. europei — confronto onesto per la Svizzera 2026',
+    metaDescription: 'I pannelli solari cinesi sono davvero peggiori di quelli europei? Qualità, garanzia, prezzo e rischi in confronto diretto — per i proprietari svizzeri 2026.',
+    image: '/images/blog-2.webp',
+    date: '17 maggio 2026',
+    readMin: 10,
+    tag: 'Guida',
+    intro: '"Non compro pannelli cinesi" — questa frase la sentiamo spesso. La realtà è diversa: oltre l\'80% di tutti i pannelli solari installati in Svizzera provengono dalla Cina. Non perché gli installatori non abbiano scelta — ma perché i produttori cinesi Tier-1 offrono oggi una qualità equivalente ai prodotti europei in molti settori. Questo articolo spiega onestamente dove i pannelli cinesi sono buoni, dove quelli europei sono migliori — e cosa conta davvero.',
+    sections: [
+      {
+        heading: 'Perché i pannelli cinesi hanno una cattiva reputazione?',
+        content: [
+          "La cattiva reputazione risale all'inizio degli anni 2010 — quando prodotti di scarsa qualità senza marchio hanno inondato il mercato. Questi moduli avevano veri problemi di qualità: degradazione più rapida, garanzie deboli, assistenza clienti scadente.",
+          "Da allora, il settore è cambiato fondamentalmente. I grandi produttori cinesi — JinkoSolar, LONGi, Trina Solar, JA Solar — hanno investito miliardi in ricerca e sviluppo. Oggi sono almeno alla pari con i produttori europei in termini di efficienza, affidabilità e durata della garanzia.",
+          "La differenza non è più tra \"cinese\" ed \"europeo\" — ma tra produttori Tier-1 e prodotti senza marchio.",
+        ],
+        stats: [
+          { value: '80%+', label: 'degli impianti svizzeri con pannelli cinesi' },
+          { value: '20–30%', label: 'meno costosi delle alternative europee' },
+          { value: 'Tier-1', label: "è il criterio di qualità decisivo" },
+        ],
+      },
+      {
+        heading: "Cosa significa Tier-1 — e perché è più importante dell'origine?",
+        content: [
+          "Lo status Tier-1 Bloomberg è il criterio di qualità più importante per i pannelli solari. Per essere riconosciuto come produttore Tier-1, un'azienda deve: aver fornito moduli per almeno 6 progetti finanziati da banche, essere classificata come fornitore affidabile da banche indipendenti, soddisfare standard di produzione e controllo qualità comprovati, ed essere finanziariamente stabile per onorare le garanzie a lungo termine.",
+          "Produttori Tier-1 dalla Cina: JinkoSolar, LONGi, Trina Solar, JA Solar, Canadian Solar, Risen Energy.",
+          "Produttori Tier-1 dall'Europa: Meyer Burger (CH/DE), REC Group (NO), Luxor Solar (DE), SoliTek (LT).",
+          "Conclusione: Un modulo Tier-1 dalla Cina è più affidabile di un modulo senza marchio dall'Europa.",
+        ],
+      },
+      {
+        heading: 'Confronto diretto: Cinesi vs. Europei',
+        content: [
+          "Prezzo: Cinesi ✅ 20–30% meno costosi | Europei ❌ notevolmente più costosi.",
+          "Efficienza: Cinesi ✅ fino al 23.8% (AIKO, LONGi) | Europei ✅ fino al 23.5% (Meyer Burger HJT).",
+          "Garanzia prodotto: Cinesi ✅ 25 anni standard | Europei ✅ 25–30 anni.",
+          "Garanzia di prestazione: Cinesi ✅ 85–90% dopo 25 anni | Europei ✅ 88–94% dopo 25 anni.",
+          "Gestione garanzie: Cinesi ⚠️ spesso tramite importatore svizzero | Europei ✅ interlocutore europeo diretto.",
+          "Protezione grandine Svizzera: Cinesi ⚠️ varia a seconda del modello | Europei ✅ spesso meglio certificati.",
+          "Bilancio ecologico: Cinesi ❌ trasporti più lunghi | Europei ✅ trasporti più brevi.",
+        ],
+      },
+      {
+        heading: "I principali produttori cinesi",
+        content: [
+          "LONGi: Leader mondiale nel monocristallino. La serie Hi-MO è uno dei moduli più venduti in Svizzera. Efficienza fino al 23.2%, garanzia prodotto 25 anni, PVEL Top Performer 2024.",
+          "JinkoSolar — Tiger Neo: Tecnologia N-Type TOPCon con efficienza fino al 23.3% e costruzione bifacciale vetro-vetro. PVEL Top Performer da diversi anni.",
+          "Trina Solar — Vertex S+: Fondato nel 1997, eccellente rapporto qualità-prezzo al 22.3% di efficienza. PVEL Top Performer undici volte.",
+          "AIKO Solar: Tecnologia ABC con efficienza fino al 23.8% — attualmente tra le più alte disponibili commercialmente.",
+        ],
+      },
+      {
+        heading: "I produttori europei",
+        content: [
+          "Meyer Burger — Il pannello svizzero: Unico produttore svizzero di pannelli. Tecnologia HJT fino al 23.5% di efficienza, garanzia di prestazione 92% dopo 25 anni. Prezzo ca. 20–30% più costoso. Gestione garanzie direttamente in Svizzera.",
+          "REC Group — Norvegia: Fondato nel 1996, alti standard qualitativi, forti garanzie di prestazione, diritto europeo.",
+          "Luxor Solar — Germania: Eco Line HJT Bifacial con 30 anni di garanzia prodotto e comportamento termico eccellente.",
+          "SoliTek — Lituania: Produzione europea, 30 anni di garanzia prodotto, certificazione anti-grandine HW4.",
+        ],
+      },
+      {
+        heading: "Per chi vale la pena i pannelli europei?",
+        content: [
+          "Se la gestione delle garanzie è decisiva: In caso di difetto dopo 10 anni, la gestione della garanzia con un produttore europeo è molto più semplice — nessuna barriera linguistica, diritto europeo, interlocutore diretto.",
+          "Se la protezione anti-grandine è prioritaria: Nelle regioni a rischio di grandine si raccomandano moduli con certificazione HW4 o HW5. Meyer Burger e Luxor Solar eccellono in questo.",
+          "Se il bilancio ecologico conta: Trasporti più brevi, standard di produzione europei, migliore infrastruttura di riciclaggio.",
+          "Se la qualità svizzera è un argomento di vendita: Meyer Burger dalla Svizzera ha un valore emotivo per molti proprietari.",
+        ],
+      },
+      {
+        heading: "Per chi i pannelli cinesi Tier-1 sono la scelta giusta?",
+        content: [
+          "Se il budget è un fattore: Per lo stesso denaro con pannelli cinesi ottenete un impianto più grande o potete finanziare un sistema di accumulo.",
+          "Se si vuole massimizzare l'efficienza: AIKO Solar e LONGi offrono attualmente le efficienze più elevate sul mercato.",
+          "Se l'installatore ha esperienza con il produttore: Un installatore locale che installa da anni JinkoSolar o Trina Solar conosce i prodotti, il montaggio e il processo di garanzia.",
+        ],
+      },
+      {
+        heading: "Moduli senza marchio dalla Cina — il vero fattore di rischio",
+        content: [
+          "Il vero fattore di rischio non è \"cinese\" in generale — ma produttori sconosciuti senza status Tier-1. Segnali d'allarme:",
+        ],
+        bullets: [
+          '⚠️ Nessuno status Bloomberg Tier-1',
+          '⚠️ Nessuna certificazione PVEL',
+          '⚠️ Garanzia prodotto inferiore a 15 anni',
+          '⚠️ Garanzia di prestazione inferiore all\'80% dopo 25 anni',
+          '⚠️ Nessun partner di servizio europeo',
+          '⚠️ Prezzo notevolmente inferiore alla media di mercato',
+        ],
+        highlight: "Chiedete esplicitamente al vostro installatore il produttore e lo status Tier-1 dei moduli. Un installatore serio non monta prodotti sconosciuti senza marchio.",
+      },
+      {
+        heading: "Quali moduli raccomanda PVPro.ch per la Svizzera?",
+        content: [
+          "Non raccomandiamo prodotti specifici — è compito dell'installatore locale che conosce il vostro tetto. Ma raccomandiamo questi requisiti minimi:",
+        ],
+        bullets: [
+          '✅ Status Bloomberg Tier-1 o certificazione equivalente',
+          '✅ Garanzia prodotto almeno 15 anni (meglio 25)',
+          '✅ Garanzia di prestazione almeno 85% dopo 25 anni',
+          '✅ Certificazione IEC 61215',
+          '✅ Protezione anti-grandine almeno HW3 (HW4–HW5 per regioni a rischio)',
+          '✅ Costruzione vetro-vetro per regioni a rischio di grandine',
+        ],
+      },
+    ],
+    faqs: [
+      { question: "I pannelli solari cinesi sono peggiori di quelli europei?", answer: "No — non in modo categorico. I produttori cinesi Tier-1 come LONGi, JinkoSolar e Trina Solar offrono una qualità equivalente o superiore ai prodotti europei. La differenza decisiva non è tra \"cinese\" ed \"europeo\", ma tra produttori Tier-1 e prodotti senza marchio." },
+      { question: "Quali pannelli cinesi sono raccomandabili per la Svizzera?", answer: "LONGi (serie Hi-MO), JinkoSolar (Tiger Neo), Trina Solar (Vertex S+), JA Solar e AIKO Solar sono produttori Tier-1 con affidabilità comprovata, lunghe garanzie e certificazioni PVEL." },
+      { question: "Qual è la differenza di prezzo tra pannelli europei e cinesi?", answer: "I pannelli europei sono tipicamente il 20–30% più costosi dei pannelli cinesi Tier-1 comparabili. Per un impianto da 10 kWp, ciò corrisponde a un sovrapprezzo di ca. CHF 1'500–3'000." },
+      { question: "Vale la pena i pannelli Meyer Burger?", answer: "Meyer Burger offre alta qualità, eccellenti garanzie di prestazione e gestione delle garanzie semplice in Svizzera. Il sovrapprezzo rispetto alle alternative cinesi è ca. 20–30%. Per i proprietari che valorizzano la qualità svizzera, Meyer Burger è una scelta eccellente." },
+      { question: "Cos'è lo status Tier-1 Bloomberg?", answer: "Lo status Tier-1 Bloomberg certifica che il produttore è riconosciuto come fornitore affidabile per progetti finanziati da banche e soddisfa gli standard di qualità. I moduli Tier-1 provengono da produttori in grado di onorare le garanzie a lungo termine." },
+      { question: "Quali moduli sono i migliori per le regioni a rischio di grandine in Svizzera?", answer: "Per regioni a rischio come il Canton Berna: moduli con certificazione anti-grandine HW4 o HW5 e costruzione vetro-vetro. Raccomandati: FuturaSun Silk Rhino (HW5), Luxor Eco Line HJT, Meyer Burger Glass, SoliTek Solid." },
+    ],
+    ctaHeading: "Quali moduli si adattano al vostro tetto? Richiedete ora un preventivo",
+    ctaText: "I nostri installatori locali certificati conoscono i migliori moduli per la vostra posizione — che si tratti di Tier-1 cinesi o moduli premium europei. Richiedete gratuitamente fino a 3 preventivi.",
+    ctaButton: 'Richiedere preventivo gratuito',
+    formUrl: '/it/richiesta',
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'solaranlage-versicherung-schweiz', 'besten-solarinstallateur-schweiz-finden'],
+    relatedPageLinks: [
+      { label: 'Confronto tipi di pannelli', href: '/it/tipi-pannelli-solari' },
+      { label: 'Costi impianto solare', href: '/it/costi-impianto-solare' },
+      { label: 'Confronta installatori', href: '/it/portale-confronto-fotovoltaico' },
+      { label: 'Incentivi & CUB', href: '/it/incentivi-solari' },
+    ],
+  },
+
+  // ─── NORDDACH (DE) ───────────────────────────────────────────────────────────
+  {
+    slug: 'solaranlage-norddach-schweiz',
+    locale: 'de',
+    title: 'Solaranlage auf dem Norddach — lohnt es sich trotzdem?',
+    metaDescription: 'Haben Sie ein Norddach? Lohnt sich trotzdem eine Solaranlage? Ertrag, Kosten und ehrliche Antworten für Schweizer Hausbesitzer — mit echten Zahlen und Beispielen.',
+    image: '/images/blog-3.webp',
+    date: '24. Mai 2026',
+    readMin: 10,
+    tag: 'Ratgeber',
+    intro: '"Mein Dach schaut nach Norden — also kommt für mich keine Solaranlage in Frage." Diesen Satz hören wir oft. Und er stimmt so nicht. Ja, ein Norddach ist nicht ideal. Aber es schliesst eine Solaranlage nicht aus — besonders wenn die Dachneigung flach ist, der Eigenverbrauch hoch ist oder keine andere Dachfläche zur Verfügung steht. Dieser Artikel erklärt ehrlich, wann sich ein Norddach lohnt, wann nicht — und was Sie tun können, um das Beste aus Ihrer Situation herauszuholen.',
+    sections: [
+      {
+        heading: 'Wie viel Strom produziert eine Solaranlage auf dem Norddach?',
+        content: [
+          'Die ehrliche Antwort: weniger als auf einem Süddach — aber mehr als viele denken. Erträge je nach Ausrichtung und Neigung: Süd 30–35° = 100% (Referenz). Ost/West 30° = 90–95%. Nord 20° = 70%. Nord 30° = 61%. Nord 40° = 50–55%. Flaches Norddach 7–10° = 75–80%.',
+          "Was das in der Praxis bedeutet: Eine 10-kWp-Anlage auf einem Süddach produziert in der Schweiz ca. 10'000 kWh/Jahr. Dieselbe Anlage auf einem Norddach mit 30° produziert ca. 6'100 kWh/Jahr. Auf einem flachen Norddach (10°) sind es ca. 7'500–8'000 kWh/Jahr.",
+          'Die wichtigste Erkenntnis: Je flacher das Norddach, desto besser der Ertrag.',
+        ],
+        stats: [
+          { value: '60–70%', label: 'Ertrag vs. Süddach — besser als gedacht' },
+          { value: 'Flach = besser', label: '20° Neigung optimal für Norddach' },
+          { value: 'Eigenverbrauch', label: 'ist entscheidend für die Wirtschaftlichkeit' },
+        ],
+      },
+      {
+        heading: 'Warum ist ein Norddach nicht so schlimm wie gedacht?',
+        content: [
+          '1. Diffuses Licht — der unterschätzte Faktor: In der Schweiz ist der Himmel oft bedeckt. Bei bewölktem Himmel produziert eine Norddachanlage genauso viel wie eine Südanlage — weil diffuses Licht von allen Seiten kommt. Gerade im Mittelland mit häufigem Nebel ist dieser Effekt bedeutsam.',
+          '2. Morgen- und Abendsonne im Sommer: Im Schweizer Sommer geht die Sonne im Nordosten auf und im Nordwesten unter. Ein Norddach erhält morgens und abends direkte Sonnenstrahlung — genau dann, wenn der Eigenverbrauch oft am höchsten ist.',
+          '3. Kühlere Module = höherer Wirkungsgrad: Module auf dem Norddach erhitzen sich weniger. Da der Wirkungsgrad bei Hitze sinkt, produzieren Nordmodule an heissen Sommertagen manchmal fast so viel wie Südmodule.',
+        ],
+      },
+      {
+        heading: 'Wann lohnt sich ein Norddach — und wann nicht?',
+        content: [
+          'Es lohnt sich wenn:',
+        ],
+        bullets: [
+          '✅ Die Dachneigung flach ist (unter 25°) — Ertrag 70–80% des Süddachs',
+          '✅ Der Eigenverbrauch hoch ist — wer den Strom selbst verbraucht, profitiert auch von weniger Produktion',
+          '✅ Ein Batteriespeicher vorhanden ist — speichert den Tagesstrom für den Abend',
+          '✅ Keine Südfläche verfügbar ist — Norddach als einzige Option',
+          '✅ Das Norddach zusätzlich zur Südfläche genutzt wird — Kombination maximiert die Produktion',
+          '✅ Ein Elektroauto oder eine Wärmepumpe vorhanden ist — hoher Eigenverbrauch macht Nordanlagen rentabel',
+          '❌ Die Dachneigung sehr steil ist (über 40°) — Ertrag fällt auf 50–55%',
+          '❌ Zusätzliche Verschattung vorhanden ist — Norddach + Verschattung = sehr wenig Strom',
+          '❌ Eine Südfläche ungenutzt ist — zuerst Süd belegen, dann Nordfläche prüfen',
+        ],
+      },
+      {
+        heading: 'Kombination Süd- und Norddach — die beste Lösung',
+        content: [
+          'Wenn Ihr Haus ein Satteldach mit Süd- und Nordseite hat, ist die optimale Strategie oft: beide Seiten belegen.',
+          'Vorteile: Mehr Gesamtproduktion, gleichmässigere Produktion morgens und abends, höherer Eigenverbrauch, optimale Tagesabdeckung (Norddach morgens/abends + Süddach mittags).',
+          "Praxisbeispiel Luzern — 6 kWp Süd (30°) + 4 kWp Nord (30°): Süddach ca. 6'000 kWh/Jahr. Norddach ca. 2'440 kWh/Jahr. Total ca. 8'440 kWh/Jahr. Mit Speicher ca. 5'500 kWh Eigenverbrauch = CHF 1'650 gespart. Das Norddach trägt ca. 29% zur Gesamtproduktion bei — nicht ideal, aber klar positiv.",
+        ],
+      },
+      {
+        heading: 'Was ist der optimale Neigungswinkel für ein Norddach?',
+        content: [
+          'Faustregel: Je flacher, desto besser — mit einer Untergrenze von 7°. Erträge nach Neigungswinkel: 7–10° = 75–80% (sehr gut). 15–20° = 70–75% (gut). 25–30° = 62–70% (akzeptabel). 35–40° = 55–62% (grenzwertig). 45°+ = unter 55% (nicht empfehlenswert).',
+          'Achtung: Unter 7° gibt es Probleme mit der Selbstreinigung — Regenwasser fliesst schlecht ab, was zu Verschmutzung und reduziertem Ertrag führt.',
+        ],
+      },
+      {
+        heading: 'Welche Module eignen sich besonders für Norddächer?',
+        content: [
+          'Gute Leistung bei diffusem Licht: Monokristalline N-Typ-Module (TOPCon, HJT) produzieren bei bewölktem Himmel besser als ältere PERC-Technologie — besonders empfehlenswert für Norddächer.',
+          'Bifaziale Module: Auf dem Norddach können bifaziale Module von reflektiertem Licht der Dachziegel profitieren — der Mehrertrag ist aber gering und rechtfertigt den Mehrpreis selten.',
+          'Empfehlung: Tier-1-Hersteller mit TOPCon oder HJT-Technologie, mindestens 21% Wirkungsgrad.',
+        ],
+      },
+      {
+        heading: 'Rechnet sich das trotzdem? Rechenbeispiel Norddach Zürich',
+        content: [
+          "Ausgangslage: Einfamilienhaus Zürich, Norddach 25°, 10 kWp. Jahresproduktion: ca. 6'100 kWh. Eigenverbrauch 40% = 2'440 kWh. Einspeisung 3'660 kWh × CHF 0.08 = CHF 293.",
+          "Jährliche Ersparnis: Eigenverbrauch 2'440 × CHF 0.30 = CHF 732. Einspeisung CHF 293. Total CHF 1'025/Jahr.",
+          "Investition nach EIV und Steuerabzug: ca. CHF 12'300 netto. Amortisation: ca. 12 Jahre.",
+          "Mit Batteriespeicher steigt der Eigenverbrauch auf 65% → CHF 1'350/Jahr. Vergleich Süddach: ca. CHF 1'500–1'700/Jahr, Amortisation 8–10 Jahre. Das Norddach lohnt sich — aber weniger als ein Süddach.",
+        ],
+      },
+      {
+        heading: 'Was tun bei verschattetem Norddach?',
+        content: [
+          'Verschattung ist bei Norddächern besonders kritisch. Lösungen:',
+          'Moduloptimierer: Kleine Geräte an jedem Modul, die verhindern, dass ein verschattetes Modul die gesamte Anlage bremst. Bei Norddächern mit teilweiser Verschattung sehr empfehlenswert.',
+          'Mikroinverter: Jedes Modul hat einen eigenen Wechselrichter. Maximale Unabhängigkeit bei Verschattung, aber höhere Kosten.',
+          'Kluge Modulanordnung: Ein erfahrener Installateur kann die Module so platzieren, dass verschattete Bereiche minimal sind.',
+        ],
+      },
+    ],
+    faqs: [
+      { question: 'Lohnt sich eine Solaranlage auf dem Norddach in der Schweiz?', answer: 'Ja, unter bestimmten Bedingungen. Bei flacher Dachneigung (unter 25°) und hohem Eigenverbrauch kann auch ein Norddach wirtschaftlich betrieben werden. Der Ertrag liegt bei 60–80% eines Süddachs — die Amortisation dauert etwas länger, aber die Anlage rechnet sich.' },
+      { question: 'Wie viel Strom produziert eine Solaranlage auf dem Norddach?', answer: "Abhängig von der Dachneigung: Bei 20° ca. 70% des Süddach-Ertrags, bei 30° ca. 61%, bei flachen Dächern (10°) bis zu 80%. In der Schweiz, wo diffuses Licht häufig ist, ist der Unterschied oft kleiner als erwartet." },
+      { question: 'Welcher Neigungswinkel ist optimal für ein Norddach?', answer: 'Je flacher, desto besser — mit einer Untergrenze von 7°. Bei 7–20° Neigung erzielt ein Norddach die besten relativen Erträge. Steilere Norddächer über 40° sind eher nicht empfehlenswert.' },
+      { question: 'Kann ich Süd- und Norddach gleichzeitig belegen?', answer: 'Ja, und das ist oft die beste Lösung. Die Nordseite ergänzt die Südseite — morgens und abends trägt das Norddach zur Produktion bei. Der Gesamtertrag steigt und die Eigenverbrauchsquote verbessert sich.' },
+      { question: 'Welche Module eignen sich am besten für Norddächer?', answer: 'Monokristalline N-Typ-Module (TOPCon oder HJT) von Tier-1-Herstellern. Sie produzieren besser bei diffusem Licht — das macht den Unterschied beim Norddach.' },
+      { question: 'Hilft ein Batteriespeicher beim Norddach?', answer: 'Ja, deutlich. Ein Speicher erhöht den Eigenverbrauch von ca. 40% auf 65–75%. Da beim Norddach die Einspeisevergütung ohnehin gering ist, macht der Speicher wirtschaftlich besonders Sinn.' },
+    ],
+    ctaHeading: 'Auch mit Norddach — kostenlos prüfen lassen',
+    ctaText: 'Ein zertifizierter Installateur aus Ihrer Region analysiert Ihr Dach und sagt Ihnen ehrlich, ob sich eine Solaranlage lohnt — auch bei Nordausrichtung. Kostenlos bis zu 3 Offerten vergleichen.',
+    ctaButton: 'Kostenlose Offerte anfordern',
+    formUrl: '/anfrage',
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'chinesische-vs-europaeische-solarmodule-schweiz', 'solaranlage-versicherung-schweiz'],
+    relatedPageLinks: [
+      { label: 'Solaranlage mit Batteriespeicher', href: '/solaranlage-mit-speicher' },
+      { label: 'Modultypen vergleichen', href: '/solaranlagen-typen-vergleich' },
+      { label: 'Solaranlage Kosten Schweiz', href: '/solaranlage-kosten' },
+      { label: 'Schweizer Klima & PV', href: '/photovoltaik-schweizer-klima' },
+    ],
+  },
+
+  // ─── NORDDACH (FR) ───────────────────────────────────────────────────────────
+  {
+    slug: 'solaranlage-norddach-schweiz',
+    locale: 'fr',
+    title: "Panneau solaire sur toit nord — est-ce quand même rentable?",
+    metaDescription: "Vous avez un toit orienté nord? L'installation solaire vaut-elle quand même la peine? Rendement, coûts et réponses honnêtes pour les propriétaires suisses — avec de vrais chiffres.",
+    image: '/images/blog-3.webp',
+    date: '24 mai 2026',
+    readMin: 10,
+    tag: 'Guide',
+    intro: '"Mon toit est orienté nord — donc l\'énergie solaire ne me convient pas." C\'est une phrase que nous entendons souvent. Et elle est inexacte. Oui, un toit nord n\'est pas idéal. Mais il n\'exclut pas une installation solaire — surtout si la pente est faible, si l\'autoconsommation est élevée ou si aucune autre surface de toit n\'est disponible. Cet article explique honnêtement quand un toit nord vaut la peine, quand il n\'en vaut pas — et ce que vous pouvez faire pour tirer le meilleur de votre situation.',
+    sections: [
+      {
+        heading: "Quelle quantité d'électricité produit une installation solaire sur un toit nord?",
+        content: [
+          "La réponse honnête: moins que sur un toit sud — mais plus que beaucoup ne le pensent. Rendements selon l'orientation et l'inclinaison: Sud 30–35° = 100% (référence). Est/Ouest 30° = 90–95%. Nord 20° = 70%. Nord 30° = 61%. Nord 40° = 50–55%. Toit nord plat 7–10° = 75–80%.",
+          "Ce que cela signifie en pratique: Une installation de 10 kWc sur un toit sud produit en Suisse env. 10'000 kWh/an. La même installation sur un toit nord à 30° produit env. 6'100 kWh/an. Sur un toit nord plat (10°), c'est env. 7'500–8'000 kWh/an.",
+          "L'enseignement clé: Plus le toit nord est plat, meilleur est le rendement.",
+        ],
+        stats: [
+          { value: '60–70%', label: "rendement vs. toit sud — mieux que prévu" },
+          { value: 'Plat = mieux', label: "inclinaison 20° optimale pour toit nord" },
+          { value: 'Autoconsommation', label: "est décisive pour la rentabilité" },
+        ],
+      },
+      {
+        heading: "Pourquoi un toit nord n'est pas aussi problématique que prévu?",
+        content: [
+          "1. Lumière diffuse — le facteur sous-estimé: En Suisse, le ciel est souvent couvert. Par temps nuageux, une installation sur un toit nord produit autant que sur les autres orientations — car la lumière diffuse vient de tous les côtés. Dans le Plateau, où le brouillard est fréquent, cet effet est significatif.",
+          "2. Soleil matinal et vespéral en été: En été suisse, le soleil se lève au nord-est et se couche au nord-ouest. Un toit nord reçoit donc du rayonnement direct le matin et le soir — exactement quand l'autoconsommation est souvent la plus élevée.",
+          "3. Modules plus froids = meilleur rendement: Les modules sur un toit nord s'échauffent moins. Comme le rendement diminue avec la chaleur, les modules nord produisent parfois presque autant que les modules sud lors de chaudes journées d'été.",
+        ],
+      },
+      {
+        heading: "Quand un toit nord vaut-il la peine — et quand non?",
+        content: [
+          "Cela vaut la peine si:",
+        ],
+        bullets: [
+          "✅ La pente est faible (moins de 25°) — rendement 70–80% d'un toit sud",
+          "✅ L'autoconsommation est élevée — qui consomme lui-même profite même avec moins de production",
+          "✅ Un système de stockage est présent — stocke l'électricité diurne pour le soir",
+          "✅ Aucune surface sud n'est disponible — toit nord comme seule option",
+          "✅ Le toit nord s'ajoute à une surface sud — la combinaison maximise la production",
+          "✅ Une voiture électrique ou pompe à chaleur est présente — haute autoconsommation rend les installations nord rentables",
+          "❌ La pente est très raide (plus de 40°) — rendement tombe à 50–55%",
+          "❌ Un ombrage supplémentaire existe — toit nord + ombrage = très peu d'électricité",
+          "❌ Une surface sud est inutilisée — occuper d'abord le sud, puis examiner le nord",
+        ],
+      },
+      {
+        heading: "Combinaison toit sud et nord — la meilleure solution",
+        content: [
+          "Si votre maison a un toit à deux pans avec côté sud et nord, la stratégie optimale est souvent: occuper les deux côtés.",
+          "Avantages: Plus de production totale, production plus régulière matin et soir, meilleure autoconsommation, couverture optimale de la journée (nord matin/soir + sud midi).",
+          "Exemple pratique Lucerne — 6 kWc sud (30°) + 4 kWc nord (30°): Toit sud env. 6'000 kWh/an. Toit nord env. 2'440 kWh/an. Total env. 8'440 kWh/an. Avec stockage env. 5'500 kWh autoconsommés = CHF 1'650 économisés. Le toit nord contribue env. 29% à la production totale — pas idéal, mais clairement positif.",
+        ],
+      },
+      {
+        heading: "Quel est l'angle d'inclinaison optimal pour un toit nord?",
+        content: [
+          "Règle générale: Plus c'est plat, mieux c'est — avec une limite inférieure de 7°. Rendements selon l'angle: 7–10° = 75–80% (très bon). 15–20° = 70–75% (bon). 25–30° = 62–70% (acceptable). 35–40° = 55–62% (limite). 45°+ = moins de 55% (déconseillé).",
+          "Attention: En dessous de 7° d'inclinaison, il y a des problèmes d'auto-nettoyage — l'eau de pluie ne s'écoule plus bien, ce qui entraîne des salissures et une production réduite.",
+        ],
+      },
+      {
+        heading: "Quels modules conviennent particulièrement aux toits nord?",
+        content: [
+          "Bonne performance sous lumière diffuse: Les modules monocristallins N-Type (TOPCon, HJT) produisent mieux par temps couvert et sous lumière diffuse que l'ancienne technologie PERC — particulièrement recommandés pour les toits nord.",
+          "Modules bifaciaux: Sur le toit nord, les modules bifaciaux peuvent bénéficier de la lumière réfléchie par les tuiles — mais le gain est faible et justifie rarement le surcoût.",
+          "Recommandation: Fabricants Tier-1 avec technologie TOPCon ou HJT et au moins 21% de rendement.",
+        ],
+      },
+      {
+        heading: "Est-ce quand même rentable? Exemple de calcul toit nord Zurich",
+        content: [
+          "Situation de départ: Maison individuelle Zurich, toit nord 25°, 10 kWc. Production annuelle: env. 6'100 kWh. Autoconsommation 40% = 2'440 kWh. Injection 3'660 kWh × CHF 0.08 = CHF 293.",
+          "Économies annuelles: Autoconsommation 2'440 × CHF 0.30 = CHF 732. Injection CHF 293. Total CHF 1'025/an.",
+          "Investissement après SRI et déduction fiscale: env. CHF 12'300 net. Amortissement: env. 12 ans.",
+          "Avec système de stockage: autoconsommation monte à 65% → CHF 1'350/an. Comparaison toit sud: env. CHF 1'500–1'700/an, amortissement 8–10 ans. Le toit nord est rentable — mais moins qu'un toit sud.",
+        ],
+      },
+      {
+        heading: "Que faire en cas d'ombrage sur le toit nord?",
+        content: [
+          "L'ombrage est particulièrement problématique sur les toits nord. Solutions:",
+          "Optimiseurs de modules: Petits appareils montés sur chaque module, empêchant qu'un module ombragé ne bride toute l'installation. Très recommandé pour les toits nord partiellement ombragés.",
+          "Micro-onduleurs: Chaque module a son propre petit onduleur. Indépendance maximale en cas d'ombrage, mais coûts plus élevés.",
+          "Disposition intelligente des modules: Un installateur expérimenté peut placer les modules de manière à minimiser les zones ombragées.",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Une installation solaire sur un toit nord vaut-elle la peine en Suisse?", answer: "Oui, sous certaines conditions. Avec une pente faible (moins de 25°) et une autoconsommation élevée, un toit nord peut être rentable. Le rendement se situe à 60–80% d'un toit sud — l'amortissement dure un peu plus longtemps, mais l'installation est quand même rentable." },
+      { question: "Quelle quantité d'électricité produit une installation sur un toit nord?", answer: "Selon la pente: à 20° env. 70% du rendement d'un toit sud, à 30° env. 61%, sur des toits plats (10°) jusqu'à 80%. En Suisse, où la lumière diffuse est fréquente, la différence est souvent plus petite qu'attendu." },
+      { question: "Quel angle d'inclinaison est optimal pour un toit nord?", answer: "Plus c'est plat, mieux c'est — avec une limite inférieure de 7°. À 7–20° d'inclinaison, un toit nord atteint les meilleurs rendements relatifs. Les toits nord raides de plus de 40° sont déconseillés." },
+      { question: "Puis-je équiper simultanément un toit sud et nord?", answer: "Oui, et c'est souvent la meilleure solution. Le côté nord complète le côté sud — le matin et le soir, le toit nord contribue à la production. Le rendement total augmente et le taux d'autoconsommation s'améliore." },
+      { question: "Quels modules conviennent le mieux aux toits nord?", answer: "Modules monocristallins N-Type (TOPCon ou HJT) de fabricants Tier-1. Ils produisent mieux sous lumière diffuse — ce qui fait la différence sur un toit nord." },
+      { question: "Un système de stockage aide-t-il avec un toit nord?", answer: "Oui, nettement. Un stockage augmente l'autoconsommation de env. 40% à 65–75%. Comme la rémunération de l'injection est de toute façon faible avec un toit nord, le stockage est économiquement particulièrement judicieux." },
+    ],
+    ctaHeading: "Même avec un toit nord — faites vérifier gratuitement",
+    ctaText: "Un installateur certifié de votre région analyse votre toit et vous dit honnêtement si une installation solaire vaut la peine — même avec une orientation nord. Comparez gratuitement jusqu'à 3 devis.",
+    ctaButton: 'Demander un devis gratuit',
+    formUrl: '/fr/demande',
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'chinesische-vs-europaeische-solarmodule-schweiz', 'solaranlage-versicherung-schweiz'],
+    relatedPageLinks: [
+      { label: 'Solaire avec batterie', href: '/fr/solaire-avec-batterie' },
+      { label: 'Comparer les types de panneaux', href: '/fr/types-panneaux-solaires' },
+      { label: "Coûts installation solaire", href: '/fr/cout-installation-solaire' },
+      { label: 'Climat suisse & PV', href: '/fr/photovoltaique-suisse' },
+    ],
+  },
+
+  // ─── NORDDACH (EN) ───────────────────────────────────────────────────────────
+  {
+    slug: 'solaranlage-norddach-schweiz',
+    locale: 'en',
+    title: 'Solar panels on a north-facing roof — is it still worth it?',
+    metaDescription: 'Do you have a north-facing roof? Is solar still worth it? Yield, costs and honest answers for Swiss homeowners — with real numbers and examples.',
+    image: '/images/blog-3.webp',
+    date: '24 May 2026',
+    readMin: 10,
+    tag: 'Guide',
+    intro: '"My roof faces north — so solar is not an option for me." We hear this often. And it is not quite right. Yes, a north-facing roof is not ideal. But it does not rule out solar — especially if the pitch is shallow, self-consumption is high, or no other roof surface is available. This article honestly explains when a north-facing roof makes sense, when it does not — and what you can do to get the best out of your situation.',
+    sections: [
+      {
+        heading: 'How much electricity does a solar system produce on a north-facing roof?',
+        content: [
+          "The honest answer: less than on a south-facing roof — but more than many think. Yields by orientation and pitch: South 30–35° = 100% (reference). East/West 30° = 90–95%. North 20° = 70%. North 30° = 61%. North 40° = 50–55%. Flat north roof 7–10° = 75–80%.",
+          "What this means in practice: A 10 kWp system on an optimal south-facing roof produces approx. 10'000 kWh/year in Switzerland. The same system on a north-facing roof at 30° produces approx. 6'100 kWh/year. On a flat north roof (10°) it is approx. 7'500–8'000 kWh/year.",
+          "The key insight: The flatter the north-facing roof, the better the yield.",
+        ],
+        stats: [
+          { value: '60–70%', label: 'yield vs. south roof — better than expected' },
+          { value: 'Flat = better', label: '20° pitch optimal for north roof' },
+          { value: 'Self-consumption', label: 'is decisive for economic viability' },
+        ],
+      },
+      {
+        heading: 'Why a north-facing roof is not as bad as you think',
+        content: [
+          "1. Diffuse light — the underestimated factor: In Switzerland, the sky is often overcast. On cloudy days, a north-facing installation produces as much as south-facing ones — because diffuse light comes from all directions. In the Plateau, where fog is common, this effect is significant.",
+          "2. Morning and evening sun in summer: In Swiss summer, the sun rises in the north-east and sets in the north-west. A north-facing roof receives direct sunlight in the morning and evening — exactly when self-consumption is often highest.",
+          "3. Cooler modules = higher efficiency: Modules on a north-facing roof heat up less. Since efficiency drops with heat, north-facing modules can produce almost as much as south-facing ones on hot summer days.",
+        ],
+      },
+      {
+        heading: 'When does a north-facing roof make sense — and when not?',
+        content: [
+          'It makes sense when:',
+        ],
+        bullets: [
+          '✅ The pitch is shallow (under 25°) — yield 70–80% of a south roof',
+          '✅ Self-consumption is high — those who use the electricity themselves benefit even from less production',
+          '✅ A battery storage system is in place — stores daytime electricity for the evening',
+          '✅ No south-facing surface is available — north roof as the only option',
+          '✅ The north roof is used in addition to a south surface — combination maximises total production',
+          '✅ An EV or heat pump is present — high self-consumption makes north installations viable',
+          '❌ The pitch is very steep (over 40°) — yield drops to 50–55%',
+          '❌ Additional shading is present — north roof + shading = very little electricity',
+          '❌ A south-facing surface is unused — cover south first, then check north',
+        ],
+      },
+      {
+        heading: 'South and north roof combination — the best solution',
+        content: [
+          "If your house has a gable roof with south and north sides, the optimal strategy is often: cover both sides.",
+          "Advantages: More total production, more consistent production morning and evening, higher self-consumption, optimal daily coverage (north in morning/evening + south at midday).",
+          "Practical example Lucerne — 6 kWp south (30°) + 4 kWp north (30°): South roof approx. 6'000 kWh/year. North roof approx. 2'440 kWh/year. Total approx. 8'440 kWh/year. With storage approx. 5'500 kWh self-consumed = CHF 1'650 saved. The north roof contributes approx. 29% to total production — not ideal, but clearly positive.",
+        ],
+      },
+      {
+        heading: 'What is the optimal pitch angle for a north-facing roof?',
+        content: [
+          "Rule of thumb: The flatter the better — with a lower limit of 7°. Yields by pitch: 7–10° = 75–80% (very good). 15–20° = 70–75% (good). 25–30° = 62–70% (acceptable). 35–40° = 55–62% (borderline). 45°+ = under 55% (not recommended).",
+          "Caution: Below 7° pitch there are self-cleaning problems — rainwater cannot drain well, leading to dirt build-up and reduced yield.",
+        ],
+      },
+      {
+        heading: 'Which modules are particularly suited to north-facing roofs?',
+        content: [
+          "Good performance in diffuse light: Monocrystalline N-Type modules (TOPCon, HJT) produce better in overcast conditions and diffuse light than older PERC technology — particularly recommended for north-facing roofs.",
+          "Bifacial modules: On the north roof, bifacial modules can benefit from light reflected by roof tiles — but the additional yield is small and rarely justifies the extra cost.",
+          "Recommendation: Tier-1 manufacturers with TOPCon or HJT technology, at least 21% efficiency.",
+        ],
+      },
+      {
+        heading: 'Is it still worth it financially? North-facing roof calculation example Zurich',
+        content: [
+          "Starting point: Single-family home Zurich, north roof 25°, 10 kWp. Annual production: approx. 6'100 kWh. Self-consumption 40% = 2'440 kWh. Feed-in: 3'660 kWh × CHF 0.08 = CHF 293.",
+          "Annual savings: Self-consumption 2'440 × CHF 0.30 = CHF 732. Feed-in CHF 293. Total CHF 1'025/year.",
+          "Investment after OTP and tax deduction: approx. CHF 12'300 net. Payback: approx. 12 years.",
+          "With battery storage: self-consumption rises to 65% → CHF 1'350/year. Comparison south roof: approx. CHF 1'500–1'700/year, payback 8–10 years. The north roof is viable — but less profitable than a south roof.",
+        ],
+      },
+      {
+        heading: 'What to do with a shaded north-facing roof?',
+        content: [
+          "Shading is particularly critical on north-facing roofs. Solutions:",
+          "Module optimisers: Small devices mounted on each module that prevent a shaded module from limiting the whole system. Highly recommended for north-facing roofs with partial shading.",
+          "Micro-inverters: Each module has its own small inverter. Maximum independence from shading, but higher costs.",
+          "Smart module placement: An experienced installer can arrange modules to minimise shaded areas.",
+        ],
+      },
+    ],
+    faqs: [
+      { question: 'Is solar worth it on a north-facing roof in Switzerland?', answer: 'Yes, under certain conditions. With a shallow pitch (under 25°) and high self-consumption, a north-facing roof can be economically viable. Yield is 60–80% of a south roof — payback takes a little longer, but the system is still profitable.' },
+      { question: 'How much electricity does a solar system produce on a north-facing roof?', answer: "Depending on pitch: at 20° approx. 70% of south roof yield, at 30° approx. 61%, on flat roofs (10°) up to 80%. In Switzerland, where diffuse light is common, the difference is often smaller than expected." },
+      { question: 'What pitch angle is optimal for a north-facing roof?', answer: 'The flatter the better — with a lower limit of 7°. At 7–20° pitch, a north-facing roof achieves the best relative yields. Steeper north roofs above 40° are not recommended.' },
+      { question: 'Can I cover south and north roof simultaneously?', answer: 'Yes, and this is often the best solution. The north side complements the south — morning and evening the north roof contributes to production. Total yield increases and self-consumption rate improves.' },
+      { question: 'Which modules are best for north-facing roofs?', answer: 'Monocrystalline N-Type modules (TOPCon or HJT technology) from Tier-1 manufacturers. They produce better in diffuse light — which makes the difference on a north roof.' },
+      { question: 'Does battery storage help with a north-facing roof?', answer: 'Yes, significantly. Storage increases self-consumption from approx. 40% to 65–75%. Since the feed-in tariff is already low with a north roof, storage makes particularly good economic sense.' },
+    ],
+    ctaHeading: 'Even with a north-facing roof — get a free assessment',
+    ctaText: 'A certified installer in your region will analyse your roof and tell you honestly whether solar makes sense — even with a north orientation. Get up to 3 quotes for free.',
+    ctaButton: 'Request free quote',
+    formUrl: '/en/request',
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'chinesische-vs-europaeische-solarmodule-schweiz', 'solaranlage-versicherung-schweiz'],
+    relatedPageLinks: [
+      { label: 'Solar with battery storage', href: '/en/solar-with-battery' },
+      { label: 'Compare panel types', href: '/en/solar-panel-types' },
+      { label: 'Solar system costs', href: '/en/solar-costs' },
+      { label: 'Swiss climate & PV', href: '/en/solar-switzerland' },
+    ],
+  },
+
+  // ─── NORDDACH (IT) ───────────────────────────────────────────────────────────
+  {
+    slug: 'solaranlage-norddach-schweiz',
+    locale: 'it',
+    title: 'Impianto solare su tetto nord — vale comunque la pena?',
+    metaDescription: 'Avete un tetto esposto a nord? Vale comunque la pena un impianto solare? Resa, costi e risposte oneste per i proprietari svizzeri — con cifre reali ed esempi.',
+    image: '/images/blog-3.webp',
+    date: '24 maggio 2026',
+    readMin: 10,
+    tag: 'Guida',
+    intro: '"Il mio tetto guarda a nord — quindi per me un impianto solare non è un\'opzione." Questa frase la sentiamo spesso. E non è del tutto corretta. Sì, un tetto nord non è ideale. Ma non esclude un impianto solare — specialmente se la pendenza è ridotta, l\'autoconsumo è elevato o non è disponibile un\'altra superficie del tetto. Questo articolo spiega onestamente quando vale la pena un tetto nord, quando no — e cosa potete fare per sfruttare al meglio la vostra situazione.',
+    sections: [
+      {
+        heading: 'Quanta corrente produce un impianto solare su un tetto nord?',
+        content: [
+          "La risposta onesta: meno che su un tetto sud — ma più di quanto molti pensino. Rese a seconda dell'orientamento e della pendenza: Sud 30–35° = 100% (riferimento). Est/Ovest 30° = 90–95%. Nord 20° = 70%. Nord 30° = 61%. Nord 40° = 50–55%. Tetto nord piatto 7–10° = 75–80%.",
+          "Cosa significa in pratica: Un impianto da 10 kWp su un tetto sud produce in Svizzera ca. 10'000 kWh/anno. Lo stesso impianto su un tetto nord a 30° produce ca. 6'100 kWh/anno. Su un tetto nord piatto (10°) sono ca. 7'500–8'000 kWh/anno.",
+          "Il messaggio chiave: Più piatto è il tetto nord, migliore è la resa.",
+        ],
+        stats: [
+          { value: '60–70%', label: 'resa vs. tetto sud — meglio del previsto' },
+          { value: 'Piatto = meglio', label: 'pendenza 20° ottimale per tetto nord' },
+          { value: 'Autoconsumo', label: 'è decisivo per la redditività economica' },
+        ],
+      },
+      {
+        heading: 'Perché un tetto nord non è così problematico come si pensa?',
+        content: [
+          "1. Luce diffusa — il fattore sottovalutato: In Svizzera il cielo è spesso coperto. Con cielo nuvoloso un impianto su tetto nord produce quanto quelli su altre orientazioni — perché la luce diffusa proviene da tutte le direzioni. Nell'Altopiano, dove la nebbia è frequente, questo effetto è significativo.",
+          "2. Sole mattutino e serale in estate: Nell'estate svizzera il sole sorge a nord-est e tramonta a nord-ovest. Un tetto nord riceve irraggiamento diretto al mattino e alla sera — proprio quando l'autoconsumo è spesso più elevato.",
+          "3. Moduli più freddi = rendimento maggiore: I moduli su tetto nord si riscaldano meno. Poiché il rendimento diminuisce con il calore, i moduli nord possono produrre quasi quanto i moduli sud nelle calde giornate estive.",
+        ],
+      },
+      {
+        heading: 'Quando vale la pena un tetto nord — e quando no?',
+        content: [
+          'Vale la pena se:',
+        ],
+        bullets: [
+          "✅ La pendenza è ridotta (meno di 25°) — resa 70–80% del tetto sud",
+          "✅ L'autoconsumo è elevato — chi consuma la corrente in proprio beneficia anche di una produzione inferiore",
+          "✅ È presente un sistema di accumulo — immagazzina la corrente diurna per la sera",
+          "✅ Non è disponibile una superficie sud — tetto nord come unica opzione",
+          "✅ Il tetto nord è usato in aggiunta alla superficie sud — la combinazione massimizza la produzione",
+          "✅ È presente un'auto elettrica o pompa di calore — l'alto autoconsumo rende redditizi anche gli impianti nord",
+          "❌ La pendenza è molto ripida (oltre 40°) — la resa scende al 50–55%",
+          "❌ È presente ulteriore ombreggiamento — tetto nord + ombra = pochissima corrente",
+          "❌ Una superficie sud è inutilizzata — prima occupare il sud, poi valutare il nord",
+        ],
+      },
+      {
+        heading: 'Combinazione tetto sud e nord — la soluzione migliore',
+        content: [
+          "Se la vostra casa ha un tetto a capanna con lato sud e nord, la strategia ottimale è spesso: occupare entrambi i lati.",
+          "Vantaggi: Più produzione totale, produzione più uniforme mattino e sera, maggiore autoconsumo, copertura ottimale della giornata (nord mattino/sera + sud mezzogiorno).",
+          "Esempio pratico Lucerna — 6 kWp sud (30°) + 4 kWp nord (30°): Tetto sud ca. 6'000 kWh/anno. Tetto nord ca. 2'440 kWh/anno. Totale ca. 8'440 kWh/anno. Con accumulo ca. 5'500 kWh autoconsumati = CHF 1'650 risparmiati. Il tetto nord contribuisce ca. il 29% alla produzione totale — non ideale, ma chiaramente positivo.",
+        ],
+      },
+      {
+        heading: "Qual è l'angolo di inclinazione ottimale per un tetto nord?",
+        content: [
+          "Regola generale: Più piatto è meglio — con un limite inferiore di 7°. Rese per angolo di inclinazione: 7–10° = 75–80% (ottimo). 15–20° = 70–75% (buono). 25–30° = 62–70% (accettabile). 35–40° = 55–62% (limite). 45°+ = meno del 55% (sconsigliato).",
+          "Attenzione: Sotto i 7° di inclinazione ci sono problemi di autopulizia — l'acqua piovana non defluisce bene, causando sporcizia e resa ridotta.",
+        ],
+      },
+      {
+        heading: 'Quali moduli sono particolarmente adatti ai tetti nord?',
+        content: [
+          "Buona resa con luce diffusa: I moduli monocristallini di tipo N (TOPCon, HJT) producono meglio con cielo coperto e luce diffusa rispetto alla vecchia tecnologia PERC — particolarmente raccomandati per i tetti nord.",
+          "Moduli bifacciali: Sul tetto nord i moduli bifacciali possono beneficiare della luce riflessa dalle tegole — ma il guadagno è ridotto e raramente giustifica il costo aggiuntivo.",
+          "Raccomandazione: Produttori Tier-1 con tecnologia TOPCon o HJT, almeno il 21% di efficienza.",
+        ],
+      },
+      {
+        heading: 'Vale comunque la pena finanziariamente? Esempio di calcolo tetto nord Zurigo',
+        content: [
+          "Situazione di partenza: Casa unifamiliare Zurigo, tetto nord 25°, 10 kWp. Produzione annua: ca. 6'100 kWh. Autoconsumo 40% = 2'440 kWh. Immissione: 3'660 kWh × CHF 0.08 = CHF 293.",
+          "Risparmio annuo: Autoconsumo 2'440 × CHF 0.30 = CHF 732. Immissione CHF 293. Totale CHF 1'025/anno.",
+          "Investimento dopo CUB e deduzione fiscale: ca. CHF 12'300 netto. Ammortamento: ca. 12 anni.",
+          "Con sistema di accumulo: l'autoconsumo sale al 65% → CHF 1'350/anno. Confronto tetto sud: ca. CHF 1'500–1'700/anno, ammortamento 8–10 anni. Il tetto nord è redditizio — ma meno di un tetto sud.",
+        ],
+      },
+      {
+        heading: 'Cosa fare con un tetto nord ombreggiato?',
+        content: [
+          "L'ombreggiamento è particolarmente critico sui tetti nord. Soluzioni:",
+          "Ottimizzatori di modulo: Piccoli dispositivi montati su ogni modulo che impediscono a un modulo ombreggiato di limitare l'intero impianto. Molto raccomandati per tetti nord con ombreggiamento parziale.",
+          "Microinverter: Ogni modulo ha il proprio piccolo inverter. Massima indipendenza dall'ombreggiamento, ma costi più elevati.",
+          "Disposizione intelligente dei moduli: Un installatore esperto può posizionare i moduli in modo da minimizzare le aree ombreggiate.",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Vale la pena un impianto solare su un tetto nord in Svizzera?", answer: "Sì, a determinate condizioni. Con una pendenza ridotta (meno di 25°) e un alto autoconsumo, anche un tetto nord può essere redditizio. La resa è del 60–80% di un tetto sud — l'ammortamento richiede un po' più tempo, ma l'impianto si ripaga comunque." },
+      { question: "Quanta corrente produce un impianto solare su un tetto nord?", answer: "A seconda della pendenza: a 20° ca. il 70% della resa di un tetto sud, a 30° ca. il 61%, su tetti piatti (10°) fino all'80%. In Svizzera, dove la luce diffusa è frequente, la differenza è spesso minore del previsto." },
+      { question: "Qual è l'angolo di inclinazione ottimale per un tetto nord?", answer: "Più piatto è meglio — con un limite inferiore di 7°. Con 7–20° di inclinazione un tetto nord ottiene le migliori rese relative. I tetti nord ripidi oltre i 40° non sono raccomandati." },
+      { question: "Posso equipaggiare contemporaneamente un tetto sud e nord?", answer: "Sì, ed è spesso la soluzione migliore. Il lato nord completa il lato sud — al mattino e alla sera il tetto nord contribuisce alla produzione. La resa totale aumenta e il tasso di autoconsumo migliora." },
+      { question: "Quali moduli sono più adatti ai tetti nord?", answer: "Moduli monocristallini di tipo N (TOPCon o HJT) di produttori Tier-1. Producono meglio con luce diffusa — il che fa la differenza su un tetto nord." },
+      { question: "Un sistema di accumulo aiuta con un tetto nord?", answer: "Sì, notevolmente. Un accumulo aumenta l'autoconsumo da ca. il 40% al 65–75%. Poiché con un tetto nord il compenso per l'immissione è comunque basso, il sistema di accumulo ha un particolare senso economico." },
+    ],
+    ctaHeading: "Anche con tetto nord — fatelo verificare gratuitamente",
+    ctaText: "Un installatore certificato della vostra regione analizza il vostro tetto e vi dice onestamente se un impianto solare vale la pena — anche con orientamento nord. Richiedete gratuitamente fino a 3 preventivi.",
+    ctaButton: 'Richiedere preventivo gratuito',
+    formUrl: '/it/richiesta',
+    relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'chinesische-vs-europaeische-solarmodule-schweiz', 'solaranlage-versicherung-schweiz'],
+    relatedPageLinks: [
+      { label: 'Solare con accumulo', href: '/it/solare-con-accumulo' },
+      { label: 'Confronto tipi di pannelli', href: '/it/tipi-pannelli-solari' },
+      { label: 'Costi impianto solare', href: '/it/costi-impianto-solare' },
+      { label: 'Clima svizzero & FV', href: '/it/fotovoltaico-svizzera' },
     ],
   },
 

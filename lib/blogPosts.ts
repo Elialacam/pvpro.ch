@@ -12,6 +12,36 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'solaranlage-norddach-schweiz',
+    title: 'Solaranlage auf dem Norddach — lohnt es sich trotzdem?',
+    excerpt: 'Norddach = keine Solaranlage? Stimmt so nicht. Wann sich eine Nordanlage wirklich lohnt — mit echten Zahlen aus der Schweiz.',
+    image: '/images/blog-3.webp',
+    author: 'PVPro Redaktion',
+    date: '24. Mai 2026',
+    readMin: 10,
+    tag: 'Ratgeber',
+  },
+  {
+    slug: 'chinesische-vs-europaeische-solarmodule-schweiz',
+    title: 'Chinesische vs. europäische Solarmodule — ehrlicher Vergleich für die Schweiz 2026',
+    excerpt: 'Über 80% aller Schweizer Anlagen haben chinesische Module. Warum — und wann lohnen sich europäische? Ein ehrlicher Vergleich mit Tier-1-Kriterien.',
+    image: '/images/blog-2.webp',
+    author: 'PVPro Redaktion',
+    date: '17. Mai 2026',
+    readMin: 10,
+    tag: 'Ratgeber',
+  },
+  {
+    slug: 'solaranlage-versicherung-schweiz',
+    title: 'Solaranlage und Hausversicherung Schweiz — was ist gedeckt und was nicht?',
+    excerpt: 'Was deckt die kantonale Gebäudeversicherung für Solaranlagen? Was nicht? Hagel, Diebstahl, Kurzschluss — alles erklärt.',
+    image: '/images/blog-1.webp',
+    author: 'PVPro Redaktion',
+    date: '10. Mai 2026',
+    readMin: 10,
+    tag: 'Ratgeber',
+  },
+  {
     slug: 'solaranlage-installateur-konkurs-garantie-schweiz',
     title: 'Was passiert mit meiner Solaranlage wenn der Installateur pleite geht?',
     excerpt: 'Solarinstallateur insolvent — was passiert mit Garantie und Gewährleistung? Alles was Schweizer Hausbesitzer wissen müssen, um sich zu schützen. Mit Checkliste.',

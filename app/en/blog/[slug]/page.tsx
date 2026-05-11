@@ -8,6 +8,9 @@ interface Props {
 }
 
 const enSlugToDeSlug: Record<string, string> = {
+  'solar-panels-north-facing-roof-switzerland':       'solaranlage-norddach-schweiz',
+  'chinese-vs-european-solar-panels-switzerland':     'chinesische-vs-europaeische-solarmodule-schweiz',
+  'solar-panel-insurance-switzerland':                'solaranlage-versicherung-schweiz',
   'solar-installer-bankruptcy-guarantee-switzerland': 'solaranlage-installateur-konkurs-garantie-schweiz',
   'solar-battery-fire-risk-safety-switzerland':     'batteriespeicher-brandgefahr-sicherheit-schweiz',
   'find-best-solar-installer-switzerland':          'besten-solarinstallateur-schweiz-finden',

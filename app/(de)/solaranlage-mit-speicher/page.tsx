@@ -266,6 +266,10 @@ export default function SolaranlageMitSpeicherPage() {
                 <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#F97316] hover:underline">Lohnt sich Solaranlage mit Speicher 2026?</Link>
                 {' · '}
                 <Link href="/blog/batteriespeicher-brandgefahr-sicherheit-schweiz" className="text-[#F97316] hover:underline">Ist ein Batteriespeicher gefährlich?</Link>
+                {' · '}
+                <Link href="/blog/solaranlage-versicherung-schweiz" className="text-[#F97316] hover:underline">Batteriespeicher richtig versichern</Link>
+                {' · '}
+                <Link href="/blog/solaranlage-norddach-schweiz" className="text-[#F97316] hover:underline">Batteriespeicher für Nordanlagen besonders sinnvoll</Link>
               </p>
             </div>
           </div>

@@ -8,6 +8,9 @@ interface Props {
 }
 
 const itSlugToDeSlug: Record<string, string> = {
+  'impianto-solare-tetto-nord-svizzera':                 'solaranlage-norddach-schweiz',
+  'pannelli-solari-cinesi-vs-europei-svizzera':          'chinesische-vs-europaeische-solarmodule-schweiz',
+  'assicurazione-impianto-solare-svizzera':              'solaranlage-versicherung-schweiz',
   'installatore-solare-fallimento-garanzia-svizzera':    'solaranlage-installateur-konkurs-garantie-schweiz',
   'batteria-solare-rischio-incendio-sicurezza-svizzera': 'batteriespeicher-brandgefahr-sicherheit-schweiz',
   'trovare-miglior-installatore-solare-svizzera':     'besten-solarinstallateur-schweiz-finden',

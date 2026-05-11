@@ -379,6 +379,12 @@ export default function SolaranlagenTypenVergleichPage() {
               <Link href="/solaranlage-einfamilienhaus" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Solaranlage Einfamilienhaus
               </Link>
+              <Link href="/blog/chinesische-vs-europaeische-solarmodule-schweiz" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Chinesische vs. europäische Module im Vergleich
+              </Link>
+              <Link href="/blog/solaranlage-norddach-schweiz" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
+                Welche Module für Norddächer?
+              </Link>
               <Link href="/solaranlage-mehrfamilienhaus" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Solaranlage Mehrfamilienhaus
               </Link>

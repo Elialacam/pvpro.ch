@@ -353,6 +353,10 @@ export default function SolaranlageKostenPage() {
               <Link href="/blog/solaranlage-waermepumpe-kombinieren-schweiz" className="text-[#F97316] hover:underline">Solaranlage + Wärmepumpe</Link>
               {' '}·{' '}
               <Link href="/blog/solaranlage-installateur-konkurs-garantie-schweiz" className="text-[#F97316] hover:underline">Garantie und Schutz bei Insolvenz</Link>
+              {' '}·{' '}
+              <Link href="/blog/solaranlage-versicherung-schweiz" className="text-[#F97316] hover:underline">Versicherungskosten für Solaranlagen</Link>
+              {' '}·{' '}
+              <Link href="/blog/chinesische-vs-europaeische-solarmodule-schweiz" className="text-[#F97316] hover:underline">Kostenunterschied chinesische vs. europäische Module</Link>
             </p>
           </div>
         </div>
