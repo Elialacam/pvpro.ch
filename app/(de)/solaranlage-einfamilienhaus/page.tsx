@@ -289,6 +289,9 @@ export default function SolaranlageEinfamilienhausPage() {
           <Link href="/solaranlage-mit-speicher" className="inline-flex items-center gap-2 mt-5 text-sm font-bold text-[#F97316] hover:underline">
             Mehr über Batteriespeicher erfahren <ArrowRight className="w-4 h-4" />
           </Link>
+          <Link href="/blog/batteriespeicher-brandgefahr-sicherheit-schweiz" className="inline-flex items-center gap-2 mt-3 text-sm font-semibold text-gray-500 hover:text-[#F97316] hover:underline">
+            Batteriespeicher sicher installieren <ArrowRight className="w-4 h-4" />
+          </Link>
         </section>
 
         {/* ── Factors ── */}

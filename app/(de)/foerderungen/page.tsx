@@ -375,6 +375,15 @@ export default function FoerderungenPage() {
                 {' '}EIV, kantonale Beiträge, Solarpflicht und steuerliche Abzüge für Zürcherinnen und Zürcher.
               </p>
             </div>
+            <div className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
+              <ArrowRight className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+              <p className="text-gray-600 text-sm">
+                Batteriespeicher sicher finanzieren?{' '}
+                <Link href="/blog/batteriespeicher-brandgefahr-sicherheit-schweiz" className="text-[#F97316] hover:underline font-medium">
+                  Förderung für sichere Batteriespeicher — Brandrisiko & Sicherheit erklärt →
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </section>

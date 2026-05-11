@@ -8,6 +8,7 @@ interface Props {
 }
 
 const itSlugToDeSlug: Record<string, string> = {
+  'batteria-solare-rischio-incendio-sicurezza-svizzera': 'batteriespeicher-brandgefahr-sicherheit-schweiz',
   'trovare-miglior-installatore-solare-svizzera':     'besten-solarinstallateur-schweiz-finden',
   'impianto-solare-pompa-calore-svizzera':            'solaranlage-waermepumpe-kombinieren-schweiz',
   'detrazione-fiscale-impianto-solare-svizzera-2026': 'solaranlage-steuerabzug-schweiz-2026',

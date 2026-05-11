@@ -18,6 +18,17 @@ export interface BlogPostLocale {
 
 const fr: BlogPostLocale[] = [
   {
+    slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
+    title: "Un système de stockage de batteries est-il dangereux? Ce que vous devez vraiment savoir",
+    excerpt: "Risque d'incendie de seulement 0.005% selon l'étude RWTH 2024. Ce qu'il faut savoir sur les batteries LFP, les normes de sécurité et le lieu d'installation en Suisse.",
+    tag: 'Guide',
+    image: '/images/blog-4.webp',
+    author: 'PVPro Rédaction',
+    date: '3 mai 2026',
+    readMin: 10,
+    href: '/fr/blog/batterie-solaire-danger-incendie-securite-suisse',
+  },
+  {
     slug: 'besten-solarinstallateur-schweiz-finden',
     title: 'Trouver le meilleur installateur solaire en Suisse en 2026 – Le guide complet',
     excerpt: "Comment trouver le meilleur installateur solaire dans votre région? Pourquoi les entreprises locales sont meilleures, les critères essentiels et comment PVPro.ch prend en charge la recherche pour vous.",
@@ -241,6 +252,17 @@ const fr: BlogPostLocale[] = [
 
 const en: BlogPostLocale[] = [
   {
+    slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
+    title: 'Are solar battery storage systems dangerous? What you really need to know',
+    excerpt: 'Fire risk of only 0.005% according to the RWTH study 2024. What you need to know about LFP batteries, safety standards and the right installation location in Switzerland.',
+    tag: 'Guide',
+    image: '/images/blog-4.webp',
+    author: 'PVPro Editorial',
+    date: '3 May 2026',
+    readMin: 10,
+    href: '/en/blog/solar-battery-fire-risk-safety-switzerland',
+  },
+  {
     slug: 'besten-solarinstallateur-schweiz-finden',
     title: 'How to Find the Best Solar Installer in Switzerland 2026 – The Complete Guide',
     excerpt: 'How to find the best solar installer in your region in Switzerland? Why local specialists are better, the key criteria, and how PVPro.ch does the search for you.',
@@ -463,6 +485,17 @@ const en: BlogPostLocale[] = [
 ];
 
 const it: BlogPostLocale[] = [
+  {
+    slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
+    title: "Un sistema di accumulo a batterie è pericoloso? Quello che dovete sapere davvero",
+    excerpt: "Rischio di incendio solo dello 0.005% secondo lo studio RWTH 2024. Cosa sapere sulle batterie LFP, le norme di sicurezza e il luogo di installazione in Svizzera.",
+    tag: 'Guida',
+    image: '/images/blog-4.webp',
+    author: 'PVPro Redazione',
+    date: '3 maggio 2026',
+    readMin: 10,
+    href: '/it/blog/batteria-solare-rischio-incendio-sicurezza-svizzera',
+  },
   {
     slug: 'besten-solarinstallateur-schweiz-finden',
     title: 'Come trovare il miglior installatore solare in Svizzera nel 2026 – La guida completa',

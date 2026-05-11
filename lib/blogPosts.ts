@@ -12,6 +12,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
+    title: 'Ist ein Batteriespeicher gefährlich? Was Sie wirklich wissen müssen',
+    excerpt: 'Brandrisiko nur 0.005% laut RWTH-Studie 2024. Was Sie über LFP-Batterien, Sicherheitsstandards und den richtigen Aufstellort für Ihren Batteriespeicher in der Schweiz wissen müssen.',
+    image: '/images/blog-4.webp',
+    author: 'PVPro Redaktion',
+    date: '3. Mai 2026',
+    readMin: 10,
+    tag: 'Ratgeber',
+  },
+  {
     slug: 'besten-solarinstallateur-schweiz-finden',
     title: 'Besten Solarinstallateur in der Schweiz finden 2026 – So geht\'s richtig',
     excerpt: 'Wie finden Sie den besten Solarinstallateur in Ihrer Region? Warum lokale Fachbetriebe besser sind, worauf Sie achten müssen und wie PVPro.ch die Suche für Sie übernimmt.',
