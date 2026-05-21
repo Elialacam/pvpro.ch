@@ -461,7 +461,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
         </div>
       </section>
 
-      <USPSection />
+      <USPSection lang={lang} />
 
       {/* Testimonial - UNIQUE */}
       <section className="section-padding bg-gray-50">
@@ -494,7 +494,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
 
       <FAQ items={content.faqs} />
 
-      <RelatedCities currentCitySlug={content.slug} currentCanton={city.canton} />
+      <RelatedCities currentCitySlug={content.slug} currentCanton={city.canton} lang={lang} />
 
       {/* Final CTA */}
       <section className={`section-padding bg-gradient-to-r ${theme.cta} text-white`}>

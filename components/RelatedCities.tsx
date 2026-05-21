@@ -2,12 +2,19 @@ import Link from 'next/link';
 import { cities, City } from '@/lib/cities';
 import { MapPin } from 'lucide-react';
 
+function t(lang: string, de: string, fr: string, it: string) {
+  if (lang === 'fr') return fr;
+  if (lang === 'it') return it;
+  return de;
+}
+
 interface RelatedCitiesProps {
   currentCitySlug: string;
   currentCanton: string;
+  lang?: string;
 }
 
-export default function RelatedCities({ currentCitySlug, currentCanton }: RelatedCitiesProps) {
+export default function RelatedCities({ currentCitySlug, currentCanton, lang = 'de' }: RelatedCitiesProps) {
   const sameCanton = cities.filter(
     city => city.canton === currentCanton && city.slug !== currentCitySlug
   );
@@ -27,16 +34,20 @@ export default function RelatedCities({ currentCitySlug, currentCanton }: Relate
     <section className="section-padding bg-gray-50">
       <div className="container-custom max-w-6xl">
         <h2 className="text-2xl sm:text-3xl font-sans font-semibold tracking-tight text-gray-900 mb-8 text-center">
-          Solaranlagen in weiteren Schweizer Staedten
+          {t(lang,
+            'Solaranlagen in weiteren Schweizer Städten',
+            'Installations solaires dans d\'autres villes suisses',
+            'Impianti fotovoltaici in altre città svizzere'
+          )}
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {relatedCities.map((city) => {
             let href = `/solaranlage-${city.slug}`;
             if (city.language === 'fr') {
-              href = `/solaire-${city.slug}`;
+              href = `/fr/solaire-${city.slug}`;
             } else if (city.language === 'it') {
-              href = `/fotovoltaico-${city.slug}`;
+              href = `/it/fotovoltaico-${city.slug}`;
             }
 
             return (
@@ -54,11 +65,11 @@ export default function RelatedCities({ currentCitySlug, currentCanton }: Relate
                       {city.name}
                     </h3>
                     <p className="text-sm text-gray-600">
-                      Kanton {city.canton}
+                      {t(lang, 'Kanton', 'Canton', 'Cantone')} {city.canton}
                     </p>
                     {city.sunshineHours && (
                       <p className="text-xs text-gray-500 mt-1">
-                        {city.sunshineHours} Sonnenstunden/Jahr
+                        {city.sunshineHours} {t(lang, 'Sonnenstunden/Jahr', 'heures de soleil/an', 'ore di sole/anno')}
                       </p>
                     )}
                   </div>
@@ -70,10 +81,10 @@ export default function RelatedCities({ currentCitySlug, currentCanton }: Relate
 
         <div className="text-center mt-8">
           <Link
-            href="/"
+            href={lang === 'fr' ? '/fr' : lang === 'it' ? '/it' : '/'}
             className="inline-flex items-center gap-2 text-primary hover:text-primary-600 font-sans font-bold transition-colors"
           >
-            Alle Schweizer Staedte anzeigen
+            {t(lang, 'Alle Schweizer Städte anzeigen', 'Voir toutes les villes suisses', 'Mostra tutte le città svizzere')}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
