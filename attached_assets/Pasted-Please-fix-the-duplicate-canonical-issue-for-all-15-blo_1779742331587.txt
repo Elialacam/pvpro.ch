@@ -1,0 +1,40 @@
+Please fix the duplicate canonical issue for all 15 blog pages flagged in Google Search Console. The problem is that French (/fr/blog/) and English (/en/blog/) versions are being treated as duplicates instead of language alternates.
+For every blog post on the site, make sure each page has:
+
+A self-referencing canonical tag
+Correct hreflang tags linking all 4 language versions
+x-default pointing to the German version
+
+Apply this fix specifically to these 15 URLs and their corresponding language versions:
+
+solaranlage-steuerabzug-schweiz-2026
+solaranlage-versicherung-schweiz
+solaranlage-norddach-schweiz
+roi-photovoltaik-schweiz
+richtigen-solarinstallateur-schweiz-waehlen
+foerderungen-photovoltaik-2026
+besten-solarinstallateur-schweiz-finden
+solaranlage-winter-schweiz
+batteriespeicher-solaranlage-lohnt-sich
+eigenverbrauch-optimieren-solar
+balkonkraftwerk-schweiz
+batteriespeicher-brandgefahr-sicherheit-schweiz
+solaranlage-installateur-konkurs-garantie-schweiz
+chinesische-vs-europaeische-solarmodule-schweiz
+lohnt-sich-solaranlage-schweiz-2026
+
+For each blog post, add these tags in the <head> section. Example for solaranlage-steuerabzug-schweiz-2026:
+html<link rel="canonical" href="https://www.pvpro.ch/blog/solaranlage-steuerabzug-schweiz-2026"/>
+<link rel="alternate" hreflang="de" href="https://www.pvpro.ch/blog/solaranlage-steuerabzug-schweiz-2026"/>
+<link rel="alternate" hreflang="fr" href="https://www.pvpro.ch/fr/blog/solaranlage-steuerabzug-schweiz-2026"/>
+<link rel="alternate" hreflang="en" href="https://www.pvpro.ch/en/blog/solaranlage-steuerabzug-schweiz-2026"/>
+<link rel="alternate" hreflang="it" href="https://www.pvpro.ch/it/blog/solaranlage-steuerabzug-schweiz-2026"/>
+<link rel="alternate" hreflang="x-default" href="https://www.pvpro.ch/blog/solaranlage-steuerabzug-schweiz-2026"/>
+For the French version of the same post:
+html<link rel="canonical" href="https://www.pvpro.ch/fr/blog/solaranlage-steuerabzug-schweiz-2026"/>
+<link rel="alternate" hreflang="de" href="https://www.pvpro.ch/blog/solaranlage-steuerabzug-schweiz-2026"/>
+<link rel="alternate" hreflang="fr" href="https://www.pvpro.ch/fr/blog/solaranlage-steuerabzug-schweiz-2026"/>
+<link rel="alternate" hreflang="en" href="https://www.pvpro.ch/en/blog/solaranlage-steuerabzug-schweiz-2026"/>
+<link rel="alternate" hreflang="it" href="https://www.pvpro.ch/it/blog/solaranlage-steuerabzug-schweiz-2026"/>
+<link rel="alternate" hreflang="x-default" href="https://www.pvpro.ch/blog/solaranlage-steuerabzug-schweiz-2026"/>
+Apply the same pattern to all 15 blog posts and all their language versions. Do not change any content, layout or other SEO settings.
