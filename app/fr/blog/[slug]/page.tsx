@@ -44,10 +44,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${article.title} | PVPro.ch`,
     description: article.metaDescription,
     alternates: {
-      canonical: `https://www.pvpro.ch/fr/blog/${deSlug}`,
+      canonical: `https://www.pvpro.ch/fr/blog/${params.slug}`,
       languages: {
         'de-CH': `https://www.pvpro.ch/blog/${deSlug}`,
-        'fr-CH': `https://www.pvpro.ch/fr/blog/${deSlug}`,
+        'fr-CH': `https://www.pvpro.ch/fr/blog/${params.slug}`,
         'en-CH': `https://www.pvpro.ch/en/blog/${deSlug}`,
         'it-CH': `https://www.pvpro.ch/it/blog/${deSlug}`,
         'x-default': `https://www.pvpro.ch/blog/${deSlug}`,
