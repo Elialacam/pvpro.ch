@@ -6,6 +6,7 @@ import TrackingScripts from '@/components/TrackingScripts';
 import UtmTracker from '@/components/UtmTracker';
 import SupportPopup from '@/components/SupportPopup';
 import NavigationProgress from '@/components/NavigationProgress';
+import SmoothScroll from '@/components/SmoothScroll';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
@@ -46,6 +47,7 @@ export default function RootLayout({
           <TrackingScripts />
         </Suspense>
         <UtmTracker />
+        <SmoothScroll />
         <NavigationProgress />
         {children}
         <SupportPopup />
