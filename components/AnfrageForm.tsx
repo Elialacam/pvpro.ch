@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Check, X, MapPin, Search, ChevronLeft,
-  ScanSearch, Users, Award,
+  ScanSearch, Users, Award, Zap,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,22 +14,29 @@ declare global {
   interface Window { google?: typeof google; }
 }
 
-const TOTAL_STEPS = 6;
+const TOTAL_STEPS = 7;
 
 const i18n = {
   de: {
     step1Title: 'Sind Sie Eigentümer der Liegenschaft?',
     step1Sub: 'Nur Eigentümer können die Eignung Ihres Dachs prüfen lassen.',
-    step2Title: 'Um welchen Gebäudetyp handelt es sich?',
-    step2Sub: 'Wählen Sie den Typ Ihrer Liegenschaft.',
-    step3Title: 'Welche Dachform kommt Ihrer am nächsten?',
-    step3Sub: 'Wählen Sie die Dachform, die Ihrer am ähnlichsten ist.',
-    step4Title: 'Möchten Sie einen Stromspeicher integrieren?',
-    step4Sub: 'Ein Speicher erhöht Ihren Eigenverbrauch auf bis zu 80%.',
-    step5Title: 'Wo befindet sich Ihre Liegenschaft?',
-    step5Sub: 'Wir prüfen die Eignung Ihres Dachs und verfügbare Förderungen.',
-    step6Title: 'Fast geschafft!',
-    step6Sub: 'Geben Sie Ihre Kontaktdaten ein, um Ihre kostenlosen Offerten zu erhalten.',
+    step2Title: 'Wie hoch ist Ihr durchschnittlicher Stromverbrauch?',
+    step2Sub: 'Das hilft uns, die optimale Anlagengrösse für Sie zu berechnen.',
+    step3Title: 'Um welchen Gebäudetyp handelt es sich?',
+    step3Sub: 'Wählen Sie den Typ Ihrer Liegenschaft.',
+    step4Title: 'Welche Dachform kommt Ihrer am nächsten?',
+    step4Sub: 'Wählen Sie die Dachform, die Ihrer am ähnlichsten ist.',
+    step5Title: 'Möchten Sie einen Stromspeicher integrieren?',
+    step5Sub: 'Ein Speicher erhöht Ihren Eigenverbrauch auf bis zu 80%.',
+    step6Title: 'Wo befindet sich Ihre Liegenschaft?',
+    step6Sub: 'Wir prüfen die Eignung Ihres Dachs und verfügbare Förderungen.',
+    step7Title: 'Fast geschafft!',
+    step7Sub: 'Geben Sie Ihre Kontaktdaten ein, um Ihre kostenlosen Offerten zu erhalten.',
+    electricityBill: 'Stromrechnung',
+    electricityKwh: 'kWh-Verbrauch',
+    monthly: 'Monatlich',
+    quarterly: 'Quartalsweise',
+    averageHint: 'Durchschnittlicher Haushalt: CHF 70–140 / Monat',
     addressPlaceholder: 'z.B. Bahnhofstrasse 10, 8001 Zürich',
     addressError: 'Bitte wählen Sie eine Adresse aus der Liste aus.',
     firstName: 'Vorname',
@@ -65,16 +72,23 @@ const i18n = {
   fr: {
     step1Title: 'Êtes-vous propriétaire du bien immobilier?',
     step1Sub: 'Seuls les propriétaires peuvent faire évaluer l\'aptitude de leur toit.',
-    step2Title: 'De quel type de bâtiment s\'agit-il?',
-    step2Sub: 'Sélectionnez le type de votre bien immobilier.',
-    step3Title: 'Quelle forme de toit correspond le mieux à la vôtre?',
-    step3Sub: 'Sélectionnez la forme de toit qui ressemble le plus à la vôtre.',
-    step4Title: 'Souhaitez-vous intégrer un système de stockage d\'énergie?',
-    step4Sub: 'Un stockage augmente votre autoconsommation jusqu\'à 80%.',
-    step5Title: 'Où se situe votre bien immobilier?',
-    step5Sub: 'Nous vérifions l\'aptitude de votre toit et les subventions disponibles.',
-    step6Title: 'Presque terminé!',
-    step6Sub: 'Saisissez vos coordonnées pour recevoir vos devis gratuits.',
+    step2Title: 'Quelle est votre consommation électrique moyenne?',
+    step2Sub: 'Cela nous permet de calculer la taille optimale de l\'installation.',
+    step3Title: 'De quel type de bâtiment s\'agit-il?',
+    step3Sub: 'Sélectionnez le type de votre bien immobilier.',
+    step4Title: 'Quelle forme de toit correspond le mieux à la vôtre?',
+    step4Sub: 'Sélectionnez la forme de toit qui ressemble le plus à la vôtre.',
+    step5Title: 'Souhaitez-vous intégrer un système de stockage d\'énergie?',
+    step5Sub: 'Un stockage augmente votre autoconsommation jusqu\'à 80%.',
+    step6Title: 'Où se situe votre bien immobilier?',
+    step6Sub: 'Nous vérifions l\'aptitude de votre toit et les subventions disponibles.',
+    step7Title: 'Presque terminé!',
+    step7Sub: 'Saisissez vos coordonnées pour recevoir vos devis gratuits.',
+    electricityBill: 'Facture d\'électricité',
+    electricityKwh: 'Consommation kWh',
+    monthly: 'Mensuel',
+    quarterly: 'Trimestriel',
+    averageHint: 'Ménage moyen: CHF 70–140 / mois',
     addressPlaceholder: 'p.ex. Rue du Centre 10, 1003 Lausanne',
     addressError: 'Veuillez sélectionner une adresse dans la liste.',
     firstName: 'Prénom',
@@ -110,16 +124,23 @@ const i18n = {
   en: {
     step1Title: 'Are you the owner of the property?',
     step1Sub: 'Only owners can have their roof\'s suitability assessed.',
-    step2Title: 'What type of building is it?',
-    step2Sub: 'Select your property type.',
-    step3Title: 'Which roof shape best matches yours?',
-    step3Sub: 'Select the roof shape closest to your own.',
-    step4Title: 'Would you like to include a battery storage system?',
-    step4Sub: 'Storage increases your self-consumption to up to 80%.',
-    step5Title: 'Where is your property located?',
-    step5Sub: 'We\'ll assess your roof\'s suitability and available subsidies.',
-    step6Title: 'Almost done!',
-    step6Sub: 'Enter your contact details to receive your free quotes.',
+    step2Title: 'What is your average electricity consumption?',
+    step2Sub: 'This helps us calculate the optimal system size for you.',
+    step3Title: 'What type of building is it?',
+    step3Sub: 'Select your property type.',
+    step4Title: 'Which roof shape best matches yours?',
+    step4Sub: 'Select the roof shape closest to your own.',
+    step5Title: 'Would you like to include a battery storage system?',
+    step5Sub: 'Storage increases your self-consumption to up to 80%.',
+    step6Title: 'Where is your property located?',
+    step6Sub: 'We\'ll assess your roof\'s suitability and available subsidies.',
+    step7Title: 'Almost done!',
+    step7Sub: 'Enter your contact details to receive your free quotes.',
+    electricityBill: 'Electricity bill',
+    electricityKwh: 'kWh consumption',
+    monthly: 'Monthly',
+    quarterly: 'Quarterly',
+    averageHint: 'Average household: CHF 70–140 / month',
     addressPlaceholder: 'e.g. Bahnhofstrasse 10, 8001 Zürich',
     addressError: 'Please select an address from the list.',
     firstName: 'First name',
@@ -155,16 +176,23 @@ const i18n = {
   it: {
     step1Title: 'Sei il proprietario dell\'immobile?',
     step1Sub: 'Solo i proprietari possono far valutare l\'idoneità del loro tetto.',
-    step2Title: 'Di che tipo di edificio si tratta?',
-    step2Sub: 'Seleziona il tipo del tuo immobile.',
-    step3Title: 'Quale forma di tetto si avvicina di più alla tua?',
-    step3Sub: 'Seleziona la forma del tetto più simile alla tua.',
-    step4Title: 'Desideri integrare un sistema di accumulo?',
-    step4Sub: 'Un accumulo aumenta il tuo autoconsumo fino all\'80%.',
-    step5Title: 'Dove si trova il tuo immobile?',
-    step5Sub: 'Verificheremo l\'idoneità del tuo tetto e gli incentivi disponibili.',
-    step6Title: 'Ci siamo quasi!',
-    step6Sub: 'Inserisci i tuoi dati di contatto per ricevere i preventivi gratuiti.',
+    step2Title: 'Qual è il suo consumo elettrico medio?',
+    step2Sub: 'Questo ci aiuta a calcolare la dimensione ottimale dell\'impianto.',
+    step3Title: 'Di che tipo di edificio si tratta?',
+    step3Sub: 'Seleziona il tipo del tuo immobile.',
+    step4Title: 'Quale forma di tetto si avvicina di più alla tua?',
+    step4Sub: 'Seleziona la forma del tetto più simile alla tua.',
+    step5Title: 'Desideri integrare un sistema di accumulo?',
+    step5Sub: 'Un accumulo aumenta il tuo autoconsumo fino all\'80%.',
+    step6Title: 'Dove si trova il tuo immobile?',
+    step6Sub: 'Verificheremo l\'idoneità del tuo tetto e gli incentivi disponibili.',
+    step7Title: 'Ci siamo quasi!',
+    step7Sub: 'Inserisci i tuoi dati di contatto per ricevere i preventivi gratuiti.',
+    electricityBill: 'Bolletta elettrica',
+    electricityKwh: 'Consumo kWh',
+    monthly: 'Mensile',
+    quarterly: 'Trimestrale',
+    averageHint: 'Abitazione media: CHF 70–140 / mese',
     addressPlaceholder: 'es. Via Lugano 10, 6900 Lugano',
     addressError: 'Seleziona un indirizzo dalla lista.',
     firstName: 'Nome',
@@ -211,36 +239,62 @@ interface OptionCardProps {
 function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCardProps) {
   return (
     <motion.button
-      whileHover={{ scale: 1.025, y: -2 }}
-      whileTap={{ scale: 0.97 }}
+      whileHover={{ scale: 1.035, y: -3 }}
+      whileTap={{ scale: 0.96 }}
       onClick={onClick}
-      className="relative flex flex-col items-center justify-center rounded-2xl p-5 sm:p-6 transition-all duration-150 bg-white w-full aspect-square"
+      className="relative flex flex-col items-center justify-center rounded-3xl p-5 w-full cursor-pointer"
       style={{
-        border: isSelected ? '2.5px solid #F97316' : '2px solid #e5e7eb',
+        minHeight: '148px',
+        border: isSelected ? '2.5px solid #F97316' : '2px solid #E5E7EB',
+        background: isSelected
+          ? 'linear-gradient(145deg, #FFF7ED 0%, #FFEDD5 100%)'
+          : '#ffffff',
         boxShadow: isSelected
-          ? '0 6px 20px rgba(249,115,22,0.16)'
-          : '0 1px 4px rgba(0,0,0,0.04)',
-        background: isSelected ? '#FFF7ED' : '#ffffff',
+          ? '0 10px 30px rgba(249,115,22,0.18), 0 2px 8px rgba(249,115,22,0.08)'
+          : '0 2px 10px rgba(0,0,0,0.05)',
+        transition: 'border-color 0.2s, box-shadow 0.2s, background 0.2s',
       }}
     >
-      <div className="flex-1 flex items-center justify-center w-full">
-        <img loading="lazy" src={imageSrc} alt={label} className="w-full h-full object-contain max-h-28 sm:max-h-32" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
-      </div>
-      <p className="text-sm sm:text-base font-bold text-gray-900 text-center leading-tight mt-3">
+      <motion.div
+        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-3 overflow-hidden"
+        animate={{
+          background: isSelected ? '#FED7AA' : '#F3F4F6',
+        }}
+        transition={{ duration: 0.25 }}
+      >
+        <img
+          loading="lazy"
+          src={imageSrc}
+          alt={label}
+          className="w-9 h-9 object-contain"
+          style={{
+            filter: isSelected
+              ? 'invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)'
+              : 'invert(55%) sepia(0%) saturate(0%) brightness(80%)',
+          }}
+        />
+      </motion.div>
+      <p className="text-sm font-bold text-gray-900 text-center leading-tight">
         {label}
       </p>
       {sublabel && (
-        <p className="text-xs text-gray-400 mt-0.5">{sublabel}</p>
+        <p className="text-xs text-gray-400 mt-1 text-center">{sublabel}</p>
       )}
-      {isSelected && (
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          className="absolute top-2 right-2 w-6 h-6 rounded-full flex items-center justify-center shadow" style={{ background: '#F97316' }}
-        >
-          <Check className="w-3 h-3 text-white" strokeWidth={4} />
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isSelected && (
+          <motion.div
+            key="check"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            className="absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center shadow-md"
+            style={{ background: '#F97316' }}
+          >
+            <Check className="w-3 h-3 text-white" strokeWidth={3.5} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.button>
   );
 }
@@ -249,9 +303,97 @@ function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCa
 function StepWrapper({ title, sub, children }: { title: string; sub: string; children: React.ReactNode }) {
   return (
     <div>
-      <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-2">{title}</h1>
-      <p className="text-sm sm:text-base text-gray-500 mb-8 leading-relaxed">{sub}</p>
+      <h1 className="text-2xl sm:text-3xl font-black text-gray-900 leading-tight mb-2 tracking-tight">
+        {title}
+      </h1>
+      <p className="text-sm sm:text-base text-gray-500 mb-7 leading-relaxed">{sub}</p>
       {children}
+    </div>
+  );
+}
+
+/* ─── Segmented Step Dots ─────────────────────────────────────────────────── */
+function StepDots({ current, total }: { current: number; total: number }) {
+  return (
+    <div className="flex items-center gap-1.5 justify-center py-5">
+      {Array.from({ length: total }).map((_, i) => {
+        const isDone = i + 1 < current;
+        const isActive = i + 1 === current;
+        return (
+          <motion.div
+            key={i}
+            animate={{
+              width: isActive ? 24 : 8,
+              background: isDone ? '#F97316' : isActive ? '#F97316' : '#E5E7EB',
+              opacity: isDone ? 0.45 : 1,
+            }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="h-2 rounded-full"
+          />
+        );
+      })}
+    </div>
+  );
+}
+
+/* ─── Tab Toggle ──────────────────────────────────────────────────────────── */
+function TabToggle({
+  options,
+  value,
+  onChange,
+}: {
+  options: { label: string; value: string }[];
+  value: string;
+  onChange: (v: string) => void;
+}) {
+  return (
+    <div className="flex rounded-2xl bg-gray-100 p-1 mb-6">
+      {options.map(opt => (
+        <button
+          key={opt.value}
+          type="button"
+          onClick={() => onChange(opt.value)}
+          className="flex-1 py-2.5 rounded-xl text-sm font-bold transition-all"
+          style={{
+            background: value === opt.value ? '#fff' : 'transparent',
+            color: value === opt.value ? '#111827' : '#9CA3AF',
+            boxShadow: value === opt.value ? '0 2px 8px rgba(0,0,0,0.08)' : 'none',
+          }}
+        >
+          {opt.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/* ─── Period Toggle ───────────────────────────────────────────────────────── */
+function PeriodToggle({
+  options,
+  value,
+  onChange,
+}: {
+  options: { label: string; value: string }[];
+  value: string;
+  onChange: (v: string) => void;
+}) {
+  return (
+    <div className="flex rounded-xl bg-gray-100 p-0.5 shrink-0">
+      {options.map(opt => (
+        <button
+          key={opt.value}
+          type="button"
+          onClick={() => onChange(opt.value)}
+          className="px-3 py-1.5 rounded-[9px] text-xs font-bold transition-all"
+          style={{
+            background: value === opt.value ? '#fff' : 'transparent',
+            color: value === opt.value ? '#111827' : '#9CA3AF',
+            boxShadow: value === opt.value ? '0 1px 4px rgba(0,0,0,0.08)' : 'none',
+          }}
+        >
+          {opt.label}
+        </button>
+      ))}
     </div>
   );
 }
@@ -267,8 +409,18 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   const [step, setStep] = useState(1);
   const [direction, setDirection] = useState(1);
   const [formData, setFormData] = useState<any>({
-    isOwner: null, propertyType: null, roofType: null, wantsBattery: null,
-    address: '', firstName: '', lastName: '', email: '', phone: '',
+    isOwner: null,
+    electricityType: 'chf',
+    electricityAmount: '',
+    electricityPeriod: 'monthly',
+    propertyType: null,
+    roofType: null,
+    wantsBattery: null,
+    address: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoadingTransition, setIsLoadingTransition] = useState(false);
@@ -289,7 +441,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   }, [errorMsg]);
 
   useEffect(() => {
-    if (step !== 5) return;
+    if (step !== 6) return;
 
     const init = () => {
       if (window.google?.maps?.places) {
@@ -347,7 +499,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   };
 
   const goNext = async () => {
-    if (step === 5) {
+    if (step === 6) {
       if (!selectedAddress) { setErrorMsg(t.addressError); return; }
       setIsLoadingTransition(true);
       for (let p = 1; p <= 3; p++) { setLoadingPhase(p); await new Promise(r => setTimeout(r, 1400)); }
@@ -403,6 +555,10 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         sessionStorage.getItem('fbclid') ??
         '';
 
+      const electricityLabel = formData.electricityAmount
+        ? `${formData.electricityAmount} ${formData.electricityType === 'kwh' ? 'kWh' : 'CHF'} / ${formData.electricityPeriod === 'monthly' ? t.monthly : t.quarterly}`
+        : '';
+
       const res = await fetch('/api/anfrage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -411,13 +567,14 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           'PHONE NUMBER': formatPhone(formData.phone),
           EMAIL: formData.email.trim(),
           'COMPLETE ADDRESS': formData.address,
+          ...(electricityLabel ? { 'ELECTRICITY': electricityLabel } : {}),
           utm_source,
           ...(fbclid ? { fbclid } : {}),
         }),
       });
       const data = await res.json();
       if (data.success) {
-        trackStep(6);
+        trackStep(7);
         (window as any).fbq?.('track', 'Lead', { content_name: 'Solar Quote Request', value: 50.0, currency: 'CHF' });
         (window as any).gtag?.('event', 'conversion', { send_to: 'AW-17901154625/LyaGCIXE-fUbEMHi99dC', value: 1.0, currency: 'CHF' });
         fetch('/api/send-confirmation', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) }).catch(() => {});
@@ -431,9 +588,9 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   /* ── Loading screen ── */
   if (isLoadingTransition) {
     const loadingSteps = [
-      { icon: <ScanSearch className="w-8 h-8" />, label: t.loadingStep1, phase: 1 },
-      { icon: <Users className="w-8 h-8" />, label: t.loadingStep2, phase: 2 },
-      { icon: <Award className="w-8 h-8" />, label: t.loadingStep3, phase: 3 },
+      { icon: <ScanSearch className="w-7 h-7" />, label: t.loadingStep1, phase: 1 },
+      { icon: <Users className="w-7 h-7" />, label: t.loadingStep2, phase: 2 },
+      { icon: <Award className="w-7 h-7" />, label: t.loadingStep3, phase: 3 },
     ];
     return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6">
@@ -442,7 +599,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }}
-          className="text-2xl sm:text-3xl font-bold text-gray-900 mb-14 text-center"
+          className="text-2xl sm:text-3xl font-black text-gray-900 mb-14 text-center tracking-tight"
         >
           {t.loadingTitle}
         </motion.h2>
@@ -464,7 +621,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
                   </div>
                 )}
                 <motion.div
-                  className="flex items-center gap-5 w-full rounded-2xl px-5 py-4"
+                  className="flex items-center gap-4 w-full rounded-2xl px-5 py-4"
                   initial={{ opacity: 0, x: -24 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.45, delay: i * 0.18 }}
@@ -483,7 +640,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
                       />
                     )}
                     <motion.div
-                      className="w-14 h-14 rounded-full flex items-center justify-center"
+                      className="w-13 h-13 w-[52px] h-[52px] rounded-full flex items-center justify-center"
                       animate={{
                         background: isDone ? '#dcfce7' : isActive ? '#FFF7ED' : '#f3f4f6',
                         color: isDone ? '#16a34a' : isActive ? '#F97316' : '#d1d5db',
@@ -493,7 +650,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
                       <AnimatePresence mode="wait">
                         {isDone ? (
                           <motion.div key="done" initial={{ scale: 0, rotate: -90 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 260, damping: 18 }}>
-                            <Check className="w-8 h-8 text-green-500" strokeWidth={2.5} />
+                            <Check className="w-7 h-7 text-green-500" strokeWidth={2.5} />
                           </motion.div>
                         ) : (
                           <motion.div key="icon" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.3 }}>
@@ -525,6 +682,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   /* ── Step content ── */
   const renderStep = () => {
     switch (step) {
+      /* ── Step 1: Owner ── */
       case 1: return (
         <StepWrapper title={t.step1Title} sub={t.step1Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
@@ -533,8 +691,67 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           </div>
         </StepWrapper>
       );
+
+      /* ── Step 2: Electricity consumption ── */
       case 2: return (
         <StepWrapper title={t.step2Title} sub={t.step2Sub}>
+          <TabToggle
+            options={[
+              { label: t.electricityBill, value: 'chf' },
+              { label: t.electricityKwh, value: 'kwh' },
+            ]}
+            value={formData.electricityType}
+            onChange={v => setFormData((p: any) => ({ ...p, electricityType: v }))}
+          />
+
+          <div
+            className="flex items-center gap-3 rounded-2xl px-5 py-4 mb-3 transition-all"
+            style={{
+              border: '2px solid #E5E7EB',
+              background: '#fff',
+              boxShadow: '0 2px 10px rgba(0,0,0,0.04)',
+            }}
+          >
+            <span className="text-2xl font-black text-orange-400 shrink-0 w-12 text-left">
+              {formData.electricityType === 'kwh' ? 'kWh' : 'CHF'}
+            </span>
+            <input
+              type="number"
+              inputMode="numeric"
+              min="0"
+              className="flex-1 outline-none text-4xl font-black text-gray-900 bg-transparent w-0"
+              value={formData.electricityAmount}
+              onChange={e => setFormData((p: any) => ({ ...p, electricityAmount: e.target.value }))}
+              placeholder="0"
+              autoFocus
+            />
+            <PeriodToggle
+              options={[
+                { label: t.monthly, value: 'monthly' },
+                { label: t.quarterly, value: 'quarterly' },
+              ]}
+              value={formData.electricityPeriod}
+              onChange={v => setFormData((p: any) => ({ ...p, electricityPeriod: v }))}
+            />
+          </div>
+
+          <div className="flex items-center gap-2 mb-7">
+            <Zap className="w-3.5 h-3.5 text-orange-400 shrink-0" />
+            <p className="text-xs text-gray-400">{t.averageHint}</p>
+          </div>
+
+          <button
+            onClick={() => goNext()}
+            className="w-full py-4 rounded-2xl font-bold text-base transition-all btn-primary"
+          >
+            {t.next}
+          </button>
+        </StepWrapper>
+      );
+
+      /* ── Step 3: Property type ── */
+      case 3: return (
+        <StepWrapper title={t.step3Title} sub={t.step3Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             <OptionCard label={t.detachedHouse} isSelected={formData.propertyType === 'einfamilienhaus'} onClick={() => handleSelect('propertyType', 'einfamilienhaus')} imageSrc="/icons/icon-einfamilienhaus.webp" />
             <OptionCard label={t.apartmentBuilding} isSelected={formData.propertyType === 'mehrfamilienhaus'} onClick={() => handleSelect('propertyType', 'mehrfamilienhaus')} imageSrc="/icons/icon-mehrfamilienhaus.webp" />
@@ -543,8 +760,10 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           </div>
         </StepWrapper>
       );
-      case 3: return (
-        <StepWrapper title={t.step3Title} sub={t.step3Sub}>
+
+      /* ── Step 4: Roof type ── */
+      case 4: return (
+        <StepWrapper title={t.step4Title} sub={t.step4Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             <OptionCard label={t.pitchedRoof} isSelected={formData.roofType === 'pitched'} onClick={() => handleSelect('roofType', 'pitched')} imageSrc="/icons/icon-satteldach.webp" />
             <OptionCard label={t.monopitchRoof} isSelected={formData.roofType === 'monopitch'} onClick={() => handleSelect('roofType', 'monopitch')} imageSrc="/icons/icon-pultdach.webp" />
@@ -553,8 +772,10 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           </div>
         </StepWrapper>
       );
-      case 4: return (
-        <StepWrapper title={t.step4Title} sub={t.step4Sub}>
+
+      /* ── Step 5: Battery ── */
+      case 5: return (
+        <StepWrapper title={t.step5Title} sub={t.step5Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             <OptionCard label={t.yes} isSelected={formData.wantsBattery === 'yes'} onClick={() => handleSelect('wantsBattery', 'yes')} imageSrc="/icons/icon-check.webp" />
             <OptionCard label={t.no} isSelected={formData.wantsBattery === 'no'} onClick={() => handleSelect('wantsBattery', 'no')} imageSrc="/icons/icon-x.webp" />
@@ -566,8 +787,10 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           </div>
         </StepWrapper>
       );
-      case 5: return (
-        <StepWrapper title={t.step5Title} sub={t.step5Sub}>
+
+      /* ── Step 6: Address ── */
+      case 6: return (
+        <StepWrapper title={t.step6Title} sub={t.step6Sub}>
           {selectedPlaceCoords && (
             <div className="w-full h-40 rounded-2xl overflow-hidden border border-gray-200 mb-4">
               <iframe width="100%" height="100%" style={{ border: 0 }} loading="lazy"
@@ -606,8 +829,10 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           </button>
         </StepWrapper>
       );
-      case 6: return (
-        <StepWrapper title={t.step6Title} sub={t.step6Sub}>
+
+      /* ── Step 7: Contact ── */
+      case 7: return (
+        <StepWrapper title={t.step7Title} sub={t.step7Sub}>
           <div className="space-y-3">
             <div className="grid grid-cols-2 gap-3">
               <input placeholder={`${t.firstName} *`}
@@ -638,18 +863,11 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
               />
             </div>
             <p className="text-xs text-gray-400 leading-relaxed">
-              {t.privacyText.split('politique de confidentialité').length > 1 ||
-               t.privacyText.split('privacy policy').length > 1 ||
-               t.privacyText.split('informativa sulla privacy').length > 1 ||
-               t.privacyText.split('Datenschutzerklärung').length > 1 ? (
-                <>
-                  {t.privacyText.split(/(Datenschutzerklärung|politique de confidentialité|privacy policy|informativa sulla privacy)/)[0]}
-                  <Link href={t.privacyHref} className="underline hover:text-gray-600">
-                    {t.privacyText.match(/(Datenschutzerklärung|politique de confidentialité|privacy policy|informativa sulla privacy)/)?.[0]}
-                  </Link>
-                  {t.privacyText.split(/(Datenschutzerklärung|politique de confidentialité|privacy policy|informativa sulla privacy)/)[2]}
-                </>
-              ) : t.privacyText}
+              {t.privacyText.split(/(Datenschutzerklärung|politique de confidentialité|privacy policy|informativa sulla privacy)/)[0]}
+              <Link href={t.privacyHref} className="underline hover:text-gray-600">
+                {t.privacyText.match(/(Datenschutzerklärung|politique de confidentialité|privacy policy|informativa sulla privacy)/)?.[0]}
+              </Link>
+              {t.privacyText.split(/(Datenschutzerklärung|politique de confidentialité|privacy policy|informativa sulla privacy)/)[2]}
             </p>
             <button
               onClick={handleSubmit}
@@ -661,6 +879,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           </div>
         </StepWrapper>
       );
+
       default: return null;
     }
   };
@@ -672,14 +891,14 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafa] flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ background: '#FAFAF9' }}>
       {/* Header */}
       <header className="w-full bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
         <Link href="/">
           <Image src="/logo-pvpro.png" alt="PVPro.ch" width={120} height={36} className="h-8 w-auto" />
         </Link>
         {step > 1 && (
-          <button onClick={goBack} className="flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
+          <button onClick={goBack} className="flex items-center gap-1.5 text-sm font-semibold text-gray-400 hover:text-gray-900 transition-colors">
             <ChevronLeft className="w-4 h-4" />
             {t.back}
           </button>
@@ -687,19 +906,20 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       </header>
 
       {/* Progress bar */}
-      <div className="w-full h-1 bg-gray-100">
-        <motion.div className="h-full" style={{ background: '#F97316' }} animate={{ width: `${progressPct}%` }} transition={{ duration: 0.4, ease: 'easeOut' }} />
+      <div className="w-full h-1" style={{ background: '#F3F4F6' }}>
+        <motion.div
+          className="h-full"
+          style={{ background: 'linear-gradient(90deg, #F97316, #FB923C)' }}
+          animate={{ width: `${progressPct}%` }}
+          transition={{ duration: 0.45, ease: 'easeOut' }}
+        />
       </div>
 
-      {/* Step counter */}
-      <div className="text-center pt-6 pb-2">
-        <span className="text-xs font-semibold text-gray-400 tracking-widest uppercase">
-          {step} / {TOTAL_STEPS}
-        </span>
-      </div>
+      {/* Step dots */}
+      <StepDots current={step} total={TOTAL_STEPS} />
 
       {/* Content */}
-      <div className="flex-1 flex items-start justify-center px-4 py-6 sm:py-10">
+      <div className="flex-1 flex items-start justify-center px-4 pb-10">
         <div className="w-full max-w-md">
           <AnimatePresence custom={direction} mode="wait">
             <motion.div
