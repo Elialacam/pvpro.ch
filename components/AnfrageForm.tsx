@@ -45,9 +45,9 @@ const i18n = {
     phone: 'Telefonnummer',
     privacyText: 'Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu.',
     privacyHref: '/datenschutz',
-    submit: 'Kostenlose Offerten anfordern',
+    submit: 'Kostenlose Offerten anfordern →',
     submitting: 'Wird gesendet…',
-    next: 'Weiter',
+    next: 'Weiter →',
     back: 'Zurück',
     loadingTitle: 'Wir suchen passende Angebote…',
     loadingStep1: 'Wir analysieren Ihre Angaben und Adresse',
@@ -97,9 +97,9 @@ const i18n = {
     phone: 'Numéro de téléphone',
     privacyText: 'En envoyant le formulaire, vous acceptez notre politique de confidentialité.',
     privacyHref: '/fr/protection-des-donnees',
-    submit: 'Demander des devis gratuits',
+    submit: 'Demander des devis gratuits →',
     submitting: 'Envoi en cours…',
-    next: 'Suivant',
+    next: 'Suivant →',
     back: 'Retour',
     loadingTitle: 'Nous recherchons les meilleures offres…',
     loadingStep1: 'Nous analysons vos informations et votre adresse',
@@ -149,9 +149,9 @@ const i18n = {
     phone: 'Phone number',
     privacyText: 'By submitting, you agree to our privacy policy.',
     privacyHref: '/en/privacy',
-    submit: 'Request free quotes',
+    submit: 'Request free quotes →',
     submitting: 'Sending…',
-    next: 'Next',
+    next: 'Next →',
     back: 'Back',
     loadingTitle: 'Searching for matching offers…',
     loadingStep1: 'Analysing your details and address',
@@ -201,9 +201,9 @@ const i18n = {
     phone: 'Numero di telefono',
     privacyText: 'Inviando il modulo, accetti la nostra informativa sulla privacy.',
     privacyHref: '/it/protezione-dati',
-    submit: 'Richiedi preventivi gratuiti',
+    submit: 'Richiedi preventivi gratuiti →',
     submitting: 'Invio in corso…',
-    next: 'Avanti',
+    next: 'Avanti →',
     back: 'Indietro',
     loadingTitle: 'Stiamo cercando le offerte migliori…',
     loadingStep1: 'Analizziamo le tue informazioni e l\'indirizzo',
@@ -239,28 +239,35 @@ interface OptionCardProps {
 function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCardProps) {
   return (
     <motion.button
-      whileHover={{ scale: 1.035, y: -3 }}
-      whileTap={{ scale: 0.96 }}
+      whileHover={{ scale: 1.03, y: -2 }}
+      whileTap={{ scale: 0.97 }}
       onClick={onClick}
-      className="relative flex flex-col items-center justify-center rounded-3xl p-5 w-full cursor-pointer"
+      className="relative flex flex-col items-center justify-center rounded-2xl p-5 w-full cursor-pointer overflow-hidden"
       style={{
         minHeight: '148px',
-        border: isSelected ? '2.5px solid #F97316' : '2px solid #E5E7EB',
+        border: isSelected ? '2.5px solid #EA6A0A' : '2px solid #E5E7EB',
         background: isSelected
-          ? 'linear-gradient(145deg, #FFF7ED 0%, #FFEDD5 100%)'
+          ? 'linear-gradient(145deg, #F97316 0%, #EA6A0A 100%)'
           : '#ffffff',
         boxShadow: isSelected
-          ? '0 10px 30px rgba(249,115,22,0.18), 0 2px 8px rgba(249,115,22,0.08)'
-          : '0 2px 10px rgba(0,0,0,0.05)',
-        transition: 'border-color 0.2s, box-shadow 0.2s, background 0.2s',
+          ? '0 12px 32px rgba(249,115,22,0.35)'
+          : '0 2px 8px rgba(0,0,0,0.06)',
+        transition: 'border-color 0.18s, box-shadow 0.18s',
       }}
     >
-      <motion.div
-        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-3 overflow-hidden"
-        animate={{
-          background: isSelected ? '#FED7AA' : '#F3F4F6',
-        }}
-        transition={{ duration: 0.25 }}
+      {isSelected && (
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-white/30 flex items-center justify-center"
+        >
+          <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />
+        </motion.div>
+      )}
+
+      <div
+        className="w-14 h-14 rounded-xl flex items-center justify-center mb-3 overflow-hidden"
+        style={{ background: isSelected ? 'rgba(255,255,255,0.2)' : '#F3F4F6' }}
       >
         <img
           loading="lazy"
@@ -269,32 +276,26 @@ function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCa
           className="w-9 h-9 object-contain"
           style={{
             filter: isSelected
-              ? 'invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)'
-              : 'invert(55%) sepia(0%) saturate(0%) brightness(80%)',
+              ? 'brightness(0) invert(1)'
+              : 'invert(40%) sepia(0%) saturate(0%) brightness(70%)',
           }}
         />
-      </motion.div>
-      <p className="text-sm font-bold text-gray-900 text-center leading-tight">
+      </div>
+
+      <p
+        className="text-sm font-bold text-center leading-tight"
+        style={{ color: isSelected ? '#fff' : '#111827' }}
+      >
         {label}
       </p>
       {sublabel && (
-        <p className="text-xs text-gray-400 mt-1 text-center">{sublabel}</p>
+        <p
+          className="text-xs mt-1 text-center"
+          style={{ color: isSelected ? 'rgba(255,255,255,0.75)' : '#9CA3AF' }}
+        >
+          {sublabel}
+        </p>
       )}
-      <AnimatePresence>
-        {isSelected && (
-          <motion.div
-            key="check"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            className="absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center shadow-md"
-            style={{ background: '#F97316' }}
-          >
-            <Check className="w-3 h-3 text-white" strokeWidth={3.5} />
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.button>
   );
 }
@@ -303,32 +304,30 @@ function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCa
 function StepWrapper({ title, sub, children }: { title: string; sub: string; children: React.ReactNode }) {
   return (
     <div>
-      <h1 className="text-2xl sm:text-3xl font-black text-gray-900 leading-tight mb-2 tracking-tight">
+      <h1
+        className="text-[1.75rem] sm:text-[2rem] leading-tight mb-2"
+        style={{ fontWeight: 800, color: '#0F172A', letterSpacing: '-0.02em' }}
+      >
         {title}
       </h1>
-      <p className="text-sm sm:text-base text-gray-500 mb-7 leading-relaxed">{sub}</p>
+      <p className="text-sm sm:text-[0.9375rem] text-gray-500 mb-7 leading-relaxed">{sub}</p>
       {children}
     </div>
   );
 }
 
-/* ─── Segmented Step Dots ─────────────────────────────────────────────────── */
-function StepDots({ current, total }: { current: number; total: number }) {
+/* ─── Progress bar segments ───────────────────────────────────────────────── */
+function StepProgress({ current, total }: { current: number; total: number }) {
   return (
-    <div className="flex items-center gap-1.5 justify-center py-5">
+    <div className="flex items-center gap-1.5 px-5 pt-5 pb-4">
       {Array.from({ length: total }).map((_, i) => {
-        const isDone = i + 1 < current;
-        const isActive = i + 1 === current;
+        const done = i + 1 <= current;
         return (
           <motion.div
             key={i}
-            animate={{
-              width: isActive ? 24 : 8,
-              background: isDone ? '#F97316' : isActive ? '#F97316' : '#E5E7EB',
-              opacity: isDone ? 0.45 : 1,
-            }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="h-2 rounded-full"
+            className="h-[5px] flex-1 rounded-full"
+            animate={{ background: done ? '#F97316' : '#E5E7EB' }}
+            transition={{ duration: 0.35 }}
           />
         );
       })}
@@ -347,17 +346,18 @@ function TabToggle({
   onChange: (v: string) => void;
 }) {
   return (
-    <div className="flex rounded-2xl bg-gray-100 p-1 mb-6">
+    <div className="flex rounded-xl bg-gray-100 p-1 mb-5">
       {options.map(opt => (
         <button
           key={opt.value}
           type="button"
           onClick={() => onChange(opt.value)}
-          className="flex-1 py-2.5 rounded-xl text-sm font-bold transition-all"
+          className="flex-1 py-2.5 rounded-lg text-sm transition-all"
           style={{
+            fontWeight: 700,
             background: value === opt.value ? '#fff' : 'transparent',
-            color: value === opt.value ? '#111827' : '#9CA3AF',
-            boxShadow: value === opt.value ? '0 2px 8px rgba(0,0,0,0.08)' : 'none',
+            color: value === opt.value ? '#0F172A' : '#9CA3AF',
+            boxShadow: value === opt.value ? '0 1px 6px rgba(0,0,0,0.1)' : 'none',
           }}
         >
           {opt.label}
@@ -378,16 +378,17 @@ function PeriodToggle({
   onChange: (v: string) => void;
 }) {
   return (
-    <div className="flex rounded-xl bg-gray-100 p-0.5 shrink-0">
+    <div className="flex rounded-lg bg-gray-100 p-0.5 shrink-0">
       {options.map(opt => (
         <button
           key={opt.value}
           type="button"
           onClick={() => onChange(opt.value)}
-          className="px-3 py-1.5 rounded-[9px] text-xs font-bold transition-all"
+          className="px-2.5 py-1.5 rounded-[7px] text-xs transition-all"
           style={{
+            fontWeight: 700,
             background: value === opt.value ? '#fff' : 'transparent',
-            color: value === opt.value ? '#111827' : '#9CA3AF',
+            color: value === opt.value ? '#0F172A' : '#9CA3AF',
             boxShadow: value === opt.value ? '0 1px 4px rgba(0,0,0,0.08)' : 'none',
           }}
         >
@@ -395,6 +396,32 @@ function PeriodToggle({
         </button>
       ))}
     </div>
+  );
+}
+
+/* ─── Primary Button ──────────────────────────────────────────────────────── */
+function PrimaryBtn({ onClick, disabled, children }: { onClick?: () => void; disabled?: boolean; children: React.ReactNode }) {
+  return (
+    <motion.button
+      whileHover={disabled ? {} : { scale: 1.015 }}
+      whileTap={disabled ? {} : { scale: 0.985 }}
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      className="w-full py-4 rounded-2xl text-base transition-all"
+      style={{
+        fontWeight: 800,
+        letterSpacing: '-0.01em',
+        background: disabled
+          ? '#E5E7EB'
+          : 'linear-gradient(135deg, #F97316 0%, #EA6A0A 100%)',
+        color: disabled ? '#9CA3AF' : '#fff',
+        boxShadow: disabled ? 'none' : '0 6px 20px rgba(249,115,22,0.4)',
+        cursor: disabled ? 'not-allowed' : 'pointer',
+      }}
+    >
+      {children}
+    </motion.button>
   );
 }
 
@@ -442,7 +469,6 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
 
   useEffect(() => {
     if (step !== 6) return;
-
     const init = () => {
       if (window.google?.maps?.places) {
         autocompleteService.current = new window.google.maps.places.AutocompleteService();
@@ -450,9 +476,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         placesService.current = new window.google.maps.places.PlacesService(div);
       }
     };
-
     if (window.google?.maps?.places) { init(); return; }
-
     const scriptId = 'google-maps-places';
     if (!document.getElementById(scriptId)) {
       const script = document.createElement('script');
@@ -462,7 +486,6 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       script.defer = true;
       document.head.appendChild(script);
     }
-
     const iv = setInterval(() => { if (window.google?.maps?.places) { init(); clearInterval(iv); } }, 100);
     return () => clearInterval(iv);
   }, [step]);
@@ -549,16 +572,13 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         new URLSearchParams(window.location.search).get('utm_source') ??
         sessionStorage.getItem('utm_source') ??
         'organic';
-
       const fbclid =
         new URLSearchParams(window.location.search).get('fbclid') ??
         sessionStorage.getItem('fbclid') ??
         '';
-
       const electricityLabel = formData.electricityAmount
         ? `${formData.electricityAmount} ${formData.electricityType === 'kwh' ? 'kWh' : 'CHF'} / ${formData.electricityPeriod === 'monthly' ? t.monthly : t.quarterly}`
         : '';
-
       const res = await fetch('/api/anfrage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -583,8 +603,6 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     } finally { setIsSubmitting(false); }
   };
 
-  const progressPct = Math.round(((step - 1) / TOTAL_STEPS) * 100);
-
   /* ── Loading screen ── */
   if (isLoadingTransition) {
     const loadingSteps = [
@@ -593,13 +611,14 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       { icon: <Award className="w-7 h-7" />, label: t.loadingStep3, phase: 3 },
     ];
     return (
-      <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6">
+      <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6" style={{ fontFamily: 'var(--font-jakarta), sans-serif' }}>
         <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-10">
           <Image src="/logo-pvpro.png" alt="PVPro.ch" width={130} height={38} className="h-8 w-auto" />
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }}
-          className="text-2xl sm:text-3xl font-black text-gray-900 mb-14 text-center tracking-tight"
+          className="text-2xl sm:text-3xl mb-14 text-center"
+          style={{ fontWeight: 800, color: '#0F172A', letterSpacing: '-0.02em' }}
         >
           {t.loadingTitle}
         </motion.h2>
@@ -640,7 +659,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
                       />
                     )}
                     <motion.div
-                      className="w-13 h-13 w-[52px] h-[52px] rounded-full flex items-center justify-center"
+                      className="w-[52px] h-[52px] rounded-full flex items-center justify-center"
                       animate={{
                         background: isDone ? '#dcfce7' : isActive ? '#FFF7ED' : '#f3f4f6',
                         color: isDone ? '#16a34a' : isActive ? '#F97316' : '#d1d5db',
@@ -661,7 +680,8 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
                     </motion.div>
                   </div>
                   <motion.p
-                    className="font-bold leading-snug text-left"
+                    style={{ fontWeight: 700 }}
+                    className="leading-snug text-left"
                     animate={{
                       color: isDone ? '#15803d' : isActive ? '#111827' : '#9ca3af',
                       fontSize: isActive ? '1rem' : '0.9rem',
@@ -682,7 +702,6 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   /* ── Step content ── */
   const renderStep = () => {
     switch (step) {
-      /* ── Step 1: Owner ── */
       case 1: return (
         <StepWrapper title={t.step1Title} sub={t.step1Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
@@ -692,7 +711,6 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         </StepWrapper>
       );
 
-      /* ── Step 2: Electricity consumption ── */
       case 2: return (
         <StepWrapper title={t.step2Title} sub={t.step2Sub}>
           <TabToggle
@@ -703,23 +721,19 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
             value={formData.electricityType}
             onChange={v => setFormData((p: any) => ({ ...p, electricityType: v }))}
           />
-
           <div
-            className="flex items-center gap-3 rounded-2xl px-5 py-4 mb-3 transition-all"
-            style={{
-              border: '2px solid #E5E7EB',
-              background: '#fff',
-              boxShadow: '0 2px 10px rgba(0,0,0,0.04)',
-            }}
+            className="flex items-center gap-3 rounded-2xl px-5 py-4 mb-3"
+            style={{ border: '2px solid #E5E7EB', background: '#fff', boxShadow: '0 2px 12px rgba(0,0,0,0.04)' }}
           >
-            <span className="text-2xl font-black text-orange-400 shrink-0 w-12 text-left">
+            <span className="text-xl font-black text-orange-400 shrink-0 w-11 text-left">
               {formData.electricityType === 'kwh' ? 'kWh' : 'CHF'}
             </span>
             <input
               type="number"
               inputMode="numeric"
               min="0"
-              className="flex-1 outline-none text-4xl font-black text-gray-900 bg-transparent w-0"
+              className="flex-1 outline-none bg-transparent w-0"
+              style={{ fontSize: '2.5rem', fontWeight: 800, color: '#0F172A', letterSpacing: '-0.03em' }}
               value={formData.electricityAmount}
               onChange={e => setFormData((p: any) => ({ ...p, electricityAmount: e.target.value }))}
               placeholder="0"
@@ -734,22 +748,14 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
               onChange={v => setFormData((p: any) => ({ ...p, electricityPeriod: v }))}
             />
           </div>
-
-          <div className="flex items-center gap-2 mb-7">
+          <div className="flex items-center gap-1.5 mb-7">
             <Zap className="w-3.5 h-3.5 text-orange-400 shrink-0" />
             <p className="text-xs text-gray-400">{t.averageHint}</p>
           </div>
-
-          <button
-            onClick={() => goNext()}
-            className="w-full py-4 rounded-2xl font-bold text-base transition-all btn-primary"
-          >
-            {t.next}
-          </button>
+          <PrimaryBtn onClick={() => goNext()}>{t.next}</PrimaryBtn>
         </StepWrapper>
       );
 
-      /* ── Step 3: Property type ── */
       case 3: return (
         <StepWrapper title={t.step3Title} sub={t.step3Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
@@ -761,7 +767,6 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         </StepWrapper>
       );
 
-      /* ── Step 4: Roof type ── */
       case 4: return (
         <StepWrapper title={t.step4Title} sub={t.step4Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
@@ -773,7 +778,6 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         </StepWrapper>
       );
 
-      /* ── Step 5: Battery ── */
       case 5: return (
         <StepWrapper title={t.step5Title} sub={t.step5Sub}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
@@ -788,7 +792,6 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         </StepWrapper>
       );
 
-      /* ── Step 6: Address ── */
       case 6: return (
         <StepWrapper title={t.step6Title} sub={t.step6Sub}>
           {selectedPlaceCoords && (
@@ -803,7 +806,8 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
               <Search className="w-5 h-5 text-gray-400" />
             </div>
             <input
-              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none text-base bg-white"
+              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:border-orange-400 focus:ring-4 focus:ring-orange-100 outline-none text-base bg-white"
+              style={{ fontFamily: 'inherit', fontWeight: 500 }}
               value={formData.address}
               onChange={e => handleAddressChange(e.target.value)}
               placeholder={t.addressPlaceholder}
@@ -813,52 +817,61 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
               <div className="absolute z-50 left-0 right-0 top-full mt-1 bg-white border border-gray-100 rounded-2xl shadow-2xl overflow-hidden">
                 {addressSuggestions.map(s => (
                   <button key={s.place_id} onClick={() => selectAddress(s)}
-                    className="w-full p-4 text-left hover:bg-gray-50 flex items-center gap-3 border-b border-gray-100 last:border-0">
-                    <MapPin className="w-4 h-4 text-primary shrink-0" />
-                    <span className="text-sm text-gray-700">{s.description}</span>
+                    className="w-full p-4 text-left hover:bg-orange-50 flex items-center gap-3 border-b border-gray-100 last:border-0 transition-colors">
+                    <MapPin className="w-4 h-4 text-orange-400 shrink-0" />
+                    <span className="text-sm font-medium text-gray-700">{s.description}</span>
                   </button>
                 ))}
               </div>
             )}
           </div>
-          <button
-            onClick={() => goNext()}
-            className={`w-full py-4 rounded-2xl font-bold text-base mt-4 transition-all ${selectedAddress ? 'btn-primary' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
-          >
-            {t.next}
-          </button>
+          <div className="mt-4">
+            <PrimaryBtn onClick={() => goNext()} disabled={!selectedAddress}>{t.next}</PrimaryBtn>
+          </div>
         </StepWrapper>
       );
 
-      /* ── Step 7: Contact ── */
       case 7: return (
         <StepWrapper title={t.step7Title} sub={t.step7Sub}>
           <div className="space-y-3">
             <div className="grid grid-cols-2 gap-3">
-              <input placeholder={`${t.firstName} *`}
-                className={`w-full p-4 border-2 rounded-2xl outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 bg-white text-base ${validationErrors.firstName ? 'border-red-400' : 'border-gray-200'}`}
+              <input
+                placeholder={`${t.firstName} *`}
+                className="w-full p-4 border-2 rounded-2xl outline-none focus:border-orange-400 focus:ring-4 focus:ring-orange-100 bg-white text-base"
+                style={{ fontFamily: 'inherit', fontWeight: 500, borderColor: validationErrors.firstName ? '#f87171' : '#E5E7EB' }}
                 onChange={e => { setFormData({ ...formData, firstName: e.target.value }); setValidationErrors(p => ({ ...p, firstName: false })); }}
               />
-              <input placeholder={`${t.lastName} *`}
-                className={`w-full p-4 border-2 rounded-2xl outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 bg-white text-base ${validationErrors.lastName ? 'border-red-400' : 'border-gray-200'}`}
+              <input
+                placeholder={`${t.lastName} *`}
+                className="w-full p-4 border-2 rounded-2xl outline-none focus:border-orange-400 focus:ring-4 focus:ring-orange-100 bg-white text-base"
+                style={{ fontFamily: 'inherit', fontWeight: 500, borderColor: validationErrors.lastName ? '#f87171' : '#E5E7EB' }}
                 onChange={e => { setFormData({ ...formData, lastName: e.target.value }); setValidationErrors(p => ({ ...p, lastName: false })); }}
               />
             </div>
-            <input type="email" placeholder={`${t.email} *`}
-              className={`w-full p-4 border-2 rounded-2xl outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 bg-white text-base ${validationErrors.email ? 'border-red-400' : 'border-gray-200'}`}
+            <input
+              type="email"
+              placeholder={`${t.email} *`}
+              className="w-full p-4 border-2 rounded-2xl outline-none focus:border-orange-400 focus:ring-4 focus:ring-orange-100 bg-white text-base"
+              style={{ fontFamily: 'inherit', fontWeight: 500, borderColor: validationErrors.email ? '#f87171' : '#E5E7EB' }}
               onChange={e => { setFormData({ ...formData, email: e.target.value }); setValidationErrors(p => ({ ...p, email: false })); }}
             />
-            <div className={`flex items-center w-full border-2 rounded-2xl focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10 bg-white overflow-hidden ${validationErrors.phone ? 'border-red-400' : 'border-gray-200'}`}>
+            <div
+              className="flex items-center w-full border-2 rounded-2xl bg-white overflow-hidden"
+              style={{ borderColor: validationErrors.phone ? '#f87171' : '#E5E7EB' }}
+            >
               <div className="flex items-center gap-2 pl-4 pr-3 py-4 border-r border-gray-100 shrink-0">
                 <svg width="20" height="15" viewBox="0 0 20 15" fill="none">
                   <rect width="20" height="15" rx="2" fill="#D52B1E"/>
                   <rect x="8" y="3" width="4" height="9" fill="white"/>
                   <rect x="3" y="5.5" width="14" height="4" fill="white"/>
                 </svg>
-                <span className="text-gray-700 font-medium text-sm">+41</span>
+                <span className="text-gray-700 font-bold text-sm">+41</span>
               </div>
-              <input type="tel" placeholder={`${t.phone} *`}
+              <input
+                type="tel"
+                placeholder={`${t.phone} *`}
                 className="flex-1 px-4 py-4 outline-none bg-transparent text-base"
+                style={{ fontFamily: 'inherit', fontWeight: 500 }}
                 onChange={e => { setFormData({ ...formData, phone: e.target.value }); setValidationErrors(p => ({ ...p, phone: false })); }}
               />
             </div>
@@ -869,13 +882,9 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
               </Link>
               {t.privacyText.split(/(Datenschutzerklärung|politique de confidentialité|privacy policy|informativa sulla privacy)/)[2]}
             </p>
-            <button
-              onClick={handleSubmit}
-              disabled={isSubmitting}
-              className="w-full py-4 rounded-2xl font-bold text-base btn-primary disabled:opacity-60 disabled:cursor-not-allowed transition-all"
-            >
+            <PrimaryBtn onClick={handleSubmit} disabled={isSubmitting}>
               {isSubmitting ? t.submitting : t.submit}
-            </button>
+            </PrimaryBtn>
           </div>
         </StepWrapper>
       );
@@ -885,41 +894,38 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   };
 
   const variants = {
-    enter: (d: number) => ({ x: d > 0 ? 60 : -60, opacity: 0 }),
+    enter: (d: number) => ({ x: d > 0 ? 55 : -55, opacity: 0 }),
     center: { x: 0, opacity: 1 },
-    exit: (d: number) => ({ x: d > 0 ? -60 : 60, opacity: 0 }),
+    exit: (d: number) => ({ x: d > 0 ? -55 : 55, opacity: 0 }),
   };
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: '#FAFAF9' }}>
+    <div
+      className="min-h-screen flex flex-col"
+      style={{ background: '#F8F7F5', fontFamily: 'var(--font-jakarta), sans-serif' }}
+    >
       {/* Header */}
-      <header className="w-full bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
+      <header className="w-full bg-white border-b border-gray-100 px-5 py-4 flex items-center justify-between">
         <Link href="/">
           <Image src="/logo-pvpro.png" alt="PVPro.ch" width={120} height={36} className="h-8 w-auto" />
         </Link>
         {step > 1 && (
-          <button onClick={goBack} className="flex items-center gap-1.5 text-sm font-semibold text-gray-400 hover:text-gray-900 transition-colors">
+          <button
+            onClick={goBack}
+            className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-900 transition-colors"
+            style={{ fontWeight: 600 }}
+          >
             <ChevronLeft className="w-4 h-4" />
             {t.back}
           </button>
         )}
       </header>
 
-      {/* Progress bar */}
-      <div className="w-full h-1" style={{ background: '#F3F4F6' }}>
-        <motion.div
-          className="h-full"
-          style={{ background: 'linear-gradient(90deg, #F97316, #FB923C)' }}
-          animate={{ width: `${progressPct}%` }}
-          transition={{ duration: 0.45, ease: 'easeOut' }}
-        />
-      </div>
-
-      {/* Step dots */}
-      <StepDots current={step} total={TOTAL_STEPS} />
+      {/* Segmented progress */}
+      <StepProgress current={step} total={TOTAL_STEPS} />
 
       {/* Content */}
-      <div className="flex-1 flex items-start justify-center px-4 pb-10">
+      <div className="flex-1 flex items-start justify-center px-4 pb-12">
         <div className="w-full max-w-md">
           <AnimatePresence custom={direction} mode="wait">
             <motion.div
@@ -929,7 +935,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 0.26, ease: [0.25, 0.1, 0.25, 1] }}
             >
               {renderStep()}
             </motion.div>
@@ -940,8 +946,8 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
             {errorMsg && (
               <motion.div
                 initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }}
-                className="mt-4 flex items-start gap-3 rounded-2xl px-4 py-3 text-sm font-medium"
-                style={{ background: '#fef2f2', color: '#dc2626', border: '1.5px solid #fecaca' }}
+                className="mt-4 flex items-start gap-3 rounded-2xl px-4 py-3 text-sm"
+                style={{ background: '#fef2f2', color: '#dc2626', border: '1.5px solid #fecaca', fontWeight: 600 }}
               >
                 <X className="w-4 h-4 shrink-0 mt-0.5" />
                 {errorMsg}
