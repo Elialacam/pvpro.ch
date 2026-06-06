@@ -922,7 +922,16 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       </header>
 
       {/* Segmented progress */}
-      <StepProgress current={step} total={TOTAL_STEPS} />
+      <div className="flex items-center gap-1.5 px-5 pt-4 pb-5">
+        {Array.from({ length: TOTAL_STEPS }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="h-[5px] flex-1 rounded-full"
+            animate={{ background: i + 1 <= step ? '#F97316' : '#E5E7EB' }}
+            transition={{ duration: 0.35 }}
+          />
+        ))}
+      </div>
 
       {/* Content */}
       <div className="flex-1 flex items-start justify-center px-4 pb-12">
