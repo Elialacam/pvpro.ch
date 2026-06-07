@@ -576,6 +576,8 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         new URLSearchParams(window.location.search).get('fbclid') ??
         sessionStorage.getItem('fbclid') ??
         '';
+      const fbp = document.cookie.split('; ').find(r => r.startsWith('_fbp='))?.split('=')[1] ?? '';
+      const eventId = `pvpro_lead_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
       const electricityLabel = formData.electricityAmount
         ? `${formData.electricityAmount} ${formData.electricityType === 'kwh' ? 'kWh' : 'CHF'} / ${formData.electricityPeriod === 'monthly' ? t.monthly : t.quarterly}`
         : '';
@@ -590,12 +592,14 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           ...(electricityLabel ? { 'ELECTRICITY': electricityLabel } : {}),
           utm_source,
           ...(fbclid ? { fbclid } : {}),
+          ...(fbp ? { fbp } : {}),
+          event_id: eventId,
         }),
       });
       const data = await res.json();
       if (data.success) {
         trackStep(7);
-        (window as any).fbq?.('track', 'Lead', { content_name: 'Solar Quote Request', value: 50.0, currency: 'CHF' });
+        (window as any).fbq?.('track', 'Lead', { content_name: 'Solar Quote Request', value: 50.0, currency: 'CHF' }, { eventID: eventId });
         (window as any).gtag?.('event', 'conversion', { send_to: 'AW-17901154625/LyaGCIXE-fUbEMHi99dC', value: 1.0, currency: 'CHF' });
         fetch('/api/send-confirmation', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) }).catch(() => {});
         router.push(t.dankeUrl);

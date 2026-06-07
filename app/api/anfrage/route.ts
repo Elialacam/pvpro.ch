@@ -9,7 +9,7 @@ function sha256(value: string): string {
   return createHash('sha256').update(value.trim().toLowerCase()).digest('hex')
 }
 
-async function sendMetaCAPI(email: string, phone: string, sourceUrl: string, fbclid?: string) {
+async function sendMetaCAPI(email: string, phone: string, sourceUrl: string, fbclid?: string, fbp?: string, eventId?: string) {
   const token = process.env.META_CAPI_TOKEN
   if (!token) return
 
@@ -23,15 +23,24 @@ async function sendMetaCAPI(email: string, phone: string, sourceUrl: string, fbc
   if (fbclid) {
     userData.fbc = `fb.1.${Date.now()}.${fbclid}`
   }
+  if (fbp) {
+    userData.fbp = fbp
+  }
+
+  const event: Record<string, any> = {
+    event_name: 'Lead',
+    event_time: Math.floor(Date.now() / 1000),
+    action_source: 'website',
+    event_source_url: sourceUrl || 'https://www.pvpro.ch/anfrage',
+    user_data: userData,
+  }
+
+  if (eventId) {
+    event.event_id = eventId
+  }
 
   const payload = {
-    data: [{
-      event_name: 'Lead',
-      event_time: Math.floor(Date.now() / 1000),
-      action_source: 'website',
-      event_source_url: sourceUrl || 'https://www.pvpro.ch/anfrage',
-      user_data: userData,
-    }],
+    data: [event],
   }
 
   try {
@@ -64,6 +73,8 @@ export async function POST(request: NextRequest) {
     const address    = body['COMPLETE ADDRESS'] ?? body.address    ?? ''
     const utm_source = body.utm_source ?? ''
     const fbclid     = body.fbclid     ?? ''
+    const fbp        = body.fbp        ?? ''
+    const event_id   = body.event_id   ?? ''
     const sourceUrl  = request.headers.get('referer') ?? ''
 
     // Send to LeadSync and Meta CAPI in parallel
@@ -76,7 +87,7 @@ export async function POST(request: NextRequest) {
         },
         body: JSON.stringify({ name, phone, email, address, utm_source: utm_source || 'organic', ...(fbclid ? { fbclid } : {}) }),
       }),
-      sendMetaCAPI(email, phone, sourceUrl, fbclid || undefined),
+      sendMetaCAPI(email, phone, sourceUrl, fbclid || undefined, fbp || undefined, event_id || undefined),
     ])
 
     if (!leadsyncRes.ok) {
