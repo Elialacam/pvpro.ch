@@ -9,39 +9,48 @@ function sha256(value: string): string {
   return createHash('sha256').update(value.trim().toLowerCase()).digest('hex')
 }
 
-async function sendMetaCAPI(email: string, phone: string, sourceUrl: string, fbclid?: string, fbp?: string, eventId?: string) {
+interface CAPIParams {
+  email: string
+  phone: string
+  sourceUrl: string
+  clientIp: string
+  clientAgent: string
+  fbclid?: string
+  fbp?: string
+  fbc?: string
+  eventId?: string
+}
+
+async function sendMetaCAPI(p: CAPIParams) {
   const token = process.env.META_CAPI_TOKEN
   if (!token) return
 
-  const normalizedPhone = phone.replace(/\s+/g, '').replace(/^\+41/, '0041')
+  const normalizedPhone = p.phone.replace(/\s+/g, '').replace(/^\+41/, '0041')
 
   const userData: Record<string, any> = {
-    em: [sha256(email)],
+    em: [sha256(p.email)],
     ph: [sha256(normalizedPhone)],
   }
 
-  if (fbclid) {
-    userData.fbc = `fb.1.${Date.now()}.${fbclid}`
+  if (p.clientIp)    userData.client_ip_address = p.clientIp
+  if (p.clientAgent) userData.client_user_agent = p.clientAgent
+
+  if (p.fbc) {
+    userData.fbc = p.fbc
+  } else if (p.fbclid) {
+    userData.fbc = `fb.1.${Date.now()}.${p.fbclid}`
   }
-  if (fbp) {
-    userData.fbp = fbp
-  }
+  if (p.fbp) userData.fbp = p.fbp
 
   const event: Record<string, any> = {
     event_name: 'Lead',
     event_time: Math.floor(Date.now() / 1000),
     action_source: 'website',
-    event_source_url: sourceUrl || 'https://www.pvpro.ch/anfrage',
+    event_source_url: p.sourceUrl || 'https://www.pvpro.ch/anfrage',
     user_data: userData,
   }
 
-  if (eventId) {
-    event.event_id = eventId
-  }
-
-  const payload = {
-    data: [event],
-  }
+  if (p.eventId) event.event_id = p.eventId
 
   try {
     const res = await fetch(
@@ -49,7 +58,7 @@ async function sendMetaCAPI(email: string, phone: string, sourceUrl: string, fbc
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ data: [event] }),
       }
     )
     const result = await res.json()
@@ -74,10 +83,15 @@ export async function POST(request: NextRequest) {
     const utm_source = body.utm_source ?? ''
     const fbclid     = body.fbclid     ?? ''
     const fbp        = body.fbp        ?? ''
+    const fbc        = body.fbc        ?? ''
     const event_id   = body.event_id   ?? ''
-    const sourceUrl  = request.headers.get('referer') ?? ''
 
-    // Send to LeadSync and Meta CAPI in parallel
+    const sourceUrl   = request.headers.get('referer') ?? 'https://www.pvpro.ch/anfrage'
+    const clientIp    = request.headers.get('x-forwarded-for')?.split(',')[0].trim()
+                     ?? request.headers.get('x-real-ip')
+                     ?? ''
+    const clientAgent = request.headers.get('user-agent') ?? ''
+
     const [leadsyncRes] = await Promise.all([
       fetch('https://lead-suryoyo.replit.app/api/webhook/form', {
         method: 'POST',
@@ -85,9 +99,26 @@ export async function POST(request: NextRequest) {
           'Content-Type': 'application/json',
           'x-api-key': 'f528ee7621a5c97665efd7561ac35a3ae0ab10eb4eef03b1',
         },
-        body: JSON.stringify({ name, phone, email, address, utm_source: utm_source || 'organic', ...(fbclid ? { fbclid } : {}) }),
+        body: JSON.stringify({
+          name,
+          phone,
+          email,
+          address,
+          utm_source: utm_source || 'organic',
+          ...(fbclid ? { fbclid } : {}),
+        }),
       }),
-      sendMetaCAPI(email, phone, sourceUrl, fbclid || undefined, fbp || undefined, event_id || undefined),
+      sendMetaCAPI({
+        email,
+        phone,
+        sourceUrl,
+        clientIp,
+        clientAgent,
+        fbclid: fbclid || undefined,
+        fbp:    fbp    || undefined,
+        fbc:    fbc    || undefined,
+        eventId: event_id || undefined,
+      }),
     ])
 
     if (!leadsyncRes.ok) {

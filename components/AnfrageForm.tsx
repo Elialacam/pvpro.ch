@@ -576,7 +576,11 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         new URLSearchParams(window.location.search).get('fbclid') ??
         sessionStorage.getItem('fbclid') ??
         '';
-      const fbp = document.cookie.split('; ').find(r => r.startsWith('_fbp='))?.split('=')[1] ?? '';
+      const getCookie = (name: string) => document.cookie.split('; ').find(r => r.startsWith(name + '='))?.split('=')[1] ?? '';
+      const fbp = getCookie('_fbp');
+      const fbc = getCookie('_fbc') || (fbclid
+        ? `fb.1.${sessionStorage.getItem('fbclid_ts') || Date.now()}.${fbclid}`
+        : '');
       const eventId = `pvpro_lead_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
       const electricityLabel = formData.electricityAmount
         ? `${formData.electricityAmount} ${formData.electricityType === 'kwh' ? 'kWh' : 'CHF'} / ${formData.electricityPeriod === 'monthly' ? t.monthly : t.quarterly}`
@@ -593,6 +597,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           utm_source,
           ...(fbclid ? { fbclid } : {}),
           ...(fbp ? { fbp } : {}),
+          ...(fbc ? { fbc } : {}),
           event_id: eventId,
         }),
       });
