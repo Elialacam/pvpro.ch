@@ -10,9 +10,6 @@ export default function UtmTracker() {
       const val = params.get(key)
       if (val) sessionStorage.setItem(key, val)
     })
-    if (params.get('fbclid') && !sessionStorage.getItem('fbclid_ts')) {
-      sessionStorage.setItem('fbclid_ts', Date.now().toString())
-    }
   }, [])
 
   return null

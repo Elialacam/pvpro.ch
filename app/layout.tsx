@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Suspense } from "react";
 import TrackingScripts from '@/components/TrackingScripts';
 import UtmTracker from '@/components/UtmTracker';
 import SupportPopup from '@/components/SupportPopup';
 import NavigationProgress from '@/components/NavigationProgress';
-import SmoothScroll from '@/components/SmoothScroll';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
@@ -14,13 +13,6 @@ const inter = Inter({
   subsets: ["latin"],
   variable: '--font-inter',
   display: 'swap',
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-jakarta',
-  display: 'swap',
-  weight: ['400', '500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
@@ -47,14 +39,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de-CH" className={`scroll-smooth ${inter.variable} ${plusJakarta.variable}`} suppressHydrationWarning>
+    <html lang="de-CH" className={`scroll-smooth ${inter.variable}`} suppressHydrationWarning>
       <head />
       <body className={inter.className}>
         <Suspense fallback={null}>
           <TrackingScripts />
         </Suspense>
         <UtmTracker />
-        <SmoothScroll />
         <NavigationProgress />
         {children}
         <SupportPopup />
