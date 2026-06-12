@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, memo, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -15,6 +15,12 @@ declare global {
 }
 
 const TOTAL_STEPS = 6;
+
+const stepVariants = {
+  enter: (d: number) => ({ x: d > 0 ? 40 : -40, opacity: 0 }),
+  center: { x: 0, opacity: 1 },
+  exit: (d: number) => ({ x: d > 0 ? -40 : 40, opacity: 0 }),
+};
 
 const i18n = {
   de: {
@@ -208,7 +214,7 @@ interface OptionCardProps {
   imageSrc: string;
 }
 
-function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCardProps) {
+const OptionCard = memo(function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCardProps) {
   return (
     <motion.button
       whileHover={{ scale: 1.025, y: -2 }}
@@ -243,7 +249,7 @@ function OptionCard({ label, sublabel, isSelected, onClick, imageSrc }: OptionCa
       )}
     </motion.button>
   );
-}
+});
 
 /* ─── Step wrapper ────────────────────────────────────────────────────────── */
 function StepWrapper({ title, sub, children }: { title: string; sub: string; children: React.ReactNode }) {
@@ -360,11 +366,16 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
 
   const goBack = () => { setDirection(-1); setStep(s => s - 1); };
 
-  const handleSelect = (field: string, value: any) => {
+  const handleSelect = useCallback((field: string, value: any) => {
     if (field === 'isOwner' && value === 'no') { setErrorMsg(t.renterError); return; }
     setFormData((prev: any) => ({ ...prev, [field]: value }));
-    goNext();
-  };
+    setTimeout(() => {
+      setDirection(1);
+      setStep(s => s + 1);
+      trackStep(step);
+    }, 160);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step, t.renterError]);
 
   const validateContact = (): boolean => {
     const errors: Record<string, boolean> = {};
@@ -665,12 +676,6 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     }
   };
 
-  const variants = {
-    enter: (d: number) => ({ x: d > 0 ? 60 : -60, opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (d: number) => ({ x: d > 0 ? -60 : 60, opacity: 0 }),
-  };
-
   return (
     <div className="min-h-screen bg-[#fafafa] flex flex-col">
       {/* Header */}
@@ -705,11 +710,11 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
             <motion.div
               key={step}
               custom={direction}
-              variants={variants}
+              variants={stepVariants}
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 0.2, ease: [0.32, 0, 0.67, 0] }}
             >
               {renderStep()}
             </motion.div>
