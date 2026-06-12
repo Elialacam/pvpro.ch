@@ -17,10 +17,22 @@ declare global {
 const TOTAL_STEPS = 6;
 
 const stepVariants = {
-  enter: (d: number) => ({ x: d > 0 ? 40 : -40, opacity: 0 }),
-  center: { x: 0, opacity: 1 },
-  exit: (d: number) => ({ x: d > 0 ? -40 : 40, opacity: 0 }),
+  enter: (d: number) => ({ opacity: 0, y: d > 0 ? 14 : -14 }),
+  center: { opacity: 1, y: 0 },
+  exit: (d: number) => ({ opacity: 0, y: d > 0 ? -14 : 14 }),
 };
+
+const ALL_ICONS = [
+  '/icons/icon-check.webp',
+  '/icons/icon-x.webp',
+  '/icons/icon-question.webp',
+  '/icons/icon-einfamilienhaus.webp',
+  '/icons/icon-mehrfamilienhaus.webp',
+  '/icons/icon-gewerbe.webp',
+  '/icons/icon-satteldach.webp',
+  '/icons/icon-pultdach.webp',
+  '/icons/icon-flachdach.webp',
+];
 
 const i18n = {
   de: {
@@ -230,7 +242,7 @@ const OptionCard = memo(function OptionCard({ label, sublabel, isSelected, onCli
       }}
     >
       <div className="flex-1 flex items-center justify-center w-full">
-        <img loading="lazy" src={imageSrc} alt={label} className="w-full h-full object-contain max-h-28 sm:max-h-32" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
+        <img src={imageSrc} alt={label} loading="eager" fetchPriority="high" className="w-full h-full object-contain max-h-28 sm:max-h-32" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
       </div>
       <p className="text-sm sm:text-base font-bold text-gray-900 text-center leading-tight mt-3">
         {label}
@@ -287,6 +299,10 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const autocompleteService = useRef<any>(null);
   const placesService = useRef<any>(null);
+
+  useEffect(() => {
+    ALL_ICONS.forEach(src => { const img = new window.Image(); img.src = src; });
+  }, []);
 
   useEffect(() => {
     if (!errorMsg) return;
@@ -706,7 +722,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       {/* Content */}
       <div className="flex-1 flex items-start justify-center px-4 py-6 sm:py-10">
         <div className="w-full max-w-md">
-          <AnimatePresence custom={direction} mode="wait">
+          <AnimatePresence custom={direction} mode="popLayout">
             <motion.div
               key={step}
               custom={direction}
@@ -714,7 +730,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.2, ease: [0.32, 0, 0.67, 0] }}
+              transition={{ opacity: { duration: 0.15 }, y: { duration: 0.2, ease: [0.4, 0, 0.2, 1] } }}
             >
               {renderStep()}
             </motion.div>
