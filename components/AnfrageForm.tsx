@@ -47,6 +47,25 @@ function isValidSwissPhone(raw: string): boolean {
   return significant.length === 9 && /^[1-9]/.test(significant);
 }
 
+// Extracts the significant national digits regardless of how the prefix is written.
+// Does NOT clip to 9: extra digits stay visible so too-long numbers can be rejected
+// rather than silently truncated into a valid-looking (wrong) number.
+function swissSignificantDigits(raw: string): string {
+  let d = (raw || '').replace(/\D/g, '');
+  if (d.startsWith('0041')) d = d.slice(4);
+  else if (d.startsWith('41') && d.length > 9) d = d.slice(2);
+  else if (d.startsWith('0')) d = d.slice(1);
+  return d.slice(0, 12);
+}
+
+// Live, prefix-agnostic formatting in international style: "79 123 45 67".
+// Any digits beyond the 9th are kept as a trailing group so an over-long entry
+// stays visible to the user and fails validation.
+function formatSwissPhoneDisplay(raw: string): string {
+  const d = swissSignificantDigits(raw);
+  return [d.slice(0, 2), d.slice(2, 5), d.slice(5, 7), d.slice(7, 9), d.slice(9)].filter(Boolean).join(' ');
+}
+
 const i18n = {
   de: {
     step1Title: 'Sind Sie Eigentümer der Liegenschaft?',
@@ -665,17 +684,23 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
             />
             <div className={`flex items-center w-full border-2 rounded-2xl focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10 bg-white overflow-hidden ${validationErrors.phone ? 'border-red-400' : 'border-gray-200'}`}>
               <div className="flex items-center gap-2 pl-4 pr-3 py-4 border-r border-gray-100 shrink-0">
-                <svg width="20" height="15" viewBox="0 0 20 15" fill="none">
-                  <rect width="20" height="15" rx="2" fill="#D52B1E"/>
-                  <rect x="8" y="3" width="4" height="9" fill="white"/>
-                  <rect x="3" y="5.5" width="14" height="4" fill="white"/>
+                <svg width="20" height="20" viewBox="0 0 32 32" className="shrink-0" role="img" aria-label="Schweiz">
+                  <rect width="32" height="32" rx="4" fill="#D52B1E"/>
+                  <rect x="13" y="6" width="6" height="20" fill="#fff"/>
+                  <rect x="6" y="13" width="20" height="6" fill="#fff"/>
                 </svg>
                 <span className="text-gray-700 font-medium text-sm">+41</span>
               </div>
-              <input type="tel" placeholder={`${t.phone} *`}
-                className="flex-1 px-4 py-4 outline-none bg-transparent text-base"
-                onChange={e => { setFormData({ ...formData, phone: e.target.value }); setValidationErrors(p => ({ ...p, phone: false })); }}
+              <input type="tel" inputMode="numeric" placeholder={`${t.phone} *`}
+                value={formData.phone}
+                className="flex-1 px-4 py-4 outline-none bg-transparent text-base min-w-0"
+                onChange={e => { setFormData({ ...formData, phone: formatSwissPhoneDisplay(e.target.value) }); setValidationErrors(p => ({ ...p, phone: false })); }}
               />
+              {isValidSwissPhone(formData.phone) && (
+                <span className="pr-4 shrink-0 text-green-500" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
+              )}
             </div>
             <p className="text-xs text-gray-400 leading-relaxed">
               {t.privacyText.split('politique de confidentialité').length > 1 ||
