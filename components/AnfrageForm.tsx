@@ -34,6 +34,19 @@ const ALL_ICONS = [
   '/icons/icon-flachdach.webp',
 ];
 
+// Accepts any way of writing a Swiss number (+41, 0041, 41, 0, or none, with or
+// without spaces/symbols). Valid only when the significant part is exactly 9 digits
+// (true for both mobiles and landlines), so single-digit / too-short / too-long
+// numbers are rejected without blocking legitimately-formatted ones.
+function isValidSwissPhone(raw: string): boolean {
+  const digits = (raw || '').replace(/\D/g, '');
+  let significant = digits;
+  if (significant.startsWith('0041')) significant = significant.slice(4);
+  else if (significant.startsWith('41') && significant.length === 11) significant = significant.slice(2);
+  else if (significant.startsWith('0')) significant = significant.slice(1);
+  return significant.length === 9 && /^[1-9]/.test(significant);
+}
+
 const i18n = {
   de: {
     step1Title: 'Sind Sie Eigentümer der Liegenschaft?',
@@ -402,7 +415,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     setValidationErrors(errors);
     if (Object.keys(errors).length > 0) { setErrorMsg(t.requiredFields); return false; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) { setValidationErrors({ email: true }); setErrorMsg(t.invalidEmail); return false; }
-    if (formData.phone.replace(/^\+41\s?/, '').replace(/\s/g, '').length < 7) { setValidationErrors({ phone: true }); setErrorMsg(t.invalidPhone); return false; }
+    if (!isValidSwissPhone(formData.phone)) { setValidationErrors({ phone: true }); setErrorMsg(t.invalidPhone); return false; }
     return true;
   };
 
