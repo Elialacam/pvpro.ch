@@ -23,7 +23,7 @@ export default function NoteLegaliPage() {
               <strong>E-mail:</strong> anfrage@pvpro.ch
             </p>
             <p className="text-gray-600 mb-2">
-              <strong>Telefono:</strong> +41 77 977 07 50
+              <strong>Telefono:</strong> +41 76 270 38 87
             </p>
             <p className="text-gray-600">
               <strong>Sito web:</strong> www.pvpro.ch

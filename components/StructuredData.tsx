@@ -12,7 +12,7 @@ export default function StructuredData() {
       "https://www.pvpro.ch/og-image.jpg"
     ],
     "description": "PVPro ist die führende Vergleichsplattform für Solaranlagen in der Schweiz. Wir vermitteln kostenlos Angebote von geprüften Solarteu ren und helfen Hausbesitzern, bis zu 30% zu sparen.",
-    "telephone": "+41779770750",
+    "telephone": "+41762703887",
     "email": "anfrage@pvpro.ch",
     "address": {
       "@type": "PostalAddress",
@@ -50,7 +50,7 @@ export default function StructuredData() {
     ],
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+41779770750",
+      "telephone": "+41762703887",
       "contactType": "customer service",
       "email": "anfrage@pvpro.ch",
       "areaServed": "CH",

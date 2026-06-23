@@ -27,7 +27,7 @@ export default function PrivacyPage() {
             Switzerland<br />
             <br />
             Email: anfrage@pvpro.ch<br />
-            Phone: +41 77 977 07 50
+            Phone: +41 76 270 38 87
           </p>
 
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">2. Collection and Processing of Personal Data</h2>

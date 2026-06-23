@@ -177,7 +177,7 @@ export default function UeberUnsPage() {
                 <Phone className="w-4 h-4 text-[#F97316] flex-shrink-0" />
                 <div>
                   <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">Telefon</p>
-                  <a href="tel:+41779770750" className="font-semibold text-gray-800 hover:text-[#F97316] transition-colors">+41 77 977 07 50</a>
+                  <a href="tel:+41762703887" className="font-semibold text-gray-800 hover:text-[#F97316] transition-colors">+41 76 270 38 87</a>
                 </div>
               </div>
           </div>

@@ -27,7 +27,7 @@ export default function ProtectionDonneesPage() {
             Suisse<br />
             <br />
             E-mail : anfrage@pvpro.ch<br />
-            Téléphone : +41 77 977 07 50
+            Téléphone : +41 76 270 38 87
           </p>
 
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">2. Collecte et traitement des données personnelles</h2>
