@@ -3,7 +3,8 @@
 import { usePathname } from 'next/navigation';
 
 const WHATSAPP_NUMBER = '41779770750';
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+const WHATSAPP_MESSAGE = 'Hallo, ich interessiere mich für eine Solaranlage und möchte gerne kostenlose Angebote von geprüften Installateuren aus meiner Region erhalten. Wie funktioniert es?';
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 export default function WhatsAppFloating() {
   const pathname = usePathname();
