@@ -37,7 +37,7 @@ export default function IncentiviSolariPage() {
     <main className="min-h-screen bg-white">
       <section className="relative pt-28 pb-20 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
         <div className="absolute inset-0 opacity-20">
-          <Image src="/images/hero-solar-panels.webp" alt="Impianto solare Svizzera" fill className="object-cover" priority />
+          <Image src="/images/hero-solar-panels.webp" alt="Pannelli solari sul tetto di una casa in Svizzera" fill className="object-cover" priority />
         </div>
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-gray-500 mb-10">
@@ -107,7 +107,7 @@ export default function IncentiviSolariPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solardaecher-quartier-see-schweiz.webp" alt="Incentivi solari Svizzera" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/solardaecher-quartier-see-schweiz.webp" alt="Quartiere residenziale con tetti solari su un lago svizzero" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -246,7 +246,7 @@ export default function IncentiviSolariPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solaranlage-flachdach-gewerbe-rhein.webp" alt="Redditività impianto solare" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/solaranlage-flachdach-gewerbe-rhein.webp" alt="Pannelli solari sul tetto piano di un edificio commerciale lungo il Reno" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>

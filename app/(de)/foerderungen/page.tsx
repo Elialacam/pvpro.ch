@@ -55,7 +55,7 @@ export default function FoerderungenPage() {
         <div className="absolute inset-0 opacity-20">
           <Image
             src="/images/hero-solar-panels.webp"
-            alt="Solaranlage Schweiz"
+            alt="Photovoltaikanlage auf einem Hausdach in der Schweiz"
             fill
             className="object-cover"
             priority
@@ -147,7 +147,7 @@ export default function FoerderungenPage() {
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/solardaecher-quartier-see-schweiz.webp"
-                alt="Förderung Solaranlage Schweiz"
+                alt="Wohnquartier mit Solardächern an einem Schweizer See"
                 width={700}
                 height={500}
                 className="w-full h-auto object-cover"
@@ -343,7 +343,7 @@ export default function FoerderungenPage() {
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/solaranlage-flachdach-gewerbe-rhein.webp"
-                alt="Wirtschaftlichkeit Solaranlage"
+                alt="Solaranlage auf einem Gewerbe-Flachdach am Rhein"
                 width={700}
                 height={500}
                 className="w-full h-auto object-cover"

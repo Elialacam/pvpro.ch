@@ -207,7 +207,7 @@ export default function SolaireAvecBatteriePage() {
             </div>
 
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solaranlage-tessin-villa-palmen.webp" alt="Coûts installation solaire Suisse" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/solaranlage-tessin-villa-palmen.webp" alt="Panneaux solaires sur une villa avec palmiers au Tessin" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -239,7 +239,7 @@ export default function SolaireAvecBatteriePage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solaranlage-flachdach-basel-rhein.webp" alt="Production électricité solaire" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/solaranlage-flachdach-basel-rhein.webp" alt="Installation solaire sur toit plat à Bâle au bord du Rhin" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
             <div>
               <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Production d'électricité</p>

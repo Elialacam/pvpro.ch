@@ -207,7 +207,7 @@ export default function SolarWithBatteryPage() {
             </div>
 
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solaranlage-tessin-villa-palmen.webp" alt="Solar installation costs Switzerland" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/solaranlage-tessin-villa-palmen.webp" alt="Solar panels on a villa with palm trees in Ticino" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -239,7 +239,7 @@ export default function SolarWithBatteryPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solaranlage-flachdach-basel-rhein.webp" alt="Solar electricity production" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/solaranlage-flachdach-basel-rhein.webp" alt="Flat-roof solar installation in Basel by the Rhine" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
             <div>
               <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Electricity production</p>

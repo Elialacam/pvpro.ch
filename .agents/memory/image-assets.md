@@ -21,6 +21,20 @@ degrade social previews.
 safe to convert. Resize heroes/covers to ~1600px max, small in-page section images to
 ~1200px max, WebP quality ~82.
 
+# Canton page images come from one shared map
+- ALL canton pages — DE, FR (`/fr/solaire-*`), IT (`/it/fotovoltaico-*`), and the
+  bilingual DE↔FR ones — import `cityContents` from `lib/city-content.ts` and look up by
+  slug. The `lib/city-content-fr.ts` / `lib/city-content-it.ts` variants are NOT used for
+  the page image. So one DE-keyed map drives every canton image (sitemap included).
+- **How to apply:** to add/verify a canton page's primary image (e.g. for the sitemap),
+  resolve it via `cityContents[slug].image`, not the locale-specific content files.
+
+# Sitemap image coverage
+- `app/api/sitemap/route.ts` embeds one primary `<image:image>` per indexable page: blog
+  covers via `blogEntry4`, content pages via a `HERO` map keyed by DE path, canton pages
+  via `cityImg(slug)`. Pages with no on-page photo (homepage, solarrechner, photovoltaik-*
+  text pages, faq) intentionally carry no image.
+
 # Build quirk
 - `npm run build` can fail with `ENOENT rename .next/export/500.html` on a **dirty**
   `.next`. Fix: `rm -rf .next && npm run build`. Not a code error.

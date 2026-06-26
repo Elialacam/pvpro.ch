@@ -37,7 +37,7 @@ export default function SubventionsSolairesPage() {
     <main className="min-h-screen bg-white">
       <section className="relative pt-28 pb-20 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
         <div className="absolute inset-0 opacity-20">
-          <Image src="/images/hero-solar-panels.webp" alt="Installation solaire Suisse" fill className="object-cover" priority />
+          <Image src="/images/hero-solar-panels.webp" alt="Panneaux solaires sur le toit d'une maison en Suisse" fill className="object-cover" priority />
         </div>
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-gray-500 mb-10">
@@ -107,7 +107,7 @@ export default function SubventionsSolairesPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solardaecher-quartier-see-schweiz.webp" alt="Subvention solaire Suisse" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/solardaecher-quartier-see-schweiz.webp" alt="Quartier résidentiel avec toits solaires au bord d'un lac suisse" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -246,7 +246,7 @@ export default function SubventionsSolairesPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solaranlage-flachdach-gewerbe-rhein.webp" alt="Rentabilité installation solaire" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/solaranlage-flachdach-gewerbe-rhein.webp" alt="Panneaux solaires sur le toit plat d'un bâtiment commercial au bord du Rhin" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>

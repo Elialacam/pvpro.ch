@@ -1,8 +1,37 @@
 import { cities } from '@/lib/cities';
 import { getBlogArticleSlugs, getBlogArticle } from '@/lib/blogArticles';
+import { cityContents } from '@/lib/city-content';
 
 const BASE = 'https://www.pvpro.ch';
 const TODAY = new Date().toISOString().split('T')[0];
+
+// Hero/primary image per indexable content page (DE path → /images path).
+// The same image is shared across all locales of a page group.
+const HERO: Record<string, string> = {
+  '/solaranlage-kosten': '/images/asset-haus-luftbild-2.webp',
+  '/solaranlage-mit-speicher': '/images/batteriespeicher-weiss-modern.webp',
+  '/solaranlage-einfamilienhaus': '/images/asset-installateur-dach-1.webp',
+  '/solaranlage-mehrfamilienhaus': '/images/asset-haus-luftbild-3.webp',
+  '/photovoltaik-kosten-pro-m2': '/images/asset-panel-closeup-1.webp',
+  '/wie-funktioniert': '/images/wie-funktioniert-solaranlage.webp',
+  '/foerderungen': '/images/hero-solar-panels.webp',
+  '/vergleichsportal-photovoltaik-schweiz': '/images/asset-beratung-indoor-2.webp',
+  '/solaranlage-installieren-schweiz': '/images/asset-installateur-dach-2.webp',
+  '/solaranlage-offerte-einholen': '/images/asset-beratung-indoor-2.webp',
+  '/ueber-uns': '/images/hero-family-solar.webp',
+  '/bewilligungspflicht-solaranlage-schweiz': '/images/asset-installateur-dach-3.webp',
+};
+
+function heroFor(dePath: string): string | undefined {
+  const img = HERO[dePath];
+  return img ? `${BASE}${img}` : undefined;
+}
+
+// Canton page primary image, looked up by slug from the shared city content map.
+function cityImg(slug: string): string | undefined {
+  const c = cityContents[slug];
+  return c?.image ? `${BASE}${c.image}` : undefined;
+}
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
@@ -48,8 +77,9 @@ function entry4(
     xlink('it',        `${BASE}${it}`),
     xlink('x-default', `${BASE}${de}`),
   ];
+  const img = imageLoc ?? heroFor(de);
   return [de, fr, en, it]
-    .map((path) => urlBlock(`${BASE}${path}`, freq, p, alts, imageLoc))
+    .map((path) => urlBlock(`${BASE}${path}`, freq, p, alts, img))
     .join('');
 }
 
@@ -69,27 +99,27 @@ function blogEntry4(
 }
 
 // DE-only page
-function entryDe(path: string, priority: number, freq = 'monthly'): string {
+function entryDe(path: string, priority: number, freq = 'monthly', imageLoc?: string): string {
   return urlBlock(`${BASE}${path}`, freq, String(priority), [
     xlink('de',        `${BASE}${path}`),
     xlink('x-default', `${BASE}${path}`),
-  ]);
+  ], imageLoc ?? heroFor(path));
 }
 
 // FR-only page
-function entryFr(path: string, priority: number, freq = 'monthly'): string {
+function entryFr(path: string, priority: number, freq = 'monthly', imageLoc?: string): string {
   return urlBlock(`${BASE}${path}`, freq, String(priority), [
     xlink('fr',        `${BASE}${path}`),
     xlink('x-default', `${BASE}${path}`),
-  ]);
+  ], imageLoc ?? heroFor(path));
 }
 
 // IT-only page
-function entryIt(path: string, priority: number, freq = 'monthly'): string {
+function entryIt(path: string, priority: number, freq = 'monthly', imageLoc?: string): string {
   return urlBlock(`${BASE}${path}`, freq, String(priority), [
     xlink('it',        `${BASE}${path}`),
     xlink('x-default', `${BASE}${path}`),
-  ]);
+  ], imageLoc ?? heroFor(path));
 }
 
 // Bilingual DE+FR — 2 <url> blocks with de/fr/x-default
@@ -98,6 +128,7 @@ function entryDeFr(
   fr: string,
   priority: number,
   freq = 'monthly',
+  imageLoc?: string,
 ): string {
   const p = String(priority);
   const alts = [
@@ -105,8 +136,9 @@ function entryDeFr(
     xlink('fr',        `${BASE}${fr}`),
     xlink('x-default', `${BASE}${de}`),
   ];
-  return urlBlock(`${BASE}${de}`, freq, p, alts)
-       + urlBlock(`${BASE}${fr}`, freq, p, alts);
+  const img = imageLoc ?? heroFor(de);
+  return urlBlock(`${BASE}${de}`, freq, p, alts, img)
+       + urlBlock(`${BASE}${fr}`, freq, p, alts, img);
 }
 
 // ── Route handler ──────────────────────────────────────────────────────────────
@@ -128,13 +160,13 @@ ${entry4('/', '/fr', '/en', '/it', 1.0, 'weekly')}
 
   <!-- ── Core content pages ────────────────────────────────────────────────── -->
 ${entry4('/solaranlage-kosten', '/fr/cout-installation-solaire', '/en/solar-panel-costs', '/it/costi-impianto-solare', 0.9)}
-${entry4('/solaranlage-mit-speicher', '/fr/solaire-avec-batterie', '/en/solar-with-battery', '/it/solare-con-accumulo', 0.9, 'monthly', `${BASE}/images/batteriespeicher-weiss-modern.webp`)}
+${entry4('/solaranlage-mit-speicher', '/fr/solaire-avec-batterie', '/en/solar-with-battery', '/it/solare-con-accumulo', 0.9)}
 ${entry4('/solarrechner', '/fr/calculateur-solaire', '/en/solar-calculator', '/it/calcolatore-solare', 0.85)}
 ${entry4('/solaranlage-einfamilienhaus', '/fr/solaire-maison-individuelle', '/en/solar-detached-house', '/it/solare-casa-unifamiliare', 0.85)}
 ${entry4('/solaranlage-mehrfamilienhaus', '/fr/solaire-immeuble', '/en/solar-apartment-building', '/it/solare-condominio', 0.85)}
 ${entry4('/photovoltaik-kosten-pro-m2', '/fr/cout-pv-par-m2', '/en/solar-cost-per-m2', '/it/costo-fv-per-m2', 0.85)}
 ${entry4('/wie-funktioniert', '/fr/fonctionnement-solaire', '/en/how-solar-works', '/it/come-funziona-solare', 0.85)}
-${entry4('/foerderungen', '/fr/subventions-solaires', '/en/solar-subsidies', '/it/incentivi-solari', 0.85, 'monthly', `${BASE}/images/solaranlage-flachdach-gewerbe-rhein.webp`)}
+${entry4('/foerderungen', '/fr/subventions-solaires', '/en/solar-subsidies', '/it/incentivi-solari', 0.85)}
 ${entry4('/vergleichsportal-photovoltaik-schweiz', '/fr/comparateur-photovoltaique-suisse', '/en/solar-comparison-portal-switzerland', '/it/comparatore-fotovoltaico-svizzera', 0.85)}
 ${entry4('/solaranlage-installieren-schweiz', '/fr/installer-panneau-solaire-suisse', '/en/solar-panel-installation-switzerland', '/it/installare-impianto-solare-svizzera', 0.85)}
 ${entry4('/solaranlage-offerte-einholen', '/fr/demander-offre-panneau-solaire', '/en/get-solar-panel-quotes', '/it/richiedere-preventivo-solare', 0.85)}
@@ -169,19 +201,19 @@ ${entry4('/balkonkraftwerk', '/fr/centrale-balcon', '/en/balcony-power-station',
 ${entryDe('/bewilligungspflicht-solaranlage-schweiz', 0.8)}
 
   <!-- ── DE canton pages ───────────────────────────────────────────────────── -->
-${deCities.map((city) => entryDe(`/solaranlage-${city.slug}`, 0.8, 'weekly')).join('')}
+${deCities.map((city) => entryDe(`/solaranlage-${city.slug}`, 0.8, 'weekly', cityImg(city.slug))).join('')}
 
   <!-- ── FR-only canton pages ──────────────────────────────────────────────── -->
-${entryFr('/fr/solaire-geneve', 0.8, 'weekly')}
-${entryFr('/fr/solaire-vaud',   0.8, 'weekly')}
+${entryFr('/fr/solaire-geneve', 0.8, 'weekly', cityImg('geneve'))}
+${entryFr('/fr/solaire-vaud',   0.8, 'weekly', cityImg('vaud'))}
 
   <!-- ── IT canton page ────────────────────────────────────────────────────── -->
-${entryIt('/it/fotovoltaico-ticino', 0.9, 'weekly')}
+${entryIt('/it/fotovoltaico-ticino', 0.9, 'weekly', cityImg('ticino'))}
 
   <!-- ── Bilingual canton pages (DE ↔ FR) ──────────────────────────────────── -->
-${entryDeFr('/solaranlage-freiburg', '/fr/solaire-fribourg', 0.8, 'weekly')}
-${entryDeFr('/solaranlage-biel',     '/fr/solaire-bienne',   0.8, 'weekly')}
-${entryDeFr('/solaranlage-wallis',   '/fr/solaire-valais',   0.8, 'weekly')}
+${entryDeFr('/solaranlage-freiburg', '/fr/solaire-fribourg', 0.8, 'weekly', cityImg('freiburg'))}
+${entryDeFr('/solaranlage-biel',     '/fr/solaire-bienne',   0.8, 'weekly', cityImg('biel'))}
+${entryDeFr('/solaranlage-wallis',   '/fr/solaire-valais',   0.8, 'weekly', cityImg('wallis'))}
 
   <!-- ── Legal pages ───────────────────────────────────────────────────────── -->
 ${entry4('/datenschutz', '/fr/protection-des-donnees', '/en/privacy', '/it/protezione-dati', 0.3, 'yearly')}
