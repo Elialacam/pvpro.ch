@@ -1,5 +1,5 @@
 import { cities } from '@/lib/cities';
-import { getBlogArticleSlugs } from '@/lib/blogArticles';
+import { getBlogArticleSlugs, getBlogArticle } from '@/lib/blogArticles';
 
 const BASE = 'https://www.pvpro.ch';
 const TODAY = new Date().toISOString().split('T')[0];
@@ -15,14 +15,18 @@ function urlBlock(
   freq: string,
   priority: string,
   altLines: string[],
+  imageLoc?: string,
 ): string {
+  const imageLine = imageLoc
+    ? `\n    <image:image><image:loc>${imageLoc}</image:loc></image:image>`
+    : '';
   return `
   <url>
     <loc>${loc}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${freq}</changefreq>
     <priority>${priority}</priority>
-${altLines.join('\n')}
+${altLines.join('\n')}${imageLine}
   </url>`;
 }
 
@@ -34,6 +38,7 @@ function entry4(
   it: string,
   priority: number,
   freq = 'monthly',
+  imageLoc?: string,
 ): string {
   const p = String(priority);
   const alts = [
@@ -44,8 +49,23 @@ function entry4(
     xlink('x-default', `${BASE}${de}`),
   ];
   return [de, fr, en, it]
-    .map((path) => urlBlock(`${BASE}${path}`, freq, p, alts))
+    .map((path) => urlBlock(`${BASE}${path}`, freq, p, alts, imageLoc))
     .join('');
+}
+
+// Blog article entry that also embeds the article's cover image (image:image).
+// The cover image is the same across all locales, looked up via the DE slug.
+function blogEntry4(
+  de: string,
+  fr: string,
+  en: string,
+  it: string,
+  priority: number,
+): string {
+  const slug = de.replace('/blog/', '');
+  const article = getBlogArticle(slug, 'de');
+  const imageLoc = article?.image ? `${BASE}${article.image}` : undefined;
+  return entry4(de, fr, en, it, priority, 'monthly', imageLoc);
 }
 
 // DE-only page
@@ -100,20 +120,21 @@ export async function GET() {
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!-- ── Homepages ──────────────────────────────────────────────────────────── -->
 ${entry4('/', '/fr', '/en', '/it', 1.0, 'weekly')}
 
   <!-- ── Core content pages ────────────────────────────────────────────────── -->
 ${entry4('/solaranlage-kosten', '/fr/cout-installation-solaire', '/en/solar-panel-costs', '/it/costi-impianto-solare', 0.9)}
-${entry4('/solaranlage-mit-speicher', '/fr/solaire-avec-batterie', '/en/solar-with-battery', '/it/solare-con-accumulo', 0.9)}
+${entry4('/solaranlage-mit-speicher', '/fr/solaire-avec-batterie', '/en/solar-with-battery', '/it/solare-con-accumulo', 0.9, 'monthly', `${BASE}/images/batteriespeicher-weiss-modern.webp`)}
 ${entry4('/solarrechner', '/fr/calculateur-solaire', '/en/solar-calculator', '/it/calcolatore-solare', 0.85)}
 ${entry4('/solaranlage-einfamilienhaus', '/fr/solaire-maison-individuelle', '/en/solar-detached-house', '/it/solare-casa-unifamiliare', 0.85)}
 ${entry4('/solaranlage-mehrfamilienhaus', '/fr/solaire-immeuble', '/en/solar-apartment-building', '/it/solare-condominio', 0.85)}
 ${entry4('/photovoltaik-kosten-pro-m2', '/fr/cout-pv-par-m2', '/en/solar-cost-per-m2', '/it/costo-fv-per-m2', 0.85)}
 ${entry4('/wie-funktioniert', '/fr/fonctionnement-solaire', '/en/how-solar-works', '/it/come-funziona-solare', 0.85)}
-${entry4('/foerderungen', '/fr/subventions-solaires', '/en/solar-subsidies', '/it/incentivi-solari', 0.85)}
+${entry4('/foerderungen', '/fr/subventions-solaires', '/en/solar-subsidies', '/it/incentivi-solari', 0.85, 'monthly', `${BASE}/images/solaranlage-flachdach-gewerbe-rhein.webp`)}
 ${entry4('/vergleichsportal-photovoltaik-schweiz', '/fr/comparateur-photovoltaique-suisse', '/en/solar-comparison-portal-switzerland', '/it/comparatore-fotovoltaico-svizzera', 0.85)}
 ${entry4('/solaranlage-installieren-schweiz', '/fr/installer-panneau-solaire-suisse', '/en/solar-panel-installation-switzerland', '/it/installare-impianto-solare-svizzera', 0.85)}
 ${entry4('/solaranlage-offerte-einholen', '/fr/demander-offre-panneau-solaire', '/en/get-solar-panel-quotes', '/it/richiedere-preventivo-solare', 0.85)}
@@ -130,16 +151,16 @@ ${entry4('/danke', '/fr/merci', '/en/thank-you', '/it/grazie', 0.2, 'yearly')}
 
   <!-- ── Blog ──────────────────────────────────────────────────────────────── -->
 ${entry4('/blog', '/fr/blog', '/en/blog', '/it/blog', 0.7, 'weekly')}
-${entry4('/blog/lohnt-sich-solaranlage-schweiz-2026', '/fr/blog/rentabilite-panneau-solaire-suisse-2026', '/en/blog/is-solar-worth-it-switzerland-2026', '/it/blog/vale-la-pena-impianto-solare-svizzera-2026', 0.75)}
-${entry4('/blog/solaranlage-steuerabzug-schweiz-2026', '/fr/blog/deduction-fiscale-panneau-solaire-suisse-2026', '/en/blog/solar-panel-tax-deduction-switzerland-2026', '/it/blog/detrazione-fiscale-impianto-solare-svizzera-2026', 0.75)}
-${entry4('/blog/solaranlage-waermepumpe-kombinieren-schweiz', '/fr/blog/panneaux-solaires-pompe-chaleur-suisse', '/en/blog/solar-panels-heat-pump-combination-switzerland', '/it/blog/impianto-solare-pompa-calore-svizzera', 0.75)}
-${entry4('/blog/besten-solarinstallateur-schweiz-finden', '/fr/blog/trouver-meilleur-installateur-solaire-suisse', '/en/blog/find-best-solar-installer-switzerland', '/it/blog/trovare-miglior-installatore-solare-svizzera', 0.75)}
-${entry4('/blog/batteriespeicher-brandgefahr-sicherheit-schweiz', '/fr/blog/batterie-solaire-danger-incendie-securite-suisse', '/en/blog/solar-battery-fire-risk-safety-switzerland', '/it/blog/batteria-solare-rischio-incendio-sicurezza-svizzera', 0.75)}
-${entry4('/blog/solaranlage-installateur-konkurs-garantie-schweiz', '/fr/blog/installateur-solaire-faillite-garantie-suisse', '/en/blog/solar-installer-bankruptcy-guarantee-switzerland', '/it/blog/installatore-solare-fallimento-garanzia-svizzera', 0.75)}
-${entry4('/blog/solaranlage-versicherung-schweiz', '/fr/blog/assurance-installation-solaire-suisse', '/en/blog/solar-panel-insurance-switzerland', '/it/blog/assicurazione-impianto-solare-svizzera', 0.75)}
-${entry4('/blog/chinesische-vs-europaeische-solarmodule-schweiz', '/fr/blog/panneaux-solaires-chinois-vs-europeens-suisse', '/en/blog/chinese-vs-european-solar-panels-switzerland', '/it/blog/pannelli-solari-cinesi-vs-europei-svizzera', 0.75)}
-${entry4('/blog/solaranlage-norddach-schweiz', '/fr/blog/panneau-solaire-toit-nord-suisse', '/en/blog/solar-panels-north-facing-roof-switzerland', '/it/blog/impianto-solare-tetto-nord-svizzera', 0.75)}
-${blogSlugs.filter(slug => slug !== 'lohnt-sich-solaranlage-schweiz-2026' && slug !== 'solaranlage-steuerabzug-schweiz-2026' && slug !== 'solaranlage-waermepumpe-kombinieren-schweiz' && slug !== 'besten-solarinstallateur-schweiz-finden' && slug !== 'batteriespeicher-brandgefahr-sicherheit-schweiz' && slug !== 'solaranlage-installateur-konkurs-garantie-schweiz' && slug !== 'solaranlage-versicherung-schweiz' && slug !== 'chinesische-vs-europaeische-solarmodule-schweiz' && slug !== 'solaranlage-norddach-schweiz').map((slug) => entry4(`/blog/${slug}`, `/fr/blog/${slug}`, `/en/blog/${slug}`, `/it/blog/${slug}`, 0.6)).join('')}
+${blogEntry4('/blog/lohnt-sich-solaranlage-schweiz-2026', '/fr/blog/rentabilite-panneau-solaire-suisse-2026', '/en/blog/is-solar-worth-it-switzerland-2026', '/it/blog/vale-la-pena-impianto-solare-svizzera-2026', 0.75)}
+${blogEntry4('/blog/solaranlage-steuerabzug-schweiz-2026', '/fr/blog/deduction-fiscale-panneau-solaire-suisse-2026', '/en/blog/solar-panel-tax-deduction-switzerland-2026', '/it/blog/detrazione-fiscale-impianto-solare-svizzera-2026', 0.75)}
+${blogEntry4('/blog/solaranlage-waermepumpe-kombinieren-schweiz', '/fr/blog/panneaux-solaires-pompe-chaleur-suisse', '/en/blog/solar-panels-heat-pump-combination-switzerland', '/it/blog/impianto-solare-pompa-calore-svizzera', 0.75)}
+${blogEntry4('/blog/besten-solarinstallateur-schweiz-finden', '/fr/blog/trouver-meilleur-installateur-solaire-suisse', '/en/blog/find-best-solar-installer-switzerland', '/it/blog/trovare-miglior-installatore-solare-svizzera', 0.75)}
+${blogEntry4('/blog/batteriespeicher-brandgefahr-sicherheit-schweiz', '/fr/blog/batterie-solaire-danger-incendie-securite-suisse', '/en/blog/solar-battery-fire-risk-safety-switzerland', '/it/blog/batteria-solare-rischio-incendio-sicurezza-svizzera', 0.75)}
+${blogEntry4('/blog/solaranlage-installateur-konkurs-garantie-schweiz', '/fr/blog/installateur-solaire-faillite-garantie-suisse', '/en/blog/solar-installer-bankruptcy-guarantee-switzerland', '/it/blog/installatore-solare-fallimento-garanzia-svizzera', 0.75)}
+${blogEntry4('/blog/solaranlage-versicherung-schweiz', '/fr/blog/assurance-installation-solaire-suisse', '/en/blog/solar-panel-insurance-switzerland', '/it/blog/assicurazione-impianto-solare-svizzera', 0.75)}
+${blogEntry4('/blog/chinesische-vs-europaeische-solarmodule-schweiz', '/fr/blog/panneaux-solaires-chinois-vs-europeens-suisse', '/en/blog/chinese-vs-european-solar-panels-switzerland', '/it/blog/pannelli-solari-cinesi-vs-europei-svizzera', 0.75)}
+${blogEntry4('/blog/solaranlage-norddach-schweiz', '/fr/blog/panneau-solaire-toit-nord-suisse', '/en/blog/solar-panels-north-facing-roof-switzerland', '/it/blog/impianto-solare-tetto-nord-svizzera', 0.75)}
+${blogSlugs.filter(slug => slug !== 'lohnt-sich-solaranlage-schweiz-2026' && slug !== 'solaranlage-steuerabzug-schweiz-2026' && slug !== 'solaranlage-waermepumpe-kombinieren-schweiz' && slug !== 'besten-solarinstallateur-schweiz-finden' && slug !== 'batteriespeicher-brandgefahr-sicherheit-schweiz' && slug !== 'solaranlage-installateur-konkurs-garantie-schweiz' && slug !== 'solaranlage-versicherung-schweiz' && slug !== 'chinesische-vs-europaeische-solarmodule-schweiz' && slug !== 'solaranlage-norddach-schweiz').map((slug) => blogEntry4(`/blog/${slug}`, `/fr/blog/${slug}`, `/en/blog/${slug}`, `/it/blog/${slug}`, 0.6)).join('')}
 
   <!-- ── Balcony power station (4 languages) ───────────────────────────────── -->
 ${entry4('/balkonkraftwerk', '/fr/centrale-balcon', '/en/balcony-power-station', '/it/centrale-balcone', 0.7)}

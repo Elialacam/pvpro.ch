@@ -146,7 +146,7 @@ export default function FoerderungenPage() {
 
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/solardaecher-quartier-see-schweiz.png"
+                src="/images/solardaecher-quartier-see-schweiz.webp"
                 alt="Förderung Solaranlage Schweiz"
                 width={700}
                 height={500}
@@ -342,7 +342,7 @@ export default function FoerderungenPage() {
 
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/solaranlage-flachdach-gewerbe-rhein.png"
+                src="/images/solaranlage-flachdach-gewerbe-rhein.webp"
                 alt="Wirtschaftlichkeit Solaranlage"
                 width={700}
                 height={500}

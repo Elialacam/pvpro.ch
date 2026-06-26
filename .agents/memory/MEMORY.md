@@ -1,0 +1,1 @@
+- [Image assets](image-assets.md) — content images can be WebP; og/social + logos/favicons must stay as-is; check openGraph refs before converting.

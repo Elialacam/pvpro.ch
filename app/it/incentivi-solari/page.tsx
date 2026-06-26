@@ -107,7 +107,7 @@ export default function IncentiviSolariPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solardaecher-quartier-see-schweiz.png" alt="Incentivi solari Svizzera" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/solardaecher-quartier-see-schweiz.webp" alt="Incentivi solari Svizzera" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -246,7 +246,7 @@ export default function IncentiviSolariPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solaranlage-flachdach-gewerbe-rhein.png" alt="Redditività impianto solare" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/solaranlage-flachdach-gewerbe-rhein.webp" alt="Redditività impianto solare" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
