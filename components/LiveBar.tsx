@@ -94,7 +94,7 @@ export default function LiveBar() {
 
         <span className="flex items-center gap-1.5">
           <span className="relative flex h-2 w-2">
-            <span className="wa-online-ping absolute h-full w-full rounded-full bg-green-400" />
+            <span className="status-ping absolute h-full w-full rounded-full bg-green-400" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
           </span>
           {t.lastRequest} {dateStr}

@@ -4,7 +4,7 @@ import "./globals.css";
 import { Suspense } from "react";
 import TrackingScripts from '@/components/TrackingScripts';
 import UtmTracker from '@/components/UtmTracker';
-import WhatsAppFloating from '@/components/WhatsAppFloating';
+import CallbackWidget from '@/components/CallbackWidget';
 import NavigationProgress from '@/components/NavigationProgress';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -48,7 +48,7 @@ export default function RootLayout({
         <UtmTracker />
         <NavigationProgress />
         {children}
-        <WhatsAppFloating />
+        <CallbackWidget />
         <Analytics />
         <SpeedInsights />
       </body>
