@@ -7,9 +7,13 @@ description: The site has historically toggled its bottom-right floating widget 
 
 - The bottom-right floating contact element is mounted ONCE in `app/layout.tsx` (root,
   applies to every locale) and has flip-flopped between two components over time:
-  - `CallbackWidget.tsx` — consultant-photo card → centered modal with a Rückruf
-    ("call me back") form. Fields: Vorname, Nachname, Telefonnummer, E-Mail (NO address).
+  - `CallbackWidget.tsx` — interactive chat-style consultant assistant (default OPEN):
+    typing indicator → staged chat bubbles → inline conversational Rückruf ("call me back")
+    form; collapses to an animated avatar FAB (rotating solar ring + online dot + teaser).
+    Fields: Vorname, Nachname, Telefonnummer, E-Mail (NO address). German-only.
     Submits to Web3Forms with combined `FULL NAME`, `PHONE NUMBER`, `EMAIL`, `TYPE`.
+    **Why default-open:** user wants it immediately visible; do NOT add a body scroll-lock
+    (it traps mobile users — this is a floating widget, not a full-screen modal).
   - `WhatsAppFloating.tsx` — green round wa.me button (no form).
 - Both hide themselves on `/anfrage` via `usePathname()`.
 - The consultant photo `public/images/consultant.png` was deleted in a restore once and
