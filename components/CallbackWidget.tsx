@@ -16,9 +16,8 @@ const CREAM = '#FDF8E8';
    - Photo: 120px circle, center aligned to right edge of card
      → left 60px of photo inside card, right 60px outside
    - Total outer wrapper: 250 + 60 = 310px                       */
-const CARD_W  = 250;
-const PHOTO_D = 120;
-const WRAP_W  = CARD_W + PHOTO_D / 2; // 310px
+const CARD_W  = 260;
+const PHOTO_D = 84;
 
 export default function CallbackWidget() {
   const pathname = usePathname();
@@ -93,33 +92,53 @@ export default function CallbackWidget() {
             {/* ── DESKTOP layout ── */}
             <div
               className="hidden sm:block fixed z-[9998]"
-              style={{ bottom: 24, right: 24, width: WRAP_W }}
+              style={{ bottom: 24, right: 24, width: CARD_W }}
             >
               {/* Card background */}
               <div
-                className="relative rounded-2xl shadow-2xl"
+                className="relative rounded-2xl shadow-2xl overflow-hidden"
                 style={{ background: NAVY, width: CARD_W }}
               >
                 {/* X button — top-right of card background */}
                 <button
                   onClick={() => setState('hidden')}
-                  className="absolute top-2.5 right-2.5 w-7 h-7 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors z-10"
+                  className="absolute top-2.5 right-2.5 w-7 h-7 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors z-20"
                   aria-label="Schliessen"
                 >
                   <X className="w-4 h-4 text-white/60" />
                 </button>
 
+                {/* Photo — fully inside the card, top-right */}
+                <div
+                  className="absolute rounded-full overflow-hidden shadow-lg z-10"
+                  style={{
+                    width: PHOTO_D,
+                    height: PHOTO_D,
+                    right: 14,
+                    top: 40,
+                    border: '3px solid #fff',
+                  }}
+                >
+                  <img
+                    src="/images/consultant.png"
+                    alt="Solarberater"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+
                 {/* Text content */}
-                <div className="px-5 pt-5 pb-5" style={{ paddingRight: 70 }}>
-                  <h3
-                    className="font-black text-white leading-snug mb-2"
-                    style={{ fontSize: 22 }}
-                  >
-                    Kostenlose<br />Beratung
-                  </h3>
-                  <p className="text-white/70 text-xs leading-relaxed mb-4">
-                    Mit wenigen Klicks zur kostenlosen Offerte. Wir rufen Sie zurück und besprechen gemeinsam Ihr Anliegen.
-                  </p>
+                <div className="px-5 pt-5 pb-5">
+                  <div style={{ paddingRight: PHOTO_D + 12 }}>
+                    <h3
+                      className="font-black text-white leading-snug mb-2"
+                      style={{ fontSize: 20 }}
+                    >
+                      Kostenlose<br />Beratung
+                    </h3>
+                    <p className="text-white/70 text-xs leading-relaxed mb-4">
+                      Mit wenigen Klicks zur kostenlosen Offerte. Wir rufen Sie zurück und besprechen gemeinsam Ihr Anliegen.
+                    </p>
+                  </div>
                   <button
                     onClick={() => setState('form')}
                     className="w-full flex items-center justify-center gap-2 font-bold text-sm py-2.5 rounded-lg transition-colors"
@@ -130,25 +149,6 @@ export default function CallbackWidget() {
                     Rückruf anfordern
                   </button>
                 </div>
-              </div>
-
-              {/* Photo — center on right edge of card */}
-              <div
-                className="absolute rounded-full overflow-hidden shadow-xl"
-                style={{
-                  width: PHOTO_D,
-                  height: PHOTO_D,
-                  right: 0,
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  border: '3px solid #fff',
-                }}
-              >
-                <img
-                  src="/images/consultant.png"
-                  alt="Solarberater"
-                  className="w-full h-full object-cover object-top"
-                />
               </div>
             </div>
 
@@ -179,7 +179,7 @@ export default function CallbackWidget() {
                 {/* Photo */}
                 <div
                   className="shrink-0 rounded-full overflow-hidden"
-                  style={{ width: 80, height: 80, border: '2px solid #fff' }}
+                  style={{ width: 68, height: 68, border: '2px solid #fff' }}
                 >
                   <img
                     src="/images/consultant.png"
