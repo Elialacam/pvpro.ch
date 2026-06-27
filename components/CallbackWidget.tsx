@@ -121,7 +121,7 @@ export default function CallbackWidget() {
                   <img
                     src="/images/consultant.png"
                     alt="Solarberater"
-                    className="h-11 w-11 rounded-full object-cover object-top"
+                    className="h-11 w-11 rounded-full object-cover object-[50%_28%]"
                     style={{ border: `2px solid ${GOLD}` }}
                   />
                   <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-[#0f172a] bg-green-400" />
@@ -382,7 +382,7 @@ export default function CallbackWidget() {
                 <img
                   src="/images/consultant.png"
                   alt="Solarberater"
-                  className="h-full w-full object-cover object-top"
+                  className="h-full w-full object-cover object-[50%_28%]"
                 />
               </span>
               <span className="absolute bottom-0.5 right-0.5 z-10 h-3.5 w-3.5 rounded-full border-2 border-white bg-green-400" />
