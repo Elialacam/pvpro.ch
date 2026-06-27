@@ -14,7 +14,7 @@ export default function CallbackWidget() {
   const pathname = usePathname();
 
   const [hidden, setHidden] = useState(false);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [sent, setSent] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [teaser, setTeaser] = useState(false);
