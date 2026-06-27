@@ -68,16 +68,7 @@ export default function DatenschutzPage() {
 
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">3. Drittanbieter und Datenverarbeitung</h2>
 
-          <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">3.1 Web3Forms</h3>
-          <p className="text-gray-600 leading-relaxed mb-6">
-            Zur Verarbeitung von Formularanfragen nutzen wir den Dienst Web3Forms. Ihre eingegebenen Daten werden über
-            deren Server verarbeitet und an uns per E-Mail weitergeleitet. Weitere Informationen finden Sie unter:{' '}
-            <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer" className="text-yellow-600 hover:underline">
-              web3forms.com/privacy
-            </a>
-          </p>
-
-          <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">3.2 Resend</h3>
+          <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">3.1 Resend</h3>
           <p className="text-gray-600 leading-relaxed mb-6">
             Für den Versand von Bestätigungs-E-Mails nutzen wir den E-Mail-Dienst Resend. Dabei wird Ihre E-Mail-Adresse
             an den Dienstanbieter übermittelt. Weitere Informationen finden Sie unter:{' '}
@@ -86,7 +77,7 @@ export default function DatenschutzPage() {
             </a>
           </p>
 
-          <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">3.3 Google Maps</h3>
+          <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">3.2 Google Maps</h3>
           <p className="text-gray-600 leading-relaxed mb-6">
             Wir nutzen die Google Maps API zur Adressvervollständigung im Kontaktformular. Dabei können Daten an
             Google LLC, USA, übertragen werden. Weitere Informationen:{' '}
@@ -95,7 +86,7 @@ export default function DatenschutzPage() {
             </a>
           </p>
 
-          <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">3.4 Vercel (Hosting)</h3>
+          <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">3.3 Vercel (Hosting)</h3>
           <p className="text-gray-600 leading-relaxed mb-6">
             Diese Website wird bei Vercel Inc. gehostet. Vercel kann dabei automatisch Server-Logdateien erheben.
             Weitere Informationen:{' '}

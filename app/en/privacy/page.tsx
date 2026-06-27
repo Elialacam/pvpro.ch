@@ -68,16 +68,7 @@ export default function PrivacyPage() {
 
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">3. Third-Party Services and Data Processing</h2>
 
-          <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">3.1 Web3Forms</h3>
-          <p className="text-gray-600 leading-relaxed mb-6">
-            We use the Web3Forms service to process form submissions. Your data is transmitted via their servers and
-            forwarded to us by email. More information:{' '}
-            <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer" className="text-yellow-600 hover:underline">
-              web3forms.com/privacy
-            </a>
-          </p>
-
-          <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">3.2 Resend</h3>
+          <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">3.1 Resend</h3>
           <p className="text-gray-600 leading-relaxed mb-6">
             We use the Resend email service to send confirmation emails. Your email address is transmitted to this
             service provider. More information:{' '}
@@ -86,7 +77,7 @@ export default function PrivacyPage() {
             </a>
           </p>
 
-          <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">3.3 Google Maps</h3>
+          <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">3.2 Google Maps</h3>
           <p className="text-gray-600 leading-relaxed mb-6">
             We use the Google Maps API for address autocomplete in the contact form. Data may be transferred to
             Google LLC, USA. More information:{' '}
@@ -95,7 +86,7 @@ export default function PrivacyPage() {
             </a>
           </p>
 
-          <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">3.4 Vercel (Hosting)</h3>
+          <h3 className="text-xl font-sans font-semibold tracking-normal text-gray-900 mt-6 mb-3">3.3 Vercel (Hosting)</h3>
           <p className="text-gray-600 leading-relaxed mb-6">
             This website is hosted by Vercel Inc. Vercel may automatically collect server log files. More information:{' '}
             <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-yellow-600 hover:underline">

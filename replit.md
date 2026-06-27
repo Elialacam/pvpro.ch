@@ -24,7 +24,7 @@ Key architectural decisions include:
 - **Multilingual Support**: Comprehensive i18n implementation with distinct URL paths for each language (`/fr`, `/en`, `/it`). All core content pages, forms, and blog posts are translated and accessible via locale-specific routes.
 - **SEO Optimization**: Strict adherence to canonical domain and URL structures, with a custom sitemap generation process to ensure proper indexing and internationalization handling for search engines.
 - **Cookie Consent**: Implementation of a GDPR/nLPD-compliant cookie consent banner with granular control over analytics and marketing scripts, ensuring user privacy and legal compliance. Tracking scripts are conditionally loaded based on user consent.
-- **Form Management**: Centralized form handling via `AnfrageForm.tsx` component, which is locale-aware and uses Web3Forms for submissions. The form submission captures essential user details without extensive property-specific selections.
+- **Form Management**: Form handling is locale-aware. Both the main `AnfrageForm.tsx` and the `CallbackWidget.tsx` submit through the internal `app/api/anfrage/route.ts` route, which forwards leads to the slead.ch / LeadSync webhook and fires a Meta CAPI Lead event. The form submission captures essential user details without extensive property-specific selections.
 - **Dynamic Content Rendering**: Blog posts and city-specific content are dynamically rendered using shared templates and localized data files, allowing for scalable content management across multiple languages and regions.
 - **UI/UX**: Emphasis on interactive elements such as step-by-step animated processes and production calculators to enhance user engagement. The design leverages Tailwind CSS for a consistent and responsive user experience.
 - **Content Structure**: Blog content is separated into post metadata (`blogPosts.ts`, `blogPostsI18n.ts`) and full article content (`blogArticles.ts`) to facilitate multilingual content management and dynamic rendering.
@@ -38,7 +38,7 @@ Key architectural decisions include:
 - **Zod**: Schema declaration and validation library
 - **Framer Motion**: Animation library
 - **React Simple Maps**: Library for creating interactive maps
-- **Web3Forms**: Form submission service (Key: `e5917515-5373-450c-963d-d6dcb976be42`)
+- **LeadSync / slead.ch**: Lead intake webhook — `app/api/anfrage/route.ts` forwards all form and callback submissions
 - **Google Analytics**: Web analytics service (ID: `G-ZE1BS0ZGK9`)
 - **Google Ads**: Advertising service (Conversion ID: `AW-17901154625`, Conversion Label: `LyaGCIXE-fUbEMHi99dC`)
 - **Meta Pixel**: Advertising and analytics service (ID: `1848326999213371`)

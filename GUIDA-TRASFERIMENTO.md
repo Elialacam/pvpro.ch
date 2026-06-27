@@ -53,34 +53,12 @@ Adesso pvpro.ch mostra il tuo sito.
 
 ---
 
-## STEP 5: Configura il Form (per ricevere i contatti)
+## STEP 5: Form (per ricevere i contatti)
 
-Senza questo step, quando qualcuno compila il form tu non ricevi niente.
-
-### 5A: Prendi la chiave gratis
-
-1. Vai su **https://web3forms.com**
-2. Scrivi la tua email (dove vuoi ricevere i contatti)
-3. Clicca **"Create Access Key"**
-4. Apri la tua email
-5. Copia la chiave che ti hanno mandato
-
-### 5B: Metti la chiave nel sito
-
-1. Torna sul tuo progetto in v0
-2. Nella lista file a sinistra, clicca: **app** > **api** > **contact** > **route.ts**
-3. Trova questa riga:
-   ```
-   const WEB3FORMS_KEY = 'LA_TUA_ACCESS_KEY_QUI'
-   ```
-4. Sostituisci `LA_TUA_ACCESS_KEY_QUI` con la tua chiave
-5. Clicca **Save**
-
-6. Poi clicca: **app** > **api** > **form** > **route.ts**
-7. Stessa cosa: sostituisci `LA_TUA_ACCESS_KEY_QUI` con la tua chiave
-8. Clicca **Save**
-
-v0 ripubblica automaticamente.
+I form del sito (sia il formulario principale che la chat di richiamata) sono gia'
+collegati al sistema lead **slead.ch / LeadSync** tramite l'endpoint interno
+`app/api/anfrage/route.ts`. I contatti arrivano direttamente nel sistema lead — non
+serve configurare nessuna chiave.
 
 ---
 
@@ -118,7 +96,6 @@ Esempi di cose che puoi chiedere:
 |------|--------------|
 | v0 (hosting) | GRATIS |
 | GitHub | GRATIS |
-| Web3Forms (email) | GRATIS |
 | Dominio pvpro.ch | ~15 CHF/anno |
 
 **Totale: 15 CHF all'anno per il dominio**
@@ -128,6 +105,6 @@ Esempi di cose che puoi chiedere:
 ## Problemi?
 
 - **Il sito non carica:** aspetta 30 minuti, i DNS sono lenti
-- **Il form non funziona:** controlla che la chiave sia giusta nei 2 file
+- **Il form non funziona:** i form sono gia' collegati al sistema lead, non serve nessuna chiave
 - **Non trovo il file:** clicca le freccette a sinistra per aprire le cartelle
 - **v0 non vede il repo:** assicurati di aver accettato il trasferimento GitHub

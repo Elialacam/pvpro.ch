@@ -65,16 +65,16 @@ export default function CallbackWidget() {
     setSubmitting(true);
     try {
       const fullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const params = new URLSearchParams(window.location.search);
+      const res = await fetch('/api/anfrage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: 'e5917515-5373-450c-963d-d6dcb976be42',
-          subject: `Rückrufanfrage - ${fullName}`,
           'FULL NAME': fullName,
           'PHONE NUMBER': formatPhone(formData.phone),
           EMAIL: formData.email.trim(),
-          TYPE: 'Rückrufanfrage',
+          utm_source: params.get('utm_source') || 'rueckruf-widget',
+          ...(params.get('fbclid') ? { fbclid: params.get('fbclid') } : {}),
         }),
       });
       if (res.ok) setSent(true);
