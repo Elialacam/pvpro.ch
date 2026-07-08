@@ -25,3 +25,8 @@ description: The site has historically toggled its bottom-right floating widget 
   When removing the WhatsApp widget, that animation is now `status-ping`/`@keyframes
   statusPing` in `globals.css`. **Why:** deleting "wa-*" CSS blindly broke an unrelated
   status indicator. Always grep class names across the repo before deleting CSS.
+
+## i18n (Jan 2027)
+- CallbackWidget is fully multilingual: locale from usePathname (`de` default, `/en`, `/fr`, `/it`), all strings in a `T` dictionary inside the component, incl. locale-specific privacy links.
+- Widget is hidden on the quote-form pages of ALL locales (`/anfrage`, `/en/get-solar-panel-quotes`, `/fr/demander-offre-panneau-solaire`, `/it/richiedere-preventivo-solare`).
+- Any new user-facing string in this widget must be added to all 4 locales in `T`.

@@ -10,8 +10,151 @@ const NAVY = '#1F2937';
 
 const CONSULTANT_NAME = 'Lukas Meier';
 
+type Locale = 'de' | 'en' | 'fr' | 'it';
+
+const T: Record<Locale, {
+  online: string;
+  greeting: string;
+  msgBefore: string;
+  msgBold: string;
+  msgAfter: string;
+  firstName: string;
+  lastName: string;
+  phoneLabel: string;
+  email: string;
+  submit: string;
+  submitting: string;
+  successTitle: string;
+  successText: (name: string) => string;
+  close: string;
+  privacyPre: string;
+  privacyLink: string;
+  privacyPost: string;
+  privacyHref: string;
+  teaser: string;
+  ariaMin: string;
+  ariaClose: string;
+  ariaOpen: string;
+  ariaTeaserClose: string;
+  alt: string;
+}> = {
+  de: {
+    online: 'Online · Antwortet sofort',
+    greeting: 'Grüezi! 👋 Schön, dass Sie da sind.',
+    msgBefore: 'Möchten Sie eine ',
+    msgBold: 'kostenlose & unverbindliche',
+    msgAfter: ' Beratung? Lassen Sie mir kurz Ihre Kontaktdaten da — ich rufe Sie innerhalb von 24h zurück. 📞',
+    firstName: 'Vorname',
+    lastName: 'Nachname',
+    phoneLabel: 'Telefonnummer',
+    email: 'E-Mail-Adresse',
+    submit: 'Rückruf anfordern',
+    submitting: 'Wird gesendet…',
+    successTitle: 'Vielen Dank! 🎉',
+    successText: (name) => `Ihre Anfrage ist bei uns. ${name} meldet sich innerhalb von 24 Stunden bei Ihnen.`,
+    close: 'Schliessen',
+    privacyPre: 'Mit dem Absenden stimmen Sie unserer ',
+    privacyLink: 'Datenschutzerklärung',
+    privacyPost: ' zu.',
+    privacyHref: '/datenschutz',
+    teaser: 'Grüezi! 👋 Fragen zur Solaranlage?',
+    ariaMin: 'Minimieren',
+    ariaClose: 'Schliessen',
+    ariaOpen: 'Beratung öffnen',
+    ariaTeaserClose: 'Hinweis schliessen',
+    alt: 'Solarberater',
+  },
+  en: {
+    online: 'Online · Replies instantly',
+    greeting: 'Hello! 👋 Great to see you here.',
+    msgBefore: 'Would you like a ',
+    msgBold: 'free & non-binding',
+    msgAfter: ' consultation? Just leave me your contact details — I will call you back within 24h. 📞',
+    firstName: 'First name',
+    lastName: 'Last name',
+    phoneLabel: 'Phone number',
+    email: 'Email address',
+    submit: 'Request callback',
+    submitting: 'Sending…',
+    successTitle: 'Thank you! 🎉',
+    successText: (name) => `We have received your request. ${name} will get back to you within 24 hours.`,
+    close: 'Close',
+    privacyPre: 'By submitting, you agree to our ',
+    privacyLink: 'privacy policy',
+    privacyPost: '.',
+    privacyHref: '/en/privacy',
+    teaser: 'Hello! 👋 Questions about solar?',
+    ariaMin: 'Minimise',
+    ariaClose: 'Close',
+    ariaOpen: 'Open consultation',
+    ariaTeaserClose: 'Dismiss hint',
+    alt: 'Solar consultant',
+  },
+  fr: {
+    online: 'En ligne · Répond immédiatement',
+    greeting: 'Bonjour ! 👋 Ravi de vous voir.',
+    msgBefore: 'Souhaitez-vous un conseil ',
+    msgBold: 'gratuit & sans engagement',
+    msgAfter: ' ? Laissez-moi vos coordonnées — je vous rappelle sous 24h. 📞',
+    firstName: 'Prénom',
+    lastName: 'Nom',
+    phoneLabel: 'Numéro de téléphone',
+    email: 'Adresse e-mail',
+    submit: 'Demander un rappel',
+    submitting: 'Envoi en cours…',
+    successTitle: 'Merci beaucoup ! 🎉',
+    successText: (name) => `Votre demande a bien été reçue. ${name} vous contactera sous 24 heures.`,
+    close: 'Fermer',
+    privacyPre: 'En envoyant, vous acceptez notre ',
+    privacyLink: 'politique de confidentialité',
+    privacyPost: '.',
+    privacyHref: '/fr/protection-des-donnees',
+    teaser: 'Bonjour ! 👋 Des questions sur le solaire ?',
+    ariaMin: 'Réduire',
+    ariaClose: 'Fermer',
+    ariaOpen: 'Ouvrir la consultation',
+    ariaTeaserClose: 'Fermer l’info-bulle',
+    alt: 'Conseiller solaire',
+  },
+  it: {
+    online: 'Online · Risponde subito',
+    greeting: 'Buongiorno! 👋 Che bello averla qui.',
+    msgBefore: 'Desidera una consulenza ',
+    msgBold: 'gratuita e senza impegno',
+    msgAfter: '? Mi lasci i suoi dati di contatto — la richiamo entro 24 ore. 📞',
+    firstName: 'Nome',
+    lastName: 'Cognome',
+    phoneLabel: 'Numero di telefono',
+    email: 'Indirizzo e-mail',
+    submit: 'Richiedi richiamata',
+    submitting: 'Invio in corso…',
+    successTitle: 'Grazie mille! 🎉',
+    successText: (name) => `La sua richiesta è arrivata. ${name} la contatterà entro 24 ore.`,
+    close: 'Chiudi',
+    privacyPre: 'Inviando accetta la nostra ',
+    privacyLink: 'informativa sulla privacy',
+    privacyPost: '.',
+    privacyHref: '/it/protezione-dati',
+    teaser: 'Buongiorno! 👋 Domande sul fotovoltaico?',
+    ariaMin: 'Riduci',
+    ariaClose: 'Chiudi',
+    ariaOpen: 'Apri la consulenza',
+    ariaTeaserClose: 'Chiudi il suggerimento',
+    alt: 'Consulente solare',
+  },
+};
+
+function getLocale(pathname: string | null): Locale {
+  if (!pathname) return 'de';
+  if (pathname === '/en' || pathname.startsWith('/en/')) return 'en';
+  if (pathname === '/fr' || pathname.startsWith('/fr/')) return 'fr';
+  if (pathname === '/it' || pathname.startsWith('/it/')) return 'it';
+  return 'de';
+}
+
 export default function CallbackWidget() {
   const pathname = usePathname();
+  const t = T[getLocale(pathname)];
 
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
@@ -41,7 +184,8 @@ export default function CallbackWidget() {
     setTeaser(false);
   }, [open, hidden]);
 
-  if (pathname === '/anfrage') return null;
+  const hiddenPaths = ['/anfrage', '/en/get-solar-panel-quotes', '/fr/demander-offre-panneau-solaire', '/it/richiedere-preventivo-solare'];
+  if (pathname && hiddenPaths.includes(pathname)) return null;
   if (hidden) return null;
 
   const formatPhone = (raw: string) => {
@@ -120,7 +264,7 @@ export default function CallbackWidget() {
                 <div className="relative shrink-0">
                   <img
                     src="/images/consultant.png"
-                    alt="Solarberater"
+                    alt={t.alt}
                     className="h-11 w-11 rounded-full object-cover object-[50%_28%]"
                     style={{ border: `2px solid ${GOLD}` }}
                   />
@@ -130,20 +274,20 @@ export default function CallbackWidget() {
                   <p className="truncate text-sm font-extrabold text-white">{CONSULTANT_NAME}</p>
                   <p className="flex items-center gap-1.5 text-[11px] text-white/60">
                     <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
-                    Online · Antwortet sofort
+                    {t.online}
                   </p>
                 </div>
                 <button
                   onClick={() => setOpen(false)}
                   className="flex h-8 w-8 items-center justify-center rounded-full text-white/60 transition-colors hover:bg-white/10"
-                  aria-label="Minimieren"
+                  aria-label={t.ariaMin}
                 >
                   <ChevronDown className="h-5 w-5" />
                 </button>
                 <button
                   onClick={() => setHidden(true)}
                   className="flex h-8 w-8 items-center justify-center rounded-full text-white/60 transition-colors hover:bg-white/10"
-                  aria-label="Schliessen"
+                  aria-label={t.ariaClose}
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -174,17 +318,17 @@ export default function CallbackWidget() {
                       <Check className="h-8 w-8 text-[#1F2937]" strokeWidth={3} />
                     </motion.div>
                     <h3 className="text-lg font-extrabold" style={{ color: NAVY }}>
-                      Vielen Dank! 🎉
+                      {t.successTitle}
                     </h3>
                     <p className="mt-1.5 max-w-[260px] text-sm text-gray-500">
-                      Ihre Anfrage ist bei uns. {CONSULTANT_NAME} meldet sich innerhalb von 24 Stunden bei Ihnen.
+                      {t.successText(CONSULTANT_NAME)}
                     </p>
                     <button
                       onClick={() => setHidden(true)}
                       className="mt-5 rounded-xl px-6 py-2.5 text-sm font-bold text-white"
                       style={{ background: NAVY }}
                     >
-                      Schliessen
+                      {t.close}
                     </button>
                   </motion.div>
                 ) : !revealed ? (
@@ -214,7 +358,7 @@ export default function CallbackWidget() {
                       transition={{ delay: 0.05 }}
                       className="w-fit max-w-[85%] rounded-2xl rounded-bl-sm bg-white px-4 py-2.5 text-sm text-gray-700 shadow-sm"
                     >
-                      Grüezi! 👋 Schön, dass Sie da sind.
+                      {t.greeting}
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
@@ -222,8 +366,7 @@ export default function CallbackWidget() {
                       transition={{ delay: 0.45 }}
                       className="w-fit max-w-[90%] rounded-2xl rounded-bl-sm bg-white px-4 py-2.5 text-sm leading-relaxed text-gray-700 shadow-sm"
                     >
-                      Möchten Sie eine <b>kostenlose &amp; unverbindliche</b> Beratung? Lassen Sie mir
-                      kurz Ihre Kontaktdaten da — ich rufe Sie innerhalb von 24h zurück. 📞
+                      {t.msgBefore}<b>{t.msgBold}</b>{t.msgAfter}
                     </motion.div>
 
                     {/* Form card */}
@@ -235,8 +378,8 @@ export default function CallbackWidget() {
                     >
                       <div className="grid grid-cols-2 gap-2.5">
                         <input
-                          placeholder="Vorname"
-                          aria-label="Vorname"
+                          placeholder={t.firstName}
+                          aria-label={t.firstName}
                           className={`${inputBase} ${errors.firstName ? 'border-red-400' : 'border-gray-200'}`}
                           onFocus={(e) => (e.target.style.borderColor = GOLD)}
                           onBlur={(e) => (e.target.style.borderColor = errors.firstName ? '#f87171' : '#e5e7eb')}
@@ -244,8 +387,8 @@ export default function CallbackWidget() {
                           onChange={(e) => { setFormData((p) => ({ ...p, firstName: e.target.value })); setErrors((p) => ({ ...p, firstName: false })); }}
                         />
                         <input
-                          placeholder="Nachname"
-                          aria-label="Nachname"
+                          placeholder={t.lastName}
+                          aria-label={t.lastName}
                           className={`${inputBase} ${errors.lastName ? 'border-red-400' : 'border-gray-200'}`}
                           onFocus={(e) => (e.target.style.borderColor = GOLD)}
                           onBlur={(e) => (e.target.style.borderColor = errors.lastName ? '#f87171' : '#e5e7eb')}
@@ -268,7 +411,7 @@ export default function CallbackWidget() {
                         <input
                           type="tel"
                           placeholder="079 123 45 67"
-                          aria-label="Telefonnummer"
+                          aria-label={t.phoneLabel}
                           className="w-full bg-transparent px-3 py-2.5 text-sm text-gray-800 outline-none placeholder:text-gray-400"
                           value={formData.phone}
                           onChange={(e) => { setFormData((p) => ({ ...p, phone: e.target.value })); setErrors((p) => ({ ...p, phone: false })); }}
@@ -277,8 +420,8 @@ export default function CallbackWidget() {
 
                       <input
                         type="email"
-                        placeholder="E-Mail-Adresse"
-                        aria-label="E-Mail-Adresse"
+                        placeholder={t.email}
+                        aria-label={t.email}
                         className={`${inputBase} mt-2.5 ${errors.email ? 'border-red-400' : 'border-gray-200'}`}
                         onFocus={(e) => (e.target.style.borderColor = GOLD)}
                         onBlur={(e) => (e.target.style.borderColor = errors.email ? '#f87171' : '#e5e7eb')}
@@ -293,20 +436,20 @@ export default function CallbackWidget() {
                         style={{ background: GOLD, color: NAVY }}
                       >
                         {submitting ? (
-                          'Wird gesendet…'
+                          t.submitting
                         ) : (
                           <>
                             <Send className="h-4 w-4" />
-                            Rückruf anfordern
+                            {t.submit}
                           </>
                         )}
                       </button>
                       <p className="mt-2 text-center text-[10px] leading-tight text-gray-400">
-                        Mit dem Absenden stimmen Sie unserer{' '}
-                        <a href="/datenschutz" className="underline hover:text-gray-600">
-                          Datenschutzerklärung
-                        </a>{' '}
-                        zu.
+                        {t.privacyPre}
+                        <a href={t.privacyHref} className="underline hover:text-gray-600">
+                          {t.privacyLink}
+                        </a>
+                        {t.privacyPost}
                       </p>
                     </motion.div>
                   </motion.div>
@@ -341,11 +484,11 @@ export default function CallbackWidget() {
                     onClick={() => setOpen(true)}
                     className="rounded-2xl rounded-br-sm bg-white px-3.5 py-2.5 text-left text-sm font-semibold text-gray-700 shadow-xl"
                   >
-                    Grüezi! 👋 Fragen zur Solaranlage?
+                    {t.teaser}
                   </button>
                   <button
                     onClick={() => setTeaser(false)}
-                    aria-label="Hinweis schliessen"
+                    aria-label={t.ariaTeaserClose}
                     className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-gray-200 text-gray-500 hover:bg-gray-300"
                   >
                     <X className="h-3 w-3" />
@@ -358,7 +501,7 @@ export default function CallbackWidget() {
             <button
               onClick={() => setOpen(true)}
               className="relative h-16 w-16 shrink-0"
-              aria-label="Beratung öffnen"
+              aria-label={t.ariaOpen}
             >
               {/* rotating solar ring */}
               <motion.span
@@ -381,7 +524,7 @@ export default function CallbackWidget() {
               <span className="absolute inset-[3px] overflow-hidden rounded-full bg-white shadow-lg">
                 <img
                   src="/images/consultant.png"
-                  alt="Solarberater"
+                  alt={t.alt}
                   className="h-full w-full object-cover object-[50%_28%]"
                 />
               </span>
