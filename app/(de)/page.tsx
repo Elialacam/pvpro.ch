@@ -4,6 +4,7 @@ import Testimonials from '@/components/Testimonials';
 import TeamSection from '@/components/TeamSection';
 import SwissMap from '@/components/SwissMap';
 import BlogSection from '@/components/BlogSection';
+import CtaAnfrage from '@/components/CtaAnfrage';
 import Link from 'next/link';
 import { cities } from '@/lib/cities';
 import { MapPin } from 'lucide-react';
@@ -112,6 +113,7 @@ export default function HomePage() {
       </section>
 
       <BlogSection />
+      <CtaAnfrage />
       <FaqSchema faqs={faqContent.de.faqs} />
     </>
   );

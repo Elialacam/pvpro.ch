@@ -4,6 +4,7 @@ import SwissMap from '@/components/SwissMap';
 import Testimonials from '@/components/Testimonials';
 import TeamSection from '@/components/TeamSection';
 import BlogSection from '@/components/BlogSection';
+import CtaAnfrage from '@/components/CtaAnfrage';
 import FAQ from '@/components/FAQ';
 import { cities } from '@/lib/cities';
 import Link from 'next/link';
@@ -113,6 +114,7 @@ export default function ItalianHomePage() {
       </section>
 
       <BlogSection locale="it" />
+      <CtaAnfrage />
       <FAQ />
     </>
   );
