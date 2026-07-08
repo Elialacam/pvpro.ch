@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { getImageFocus } from '@/lib/imageFocus';
 import Link from 'next/link';
 import { blogPosts } from '@/lib/blogPosts';
 import PlzWidget from '@/components/PlzWidget';
@@ -81,7 +82,8 @@ export default function BlogPage() {
                       src={post.image}
                       alt={post.title}
                       fill
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      style={{ objectPosition: getImageFocus(post.image) }}
                       sizes="(max-width: 640px) 100vw, 50vw"
                     />
                     <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-xs font-semibold text-gray-700 px-2.5 py-1 rounded-full">

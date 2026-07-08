@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { getImageFocus } from '@/lib/imageFocus';
 import { ChevronRight, Calendar, Clock, ArrowRight, AlertTriangle, CheckCircle2 } from 'lucide-react';
 import { BlogArticle } from '@/lib/blogArticles';
 import { blogPosts } from '@/lib/blogPosts';
@@ -51,7 +52,8 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
         <img
           src={article.image}
           alt={article.title}
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: getImageFocus(article.image) }}
         />
         {/* Dark overlay */}
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(13,17,23,0.88) 0%, rgba(26,34,54,0.82) 100%)' }} />
