@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: "Devo pulire regolarmente il mio impianto solare?",
-    answer: "In Svizzera la pioggia è sufficiente nella maggior parte dei casi. In caso di forte presenza di uccelli o in regioni polverose, si consiglia una pulizia manuale una volta all'anno.",
+    answer: "In Svizzera la pioggia è sufficiente nella maggior parte dei casi. In caso di forte presenza di uccelli o in zone polverose, si consiglia una pulizia manuale una volta all'anno.",
   },
   {
     question: "Quanto costa un contratto di manutenzione per un impianto solare?",
@@ -55,7 +55,7 @@ const faqs = [
 
 const prestazioni = [
   { titolo: "Ispezione visiva dei moduli", testo: "Una volta all'anno i moduli devono essere controllati per rilevare sporco, crepe, scolorimenti o danni. Le deiezioni di uccelli, le foglie e il muschio possono ridurre notevolmente la produzione." },
-  { titolo: "Pulizia dei moduli", testo: "In Svizzera la pioggia è di solito sufficiente a mantenere i moduli puliti. In regioni polverose o con forte presenza di uccelli, una pulizia manuale può essere utile." },
+  { titolo: "Pulizia dei moduli", testo: "In Svizzera la pioggia è di solito sufficiente a mantenere i moduli puliti. In zone polverose o con forte presenza di uccelli, una pulizia manuale può essere utile." },
   { titolo: "Ispezione dell'inverter", testo: "L'inverter è il cuore dell'impianto. Deve essere controllato annualmente per errori, surriscaldamento e corretto funzionamento." },
   { titolo: "Controllo delle connessioni elettriche", testo: "Le connessioni dei cavi, i connettori e i raccordi possono allentarsi nel tempo. Un controllo regolare previene guasti e rischi di incendio." },
   { titolo: "Monitoraggio della produzione", testo: "Gli impianti moderni dispongono di un monitoraggio digitale. Chi segue regolarmente i dati di produzione rileva immediatamente le deviazioni." },

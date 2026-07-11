@@ -230,7 +230,7 @@ export default function PhotovoltaikInstallationSchweizPage() {
             <p className="text-gray-600 leading-relaxed">
               Möchten Sie sofort loslegen? Vergleichen Sie jetzt kostenlos{' '}
               <Link href="/solaranlage-offerte-einholen" className="text-[#F97316] hover:underline font-medium">Offerten von zertifizierten Installateuren</Link>{' '}
-              in Ihrer Region.
+              in Ihrem Kanton.
             </p>
           </div>
           <div>
@@ -306,7 +306,7 @@ export default function PhotovoltaikInstallationSchweizPage() {
             Jetzt Installateur finden und loslegen
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Füllen Sie unser Formular in 2 Minuten aus — wir vermitteln Ihnen bis zu 3 zertifizierte Installateure aus Ihrer Region, die den gesamten Prozess für Sie übernehmen.
+            Füllen Sie unser Formular in 2 Minuten aus — wir vermitteln Ihnen bis zu 3 zertifizierte Installateure aus Ihrem Kanton, die den gesamten Prozess für Sie übernehmen.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link

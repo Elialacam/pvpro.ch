@@ -148,7 +148,7 @@ export default function FonctionnementSolairePage() {
             Prêt pour votre propre installation solaire ?
           </h2>
           <p className="text-white/60 text-lg mb-8 max-w-2xl mx-auto">
-            Comparez dès maintenant gratuitement des devis d'installateurs certifiés dans votre région — sans engagement et en quelques minutes.
+            Comparez dès maintenant gratuitement des devis d'installateurs certifiés dans votre canton — sans engagement et en quelques minutes.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link

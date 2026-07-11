@@ -5,7 +5,7 @@ import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = {
   title: 'Installare impianto solare Svizzera 2026 – Fornitori & Costi | PVPro.ch',
-  description: 'Installare un impianto solare in Svizzera: trova installatori certificati nella tua regione. Confronta preventivi gratuiti e risparmia fino al 30% con PVPro.ch.',
+  description: 'Installare un impianto solare in Svizzera: trova installatori certificati nel tuo Cantone. Confronta preventivi gratuiti e risparmia fino al 30% con PVPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/installare-impianto-solare-svizzera',
     languages: {
@@ -48,8 +48,8 @@ const faqs = [
     answer: "Dopo la messa in servizio, l'impianto viene notificato al gestore di rete locale. L'installatore verifica che tutto funzioni correttamente e vi spiega il funzionamento.",
   },
   {
-    question: "Come trovo il miglior installatore nella mia regione?",
-    answer: "PVPro.ch vi mette gratuitamente in contatto con fino a 3 installatori certificati della vostra regione — per confrontare direttamente prezzi e prestazioni.",
+    question: "Come trovo il miglior installatore nel mio Cantone?",
+    answer: "PVPro.ch vi mette gratuitamente in contatto con fino a 3 installatori certificati del vostro Cantone — per confrontare direttamente prezzi e prestazioni.",
   },
 ];
 
@@ -97,7 +97,7 @@ const costRows = [
 const criteria = [
   { title: 'Certificazione', text: "L'azienda è riconosciuta e dispone di esperienza comprovata?" },
   { title: 'Presenza locale', text: "Un installatore locale conosce le normative e gli incentivi cantonali" },
-  { title: 'Referenze', text: "Ha completato progetti analoghi nella vostra regione?" },
+  { title: 'Referenze', text: "Ha completato progetti analoghi nel vostro Cantone?" },
   { title: 'Garanzie', text: "Quali garanzie offre su montaggio, moduli e inverter?" },
   { title: 'Rapporto qualità-prezzo', text: "Solo confrontando più offerte si vede se un prezzo è equo" },
 ];
@@ -123,7 +123,7 @@ export default function InstallareImpiantoSolareSvizzeraPage() {
               Far installare un impianto solare in Svizzera
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Un impianto solare è un investimento a lungo termine. Chi lo fa installare deve scegliere l&apos;azienda giusta — perché qualità, prezzo e servizio variano molto. PVPro.ch vi mette gratuitamente in contatto con installatori svizzeri certificati della vostra regione.
+              Un impianto solare è un investimento a lungo termine. Chi lo fa installare deve scegliere l&apos;azienda giusta — perché qualità, prezzo e servizio variano molto. PVPro.ch vi mette gratuitamente in contatto con installatori svizzeri certificati del vostro Cantone.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -296,7 +296,7 @@ export default function InstallareImpiantoSolareSvizzeraPage() {
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Consiglio</p>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Chiedete sempre almeno 3 progetti di riferimento nella vostra regione e fate confermare per iscritto le condizioni di garanzia — prima di firmare.
+                Chiedete sempre almeno 3 progetti di riferimento nel vostro Cantone e fate confermare per iscritto le condizioni di garanzia — prima di firmare.
               </p>
             </div>
           </div>
@@ -309,12 +309,12 @@ export default function InstallareImpiantoSolareSvizzeraPage() {
             <Sun className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-            Trova ora un installatore nella tua regione
+            Trova ora un installatore nel tuo Cantone
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Compilate il nostro modulo in 2 minuti e ricevete fino a 3 preventivi da{' '}
             <Link href="/it/preventivo" className="text-[#F97316] hover:underline font-medium">installatori certificati</Link>{' '}
-            della vostra regione — gratuitamente e senza impegno.
+            del vostro Cantone — gratuitamente e senza impegno.
           </p>
           <Link
             href="/it/preventivo"

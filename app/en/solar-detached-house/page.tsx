@@ -336,7 +336,7 @@ export default function SolarDetachedHousePage() {
             Compare offers and optimise costs
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Solar installation prices vary greatly depending on the provider. Via PVPro you receive up to 3 free quotes from certified installers in your region.
+            Solar installation prices vary greatly depending on the provider. Via PVPro you receive up to 3 free quotes from certified installers in your canton.
           </p>
           <Link
             href="/en/request"

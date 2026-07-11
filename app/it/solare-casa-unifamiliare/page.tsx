@@ -336,7 +336,7 @@ export default function SolareCasaUnifamiliarePage() {
             Confronta le offerte e ottimizza i costi
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            I prezzi degli impianti solari variano notevolmente a seconda del fornitore. Tramite PVPro ricevete gratuitamente fino a 3 preventivi da installatori certificati nella vostra regione.
+            I prezzi degli impianti solari variano notevolmente a seconda del fornitore. Tramite PVPro ricevete gratuitamente fino a 3 preventivi da installatori certificati nel vostro Cantone.
           </p>
           <Link
             href="/it/richiesta"

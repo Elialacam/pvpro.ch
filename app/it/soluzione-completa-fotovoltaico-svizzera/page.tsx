@@ -40,7 +40,7 @@ const faqs = [
     answer: "Per ogni componente esistono incentivi separati — la rimunerazione unica (SRE) per l'impianto solare, contributi cantonali per la pompa di calore e altri programmi a seconda del cantone. Un installatore esperto conosce tutte le possibilità di finanziamento rilevanti.",
   },
   {
-    question: "Come trovo un fornitore di soluzioni complete nella mia regione?",
+    question: "Come trovo un fornitore di soluzioni complete nel mio Cantone?",
     answer: "PVPro.ch mette gratuitamente in contatto con installatori certificati che offrono soluzioni complete. Basta compilare il modulo e ricevere fino a 3 preventivi.",
   },
   {

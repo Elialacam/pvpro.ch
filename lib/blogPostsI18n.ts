@@ -75,7 +75,7 @@ const fr: BlogPostLocale[] = [
   {
     slug: 'besten-solarinstallateur-schweiz-finden',
     title: 'Trouver le meilleur installateur solaire en Suisse en 2026 – Le guide complet',
-    excerpt: "Comment trouver le meilleur installateur solaire dans votre région? Pourquoi les entreprises locales sont meilleures, les critères essentiels et comment PVPro.ch prend en charge la recherche pour vous.",
+    excerpt: "Comment trouver le meilleur installateur solaire dans votre canton? Pourquoi les entreprises locales sont meilleures, les critères essentiels et comment PVPro.ch prend en charge la recherche pour vous.",
     tag: 'Guide',
     image: '/images/installateur-solarmodul-dach-alpen.webp',
     author: 'PVPro Rédaction',
@@ -163,7 +163,7 @@ const fr: BlogPostLocale[] = [
   {
     slug: 'richtigen-solarinstallateur-schweiz-waehlen',
     title: 'Choisir le bon installateur solaire en Suisse: 7 critères essentiels',
-    excerpt: 'Le choix de l\'installateur est décisif pour la qualité de votre installation. Ces 7 critères vous aident à trouver le meilleur prestataire dans votre région.',
+    excerpt: 'Le choix de l\'installateur est décisif pour la qualité de votre installation. Ces 7 critères vous aident à trouver le meilleur prestataire dans votre canton.',
     tag: 'Guide',
     image: '/images/solarinstallateure-offerte-beratung.webp',
     author: 'PVPro Rédaction',
@@ -240,7 +240,7 @@ const fr: BlogPostLocale[] = [
   {
     slug: 'photovoltaik-schweizer-klima',
     title: 'Photovoltaïque et climat suisse: production dans les Alpes, le Plateau et le Tessin',
-    excerpt: 'Comment le climat suisse influence-t-il le rendement solaire? De Zurich à Lugano — différences régionales, production saisonnière et pourquoi le photovoltaïque est rentable partout en Suisse.',
+    excerpt: 'Comment le climat suisse influence-t-il le rendement solaire? De Zurich à Lugano — différences cantonales, production saisonnière et pourquoi le photovoltaïque est rentable partout en Suisse.',
     tag: 'Guide',
     image: '/images/asset-haus-alpen-1.webp',
     author: 'PVPro Rédaction',
@@ -353,7 +353,7 @@ const en: BlogPostLocale[] = [
   {
     slug: 'besten-solarinstallateur-schweiz-finden',
     title: 'How to Find the Best Solar Installer in Switzerland 2026 – The Complete Guide',
-    excerpt: 'How to find the best solar installer in your region in Switzerland? Why local specialists are better, the key criteria, and how PVPro.ch does the search for you.',
+    excerpt: 'How to find the best solar installer in your canton in Switzerland? Why local specialists are better, the key criteria, and how PVPro.ch does the search for you.',
     tag: 'Guide',
     image: '/images/installateur-solarmodul-dach-alpen.webp',
     author: 'PVPro Editorial',
@@ -441,7 +441,7 @@ const en: BlogPostLocale[] = [
   {
     slug: 'richtigen-solarinstallateur-schweiz-waehlen',
     title: 'Choosing the right solar installer in Switzerland: 7 key criteria',
-    excerpt: 'The choice of installer is crucial for quality and value. These 7 criteria help you find the best provider in your region.',
+    excerpt: 'The choice of installer is crucial for quality and value. These 7 criteria help you find the best provider in your canton.',
     tag: 'Guide',
     image: '/images/solarinstallateure-offerte-beratung.webp',
     author: 'PVPro Editorial',
@@ -518,7 +518,7 @@ const en: BlogPostLocale[] = [
   {
     slug: 'photovoltaik-schweizer-klima',
     title: 'Solar panels and the Swiss climate: yield in the Alps, Plateau and Ticino',
-    excerpt: 'How does the Swiss climate affect solar yield? From Zurich to Lugano — regional differences, seasonal production and why solar pays off everywhere in Switzerland.',
+    excerpt: 'How does the Swiss climate affect solar yield? From Zurich to Lugano — cantonal differences, seasonal production and why solar pays off everywhere in Switzerland.',
     tag: 'Guide',
     image: '/images/asset-haus-alpen-1.webp',
     author: 'PVPro Editorial',
@@ -631,7 +631,7 @@ const it: BlogPostLocale[] = [
   {
     slug: 'besten-solarinstallateur-schweiz-finden',
     title: 'Come trovare il miglior installatore solare in Svizzera nel 2026 – La guida completa',
-    excerpt: 'Come trovare il miglior installatore solare nella tua regione in Svizzera? Perché le aziende locali sono migliori, i criteri essenziali e come PVPro.ch si occupa della ricerca per voi.',
+    excerpt: 'Come trovare il miglior installatore solare nel tuo Cantone in Svizzera? Perché le aziende locali sono migliori, i criteri essenziali e come PVPro.ch si occupa della ricerca per voi.',
     tag: 'Guida',
     image: '/images/installateur-solarmodul-dach-alpen.webp',
     author: 'PVPro Redazione',
@@ -719,7 +719,7 @@ const it: BlogPostLocale[] = [
   {
     slug: 'richtigen-solarinstallateur-schweiz-waehlen',
     title: 'Scegliere il giusto installatore solare in Svizzera: 7 criteri fondamentali',
-    excerpt: 'La scelta dell\'installatore è decisiva per la qualità del tuo impianto. Questi 7 criteri ti aiutano a trovare il miglior fornitore nella tua regione.',
+    excerpt: 'La scelta dell\'installatore è decisiva per la qualità del tuo impianto. Questi 7 criteri ti aiutano a trovare il miglior fornitore nel tuo Cantone.',
     tag: 'Guida',
     image: '/images/solarinstallateure-offerte-beratung.webp',
     author: 'PVPro Redazione',
@@ -796,7 +796,7 @@ const it: BlogPostLocale[] = [
   {
     slug: 'photovoltaik-schweizer-klima',
     title: 'Fotovoltaico e clima svizzero: produzione nelle Alpi, nell\'Altopiano e nel Ticino',
-    excerpt: 'Come influisce il clima svizzero sulla resa solare? Da Zurigo a Lugano — differenze regionali, produzione stagionale e perché il fotovoltaico conviene ovunque in Svizzera.',
+    excerpt: 'Come influisce il clima svizzero sulla resa solare? Da Zurigo a Lugano — differenze cantonali, produzione stagionale e perché il fotovoltaico conviene ovunque in Svizzera.',
     tag: 'Guida',
     image: '/images/asset-haus-alpen-1.webp',
     author: 'PVPro Redazione',

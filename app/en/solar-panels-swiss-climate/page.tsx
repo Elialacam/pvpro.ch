@@ -58,7 +58,7 @@ const modules = [
   {
     title: 'Bifacial Modules',
     badge: 'Great in Snow',
-    text: 'Also generate electricity from the rear — particularly useful when snow reflects light onto the back of the panels. Interesting for snow-heavy regions.',
+    text: 'Also generate electricity from the rear — particularly useful when snow reflects light onto the back of the panels. Interesting for snow-heavy cantons.',
   },
   {
     title: 'Low Temperature Coefficient',
@@ -70,7 +70,7 @@ const modules = [
 const sunshine = [
   { region: 'Ticino (Lugano)', hours: 'approx. 2,157' },
   { region: 'Valais (Sion)', hours: 'approx. 2,000' },
-  { region: 'Lake Geneva region', hours: 'approx. 1,800' },
+  { region: 'Lake Geneva area', hours: 'approx. 1,800' },
   { region: 'Plateau (Zurich, Bern)', hours: 'approx. 1,500–1,600' },
   { region: 'Eastern Switzerland (St. Gallen)', hours: 'approx. 1,500' },
 ];
@@ -98,12 +98,12 @@ export default function SolarPanelsSwissClimatePage() {
               Which Solar Panels Are Suited for the Swiss Climate?
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Many homeowners in Switzerland wonder: is a solar system really worth it when the weather is often cloudy, cold or snowy? The answer surprises many: modern photovoltaic systems work reliably in snow, fog and low temperatures — and in some cases even better than in warmer regions.
+              Many homeowners in Switzerland wonder: is a solar system really worth it when the weather is often cloudy, cold or snowy? The answer surprises many: modern photovoltaic systems work reliably in snow, fog and low temperatures — and in some cases even better than in warmer cantons.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: '1,300–2,100', sub: 'Sunshine hours by canton', note: 'depending on altitude and region' },
+              { val: '1,300–2,100', sub: 'Sunshine hours by canton', note: 'depending on altitude and canton' },
               { val: '+5–10%', sub: 'Extra yield in cold weather', note: 'thanks to the temperature effect' },
               { val: '25–30 years', sub: 'Lifespan in the Swiss climate', note: 'with manufacturer warranty' },
             ].map(s => (
@@ -122,7 +122,7 @@ export default function SolarPanelsSwissClimatePage() {
         {/* ── Sunshine hours ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Solar yield by region</p>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Solar yield by canton</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
               How does the Swiss climate affect solar production?
             </h2>
@@ -140,7 +140,7 @@ export default function SolarPanelsSwissClimatePage() {
               <table className="w-full text-sm">
                 <thead>
                   <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
-                    <th className="text-left px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Region</th>
+                    <th className="text-left px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Kanton</th>
                     <th className="text-right px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Sunshine hours/year</th>
                   </tr>
                 </thead>

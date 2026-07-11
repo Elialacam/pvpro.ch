@@ -190,7 +190,7 @@ export default function SolarPanelInstallationProcessSwitzerlandPage() {
             <p className="text-gray-600 leading-relaxed">
               Ready to get started?{' '}
               <Link href="/en/get-solar-panel-quotes" className="text-[#F97316] hover:underline font-medium">Compare free quotes</Link>{' '}
-              from certified installers in your region.
+              from certified installers in your canton.
             </p>
           </div>
           <div>
@@ -277,7 +277,7 @@ export default function SolarPanelInstallationProcessSwitzerlandPage() {
             Find an installer now and get started
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Fill in our form in 2 minutes — we connect you with up to 3 certified installers in your region who handle the entire process for you.
+            Fill in our form in 2 minutes — we connect you with up to 3 certified installers in your canton who handle the entire process for you.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link

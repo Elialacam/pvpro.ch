@@ -27,7 +27,7 @@ const mapContent: Record<Locale, {
 }> = {
   de: {
     title: 'Ihre Photovoltaikanlage zum richtigen Preis',
-    description: 'Wir finden für Sie den zuverlässigsten Partner in Ihrer Region, indem wir reale Preise und zertifizierte Qualität vergleichen.',
+    description: 'Wir finden für Sie den zuverlässigsten Partner in Ihrem Kanton, indem wir reale Preise und zertifizierte Qualität vergleichen.',
     features: [
       'Durchschnittliche Preise basierend auf echten Angeboten',
       'Referenz: Standard-Anlage mit 10 kWp',
@@ -37,7 +37,7 @@ const mapContent: Record<Locale, {
   },
   fr: {
     title: 'Votre installation photovoltaïque au juste prix',
-    description: 'Nous trouvons pour vous le partenaire le plus fiable de votre région en comparant les prix réels et la qualité certifiée.',
+    description: 'Nous trouvons pour vous le partenaire le plus fiable de votre canton en comparant les prix réels et la qualité certifiée.',
     features: [
       'Prix moyens basés sur des offres réelles',
       'Référence : installation standard de 10 kWp',
@@ -47,7 +47,7 @@ const mapContent: Record<Locale, {
   },
   en: {
     title: 'Your photovoltaic system at the right price',
-    description: 'We find the most reliable partner in your region for you by comparing real prices and certified quality.',
+    description: 'We find the most reliable partner in your canton for you by comparing real prices and certified quality.',
     features: [
       'Average prices based on real quotes',
       'Reference: standard 10 kWp system',
@@ -57,7 +57,7 @@ const mapContent: Record<Locale, {
   },
   it: {
     title: 'Il tuo impianto fotovoltaico al prezzo giusto',
-    description: 'Troviamo per te il partner più affidabile nella tua regione confrontando i prezzi reali e la qualità certificata.',
+    description: 'Troviamo per te il partner più affidabile nel tuo Cantone confrontando i prezzi reali e la qualità certificata.',
     features: [
       'Prezzi medi basati su offerte reali',
       'Riferimento: impianto standard da 10 kWp',

@@ -62,7 +62,7 @@ const faqs = [
   },
   {
     question: 'Quel canton a le plus d\'heures d\'ensoleillement en Suisse ?',
-    answer: "Le Tessin et le Valais comptent parmi les cantons les plus ensoleillés de Suisse, avec plus de 2'000 heures de soleil par an. La Suisse alémanique se situe entre 1'600 et 1'900 heures. Même dans les régions moins ensoleillées, les installations solaires sont rentables — la différence de rendement entre le Tessin et Zurich n'est que de 15–20%.",
+    answer: "Le Tessin et le Valais comptent parmi les cantons les plus ensoleillés de Suisse, avec plus de 2'000 heures de soleil par an. La Suisse alémanique se situe entre 1'600 et 1'900 heures. Même dans les zones moins ensoleillées, les installations solaires sont rentables — la différence de rendement entre le Tessin et Zurich n'est que de 15–20%.",
   },
 ];
 
@@ -418,17 +418,17 @@ export default function CalculateurSolairePage() {
         </div>
       </section>
 
-      {/* ── Regional note ── */}
+      {/* ── Note cantonale ── */}
       <section className="py-14 bg-gray-50">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Différences régionales</p>
+              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Différences cantonales</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                Rendement solaire par région en Suisse
+                Rendement solaire par canton en Suisse
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                L'ensoleillement varie régionalement en Suisse. Le Tessin et le Valais comptent parmi les régions les plus ensoleillées avec plus de 2'000 heures de soleil par an et un rendement annuel allant jusqu'à 1'100 kWh/kWp.
+                L'ensoleillement varie cantonalement en Suisse. Le Tessin et le Valais comptent parmi les zones les plus ensoleillées avec plus de 2'000 heures de soleil par an et un rendement annuel allant jusqu'à 1'100 kWh/kWp.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 La Suisse alémanique et le Plateau se situent à 1'600–1'900 heures — d'excellentes conditions pour l'énergie solaire. La différence de rendement annuel entre Genève et Zurich est inférieure à 15%. Les installations solaires sont rentables dans toute la Suisse.
@@ -441,7 +441,7 @@ export default function CalculateurSolairePage() {
               {[
                 { region: 'Tessin (Lugano)', stunden: "2'080", ertrag: "1'080–1'100 kWh/kWp", bar: 100 },
                 { region: 'Valais (Sion)', stunden: "2'130", ertrag: "1'050–1'100 kWh/kWp", bar: 99 },
-                { region: 'Région lémanique', stunden: "1'870", ertrag: "970–1'000 kWh/kWp", bar: 87 },
+                { region: 'Arc lémanique', stunden: "1'870", ertrag: "970–1'000 kWh/kWp", bar: 87 },
                 { region: 'Berne / Plateau', stunden: "1'720", ertrag: "900–950 kWh/kWp", bar: 80 },
                 { region: 'Zurich', stunden: "1'700", ertrag: "880–920 kWh/kWp", bar: 78 },
                 { region: 'Bâle / Suisse du Nord', stunden: "1'660", ertrag: "860–900 kWh/kWp", bar: 76 },
@@ -550,7 +550,7 @@ export default function CalculateurSolairePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Calculator, title: 'Calcul instantané', desc: "Obtenez en quelques secondes une première estimation pour votre installation solaire — sans inscription." },
-              { icon: Zap, title: 'Calculer le rendement', desc: "Voyez combien d'électricité votre toit peut produire annuellement — selon votre région." },
+              { icon: Zap, title: 'Calculer le rendement', desc: "Voyez combien d'électricité votre toit peut produire annuellement — selon votre canton." },
               { icon: PiggyBank, title: 'Comprendre les coûts', desc: 'Estimation réaliste avec subvention RU basée sur les prix actuels du marché suisse.' },
               { icon: TrendingUp, title: "Planifier l'amortissement", desc: "Sachez quand votre investissement sera rentabilisé et combien vous économiserez sur 25 ans." },
             ].map(b => (

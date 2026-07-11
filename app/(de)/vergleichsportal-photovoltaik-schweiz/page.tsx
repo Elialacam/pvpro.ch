@@ -56,7 +56,7 @@ const faqs = [
 const reasons = [
   {
     title: 'Preistransparenz',
-    text: 'Sie sehen sofort, was eine Anlage in Ihrer Region wirklich kostet',
+    text: 'Sie sehen sofort, was eine Anlage in Ihrem Kanton wirklich kostet',
   },
   {
     title: 'Qualitätsvergleich',
@@ -70,7 +70,7 @@ const reasons = [
 
 const criteria = [
   { title: 'Zertifizierung', text: 'Achten Sie auf Betriebe mit anerkannten Qualifikationen (z.B. electrosuisse, Swissolar)' },
-  { title: 'Lokale Erfahrung', text: 'Ein Installateur aus Ihrer Region kennt die kantonalen Förderungen und Bewilligungsverfahren' },
+  { title: 'Lokale Erfahrung', text: 'Ein Installateur aus Ihrem Kanton kennt die kantonalen Förderungen und Bewilligungsverfahren' },
   { title: 'Referenzen', text: 'Fragen Sie nach abgeschlossenen Projekten in Ihrer Gemeinde' },
   { title: 'Garantien', text: 'Seriöse Anbieter bieten klare Garantien auf Module, Wechselrichter und Montage' },
   { title: 'Transparente Preise', text: 'Keine versteckten Kosten — alles schriftlich in der Offerte' },
@@ -79,7 +79,7 @@ const criteria = [
 const tableRows = [
   { label: 'Kosten für den Kunden', pvpro: 'Kostenlos', others: 'Oft versteckte Kosten' },
   { label: 'Installateure geprüft', pvpro: 'Ja, zertifiziert', others: 'Nicht immer' },
-  { label: 'Lokale Fachbetriebe', pvpro: 'Ja, aus Ihrer Region', others: 'Oft überregional' },
+  { label: 'Lokale Fachbetriebe', pvpro: 'Ja, aus Ihrem Kanton', others: 'Oft überkantonal' },
   { label: 'Keine Werbeanrufe', pvpro: 'Garantiert', others: 'Nicht garantiert' },
   { label: 'Schweizer Plattform', pvpro: 'Ja', others: 'Oft ausländisch' },
 ];
@@ -120,7 +120,7 @@ export default function VergleichsportalPage() {
             {[
               { val: 'Kostenlos & unverbindlich', sub: 'kein Risiko', note: 'für Hausbesitzer vollständig gratis' },
               { val: 'Bis zu 3 Offerten', sub: 'von zertifizierten Installateuren', note: 'massgeschneidert für Ihr Dach' },
-              { val: '500+ Partner', sub: 'in der ganzen Schweiz', note: 'geprüfte Fachbetriebe in Ihrer Region' },
+              { val: '500+ Partner', sub: 'in der ganzen Schweiz', note: 'geprüfte Fachbetriebe in Ihrem Kanton' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -182,7 +182,7 @@ export default function VergleichsportalPage() {
               Wie funktioniert PVPro.ch als Vergleichsportal?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              PVPro.ch ist kein gewöhnliches Verzeichnis. Wir prüfen jeden Installateur in unserem Netzwerk und vermitteln nur zertifizierte Fachbetriebe aus Ihrer Region.
+              PVPro.ch ist kein gewöhnliches Verzeichnis. Wir prüfen jeden Installateur in unserem Netzwerk und vermitteln nur zertifizierte Fachbetriebe aus Ihrem Kanton.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -305,7 +305,7 @@ export default function VergleichsportalPage() {
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Füllen Sie unser Formular in 2 Minuten aus und erhalten Sie bis zu 3 Offerten von{' '}
             <Link href="/anfrage" className="text-[#F97316] hover:underline font-medium">zertifizierten Installateuren</Link>{' '}
-            aus Ihrer Region — kostenlos und unverbindlich.
+            aus Ihrem Kanton — kostenlos und unverbindlich.
           </p>
           <Link
             href="/anfrage"
@@ -354,7 +354,7 @@ export default function VergleichsportalPage() {
                 Mehrfamilienhaus
               </Link>
               <Link href="/solaranlage-installieren-schweiz" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
-                Installateure in Ihrer Region
+                Installateure in Ihrem Kanton
               </Link>
               <Link href="/solaranlage-offerte-einholen" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Offerten einholen und vergleichen

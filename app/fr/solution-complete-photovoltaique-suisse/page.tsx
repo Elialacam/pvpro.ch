@@ -40,7 +40,7 @@ const faqs = [
     answer: "Il existe des subventions séparées pour chaque composant — la rétribution unique (RU) pour l'installation solaire, des contributions cantonales pour la pompe à chaleur et d'autres programmes selon le canton. Un installateur expérimenté connaît toutes les possibilités de financement pertinentes.",
   },
   {
-    question: "Comment trouver un prestataire de solutions complètes dans ma région ?",
+    question: "Comment trouver un prestataire de solutions complètes dans mon canton ?",
     answer: "PVPro.ch met gratuitement en relation avec des installateurs certifiés proposant des solutions complètes. Il suffit de remplir le formulaire et de recevoir jusqu'à 3 offres.",
   },
   {

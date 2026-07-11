@@ -336,7 +336,7 @@ export default function SolaireMaisonIndividuellePage() {
             Comparer les offres et optimiser les coûts
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Les prix des installations solaires varient considérablement selon les prestataires. Via PVPro, obtenez gratuitement jusqu'à 3 devis d'installateurs certifiés dans votre région.
+            Les prix des installations solaires varient considérablement selon les prestataires. Via PVPro, obtenez gratuitement jusqu'à 3 devis d'installateurs certifiés dans votre canton.
           </p>
           <Link
             href="/fr/demande"

@@ -24,7 +24,7 @@ export default function EnglishHomePage() {
     },
     {
       question: 'How does the PVPro referral service work?',
-      answer: 'You fill out our short form indicating your requirements. We forward your request to up to 3 certified installers in your region. They prepare personalized quotes for you. You compare the offers and choose the best one - completely without obligation.',
+      answer: 'You fill out our short form indicating your requirements. We forward your request to up to 3 certified installers in your canton. They prepare personalized quotes for you. You compare the offers and choose the best one - completely without obligation.',
     },
     {
       question: 'Are there subsidies for solar systems in Switzerland?',
@@ -36,7 +36,7 @@ export default function EnglishHomePage() {
     },
     {
       question: 'Is a solar system worthwhile even with little sunshine?',
-      answer: 'Yes! Even in less sunny regions of Switzerland, solar systems produce enough electricity to pay for themselves. Modern solar modules work efficiently even with diffuse light. The average payback period in Switzerland is 10-15 years, with a lifespan of 25-30 years.',
+      answer: 'Yes! Even in less sunny areas of Switzerland, solar systems produce enough electricity to pay for themselves. Modern solar modules work efficiently even with diffuse light. The average payback period in Switzerland is 10-15 years, with a lifespan of 25-30 years.',
     },
     {
       question: 'Is PVPro service really free?',

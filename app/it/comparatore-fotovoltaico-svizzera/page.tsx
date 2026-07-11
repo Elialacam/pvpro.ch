@@ -56,7 +56,7 @@ const faqs = [
 const reasons = [
   {
     title: 'Trasparenza dei prezzi',
-    text: 'Vedete subito quanto costa davvero un impianto nella vostra regione',
+    text: 'Vedete subito quanto costa davvero un impianto nel vostro Cantone',
   },
   {
     title: 'Confronto qualitativo',
@@ -70,7 +70,7 @@ const reasons = [
 
 const criteria = [
   { title: 'Certificazione', text: 'Verificate che l\'azienda abbia qualifiche riconosciute (es. electrosuisse, Swissolar)' },
-  { title: 'Esperienza locale', text: 'Un installatore della vostra regione conosce gli incentivi cantonali e le procedure di autorizzazione' },
+  { title: 'Esperienza locale', text: 'Un installatore del vostro Cantone conosce gli incentivi cantonali e le procedure di autorizzazione' },
   { title: 'Referenze', text: 'Chiedete progetti completati nel vostro comune' },
   { title: 'Garanzie', text: 'I fornitori seri offrono garanzie chiare su moduli, inverter e installazione' },
   { title: 'Prezzi trasparenti', text: 'Nessun costo nascosto — tutto scritto nell\'offerta' },
@@ -79,7 +79,7 @@ const criteria = [
 const tableRows = [
   { label: 'Costo per il cliente', pvpro: 'Gratuito', others: 'Spesso costi nascosti' },
   { label: 'Installatori verificati', pvpro: 'Sì, certificati', others: 'Non sempre' },
-  { label: 'Aziende locali', pvpro: 'Sì, della vostra regione', others: 'Spesso non locali' },
+  { label: 'Aziende locali', pvpro: 'Sì, del vostro Cantone', others: 'Spesso non locali' },
   { label: 'Nessuna chiamata pubblicitaria', pvpro: 'Garantito', others: 'Non garantito' },
   { label: 'Piattaforma svizzera', pvpro: 'Sì', others: 'Spesso straniera' },
 ];
@@ -116,7 +116,7 @@ export default function ComparatoreFotovoltaicoSvizzeraPage() {
             {[
               { val: 'Gratuito & senza impegno', sub: 'nessun rischio', note: 'completamente gratuito per i proprietari' },
               { val: 'Fino a 3 preventivi', sub: 'da installatori certificati', note: 'personalizzati per il vostro tetto' },
-              { val: '500+ partner', sub: 'in tutta la Svizzera', note: 'aziende certificate nella vostra regione' },
+              { val: '500+ partner', sub: 'in tutta la Svizzera', note: 'aziende certificate nel vostro Cantone' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -175,7 +175,7 @@ export default function ComparatoreFotovoltaicoSvizzeraPage() {
               Come funziona PVPro.ch come comparatore?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              PVPro.ch non è un semplice elenco. Verifichiamo ogni installatore della nostra rete e mettiamo in contatto solo aziende certificate della vostra regione.
+              PVPro.ch non è un semplice elenco. Verifichiamo ogni installatore della nostra rete e mettiamo in contatto solo aziende certificate del vostro Cantone.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -278,7 +278,7 @@ export default function ComparatoreFotovoltaicoSvizzeraPage() {
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Compilate il nostro modulo in 2 minuti e ricevete fino a 3 preventivi da{' '}
             <Link href="/it/preventivo" className="text-[#F97316] hover:underline font-medium">installatori certificati</Link>{' '}
-            della vostra regione — gratuitamente e senza impegno.
+            del vostro Cantone — gratuitamente e senza impegno.
           </p>
           <Link
             href="/it/preventivo"
@@ -327,7 +327,7 @@ export default function ComparatoreFotovoltaicoSvizzeraPage() {
                 Condominio
               </Link>
               <Link href="/it/installare-impianto-solare-svizzera" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
-                Installatori nella vostra regione
+                Installatori nel vostro Cantone
               </Link>
               <Link href="/it/richiedere-preventivo-solare" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Richiedere e confrontare preventivi

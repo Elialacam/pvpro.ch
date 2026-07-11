@@ -250,7 +250,7 @@ export default function SolaireAvecBatteriePage() {
                 Une installation de 10 kWp typique produit en Suisse environ <strong>9'000 – 11'000 kWh par an</strong> — soit environ <strong>25–40 kWh</strong> par jour.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                La quantité exacte dépend de l'orientation du toit, de l'angle d'inclinaison et de l'ensoleillement régional.
+                La quantité exacte dépend de l'orientation du toit, de l'angle d'inclinaison et de l'ensoleillement cantonal.
               </p>
 
               <p className="font-bold text-gray-900 mb-4">Un stockage est particulièrement utile si…</p>

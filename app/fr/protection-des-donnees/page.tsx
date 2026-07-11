@@ -135,7 +135,7 @@ export default function ProtectionDonneesPage() {
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">5. Transmission des données</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             Dans le cadre de notre service de courtage, nous transmettons vos coordonnées à un maximum de 3 installateurs
-            solaires certifiés dans votre région, afin qu'ils puissent vous établir des offres personnalisées. La
+            solaires certifiés dans votre canton, afin qu'ils puissent vous établir des offres personnalisées. La
             transmission n'a lieu que sur la base de votre demande.
           </p>
 

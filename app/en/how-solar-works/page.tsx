@@ -148,7 +148,7 @@ export default function HowSolarWorksPage() {
             Ready for your own solar installation?
           </h2>
           <p className="text-white/60 text-lg mb-8 max-w-2xl mx-auto">
-            Compare free quotes from vetted installers in your region now — no obligation, done in minutes.
+            Compare free quotes from vetted installers in your canton now — no obligation, done in minutes.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link

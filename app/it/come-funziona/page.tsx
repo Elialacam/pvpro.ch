@@ -36,11 +36,11 @@ const steps = [
     Icon: Search,
     title: 'Troviamo gli installatori certificati',
     subtitle: 'Entro 24–48 ore',
-    description: 'Appena riceviamo la tua richiesta, la inoltriamo a fino a 3 installatori solari certificati nella tua regione. Ogni partner della nostra rete è stato verificato in anticipo: certificazioni, referenze e qualità.',
+    description: 'Appena riceviamo la tua richiesta, la inoltriamo a fino a 3 installatori solari certificati nel tuo Cantone. Ogni partner della nostra rete è stato verificato in anticipo: certificazioni, referenze e qualità.',
     details: [
       'Fino a 3 preventivi indipendenti',
       'Solo professionisti certificati',
-      'Installatori della tua regione',
+      'Installatori del tuo Cantone',
       'Offerte personalizzate per il tuo tetto',
     ],
   },
@@ -158,7 +158,7 @@ export default function ComeFunzionaPage() {
               { q: 'Il servizio è davvero gratuito?', a: "Sì, al 100%. Ci finanziamo con commissioni degli installatori — senza costi aggiuntivi per te." },
               { q: "Sono obbligato ad accettare un'offerta?", a: 'No. Puoi rifiutare tutti i preventivi senza alcuna conseguenza.' },
               { q: 'Quanto tempo per ricevere i preventivi?', a: 'Di solito entro 24–48 ore dalla tua richiesta.' },
-              { q: 'In quali regioni opera PVPro?', a: 'Siamo attivi in tutta la Svizzera, in tutti i 26 cantoni.' },
+              { q: 'In quali zone opera PVPro?', a: 'Siamo attivi in tutta la Svizzera, in tutti i 26 cantoni.' },
             ].map((faq) => (
               <div key={faq.q}>
                 <p className="font-bold text-gray-900 mb-1 text-sm">{faq.q}</p>

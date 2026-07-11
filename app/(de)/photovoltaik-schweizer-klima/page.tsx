@@ -58,7 +58,7 @@ const modules = [
   {
     title: 'Bifaziale Module',
     badge: 'Ideal bei Schnee',
-    text: 'Produzieren auch von der Rückseite Strom — besonders nützlich bei Schnee, der das Licht reflektiert. Interessant für Regionen mit viel Schnee.',
+    text: 'Produzieren auch von der Rückseite Strom — besonders nützlich bei Schnee, der das Licht reflektiert. Interessant für Gebiete mit viel Schnee.',
   },
   {
     title: 'Niedriger Temperaturkoeffizient',
@@ -70,7 +70,7 @@ const modules = [
 const sonnenstunden = [
   { region: 'Tessin (Lugano)', stunden: "ca. 2'157" },
   { region: 'Wallis (Sitten)', stunden: "ca. 2'000" },
-  { region: 'Genferseeregion', stunden: "ca. 1'800" },
+  { region: 'Genferseegebiet', stunden: "ca. 1'800" },
   { region: 'Mittelland (Zürich, Bern)', stunden: "ca. 1'500–1'600" },
   { region: 'Ostschweiz (St. Gallen)', stunden: "ca. 1'500" },
 ];
@@ -98,12 +98,12 @@ export default function PhotovoltaikSchweizKlimaPage() {
               Welche Photovoltaik Anlagen eignen sich für das Schweizer Klima?
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Viele Hausbesitzer in der Schweiz fragen sich: Lohnt sich eine Solaranlage wirklich, wenn es oft bewölkt, kalt oder schneebedeckt ist? Die Antwort überrascht viele: Moderne Photovoltaikanlagen funktionieren auch bei Schnee, Nebel und tiefen Temperaturen zuverlässig — und in manchen Fällen sogar besser als in wärmeren Regionen.
+              Viele Hausbesitzer in der Schweiz fragen sich: Lohnt sich eine Solaranlage wirklich, wenn es oft bewölkt, kalt oder schneebedeckt ist? Die Antwort überrascht viele: Moderne Photovoltaikanlagen funktionieren auch bei Schnee, Nebel und tiefen Temperaturen zuverlässig — und in manchen Fällen sogar besser als in wärmeren Kantonen.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: "1'300–2'100", sub: 'Sonnenstunden je nach Kanton', note: 'je nach Höhenlage und Region' },
+              { val: "1'300–2'100", sub: 'Sonnenstunden je nach Kanton', note: 'je nach Höhenlage und Kanton' },
               { val: '+5–10%', sub: 'Mehrertrag bei Kälte', note: 'dank physikalischem Temperatureffekt' },
               { val: '25–30 Jahre', sub: 'Lebensdauer auch im Schweizer Klima', note: 'mit Herstellergarantie' },
             ].map(s => (
@@ -122,7 +122,7 @@ export default function PhotovoltaikSchweizKlimaPage() {
         {/* ── Sonnenstunden ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Solarertrag nach Region</p>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Solarertrag nach Kanton</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
               Wie beeinflusst das Schweizer Klima die Solarproduktion?
             </h2>
@@ -142,7 +142,7 @@ export default function PhotovoltaikSchweizKlimaPage() {
               <table className="w-full text-sm">
                 <thead>
                   <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
-                    <th className="text-left px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Region</th>
+                    <th className="text-left px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Kanton</th>
                     <th className="text-right px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Sonnenstunden/Jahr</th>
                   </tr>
                 </thead>

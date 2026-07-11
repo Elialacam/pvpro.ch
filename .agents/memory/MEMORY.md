@@ -2,3 +2,4 @@
 - [Floating contact widget](floating-widget.md) — bottom-right widget flips between CallbackWidget (callback form) and WhatsAppFloating; mount in app/layout.tsx; watch shared "wa-*" CSS used by LiveBar.
 - [Lead submission flow](lead-flow.md) — slead.ch == LeadSync; all forms route via /api/anfrage; Web3Forms removed, never reintroduce.
 - [Blog image focal points](blog-image-focus.md) — object-position per image auto-computed via sharp attention; regen with `npm run generate:image-focus` when blog images change.
+- [Wording ban: "region"](wording-region-ban.md) — the word regione/région/Region/region must NEVER appear in user-facing site text; use Cantone/canton/Kanton or neutral zone/Gebiet/area.

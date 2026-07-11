@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     question: 'Lohnen sich bifaziale Module für ein normales Einfamilienhaus?',
-    answer: 'Auf einem normalen Steildach ist der Mehrertrag durch die Rückseite gering. Bifaziale Module lohnen sich vor allem auf Flachdächern oder in Schneeregionen.',
+    answer: 'Auf einem normalen Steildach ist der Mehrertrag durch die Rückseite gering. Bifaziale Module lohnen sich vor allem auf Flachdächern oder in schneereichen Gebieten.',
   },
   {
     question: 'Welche Module halten am längsten?',
@@ -57,13 +57,13 @@ const vergleichTabelle = [
   { typ: 'Monokristallin', wirkungsgrad: '18–22%', kosten: 'Mittel–Hoch', ideal: 'Kleine Dachflächen, hohe Effizienz', color: 'bg-orange-50 border-orange-200' },
   { typ: 'Polykristallin', wirkungsgrad: '15–17%', kosten: 'Günstig', ideal: 'Grosse Dachflächen, Budget-Option', color: 'bg-blue-50 border-blue-200' },
   { typ: 'Dünnschicht', wirkungsgrad: '10–13%', kosten: 'Günstig', ideal: 'Flachdächer, spezielle Anwendungen', color: 'bg-gray-50 border-gray-200' },
-  { typ: 'Bifazial', wirkungsgrad: '20–24%', kosten: 'Hoch', ideal: 'Schneeregionen, Flachdächer', color: 'bg-green-50 border-green-200' },
+  { typ: 'Bifazial', wirkungsgrad: '20–24%', kosten: 'Hoch', ideal: 'Schneereiche Gebiete, Flachdächer', color: 'bg-green-50 border-green-200' },
 ];
 
 const situationsTabelle = [
   { situation: 'Kleines Dach, maximale Leistung', empfehlung: 'Monokristallin' },
   { situation: 'Grosses Dach, kleines Budget', empfehlung: 'Polykristallin' },
-  { situation: 'Flachdach, Schneeregion', empfehlung: 'Bifazial' },
+  { situation: 'Flachdach, viel Schnee', empfehlung: 'Bifazial' },
   { situation: 'Fassade oder unkonventionelles Dach', empfehlung: 'Dünnschicht' },
   { situation: 'Standard Einfamilienhaus Schweiz', empfehlung: 'Monokristallin', highlight: true },
 ];
@@ -146,7 +146,7 @@ const modulTypen: ModulTyp[] = [
       'Mehrertrag hängt stark von der Aufstellung ab',
       'Nicht immer sinnvoll auf normalen Steildächern',
     ],
-    fazit: 'Interessant für Regionen mit viel Schnee und für Flachdächer. Für normale Steildächer in der Schweiz meist kein signifikanter Vorteil.',
+    fazit: 'Interessant für Gebiete mit viel Schnee und für Flachdächer. Für normale Steildächer in der Schweiz meist kein signifikanter Vorteil.',
   },
 ];
 
@@ -331,7 +331,7 @@ export default function SolaranlagenTypenVergleichPage() {
             Welcher Typ passt zu Ihrem Dach?
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Ein zertifizierter Installateur aus Ihrer Region analysiert Ihr Dach und empfiehlt den optimalen Modultyp für Ihre Situation — kostenlos und unverbindlich.
+            Ein zertifizierter Installateur aus Ihrem Kanton analysiert Ihr Dach und empfiehlt den optimalen Modultyp für Ihre Situation — kostenlos und unverbindlich.
           </p>
           <Link
             href="/anfrage"

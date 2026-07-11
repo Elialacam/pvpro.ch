@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: 'Do I need to clean my solar panels regularly?',
-    answer: 'In Switzerland, rain is sufficient in most cases. In areas with heavy bird activity or in dusty regions, manual cleaning once a year is recommended.',
+    answer: 'In Switzerland, rain is sufficient in most cases. In areas with heavy bird activity or in dusty cantons, manual cleaning once a year is recommended.',
   },
   {
     question: 'How much does a maintenance contract for a solar system cost?',
@@ -55,7 +55,7 @@ const faqs = [
 
 const services = [
   { title: 'Visual inspection of modules', text: 'Once a year, the modules should be checked for dirt, cracks, discolouration or damage. Bird droppings, leaves and moss can noticeably reduce production.' },
-  { title: 'Module cleaning', text: 'In Switzerland, rain is usually sufficient to keep the modules clean. In dusty regions or with heavy bird activity, manual cleaning may be useful.' },
+  { title: 'Module cleaning', text: 'In Switzerland, rain is usually sufficient to keep the modules clean. In dusty cantons or with heavy bird activity, manual cleaning may be useful.' },
   { title: 'Inverter inspection', text: 'The inverter is the heart of the system. It should be checked annually for errors, overheating and correct functioning.' },
   { title: 'Electrical connection checks', text: 'Cable connections, connectors and terminals can loosen over time. Regular checks prevent failures and fire risks.' },
   { title: 'Production monitoring', text: 'Modern systems have digital monitoring. Anyone who regularly monitors production data will immediately detect deviations.' },

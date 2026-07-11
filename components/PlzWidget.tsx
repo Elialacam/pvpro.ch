@@ -14,7 +14,7 @@ function getLocale(pathname: string) {
 
 const content = {
   de: {
-    heading: 'Solarofferten in Ihrer Region',
+    heading: 'Solarofferten in Ihrem Kanton',
     sub: 'Kostenlos · Unverbindlich · In 2 Minuten',
     body: 'Geben Sie Ihre Postleitzahl ein und erhalten Sie bis zu 3 geprüfte Offerten von lokalen Installateuren.',
     placeholder: 'z.B. 8001',
@@ -22,7 +22,7 @@ const content = {
     badges: ['Keine Werbeanrufe', 'Geprüfte Installateure', '100% kostenlos'],
   },
   fr: {
-    heading: 'Devis solaires dans votre région',
+    heading: 'Devis solaires dans votre canton',
     sub: 'Gratuit · Sans engagement · En 2 minutes',
     body: 'Entrez votre code postal et recevez jusqu\'à 3 devis certifiés d\'installateurs locaux.',
     placeholder: 'ex. 1201',
@@ -30,7 +30,7 @@ const content = {
     badges: ["Pas d'appels commerciaux", 'Installateurs certifiés', '100% gratuit'],
   },
   en: {
-    heading: 'Solar quotes in your region',
+    heading: 'Solar quotes in your canton',
     sub: 'Free · No obligation · 2 minutes',
     body: 'Enter your postal code and receive up to 3 certified quotes from local installers.',
     placeholder: 'e.g. 8001',

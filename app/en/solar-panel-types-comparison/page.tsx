@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     question: 'Are bifacial panels worth it for a normal single-family home?',
-    answer: 'On a normal pitched roof, the additional production from the rear side is small. Bifacial panels are most worthwhile on flat roofs or in snow regions.',
+    answer: 'On a normal pitched roof, the additional production from the rear side is small. Bifacial panels are most worthwhile on flat roofs or in snow cantons.',
   },
   {
     question: 'Which panels last the longest?',
@@ -57,13 +57,13 @@ const table = [
   { type: 'Monocrystalline', efficiency: '18–22%', costs: 'Medium–High', ideal: 'Small roofs, high efficiency' },
   { type: 'Polycrystalline', efficiency: '15–17%', costs: 'Low', ideal: 'Large roofs, budget option' },
   { type: 'Thin-film', efficiency: '10–13%', costs: 'Low', ideal: 'Flat roofs, special applications' },
-  { type: 'Bifacial', efficiency: '20–24%', costs: 'High', ideal: 'Snow regions, flat roofs' },
+  { type: 'Bifacial', efficiency: '20–24%', costs: 'High', ideal: 'Snow cantons, flat roofs' },
 ];
 
 const situationsTable = [
   { situation: 'Small roof, maximum output', recommendation: 'Monocrystalline' },
   { situation: 'Large roof, small budget', recommendation: 'Polycrystalline' },
-  { situation: 'Flat roof, snow region', recommendation: 'Bifacial' },
+  { situation: 'Flat roof, snow canton', recommendation: 'Bifacial' },
   { situation: 'Façade or unconventional roof', recommendation: 'Thin-film' },
   { situation: 'Standard single-family home Switzerland', recommendation: 'Monocrystalline', highlight: true },
 ];
@@ -146,7 +146,7 @@ const panelTypes: PanelType[] = [
       'Additional yield depends strongly on installation',
       'Not always beneficial on normal pitched roofs',
     ],
-    verdict: 'Interesting for snow regions and flat roofs. For normal pitched roofs in Switzerland, usually no significant advantage.',
+    verdict: 'Interesting for snow cantons and flat roofs. For normal pitched roofs in Switzerland, usually no significant advantage.',
   },
 ];
 
@@ -324,7 +324,7 @@ export default function SolarPanelTypesComparisonPage() {
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Which type suits your roof?</h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            A certified installer from your region will analyse your roof and recommend the optimal panel type for your situation — free of charge and without obligation.
+            A certified installer from your canton will analyse your roof and recommend the optimal panel type for your situation — free of charge and without obligation.
           </p>
           <Link href="/en/get-solar-panel-quotes" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
             style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>

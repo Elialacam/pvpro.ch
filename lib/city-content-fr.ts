@@ -125,7 +125,7 @@ export const cityContentsFR: Record<string, CityContent> = {
       },
       {
         question: 'Une installation solaire est-elle rentable au bord du lac?',
-        answer: 'Absolument! Les régions au bord du Lac Léman bénéficient d\'un climat particulièrement favorable avec un ensoleillement généreux. Le reflet de l\'eau peut même augmenter les rendements. Genève offre l\'une des meilleures rentabilités solaires de Suisse romande.'
+        answer: 'Absolument! Les zones au bord du Lac Léman bénéficient d\'un climat particulièrement favorable avec un ensoleillement généreux. Le reflet de l\'eau peut même augmenter les rendements. Genève offre l\'une des meilleures rentabilités solaires de Suisse romande.'
       },
       {
         question: 'Quelle est la durée d\'installation d\'une installation solaire?',

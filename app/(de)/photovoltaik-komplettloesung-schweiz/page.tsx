@@ -40,7 +40,7 @@ const faqs = [
     answer: 'Für jede Komponente gibt es separate Förderungen — EIV für die Solaranlage, kantonale Beiträge für die Wärmepumpe, und weitere Programme je nach Kanton. Ein erfahrener Installateur kennt alle relevanten Fördermöglichkeiten.',
   },
   {
-    question: 'Wie finde ich einen Anbieter für Komplettlösungen in meiner Region?',
+    question: 'Wie finde ich einen Anbieter für Komplettlösungen in meinem Kanton?',
     answer: 'PVPro.ch vermittelt kostenlos zertifizierte Installateure, die Komplettlösungen anbieten. Einfach Formular ausfüllen und bis zu 3 Offerten erhalten.',
   },
   {

@@ -148,7 +148,7 @@ export default function ComeFunzionaSolarePage() {
             Pronti per il vostro impianto solare?
           </h2>
           <p className="text-white/60 text-lg mb-8 max-w-2xl mx-auto">
-            Confrontate ora gratuitamente i preventivi di installatori certificati nella vostra regione — senza impegno e in pochi minuti.
+            Confrontate ora gratuitamente i preventivi di installatori certificati nel vostro Cantone — senza impegno e in pochi minuti.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link

@@ -152,9 +152,9 @@ export default function WieFunktioniertPage() {
             Bereit für Ihre eigene Solaranlage?
           </h2>
           <p className="text-white/60 text-lg mb-8 max-w-2xl mx-auto">
-            Vergleichen Sie jetzt kostenlos Offerten von geprüften Installateuren in Ihrer Region — unverbindlich und in wenigen Minuten. Nutzen Sie unser{' '}
+            Vergleichen Sie jetzt kostenlos Offerten von geprüften Installateuren in Ihrem Kanton — unverbindlich und in wenigen Minuten. Nutzen Sie unser{' '}
             <a href="/vergleichsportal-photovoltaik-schweiz" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">Vergleichsportal</a>, um{' '}
-            <a href="/vergleichsportal-photovoltaik-schweiz" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">Anbieter in Ihrer Region vergleichen</a>.
+            <a href="/vergleichsportal-photovoltaik-schweiz" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">Anbieter in Ihrem Kanton vergleichen</a>.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link

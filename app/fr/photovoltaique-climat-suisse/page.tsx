@@ -58,19 +58,19 @@ const modules = [
   {
     title: 'Modules bifaciaux',
     badge: 'Idéaux sous la neige',
-    text: "Produisent également de l'électricité par l'arrière — particulièrement utile lorsque la neige réfléchit la lumière. Intéressants pour les régions enneigées.",
+    text: "Produisent également de l'électricité par l'arrière — particulièrement utile lorsque la neige réfléchit la lumière. Intéressants pour les zones enneigées.",
   },
   {
     title: 'Faible coefficient de température',
-    badge: 'Régions d\'altitude',
-    text: "Plus le coefficient de température est faible, meilleures sont les performances par temps froid. Particulièrement pertinent pour les régions d'altitude.",
+    badge: 'Cantons d\'altitude',
+    text: "Plus le coefficient de température est faible, meilleures sont les performances par temps froid. Particulièrement pertinent pour les zones d'altitude.",
   },
 ];
 
 const ensoleillement = [
   { region: 'Tessin (Lugano)', heures: "env. 2'157" },
   { region: 'Valais (Sion)', heures: "env. 2'000" },
-  { region: 'Région du Léman', heures: "env. 1'800" },
+  { region: 'Arc lémanique', heures: "env. 1'800" },
   { region: 'Plateau (Zurich, Berne)', heures: "env. 1'500–1'600" },
   { region: 'Suisse orientale (St-Gall)', heures: "env. 1'500" },
 ];
@@ -98,12 +98,12 @@ export default function PhotovoltaiquClimatSuissePage() {
               Quels panneaux photovoltaïques conviennent au climat suisse ?
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              De nombreux propriétaires en Suisse se demandent : une installation solaire est-elle vraiment rentable quand il fait souvent nuageux, froid ou enneigé ? La réponse surprend : les panneaux photovoltaïques modernes fonctionnent même sous la neige, le brouillard et par grand froid — et sont parfois plus efficaces que dans des régions plus chaudes.
+              De nombreux propriétaires en Suisse se demandent : une installation solaire est-elle vraiment rentable quand il fait souvent nuageux, froid ou enneigé ? La réponse surprend : les panneaux photovoltaïques modernes fonctionnent même sous la neige, le brouillard et par grand froid — et sont parfois plus efficaces que dans des zones plus chaudes.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: "1'300–2'100", sub: "Heures de soleil selon le canton", note: "selon l'altitude et la région" },
+              { val: "1'300–2'100", sub: "Heures de soleil selon le canton", note: "selon l'altitude et le canton" },
               { val: '+5–10%', sub: 'Rendement supplémentaire par froid', note: "grâce à l'effet de température" },
               { val: '25–30 ans', sub: 'Durée de vie en climat suisse', note: 'avec garantie fabricant' },
             ].map(s => (
@@ -122,7 +122,7 @@ export default function PhotovoltaiquClimatSuissePage() {
         {/* ── Ensoleillement ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Production par région</p>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Production par canton</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
               Comment le climat suisse influence-t-il la production solaire ?
             </h2>
@@ -140,7 +140,7 @@ export default function PhotovoltaiquClimatSuissePage() {
               <table className="w-full text-sm">
                 <thead>
                   <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
-                    <th className="text-left px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Région</th>
+                    <th className="text-left px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Canton</th>
                     <th className="text-right px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Heures/an</th>
                   </tr>
                 </thead>

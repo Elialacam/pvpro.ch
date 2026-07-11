@@ -50,7 +50,7 @@ const faqs = [
 ];
 
 const steps = [
-  { n: '1', title: 'Commission an installer', text: 'A certified installer from your region checks your system and clarifies all subsidy options.' },
+  { n: '1', title: 'Commission an installer', text: 'A certified installer from your canton checks your system and clarifies all subsidy options.' },
   { n: '2', title: 'Install the system', text: '', link: true },
   { n: '3', title: 'Apply for cantonal grant', text: 'For cantonal grants a separate application is submitted to the cantonal Office for Waste, Water, Energy and Air (AWEL).' },
   { n: '4', title: 'Payout', text: 'The OUR is typically paid out a few months after registration. Cantonal grants follow depending on the programme.' },

@@ -53,7 +53,7 @@ const steps = [
   {
     n: '1',
     title: 'Installateur beauftragen',
-    text: 'Ein zertifizierter Installateur aus Ihrer Region prüft Ihre Anlage und klärt alle Fördermöglichkeiten ab.',
+    text: 'Ein zertifizierter Installateur aus Ihrem Kanton prüft Ihre Anlage und klärt alle Fördermöglichkeiten ab.',
   },
   {
     n: '2',

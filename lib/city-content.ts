@@ -168,7 +168,7 @@ export const cityContents: Record<string, CityContent> = {
       { question: 'Welche kantonalen Förderungen gibt es in Bern 2026?', answer: 'Neben der bundesweiten Einmalvergütung (EIV) bietet das Kantonale Gebäudeprogramm Bern bis zu CHF 1\'500 Zusatzbeitrag. Batteriespeicher können separat mit bis zu CHF 800 gefördert werden.' },
       { question: 'Lohnt sich Solar in Bern auch im Winter?', answer: 'Ja. Mit 1\'694 Sonnenstunden und modernen bifazialen Modulen produzieren Berner Anlagen auch im Winter sinnvoll Strom. Besonders Anlagen auf steilen Süddächern profitieren vom Winterstrombonus.' },
       { question: 'Gilt im Kanton Bern eine Solarpflicht?', answer: 'Bern plant eine Solarpflicht für Neubauten ab 2026. Für bestehende Gebäude gibt es noch keine Pflicht, aber bei Dachsanierungen wird der Einbau von Solarmodulen mit Fördermitteln attraktiv incentiviert.' },
-      { question: 'Wie finde ich einen seriösen Solarinstallateur in Bern?', answer: 'PVPro arbeitet ausschliesslich mit geprüften Fachbetrieben zusammen, die Qualitätsnachweise und lokale Referenzen haben. Über unser Vergleichssystem erhalten Sie bis zu 3 Offerten aus der Region.' },
+      { question: 'Wie finde ich einen seriösen Solarinstallateur in Bern?', answer: 'PVPro arbeitet ausschliesslich mit geprüften Fachbetrieben zusammen, die Qualitätsnachweise und lokale Referenzen haben. Über unser Vergleichssystem erhalten Sie bis zu 3 Offerten aus dem Kanton.' },
       { question: 'Was kostet eine Solaranlage in Bern wirklich?', answer: 'Eine typische 5-kWp-Anlage kostet in Bern zwischen CHF 10\'000 und CHF 13\'000. Nach EIV und kantonalem Beitrag reduziert sich die Nettobelastung auf CHF 7\'000–9\'500 – mit Steuerabzug noch weniger.' },
     ],
     testimonial: {
@@ -251,11 +251,11 @@ export const cityContents: Record<string, CityContent> = {
     whySolarReasons: [
       {
         title: 'Vierwaldstättersee-Mikroklima',
-        description: 'Der Vierwaldstättersee erzeugt ein milderes Mikroklima in der Region Luzern. Geringere Nebelbildung und mehr direkte Sonneneinstrahlung als in manchen Nachbarkantonen steigern die Jahresproduktion.',
+        description: 'Der Vierwaldstättersee erzeugt ein milderes Mikroklima im Kanton Luzern. Geringere Nebelbildung und mehr direkte Sonneneinstrahlung als in manchen Nachbarkantonen steigern die Jahresproduktion.',
       },
       {
         title: 'Tourismus-Image als Treiber',
-        description: 'Luzern ist eine der meistbesuchten Städte der Schweiz. Nachhaltigkeit und Solarenergie stärken das Image – Hauseigentümer in Tourismusregionen profitieren auch von wertvermehrenden Wirkungen.',
+        description: 'Luzern ist eine der meistbesuchten Städte der Schweiz. Nachhaltigkeit und Solarenergie stärken das Image – Hauseigentümer in TourismusCantonen profitieren auch von wertvermehrenden Wirkungen.',
       },
       {
         title: 'Kantonales Förderprogramm LU',
@@ -286,7 +286,7 @@ export const cityContents: Record<string, CityContent> = {
       { name: 'H. Furrer', location: 'Littau', systemSize: '8 kWp', cost: 'CHF 14\'000', savings: 'CHF 2\'400/J', payback: '9 J', quote: 'Luzerner Installateure kennen unsere Dächer. PVPro hat mir in einer Woche drei Offerten vom Fachmann gebracht.' },
     ],
     faqs: [
-      { question: 'Wie viel Sonne scheint in Luzern wirklich?', answer: 'Luzern verzeichnet im Jahresmittel 1\'598 Sonnenstunden. Das liegt im soliden Mittelfeld der Schweiz. Eine typische 5-kWp-Anlage produziert in der Region Luzern rund 4\'800–5\'200 kWh pro Jahr.' },
+      { question: 'Wie viel Sonne scheint in Luzern wirklich?', answer: 'Luzern verzeichnet im Jahresmittel 1\'598 Sonnenstunden. Das liegt im soliden Mittelfeld der Schweiz. Eine typische 5-kWp-Anlage produziert im Kanton Luzern rund 4\'800–5\'200 kWh pro Jahr.' },
       { question: 'Welche Förderungen gelten im Kanton Luzern?', answer: 'Hauseigentümer in Luzern erhalten die bundesweite Einmalvergütung (EIV) via Pronovo sowie einen kantonalen Zusatzbeitrag aus dem Gebäudeprogramm. Ergänzend ist die Anlage als Liegenschaftsunterhalt absetzbar.' },
       { question: 'Gibt es Spezialanforderungen für Solarprojekte in Alpengemeinden?', answer: 'Ja. In einigen Voralpengemeinden im Kanton Luzern gelten spezifische Auflagen zum Schutz des Landschaftsbildes. Unsere Partnerinstallateure kennen diese Vorschriften genau und planen Ihr Projekt entsprechend.' },
       { question: 'Wie sinnvoll ist ein Batteriespeicher in Luzern?', answer: 'Mit einem Heimspeicher erhöhen Sie Ihren Eigenverbrauch von typisch 30% auf bis zu 70%. In Luzern mit mittelhohen Strompreisen rechnet sich ein Speicher in ca. 10–12 Jahren.' },
@@ -315,7 +315,7 @@ export const cityContents: Record<string, CityContent> = {
       },
       {
         title: 'Bodensee-Klimavorteil',
-        description: 'Die Nähe zum Bodensee sorgt für ein mildes Klima mit weniger Frost und mehr Sonnentagen als in vielen Mittellandregionen. Solaranlagen profitieren von reduzierten Leistungseinbussen im Winter.',
+        description: 'Die Nähe zum Bodensee sorgt für ein mildes Klima mit weniger Frost und mehr Sonnentagen als in vielen MittellandCantonen. Solaranlagen profitieren von reduzierten Leistungseinbussen im Winter.',
       },
       {
         title: 'Günstigere Installationskosten',
@@ -375,7 +375,7 @@ export const cityContents: Record<string, CityContent> = {
       },
       {
         title: 'Universität St. Gallen – Nachhaltigkeitspionier',
-        description: 'Die HSG und ihre Unternehmensnetzwerke treiben die Nachhaltigkeitsagenda voran. Solarprojekte in der Region profitieren von gutem Know-how und wachsender regionaler Lieferkette.',
+        description: 'Die HSG und ihre Unternehmensnetzwerke treiben die Nachhaltigkeitsagenda voran. Solarprojekte im Kanton profitieren von gutem Know-how und wachsender kantonaler Lieferkette.',
       },
       {
         title: 'Appenzellerland und Rheintal: zwei Klimazonen',
@@ -395,7 +395,7 @@ export const cityContents: Record<string, CityContent> = {
     },
     incentives: {
       title: 'Förderung Kanton St. Gallen 2026',
-      description: 'Bund und regionale Programme',
+      description: 'Bund und kantonale Programme',
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: 'bis CHF 3\'400', description: 'Einmalvergütung 5 kWp' },
         { name: 'SG Förderprogramm', amount: 'bis CHF 900', description: 'Kantonaler Investitionsbeitrag' },
@@ -498,7 +498,7 @@ export const cityContents: Record<string, CityContent> = {
         description: 'In höheren Lagen des Kantons Uri ist die Sonneneinstrahlung 5–10% höher als im Mittelland, weil weniger atmosphärische Absorption stattfindet. Das erhöht den Jahresertrag der Anlage.',
       },
       {
-        title: 'Gotthard-Energie: Regional denken',
+        title: 'Gotthard-Energie: Kantonal denken',
         description: 'Uri hat eine starke Tradition im Umgang mit Energie (Strom aus Gotthard-Wasserkraft). Photovoltaik ergänzt dies ideal – überschüssiger Solarstrom wird ins lokale Netz eingespeist.',
       },
     ],
@@ -551,7 +551,7 @@ export const cityContents: Record<string, CityContent> = {
     whySolarReasons: [
       {
         title: 'Rheintal-Sonnenbonus',
-        description: 'Das Rheintal von Schaffhausen bis zur deutschen Grenze geniesst ein kontinentales Klima mit mehr Sonnenstunden als das Schweizer Mittelland. Lokale Messungen zeigen bis zu 1\'680 h/Jahr in der Stadtregion.',
+        description: 'Das Rheintal von Schaffhausen bis zur deutschen Grenze geniesst ein kontinentales Klima mit mehr Sonnenstunden als das Schweizer Mittelland. Lokale Messungen zeigen bis zu 1\'680 h/Jahr in der Stadtcanton.',
       },
       {
         title: 'Industrie auf Kurs Erneuerbar',
@@ -586,7 +586,7 @@ export const cityContents: Record<string, CityContent> = {
       { name: 'C. Nägeli', location: 'Neuhausen am Rheinfall', systemSize: '5.5 kWp', cost: 'CHF 11\'000', savings: 'CHF 1\'850/J', payback: '8 J', quote: 'Der Rheinfall macht Strom – jetzt mache ich es auch. PVPro hat mir drei lokale Angebote in einer Woche gebracht.' },
     ],
     faqs: [
-      { question: 'Wie viel Sonne gibt es in Schaffhausen pro Jahr?', answer: 'Schaffhausen hat im Jahresmittel rund 1\'644 Sonnenstunden. Die Stadtregion und das Rheintal haben oft mehr. Eine 5-kWp-Anlage produziert dort typischerweise 5\'000–5\'400 kWh/Jahr.' },
+      { question: 'Wie viel Sonne gibt es in Schaffhausen pro Jahr?', answer: 'Schaffhausen hat im Jahresmittel rund 1\'644 Sonnenstunden. Die Stadtcanton und das Rheintal haben oft mehr. Eine 5-kWp-Anlage produziert dort typischerweise 5\'000–5\'400 kWh/Jahr.' },
       { question: 'Gibt es Förderung im Kanton Schaffhausen?', answer: 'Ja. Neben der EIV des Bundes bietet der Kanton Schaffhausen eigene Förderbeiträge. Die Anlage ist zusätzlich als Liegenschaftsunterhalt steuerlich absetzbar.' },
       { question: 'Können Schaffhauser Weinbauern Solar nutzen?', answer: 'Agri-PV für Reben und Obstgärten wird in Schaffhausen zunehmend beliebt. Überdachungsstrukturen schützen die Kulturen und produzieren Strom. Spezialförderung für Agri-PV ist verfügbar.' },
       { question: 'Welche Bewilligungen brauche ich in Schaffhausen?', answer: 'Im Kanton Schaffhausen ist eine Photovoltaikanlage an normalen Gebäuden meldepflichtig, aber nicht bewilligungspflichtig. In Schutzzonen gelten besondere Regeln.' },
@@ -619,7 +619,7 @@ export const cityContents: Record<string, CityContent> = {
       },
       {
         title: 'Landwirtschaft + Solar = doppelter Mehrwert',
-        description: 'Viele Appenzeller Höfe kombinieren heute Solar auf dem Dach mit Direktvermarktung von regionalem Strom. Das stärkt die bäuerliche Einkommensstruktur und fördert die Energieautonomie.',
+        description: 'Viele Appenzeller Höfe kombinieren heute Solar auf dem Dach mit Direktvermarktung von lokalem Strom. Das stärkt die bäuerliche Einkommensstruktur und fördert die Energieautonomie.',
       },
     ],
     cityFactsTitle: 'Solar-Fakten Appenzell 2026',
@@ -650,7 +650,7 @@ export const cityContents: Record<string, CityContent> = {
       { question: 'Wie viel Sonne hat Appenzell im Vergleich zu anderen Kantonen?', answer: 'Mit 1\'720 Stunden liegt Appenzell über dem Deutschschweizer Durchschnitt, überraschend für einen so östlichen Kanton. Besonders die Ausserrhoder Hügellagen sind sonnig.' },
       { question: 'Welche Förderungen gelten in AI und AR?', answer: 'Beide Halbkantone ergänzen die EIV des Bundes mit kantonalen Förderbeiträgen. Die Anlage ist vollständig als Liegenschaftsunterhalt absetzbar.' },
       { question: 'Kann ich in Appenzell auch bei einem Holzhaus Solar installieren?', answer: 'Ja. Holzdächer sind für Solaranlagen problemlos geeignet. Speziell ausgebildete Installateure in der Ostschweiz kennen die Montage auf Holzkonstruktionen genau.' },
-      { question: 'Gibt es Ortsbild-Auflagen in Appenzell?', answer: 'In einigen Kernzonen und bei geschützten Gebäuden gelten besondere Anforderungen. Indachlösungen fügen sich ästhetisch gut ein. Unsere Partnerinstallateure kennen die regionalen Anforderungen.' },
+      { question: 'Gibt es Ortsbild-Auflagen in Appenzell?', answer: 'In einigen Kernzonen und bei geschützten Gebäuden gelten besondere Anforderungen. Indachlösungen fügen sich ästhetisch gut ein. Unsere Partnerinstallateure kennen die kantonalen Anforderungen.' },
     ],
     testimonial: {
       initials: 'EG',
@@ -844,8 +844,8 @@ export const cityContents: Record<string, CityContent> = {
     slug: 'unterwalden',
     image: '/images/asset-haus-luftbild-1.webp',
     heroHeadline: 'Solaranlage Unterwalden',
-    heroSubheadline: 'Vierwaldstättersee-Region setzt ein Zeichen',
-    heroDescription: 'Ob Stans in Nidwalden oder Sarnen in Obwalden – die Region Unterwalden am Vierwaldstättersee bietet 1\'739 Sonnenstunden und ein mildes Seeklima, das Solaranlagen optimale Produktionsbedingungen bietet.',
+    heroSubheadline: 'Vierwaldstättersee-Kanton setzt ein Zeichen',
+    heroDescription: 'Ob Stans in Nidwalden oder Sarnen in Obwalden – der Kanton Unterwalden am Vierwaldstättersee bietet 1\'739 Sonnenstunden und ein mildes Seeklima, das Solaranlagen optimale Produktionsbedingungen bietet.',
     whySolarTitle: 'Unterwalden: Wo Seeklima und Sonnenhang sich vereinen',
     whySolarIntro: 'Die einzigartige Lage zwischen See und Bergen schafft ein Mikroklima mit wenig Nebel, viel Sonne und einer Gemeinschaft, die Nachhaltigkeit lebt.',
     whySolarReasons: [
@@ -888,7 +888,7 @@ export const cityContents: Record<string, CityContent> = {
     faqs: [
       { question: 'Wie viel Sonne gibt es in Unterwalden?', answer: 'Unterwalden (OW/NW) verzeichnet 1\'739 Sonnenstunden pro Jahr, deutlich mehr als das Mittelland. Die Seelage sorgt für wenig Nebel und mehr effektive Sonnennutzung.' },
       { question: 'Welche Förderungen gelten in Obwalden und Nidwalden?', answer: 'Beide Halbkantone bieten neben der EIV des Bundes eigene kantonale Förderbeiträge. Die Solaranlage ist steuerlich als Liegenschaftsunterhalt absetzbar.' },
-      { question: 'Gibt es genug Solarinstallateure in der Region?', answer: 'PVPro vermittelt Fachbetriebe aus der Innerschweiz, die regelmässig in Nidwalden und Obwalden arbeiten. Qualität und lokale Erfahrung sind bei unseren Partnern gesichert.' },
+      { question: 'Gibt es genug Solarinstallateure im Kanton?', answer: 'PVPro vermittelt Fachbetriebe aus der Innerschweiz, die regelmässig in Nidwalden und Obwalden arbeiten. Qualität und lokale Erfahrung sind bei unseren Partnern gesichert.' },
       { question: 'Beeinflusst die Nähe zum See die Solaranlage?', answer: 'Positiv. Das Seeklima reduziert Frost und Nebel. Zudem reflektiert der See die Sonnenstrahlung auf südseitige Häuser, was den Ertrag leicht erhöht.' },
       { question: 'Kann ich in Unterwalden meinen Strom ins Netz einspeisen?', answer: 'Ja. Die lokalen Energieversorger in OW und NW nehmen überschüssigen Solarstrom ins Netz auf und vergüten ihn. Die Vergütung liegt typisch bei 8–13 Rp./kWh.' },
     ],
@@ -949,7 +949,7 @@ export const cityContents: Record<string, CityContent> = {
       { question: 'Was macht Solothurn zu einem guten Solar-Kanton?', answer: 'Das milde Aareklima mit wenig Nebel, 1\'631 Sonnenstunden und ein kantonales Gebäudeprogramm machen Solothurn zu einem attraktiven Solar-Standort mit solidem ROI.' },
       { question: 'Welche Förderungen gibt es im Kanton Solothurn?', answer: 'Sie erhalten die bundesweite EIV plus kantonale Gebäudeprogramm-Beiträge. Zusätzlich ist die Anlage als Liegenschaftsunterhalt steuerlich absetzbar, was die Nettoinvestition deutlich senkt.' },
       { question: 'Gibt es in Solothurn eine Solarpflicht?', answer: 'Solothurn plant, bei umfassenden Dachsanierungen eine Solarpflicht einzuführen. Aktuell ist dies noch nicht bindend, aber die Fördermittel machen einen freiwilligen Einbau finanziell sehr attraktiv.' },
-      { question: 'Wie finde ich den besten Installateur in der Region Solothurn?', answer: 'PVPro vermittelt geprüfte Fachbetriebe im Raum Solothurn, Grenchen, Olten und Balsthal. Alle Partner haben Referenzprojekte in der Region und werden von uns auf Qualität geprüft.' },
+      { question: 'Wie finde ich den besten Installateur im Kanton Solothurn?', answer: 'PVPro vermittelt geprüfte Fachbetriebe im Raum Solothurn, Grenchen, Olten und Balsthal. Alle Partner haben Referenzprojekte im Kanton und werden von uns auf Qualität geprüft.' },
       { question: 'Lohnt sich Solar auch für Mehrfamilienhäuser in Solothurn?', answer: 'Ja. Über Gemeinschaftsanlagen (ZEV – Zusammenschluss zum Eigenverbrauch) können alle Mieter von der gemeinsamen Solaranlage profitieren. Besonders bei Mehrfamilienhäusern mit grossen Dachflächen sehr rentabel.' },
     ],
     testimonial: {
@@ -1129,7 +1129,7 @@ export const cityContents: Record<string, CityContent> = {
       { question: "Quelles subventions pour le solaire dans le Canton de Vaud ?", answer: "Vous bénéficiez de la rétribution unique fédérale (Pronovo) cumulée avec le programme cantonal vaudois. Les panneaux solaires sont intégralement déductibles comme entretien immobilier." },
       { question: "Peut-on installer du solaire sur une propriété protégée dans le Lavaux ?", answer: "Le Lavaux est classé au patrimoine UNESCO. Des solutions intégrées et des nuances de couleurs spécifiques sont disponibles pour respecter l'esthétique protégée. Nos installateurs connaissent ces contraintes." },
       { question: "Comment fonctionne l'agri-PV pour les viticulteurs vaudois ?", answer: "Les structures Agri-PV permettent d'installer des panneaux en hauteur au-dessus des vignes. Elles protègent contre la grêle et les gelées tout en générant de l'électricité. Des subventions spéciales existent pour les exploitations agricoles." },
-      { question: "Quel est le délai d'installation dans la région lausannoise ?", answer: "Dans l'agglomération lausannoise, comptez 6 à 10 semaines entre la signature et la mise en service. Nos partenaires ont l'habitude des procédures communales vaudoises." },
+      { question: "Quel est le délai d'installation dans le canton lausannoise ?", answer: "Dans l'agglomération lausannoise, comptez 6 à 10 semaines entre la signature et la mise en service. Nos partenaires ont l'habitude des procédures communales vaudoises." },
       { question: "Quelle taille d'installation pour un chalet aux Alpes vaudoises ?", answer: "Pour un chalet utilisé en week-end, une installation de 4–6 kWc est généralement idéale. Si vous avez une pompe à chaleur ou une borne de recharge, optez pour 7–10 kWc avec stockage batterie." },
     ],
     testimonial: {
@@ -1334,7 +1334,7 @@ export const cityContents: Record<string, CityContent> = {
     image: '/images/asset-haus-luftbild-1.webp',
     heroHeadline: 'Solaranlage in Biel/Bienne',
     heroSubheadline: 'Die Uhrenhauptstadt setzt auf Solarenergie',
-    heroDescription: "Biel/Bienne liegt im Herzen des Berner Juras – und profitiert von einer begünstigten Sonnenlage am Bielersee. Vergleichen Sie jetzt bis zu 3 geprüfte Offerten von zertifizierten Solarinstallateuren in der Region Biel.",
+    heroDescription: "Biel/Bienne liegt im Herzen des Berner Juras – und profitiert von einer begünstigten Sonnenlage am Bielersee. Vergleichen Sie jetzt bis zu 3 geprüfte Offerten von zertifizierten Solarinstallateuren im Raum Biel.",
     whySolarTitle: 'Warum Solar in Biel/Bienne besonders attraktiv ist',
     whySolarIntro: 'Als zweisprachige Industriestadt verbindet Biel/Bienne Präzisionstradition mit Pioniergeist – auch in der Energiewende.',
     whySolarReasons: [
@@ -1351,9 +1351,9 @@ export const cityContents: Record<string, CityContent> = {
         description: "Dank hoher Sonnenstunden und steigender Strompreise rechnet sich eine typische 8 kWp Anlage in Biel bereits nach 8–10 Jahren. Die Anlage produziert danach 15–20 Jahre lang nahezu kostenlosen Strom.",
       },
     ],
-    cityFactsTitle: 'Solarenergie in Biel – regionale Besonderheiten',
+    cityFactsTitle: 'Solarenergie in Biel – kantonale Besonderheiten',
     cityFactsParagraphs: [
-      "Die Region Biel/Bienne hat sich früh zur Energiestadt entwickelt – eine Auszeichnung, die die Stadt für besonders vorbildliches Energiemanagement erhält. Das spiegelt sich in klaren Prozessen für Baubewilligungen und einer praxisnahen Beratung durch die Stadtbehörden.",
+      "Die Stadt Biel/Bienne hat sich früh zur Energiestadt entwickelt – eine Auszeichnung, die die Stadt für besonders vorbildliches Energiemanagement erhält. Das spiegelt sich in klaren Prozessen für Baubewilligungen und einer praxisnahen Beratung durch die Stadtbehörden.",
       "Viele Neubauprojekte in der Entwicklungszone Biel-West und in der Agglomeration Nidau integrieren Solar bereits in der Planungsphase. Für Bestandsgebäude sind Nachrüstungen unkompliziert möglich.",
     ],
     pricing: {
@@ -1380,7 +1380,7 @@ export const cityContents: Record<string, CityContent> = {
         cost: "CHF 17'500",
         savings: "CHF 2'600/Jahr",
         payback: '9 Jahre',
-        quote: "Wir wohnten in Nidau und haben über PVPro drei Offerten aus der Region Biel erhalten. Der ausgewählte Installateur kannte die Anforderungen der Stadt Biel in- und auswendig – alles lief reibungslos.",
+        quote: "Wir wohnten in Nidau und haben über PVPro drei Offerten aus dem Raum Biel erhalten. Der ausgewählte Installateur kannte die Anforderungen der Stadt Biel in- und auswendig – alles lief reibungslos.",
       },
     ],
     faqs: [
@@ -1388,7 +1388,7 @@ export const cityContents: Record<string, CityContent> = {
       { question: 'Wie viele Sonnenstunden hat Biel pro Jahr?', answer: "Biel/Bienne verzeichnet dank der Tallage am Bielersee und dem Föhneinfluss rund 1'750 Sonnenstunden pro Jahr – mehr als Bern und Zürich. Eine 8 kWp Anlage erzeugt ca. 7'500–8'000 kWh jährlich." },
       { question: 'Brauche ich in Biel eine Baubewilligung für eine Solaranlage?', answer: 'In der Stadt Biel ist für dachintegrierte oder dachparallele Anlagen an Bestandsgebäuden in der Regel nur eine Meldung erforderlich. Die städtische Bauverwaltung bearbeitet Solaranfragen speditiv.' },
       { question: 'Ist Biel eine Energiestadt?', answer: "Ja. Biel/Bienne trägt das Label «Energiestadt» und hat ambitionierte Klimaziele bis 2030. Das bedeutet praxisnahe Behörden, klare Prozesse und Unterstützung für Solarprojekte auch auf Gemeindeebene." },
-      { question: 'Wie schnell amortisiert sich eine Solaranlage in Biel?', answer: "Durch die günstige Sonnenlage, die Kombination aus drei Förderebenen und steigende Strompreise amortisieren sich Anlagen in der Region Biel/Bienne typischerweise in 8–10 Jahren." },
+      { question: 'Wie schnell amortisiert sich eine Solaranlage in Biel?', answer: "Durch die günstige Sonnenlage, die Kombination aus drei Förderebenen und steigende Strompreise amortisieren sich Anlagen im Raum Biel/Bienne typischerweise in 8–10 Jahren." },
     ],
     testimonial: {
       initials: 'PW',
@@ -1409,7 +1409,7 @@ export const cityContents: Record<string, CityContent> = {
     whySolarReasons: [
       {
         title: "1'849 Sonnenstunden – schweizweit Spitze",
-        description: "Keine andere deutschsprachige Region der Schweiz empfängt mehr Sonnenlicht. Eine 8 kWp Anlage im Wallis erzeugt bis zu 8'500 kWh pro Jahr – deutlich mehr als in Zürich oder Bern.",
+        description: "Keine andere deutschsprachige Kanton der Schweiz empfängt mehr Sonnenlicht. Eine 8 kWp Anlage im Wallis erzeugt bis zu 8'500 kWh pro Jahr – deutlich mehr als in Zürich oder Bern.",
       },
       {
         title: 'Albedo-Effekt: Schnee als Boostverstärker',
@@ -1420,7 +1420,7 @@ export const cityContents: Record<string, CityContent> = {
         description: "Der Kanton Wallis zählt zu den grosszügigsten Fördergebern der Schweiz. Die Kombination aus EIV und kantonalem Beitrag kann die Nettokosten um bis zu 40% senken.",
       },
     ],
-    cityFactsTitle: 'Solarenergie im Wallis – regionale Besonderheiten',
+    cityFactsTitle: 'Solarenergie im Wallis – kantonale Besonderheiten',
     cityFactsParagraphs: [
       "Im Wallis boomt die Solarenergie auf breiter Front: Neben Einfamilienhäusern investieren Bergbahnen, Hotels und Alpwirtschaften massiv in PV-Anlagen. Die lokale Installateur-Szene ist hoch spezialisiert, auch für Steillagen und alpine Gegebenheiten.",
       "Die grossen Weinberge in der Rhôneebene und die weitläufigen Dachflächen der typischen Walliser Alphütten bieten aussergewöhnlich günstige Bedingungen. Viele Walliser Haushalte decken 70–80% ihres Jahresverbrauchs selbst.",
@@ -1453,7 +1453,7 @@ export const cityContents: Record<string, CityContent> = {
       },
     ],
     faqs: [
-      { question: 'Wie viele Sonnenstunden hat das Wallis pro Jahr?', answer: "Das Wallis verzeichnet rund 1'849 Sonnenstunden pro Jahr und gehört damit zu den sonnenreichsten Regionen der Schweiz. Eine 10 kWp Anlage erzeugt ca. 9'000–10'000 kWh jährlich." },
+      { question: 'Wie viele Sonnenstunden hat das Wallis pro Jahr?', answer: "Das Wallis verzeichnet rund 1'849 Sonnenstunden pro Jahr und gehört damit zu den sonnenreichsten Gebieten der Schweiz. Eine 10 kWp Anlage erzeugt ca. 9'000–10'000 kWh jährlich." },
       { question: 'Welche Förderungen gibt es für Solaranlagen im Wallis?', answer: "Im Wallis können Sie die Bundesförderung (EIV, ca. CHF 400/kWp via Pronovo) mit dem kantonalen Walliser Beitrag (bis CHF 500/kWp) kombinieren. Zusätzlich sind alle Kosten steuerlich absetzbar. Die Gesamtförderung kann bis zu 40% der Investition abdecken." },
       { question: 'Lohnt sich Solar im Wallis auch im Winter?', answer: "Ja. Durch den Albedo-Effekt des Schnees (Reflexion bis 80%) produzieren Walliser Solaranlagen im Winter 20–30% mehr als in der Schweizer Mittellandlage. Selbst im Dezember wird deutlich Energie produziert." },
       { question: 'Welche Anforderungen gelten für alpine Solaranlagen im Wallis?', answer: "Anlagen in Steillagen oder alpinen Zonen erfordern spezielle Montagesysteme und schneelastgerechte Auslegung. Unsere zertifizierten Walliser Installateure sind auf Berganlagen spezialisiert." },
@@ -1472,7 +1472,7 @@ export const cityContents: Record<string, CityContent> = {
     image: '/images/asset-haus-alpen-1.webp',
     heroHeadline: 'Installation solaire dans le Canton de Fribourg',
     heroSubheadline: 'Bilingue. Engagé. Productif.',
-    heroDescription: "Le Canton de Fribourg combine tradition agricole et ambitions climatiques fortes. Profitez des subventions cantonales attractives et comparez jusqu'à 3 offres d'installateurs certifiés dans votre région.",
+    heroDescription: "Le Canton de Fribourg combine tradition agricole et ambitions climatiques fortes. Profitez des subventions cantonales attractives et comparez jusqu'à 3 offres d'installateurs certifiés dans votre canton.",
     whySolarTitle: 'Pourquoi le solaire est particulièrement rentable à Fribourg',
     whySolarIntro: "Seul canton officiellement bilingue de Suisse, Fribourg mise sur le renouvelable pour atteindre ses objectifs climatiques 2050 – avec un soutien financier concret pour les propriétaires.",
     whySolarReasons: [
@@ -1541,7 +1541,7 @@ export const cityContents: Record<string, CityContent> = {
     image: '/images/asset-haus-luftbild-1.webp',
     heroHeadline: 'Installation solaire à Biel/Bienne',
     heroSubheadline: "La capitale de l'horlogerie mise sur l'énergie solaire",
-    heroDescription: "Biel/Bienne bénéficie d'un microclimat favorable au bord du lac de Bienne et d'une politique énergétique municipale ambitieuse. Comparez jusqu'à 3 offres d'installateurs certifiés dans la région biennoise.",
+    heroDescription: "Biel/Bienne bénéficie d'un microclimat favorable au bord du lac de Bienne et d'une politique énergétique municipale ambitieuse. Comparez jusqu'à 3 offres d'installateurs certifiés dans le canton biennoise.",
     whySolarTitle: "Pourquoi Bienne est une ville idéale pour le solaire",
     whySolarIntro: "Ville bilingue et industrielle, Bienne allie esprit pionnier et pragmatisme énergétique – avec un microclimat particulièrement favorable à la production solaire.",
     whySolarReasons: [
@@ -1558,9 +1558,9 @@ export const cityContents: Record<string, CityContent> = {
         description: "Bienne est lauréate du label «Cité de l'énergie» pour son exemplarité en matière de gestion énergétique. Les procédures d'autorisation sont simplifiées et les délais maîtrisés.",
       },
     ],
-    cityFactsTitle: "Le solaire à Bienne – particularités régionales",
+    cityFactsTitle: "Le solaire à Bienne – particularités cantonales",
     cityFactsParagraphs: [
-      "La région biennoise a développé une véritable culture de la durabilité, ancrée dans son passé industriel et horloger. Les nouveaux quartiers comme Biel-Bözingen intègrent systématiquement des toitures solaires dans les projets de construction.",
+      "La canton biennoise a développé une véritable culture de la durabilité, ancrée dans son passé industriel et horloger. Les nouveaux quartiers comme Biel-Bözingen intègrent systématiquement des toitures solaires dans les projets de construction.",
       "Pour les bâtiments existants, les travaux de rénovation incluant une installation solaire sont facilement autorisés. La ville de Bienne dispose d'un guichet unique énergie pour accompagner les propriétaires de la demande jusqu'à la mise en service.",
     ],
     pricing: {
@@ -1587,7 +1587,7 @@ export const cityContents: Record<string, CityContent> = {
         cost: "CHF 15'500",
         savings: "CHF 2'400/an",
         payback: '9 ans',
-        quote: "À Bienne, les démarches ont été très rapides. PVPro m'a mis en relation avec un installateur régional qui connaissait parfaitement les aides disponibles. L'installation est en service depuis 6 mois et les économies sont au rendez-vous.",
+        quote: "À Bienne, les démarches ont été très rapides. PVPro m'a mis en relation avec un installateur local qui connaissait parfaitement les aides disponibles. L'installation est en service depuis 6 mois et les économies sont au rendez-vous.",
       },
     ],
     faqs: [
@@ -1595,12 +1595,12 @@ export const cityContents: Record<string, CityContent> = {
       { question: "Combien d'heures de soleil à Bienne ?", answer: "Bienne bénéficie d'environ 1'750 heures d'ensoleillement par an, grâce à son microclimat lacustre. Une installation de 8 kWc produit entre 7'500 et 8'000 kWh annuellement." },
       { question: 'Faut-il un permis de construire à Bienne pour une installation solaire ?', answer: "En règle générale, une simple notification suffit pour les toitures existantes à Bienne. Le service de l'urbanisme traite les dossiers solaires en priorité dans le cadre de la politique énergie de la ville." },
       { question: "Bienne est-elle une Cité de l'énergie ?", answer: "Oui. Bienne est lauréate du label «Cité de l'énergie» pour son exemplarité en matière de politique énergétique. Cela se traduit par des procédures simplifiées et un accompagnement actif des propriétaires." },
-      { question: 'Comment trouver un bon installateur solaire à Bienne ?', answer: "PVPro collabore avec des installateurs certifiés actifs dans la région biennoise. Faites une demande gratuite et recevez jusqu'à 3 offres comparatives en 48h, avec un accompagnement personnalisé." },
+      { question: 'Comment trouver un bon installateur solaire à Bienne ?', answer: "PVPro collabore avec des installateurs certifiés actifs dans le canton biennoise. Faites une demande gratuite et recevez jusqu'à 3 offres comparatives en 48h, avec un accompagnement personnalisé." },
     ],
     testimonial: {
       initials: 'MC',
       name: 'Marc Chételat',
-      quote: "Bienne est une ville dynamique qui soutient vraiment les projets solaires. Entre les aides fédérales, cantonales et municipales, j'ai réduit mon investissement de près de 30%. L'installateur trouvé via PVPro était excellent et connaissait bien la région.",
+      quote: "Bienne est une ville dynamique qui soutient vraiment les projets solaires. Entre les aides fédérales, cantonales et municipales, j'ai réduit mon investissement de près de 30%. L'installateur trouvé via PVPro était excellent et connaissait bien le canton.",
     },
   },
 

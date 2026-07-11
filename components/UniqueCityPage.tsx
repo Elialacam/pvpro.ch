@@ -391,8 +391,8 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             </h2>
             <p className="text-xl text-white mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
               {t(lang,
-                `Erfahrene Solarteure aus der Region ${city.canton} installieren Ihre massgeschneiderte Anlage`,
-                `Des installateurs expérimentés de la région ${city.canton} réalisent votre installation sur mesure`,
+                `Erfahrene Solarteure aus dem Kanton ${city.canton} installieren Ihre massgeschneiderte Anlage`,
+                `Des installateurs expérimentés du canton ${city.canton} réalisent votre installation sur mesure`,
                 `Installatori esperti a ${city.name} installano il tuo impianto su misura`
               )}
             </p>
@@ -433,8 +433,8 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             </h2>
             <p className="text-gray-600">
               {t(lang,
-                `Unser Netzwerk umfasst geprüfte Fachbetriebe in der gesamten Region ${city.canton}`,
-                `Notre réseau comprend des entreprises certifiées dans toute la région ${city.canton}`,
+                `Unser Netzwerk umfasst geprüfte Fachbetriebe in der gesamten Kanton ${city.canton}`,
+                `Notre réseau comprend des entreprises certifiées dans toute le canton ${city.canton}`,
                 `La nostra rete comprende ditte certificate in tutto il Canton ${city.canton}`
               )}
             </p>

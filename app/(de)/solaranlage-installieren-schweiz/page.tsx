@@ -5,7 +5,7 @@ import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = {
   title: 'Solaranlage installieren lassen Schweiz 2026 – Anbieter & Kosten | PVPro.ch',
-  description: 'Solaranlage installieren lassen in der Schweiz: Finden Sie zertifizierte Anbieter in Ihrer Region. Kostenlose Offerten vergleichen und bis zu 30% sparen mit PVPro.ch.',
+  description: 'Solaranlage installieren lassen in der Schweiz: Finden Sie zertifizierte Anbieter in Ihrem Kanton. Kostenlose Offerten vergleichen und bis zu 30% sparen mit PVPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-installieren-schweiz',
     languages: {
@@ -48,8 +48,8 @@ const faqs = [
     answer: 'Nach der Inbetriebnahme wird die Anlage beim lokalen Netzbetreiber angemeldet. Der Installateur stellt sicher, dass alles korrekt funktioniert und erklärt Ihnen die Bedienung.',
   },
   {
-    question: 'Wie finde ich den besten Installateur in meiner Region?',
-    answer: 'PVPro.ch vermittelt Ihnen kostenlos bis zu 3 zertifizierte Installateure aus Ihrer Region — so können Sie Preise und Leistungen direkt vergleichen.',
+    question: 'Wie finde ich den besten Installateur in meinem Kanton?',
+    answer: 'PVPro.ch vermittelt Ihnen kostenlos bis zu 3 zertifizierte Installateure aus Ihrem Kanton — so können Sie Preise und Leistungen direkt vergleichen.',
   },
 ];
 
@@ -96,8 +96,8 @@ const costRows = [
 
 const criteria = [
   { title: 'Zertifizierung', text: 'Ist der Betrieb anerkannt und hat er nachgewiesene Erfahrung?' },
-  { title: 'Lokalität', text: 'Ein regionaler Installateur kennt die kantonalen Vorschriften und Förderungen' },
-  { title: 'Referenzen', text: 'Hat er vergleichbare Projekte in Ihrer Region abgeschlossen?' },
+  { title: 'Lokalität', text: 'Ein lokaler Installateur kennt die kantonalen Vorschriften und Förderungen' },
+  { title: 'Referenzen', text: 'Hat er vergleichbare Projekte in Ihrem Kanton abgeschlossen?' },
   { title: 'Garantien', text: 'Welche Garantien bietet er auf Montage, Module und Wechselrichter?' },
   { title: 'Preis-Leistungs-Verhältnis', text: 'Nur durch den Vergleich mehrerer Angebote sehen Sie, ob ein Preis fair ist' },
 ];
@@ -123,7 +123,7 @@ export default function SolaranlageInstallierenPage() {
               Solaranlage installieren lassen in der Schweiz
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Eine Solaranlage ist eine langfristige Investition. Wer sie installieren lässt, sollte den richtigen Fachbetrieb wählen — denn Qualität, Preis und Service variieren stark. PVPro.ch verbindet Sie kostenlos mit geprüften Schweizer Installateuren aus Ihrer Region.
+              Eine Solaranlage ist eine langfristige Investition. Wer sie installieren lässt, sollte den richtigen Fachbetrieb wählen — denn Qualität, Preis und Service variieren stark. PVPro.ch verbindet Sie kostenlos mit geprüften Schweizer Installateuren aus Ihrem Kanton.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -296,7 +296,7 @@ export default function SolaranlageInstallierenPage() {
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Tipp</p>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Fragen Sie immer nach mindestens 3 Referenzprojekten in Ihrer Region und lassen Sie sich die Garantiebedingungen schriftlich bestätigen — bevor Sie unterschreiben.
+                Fragen Sie immer nach mindestens 3 Referenzprojekten in Ihrem Kanton und lassen Sie sich die Garantiebedingungen schriftlich bestätigen — bevor Sie unterschreiben.
               </p>
             </div>
           </div>
@@ -309,12 +309,12 @@ export default function SolaranlageInstallierenPage() {
             <Sun className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-            Jetzt Installateur in Ihrer Region finden
+            Jetzt Installateur in Ihrem Kanton finden
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Füllen Sie unser Formular in 2 Minuten aus und erhalten Sie bis zu 3 Offerten von{' '}
             <Link href="/anfrage" className="text-[#F97316] hover:underline font-medium">zertifizierten Installateuren</Link>{' '}
-            aus Ihrer Region — kostenlos und unverbindlich.
+            aus Ihrem Kanton — kostenlos und unverbindlich.
           </p>
           <Link
             href="/anfrage"

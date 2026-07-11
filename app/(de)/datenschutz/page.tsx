@@ -135,7 +135,7 @@ export default function DatenschutzPage() {
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">5. Weitergabe von Daten</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             Im Rahmen unserer Vermittlungsdienstleistung geben wir Ihre Kontaktdaten an bis zu 3 geprüfte Solarinstallateure
-            in Ihrer Region weiter, damit diese Ihnen individuelle Angebote erstellen können. Eine Weitergabe erfolgt nur
+            in Ihrem Kanton weiter, damit diese Ihnen individuelle Angebote erstellen können. Eine Weitergabe erfolgt nur
             auf Grundlage Ihrer Anfrage.
           </p>
 

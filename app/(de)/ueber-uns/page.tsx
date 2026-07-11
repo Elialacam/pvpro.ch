@@ -32,7 +32,7 @@ const values = [
   {
     icon: Star,
     title: 'Transparenz',
-    text: 'Keine versteckten Kosten, keine Verpflichtungen. Sie erhalten echte Preise von echten Installateuren in Ihrer Region.',
+    text: 'Keine versteckten Kosten, keine Verpflichtungen. Sie erhalten echte Preise von echten Installateuren in Ihrem Kanton.',
   },
 ];
 
@@ -66,7 +66,7 @@ export default function UeberUnsPage() {
               PVPro.ch wurde mit einer klaren Mission gegründet: Schweizer Hausbesitzer dabei zu unterstützen, die beste Solaranlage zum besten Preis zu finden — einfach, transparent und kostenlos.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              In einem Markt, der oft undurchsichtig und schwer vergleichbar ist, schaffen wir Klarheit. Wir verbinden Sie mit bis zu 3 geprüften Installateuren aus Ihrer Region und lassen die Angebote für sich sprechen.
+              In einem Markt, der oft undurchsichtig und schwer vergleichbar ist, schaffen wir Klarheit. Wir verbinden Sie mit bis zu 3 geprüften Installateuren aus Ihrem Kanton und lassen die Angebote für sich sprechen.
             </p>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-xl">

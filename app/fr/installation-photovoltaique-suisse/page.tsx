@@ -190,7 +190,7 @@ export default function InstallationPhotovoltaiqueSuissePage() {
             <p className="text-gray-600 leading-relaxed">
               Prêt à démarrer ?{' '}
               <Link href="/fr/demander-offre-panneau-solaire" className="text-[#F97316] hover:underline font-medium">Comparez gratuitement des offres</Link>{' '}
-              d&apos;installateurs certifiés dans votre région.
+              d&apos;installateurs certifiés dans votre canton.
             </p>
           </div>
           <div>
@@ -277,7 +277,7 @@ export default function InstallationPhotovoltaiqueSuissePage() {
             Trouvez maintenant un installateur et lancez-vous
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Remplissez notre formulaire en 2 minutes — nous vous mettons en relation avec jusqu&apos;à 3 installateurs certifiés dans votre région, qui prennent en charge l&apos;ensemble du processus.
+            Remplissez notre formulaire en 2 minutes — nous vous mettons en relation avec jusqu&apos;à 3 installateurs certifiés dans votre canton, qui prennent en charge l&apos;ensemble du processus.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link

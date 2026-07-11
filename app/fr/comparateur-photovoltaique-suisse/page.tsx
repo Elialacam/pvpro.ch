@@ -56,7 +56,7 @@ const faqs = [
 const reasons = [
   {
     title: 'Transparence des prix',
-    text: "Vous voyez immédiatement ce que coûte réellement une installation dans votre région",
+    text: "Vous voyez immédiatement ce que coûte réellement une installation dans votre canton",
   },
   {
     title: 'Comparaison de qualité',
@@ -70,7 +70,7 @@ const reasons = [
 
 const criteria = [
   { title: 'Certification', text: "Vérifiez que l'entreprise possède des qualifications reconnues (ex. electrosuisse, Swissolar)" },
-  { title: 'Expérience locale', text: "Un installateur de votre région connaît les subventions cantonales et les procédures d'autorisation" },
+  { title: 'Expérience locale', text: "Un installateur de votre canton connaît les subventions cantonales et les procédures d'autorisation" },
   { title: 'Références', text: "Demandez des projets réalisés dans votre commune" },
   { title: 'Garanties', text: "Les prestataires sérieux offrent des garanties claires sur les modules, l'onduleur et la pose" },
   { title: 'Prix transparents', text: "Pas de frais cachés — tout est écrit dans l'offre" },
@@ -79,7 +79,7 @@ const criteria = [
 const tableRows = [
   { label: 'Coût pour le client', pvpro: 'Gratuit', others: 'Souvent des frais cachés' },
   { label: 'Installateurs vérifiés', pvpro: 'Oui, certifiés', others: 'Pas toujours' },
-  { label: 'Entreprises locales', pvpro: 'Oui, de votre région', others: 'Souvent non locales' },
+  { label: 'Entreprises locales', pvpro: 'Oui, de votre canton', others: 'Souvent non locales' },
   { label: "Pas d'appels publicitaires", pvpro: 'Garanti', others: 'Non garanti' },
   { label: 'Plateforme suisse', pvpro: 'Oui', others: 'Souvent étrangère' },
 ];
@@ -116,7 +116,7 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
             {[
               { val: 'Gratuit & sans engagement', sub: 'aucun risque', note: 'entièrement gratuit pour les propriétaires' },
               { val: "Jusqu'à 3 offres", sub: "d'installateurs certifiés", note: 'personnalisées pour votre toit' },
-              { val: '500+ partenaires', sub: 'dans toute la Suisse', note: 'entreprises certifiées dans votre région' },
+              { val: '500+ partenaires', sub: 'dans toute la Suisse', note: 'entreprises certifiées dans votre canton' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -175,7 +175,7 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
               Comment fonctionne PVPro.ch comme comparateur ?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              PVPro.ch n&apos;est pas un simple annuaire. Nous vérifions chaque installateur de notre réseau et ne transmettons que des entreprises certifiées de votre région.
+              PVPro.ch n&apos;est pas un simple annuaire. Nous vérifions chaque installateur de notre réseau et ne transmettons que des entreprises certifiées de votre canton.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -278,7 +278,7 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Remplissez notre formulaire en 2 minutes et recevez jusqu&apos;à 3 offres d&apos;{' '}
             <Link href="/fr/demande" className="text-[#F97316] hover:underline font-medium">installateurs certifiés</Link>{' '}
-            de votre région — gratuitement et sans engagement.
+            de votre canton — gratuitement et sans engagement.
           </p>
           <Link
             href="/fr/demande"
@@ -327,7 +327,7 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
                 Immeuble locatif
               </Link>
               <Link href="/fr/installer-panneau-solaire-suisse" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
-                Installateurs dans votre région
+                Installateurs dans votre canton
               </Link>
               <Link href="/fr/demander-offre-panneau-solaire" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Demander et comparer des offres

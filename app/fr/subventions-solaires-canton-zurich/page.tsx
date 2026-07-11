@@ -50,7 +50,7 @@ const faqs = [
 ];
 
 const steps = [
-  { n: '1', title: 'Mandater un installateur', text: "Un installateur certifié de votre région vérifie votre installation et clarifie toutes les possibilités de subvention." },
+  { n: '1', title: 'Mandater un installateur', text: "Un installateur certifié de votre canton vérifie votre installation et clarifie toutes les possibilités de subvention." },
   { n: '2', title: 'Installer l\'installation', text: '', link: true },
   { n: '3', title: 'Demander la subvention cantonale', text: "Pour les contributions cantonales, une demande séparée est déposée auprès de l'Office cantonal des déchets, de l'eau, de l'énergie et de l'air (AWEL)." },
   { n: '4', title: 'Versement', text: "La RU est typiquement versée quelques mois après l'inscription. Les contributions cantonales suivent selon le programme." },

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: "Dois-je nettoyer régulièrement mon installation solaire ?",
-    answer: "En Suisse, la pluie suffit dans la plupart des cas. En cas de forte fiente d'oiseaux ou dans les régions poussiéreuses, il est recommandé de procéder à un nettoyage manuel une fois par an.",
+    answer: "En Suisse, la pluie suffit dans la plupart des cas. En cas de forte fiente d'oiseaux ou dans les zones poussiéreuses, il est recommandé de procéder à un nettoyage manuel une fois par an.",
   },
   {
     question: "Combien coûte un contrat d'entretien pour une installation solaire ?",
@@ -55,7 +55,7 @@ const faqs = [
 
 const prestations = [
   { title: "Inspection visuelle des modules", text: "Une fois par an, les modules doivent être contrôlés pour détecter toute saleté, fissure, décoloration ou dommage. Les fientes d'oiseaux, les feuilles et la mousse peuvent réduire notablement la production." },
-  { title: "Nettoyage des modules", text: "En Suisse, la pluie suffit généralement à maintenir les modules propres. Dans les régions poussiéreuses ou en cas de forte présence d'oiseaux, un nettoyage manuel peut s'avérer utile." },
+  { title: "Nettoyage des modules", text: "En Suisse, la pluie suffit généralement à maintenir les modules propres. Dans les zones poussiéreuses ou en cas de forte présence d'oiseaux, un nettoyage manuel peut s'avérer utile." },
   { title: "Inspection de l'onduleur", text: "L'onduleur est au cœur de l'installation. Il doit être contrôlé annuellement pour détecter les erreurs, la surchauffe et le bon fonctionnement." },
   { title: "Contrôle des connexions électriques", text: "Les connexions de câbles, les connecteurs et les raccords peuvent se desserrer avec le temps. Un contrôle régulier prévient les pannes et les risques d'incendie." },
   { title: "Monitoring de la production", text: "Les installations modernes disposent d'un monitoring numérique. Qui suit régulièrement les données de production détecte immédiatement les écarts." },

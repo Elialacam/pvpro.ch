@@ -62,7 +62,7 @@ const faqs = [
   },
   {
     question: 'Which canton has the most sunshine hours in Switzerland?',
-    answer: 'Ticino and Valais are among the sunniest cantons in Switzerland with over 2,000 sunshine hours per year. German-speaking Switzerland is between 1,600 and 1,900 hours. Even in less sunny regions, solar installations are worthwhile — the difference in annual yield between Ticino and Zurich is only about 15–20%.',
+    answer: 'Ticino and Valais are among the sunniest cantons in Switzerland with over 2,000 sunshine hours per year. German-speaking Switzerland is between 1,600 and 1,900 hours. Even in less sunny areas, solar installations are worthwhile — the difference in annual yield between Ticino and Zurich is only about 15–20%.',
   },
 ];
 
@@ -418,17 +418,17 @@ export default function SolarCalculatorPage() {
         </div>
       </section>
 
-      {/* ── Regional note ── */}
+      {/* ── Cantonal note ── */}
       <section className="py-14 bg-gray-50">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Regional differences</p>
+              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Cantonal differences</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                Solar yield by region in Switzerland
+                Solar yield by canton in Switzerland
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Solar irradiation varies regionally in Switzerland. Ticino and Valais are among the sunniest regions with over 2,000 sunshine hours per year and an annual yield of up to 1,100 kWh/kWp.
+                Solar irradiation varies from canton to canton in Switzerland. Ticino and Valais are among the sunniest cantons with over 2,000 sunshine hours per year and an annual yield of up to 1,100 kWh/kWp.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 German-speaking Switzerland and the Plateau are at 1,600–1,900 hours — still excellent conditions for solar energy. The difference in annual yield between Geneva and Zurich is less than 15%. Solar installations are worthwhile throughout Switzerland.
@@ -441,7 +441,7 @@ export default function SolarCalculatorPage() {
               {[
                 { region: 'Ticino (Lugano)', stunden: '2,080', ertrag: '1,080–1,100 kWh/kWp', bar: 100 },
                 { region: 'Valais (Sion)', stunden: '2,130', ertrag: '1,050–1,100 kWh/kWp', bar: 99 },
-                { region: 'Lake Geneva region', stunden: '1,870', ertrag: '970–1,000 kWh/kWp', bar: 87 },
+                { region: 'Lake Geneva area', stunden: '1,870', ertrag: '970–1,000 kWh/kWp', bar: 87 },
                 { region: 'Berne / Plateau', stunden: '1,720', ertrag: '900–950 kWh/kWp', bar: 80 },
                 { region: 'Zurich', stunden: '1,700', ertrag: '880–920 kWh/kWp', bar: 78 },
                 { region: 'Basel / Northern Switzerland', stunden: '1,660', ertrag: '860–900 kWh/kWp', bar: 76 },
@@ -550,7 +550,7 @@ export default function SolarCalculatorPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Calculator, title: 'Instant calculation', desc: 'Get a first estimate for your solar installation in seconds — no registration required.' },
-              { icon: Zap, title: 'Calculate yield', desc: 'See how much electricity your roof can produce annually — based on your region.' },
+              { icon: Zap, title: 'Calculate yield', desc: 'See how much electricity your roof can produce annually — based on your canton.' },
               { icon: PiggyBank, title: 'Understand costs', desc: 'Realistic cost estimate with OTP subsidy based on current Swiss market prices.' },
               { icon: TrendingUp, title: 'Plan payback', desc: 'Find out when your investment pays off and how much you save over 25 years.' },
             ].map(b => (

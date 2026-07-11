@@ -36,11 +36,11 @@ const steps = [
     Icon: Search,
     title: 'We connect you with certified installers',
     subtitle: 'Within 24–48 hours',
-    description: 'Once we receive your request, we forward it to up to 3 certified solar installers in your region. Every partner in our network has been pre-screened for certifications, references and quality.',
+    description: 'Once we receive your request, we forward it to up to 3 certified solar installers in your canton. Every partner in our network has been pre-screened for certifications, references and quality.',
     details: [
       'Up to 3 independent quotes',
       'Only certified professionals',
-      'Installers from your region',
+      'Installers from your canton',
       'Individual offers tailored to your roof',
     ],
   },
@@ -158,7 +158,7 @@ export default function HowItWorksPage() {
               { q: 'Is the service really free?', a: 'Yes, 100%. We are funded by installer commissions — at no extra cost to you.' },
               { q: 'Am I obliged to choose an offer?', a: 'No. You can decline all quotes without any consequences.' },
               { q: 'How quickly will I receive quotes?', a: 'Usually within 24–48 hours of your request.' },
-              { q: 'Which regions is PVPro active in?', a: 'We operate throughout Switzerland, in all 26 cantons.' },
+              { q: 'Which cantons is PVPro active in?', a: 'We operate throughout Switzerland, in all 26 cantons.' },
             ].map((faq) => (
               <div key={faq.q}>
                 <p className="font-bold text-gray-900 mb-1 text-sm">{faq.q}</p>

@@ -250,7 +250,7 @@ export default function SolaranlageMitSpeicherPage() {
                 Eine typische 10-kWp-Anlage produziert in der Schweiz jährlich rund <strong>9'000 – 11'000 kWh</strong> — das entspricht täglich ca. <strong>25–40 kWh</strong>.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                Die genaue Menge hängt von Dachausrichtung, Neigungswinkel und der regionalen Sonneneinstrahlung ab.
+                Die genaue Menge hängt von Dachausrichtung, Neigungswinkel und der lokalen Sonneneinstrahlung ab.
               </p>
 
               <p className="font-bold text-gray-900 mb-4">Ein Speicher lohnt sich besonders wenn…</p>

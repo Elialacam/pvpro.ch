@@ -250,7 +250,7 @@ export default function SolareConAccumuloPage() {
                 Un impianto tipico da 10 kWp in Svizzera produce annualmente circa <strong>9'000 – 11'000 kWh</strong> — ovvero circa <strong>25–40 kWh</strong> al giorno.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                La quantità esatta dipende dall'orientamento del tetto, dall'angolo di inclinazione e dall'irraggiamento solare regionale.
+                La quantità esatta dipende dall'orientamento del tetto, dall'angolo di inclinazione e dall'irraggiamento solare cantonale.
               </p>
 
               <p className="font-bold text-gray-900 mb-4">Un accumulo è particolarmente utile se…</p>

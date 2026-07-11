@@ -5,7 +5,7 @@ import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = {
   title: "Faire installer des panneaux solaires en Suisse 2026 – Fournisseurs & Coûts | PVPro.ch",
-  description: "Faire installer une installation solaire en Suisse : trouvez des installateurs certifiés dans votre région. Comparez des offres gratuites et économisez jusqu'à 30% avec PVPro.ch.",
+  description: "Faire installer une installation solaire en Suisse : trouvez des installateurs certifiés dans votre canton. Comparez des offres gratuites et économisez jusqu'à 30% avec PVPro.ch.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/installer-panneau-solaire-suisse',
     languages: {
@@ -48,8 +48,8 @@ const faqs = [
     answer: "Après la mise en service, l'installation est annoncée auprès du gestionnaire de réseau local. L'installateur vérifie que tout fonctionne correctement et vous explique le fonctionnement.",
   },
   {
-    question: "Comment trouver le meilleur installateur dans ma région ?",
-    answer: "PVPro.ch vous met gratuitement en contact avec jusqu'à 3 installateurs certifiés de votre région — pour que vous puissiez comparer directement les prix et les prestations.",
+    question: "Comment trouver le meilleur installateur dans mon canton ?",
+    answer: "PVPro.ch vous met gratuitement en contact avec jusqu'à 3 installateurs certifiés de votre canton — pour que vous puissiez comparer directement les prix et les prestations.",
   },
 ];
 
@@ -97,7 +97,7 @@ const costRows = [
 const criteria = [
   { title: 'Certification', text: "L'entreprise est-elle reconnue et dispose-t-elle d'une expérience prouvée ?" },
   { title: 'Localité', text: "Un installateur local connaît les prescriptions et les subventions cantonales" },
-  { title: 'Références', text: "A-t-il réalisé des projets comparables dans votre région ?" },
+  { title: 'Références', text: "A-t-il réalisé des projets comparables dans votre canton ?" },
   { title: 'Garanties', text: "Quelles garanties offre-t-il sur le montage, les modules et l'onduleur ?" },
   { title: 'Rapport qualité-prix', text: "C'est uniquement en comparant plusieurs offres que vous voyez si un prix est équitable" },
 ];
@@ -123,7 +123,7 @@ export default function InstallerPanneauSolaireSuissePage() {
               Faire installer des panneaux solaires en Suisse
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Une installation solaire est un investissement à long terme. Qui la fait installer doit choisir le bon prestataire — car la qualité, le prix et le service varient fortement. PVPro.ch vous met gratuitement en contact avec des installateurs suisses certifiés de votre région.
+              Une installation solaire est un investissement à long terme. Qui la fait installer doit choisir le bon prestataire — car la qualité, le prix et le service varient fortement. PVPro.ch vous met gratuitement en contact avec des installateurs suisses certifiés de votre canton.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -296,7 +296,7 @@ export default function InstallerPanneauSolaireSuissePage() {
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Conseil</p>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Demandez toujours au moins 3 projets de référence dans votre région et faites confirmer par écrit les conditions de garantie — avant de signer.
+                Demandez toujours au moins 3 projets de référence dans votre canton et faites confirmer par écrit les conditions de garantie — avant de signer.
               </p>
             </div>
           </div>
@@ -309,12 +309,12 @@ export default function InstallerPanneauSolaireSuissePage() {
             <Sun className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-            Trouvez maintenant un installateur dans votre région
+            Trouvez maintenant un installateur dans votre canton
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Remplissez notre formulaire en 2 minutes et recevez jusqu&apos;à 3 offres d&apos;{' '}
             <Link href="/fr/demande" className="text-[#F97316] hover:underline font-medium">installateurs certifiés</Link>{' '}
-            de votre région — gratuitement et sans engagement.
+            de votre canton — gratuitement et sans engagement.
           </p>
           <Link
             href="/fr/demande"

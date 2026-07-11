@@ -58,7 +58,7 @@ const moduli = [
   {
     title: 'Moduli bifacciali',
     badge: 'Ideali con la neve',
-    testo: "Producono energia anche dalla parte posteriore — particolarmente utile quando la neve riflette la luce. Interessanti per le regioni con molta neve.",
+    testo: "Producono energia anche dalla parte posteriore — particolarmente utile quando la neve riflette la luce. Interessanti per le zone con molta neve.",
   },
   {
     title: 'Basso coefficiente di temperatura',
@@ -68,11 +68,11 @@ const moduli = [
 ];
 
 const oreSole = [
-  { regione: 'Ticino (Lugano)', ore: "ca. 2'157" },
-  { regione: 'Vallese (Sion)', ore: "ca. 2'000" },
-  { regione: 'Regione del Lemano', ore: "ca. 1'800" },
-  { regione: 'Altopiano (Zurigo, Berna)', ore: "ca. 1'500–1'600" },
-  { regione: 'Svizzera orientale (San Gallo)', ore: "ca. 1'500" },
+  { Cantone: 'Ticino (Lugano)', ore: "ca. 2'157" },
+  { Cantone: 'Vallese (Sion)', ore: "ca. 2'000" },
+  { Cantone: 'Lemano', ore: "ca. 1'800" },
+  { Cantone: 'Altopiano (Zurigo, Berna)', ore: "ca. 1'500–1'600" },
+  { Cantone: 'Svizzera orientale (San Gallo)', ore: "ca. 1'500" },
 ];
 
 export default function FotovoltaicoClimaPage() {
@@ -98,12 +98,12 @@ export default function FotovoltaicoClimaPage() {
               Quali impianti fotovoltaici sono adatti al clima svizzero?
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Molti proprietari di casa in Svizzera si chiedono: vale davvero la pena installare un impianto solare quando il tempo è spesso nuvoloso, freddo o nevoso? La risposta sorprende: i moderni impianti fotovoltaici funzionano in modo affidabile anche con neve, nebbia e temperature basse — e in alcuni casi sono addirittura più efficienti che nelle regioni più calde.
+              Molti proprietari di casa in Svizzera si chiedono: vale davvero la pena installare un impianto solare quando il tempo è spesso nuvoloso, freddo o nevoso? La risposta sorprende: i moderni impianti fotovoltaici funzionano in modo affidabile anche con neve, nebbia e temperature basse — e in alcuni casi sono addirittura più efficienti che nelle zone più calde.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: "1'300–2'100", sub: 'Ore di sole per cantone', note: 'in base ad altitudine e regione' },
+              { val: "1'300–2'100", sub: 'Ore di sole per cantone', note: 'in base ad altitudine e Cantone' },
               { val: '+5–10%', sub: 'Maggiore resa al freddo', note: "grazie all'effetto della temperatura" },
               { val: '25–30 anni', sub: 'Durata di vita in clima svizzero', note: 'con garanzia del produttore' },
             ].map(s => (
@@ -122,7 +122,7 @@ export default function FotovoltaicoClimaPage() {
         {/* ── Ore di sole ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Produzione per regione</p>
+            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Produzione per Cantone</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
               Come influisce il clima svizzero sulla produzione solare?
             </h2>
@@ -142,14 +142,14 @@ export default function FotovoltaicoClimaPage() {
               <table className="w-full text-sm">
                 <thead>
                   <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
-                    <th className="text-left px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Regione</th>
+                    <th className="text-left px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Kantone</th>
                     <th className="text-right px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Ore di sole/anno</th>
                   </tr>
                 </thead>
                 <tbody>
                   {oreSole.map((row, i) => (
-                    <tr key={row.regione} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-5 py-3.5 text-gray-700">{row.regione}</td>
+                    <tr key={row.Cantone} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="px-5 py-3.5 text-gray-700">{row.Cantone}</td>
                       <td className="px-5 py-3.5 text-right font-semibold text-gray-900">{row.ore}</td>
                     </tr>
                   ))}

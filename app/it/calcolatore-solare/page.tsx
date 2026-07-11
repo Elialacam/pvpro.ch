@@ -62,7 +62,7 @@ const faqs = [
   },
   {
     question: 'Quale cantone ha più ore di sole in Svizzera?',
-    answer: "Il Ticino e il Vallese sono tra i cantoni più soleggiati della Svizzera con oltre 2'000 ore di sole all'anno. La Svizzera tedesca si situa tra 1'600 e 1'900 ore. Anche nelle regioni meno soleggiate gli impianti solari sono convenienti — la differenza di rendimento annuo tra il Ticino e Zurigo è solo del 15–20%.",
+    answer: "Il Ticino e il Vallese sono tra i cantoni più soleggiati della Svizzera con oltre 2'000 ore di sole all'anno. La Svizzera tedesca si situa tra 1'600 e 1'900 ore. Anche nelle zone meno soleggiate gli impianti solari sono convenienti — la differenza di rendimento annuo tra il Ticino e Zurigo è solo del 15–20%.",
   },
 ];
 
@@ -418,17 +418,17 @@ export default function CalcolatoreSolarePage() {
         </div>
       </section>
 
-      {/* ── Regional note ── */}
+      {/* ── Nota cantonale ── */}
       <section className="py-14 bg-gray-50">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Differenze regionali</p>
+              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Differenze cantonali</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                Rendimento solare per regione in Svizzera
+                Rendimento solare per Cantone in Svizzera
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                L'irraggiamento solare varia regionalmente in Svizzera. Il Ticino e il Vallese sono tra le regioni più soleggiate con oltre 2'000 ore di sole all'anno e un rendimento annuo fino a 1'100 kWh/kWp.
+                L'irraggiamento solare varia da Cantone a Cantone in Svizzera. Il Ticino e il Vallese sono tra le zone più soleggiate con oltre 2'000 ore di sole all'anno e un rendimento annuo fino a 1'100 kWh/kWp.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 La Svizzera tedesca e l'Altopiano si situano a 1'600–1'900 ore — condizioni eccellenti per l'energia solare. La differenza di rendimento annuo tra Ginevra e Zurigo è inferiore al 15%. Gli impianti solari sono convenienti in tutta la Svizzera.
@@ -441,7 +441,7 @@ export default function CalcolatoreSolarePage() {
               {[
                 { region: 'Ticino (Lugano)', stunden: "2'080", ertrag: "1'080–1'100 kWh/kWp", bar: 100 },
                 { region: 'Vallese (Sion)', stunden: "2'130", ertrag: "1'050–1'100 kWh/kWp", bar: 99 },
-                { region: 'Regione del Lemano', stunden: "1'870", ertrag: "970–1'000 kWh/kWp", bar: 87 },
+                { region: 'Lemano', stunden: "1'870", ertrag: "970–1'000 kWh/kWp", bar: 87 },
                 { region: 'Berna / Altopiano', stunden: "1'720", ertrag: "900–950 kWh/kWp", bar: 80 },
                 { region: 'Zurigo', stunden: "1'700", ertrag: "880–920 kWh/kWp", bar: 78 },
                 { region: 'Basilea / Svizzera del Nord', stunden: "1'660", ertrag: "860–900 kWh/kWp", bar: 76 },
@@ -550,7 +550,7 @@ export default function CalcolatoreSolarePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Calculator, title: 'Calcolo istantaneo', desc: "Ottieni in pochi secondi una prima stima per il tuo impianto fotovoltaico — senza registrazione." },
-              { icon: Zap, title: 'Calcolare il rendimento', desc: "Scopri quanta elettricità il tuo tetto può produrre annualmente — in base alla tua regione." },
+              { icon: Zap, title: 'Calcolare il rendimento', desc: "Scopri quanta elettricità il tuo tetto può produrre annualmente — in base al tuo Cantone." },
               { icon: PiggyBank, title: 'Capire i costi', desc: 'Stima realistica con incentivo RU basata sui prezzi attuali del mercato svizzero.' },
               { icon: TrendingUp, title: "Pianificare l'ammortamento", desc: "Scopri quando il tuo investimento viene ripagato e quanto risparmierai in 25 anni." },
             ].map(b => (

@@ -56,7 +56,7 @@ const faqs = [
 const reasons = [
   {
     title: 'Price transparency',
-    text: 'You immediately see what an installation really costs in your region',
+    text: 'You immediately see what an installation really costs in your canton',
   },
   {
     title: 'Quality comparison',
@@ -79,7 +79,7 @@ const criteria = [
 const tableRows = [
   { label: 'Cost for the customer', pvpro: 'Free', others: 'Often hidden fees' },
   { label: 'Verified installers', pvpro: 'Yes, certified', others: 'Not always' },
-  { label: 'Local companies', pvpro: 'Yes, from your region', others: 'Often non-local' },
+  { label: 'Local companies', pvpro: 'Yes, from your canton', others: 'Often non-local' },
   { label: 'No advertising calls', pvpro: 'Guaranteed', others: 'Not guaranteed' },
   { label: 'Swiss platform', pvpro: 'Yes', others: 'Often foreign' },
 ];
@@ -116,7 +116,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
             {[
               { val: 'Free & non-binding', sub: 'no risk', note: 'completely free for homeowners' },
               { val: 'Up to 3 quotes', sub: 'from certified installers', note: 'tailored for your roof' },
-              { val: '500+ partners', sub: 'across Switzerland', note: 'verified companies in your region' },
+              { val: '500+ partners', sub: 'across Switzerland', note: 'verified companies in your canton' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -175,7 +175,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
               How does PVPro.ch work as a comparison portal?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              PVPro.ch is not a regular directory. We verify every installer in our network and only connect you with certified companies from your region.
+              PVPro.ch is not a regular directory. We verify every installer in our network and only connect you with certified companies from your canton.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -278,7 +278,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Fill in our form in 2 minutes and receive up to 3 quotes from{' '}
             <Link href="/en/quote" className="text-[#F97316] hover:underline font-medium">certified installers</Link>{' '}
-            in your region — free of charge and without obligation.
+            in your canton — free of charge and without obligation.
           </p>
           <Link
             href="/en/quote"
@@ -327,7 +327,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
                 Apartment building
               </Link>
               <Link href="/en/solar-panel-installation-switzerland" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
-                Installers in your region
+                Installers in your canton
               </Link>
               <Link href="/en/get-solar-panel-quotes" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-gray-400 bg-white transition-colors">
                 Get and compare quotes

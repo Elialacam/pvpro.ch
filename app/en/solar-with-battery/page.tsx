@@ -250,7 +250,7 @@ export default function SolarWithBatteryPage() {
                 A typical 10 kWp installation in Switzerland produces around <strong>9,000–11,000 kWh per year</strong> — that's approximately <strong>25–40 kWh</strong> per day.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                The exact amount depends on the roof orientation, tilt angle and regional solar irradiation.
+                The exact amount depends on the roof orientation, tilt angle and local solar irradiation.
               </p>
 
               <p className="font-bold text-gray-900 mb-4">Battery storage is especially worthwhile when…</p>

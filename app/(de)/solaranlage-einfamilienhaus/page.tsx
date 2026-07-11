@@ -357,7 +357,7 @@ export default function SolaranlageEinfamilienhausPage() {
             Angebote vergleichen und Kosten optimieren
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Die Preise für Solaranlagen unterscheiden sich stark je nach Anbieter. Über PVPro erhalten Sie kostenlos bis zu 3 Offerten von geprüften Installateuren in Ihrer Region.
+            Die Preise für Solaranlagen unterscheiden sich stark je nach Anbieter. Über PVPro erhalten Sie kostenlos bis zu 3 Offerten von geprüften Installateuren in Ihrem Kanton.
           </p>
           <Link
             href="/anfrage"

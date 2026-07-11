@@ -40,7 +40,7 @@ const faqs = [
     answer: 'There are separate subsidies for each component — the one-time payment (OTS) for the solar system, cantonal contributions for the heat pump and other programmes depending on the canton. An experienced installer knows all relevant funding options.',
   },
   {
-    question: 'How do I find a complete solution provider in my region?',
+    question: 'How do I find a complete solution provider in my canton?',
     answer: 'PVPro.ch connects you free of charge with certified installers offering complete solutions. Simply fill in the form and receive up to 3 quotes.',
   },
   {

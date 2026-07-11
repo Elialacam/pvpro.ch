@@ -33,7 +33,7 @@ export const cityContentsIT: Record<string, CityContent> = {
     cityFactsParagraphs: [
       'Lugano è la terza città più grande del Canton Ticino e gode di una posizione unica sulle sponde del Lago di Lugano. Con 2.157 ore di sole all\'anno, la città offre le condizioni più favorevoli per impianti fotovoltaici in tutta la Svizzera. Il clima mediterraneo mite garantisce rendimenti elevati durante tutto l\'anno.',
       'Il settore dell\'energia solare in Ticino è in forte espansione. Grazie al \"Programma Energia\" cantonale, i proprietari di case a Lugano ricevono consulenze complete e sovvenzioni attraenti per l\'installazione di impianti fotovoltaici. Le autorità locali promuovono attivamente la transizione verso energie rinnovabili.',
-      'Un impianto fotovoltaico medio da 5 kWp a Lugano produce circa 6.500 kWh di elettricità all\'anno - significativamente più che nelle regioni del Mittelland svizzero. Con un\'alta quota di autoconsumo, questo consente risparmi annuali superiori a CHF 2.400 e un periodo di ammortamento di soli 4-5 anni.',
+      'Un impianto fotovoltaico medio da 5 kWp a Lugano produce circa 6.500 kWh di elettricità all\'anno - significativamente più che nelle zone del Mittelland svizzero. Con un\'alta quota di autoconsumo, questo consente risparmi annuali superiori a CHF 2.400 e un periodo di ammortamento di soli 4-5 anni.',
       'I comuni ticinesi offrono ulteriori incentivi oltre alle sovvenzioni federali e cantonali. Molti proprietari di case a Lugano optano per sistemi con batterie di accumulo per massimizzare l\'autoconsumo e diventare ancora più indipendenti dalla rete. I nostri partner locali certificati accompagnano l\'intero processo - dalla pianificazione all\'installazione fino alla registrazione delle sovvenzioni.'
     ],
 
@@ -117,7 +117,7 @@ export const cityContentsIT: Record<string, CityContent> = {
       },
       {
         question: 'Quanto velocemente si ammortizza un impianto fotovoltaico a Lugano?',
-        answer: 'Grazie agli elevati rendimenti solari e alle sovvenzioni attraenti, un impianto fotovoltaico a Lugano si ammortizza in 4-5 anni - significativamente più veloce rispetto ad altre regioni svizzere. Con una durata di vita di 25-30 anni, beneficerete di 20-25 anni di elettricità gratuita.'
+        answer: 'Grazie agli elevati rendimenti solari e alle sovvenzioni attraenti, un impianto fotovoltaico a Lugano si ammortizza in 4-5 anni - significativamente più veloce rispetto ad altri Cantoni svizzeri. Con una durata di vita di 25-30 anni, beneficerete di 20-25 anni di elettricità gratuita.'
       },
       {
         question: 'Come funziona il Programma Energia Ticino?',
@@ -125,7 +125,7 @@ export const cityContentsIT: Record<string, CityContent> = {
       },
       {
         question: 'Un impianto fotovoltaico è utile anche sul Lago di Lugano?',
-        answer: 'Assolutamente sì! Le regioni intorno al Lago di Lugano beneficiano di un microclima particolarmente favorevole con ancora più ore di sole. Il riflesso dell\'acqua può addirittura aumentare i rendimenti. Anche nelle giornate nuvolose, gli impianti moderni producono elettricità in modo efficiente.'
+        answer: 'Assolutamente sì! Le zone intorno al Lago di Lugano beneficiano di un microclima particolarmente favorevole con ancora più ore di sole. Il riflesso dell\'acqua può addirittura aumentare i rendimenti. Anche nelle giornate nuvolose, gli impianti moderni producono elettricità in modo efficiente.'
       },
       {
         question: 'Quanto produce un impianto fotovoltaico a Lugano?',

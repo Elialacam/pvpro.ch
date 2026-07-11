@@ -5,7 +5,7 @@ import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = {
   title: 'Solar Panel Installation Switzerland 2026 – Providers & Costs | PVPro.ch',
-  description: 'Solar panel installation in Switzerland: find certified providers in your region. Compare free quotes and save up to 30% with PVPro.ch.',
+  description: 'Solar panel installation in Switzerland: find certified providers in your canton. Compare free quotes and save up to 30% with PVPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-panel-installation-switzerland',
     languages: {
@@ -48,8 +48,8 @@ const faqs = [
     answer: 'After commissioning, the system is registered with the local grid operator. The installer ensures everything works correctly and explains the operation.',
   },
   {
-    question: 'How do I find the best installer in my region?',
-    answer: 'PVPro.ch connects you free of charge with up to 3 certified installers from your region — so you can directly compare prices and services.',
+    question: 'How do I find the best installer in my canton?',
+    answer: 'PVPro.ch connects you free of charge with up to 3 certified installers from your canton — so you can directly compare prices and services.',
   },
 ];
 
@@ -97,7 +97,7 @@ const costRows = [
 const criteria = [
   { title: 'Certification', text: 'Is the company recognised and does it have proven experience?' },
   { title: 'Local presence', text: 'A local installer knows the cantonal regulations and subsidies' },
-  { title: 'References', text: 'Have they completed comparable projects in your region?' },
+  { title: 'References', text: 'Have they completed comparable projects in your canton?' },
   { title: 'Guarantees', text: 'What guarantees does the installer offer on mounting, modules and inverter?' },
   { title: 'Value for money', text: 'Only by comparing multiple quotes can you see whether a price is fair' },
 ];
@@ -123,7 +123,7 @@ export default function SolarPanelInstallationSwitzerlandPage() {
               Get solar panels installed in Switzerland
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              A solar system is a long-term investment. Choosing the right company matters — because quality, price and service vary enormously. PVPro.ch connects you free of charge with verified Swiss installers from your region.
+              A solar system is a long-term investment. Choosing the right company matters — because quality, price and service vary enormously. PVPro.ch connects you free of charge with verified Swiss installers from your canton.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -296,7 +296,7 @@ export default function SolarPanelInstallationSwitzerlandPage() {
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Tip</p>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Always ask for at least 3 reference projects in your region and have the guarantee conditions confirmed in writing — before you sign.
+                Always ask for at least 3 reference projects in your canton and have the guarantee conditions confirmed in writing — before you sign.
               </p>
             </div>
           </div>
@@ -309,12 +309,12 @@ export default function SolarPanelInstallationSwitzerlandPage() {
             <Sun className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-            Find an installer in your region now
+            Find an installer in your canton now
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Fill in our form in 2 minutes and receive up to 3 quotes from{' '}
             <Link href="/en/quote" className="text-[#F97316] hover:underline font-medium">certified installers</Link>{' '}
-            in your region — free of charge and without obligation.
+            in your canton — free of charge and without obligation.
           </p>
           <Link
             href="/en/quote"

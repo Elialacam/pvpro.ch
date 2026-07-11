@@ -133,7 +133,7 @@ export default function PrivacyPage() {
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">5. Data Sharing</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             As part of our brokerage service, we share your contact details with up to 3 certified solar installers
-            in your region so they can provide you with individual quotes. Data is only shared on the basis of your request.
+            in your canton so they can provide you with individual quotes. Data is only shared on the basis of your request.
           </p>
 
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">6. Retention Period</h2>

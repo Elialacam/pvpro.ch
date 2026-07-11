@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     question: "I pannelli bifacciali convengono per una normale casa unifamiliare?",
-    answer: "Su un normale tetto a falda il guadagno di produzione dal lato posteriore è ridotto. I pannelli bifacciali convengono soprattutto su tetti piani o in regioni con molta neve.",
+    answer: "Su un normale tetto a falda il guadagno di produzione dal lato posteriore è ridotto. I pannelli bifacciali convengono soprattutto su tetti piani o in zone con molta neve.",
   },
   {
     question: "Quali pannelli durano più a lungo?",
@@ -57,13 +57,13 @@ const tabella = [
   { tipo: 'Monocristallino', rendimento: '18–22%', costi: 'Medio–Alto', ideale: 'Piccole superfici, alta efficienza' },
   { tipo: 'Policristallino', rendimento: '15–17%', costi: 'Basso', ideale: 'Grandi superfici, opzione economica' },
   { tipo: 'Film sottile', rendimento: '10–13%', costi: 'Basso', ideale: 'Tetti piani, applicazioni speciali' },
-  { tipo: 'Bifacciale', rendimento: '20–24%', costi: 'Alto', ideale: 'Regioni nevose, tetti piani' },
+  { tipo: 'Bifacciale', rendimento: '20–24%', costi: 'Alto', ideale: 'Zone nevose, tetti piani' },
 ];
 
 const situazioniTabella = [
   { situazione: 'Tetto piccolo, potenza massima', raccomandazione: 'Monocristallino' },
   { situazione: 'Tetto grande, budget ridotto', raccomandazione: 'Policristallino' },
-  { situazione: 'Tetto piano, regione nevada', raccomandazione: 'Bifacciale' },
+  { situazione: 'Tetto piano, Cantone nevada', raccomandazione: 'Bifacciale' },
   { situazione: 'Facciata o tetto non convenzionale', raccomandazione: 'Film sottile' },
   { situazione: 'Casa unifamiliare standard Svizzera', raccomandazione: 'Monocristallino', highlight: true },
 ];
@@ -146,7 +146,7 @@ const tipiModulo: TipoModulo[] = [
       'Il guadagno aggiuntivo dipende fortemente dall\'installazione',
       'Non sempre vantaggioso sui normali tetti a falda',
     ],
-    conclusione: 'Interessante per regioni con molta neve e per tetti piani. Per i normali tetti a falda in Svizzera solitamente nessun vantaggio significativo.',
+    conclusione: 'Interessante per zone con molta neve e per tetti piani. Per i normali tetti a falda in Svizzera solitamente nessun vantaggio significativo.',
   },
 ];
 
@@ -324,7 +324,7 @@ export default function ConfrontoTipiImpiantiSolariPage() {
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Quale tipo si adatta al tuo tetto?</h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Un installatore certificato della tua regione analizza il tuo tetto e consiglia il tipo di modulo ottimale per la tua situazione — gratuitamente e senza impegno.
+            Un installatore certificato del tuo Cantone analizza il tuo tetto e consiglia il tipo di modulo ottimale per la tua situazione — gratuitamente e senza impegno.
           </p>
           <Link href="/it/richiedere-preventivo-solare" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
             style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>

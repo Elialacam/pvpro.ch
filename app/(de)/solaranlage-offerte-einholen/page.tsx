@@ -5,7 +5,7 @@ import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = {
   title: 'Solaranlage Offerte einholen Schweiz 2026 – Kostenlos & unverbindlich | PVPro.ch',
-  description: 'Kostenlose Offerten für Ihre Solaranlage in der Schweiz einholen. Bis zu 3 Angebote von zertifizierten Installateuren in Ihrer Region. Jetzt vergleichen und sparen.',
+  description: 'Kostenlose Offerten für Ihre Solaranlage in der Schweiz einholen. Bis zu 3 Angebote von zertifizierten Installateuren in Ihrem Kanton. Jetzt vergleichen und sparen.',
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-offerte-einholen',
     languages: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: 'Wie viele Offerten erhalte ich über PVPro.ch?',
-    answer: 'Sie erhalten bis zu 3 massgeschneiderte Offerten von zertifizierten Installateuren aus Ihrer Region. So haben Sie sofort eine Vergleichsbasis.',
+    answer: 'Sie erhalten bis zu 3 massgeschneiderte Offerten von zertifizierten Installateuren aus Ihrem Kanton. So haben Sie sofort eine Vergleichsbasis.',
   },
   {
     question: 'Wie schnell erhalte ich die Offerten?',
@@ -74,7 +74,7 @@ const steps = [
   {
     n: '2',
     title: 'Offerten erhalten (24–48 Stunden)',
-    text: 'Bis zu 3 zertifizierte Installateure aus Ihrer Region schicken Ihnen massgeschneiderte Angebote direkt zu.',
+    text: 'Bis zu 3 zertifizierte Installateure aus Ihrem Kanton schicken Ihnen massgeschneiderte Angebote direkt zu.',
   },
   {
     n: '3',
@@ -309,7 +309,7 @@ export default function SolaranlageOfferteEinholenPage() {
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             In 2 Minuten Formular ausfüllen — und bis zu 3 Offerten von{' '}
             <Link href="/anfrage" className="text-[#F97316] hover:underline font-medium">zertifizierten Installateuren</Link>{' '}
-            aus Ihrer Region erhalten. Kostenlos, unverbindlich, ohne Werbeanrufe.
+            aus Ihrem Kanton erhalten. Kostenlos, unverbindlich, ohne Werbeanrufe.
           </p>
           <Link
             href="/anfrage"

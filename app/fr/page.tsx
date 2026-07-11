@@ -24,7 +24,7 @@ export default function FrenchHomePage() {
     },
     {
       question: 'Comment fonctionne l\'intermédiation de PVPro?',
-      answer: 'Vous remplissez notre court formulaire en indiquant vos besoins. Nous transmettons votre demande à un maximum de 3 installateurs certifiés dans votre région. Ceux-ci préparent des offres personnalisées pour vous. Vous comparez les devis et choisissez la meilleure offre - sans aucun engagement.',
+      answer: 'Vous remplissez notre court formulaire en indiquant vos besoins. Nous transmettons votre demande à un maximum de 3 installateurs certifiés dans votre canton. Ceux-ci préparent des offres personnalisées pour vous. Vous comparez les devis et choisissez la meilleure offre - sans aucun engagement.',
     },
     {
       question: 'Existe-t-il des subventions pour les installations solaires en Suisse?',
@@ -36,7 +36,7 @@ export default function FrenchHomePage() {
     },
     {
       question: 'Une installation solaire est-elle rentable même avec peu de soleil?',
-      answer: 'Oui! Même dans les régions moins ensoleillées de Suisse, les installations solaires produisent assez d\'électricité pour s\'amortir. Les modules solaires modernes fonctionnent efficacement même avec une lumière diffuse. La période d\'amortissement moyenne en Suisse est de 10-15 ans, pour une durée de vie de 25-30 ans.',
+      answer: 'Oui! Même dans les zones moins ensoleillées de Suisse, les installations solaires produisent assez d\'électricité pour s\'amortir. Les modules solaires modernes fonctionnent efficacement même avec une lumière diffuse. La période d\'amortissement moyenne en Suisse est de 10-15 ans, pour une durée de vie de 25-30 ans.',
     },
     {
       question: 'Le service de PVPro est-il vraiment gratuit?',

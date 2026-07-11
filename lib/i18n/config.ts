@@ -13,7 +13,7 @@ export const localeNames: Record<Locale, string> = {
   it: 'IT',
 };
 
-export const localeRegions: Record<Locale, string> = {
+export const localeKantons: Record<Locale, string> = {
   de: 'de-CH',
   fr: 'fr-CH',
   en: 'en-CH',

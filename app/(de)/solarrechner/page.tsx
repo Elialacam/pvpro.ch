@@ -71,7 +71,7 @@ const faqs = [
   },
   {
     question: 'Welcher Kanton hat die meisten Sonnenstunden in der Schweiz?',
-    answer: "Das Tessin und das Wallis gehören zu den sonnenreichsten Kantonen der Schweiz mit über 2'000 Sonnenstunden pro Jahr. Die Deutschschweiz liegt zwischen 1'600 und 1'900 Stunden. Selbst in weniger sonnigen Regionen lohnen sich Solaranlagen — der Unterschied im Ertrag zwischen dem Tessin und Zürich beträgt nur etwa 15–20%.",
+    answer: "Das Tessin und das Wallis gehören zu den sonnenreichsten Kantonen der Schweiz mit über 2'000 Sonnenstunden pro Jahr. Die Deutschschweiz liegt zwischen 1'600 und 1'900 Stunden. Selbst in weniger sonnigen Kantonen lohnen sich Solaranlagen — der Unterschied im Ertrag zwischen dem Tessin und Zürich beträgt nur etwa 15–20%.",
   },
 ];
 
@@ -443,17 +443,17 @@ export default function SolarrechnerPage() {
         </div>
       </section>
 
-      {/* ── Regional note ── */}
+      {/* ── Kantonale Unterschiede ── */}
       <section className="py-14 bg-gray-50">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Regionale Unterschiede</p>
+              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Cantonale Unterschiede</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                Solarertrag nach Region in der Schweiz
+                Solarertrag nach Kanton in der Schweiz
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Die Sonneneinstrahlung variiert in der Schweiz regional. Das Tessin und das Wallis gehören zu den sonnenreichsten Regionen mit über 2'000 Sonnenstunden pro Jahr und einem Jahresertrag von bis zu 1'100 kWh/kWp.
+                Die Sonneneinstrahlung variiert in der Schweiz kantonal. Das Tessin und das Wallis gehören zu den sonnenreichsten Gebieten mit über 2'000 Sonnenstunden pro Jahr und einem Jahresertrag von bis zu 1'100 kWh/kWp.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Die Deutschschweiz und das Mittelland liegen bei 1'600–1'900 Stunden — immer noch ausgezeichnete Bedingungen für Solarenergie. Der Unterschied im Jahresertrag zwischen Genf und Zürich beträgt weniger als 15%. Solaranlagen lohnen sich in der ganzen Schweiz.
@@ -466,7 +466,7 @@ export default function SolarrechnerPage() {
               {[
                 { region: 'Tessin (Lugano)', stunden: "2'080", ertrag: '1\'080–1\'100 kWh/kWp', bar: 100 },
                 { region: 'Wallis (Sion)', stunden: "2'130", ertrag: "1'050–1'100 kWh/kWp", bar: 99 },
-                { region: 'Genferseeregion', stunden: "1'870", ertrag: "970–1'000 kWh/kWp", bar: 87 },
+                { region: 'Genferseegebiet', stunden: "1'870", ertrag: "970–1'000 kWh/kWp", bar: 87 },
                 { region: 'Bern / Mittelland', stunden: "1'720", ertrag: "900–950 kWh/kWp", bar: 80 },
                 { region: 'Zürich', stunden: "1'700", ertrag: "880–920 kWh/kWp", bar: 78 },
                 { region: 'Basel / Nordschweiz', stunden: "1'660", ertrag: "860–900 kWh/kWp", bar: 76 },
@@ -575,7 +575,7 @@ export default function SolarrechnerPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Calculator, title: 'Sofortige Berechnung', desc: 'Erhalten Sie in Sekunden eine erste Einschätzung für Ihre Solaranlage — ohne Anmeldung.' },
-              { icon: Zap, title: 'Ertrag ermitteln', desc: 'Sehen Sie, wie viel Strom Ihr Dach jährlich produzieren kann — basierend auf Ihrer Region.' },
+              { icon: Zap, title: 'Ertrag ermitteln', desc: 'Sehen Sie, wie viel Strom Ihr Dach jährlich produzieren kann — basierend auf Ihrem Kanton.' },
               { icon: PiggyBank, title: 'Kosten verstehen', desc: 'Realistische Kostenschätzung mit EIV-Förderung basierend auf aktuellen Schweizer Marktpreisen.' },
               { icon: TrendingUp, title: 'Amortisation planen', desc: 'Erfahren Sie, ab wann sich Ihre Investition amortisiert und wie viel Sie über 25 Jahre sparen.' },
             ].map(b => (

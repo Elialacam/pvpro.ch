@@ -274,7 +274,7 @@ export default function FoerderungenPage() {
               <div className="mt-6 rounded-2xl px-5 py-4 flex items-start gap-3" style={{ background: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.2)' }}>
                 <Info className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-orange-300 leading-relaxed">
-                  Unsere Partner-Installateure kennen alle kantonalen Förderprogramme in Ihrer Region und helfen Ihnen bei der Beantragung.
+                  Unsere Partner-Installateure kennen alle kantonalen Förderprogramme in Ihrem Kanton und helfen Ihnen bei der Beantragung.
                 </p>
               </div>
             </div>

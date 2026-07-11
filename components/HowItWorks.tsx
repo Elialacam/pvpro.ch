@@ -33,7 +33,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '3',
         title: 'Installateur wählen',
-        description: 'Wir vergleichen echte Preise und zertifizierte Installateure in Ihrer Region — Sie wählen das beste Angebot.',
+        description: 'Wir vergleichen echte Preise und zertifizierte Installateure in Ihrem Kanton — Sie wählen das beste Angebot.',
       },
     ],
   },
@@ -55,7 +55,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '3',
         title: 'Choisir l\'installateur',
-        description: 'Nous comparons les prix réels et les installateurs certifiés dans votre région — vous choisissez la meilleure offre.',
+        description: 'Nous comparons les prix réels et les installateurs certifiés dans votre canton — vous choisissez la meilleure offre.',
       },
     ],
   },
@@ -77,7 +77,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '3',
         title: 'Choose Your Installer',
-        description: 'We compare real prices and certified installers in your region — you choose the best offer.',
+        description: 'We compare real prices and certified installers in your canton — you choose the best offer.',
       },
     ],
   },
@@ -99,7 +99,7 @@ const howItWorksContent: Record<Locale, {
       {
         step: '3',
         title: 'Scegli il tuo installatore',
-        description: 'Confrontiamo prezzi reali e installatori certificati nella tua regione — tu scegli l\'offerta migliore.',
+        description: 'Confrontiamo prezzi reali e installatori certificati nel tuo Cantone — tu scegli l\'offerta migliore.',
       },
     ],
   },

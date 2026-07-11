@@ -19,7 +19,7 @@ export default function StructuredData() {
       "streetAddress": "Via Santi Pietro e Paolo 16",
       "addressLocality": "Lugaggia",
       "postalCode": "6953",
-      "addressRegion": "TI",
+      "addressKanton": "TI",
       "addressCountry": "CH"
     },
     "geo": {

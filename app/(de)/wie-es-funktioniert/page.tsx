@@ -26,11 +26,11 @@ const steps = [
     Icon: Search,
     title: 'Wir vermitteln geprüfte Installateure',
     subtitle: 'Innerhalb von 24–48 Stunden',
-    description: 'Nach Eingang Ihrer Anfrage leiten wir diese an bis zu 3 geprüfte Solarinstallateure in Ihrer Region weiter. Jeder Partner in unserem Netzwerk wurde vorab auf Zertifikate, Referenzen und Qualität geprüft.',
+    description: 'Nach Eingang Ihrer Anfrage leiten wir diese an bis zu 3 geprüfte Solarinstallateure in Ihrem Kanton weiter. Jeder Partner in unserem Netzwerk wurde vorab auf Zertifikate, Referenzen und Qualität geprüft.',
     details: [
       'Bis zu 3 unabhängige Offerten',
       'Ausschliesslich zertifizierte Fachbetriebe',
-      'Installateure aus Ihrer Region',
+      'Installateure aus Ihrem Kanton',
       'Individuelle Angebote auf Ihr Dach zugeschnitten',
     ],
   },
@@ -151,7 +151,7 @@ export default function WieEsFunktioniertPage() {
               { q: 'Ist der Service wirklich kostenlos?', a: 'Ja, zu 100%. Wir finanzieren uns durch Provisionen der Installateure — ohne Aufpreis für Sie.' },
               { q: 'Bin ich zur Auswahl eines Angebots verpflichtet?', a: 'Nein. Sie können alle Offerten ablehnen, ohne irgendwelche Konsequenzen.' },
               { q: 'Wie schnell erhalte ich die Offerten?', a: 'In der Regel innerhalb von 24–48 Stunden nach Ihrer Anfrage.' },
-              { q: 'In welchen Regionen ist PVPro aktiv?', a: 'Wir sind in der ganzen Schweiz tätig, in allen 26 Kantonen.' },
+              { q: 'In welchen Kantonen ist PVPro aktiv?', a: 'Wir sind in der ganzen Schweiz tätig, in allen 26 Kantonen.' },
             ].map((faq) => (
               <div key={faq.q}>
                 <p className="font-bold text-gray-900 mb-1 text-sm">{faq.q}</p>

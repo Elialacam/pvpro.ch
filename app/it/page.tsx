@@ -24,7 +24,7 @@ export default function ItalianHomePage() {
     },
     {
       question: 'Come funziona il servizio di intermediazione di PVPro?',
-      answer: 'Compili il nostro breve modulo indicando le tue esigenze. Inoltriamo la tua richiesta a un massimo di 3 installatori certificati nella tua regione. Questi preparano preventivi personalizzati per te. Tu confronti le offerte e scegli la migliore - senza alcun impegno.',
+      answer: 'Compili il nostro breve modulo indicando le tue esigenze. Inoltriamo la tua richiesta a un massimo di 3 installatori certificati nel tuo Cantone. Questi preparano preventivi personalizzati per te. Tu confronti le offerte e scegli la migliore - senza alcun impegno.',
     },
     {
       question: 'Esistono sovvenzioni per gli impianti fotovoltaici in Svizzera?',
@@ -36,7 +36,7 @@ export default function ItalianHomePage() {
     },
     {
       question: 'Un impianto fotovoltaico conviene anche con poco sole?',
-      answer: 'Sì! Anche nelle regioni meno soleggiate della Svizzera, gli impianti fotovoltaici producono abbastanza elettricità per ammortizzarsi. I moderni moduli fotovoltaici funzionano in modo efficiente anche con luce diffusa. Il periodo medio di ammortamento in Svizzera è di 10-15 anni, con una durata di vita di 25-30 anni.',
+      answer: 'Sì! Anche nelle zone meno soleggiate della Svizzera, gli impianti fotovoltaici producono abbastanza elettricità per ammortizzarsi. I moderni moduli fotovoltaici funzionano in modo efficiente anche con luce diffusa. Il periodo medio di ammortamento in Svizzera è di 10-15 anni, con una durata di vita di 25-30 anni.',
     },
     {
       question: 'Il servizio di PVPro è davvero gratuito?',

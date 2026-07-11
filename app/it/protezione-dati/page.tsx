@@ -136,7 +136,7 @@ export default function ProtezioneDatiPage() {
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">5. Trasmissione dei dati</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             Nell'ambito del nostro servizio di intermediazione, trasmettiamo i vostri dati di contatto a un massimo
-            di 3 installatori solari certificati nella vostra regione, affinché possano prepararvi offerte personalizzate.
+            di 3 installatori solari certificati nel vostro Cantone, affinché possano prepararvi offerte personalizzate.
             La trasmissione avviene esclusivamente sulla base della vostra richiesta.
           </p>
 

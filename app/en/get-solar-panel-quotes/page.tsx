@@ -5,7 +5,7 @@ import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = {
   title: 'Get Solar Panel Quotes Switzerland 2026 – Free & No Obligation | PVPro.ch',
-  description: 'Request free solar panel quotes in Switzerland. Up to 3 quotes from certified installers in your region. Compare and save.',
+  description: 'Request free solar panel quotes in Switzerland. Up to 3 quotes from certified installers in your canton. Compare and save.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/get-solar-panel-quotes',
     languages: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: 'How many quotes will I receive through PVPro.ch?',
-    answer: 'You receive up to 3 tailored quotes from certified installers in your region. This gives you an immediate basis for comparison.',
+    answer: 'You receive up to 3 tailored quotes from certified installers in your canton. This gives you an immediate basis for comparison.',
   },
   {
     question: 'How long does it take to receive the quotes?',
@@ -67,7 +67,7 @@ const quoteContents = [
 
 const steps = [
   { n: '1', title: 'Fill in the form (2 minutes)', text: 'You describe your situation: roof area, electricity consumption, canton, desired options such as battery storage or heat pump.' },
-  { n: '2', title: 'Receive quotes (24–48 hours)', text: 'Up to 3 certified installers from your region send you tailored offers directly.' },
+  { n: '2', title: 'Receive quotes (24–48 hours)', text: 'Up to 3 certified installers from your canton send you tailored offers directly.' },
   { n: '3', title: 'Compare and decide', text: 'You compare prices, components and references — and choose freely. No obligation, no pressure.' },
 ];
 
@@ -263,7 +263,7 @@ export default function GetSolarPanelQuotesPage() {
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Fill in the form in 2 minutes — and receive up to 3 quotes from{' '}
             <Link href="/en/quote" className="text-[#F97316] hover:underline font-medium">certified installers</Link>{' '}
-            in your region. Free, no obligation, no advertising calls.
+            in your canton. Free, no obligation, no advertising calls.
           </p>
           <Link href="/en/quote" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
             style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>

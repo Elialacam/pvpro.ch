@@ -32,7 +32,7 @@ const values = [
   {
     icon: Star,
     title: 'Transparency',
-    text: 'No hidden costs, no obligations. You receive real prices from real installers in your region.',
+    text: 'No hidden costs, no obligations. You receive real prices from real installers in your canton.',
   },
 ];
 
@@ -66,7 +66,7 @@ export default function AboutUsPage() {
               PVPro.ch was founded with a clear mission: to help Swiss homeowners find the best solar installation at the best price — simply, transparently and free of charge.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              In a market that is often opaque and hard to compare, we provide clarity. We connect you with up to 3 certified installers from your region and let the quotes speak for themselves.
+              In a market that is often opaque and hard to compare, we provide clarity. We connect you with up to 3 certified installers from your canton and let the quotes speak for themselves.
             </p>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-xl">

@@ -50,7 +50,7 @@ const faqs = [
 ];
 
 const steps = [
-  { n: '1', title: 'Incarico all\'installatore', text: "Un installatore certificato della vostra regione verifica il vostro impianto e chiarisce tutte le possibilità di incentivo." },
+  { n: '1', title: 'Incarico all\'installatore', text: "Un installatore certificato del vostro Cantone verifica il vostro impianto e chiarisce tutte le possibilità di incentivo." },
   { n: '2', title: "Installare l'impianto", text: '', link: true },
   { n: '3', title: 'Richiedere il contributo cantonale', text: "Per i contributi cantonali viene presentata una domanda separata presso l'Ufficio cantonale per i rifiuti, le acque, l'energia e l'aria (AWEL)." },
   { n: '4', title: 'Versamento', text: "La RU viene tipicamente versata alcuni mesi dopo la registrazione. I contributi cantonali seguono a seconda del programma." },

@@ -5,7 +5,7 @@ import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = {
   title: "Demander une offre panneau solaire Suisse 2026 – Gratuit & sans engagement | PVPro.ch",
-  description: "Demandez des offres gratuites pour votre installation solaire en Suisse. Jusqu'à 3 devis d'installateurs certifiés dans votre région. Comparez et économisez.",
+  description: "Demandez des offres gratuites pour votre installation solaire en Suisse. Jusqu'à 3 devis d'installateurs certifiés dans votre canton. Comparez et économisez.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/demander-offre-panneau-solaire',
     languages: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: "Combien d'offres vais-je recevoir via PVPro.ch ?",
-    answer: "Vous recevez jusqu'à 3 offres personnalisées d'installateurs certifiés de votre région. Vous disposez ainsi d'une base de comparaison immédiate.",
+    answer: "Vous recevez jusqu'à 3 offres personnalisées d'installateurs certifiés de votre canton. Vous disposez ainsi d'une base de comparaison immédiate.",
   },
   {
     question: "Combien de temps faut-il pour recevoir les offres ?",
@@ -74,7 +74,7 @@ const steps = [
   {
     n: '2',
     title: 'Recevoir les offres (24–48 heures)',
-    text: "Jusqu'à 3 installateurs certifiés de votre région vous envoient des offres personnalisées directement.",
+    text: "Jusqu'à 3 installateurs certifiés de votre canton vous envoient des offres personnalisées directement.",
   },
   {
     n: '3',
@@ -309,7 +309,7 @@ export default function DemanderOffrePanneauSolairePage() {
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Remplissez le formulaire en 2 minutes — et recevez jusqu&apos;à 3 offres d&apos;{' '}
             <Link href="/fr/demande" className="text-[#F97316] hover:underline font-medium">installateurs certifiés</Link>{' '}
-            de votre région. Gratuit, sans engagement, sans appels publicitaires.
+            de votre canton. Gratuit, sans engagement, sans appels publicitaires.
           </p>
           <Link
             href="/fr/demande"

@@ -64,7 +64,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'besten-solarinstallateur-schweiz-finden',
     title: 'Besten Solarinstallateur in der Schweiz finden 2026 – So geht\'s richtig',
-    excerpt: 'Wie finden Sie den besten Solarinstallateur in Ihrer Region? Warum lokale Fachbetriebe besser sind, worauf Sie achten müssen und wie PVPro.ch die Suche für Sie übernimmt.',
+    excerpt: 'Wie finden Sie den besten Solarinstallateur in Ihrem Kanton? Warum lokale Fachbetriebe besser sind, worauf Sie achten müssen und wie PVPro.ch die Suche für Sie übernimmt.',
     image: '/images/installateur-solarmodul-dach-alpen.webp',
     author: 'PVPro Redaktion',
     date: '3. Mai 2026',
@@ -144,7 +144,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'richtigen-solarinstallateur-schweiz-waehlen',
     title: 'Den richtigen Solarinstallateur in der Schweiz wählen: 7 wichtige Kriterien',
-    excerpt: 'Die Wahl des Installateurs ist entscheidend für Qualität und Wirtschaftlichkeit Ihrer Solaranlage. Mit diesen 7 Kriterien finden Sie den besten Anbieter in Ihrer Region.',
+    excerpt: 'Die Wahl des Installateurs ist entscheidend für Qualität und Wirtschaftlichkeit Ihrer Solaranlage. Mit diesen 7 Kriterien finden Sie den besten Anbieter in Ihrem Kanton.',
     image: '/images/solarinstallateure-offerte-beratung.webp',
     author: 'PVPro Redaktion',
     date: '18. Februar 2026',
@@ -218,7 +218,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'photovoltaik-schweizer-klima',
     title: 'Photovoltaik im Schweizer Klima: Ertrag in Alpen, Mittelland und Tessin',
-    excerpt: 'Wie beeinflusst das Schweizer Klima den Solarertrag? Von Zürich bis Lugano – regionale Unterschiede, saisonale Produktion und warum sich PV überall in der Schweiz lohnt.',
+    excerpt: 'Wie beeinflusst das Schweizer Klima den Solarertrag? Von Zürich bis Lugano – kantonale Unterschiede, saisonale Produktion und warum sich PV überall in der Schweiz lohnt.',
     image: '/images/asset-haus-alpen-1.webp',
     author: 'PVPro Redaktion',
     date: '5. Januar 2026',

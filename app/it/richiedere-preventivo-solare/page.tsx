@@ -5,7 +5,7 @@ import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = {
   title: 'Richiedere preventivo solare Svizzera 2026 – Gratuito & senza impegno | PVPro.ch',
-  description: 'Richiedete preventivi gratuiti per il vostro impianto solare in Svizzera. Fino a 3 preventivi da installatori certificati nella vostra regione. Confrontate e risparmiate.',
+  description: 'Richiedete preventivi gratuiti per il vostro impianto solare in Svizzera. Fino a 3 preventivi da installatori certificati nel vostro Cantone. Confrontate e risparmiate.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/richiedere-preventivo-solare',
     languages: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: 'Quanti preventivi riceverò tramite PVPro.ch?',
-    answer: "Ricevete fino a 3 preventivi personalizzati da installatori certificati della vostra regione. Avete così immediatamente una base di confronto.",
+    answer: "Ricevete fino a 3 preventivi personalizzati da installatori certificati del vostro Cantone. Avete così immediatamente una base di confronto.",
   },
   {
     question: 'Quanto tempo ci vuole per ricevere i preventivi?',
@@ -67,7 +67,7 @@ const quoteContents = [
 
 const steps = [
   { n: '1', title: 'Compilare il modulo (2 minuti)', text: "Descrivete la vostra situazione: superficie del tetto, consumo elettrico, cantone, opzioni desiderate come accumulo a batteria o pompa di calore." },
-  { n: '2', title: 'Ricevere i preventivi (24–48 ore)', text: "Fino a 3 installatori certificati della vostra regione vi inviano offerte personalizzate direttamente." },
+  { n: '2', title: 'Ricevere i preventivi (24–48 ore)', text: "Fino a 3 installatori certificati del vostro Cantone vi inviano offerte personalizzate direttamente." },
   { n: '3', title: 'Confrontare e decidere', text: "Confrontate prezzi, componenti e referenze — e scegliete liberamente. Senza impegno, senza pressione." },
 ];
 
@@ -263,7 +263,7 @@ export default function RichiederePrevenitivoSolarePage() {
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Compilate il modulo in 2 minuti — e ricevete fino a 3 preventivi da{' '}
             <Link href="/it/preventivo" className="text-[#F97316] hover:underline font-medium">installatori certificati</Link>{' '}
-            della vostra regione. Gratuito, senza impegno, senza chiamate pubblicitarie.
+            del vostro Cantone. Gratuito, senza impegno, senza chiamate pubblicitarie.
           </p>
           <Link href="/it/preventivo" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
             style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>

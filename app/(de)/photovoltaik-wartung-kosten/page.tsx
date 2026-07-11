@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: 'Muss ich meine Solaranlage regelmässig reinigen?',
-    answer: 'In der Schweiz reicht in den meisten Fällen der Regen. Bei starker Vogelbelastung oder in staubigen Regionen empfiehlt sich eine manuelle Reinigung einmal pro Jahr.',
+    answer: 'In der Schweiz reicht in den meisten Fällen der Regen. Bei starker Vogelbelastung oder in staubigen Kantonen empfiehlt sich eine manuelle Reinigung einmal pro Jahr.',
   },
   {
     question: 'Was kostet ein Wartungsvertrag für eine Solaranlage?',
@@ -60,7 +60,7 @@ const wartungsLeistungen = [
   },
   {
     title: 'Reinigung der Module',
-    text: 'In der Schweiz reicht meist der Regen, um die Module sauber zu halten. In staubigen Regionen oder bei starker Vogelbelastung kann eine manuelle Reinigung sinnvoll sein.',
+    text: 'In der Schweiz reicht meist der Regen, um die Module sauber zu halten. In staubigen Kantonen oder bei starker Vogelbelastung kann eine manuelle Reinigung sinnvoll sein.',
   },
   {
     title: 'Inspektion des Wechselrichters',

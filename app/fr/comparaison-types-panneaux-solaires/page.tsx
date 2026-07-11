@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     question: "Les panneaux bifaciaux valent-ils la peine pour une maison individuelle normale ?",
-    answer: "Sur un toit en pente normal, le gain de production par la face arrière est faible. Les panneaux bifaciaux sont surtout intéressants sur les toits plats ou dans les régions enneigées.",
+    answer: "Sur un toit en pente normal, le gain de production par la face arrière est faible. Les panneaux bifaciaux sont surtout intéressants sur les toits plats ou dans les zones enneigées.",
   },
   {
     question: "Quels panneaux durent le plus longtemps ?",
@@ -57,13 +57,13 @@ const tableau = [
   { type: 'Monocristallin', rendement: '18–22%', couts: 'Moyen–Élevé', ideal: "Petites surfaces, haute efficacité" },
   { type: 'Polycristallin', rendement: '15–17%', couts: 'Bas', ideal: "Grandes surfaces, option économique" },
   { type: 'Couche mince', rendement: '10–13%', couts: 'Bas', ideal: "Toits plats, applications spéciales" },
-  { type: 'Bifacial', rendement: '20–24%', couts: 'Élevé', ideal: "Régions enneigées, toits plats" },
+  { type: 'Bifacial', rendement: '20–24%', couts: 'Élevé', ideal: "Zones enneigées, toits plats" },
 ];
 
 const situationsTableau = [
   { situation: 'Petit toit, puissance maximale', recommandation: 'Monocristallin' },
   { situation: 'Grand toit, petit budget', recommandation: 'Polycristallin' },
-  { situation: 'Toit plat, région enneigée', recommandation: 'Bifacial' },
+  { situation: 'Toit plat, zone enneigée', recommandation: 'Bifacial' },
   { situation: 'Façade ou toit non conventionnel', recommandation: 'Couche mince' },
   { situation: 'Maison individuelle standard Suisse', recommandation: 'Monocristallin', highlight: true },
 ];
@@ -146,7 +146,7 @@ const modulesTypes: ModuleType[] = [
       'Le surplus de production dépend fortement de la configuration',
       'Pas toujours utile sur les toits en pente normaux',
     ],
-    fazit: "Intéressant pour les régions enneigées et les toits plats. Pour les toits en pente normaux en Suisse, généralement pas d'avantage significatif.",
+    fazit: "Intéressant pour les zones enneigées et les toits plats. Pour les toits en pente normaux en Suisse, généralement pas d'avantage significatif.",
   },
 ];
 
@@ -324,7 +324,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Quel type convient à votre toit ?</h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Un installateur certifié de votre région analyse votre toit et recommande le type de module optimal pour votre situation — gratuitement et sans engagement.
+            Un installateur certifié de votre canton analyse votre toit et recommande le type de module optimal pour votre situation — gratuitement et sans engagement.
           </p>
           <Link href="/fr/demander-offre-panneau-solaire" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
             style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>

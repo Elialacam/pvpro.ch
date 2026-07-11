@@ -32,7 +32,7 @@ const values = [
   {
     icon: Star,
     title: 'Trasparenza',
-    text: "Nessun costo nascosto, nessun obbligo. Ricevi prezzi reali da installatori reali nella tua regione.",
+    text: "Nessun costo nascosto, nessun obbligo. Ricevi prezzi reali da installatori reali nel tuo Cantone.",
   },
 ];
 
@@ -66,7 +66,7 @@ export default function ChiSiamoPage() {
               PVPro.ch è stata fondata con una missione chiara: aiutare i proprietari svizzeri a trovare il miglior impianto solare al miglior prezzo — in modo semplice, trasparente e gratuito.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              In un mercato spesso poco trasparente e difficile da confrontare, facciamo chiarezza. Ti mettiamo in contatto con fino a 3 installatori certificati della tua regione e lasciamo che le offerte parlino da sole.
+              In un mercato spesso poco trasparente e difficile da confrontare, facciamo chiarezza. Ti mettiamo in contatto con fino a 3 installatori certificati del tuo Cantone e lasciamo che le offerte parlino da sole.
             </p>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-xl">

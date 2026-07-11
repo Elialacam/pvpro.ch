@@ -190,7 +190,7 @@ export default function ProcessoInstallazionePhotovoltaicoPage() {
             <p className="text-gray-600 leading-relaxed">
               Pronto a iniziare?{' '}
               <Link href="/it/richiedere-preventivo-solare" className="text-[#F97316] hover:underline font-medium">Confronta gratuitamente i preventivi</Link>{' '}
-              di installatori certificati nella tua regione.
+              di installatori certificati nel tuo Cantone.
             </p>
           </div>
           <div>
@@ -277,7 +277,7 @@ export default function ProcessoInstallazionePhotovoltaicoPage() {
             Trova ora un installatore e inizia
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Compila il nostro modulo in 2 minuti — ti mettiamo in contatto con fino a 3 installatori certificati nella tua regione, che gestiscono l&apos;intero processo per te.
+            Compila il nostro modulo in 2 minuti — ti mettiamo in contatto con fino a 3 installatori certificati nel tuo Cantone, che gestiscono l&apos;intero processo per te.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
