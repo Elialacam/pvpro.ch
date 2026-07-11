@@ -1,10 +1,18 @@
 'use client';
 
-import { ComposableMap, Geographies, Geography, Annotation } from 'react-simple-maps';
+import { ComposableMap, Geographies, Geography, Annotation, Marker } from 'react-simple-maps';
 import { useLocale } from '@/lib/LocaleContext';
 import { Locale } from '@/lib/i18n';
 
 const geoUrl = '/switzerland-topo.json';
+
+// Main Ticino cities (shown on the IT locale map)
+const ticinoCities = [
+  { coordinates: [9.0244, 46.1947], name: 'Bellinzona', dx: 0, dy: -22 },
+  { coordinates: [8.7943, 46.167], name: 'Locarno', dx: -55, dy: 0 },
+  { coordinates: [8.9511, 46.0037], name: 'Lugano', dx: 50, dy: 0 },
+  { coordinates: [8.9831, 45.8704], name: 'Mendrisio', dx: 0, dy: 24 },
+];
 
 // Price data for each region
 const priceLabels = [
@@ -70,6 +78,7 @@ const mapContent: Record<Locale, {
 export default function SwissMap() {
   const locale = useLocale();
   const content = mapContent[locale] || mapContent.de;
+  const isTicino = locale === 'it';
 
   const scrollToForm = () => {
     window.location.href = '/anfrage';
@@ -85,8 +94,8 @@ export default function SwissMap() {
               <ComposableMap
                 projection="geoMercator"
                 projectionConfig={{
-                  center: [8.2, 46.8],
-                  scale: 6800,
+                  center: isTicino ? [8.78, 46.23] : [8.2, 46.8],
+                  scale: isTicino ? 21000 : 6800,
                 }}
                 width={700}
                 height={500}
@@ -94,7 +103,10 @@ export default function SwissMap() {
               >
                 <Geographies geography={geoUrl}>
                   {({ geographies }) =>
-                    geographies.map((geo) => (
+                    (isTicino
+                      ? geographies.filter((geo) => geo.properties?.name === 'Ticino')
+                      : geographies
+                    ).map((geo) => (
                       <Geography
                         key={geo.rsmKey}
                         geography={geo}
@@ -112,8 +124,41 @@ export default function SwissMap() {
                   }
                 </Geographies>
 
+                {/* Ticino city markers (IT locale) */}
+                {isTicino &&
+                  ticinoCities.map((city) => (
+                    <Marker
+                      key={city.name}
+                      coordinates={city.coordinates as [number, number]}
+                      onClick={scrollToForm}
+                      style={{ default: { cursor: 'pointer' } }}
+                    >
+                      <circle r={7} fill="#FFFFFF" stroke="#C2410C" strokeWidth={2.5} />
+                      <g transform={`translate(${city.dx}, ${city.dy})`}>
+                        <rect
+                          x={-46}
+                          y={-14}
+                          width={92}
+                          height={28}
+                          fill="white"
+                          rx={4}
+                          style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }}
+                        />
+                        <text
+                          textAnchor="middle"
+                          y={5}
+                          fontSize="13"
+                          fontWeight="bold"
+                          fill="#1F2937"
+                        >
+                          {city.name}
+                        </text>
+                      </g>
+                    </Marker>
+                  ))}
+
                 {/* Price Labels - also clickable */}
-                {priceLabels.map((label, index) => (
+                {!isTicino && priceLabels.map((label, index) => (
                   <Annotation
                     key={index}
                     subject={label.coordinates as [number, number]}
