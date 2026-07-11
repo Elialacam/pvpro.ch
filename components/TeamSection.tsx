@@ -9,6 +9,9 @@ const teamContent: Record<Locale, {
   title: string;
   description: string;
   imageAlt: string;
+  image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 }> = {
   de: {
     title: 'Über 15 Jahre Erfahrung im Dienst der Schweizer Photovoltaik',
@@ -26,9 +29,12 @@ const teamContent: Record<Locale, {
     imageAlt: 'The PVPro Team - Your Partner for Solar Systems in Switzerland',
   },
   it: {
-    title: 'Oltre 15 anni di esperienza al servizio del fotovoltaico in Ticino',
-    description: 'Più di 10.000 clienti soddisfatti e una rete di installatori partner selezionati in Ticino – per soluzioni affidabili, trasparenti e senza impegno.',
-    imageAlt: 'Il team PVPro - Il tuo partner per gli impianti solari in Ticino',
+    title: 'Il tuo partner locale per il fotovoltaico in Ticino',
+    description: 'Ti accompagniamo in ogni fase — dal primo preventivo alla messa in funzione del tuo impianto. Lavoriamo solo con installatori certificati del Ticino: hai sempre un interlocutore vicino a casa, che conosce il territorio, le pratiche e gli incentivi cantonali.',
+    imageAlt: 'Il team PVPro davanti a una casa con impianto fotovoltaico in Ticino',
+    image: '/team-ticino.webp',
+    imageWidth: 800,
+    imageHeight: 800,
   },
 };
 
@@ -54,10 +60,10 @@ export default function TeamSection() {
           <div className="order-1 lg:order-2">
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/team-new.webp"
+                src={content.image || '/team-new.webp'}
                 alt={content.imageAlt}
-                width={800}
-                height={450}
+                width={content.imageWidth || 800}
+                height={content.imageHeight || 450}
                 className="w-full h-auto"
                 priority
               />
