@@ -13,7 +13,7 @@ const labels: Record<string, { question: string; cta: string; savings: string; p
   de: { question: 'Wie hoch ist Ihre monatliche Stromrechnung?', cta: 'Jetzt sparen', savings: 'Geschätzte Ersparnis', per: '/Jahr', month: '/Monat' },
   fr: { question: 'Quel est votre facture mensuelle d\'énergie?', cta: 'Réduire maintenant', savings: 'Économies estimées', per: '/an', month: '/mois' },
   en: { question: 'What is your monthly energy bill?', cta: "Let's cut it", savings: 'Estimated savings', per: '/year', month: '/month' },
-  it: { question: 'Qual è la sua bolletta mensile?', cta: 'Riduciamo ora', savings: 'Risparmio stimato', per: '/anno', month: '/mese' },
+  it: { question: 'A quanto ammonta la tua bolletta mensile?', cta: 'Riducila ora', savings: 'Risparmio stimato', per: '/anno', month: '/mese' },
 };
 
 export default function HeroWidget() {
