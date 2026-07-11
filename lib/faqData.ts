@@ -117,16 +117,16 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
     cta: 'Richiedi una consulenza gratuita',
     faqs: [
       {
-        question: 'Quanto costa un impianto solare in Svizzera?',
+        question: 'Quanto costa un impianto solare in Ticino?',
         answer: "Un tipico impianto solare per una casa unifamiliare costa tra CHF 9.500 e CHF 25.000. Il prezzo esatto dipende dalle dimensioni dell'impianto, dalle caratteristiche del tetto e dai componenti utilizzati. Con un sistema di accumulo a batteria, i costi sono più elevati, tra CHF 19.500 e CHF 35.000.",
       },
       {
         question: 'Come funziona il servizio di PVPro?',
-        answer: 'Compili il nostro breve modulo indicando le tue esigenze. Inoltriamo la tua richiesta a un massimo di 3 installatori certificati nel tuo Cantone. Questi prepareranno preventivi personalizzati per te. Tu confronti le offerte e scegli la migliore - completamente senza impegno.',
+        answer: 'Compili il nostro breve modulo indicando le tue esigenze. Inoltriamo la tua richiesta a un massimo di 3 installatori certificati in Ticino. Questi prepareranno preventivi personalizzati per te. Tu confronti le offerte e scegli la migliore - completamente senza impegno.',
       },
       {
-        question: 'Esistono sovvenzioni per gli impianti solari in Svizzera?',
-        answer: "Sì! La Svizzera offre diverse sovvenzioni: la Rimunerazione Unica (RU) della Confederazione copre fino al 30% dei costi di investimento. Inoltre, esistono programmi di incentivi cantonali e comunali, oltre a deduzioni fiscali. I nostri installatori partner ti aiutano a richiedere tutte le sovvenzioni disponibili.",
+        question: 'Esistono sovvenzioni per gli impianti solari in Ticino?',
+        answer: "Sì! In Ticino puoi beneficiare di diverse sovvenzioni: la Rimunerazione Unica (RU) della Confederazione copre fino al 30% dei costi di investimento. A questa si aggiungono gli incentivi cantonali e comunali ticinesi, oltre alle deduzioni fiscali. I nostri installatori partner ti aiutano a richiedere tutte le sovvenzioni disponibili.",
       },
       {
         question: "Quanto tempo richiede l'installazione di un impianto solare?",
@@ -134,7 +134,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Un impianto solare vale la pena anche con poco sole?',
-        answer: 'Sì! Anche nelle zone meno soleggiate della Svizzera, gli impianti solari producono abbastanza elettricità per ammortizzarsi. I moderni moduli solari funzionano in modo efficiente anche con luce diffusa. Il periodo medio di ammortamento in Svizzera è di 10-15 anni, con una durata di vita di 25-30 anni.',
+        answer: "Sì! E in Ticino ancora di più: con oltre 2'000 ore di sole all'anno è tra le zone più soleggiate della Svizzera. I moderni moduli solari funzionano in modo efficiente anche con luce diffusa. Il periodo medio di ammortamento è di 10-15 anni, con una durata di vita di 25-30 anni.",
       },
       {
         question: 'Il servizio di PVPro è davvero gratuito?',

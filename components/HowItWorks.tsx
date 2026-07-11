@@ -94,12 +94,12 @@ const howItWorksContent: Record<Locale, {
       {
         step: '2',
         title: 'Confronta i preventivi',
-        description: 'Ricevi fino a 3 preventivi personalizzati da installatori certificati nel tuo cantone.',
+        description: 'Ricevi fino a 3 preventivi personalizzati da installatori certificati in Ticino.',
       },
       {
         step: '3',
         title: 'Scegli il tuo installatore',
-        description: 'Confrontiamo prezzi reali e installatori certificati nel tuo Cantone — tu scegli l\'offerta migliore.',
+        description: 'Confrontiamo prezzi reali e installatori certificati in Ticino — tu scegli l\'offerta migliore.',
       },
     ],
   },

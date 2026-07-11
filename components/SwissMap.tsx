@@ -65,7 +65,7 @@ const mapContent: Record<Locale, {
   },
   it: {
     title: 'Il tuo impianto fotovoltaico al prezzo giusto',
-    description: 'Troviamo per te il partner più affidabile nel tuo Cantone confrontando i prezzi reali e la qualità certificata.',
+    description: 'Troviamo per te il partner più affidabile in Ticino confrontando i prezzi reali e la qualità certificata.',
     features: [
       'Prezzi medi basati su offerte reali',
       'Riferimento: impianto standard da 10 kWp',

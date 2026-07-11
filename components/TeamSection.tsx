@@ -26,9 +26,9 @@ const teamContent: Record<Locale, {
     imageAlt: 'The PVPro Team - Your Partner for Solar Systems in Switzerland',
   },
   it: {
-    title: 'Oltre 15 anni di esperienza al servizio del fotovoltaico svizzero',
-    description: 'Più di 10.000 clienti soddisfatti e una rete di oltre 500 installatori partner selezionati in tutta la Svizzera – per soluzioni affidabili, trasparenti e senza impegno.',
-    imageAlt: 'Il team PVPro - Il tuo partner per gli impianti solari in Svizzera',
+    title: 'Oltre 15 anni di esperienza al servizio del fotovoltaico in Ticino',
+    description: 'Più di 10.000 clienti soddisfatti e una rete di installatori partner selezionati in Ticino – per soluzioni affidabili, trasparenti e senza impegno.',
+    imageAlt: 'Il team PVPro - Il tuo partner per gli impianti solari in Ticino',
   },
 };
 

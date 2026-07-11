@@ -26,7 +26,7 @@ const defaultsByLocale = {
   },
   it: {
     title: 'Ottieni preventivi gratuiti ora',
-    subtitle: 'Confronta fino a 3 offerte di installatori solari svizzeri certificati. 100% gratuito, senza impegno e senza chiamate commerciali.',
+    subtitle: 'Confronta fino a 3 offerte di installatori solari certificati del Ticino. 100% gratuito, senza impegno e senza chiamate commerciali.',
     ctaText: 'Richiedi preventivo gratuito',
     badges: ['100% Gratuito', 'Senza impegno', 'Nessuna chiamata'],
   },

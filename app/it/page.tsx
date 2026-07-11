@@ -6,29 +6,26 @@ import TeamSection from '@/components/TeamSection';
 import BlogSection from '@/components/BlogSection';
 import CtaAnfrage from '@/components/CtaAnfrage';
 import FAQ from '@/components/FAQ';
-import { cities } from '@/lib/cities';
-import Link from 'next/link';
-import { MapPin } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'PV Pro - Confronta impianti fotovoltaici in Svizzera | Preventivi gratuiti',
-  description: 'Confronta gratuitamente fino a 3 preventivi per il tuo impianto fotovoltaico in Svizzera. Risparmia tempo e denaro con PV Pro.',
+  title: 'PV Pro - Confronta impianti fotovoltaici in Ticino | Preventivi gratuiti',
+  description: 'Confronta gratuitamente fino a 3 preventivi per il tuo impianto fotovoltaico in Ticino. Risparmia tempo e denaro con PV Pro.',
 };
 
 export default function ItalianHomePage() {
   const defaultFAQs = [
     {
-      question: 'Quanto costa un impianto fotovoltaico in Svizzera?',
+      question: 'Quanto costa un impianto fotovoltaico in Ticino?',
       answer: 'Un tipico impianto fotovoltaico per una casa unifamiliare costa tra CHF 9.500 e CHF 25.000. Il prezzo esatto dipende dalle dimensioni dell\'impianto, dalle caratteristiche del tetto e dai componenti utilizzati. Con un sistema di accumulo a batteria, i costi sono più elevati, tra CHF 19.500 e CHF 35.000.',
     },
     {
       question: 'Come funziona il servizio di intermediazione di PVPro?',
-      answer: 'Compili il nostro breve modulo indicando le tue esigenze. Inoltriamo la tua richiesta a un massimo di 3 installatori certificati nel tuo Cantone. Questi preparano preventivi personalizzati per te. Tu confronti le offerte e scegli la migliore - senza alcun impegno.',
+      answer: 'Compili il nostro breve modulo indicando le tue esigenze. Inoltriamo la tua richiesta a un massimo di 3 installatori certificati in Ticino. Questi preparano preventivi personalizzati per te. Tu confronti le offerte e scegli la migliore - senza alcun impegno.',
     },
     {
-      question: 'Esistono sovvenzioni per gli impianti fotovoltaici in Svizzera?',
-      answer: 'Sì! La Svizzera offre diverse sovvenzioni: la Rimunerazione Unica (RU) della Confederazione copre fino al 30% dei costi d\'investimento. Inoltre, esistono programmi di incentivi cantonali e comunali, oltre a deduzioni fiscali. I nostri installatori partner ti aiutano a richiedere tutte le sovvenzioni disponibili.',
+      question: 'Esistono sovvenzioni per gli impianti fotovoltaici in Ticino?',
+      answer: 'Sì! In Ticino puoi beneficiare di diverse sovvenzioni: la Rimunerazione Unica (RU) della Confederazione copre fino al 30% dei costi d\'investimento. A questa si aggiungono gli incentivi cantonali e comunali ticinesi, oltre alle deduzioni fiscali. I nostri installatori partner ti aiutano a richiedere tutte le sovvenzioni disponibili.',
     },
     {
       question: 'Quanto tempo ci vuole per installare un impianto fotovoltaico?',
@@ -36,7 +33,7 @@ export default function ItalianHomePage() {
     },
     {
       question: 'Un impianto fotovoltaico conviene anche con poco sole?',
-      answer: 'Sì! Anche nelle zone meno soleggiate della Svizzera, gli impianti fotovoltaici producono abbastanza elettricità per ammortizzarsi. I moderni moduli fotovoltaici funzionano in modo efficiente anche con luce diffusa. Il periodo medio di ammortamento in Svizzera è di 10-15 anni, con una durata di vita di 25-30 anni.',
+      answer: "Sì! E in Ticino ancora di più: con oltre 2'000 ore di sole all'anno è tra le zone più soleggiate della Svizzera. I moderni moduli fotovoltaici funzionano in modo efficiente anche con luce diffusa. Il periodo medio di ammortamento è di 10-15 anni, con una durata di vita di 25-30 anni.",
     },
     {
       question: 'Il servizio di PVPro è davvero gratuito?',
@@ -69,49 +66,6 @@ export default function ItalianHomePage() {
       <SwissMap />
       <Testimonials />
       <TeamSection />
-
-      <section className="section-padding bg-white">
-        <div className="container-custom max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-4">
-              Impianti fotovoltaici in tutta la Svizzera
-            </h2>
-            <p className="text-xl text-gray-600">
-              Ti mettiamo in contatto con installatori in tutte le principali città svizzere
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {cities.map((city) => {
-              let href = '';
-              if (city.language === 'fr') {
-                href = `/fr/solaire-${city.slug}`;
-              } else if (city.language === 'it') {
-                href = `/it/fotovoltaico-${city.slug}`;
-              } else {
-                href = `/solaranlage-${city.slug}`;
-              }
-              return (
-                <Link
-                  key={city.slug}
-                  href={href}
-                  className="group flex items-center gap-2 p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary-50 transition-all duration-200 cursor-pointer"
-                >
-                  <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                  <div className="flex-1 min-w-0">
-                    <div className="font-sans font-bold text-gray-900 group-hover:text-primary transition-colors truncate">
-                      {city.name}
-                    </div>
-                    <div className="text-xs text-gray-500">
-                      {city.canton}
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       <BlogSection locale="it" />
       <CtaAnfrage />
