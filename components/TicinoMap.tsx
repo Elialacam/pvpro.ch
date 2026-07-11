@@ -55,7 +55,7 @@ export default function TicinoMap() {
       ticinoBoundary.forEach((p) => bounds.extend(p));
 
       const map = new g.maps.Map(mapRef.current, {
-        mapTypeId: 'terrain',
+        mapTypeId: 'satellite',
         styles: mapStyles,
         disableDefaultUI: true,
         zoomControl: true,
@@ -85,8 +85,8 @@ export default function TicinoMap() {
       new g.maps.Polygon({
         paths: [worldRing, [...ticinoBoundary].reverse()],
         strokeOpacity: 0,
-        fillColor: '#f8fafc',
-        fillOpacity: 0.94,
+        fillColor: '#0b1220',
+        fillOpacity: 0.78,
         clickable: false,
         map,
       });
@@ -94,9 +94,9 @@ export default function TicinoMap() {
       // Soft outer glow around the boundary
       new g.maps.Polyline({
         path: [...ticinoBoundary, ticinoBoundary[0]],
-        strokeColor: '#F97316',
-        strokeOpacity: 0.22,
-        strokeWeight: 10,
+        strokeColor: '#FB923C',
+        strokeOpacity: 0.35,
+        strokeWeight: 11,
         clickable: false,
         map,
       });
@@ -104,11 +104,10 @@ export default function TicinoMap() {
       // Ticino highlight
       new g.maps.Polygon({
         paths: ticinoBoundary,
-        strokeColor: '#EA580C',
-        strokeOpacity: 0.95,
-        strokeWeight: 2.5,
-        fillColor: '#F97316',
-        fillOpacity: 0.04,
+        strokeColor: '#F97316',
+        strokeOpacity: 1,
+        strokeWeight: 3,
+        fillOpacity: 0,
         clickable: false,
         map,
       });
@@ -177,9 +176,9 @@ export default function TicinoMap() {
         style={{ height: '480px' }}
         aria-label="Mappa interattiva del Ticino con le principali città"
       />
-      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur rounded-xl shadow-md px-4 py-2.5 pointer-events-none">
-        <div className="text-sm font-bold text-gray-900">Canton Ticino</div>
-        <div className="text-xs text-gray-500">Clicca su una città per il tuo preventivo</div>
+      <div className="absolute top-4 left-4 bg-gray-900/85 backdrop-blur rounded-xl shadow-lg px-4 py-2.5 pointer-events-none">
+        <div className="text-sm font-bold text-white">Canton Ticino</div>
+        <div className="text-xs text-gray-300">Clicca su una città per il tuo preventivo</div>
       </div>
     </div>
   );
