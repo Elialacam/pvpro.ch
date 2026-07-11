@@ -49,9 +49,9 @@ const heroContent: Record<Locale, {
     trustBadge: '✓ No sales calls · ✓ Free & no obligation · ✓ Certified installers',
   },
   it: {
-    titleLine1: 'PREVENTIVI SOLARI.',
-    titleLine2: 'RISPARMIA IL 30%.',
-    subtitle: 'Confronta gratuitamente fino a 3 preventivi da installatori solari certificati della tua regione.',
+    titleLine1: 'PREVENTIVI FOTOVOLTAICO.',
+    titleLine2: 'RISPARMIA FINO AL 30%.',
+    subtitle: 'Confronta gratuitamente fino a 3 preventivi da installatori solari certificati del Canton Ticino.',
     cta: 'Ottieni preventivi gratuiti',
     trustBadge: '✓ Nessuna chiamata · ✓ Gratuito e senza impegno · ✓ Installatori certificati',
   },
