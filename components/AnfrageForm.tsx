@@ -734,7 +734,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     <div className="min-h-screen bg-[#fafafa] flex flex-col">
       {/* Header */}
       <header className="w-full bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
-        <Link href="/">
+        <Link href={locale === 'de' ? '/' : `/${locale}`}>
           <Image src="/logo-pvpro.png" alt="PVPro.ch" width={120} height={36} className="h-8 w-auto" />
         </Link>
         {step > 1 && (
