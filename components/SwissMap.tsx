@@ -78,7 +78,7 @@ export default function SwissMap() {
   };
 
   return (
-    <section className="section-padding bg-gray-50 overflow-hidden">
+    <section id="map-section" className="section-padding bg-gray-50 overflow-hidden">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Map */}

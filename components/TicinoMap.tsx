@@ -19,13 +19,14 @@ const cities = [
 const mapStyles = [
   { featureType: 'poi', stylers: [{ visibility: 'off' }] },
   { featureType: 'transit', stylers: [{ visibility: 'off' }] },
-  { featureType: 'road', elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
-  { featureType: 'road.local', stylers: [{ visibility: 'off' }] },
-  { featureType: 'road.arterial', stylers: [{ visibility: 'simplified' }, { saturation: -60 }] },
-  { featureType: 'road.highway', elementType: 'geometry', stylers: [{ saturation: -70 }, { lightness: 20 }] },
-  { featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{ color: '#374151' }] },
-  { featureType: 'water', elementType: 'geometry.fill', stylers: [{ color: '#93c5fd' }] },
-  { featureType: 'landscape.natural', elementType: 'geometry.fill', stylers: [{ saturation: -20 }] },
+  { featureType: 'road', stylers: [{ visibility: 'off' }] },
+  { featureType: 'administrative', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+  { featureType: 'administrative.country', elementType: 'geometry.stroke', stylers: [{ color: '#d1d5db' }] },
+  { featureType: 'administrative.province', stylers: [{ visibility: 'off' }] },
+  { featureType: 'landscape', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+  { featureType: 'water', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+  { featureType: 'water', elementType: 'geometry.fill', stylers: [{ color: '#a5cdf5' }] },
+  { featureType: 'landscape.natural', elementType: 'geometry.fill', stylers: [{ saturation: -35 }, { lightness: 12 }] },
 ];
 
 function markerIcon(g: any) {
@@ -35,8 +36,8 @@ function markerIcon(g: any) {
     fillOpacity: 1,
     strokeColor: '#FFFFFF',
     strokeWeight: 2,
-    scale: 1.15,
-    labelOrigin: new g.maps.Point(0, -30),
+    scale: 1.05,
+    labelOrigin: new g.maps.Point(0, -52),
   };
 }
 
@@ -75,15 +76,27 @@ export default function TicinoMap() {
       // Dim everything outside Ticino: world ring + Ticino hole
       const worldRing = [
         { lat: 85, lng: -180 },
-        { lat: 85, lng: 180 },
-        { lat: -85, lng: 180 },
+        { lat: 85, lng: 0 },
+        { lat: 85, lng: 179.9 },
+        { lat: -85, lng: 179.9 },
+        { lat: -85, lng: 0 },
         { lat: -85, lng: -180 },
       ];
       new g.maps.Polygon({
         paths: [worldRing, [...ticinoBoundary].reverse()],
         strokeOpacity: 0,
-        fillColor: '#ffffff',
-        fillOpacity: 0.75,
+        fillColor: '#f8fafc',
+        fillOpacity: 0.94,
+        clickable: false,
+        map,
+      });
+
+      // Soft outer glow around the boundary
+      new g.maps.Polyline({
+        path: [...ticinoBoundary, ticinoBoundary[0]],
+        strokeColor: '#F97316',
+        strokeOpacity: 0.22,
+        strokeWeight: 10,
         clickable: false,
         map,
       });
@@ -91,11 +104,11 @@ export default function TicinoMap() {
       // Ticino highlight
       new g.maps.Polygon({
         paths: ticinoBoundary,
-        strokeColor: '#F97316',
-        strokeOpacity: 1,
-        strokeWeight: 3,
+        strokeColor: '#EA580C',
+        strokeOpacity: 0.95,
+        strokeWeight: 2.5,
         fillColor: '#F97316',
-        fillOpacity: 0.06,
+        fillOpacity: 0.04,
         clickable: false,
         map,
       });
@@ -111,9 +124,9 @@ export default function TicinoMap() {
           label: {
             text: city.name,
             className: 'ticino-map-label',
-            color: '#1F2937',
+            color: '#111827',
             fontWeight: '700',
-            fontSize: '13px',
+            fontSize: '12px',
           },
           animation: g.maps.Animation.DROP,
           optimized: false,
@@ -127,7 +140,7 @@ export default function TicinoMap() {
             `<div style="font-family:inherit;padding:4px 2px;min-width:190px">
                <div style="font-weight:700;font-size:15px;color:#1F2937;margin-bottom:2px">${city.name}</div>
                <div style="color:#6B7280;font-size:12px;margin-bottom:10px">${city.tagline}</div>
-               <a href="/anfrage" style="display:inline-block;background:#F97316;color:#fff;font-weight:600;font-size:13px;padding:8px 14px;border-radius:8px;text-decoration:none">Richiedi preventivo →</a>
+               <a href="/it/richiesta" style="display:inline-block;background:#F97316;color:#fff;font-weight:600;font-size:13px;padding:8px 14px;border-radius:8px;text-decoration:none">Richiedi preventivo →</a>
              </div>`
           );
           infoWindow.open({ map, anchor: marker });
