@@ -318,7 +318,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   const [direction, setDirection] = useState(1);
   const [formData, setFormData] = useState<any>({
     isOwner: null, propertyType: null, roofType: null, wantsBattery: null,
-    address: '', firstName: '', lastName: '', email: '', phone: '',
+    address: '', zipCode: '', firstName: '', lastName: '', email: '', phone: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoadingTransition, setIsLoadingTransition] = useState(false);
@@ -387,11 +387,26 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     setFormData({ ...formData, address: prediction.description });
     setSelectedAddress(prediction.description);
     setShowSuggestions(false);
-    placesService.current?.getDetails({ placeId: prediction.place_id, fields: ['geometry'] }, (place: any, status: any) => {
-      if (status === 'OK' && place?.geometry?.location) {
-        setSelectedPlaceCoords({ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() });
+    placesService.current?.getDetails(
+      { placeId: prediction.place_id, fields: ['geometry', 'address_components'] },
+      (place: any, status: any) => {
+        if (status !== 'OK') return;
+        const updates: any = {};
+        if (place?.geometry?.location) {
+          updates.lat = place.geometry.location.lat();
+          updates.lng = place.geometry.location.lng();
+          setSelectedPlaceCoords({ lat: updates.lat, lng: updates.lng });
+        }
+        const postalComp = place?.address_components?.find(
+          (c: any) => c.types.includes('postal_code')
+        );
+        setFormData((prev: any) => ({
+          ...prev,
+          address: prediction.description,
+          zipCode: postalComp?.long_name ?? '',
+        }));
       }
-    });
+    );
   };
 
   const trackStep = (n: number) => {
@@ -470,6 +485,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           'PHONE NUMBER': formatPhone(formData.phone),
           EMAIL: formData.email.trim(),
           'COMPLETE ADDRESS': formData.address,
+          ...(formData.zipCode ? { zip_code: formData.zipCode } : {}),
           utm_source,
           ...(fbclid ? { fbclid } : {}),
         }),

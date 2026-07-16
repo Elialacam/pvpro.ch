@@ -62,6 +62,7 @@ export async function POST(request: NextRequest) {
     const phone      = body['PHONE NUMBER']     ?? body.phone      ?? ''
     const email      = body['EMAIL']            ?? body.email      ?? ''
     const address    = body['COMPLETE ADDRESS'] ?? body.address    ?? ''
+    const zip_code   = body.zip_code            ?? ''
     const utm_source = body.utm_source ?? ''
     const fbclid     = body.fbclid     ?? ''
     const sourceUrl  = request.headers.get('referer') ?? ''
@@ -74,7 +75,7 @@ export async function POST(request: NextRequest) {
           'Content-Type': 'application/json',
           'x-api-key': 'f528ee7621a5c97665efd7561ac35a3ae0ab10eb4eef03b1',
         },
-        body: JSON.stringify({ name, phone, email, address, utm_source: utm_source || 'organic', ...(fbclid ? { fbclid } : {}) }),
+        body: JSON.stringify({ name, phone, email, address, ...(zip_code ? { zip_code } : {}), utm_source: utm_source || 'organic', ...(fbclid ? { fbclid } : {}) }),
       }),
       sendMetaCAPI(email, phone, sourceUrl, fbclid || undefined),
     ])
