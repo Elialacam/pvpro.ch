@@ -1,6 +1,6 @@
 import Hero from '@/components/Hero';
 import HowItWorks from '@/components/HowItWorks';
-import SwissMap from '@/components/SwissMap';
+import SwissMap from '@/components/SwissMapLazy';
 import Testimonials from '@/components/Testimonials';
 import TeamSection from '@/components/TeamSection';
 import BlogSection from '@/components/BlogSection';

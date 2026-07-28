@@ -3,7 +3,12 @@
 import { ComposableMap, Geographies, Geography, Annotation } from 'react-simple-maps';
 import { useLocale } from '@/lib/LocaleContext';
 import { Locale } from '@/lib/i18n';
-import TicinoMap from '@/components/TicinoMap';
+import dynamic from 'next/dynamic';
+
+const TicinoMap = dynamic(() => import('@/components/TicinoMap'), {
+  ssr: false,
+  loading: () => <div className="min-h-[420px] rounded-2xl bg-gray-100 animate-pulse" />,
+});
 
 const geoUrl = '/switzerland-topo.json';
 

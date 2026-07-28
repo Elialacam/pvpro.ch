@@ -82,7 +82,8 @@ export default function LiveBar() {
     return () => clearInterval(interval);
   }, [locale]);
 
-  if (!dateStr) return null;
+  // Render the bar shell even before the client date is ready, so the
+  // header doesn't jump down after hydration (layout shift).
 
   return (
     <div className="bg-[#d4af37] text-white text-xs sm:text-sm py-1.5 overflow-hidden">

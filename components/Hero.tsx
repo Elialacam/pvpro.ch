@@ -66,19 +66,66 @@ export default function Hero() {
   const formUrl = getFormUrl(pathname);
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
+  // Only mount slides that have been (or are about to be) shown, so the
+  // browser doesn't download all hero images upfront.
+  const [mounted, setMounted] = useState<Set<number>>(() => new Set([0, 1]));
+  const [loadedImgs, setLoadedImgs] = useState<Set<number>>(() => new Set());
+  const [pending, setPending] = useState<number | null>(null);
+
+  const markLoaded = useCallback((index: number) => {
+    setLoadedImgs(prev => {
+      if (prev.has(index)) return prev;
+      const next = new Set(prev);
+      next.add(index);
+      return next;
+    });
+  }, []);
+
+  const mountSlide = useCallback((index: number) => {
+    setMounted(prev => {
+      if (prev.has(index)) return prev;
+      const next = new Set(prev);
+      next.add(index);
+      return next;
+    });
+  }, []);
 
   const goTo = useCallback((index: number) => {
     if (index === current) return;
-    setAnimating(true);
-    setTimeout(() => {
-      setCurrent(index);
-      setAnimating(false);
-    }, 400);
-  }, [current]);
+    mountSlide(index);
+    setPending(index);
+  }, [current, mountSlide]);
+
+  // Switch to a pending slide only once its image is loaded (with a safety
+  // timeout), so manual navigation never shows a blank frame.
+  useEffect(() => {
+    if (pending === null) return;
+    let cancelled = false;
+    const doSwitch = () => {
+      if (cancelled) return;
+      cancelled = true;
+      setAnimating(true);
+      setTimeout(() => {
+        setCurrent(pending);
+        setAnimating(false);
+        setPending(null);
+      }, 400);
+    };
+    if (loadedImgs.has(pending)) {
+      doSwitch();
+      return;
+    }
+    const fallback = setTimeout(doSwitch, 1500);
+    return () => {
+      clearTimeout(fallback);
+      cancelled = true;
+    };
+  }, [pending, loadedImgs]);
 
   useEffect(() => {
     const timer = setInterval(() => {
       const next = (current + 1) % slides.length;
+      mountSlide((next + 1) % slides.length); // preload the slide after next
       setAnimating(true);
       setTimeout(() => {
         setCurrent(next);
@@ -98,15 +145,18 @@ export default function Hero() {
           className="absolute inset-0 transition-opacity duration-700"
           style={{ opacity: i === current ? (animating ? 0 : 1) : 0 }}
         >
-          <Image
-            src={src}
-            alt="PVPro Solaranlage"
-            fill
-            priority={i <= 1}
-            quality={90}
-            className="object-cover object-center"
-            sizes="100vw"
-          />
+          {mounted.has(i) && (
+            <Image
+              src={src}
+              alt="PVPro Solaranlage"
+              fill
+              priority={i === 0}
+              quality={i === 0 ? 90 : 75}
+              className="object-cover object-center"
+              sizes="100vw"
+              onLoad={() => markLoaded(i)}
+            />
+          )}
         </div>
       ))}
 
