@@ -68,8 +68,8 @@ export default function ItalianHomePage() {
       <TeamSection />
 
       <BlogSection locale="it" />
-      <CtaAnfrage />
       <FAQ />
+      <CtaAnfrage />
     </>
   );
 }

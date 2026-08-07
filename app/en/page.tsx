@@ -114,8 +114,8 @@ export default function EnglishHomePage() {
       </section>
 
       <BlogSection locale="en" />
-      <CtaAnfrage />
       <FAQ />
+      <CtaAnfrage />
     </>
   );
 }
