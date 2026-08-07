@@ -8,7 +8,7 @@ import { X, Check, ChevronDown, Send } from 'lucide-react';
 const GOLD = '#D4AF37';
 const NAVY = '#1F2937';
 
-const CONSULTANT_NAME = 'Lukas Meier';
+const CONSULTANT_NAME = 'Mario Kopar';
 
 type Locale = 'de' | 'en' | 'fr' | 'it';
 
