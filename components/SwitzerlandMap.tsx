@@ -6,17 +6,17 @@ import { useLocale } from '@/lib/LocaleContext';
 import { Locale } from '@/lib/i18n';
 
 const cities = [
-  { name: { de: 'Zürich', fr: 'Zurich', en: 'Zurich' }, lat: 47.3769, lng: 8.5417 },
-  { name: { de: 'Bern', fr: 'Berne', en: 'Bern' }, lat: 46.948, lng: 7.4474 },
-  { name: { de: 'Basel', fr: 'Bâle', en: 'Basel' }, lat: 47.5596, lng: 7.5886 },
-  { name: { de: 'Genf', fr: 'Genève', en: 'Geneva' }, lat: 46.2044, lng: 6.1432 },
-  { name: { de: 'Lausanne', fr: 'Lausanne', en: 'Lausanne' }, lat: 46.5197, lng: 6.6323 },
-  { name: { de: 'Luzern', fr: 'Lucerne', en: 'Lucerne' }, lat: 47.0502, lng: 8.3093 },
-  { name: { de: 'St. Gallen', fr: 'Saint-Gall', en: 'St. Gallen' }, lat: 47.4245, lng: 9.3767 },
-  { name: { de: 'Lugano', fr: 'Lugano', en: 'Lugano' }, lat: 46.0037, lng: 8.9511 },
-  { name: { de: 'Sitten', fr: 'Sion', en: 'Sion' }, lat: 46.2331, lng: 7.3606 },
-  { name: { de: 'Uri', fr: 'Uri', en: 'Uri' }, lat: 46.77, lng: 8.6444 },
-  { name: { de: 'Chur', fr: 'Coire', en: 'Chur' }, lat: 46.8508, lng: 9.5311 },
+  { canton: 'ZH', name: { de: 'Zürich', fr: 'Zurich', en: 'Zurich' }, lat: 47.3769, lng: 8.5417 },
+  { canton: 'BE', name: { de: 'Bern', fr: 'Berne', en: 'Bern' }, lat: 46.948, lng: 7.4474 },
+  { canton: 'BS', name: { de: 'Basel', fr: 'Bâle', en: 'Basel' }, lat: 47.5596, lng: 7.5886 },
+  { canton: 'GE', name: { de: 'Genf', fr: 'Genève', en: 'Geneva' }, lat: 46.2044, lng: 6.1432 },
+  { canton: 'VD', name: { de: 'Lausanne', fr: 'Lausanne', en: 'Lausanne' }, lat: 46.5197, lng: 6.6323 },
+  { canton: 'LU', name: { de: 'Luzern', fr: 'Lucerne', en: 'Lucerne' }, lat: 47.0502, lng: 8.3093 },
+  { canton: 'SG', name: { de: 'St. Gallen', fr: 'Saint-Gall', en: 'St. Gallen' }, lat: 47.4245, lng: 9.3767 },
+  { canton: 'TI', name: { de: 'Lugano', fr: 'Lugano', en: 'Lugano' }, lat: 46.0037, lng: 8.9511 },
+  { canton: 'VS', name: { de: 'Sitten', fr: 'Sion', en: 'Sion' }, lat: 46.2331, lng: 7.3606 },
+  { canton: 'UR', name: { de: 'Uri', fr: 'Uri', en: 'Uri' }, lat: 46.77, lng: 8.6444 },
+  { canton: 'GR', name: { de: 'Chur', fr: 'Coire', en: 'Chur' }, lat: 46.8508, lng: 9.5311 },
 ];
 
 const uiText: Record<string, { badge: string; hint: string; popup: string; cta: string; formHref: string }> = {
@@ -152,7 +152,10 @@ export default function SwitzerlandMap() {
         marker.addListener('click', () => {
           infoWindow.setContent(
             `<div style="font-family:inherit;padding:2px 0;max-width:180px">
-               <div style="font-weight:700;font-size:14px;color:#1F2937;margin-bottom:2px">${name}</div>
+               <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
+                 <span style="font-weight:700;font-size:14px;color:#1F2937">${name}</span>
+                 <span style="background:#FFF7ED;color:#C2410C;border:1px solid #FDBA74;font-weight:700;font-size:10px;padding:1px 6px;border-radius:9999px">${(city as any).canton}</span>
+               </div>
                <div style="color:#6B7280;font-size:11px;line-height:1.35;margin-bottom:8px">${t.popup}</div>
                <a href="${t.formHref}" style="display:inline-block;background:#F97316;color:#fff;font-weight:600;font-size:13px;padding:6px 12px;border-radius:8px;text-decoration:none">${t.cta}</a>
              </div>`
