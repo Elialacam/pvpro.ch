@@ -70,10 +70,10 @@ export default function SwitzerlandMap() {
         gestureHandling: 'cooperative',
         restriction: {
           latLngBounds: {
-            north: bounds.getNorthEast().lat() + 0.5,
-            south: bounds.getSouthWest().lat() - 0.5,
-            east: bounds.getNorthEast().lng() + 0.7,
-            west: bounds.getSouthWest().lng() - 0.7,
+            north: bounds.getNorthEast().lat() + 1.5,
+            south: bounds.getSouthWest().lat() - 1.5,
+            east: bounds.getNorthEast().lng() + 2.0,
+            west: bounds.getSouthWest().lng() - 2.0,
           },
           strictBounds: true,
         },
