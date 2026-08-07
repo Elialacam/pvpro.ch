@@ -14,6 +14,12 @@ const cities = [
   { name: { de: 'Luzern', fr: 'Lucerne', en: 'Lucerne' }, lat: 47.0502, lng: 8.3093 },
   { name: { de: 'St. Gallen', fr: 'Saint-Gall', en: 'St. Gallen' }, lat: 47.4245, lng: 9.3767 },
   { name: { de: 'Lugano', fr: 'Lugano', en: 'Lugano' }, lat: 46.0037, lng: 8.9511 },
+  { name: { de: 'Winterthur', fr: 'Winterthour', en: 'Winterthur' }, lat: 47.4997, lng: 8.7241 },
+  { name: { de: 'Freiburg', fr: 'Fribourg', en: 'Fribourg' }, lat: 46.8065, lng: 7.1619 },
+  { name: { de: 'Neuenburg', fr: 'Neuchâtel', en: 'Neuchâtel' }, lat: 46.9926, lng: 6.931 },
+  { name: { de: 'Biel', fr: 'Bienne', en: 'Biel/Bienne' }, lat: 47.1368, lng: 7.2468 },
+  { name: { de: 'Sitten', fr: 'Sion', en: 'Sion' }, lat: 46.2331, lng: 7.3606 },
+  { name: { de: 'Chur', fr: 'Coire', en: 'Chur' }, lat: 46.8508, lng: 9.5311 },
 ];
 
 const uiText: Record<string, { badge: string; hint: string; cta: string; formHref: string }> = {
