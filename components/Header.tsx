@@ -386,9 +386,9 @@ export default function Header() {
             <Image
               src="/logo-pvpro.png"
               alt="PVPro.ch"
-              width={160}
-              height={44}
-              className="h-8 sm:h-9 w-auto"
+              width={220}
+              height={64}
+              className="h-10 sm:h-12 w-auto"
               priority
             />
           </Link>
