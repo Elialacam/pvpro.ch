@@ -11,17 +11,18 @@ const cities = [
   { name: { de: 'Basel', fr: 'Bâle', en: 'Basel' }, lat: 47.5596, lng: 7.5886 },
   { name: { de: 'Genf', fr: 'Genève', en: 'Geneva' }, lat: 46.2044, lng: 6.1432 },
   { name: { de: 'Lausanne', fr: 'Lausanne', en: 'Lausanne' }, lat: 46.5197, lng: 6.6323 },
-  { name: { de: 'Luzern', fr: 'Lucerne', en: 'Lucerne' }, lat: 47.0502, lng: 8.3093 },
+  { name: { de: 'Luzern', fr: 'Lucerne', en: 'Lucerne' }, lat: 47.0502, lng: 8.3093, labelBelow: true },
   { name: { de: 'St. Gallen', fr: 'Saint-Gall', en: 'St. Gallen' }, lat: 47.4245, lng: 9.3767 },
   { name: { de: 'Lugano', fr: 'Lugano', en: 'Lugano' }, lat: 46.0037, lng: 8.9511 },
   { name: { de: 'Sitten', fr: 'Sion', en: 'Sion' }, lat: 46.2331, lng: 7.3606 },
+  { name: { de: 'Zug', fr: 'Zoug', en: 'Zug' }, lat: 47.1662, lng: 8.5155 },
   { name: { de: 'Chur', fr: 'Coire', en: 'Chur' }, lat: 46.8508, lng: 9.5311 },
 ];
 
-const uiText: Record<string, { badge: string; hint: string; cta: string; formHref: string }> = {
-  de: { badge: 'Schweiz', hint: 'Klicken Sie auf eine Stadt für Ihre Offerte', cta: 'Offerte anfordern →', formHref: '/anfrage' },
-  fr: { badge: 'Suisse', hint: 'Cliquez sur une ville pour votre devis', cta: 'Demander un devis →', formHref: '/fr/demande' },
-  en: { badge: 'Switzerland', hint: 'Click on a city for your quote', cta: 'Request a quote →', formHref: '/en/request' },
+const uiText: Record<string, { badge: string; hint: string; popup: string; cta: string; formHref: string }> = {
+  de: { badge: 'Schweiz', hint: 'Klicken Sie auf eine Stadt für Ihre Offerte', popup: 'Vergleichen Sie kostenlos bis zu 3 Offerten von geprüften Solarteuren in Ihrer Nähe.', cta: 'Offerte anfordern →', formHref: '/anfrage' },
+  fr: { badge: 'Suisse', hint: 'Cliquez sur une ville pour votre devis', popup: 'Comparez gratuitement jusqu\u2019à 3 devis d\u2019installateurs certifiés près de chez vous.', cta: 'Demander un devis →', formHref: '/fr/demande' },
+  en: { badge: 'Switzerland', hint: 'Click on a city for your quote', popup: 'Compare up to 3 free quotes from certified installers near you.', cta: 'Request a quote →', formHref: '/en/request' },
 };
 
 const mapStyles = [
@@ -37,7 +38,7 @@ const mapStyles = [
   { featureType: 'landscape.natural', elementType: 'geometry.fill', stylers: [{ saturation: -35 }, { lightness: 12 }] },
 ];
 
-function markerIcon(g: any) {
+function markerIcon(g: any, labelBelow?: boolean) {
   return {
     path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z',
     fillColor: '#F97316',
@@ -45,7 +46,7 @@ function markerIcon(g: any) {
     strokeColor: '#FFFFFF',
     strokeWeight: 2,
     scale: 1.05,
-    labelOrigin: new g.maps.Point(0, -52),
+    labelOrigin: new g.maps.Point(0, labelBelow ? 12 : -52),
   };
 }
 
@@ -133,7 +134,7 @@ export default function SwitzerlandMap() {
           position: { lat: city.lat, lng: city.lng },
           map,
           title: name,
-          icon: markerIcon(g),
+          icon: markerIcon(g, (city as any).labelBelow),
           label: {
             text: name,
             className: 'ticino-map-label',
@@ -151,7 +152,8 @@ export default function SwitzerlandMap() {
         marker.addListener('click', () => {
           infoWindow.setContent(
             `<div style="font-family:inherit;padding:4px 2px;min-width:190px">
-               <div style="font-weight:700;font-size:15px;color:#1F2937;margin-bottom:10px">${name}</div>
+               <div style="font-weight:700;font-size:15px;color:#1F2937;margin-bottom:2px">${name}</div>
+               <div style="color:#6B7280;font-size:12px;margin-bottom:10px;max-width:220px">${t.popup}</div>
                <a href="${t.formHref}" style="display:inline-block;background:#F97316;color:#fff;font-weight:600;font-size:13px;padding:8px 14px;border-radius:8px;text-decoration:none">${t.cta}</a>
              </div>`
           );
