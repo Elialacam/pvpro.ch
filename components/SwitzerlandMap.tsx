@@ -151,10 +151,10 @@ export default function SwitzerlandMap() {
         marker.addListener('mouseout', () => marker.setAnimation(null));
         marker.addListener('click', () => {
           infoWindow.setContent(
-            `<div style="font-family:inherit;padding:4px 2px;min-width:190px">
-               <div style="font-weight:700;font-size:15px;color:#1F2937;margin-bottom:2px">${name}</div>
-               <div style="color:#6B7280;font-size:12px;margin-bottom:10px;max-width:220px">${t.popup}</div>
-               <a href="${t.formHref}" style="display:inline-block;background:#F97316;color:#fff;font-weight:600;font-size:13px;padding:8px 14px;border-radius:8px;text-decoration:none">${t.cta}</a>
+            `<div style="font-family:inherit;padding:2px 0;max-width:180px">
+               <div style="font-weight:700;font-size:14px;color:#1F2937;margin-bottom:2px">${name}</div>
+               <div style="color:#6B7280;font-size:11px;line-height:1.35;margin-bottom:8px">${t.popup}</div>
+               <a href="${t.formHref}" style="display:inline-block;background:#F97316;color:#fff;font-weight:600;font-size:13px;padding:6px 12px;border-radius:8px;text-decoration:none">${t.cta}</a>
              </div>`
           );
           infoWindow.open({ map, anchor: marker });
