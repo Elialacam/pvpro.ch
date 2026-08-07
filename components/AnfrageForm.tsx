@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, memo, useCallback } from 'react';
+import { loadGoogleMaps } from '@/lib/googleMapsLoader';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -274,7 +275,7 @@ const OptionCard = memo(function OptionCard({ label, sublabel, isSelected, onCli
       }}
     >
       <div className="flex-1 flex items-center justify-center w-full">
-        <img src={imageSrc} alt={label} loading="eager" fetchPriority="high" className="w-full h-full object-contain max-h-28 sm:max-h-32" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
+        <img src={imageSrc} alt={label} className="w-full h-full object-contain max-h-28 sm:max-h-32" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
       </div>
       <p className="text-sm sm:text-base font-bold text-gray-900 text-center leading-tight mt-3">
         {label}
@@ -353,33 +354,37 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       }
     };
 
-    if (window.google?.maps?.places) { init(); return; }
-
-    const scriptId = 'google-maps-places';
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement('script');
-      script.id = scriptId;
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`;
-      script.async = true;
-      script.defer = true;
-      document.head.appendChild(script);
-    }
-
-    const iv = setInterval(() => { if (window.google?.maps?.places) { init(); clearInterval(iv); } }, 100);
-    return () => clearInterval(iv);
+    let cancelled = false;
+    loadGoogleMaps()
+      .then(() => { if (!cancelled) init(); })
+      .catch(() => { /* address autocomplete unavailable; manual input still works */ });
+    return () => { cancelled = true; };
   }, [step]);
 
+  const predictionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const predictionSeq = useRef(0);
+  useEffect(() => {
+    return () => {
+      if (predictionTimer.current) clearTimeout(predictionTimer.current);
+      predictionSeq.current += 1; // invalidate in-flight prediction callbacks
+    };
+  }, []);
   const handleAddressChange = (value: string) => {
-    setFormData({ ...formData, address: value });
+    setFormData((prev: any) => ({ ...prev, address: value }));
     setSelectedAddress(null);
     setSelectedPlaceCoords(null);
+    if (predictionTimer.current) clearTimeout(predictionTimer.current);
+    const seq = ++predictionSeq.current;
     if (value.length > 2 && autocompleteService.current) {
-      autocompleteService.current.getPlacePredictions(
-        { input: value, componentRestrictions: { country: 'ch' }, types: ['address'] },
-        (predictions: any, status: any) => {
-          if (status === 'OK' && predictions) { setAddressSuggestions(predictions); setShowSuggestions(true); }
-        }
-      );
+      predictionTimer.current = setTimeout(() => {
+        autocompleteService.current.getPlacePredictions(
+          { input: value, componentRestrictions: { country: 'ch' }, types: ['address'] },
+          (predictions: any, status: any) => {
+            if (seq !== predictionSeq.current) return;
+            if (status === 'OK' && predictions) { setAddressSuggestions(predictions); setShowSuggestions(true); }
+          }
+        );
+      }, 250);
     } else { setShowSuggestions(false); }
   };
 

@@ -253,12 +253,10 @@ export default function CallbackWidget() {
               style={{ background: `linear-gradient(135deg, ${NAVY} 0%, #0f172a 100%)` }}
             >
               {/* subtle animated glow */}
-              <motion.div
+              <div
                 aria-hidden
                 className="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full blur-2xl"
                 style={{ background: GOLD, opacity: 0.18 }}
-                animate={{ scale: [1, 1.25, 1], opacity: [0.12, 0.22, 0.12] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
               />
               <div className="relative flex items-center gap-3">
                 <div className="relative shrink-0">

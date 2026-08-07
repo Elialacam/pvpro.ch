@@ -1,19 +1,18 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
+/**
+ * Lightweight CSS-only page fade. Replaces the previous framer-motion
+ * wrapper: opacity-only (GPU-composited, no layout shift) and automatically
+ * disabled for users who prefer reduced motion via globals.css.
+ */
 export default function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <motion.div
-      key={pathname}
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
-    >
+    <div key={pathname} className="page-fade">
       {children}
-    </motion.div>
+    </div>
   );
 }

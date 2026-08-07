@@ -52,6 +52,8 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
         <img
           src={article.image}
           alt={article.title}
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: getImageFocus(article.image) }}
         />

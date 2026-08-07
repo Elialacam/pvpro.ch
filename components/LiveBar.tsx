@@ -54,14 +54,8 @@ function getCount(): string {
   const now = new Date();
   const minutesSinceLaunch = Math.max(0, (now.getTime() - LAUNCH_DATE.getTime()) / (1000 * 60));
   const seed = Math.floor(minutesSinceLaunch / 7);
-  let extra = 0;
-  for (let i = 0; i < seed; i++) {
-    const hash = Math.sin(i * 9301 + 49297) * 49271;
-    const rand = hash - Math.floor(hash);
-    if (rand < 0.27) {
-      extra++;
-    }
-  }
+  // O(1) deterministic approximation of the previous per-minute loop
+  const extra = Math.floor(seed * 0.27);
   const total = BASE_COUNT + extra;
   return total.toLocaleString('de-CH');
 }

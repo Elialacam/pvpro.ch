@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { loadGoogleMaps } from '@/lib/googleMapsLoader';
 import { ticinoBoundary } from '@/lib/ticinoBoundary';
 
 const cities = [
@@ -122,7 +123,6 @@ export default function TicinoMap() {
             fontSize: '12px',
           },
           animation: g.maps.Animation.DROP,
-          optimized: false,
           zIndex: 10 + i,
         });
 
@@ -141,25 +141,11 @@ export default function TicinoMap() {
       });
     };
 
-    if ((window as any).google?.maps) {
-      init();
-      return;
-    }
-    const scriptId = 'google-maps-places';
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement('script');
-      script.id = scriptId;
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`;
-      script.async = true;
-      document.head.appendChild(script);
-    }
-    const iv = setInterval(() => {
-      if ((window as any).google?.maps) {
-        init();
-        clearInterval(iv);
-      }
-    }, 100);
-    return () => clearInterval(iv);
+    let cancelled = false;
+    loadGoogleMaps()
+      .then(() => { if (!cancelled) init(); })
+      .catch(() => { /* map stays hidden; loader allows retry on next mount */ });
+    return () => { cancelled = true; };
   }, []);
 
   return (
