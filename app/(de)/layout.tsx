@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     default: 'PV Pro - Solaranlagen in der Schweiz vergleichen | Kostenlose Offerten',
     template: '%s | PV Pro',
   },
-  description: 'Vergleichen Sie kostenlos Solaranlagen-Angebote von geprüften Installateuren in der Schweiz. Bis zu 30% sparen durch Angebotsvergleich. 100% unverbindlich.',
+  description: "Vergleichen Sie kostenlos bis zu 3 geprüfte Offerten für Ihre Solaranlage. Ein Netzwerk aus über 25 qualifizierten Schweizer Fachbetrieben mit über 20 Jahren Erfahrung – zuverlässig, transparent und unverbindlich.",
   keywords: ['Solaranlage', 'Photovoltaik', 'Solar Schweiz', 'Solaranlage Kosten', 'Solarteur', 'Solaranlage vergleichen'],
   authors: [{ name: 'PV Pro' }],
   openGraph: {
@@ -29,12 +29,12 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch',
     siteName: 'PV Pro',
     title: 'PV Pro - Solaranlagen in der Schweiz vergleichen',
-    description: 'Kostenlos mehrere Solaranlagen-Angebote von geprüften Schweizer Installateuren vergleichen. Bis zu 30% sparen.',
+    description: "Vergleichen Sie kostenlos bis zu 3 geprüfte Offerten für Ihre Solaranlage. Ein Netzwerk aus über 25 qualifizierten Schweizer Fachbetrieben mit über 20 Jahren Erfahrung – zuverlässig, transparent und unverbindlich.",
     images: [
       {
         url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
+        width: 1203,
+        height: 735,
         alt: 'PV Pro - Solaranlagen Schweiz',
       },
     ],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'PV Pro - Solaranlagen in der Schweiz vergleichen',
-    description: 'Kostenlos mehrere Solaranlagen-Angebote von geprüften Schweizer Installateuren vergleichen. Bis zu 30% sparen.',
+    description: "Vergleichen Sie kostenlos bis zu 3 geprüfte Offerten für Ihre Solaranlage. Ein Netzwerk aus über 25 qualifizierten Schweizer Fachbetrieben mit über 20 Jahren Erfahrung – zuverlässig, transparent und unverbindlich.",
     images: ['/og-image.jpg'],
   },
   robots: {

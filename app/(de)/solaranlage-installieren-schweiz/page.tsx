@@ -129,7 +129,7 @@ export default function SolaranlageInstallierenPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { val: '1–3 Tage', sub: 'bis zur ersten Offerte', note: 'schnelle und unkomplizierte Vermittlung' },
-              { val: '500+', sub: 'zertifizierte Installateure', note: 'geprüfte Fachbetriebe in der ganzen Schweiz' },
+              { val: '25+', sub: 'geprüfte Fachbetriebe', note: 'geprüfte Fachbetriebe in der ganzen Schweiz' },
               { val: '25–30 Jahre', sub: 'Lebensdauer einer Anlage', note: 'langfristige Rendite für Ihr Zuhause' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>

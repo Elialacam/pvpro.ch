@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     question: 'Chi sono gli installatori nella rete PVPro?',
-    answer: 'Collaboriamo con oltre 500 aziende svizzere certificate. Ogni installatore viene verificato prima di essere ammesso nella nostra rete.',
+    answer: 'Collaboriamo con oltre 25 aziende svizzere qualificate. Ogni installatore viene verificato prima di essere ammesso nella nostra rete.',
   },
   {
     question: 'Posso usare PVPro.ch anche per un condominio?',
@@ -116,7 +116,7 @@ export default function ComparatoreFotovoltaicoSvizzeraPage() {
             {[
               { val: 'Gratuito & senza impegno', sub: 'nessun rischio', note: 'completamente gratuito per i proprietari' },
               { val: 'Fino a 3 preventivi', sub: 'da installatori certificati', note: 'personalizzati per il vostro tetto' },
-              { val: '500+ partner', sub: 'in tutta la Svizzera', note: 'aziende certificate nel vostro Cantone' },
+              { val: '25+ partner', sub: 'in tutta la Svizzera', note: 'aziende certificate nel vostro Cantone' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>

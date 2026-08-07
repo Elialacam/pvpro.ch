@@ -14,23 +14,23 @@ const teamContent: Record<Locale, {
   imageHeight?: number;
 }> = {
   de: {
-    title: 'Über 15 Jahre Erfahrung im Dienst der Schweizer Photovoltaik',
-    description: 'Mehr als 10.000 zufriedene Kundinnen und Kunden sowie ein Netzwerk von über 500 ausgewählten Partner-Installateuren in der ganzen Schweiz – für verlässliche, transparente und unverbindliche Lösungen.',
+    title: 'Erfahrene Schweizer Fachbetriebe für Ihre Photovoltaik',
+    description: 'Ein Netzwerk aus über 25 geprüften Schweizer Fachbetrieben mit über 20 Jahren Erfahrung – für verlässliche, transparente und unverbindliche Lösungen.',
     imageAlt: 'Das PVPro Team - Ihr Partner für Solaranlagen in der Schweiz',
   },
   fr: {
-    title: 'Plus de 15 ans d\'expérience au service du photovoltaïque suisse',
-    description: 'Plus de 10.000 clients satisfaits et un réseau de plus de 500 installateurs partenaires sélectionnés dans toute la Suisse – pour des solutions fiables, transparentes et sans engagement.',
+    title: 'Des entreprises suisses expérimentées pour votre installation solaire',
+    description: "Un réseau de plus de 25 entreprises suisses qualifiées avec plus de 20 ans d'expérience – pour des solutions fiables, transparentes et sans engagement.",
     imageAlt: 'L\'équipe PVPro - Votre partenaire pour les installations solaires en Suisse',
   },
   en: {
-    title: 'Over 15 Years of Experience Serving Swiss Photovoltaics',
-    description: 'More than 10,000 satisfied customers and a network of over 500 selected partner installers throughout Switzerland – for reliable, transparent and no-obligation solutions.',
+    title: 'Experienced Swiss Companies for Your Photovoltaic System',
+    description: 'A network of over 25 qualified Swiss companies with over 20 years of experience – for reliable, transparent and no-obligation solutions.',
     imageAlt: 'The PVPro Team - Your Partner for Solar Systems in Switzerland',
   },
   it: {
-    title: 'Il tuo partner locale per il fotovoltaico in Ticino',
-    description: 'Ti accompagniamo in ogni fase — dal primo preventivo alla messa in funzione del tuo impianto. Lavoriamo solo con installatori certificati del Ticino: hai sempre un interlocutore vicino a casa, che conosce il territorio, le pratiche e gli incentivi cantonali.',
+    title: 'Aziende svizzere esperte per il tuo fotovoltaico',
+    description: 'Una rete di oltre 25 aziende svizzere qualificate con oltre 20 anni di esperienza – per soluzioni affidabili, trasparenti e senza impegno.',
     imageAlt: 'Il team PVPro davanti a una casa con impianto fotovoltaico in Ticino',
     image: '/team-ticino.webp',
     imageWidth: 800,

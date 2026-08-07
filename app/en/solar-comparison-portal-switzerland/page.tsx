@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     question: 'Who are the installers in the PVPro network?',
-    answer: 'We work with over 500 certified Swiss companies. Each installer is verified before being admitted to our network.',
+    answer: 'We work with over 25 qualified Swiss companies. Each installer is verified before being admitted to our network.',
   },
   {
     question: 'Can I use PVPro.ch for an apartment building?',
@@ -116,7 +116,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
             {[
               { val: 'Free & non-binding', sub: 'no risk', note: 'completely free for homeowners' },
               { val: 'Up to 3 quotes', sub: 'from certified installers', note: 'tailored for your roof' },
-              { val: '500+ partners', sub: 'across Switzerland', note: 'verified companies in your canton' },
+              { val: '25+ partners', sub: 'across Switzerland', note: 'verified companies in your canton' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>

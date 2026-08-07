@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     question: "Qui sont les installateurs du réseau PVPro ?",
-    answer: "Nous collaborons avec plus de 500 entreprises suisses certifiées. Chaque installateur est vérifié avant d'être admis dans notre réseau.",
+    answer: "Nous collaborons avec plus de 25 entreprises suisses qualifiées. Chaque installateur est vérifié avant d'être admis dans notre réseau.",
   },
   {
     question: "Puis-je utiliser PVPro.ch pour un immeuble locatif ?",
@@ -116,7 +116,7 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
             {[
               { val: 'Gratuit & sans engagement', sub: 'aucun risque', note: 'entièrement gratuit pour les propriétaires' },
               { val: "Jusqu'à 3 offres", sub: "d'installateurs certifiés", note: 'personnalisées pour votre toit' },
-              { val: '500+ partenaires', sub: 'dans toute la Suisse', note: 'entreprises certifiées dans votre canton' },
+              { val: '25+ partenaires', sub: 'dans toute la Suisse', note: 'entreprises certifiées dans votre canton' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>

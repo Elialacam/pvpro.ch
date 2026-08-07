@@ -132,7 +132,7 @@ export default function CompleteSolarSolutionSwitzerlandPage() {
             {[
               { val: 'Up to 80%', sub: 'Self-consumption with complete solution', note: 'thanks to optimised energy management' },
               { val: '1 provider', sub: 'responsible for everything', note: 'from planning to commissioning' },
-              { val: '500+', sub: 'certified partners in Switzerland', note: 'certified installers on PVPro.ch' },
+              { val: '25+', sub: 'qualified partners in Switzerland', note: 'certified installers on PVPro.ch' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>

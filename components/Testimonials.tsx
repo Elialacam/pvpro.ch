@@ -69,10 +69,10 @@ const reviewsByLocale: Record<string, Review[]> = {
 };
 
 const sectionText: Record<string, { label: string; heading: string; sub: string }> = {
-  de: { label: 'Kundenstimmen', heading: 'Was unsere Kunden sagen', sub: "Über 13'000 Haushalte haben bereits über PVPro ihre Solaranlage gefunden." },
-  fr: { label: 'Avis clients',  heading: 'Ce que disent nos clients', sub: "Plus de 13'000 ménages ont déjà trouvé leur installation solaire via PVPro." },
-  en: { label: 'Customer reviews', heading: 'What our customers say', sub: "Over 13'000 households have already found their solar system through PVPro." },
-  it: { label: 'Recensioni clienti', heading: 'Cosa dicono i nostri clienti', sub: "Oltre 13'000 famiglie hanno già trovato il loro impianto solare tramite PVPro." },
+  de: { label: 'Kundenstimmen', heading: 'Was unsere Kunden sagen', sub: "" },
+  fr: { label: 'Avis clients',  heading: 'Ce que disent nos clients', sub: "" },
+  en: { label: 'Customer reviews', heading: 'What our customers say', sub: "" },
+  it: { label: 'Recensioni clienti', heading: 'Cosa dicono i nostri clienti', sub: "" },
 };
 
 const avatarColors = ['#1e3a5f', '#1d4ed8', '#15803d', '#7c3aed', '#b91c1c', '#0e7490', '#92400e', '#831843'];
@@ -133,7 +133,7 @@ export default function Testimonials() {
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-2">
             {t.heading}
           </h2>
-          <p className="text-gray-500 text-sm">{t.sub}</p>
+          {t.sub && <p className="text-gray-500 text-sm">{t.sub}</p>}
         </div>
       </div>
 

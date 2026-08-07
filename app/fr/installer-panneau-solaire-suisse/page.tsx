@@ -129,7 +129,7 @@ export default function InstallerPanneauSolaireSuissePage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { val: '1–3 jours', sub: "jusqu'à la première offre", note: 'mise en relation rapide et simple' },
-              { val: '500+', sub: 'installateurs certifiés', note: 'entreprises certifiées dans toute la Suisse' },
+              { val: '25+', sub: 'entreprises qualifiées', note: 'entreprises certifiées dans toute la Suisse' },
               { val: '25–30 ans', sub: "durée de vie d'une installation", note: 'rendement à long terme pour votre maison' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>

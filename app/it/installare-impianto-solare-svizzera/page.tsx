@@ -129,7 +129,7 @@ export default function InstallareImpiantoSolareSvizzeraPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { val: '1–3 giorni', sub: 'fino al primo preventivo', note: 'mediazione rapida e semplice' },
-              { val: '500+', sub: 'installatori certificati', note: 'aziende certificate in tutta la Svizzera' },
+              { val: '25+', sub: 'aziende qualificate', note: 'aziende certificate in tutta la Svizzera' },
               { val: '25–30 anni', sub: 'durata di vita di un impianto', note: 'rendimento a lungo termine per la vostra casa' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>

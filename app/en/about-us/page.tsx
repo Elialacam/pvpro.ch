@@ -37,9 +37,8 @@ const values = [
 ];
 
 const stats = [
-  { value: '10,000+', label: 'Satisfied customers' },
-  { value: '500+',    label: 'Certified installers' },
-  { value: '15+',     label: 'Years of experience' },
+  { value: '25+',     label: 'Qualified companies' },
+  { value: '20+',     label: 'Years of experience' },
   { value: '26',      label: 'Swiss cantons' },
 ];
 

@@ -37,9 +37,8 @@ const values = [
 ];
 
 const stats = [
-  { value: "10'000+", label: 'Clienti soddisfatti' },
-  { value: '500+',    label: 'Installatori certificati' },
-  { value: '15+',     label: 'Anni di esperienza' },
+  { value: '25+',     label: 'Aziende qualificate' },
+  { value: '20+',     label: 'Anni di esperienza' },
   { value: '26',      label: 'Cantoni svizzeri' },
 ];
 

@@ -32,7 +32,7 @@ export default function TrustBadges() {
             Ihr Vertrauen ist uns wichtig
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Über 10.000 zufriedene Kunden vertrauen bereits auf PVPro
+            Ein Netzwerk aus über 25 geprüften Schweizer Fachbetrieben mit über 20 Jahren Erfahrung
           </p>
         </div>
 
@@ -62,17 +62,13 @@ export default function TrustBadges() {
         </div>
 
         {/* Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8">
           <div className="text-center">
-            <div className="text-4xl font-sans font-semibold tracking-tight text-primary mb-2">10.000+</div>
-            <div className="text-gray-600">Zufriedene Kunden</div>
+            <div className="text-4xl font-sans font-semibold tracking-tight text-primary mb-2">25+</div>
+            <div className="text-gray-600">Geprüfte Fachbetriebe</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-sans font-semibold tracking-tight text-primary mb-2">500+</div>
-            <div className="text-gray-600">Partner-Installateure</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-sans font-semibold tracking-tight text-primary mb-2">15+</div>
+            <div className="text-4xl font-sans font-semibold tracking-tight text-primary mb-2">20+</div>
             <div className="text-gray-600">Jahre Erfahrung</div>
           </div>
           <div className="text-center">

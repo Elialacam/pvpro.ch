@@ -388,7 +388,7 @@ export default function Header() {
               alt="PVPro.ch"
               width={220}
               height={64}
-              className="h-10 sm:h-12 w-auto"
+              className="h-28 sm:h-32 w-auto -my-8"
               priority
             />
           </Link>

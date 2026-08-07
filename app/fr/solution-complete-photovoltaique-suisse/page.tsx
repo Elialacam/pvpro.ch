@@ -132,7 +132,7 @@ export default function SolutionCompletePhotovoltaiqueSuissePage() {
             {[
               { val: "Jusqu'à 80%", sub: "Autoconsommation avec solution complète", note: "grâce à la gestion optimisée de l'énergie" },
               { val: '1 prestataire', sub: "responsable de tout", note: "de la planification à la mise en service" },
-              { val: '500+', sub: "partenaires certifiés en Suisse", note: "installateurs certifiés sur PVPro.ch" },
+              { val: '25+', sub: "partenaires qualifiés en Suisse", note: "installateurs certifiés sur PVPro.ch" },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>

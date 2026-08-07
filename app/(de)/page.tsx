@@ -15,7 +15,7 @@ import { faqContent } from '@/lib/faqData';
 
 export const metadata: Metadata = {
   title: 'PV Pro - Solaranlagen in der Schweiz vergleichen | Kostenlose Offerten',
-  description: 'Vergleichen Sie kostenlos bis zu 3 Offerten für Ihre Photovoltaikanlage in der Schweiz. Sparen Sie Zeit und Geld mit PV Pro.',
+  description: 'Vergleichen Sie kostenlos bis zu 3 geprüfte Offerten für Ihre Solaranlage. Ein Netzwerk aus über 25 qualifizierten Schweizer Fachbetrieben mit über 20 Jahren Erfahrung – zuverlässig, transparent und unverbindlich.',
 };
 
 export default function HomePage() {

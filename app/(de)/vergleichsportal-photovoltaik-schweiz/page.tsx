@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     question: 'Wer sind die Installateure im PVPro-Netzwerk?',
-    answer: 'Wir arbeiten mit über 500 zertifizierten Schweizer Fachbetrieben zusammen. Jeder Installateur wird vor der Aufnahme ins Netzwerk geprüft.',
+    answer: 'Wir arbeiten mit über 25 geprüften Schweizer Fachbetrieben zusammen. Jeder Installateur wird vor der Aufnahme ins Netzwerk geprüft.',
   },
   {
     question: 'Kann ich PVPro.ch auch für ein Mehrfamilienhaus nutzen?',
@@ -120,7 +120,7 @@ export default function VergleichsportalPage() {
             {[
               { val: 'Kostenlos & unverbindlich', sub: 'kein Risiko', note: 'für Hausbesitzer vollständig gratis' },
               { val: 'Bis zu 3 Offerten', sub: 'von zertifizierten Installateuren', note: 'massgeschneidert für Ihr Dach' },
-              { val: '500+ Partner', sub: 'in der ganzen Schweiz', note: 'geprüfte Fachbetriebe in Ihrem Kanton' },
+              { val: '25+ Partner', sub: 'in der ganzen Schweiz', note: 'geprüfte Fachbetriebe in Ihrem Kanton' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>

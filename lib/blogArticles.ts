@@ -3130,7 +3130,7 @@ const articles: BlogArticle[] = [
           'Die Förderbeantragung: Ein erfahrener lokaler Installateur kennt die kantonalen Förderprogramme und die Besonderheiten des lokalen Netzbetreibers — und beantragt alles korrekt und rechtzeitig.',
         ],
         stats: [
-          { value: '500+', label: 'geprüfte Installateure im PVPro-Netzwerk' },
+          { value: '25+', label: 'geprüfte Fachbetriebe im PVPro-Netzwerk' },
           { value: '48 Stunden', label: 'bis zur ersten Offerte' },
           { value: 'CHF 2\'000–4\'000', label: 'durchschnittliche Ersparnis durch Vergleich' },
         ],
@@ -3257,7 +3257,7 @@ const articles: BlogArticle[] = [
           "La demande de subventions: Un installateur local expérimenté connaît les programmes de subventions cantonaux et les particularités du gestionnaire de réseau local — et soumet tout correctement et dans les délais.",
         ],
         stats: [
-          { value: '500+', label: "installateurs vérifiés dans le réseau PVPro" },
+          { value: '25+', label: "entreprises qualifiées dans le réseau PVPro" },
           { value: '48 heures', label: "jusqu'au premier devis" },
           { value: "CHF 2'000–4'000", label: "économie moyenne grâce à la comparaison" },
         ],
@@ -3384,7 +3384,7 @@ const articles: BlogArticle[] = [
           'Subsidy applications: An experienced local installer knows the cantonal subsidy programmes and the specifics of the local grid operator — and submits everything correctly and on time.',
         ],
         stats: [
-          { value: '500+', label: 'verified installers in the PVPro network' },
+          { value: '25+', label: 'qualified companies in the PVPro network' },
           { value: '48 hours', label: 'until the first quote' },
           { value: "CHF 2'000–4'000", label: 'average savings through comparison' },
         ],
@@ -3511,7 +3511,7 @@ const articles: BlogArticle[] = [
           "La richiesta di sovvenzioni: Un installatore locale esperto conosce i programmi di sovvenzione cantonali e le specificità del gestore di rete locale — e presenta tutto correttamente e nei tempi previsti.",
         ],
         stats: [
-          { value: '500+', label: 'installatori verificati nella rete PVPro' },
+          { value: '25+', label: 'aziende qualificate nella rete PVPro' },
           { value: '48 ore', label: 'fino al primo preventivo' },
           { value: "CHF 2'000–4'000", label: 'risparmio medio grazie al confronto' },
         ],

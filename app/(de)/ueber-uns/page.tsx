@@ -37,9 +37,8 @@ const values = [
 ];
 
 const stats = [
-  { value: '10\'000+', label: 'Zufriedene Kunden' },
-  { value: '500+',    label: 'Zertifizierte Installateure' },
-  { value: '15+',     label: 'Jahre Erfahrung' },
+  { value: '25+',     label: 'Geprüfte Fachbetriebe' },
+  { value: '20+',     label: 'Jahre Erfahrung' },
   { value: '26',      label: 'Schweizer Kantone' },
 ];
 

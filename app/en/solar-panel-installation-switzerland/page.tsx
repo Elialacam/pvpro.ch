@@ -129,7 +129,7 @@ export default function SolarPanelInstallationSwitzerlandPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { val: '1–3 days', sub: 'to the first quote', note: 'fast and straightforward referral' },
-              { val: '500+', sub: 'certified installers', note: 'verified companies throughout Switzerland' },
+              { val: '25+', sub: 'qualified companies', note: 'verified companies throughout Switzerland' },
               { val: '25–30 years', sub: 'system lifespan', note: 'long-term return on your investment' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
