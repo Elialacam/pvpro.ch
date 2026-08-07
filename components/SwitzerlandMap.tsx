@@ -1,14 +1,26 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { ticinoBoundary } from '@/lib/ticinoBoundary';
+import { swissBoundary } from '@/lib/swissBoundary';
+import { useLocale } from '@/lib/LocaleContext';
+import { Locale } from '@/lib/i18n';
 
 const cities = [
-  { name: 'Bellinzona', lat: 46.1947, lng: 9.0244, tagline: 'La capitale del Cantone' },
-  { name: 'Locarno', lat: 46.167, lng: 8.7943, tagline: 'Sul Lago Maggiore' },
-  { name: 'Lugano', lat: 46.0037, lng: 8.9511, tagline: 'Il cuore economico' },
-  { name: 'Mendrisio', lat: 45.8704, lng: 8.9831, tagline: 'Il Mendrisiotto' },
+  { name: { de: 'Zürich', fr: 'Zurich', en: 'Zurich' }, lat: 47.3769, lng: 8.5417 },
+  { name: { de: 'Bern', fr: 'Berne', en: 'Bern' }, lat: 46.948, lng: 7.4474 },
+  { name: { de: 'Basel', fr: 'Bâle', en: 'Basel' }, lat: 47.5596, lng: 7.5886 },
+  { name: { de: 'Genf', fr: 'Genève', en: 'Geneva' }, lat: 46.2044, lng: 6.1432 },
+  { name: { de: 'Lausanne', fr: 'Lausanne', en: 'Lausanne' }, lat: 46.5197, lng: 6.6323 },
+  { name: { de: 'Luzern', fr: 'Lucerne', en: 'Lucerne' }, lat: 47.0502, lng: 8.3093 },
+  { name: { de: 'St. Gallen', fr: 'Saint-Gall', en: 'St. Gallen' }, lat: 47.4245, lng: 9.3767 },
+  { name: { de: 'Lugano', fr: 'Lugano', en: 'Lugano' }, lat: 46.0037, lng: 8.9511 },
 ];
+
+const uiText: Record<string, { badge: string; hint: string; cta: string; formHref: string }> = {
+  de: { badge: 'Schweiz', hint: 'Klicken Sie auf eine Stadt für Ihre Offerte', cta: 'Offerte anfordern →', formHref: '/anfrage' },
+  fr: { badge: 'Suisse', hint: 'Cliquez sur une ville pour votre devis', cta: 'Demander un devis →', formHref: '/fr/demande' },
+  en: { badge: 'Switzerland', hint: 'Click on a city for your quote', cta: 'Request a quote →', formHref: '/en/request' },
+};
 
 const mapStyles = [
   { featureType: 'poi', stylers: [{ visibility: 'off' }] },
@@ -35,7 +47,9 @@ function markerIcon(g: any) {
   };
 }
 
-export default function TicinoMap() {
+export default function SwitzerlandMap() {
+  const locale = useLocale() as Locale;
+  const t = uiText[locale] || uiText.de;
   const mapRef = useRef<HTMLDivElement>(null);
   const initialized = useRef(false);
 
@@ -46,7 +60,7 @@ export default function TicinoMap() {
       const g = window.google as any;
 
       const bounds = new g.maps.LatLngBounds();
-      ticinoBoundary.forEach((p) => bounds.extend(p));
+      swissBoundary.forEach((p) => bounds.extend(p));
 
       const map = new g.maps.Map(mapRef.current, {
         mapTypeId: 'satellite',
@@ -56,10 +70,10 @@ export default function TicinoMap() {
         gestureHandling: 'cooperative',
         restriction: {
           latLngBounds: {
-            north: bounds.getNorthEast().lat() + 0.35,
-            south: bounds.getSouthWest().lat() - 0.35,
-            east: bounds.getNorthEast().lng() + 0.5,
-            west: bounds.getSouthWest().lng() - 0.5,
+            north: bounds.getNorthEast().lat() + 0.5,
+            south: bounds.getSouthWest().lat() - 0.5,
+            east: bounds.getNorthEast().lng() + 0.7,
+            west: bounds.getSouthWest().lng() - 0.7,
           },
           strictBounds: true,
         },
@@ -67,7 +81,7 @@ export default function TicinoMap() {
       });
       map.fitBounds(bounds, { top: 20, bottom: 20, left: 20, right: 20 });
 
-      // Dim everything outside Ticino: world ring + Ticino hole
+      // Dim everything outside Switzerland: world ring + Switzerland hole
       const worldRing = [
         { lat: 85, lng: -180 },
         { lat: 85, lng: 0 },
@@ -77,7 +91,7 @@ export default function TicinoMap() {
         { lat: -85, lng: -180 },
       ];
       new g.maps.Polygon({
-        paths: [worldRing, [...ticinoBoundary].reverse()],
+        paths: [worldRing, [...swissBoundary].reverse()],
         strokeOpacity: 0,
         fillColor: '#0b1220',
         fillOpacity: 0.78,
@@ -87,7 +101,7 @@ export default function TicinoMap() {
 
       // Soft outer glow around the boundary
       new g.maps.Polyline({
-        path: [...ticinoBoundary, ticinoBoundary[0]],
+        path: [...swissBoundary, swissBoundary[0]],
         strokeColor: '#FB923C',
         strokeOpacity: 0.35,
         strokeWeight: 11,
@@ -95,9 +109,9 @@ export default function TicinoMap() {
         map,
       });
 
-      // Ticino highlight
+      // Switzerland highlight
       new g.maps.Polygon({
-        paths: ticinoBoundary,
+        paths: swissBoundary,
         strokeColor: '#F97316',
         strokeOpacity: 1,
         strokeWeight: 3,
@@ -109,13 +123,14 @@ export default function TicinoMap() {
       const infoWindow = new g.maps.InfoWindow();
 
       cities.forEach((city, i) => {
+        const name = city.name[locale as 'de' | 'fr' | 'en'] || city.name.de;
         const marker = new g.maps.Marker({
           position: { lat: city.lat, lng: city.lng },
           map,
-          title: city.name,
+          title: name,
           icon: markerIcon(g),
           label: {
-            text: city.name,
+            text: name,
             className: 'ticino-map-label',
             color: '#111827',
             fontWeight: '700',
@@ -131,9 +146,8 @@ export default function TicinoMap() {
         marker.addListener('click', () => {
           infoWindow.setContent(
             `<div style="font-family:inherit;padding:4px 2px;min-width:190px">
-               <div style="font-weight:700;font-size:15px;color:#1F2937;margin-bottom:2px">${city.name}</div>
-               <div style="color:#6B7280;font-size:12px;margin-bottom:10px">${city.tagline}</div>
-               <a href="/it/richiesta" style="display:inline-block;background:#F97316;color:#fff;font-weight:600;font-size:13px;padding:8px 14px;border-radius:8px;text-decoration:none">Richiedi preventivo →</a>
+               <div style="font-weight:700;font-size:15px;color:#1F2937;margin-bottom:10px">${name}</div>
+               <a href="${t.formHref}" style="display:inline-block;background:#F97316;color:#fff;font-weight:600;font-size:13px;padding:8px 14px;border-radius:8px;text-decoration:none">${t.cta}</a>
              </div>`
           );
           infoWindow.open({ map, anchor: marker });
@@ -160,7 +174,7 @@ export default function TicinoMap() {
       }
     }, 100);
     return () => clearInterval(iv);
-  }, []);
+  }, [locale, t.cta, t.formHref]);
 
   return (
     <div className="relative">
@@ -168,11 +182,11 @@ export default function TicinoMap() {
         ref={mapRef}
         className="w-full rounded-2xl shadow-xl border border-gray-200 overflow-hidden"
         style={{ height: '480px' }}
-        aria-label="Mappa interattiva del Ticino con le principali città"
+        aria-label={t.badge}
       />
       <div className="absolute top-4 left-4 bg-gray-900/85 backdrop-blur rounded-xl shadow-lg px-4 py-2.5 pointer-events-none">
-        <div className="text-sm font-bold text-white">Canton Ticino</div>
-        <div className="text-xs text-gray-300">Clicca su una città per il tuo preventivo</div>
+        <div className="text-sm font-bold text-white">{t.badge}</div>
+        <div className="text-xs text-gray-300">{t.hint}</div>
       </div>
     </div>
   );

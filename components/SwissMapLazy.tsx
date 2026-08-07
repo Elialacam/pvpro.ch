@@ -2,8 +2,7 @@
 
 import dynamic from 'next/dynamic';
 
-// react-simple-maps + topojson are heavy; split them into their own chunk so
-// the main page bundle stays small. SSR stays enabled so the section's text,
+// Load the map section lazily to keep it out of the main bundle.
 // headings and CTA remain in the initial HTML (SEO + no layout shift).
 const SwissMap = dynamic(() => import('./SwissMap'), {
   loading: () => (

@@ -1,6 +1,5 @@
 'use client';
 
-import { ComposableMap, Geographies, Geography, Annotation } from 'react-simple-maps';
 import { useLocale } from '@/lib/LocaleContext';
 import { Locale } from '@/lib/i18n';
 import dynamic from 'next/dynamic';
@@ -10,19 +9,10 @@ const TicinoMap = dynamic(() => import('@/components/TicinoMap'), {
   loading: () => <div className="min-h-[420px] rounded-2xl bg-gray-100 animate-pulse" />,
 });
 
-const geoUrl = '/switzerland-topo.json';
-
-// Price data for each region
-const priceLabels = [
-  { coordinates: [7.45, 47.55], price: "16'999 CHF", region: 'Basel' },
-  { coordinates: [8.55, 47.38], price: "13'999 CHF", region: 'Zürich' },
-  { coordinates: [9.35, 47.42], price: "17'499 CHF", region: 'Ostschweiz' },
-  { coordinates: [7.45, 46.95], price: "13'999 CHF", region: 'Bern' },
-  { coordinates: [8.3, 47.0], price: "17'999 CHF", region: 'Zentralschweiz' },
-  { coordinates: [9.8, 46.8], price: "15'999 CHF", region: 'Graubünden' },
-  { coordinates: [6.6, 46.55], price: "14'499 CHF", region: 'Westschweiz' },
-  { coordinates: [8.95, 46.2], price: "18'999 CHF", region: 'Ticino' },
-];
+const SwitzerlandMap = dynamic(() => import('@/components/SwitzerlandMap'), {
+  ssr: false,
+  loading: () => <div className="min-h-[420px] rounded-2xl bg-gray-100 animate-pulse" />,
+});
 
 // SwissMap content per locale
 const mapContent: Record<Locale, {
@@ -91,73 +81,7 @@ export default function SwissMap() {
             {isTicino ? (
               <TicinoMap />
             ) : (
-            <div className="scale-[1.14] sm:scale-100 transform-gpu origin-center">
-              <ComposableMap
-                projection="geoMercator"
-                projectionConfig={{
-                  center: [8.2, 46.8],
-                  scale: 6800,
-                }}
-                width={700}
-                height={500}
-                style={{ width: '100%', height: 'auto' }}
-              >
-                <Geographies geography={geoUrl}>
-                  {({ geographies }) =>
-                    geographies.map((geo) => (
-                      <Geography
-                        key={geo.rsmKey}
-                        geography={geo}
-                        fill="#F97316"
-                        stroke="#FFFFFF"
-                        strokeWidth={1}
-                        onClick={scrollToForm}
-                        style={{
-                          default: { outline: 'none', cursor: 'pointer' },
-                          hover: { fill: '#EA580C', outline: 'none', cursor: 'pointer' },
-                          pressed: { fill: '#C2410C', outline: 'none' },
-                        }}
-                      />
-                    ))
-                  }
-                </Geographies>
-
-                {/* Price Labels - also clickable */}
-                {priceLabels.map((label, index) => (
-                  <Annotation
-                    key={index}
-                    subject={label.coordinates as [number, number]}
-                    dx={0}
-                    dy={0}
-                    connectorProps={{}}
-                  >
-                    <g
-                      transform="translate(-45, -16)"
-                      onClick={scrollToForm}
-                      style={{ cursor: 'pointer' }}
-                    >
-                      <rect
-                        width="90"
-                        height="28"
-                        fill="white"
-                        rx="4"
-                        style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }}
-                      />
-                      <text
-                        x="45"
-                        y="18"
-                        textAnchor="middle"
-                        fontSize="12"
-                        fontWeight="bold"
-                        fill="#1F2937"
-                      >
-                        {label.price}
-                      </text>
-                    </g>
-                  </Annotation>
-                ))}
-              </ComposableMap>
-            </div>
+              <SwitzerlandMap />
             )}
           </div>
 
