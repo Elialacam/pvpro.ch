@@ -58,12 +58,12 @@ export default function TeamSection() {
 
           {/* Image - Right side on desktop */}
           <div className="order-1 lg:order-2">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl">
+            <div className={`relative rounded-2xl overflow-hidden shadow-xl ${content.image ? '' : 'max-w-md mx-auto lg:mx-0'}`}>
               <Image
                 src={content.image || '/team-new.webp'}
                 alt={content.imageAlt}
-                width={content.imageWidth || 800}
-                height={content.imageHeight || 450}
+                width={content.imageWidth || 720}
+                height={content.imageHeight || 720}
                 className="w-full h-auto"
                 priority
               />
