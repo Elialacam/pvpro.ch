@@ -80,6 +80,9 @@ export default function SwitzerlandMap() {
         backgroundColor: '#f9fafb',
       });
       map.fitBounds(bounds, { top: 20, bottom: 20, left: 20, right: 20 });
+      g.maps.event.addListenerOnce(map, 'idle', () => {
+        map.setZoom(map.getZoom() - 1);
+      });
 
       // Dim everything outside Switzerland: world ring + Switzerland hole
       const worldRing = [
