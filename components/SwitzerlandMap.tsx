@@ -15,7 +15,7 @@ const cities = [
   { name: { de: 'St. Gallen', fr: 'Saint-Gall', en: 'St. Gallen' }, lat: 47.4245, lng: 9.3767 },
   { name: { de: 'Lugano', fr: 'Lugano', en: 'Lugano' }, lat: 46.0037, lng: 8.9511 },
   { name: { de: 'Sitten', fr: 'Sion', en: 'Sion' }, lat: 46.2331, lng: 7.3606 },
-  { name: { de: 'Altdorf (Uri)', fr: 'Altdorf (Uri)', en: 'Altdorf (Uri)' }, lat: 46.8805, lng: 8.6444 },
+  { name: { de: 'Uri', fr: 'Uri', en: 'Uri' }, lat: 46.77, lng: 8.6444 },
   { name: { de: 'Chur', fr: 'Coire', en: 'Chur' }, lat: 46.8508, lng: 9.5311 },
 ];
 
