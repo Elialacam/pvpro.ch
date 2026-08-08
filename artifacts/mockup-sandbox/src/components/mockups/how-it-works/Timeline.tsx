@@ -14,23 +14,23 @@ const steps: Step[] = [
   {
     number: "01",
     title: "Formular ausfüllen",
-    description: "Beantworte ein paar Fragen zu deinem Zuhause – in nur 2 Minuten und völlig kostenlos.",
+    description: "In 2 Minuten, kostenlos und unverbindlich.",
     signal: "2 Minuten",
     icon: FileText,
     detail: "Keine Vorbereitung nötig. Wir fragen nur, was für eine passende Solarlösung wirklich zählt.",
   },
   {
     number: "02",
-    title: "Angebote vergleichen",
-    description: "Wir prüfen deine Angaben und schicken dir bis zu 3 passende Offerten von zertifizierten Installateuren.",
+    title: "Offerten erhalten",
+    description: "Bis zu 3 Offerten von geprüften Installateuren aus Ihrem Kanton.",
     signal: "Bis zu 3 Offerten",
     icon: SlidersHorizontal,
     detail: "Transparent aufbereitet und direkt vergleichbar – damit du nicht Äpfel mit Birnen vergleichst.",
   },
   {
     number: "03",
-    title: "Installateur wählen",
-    description: "Vergleiche reale Preise, Leistungen und Bewertungen. Du entscheidest in deinem Tempo.",
+    title: "Vergleichen & wählen",
+    description: "Sie vergleichen die Preise und wählen das beste Angebot — ohne Verpflichtung.",
     signal: "Zertifizierte Installateure",
     icon: ShieldCheck,
     detail: "Ohne Verkaufsdruck. Deine Anfrage bleibt unverbindlich, bis du dich bewusst entscheidest.",
@@ -65,7 +65,7 @@ export function Timeline() {
               So <span className="text-[#f97316]">funktioniert&apos;s.</span>
             </h2>
             <p className="mt-7 max-w-xl text-base leading-7 text-[#5c6470] sm:text-lg">
-              Von der ersten Idee bis zur eigenen Solaranlage: PVPro.ch bringt dich ohne Umwege zum passenden Angebot.
+              In drei einfachen Schritten von der Anfrage bis zur passenden Solar-Offerte.
             </p>
           </div>
           <div className="flex items-center gap-3 text-sm text-[#68717b] lg:pb-2">
