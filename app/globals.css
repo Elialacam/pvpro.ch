@@ -219,3 +219,13 @@ input[type="range"] {
     scroll-behavior: auto !important;
   }
 }
+
+/* HowItWorks Timeline animations */
+@keyframes pv-dash { to { background-position: 56px 0; } }
+@keyframes pv-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+.pv-dash { animation: pv-dash 1.1s linear infinite; }
+.pv-rise { animation: pv-rise .7s cubic-bezier(.22,1,.36,1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .pv-dash { animation: none !important; }
+  .pv-rise { animation: none !important; }
+}
