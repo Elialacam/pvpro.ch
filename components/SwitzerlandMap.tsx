@@ -156,7 +156,7 @@ export default function SwitzerlandMap() {
                  <span style="font-weight:700;font-size:14px;color:#1F2937">${name}</span>
                  <img src="/images/cantons/${(city as any).canton.toLowerCase()}.png" alt="${(city as any).canton}" style="height:18px;width:auto" />
                </div>
-               <div style="color:#6B7280;font-size:11px;line-height:1.35;margin-bottom:8px">${t.popup}</div>
+               <div style="color:#374151;font-size:12px;line-height:1.4;margin-bottom:8px">${t.popup}</div>
                <a href="${t.formHref}" style="display:inline-block;background:#F97316;color:#fff;font-weight:600;font-size:13px;padding:6px 12px;border-radius:8px;text-decoration:none">${t.cta}</a>
              </div>`
           );

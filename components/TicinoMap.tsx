@@ -132,7 +132,7 @@ export default function TicinoMap() {
           infoWindow.setContent(
             `<div style="font-family:inherit;padding:4px 2px;min-width:190px">
                <div style="font-weight:700;font-size:15px;color:#1F2937;margin-bottom:2px">${city.name}</div>
-               <div style="color:#6B7280;font-size:12px;margin-bottom:10px">${city.tagline}</div>
+               <div style="color:#374151;font-size:12px;margin-bottom:10px">${city.tagline}</div>
                <a href="/it/richiesta" style="display:inline-block;background:#F97316;color:#fff;font-weight:600;font-size:13px;padding:8px 14px;border-radius:8px;text-decoration:none">Richiedi preventivo →</a>
              </div>`
           );
