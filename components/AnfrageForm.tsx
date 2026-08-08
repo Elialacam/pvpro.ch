@@ -518,7 +518,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6">
         <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-10">
-          <Image src="/logo-pvpro.png" alt="PVPro.ch" width={130} height={38} className="h-8 w-auto" />
+          <Image src="/logo-pvpro.png" alt="PVPro.ch" width={220} height={64} className="h-14 w-auto" />
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }}
@@ -756,7 +756,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       {/* Header */}
       <header className="w-full bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
         <Link href={locale === 'de' ? '/' : `/${locale}`}>
-          <Image src="/logo-pvpro.png" alt="PVPro.ch" width={120} height={36} className="h-8 w-auto" />
+          <Image src="/logo-pvpro.png" alt="PVPro.ch" width={220} height={64} className="h-14 w-auto" />
         </Link>
         {step > 1 && (
           <button onClick={goBack} className="flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
