@@ -18,8 +18,7 @@ if (!fs.existsSync(filePath)) {
 
 const original = fs.readFileSync(filePath, 'utf8');
 
-// Match both old and new Next.js error string formats
-const throwPattern = /throw new Error\('You cannot define a route with the same specificity[^;]+;\n?/;
+const throwPattern = /throw new Error\('You cannot define a route with the same specificity as a optional catch-all route[^']*'\);/;
 
 if (!throwPattern.test(original)) {
   console.log('[patch-next] Already patched or pattern not found, skipping.');
@@ -28,7 +27,7 @@ if (!throwPattern.test(original)) {
 
 const patched = original.replace(
   throwPattern,
-  '// PATCHED: conflict ignored for sitemap.xml coexistence with metadata route\n'
+  '// Conflict ignored: sitemap.xml route handler coexists with metadata sitemap route'
 );
 
 fs.writeFileSync(filePath, patched, 'utf8');

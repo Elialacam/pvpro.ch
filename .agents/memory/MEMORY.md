@@ -3,5 +3,4 @@
 - [Lead submission flow](lead-flow.md) — slead.ch == LeadSync; all forms route via /api/anfrage; Web3Forms removed, never reintroduce.
 - [Blog image focal points](blog-image-focus.md) — object-position per image auto-computed via sharp attention; regen with `npm run generate:image-focus` when blog images change.
 - [Vercel lockfile registry](vercel-lockfile-registry.md) — npm installs on Replit can write package-firewall.replit.local URLs into package-lock.json, breaking Vercel builds; scrub before pushing.
-- [Next.js upgrade and patch](nextjs-upgrade.md) — next@14.2.22 blocked by Replit CVE; project now on 14.2.35; sorted-routes patch must also be re-applied after fresh installs.
 - [Wording ban: "region"](wording-region-ban.md) — the word regione/région/Region/region must NEVER appear in user-facing site text; use Cantone/canton/Kanton or neutral zone/Gebiet/area.
