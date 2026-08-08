@@ -75,7 +75,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
     <div className="border-b border-gray-100 last:border-0">
       <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between gap-4 py-5 text-left">
         <span className="font-bold text-gray-900 text-sm sm:text-base">{q}</span>
-        <ChevronDown className={`w-5 h-5 text-[#F97316] flex-shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-5 h-5 text-[#fcb210] flex-shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && <p className="pb-5 text-gray-500 text-sm leading-relaxed">{a}</p>}
     </div>
@@ -100,7 +100,7 @@ export function EinfamilienhausFaq() {
         <p className="font-bold text-gray-900 text-sm sm:text-base mb-2">{p.q}</p>
         <p className="text-gray-500 text-sm leading-relaxed">
           {p.body}{' '}
-          <Link href={p.link} className="text-[#F97316] hover:underline">{p.linkLabel}</Link>.
+          <Link href={p.link} className="text-[#fcb210] hover:underline">{p.linkLabel}</Link>.
         </p>
       </div>
     </div>
@@ -138,8 +138,8 @@ export default function EinfamilienhausRechner() {
           <div className="grid grid-cols-3 gap-2">
             {PRESETS.map((p, i) => (
               <button key={i} onClick={() => setPreset(i)}
-                className={`rounded-xl border-2 p-3 text-center transition-all ${preset === i ? 'border-[#F97316] bg-orange-50' : 'border-gray-100 bg-white hover:border-gray-200'}`}>
-                <p className={`font-bold text-sm ${preset === i ? 'text-[#F97316]' : 'text-gray-800'}`}>{p.label}</p>
+                className={`rounded-xl border-2 p-3 text-center transition-all ${preset === i ? 'border-[#fcb210] bg-orange-50' : 'border-gray-100 bg-white hover:border-gray-200'}`}>
+                <p className={`font-bold text-sm ${preset === i ? 'text-[#fcb210]' : 'text-gray-800'}`}>{p.label}</p>
                 <p className="text-xs text-gray-400 mt-0.5 leading-tight hidden sm:block">{p.desc}</p>
               </button>
             ))}
@@ -156,15 +156,15 @@ export default function EinfamilienhausRechner() {
               const Icon = item.icon;
               return (
                 <button key={item.label} onClick={() => item.set(!item.value)}
-                  className={`flex-1 flex items-center gap-3 rounded-xl border-2 p-4 text-left transition-all ${item.value ? 'border-[#F97316] bg-orange-50' : 'border-gray-100 bg-white hover:border-gray-200'}`}>
-                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${item.value ? 'bg-[#F97316]' : 'bg-gray-100'}`}>
+                  className={`flex-1 flex items-center gap-3 rounded-xl border-2 p-4 text-left transition-all ${item.value ? 'border-[#fcb210] bg-orange-50' : 'border-gray-100 bg-white hover:border-gray-200'}`}>
+                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${item.value ? 'bg-[#fcb210]' : 'bg-gray-100'}`}>
                     <Icon className={`w-4.5 h-4.5 ${item.value ? 'text-white' : 'text-gray-500'}`} style={{ width: 18, height: 18 }} />
                   </div>
                   <div>
-                    <p className={`font-bold text-sm ${item.value ? 'text-[#F97316]' : 'text-gray-800'}`}>{item.label}</p>
+                    <p className={`font-bold text-sm ${item.value ? 'text-[#fcb210]' : 'text-gray-800'}`}>{item.label}</p>
                     <p className="text-xs text-gray-400">{item.sublabel}</p>
                   </div>
-                  <div className={`ml-auto w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${item.value ? 'border-[#F97316] bg-[#F97316]' : 'border-gray-300'}`}>
+                  <div className={`ml-auto w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${item.value ? 'border-[#fcb210] bg-[#fcb210]' : 'border-gray-300'}`}>
                     {item.value && <div className="w-2 h-2 rounded-full bg-white" />}
                   </div>
                 </button>
@@ -175,7 +175,7 @@ export default function EinfamilienhausRechner() {
 
         <div className="rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 border border-orange-100 p-6">
           <div className="flex items-center gap-2 mb-5">
-            <Zap className="w-5 h-5 text-[#F97316]" />
+            <Zap className="w-5 h-5 text-[#fcb210]" />
             <p className="font-bold text-gray-900">{L.empfehlung}</p>
             <span className="ml-auto text-xs text-gray-400 bg-white rounded-full px-2 py-0.5 border border-gray-100">
               {L.gesamtverbrauch}: {fmt(r.total)} kWh
@@ -188,7 +188,7 @@ export default function EinfamilienhausRechner() {
               { label: L.investition, value: `${fmt(r.priceMin)}–${fmt(r.priceMax)} CHF`, accent: false },
               { label: L.foerderung, value: `ca. ${fmt(r.foerderung)} CHF`, accent: false },
             ].map((item) => (
-              <div key={item.label} className={`rounded-xl p-3 text-center ${item.accent ? 'bg-[#F97316] text-white' : 'bg-white border border-orange-100'}`}>
+              <div key={item.label} className={`rounded-xl p-3 text-center ${item.accent ? 'bg-[#fcb210] text-white' : 'bg-white border border-orange-100'}`}>
                 <p className={`text-xs font-bold uppercase tracking-wide mb-1 ${item.accent ? 'text-orange-100' : 'text-gray-400'}`}>{item.label}</p>
                 <p className={`font-bold text-sm sm:text-base ${item.accent ? 'text-white' : 'text-gray-900'}`}>{item.value}</p>
               </div>

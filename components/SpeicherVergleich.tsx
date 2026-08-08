@@ -59,7 +59,7 @@ export function SpeicherGroesse() {
         <div className="grid grid-cols-2 gap-4 mb-6">
           <div className="rounded-2xl p-5 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
             <p className="text-xs text-orange-500 font-semibold uppercase tracking-wide mb-2">{labels.speicher}</p>
-            <p className="text-3xl font-bold text-[#F97316]">{h.speicher}</p>
+            <p className="text-3xl font-bold text-[#fcb210]">{h.speicher}</p>
           </div>
           <div className="rounded-2xl p-5 text-center" style={{ background: '#f9fafb' }}>
             <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-2">{labels.kapazitaet}</p>
@@ -79,12 +79,12 @@ export function SpeicherGroesse() {
           <div>
             <div className="flex justify-between text-xs text-gray-500 mb-1.5">
               <span>{labels.eigenMit}</span>
-              <span className="font-bold text-[#F97316]">{active === 'klein' ? '~60%' : active === 'mittel' ? '~70%' : '~80%'}</span>
+              <span className="font-bold text-[#fcb210]">{active === 'klein' ? '~60%' : active === 'mittel' ? '~70%' : '~80%'}</span>
             </div>
             <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
               <div
                 className="h-full rounded-full transition-all duration-700"
-                style={{ width: active === 'klein' ? '60%' : active === 'mittel' ? '70%' : '80%', background: 'linear-gradient(to right, #fb923c, #F97316)' }}
+                style={{ width: active === 'klein' ? '60%' : active === 'mittel' ? '70%' : '80%', background: 'linear-gradient(to right, #ffc812, #fcb210)' }}
               />
             </div>
           </div>
@@ -126,7 +126,7 @@ export function SpeicherFAQ() {
           >
             <span className="font-bold text-gray-900 pr-6 text-sm leading-snug">{f.q}</span>
             <span className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white text-sm font-bold transition-all duration-200 ${open === i ? 'rotate-45' : ''}`}
-              style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>+</span>
+              style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>+</span>
           </button>
           {open === i && (
             <div className="px-6 pb-5">

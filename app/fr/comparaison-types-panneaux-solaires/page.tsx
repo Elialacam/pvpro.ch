@@ -154,7 +154,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
   return (
     <main className="min-h-screen bg-white">
       <section className="relative pt-28 pb-16 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
             <Link href="/fr" className="hover:text-white/70 transition-colors">Accueil</Link>
@@ -182,7 +182,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
-                <p className="text-[#F97316] text-sm font-semibold">{s.sub}</p>
+                <p className="text-[#fcb210] text-sm font-semibold">{s.sub}</p>
                 <p className="text-gray-500 text-xs mt-1">{s.note}</p>
               </div>
             ))}
@@ -195,7 +195,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
         {/* ── Tableau d'aperçu ── */}
         <section>
           <div className="mb-8">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Vue d&apos;ensemble</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Vue d&apos;ensemble</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Les principaux types de panneaux solaires</h2>
           </div>
           <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
@@ -212,7 +212,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
                 {tableau.map((row, i) => (
                   <tr key={row.type} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="px-5 py-4 font-bold text-gray-900 text-sm">{row.type}</td>
-                    <td className="px-5 py-4 text-center font-bold text-[#F97316] text-sm">{row.rendement}</td>
+                    <td className="px-5 py-4 text-center font-bold text-[#fcb210] text-sm">{row.rendement}</td>
                     <td className="px-5 py-4 text-center text-gray-700 text-sm">{row.couts}</td>
                     <td className="px-5 py-4 text-gray-600 text-sm hidden sm:table-cell">{row.ideal}</td>
                   </tr>
@@ -225,7 +225,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
         {/* ── Les quatre types en détail ── */}
         <section>
           <div className="mb-8">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Comparaison détaillée</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Comparaison détaillée</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Les quatre types en détail</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -236,11 +236,11 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
                 <p className="text-gray-600 text-sm leading-relaxed mb-5">
                   {i === 2
                     ? <>Les modules à couche mince sont déposés sur un support mince et sont plus flexibles que les modules cristallins. Ils conviennent particulièrement aux{' '}
-                      <Link href="/fr/solaire-immeuble" className="text-[#F97316] hover:underline font-medium">toits plats</Link>{' '}
+                      <Link href="/fr/solaire-immeuble" className="text-[#fcb210] hover:underline font-medium">toits plats</Link>{' '}
                       et aux applications non conventionnelles.</>
                     : i === 3
                     ? <>Les modules bifaciaux produisent de l&apos;électricité des deux côtés — à l&apos;avant par la lumière directe du soleil, à l&apos;arrière par la lumière réfléchie. Avec de la neige ou des revêtements de toit clairs, le surplus de production est particulièrement élevé. Idéal pour les{' '}
-                      <Link href="/fr/solaire-immeuble" className="text-[#F97316] hover:underline font-medium">toits plats</Link>.</>
+                      <Link href="/fr/solaire-immeuble" className="text-[#fcb210] hover:underline font-medium">toits plats</Link>.</>
                     : m.intro}
                 </p>
                 <div className="grid grid-cols-2 gap-4 mb-5">
@@ -278,22 +278,22 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
         {/* ── Aide à la décision ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Aide à la décision</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Aide à la décision</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
               Quel type me convient ?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
               Le choix dépend de votre situation concrète. Pour une{' '}
-              <Link href="/fr/solaire-maison-individuelle" className="text-[#F97316] hover:underline font-medium">maison individuelle</Link>{' '}
+              <Link href="/fr/solaire-maison-individuelle" className="text-[#fcb210] hover:underline font-medium">maison individuelle</Link>{' '}
               en Suisse, le monocristallin est presque toujours le meilleur choix — surtout dans le{' '}
-              <Link href="/fr/photovoltaique-climat-suisse" className="text-[#F97316] hover:underline font-medium">climat suisse</Link>{' '}
+              <Link href="/fr/photovoltaique-climat-suisse" className="text-[#fcb210] hover:underline font-medium">climat suisse</Link>{' '}
               avec beaucoup de lumière diffuse.
             </p>
             <p className="text-gray-600 leading-relaxed">
               En pratique, un{' '}
-              <Link href="/fr/installer-panneau-solaire-suisse" className="text-[#F97316] hover:underline font-medium">installateur certifié</Link>{' '}
+              <Link href="/fr/installer-panneau-solaire-suisse" className="text-[#fcb210] hover:underline font-medium">installateur certifié</Link>{' '}
               recommande le type de module adapté après inspection de votre toit. PVPro.ch met en relation avec des{' '}
-              <Link href="/fr/comparateur-photovoltaique-suisse" className="text-[#F97316] hover:underline font-medium">fournisseurs</Link>{' '}
+              <Link href="/fr/comparateur-photovoltaique-suisse" className="text-[#fcb210] hover:underline font-medium">fournisseurs</Link>{' '}
               qui connaissent toutes les technologies et conseillent de manière neutre.
             </p>
           </div>
@@ -309,7 +309,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
                 {situationsTableau.map((row, i) => (
                   <tr key={row.situation} className={row.highlight ? 'bg-orange-50' : i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className={`px-5 py-3.5 text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-700'}`}>{row.situation}</td>
-                    <td className={`px-5 py-3.5 text-right font-bold text-sm ${row.highlight ? 'text-[#F97316]' : 'text-gray-900'}`}>{row.recommandation}</td>
+                    <td className={`px-5 py-3.5 text-right font-bold text-sm ${row.highlight ? 'text-[#fcb210]' : 'text-gray-900'}`}>{row.recommandation}</td>
                   </tr>
                 ))}
               </tbody>
@@ -319,7 +319,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
 
         {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-          <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+          <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
             <Zap className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Quel type convient à votre toit ?</h2>
@@ -327,21 +327,21 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
             Un installateur certifié de votre canton analyse votre toit et recommande le type de module optimal pour votre situation — gratuitement et sans engagement.
           </p>
           <Link href="/fr/demander-offre-panneau-solaire" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
             Demander une offre gratuite <ArrowRight className="w-4 h-4" />
           </Link>
           <p className="text-gray-500 text-sm mt-5">
             D&apos;abord{' '}
-            <Link href="/fr/demander-offre-panneau-solaire" className="text-[#F97316] hover:underline font-medium">comparer des offres</Link>?{' '}
+            <Link href="/fr/demander-offre-panneau-solaire" className="text-[#fcb210] hover:underline font-medium">comparer des offres</Link>?{' '}
             Plus d&apos;infos sur les{' '}
-            <Link href="/fr/cout-installation-solaire" className="text-[#F97316] hover:underline font-medium">coûts d&apos;une installation solaire</Link>.
+            <Link href="/fr/cout-installation-solaire" className="text-[#fcb210] hover:underline font-medium">coûts d&apos;une installation solaire</Link>.
           </p>
         </section>
 
         {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Questions fréquentes</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Questions fréquentes</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Questions fréquemment posées</h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -349,7 +349,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
               <details key={i} className="group rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
                 <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-gray-900 text-sm select-none list-none">
                   {faq.question}
-                  <span className="ml-4 text-[#F97316] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
+                  <span className="ml-4 text-[#fcb210] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
                 </summary>
                 <div className="px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-50">
                   <p className="pt-4">{faq.answer}</p>
@@ -373,7 +373,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
                 Solaire immeuble
               </Link>
               <Link href="/fr/demander-offre-panneau-solaire" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
-                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
                 Demander une offre <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

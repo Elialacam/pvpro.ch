@@ -60,7 +60,7 @@ export default function SolarApartmentBuildingPage() {
       {/* ── Hero ── */}
       <section className="relative bg-[#0f1f3d] pt-28 pb-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
+          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
             <Link href="/en" className="hover:text-white/70 transition-colors">Home</Link>
@@ -82,7 +82,7 @@ export default function SolarApartmentBuildingPage() {
               <Link
                 href="/en/request"
                 className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+                style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
               >
                 Request free quote <ArrowRight className="w-4 h-4" />
               </Link>
@@ -109,7 +109,7 @@ export default function SolarApartmentBuildingPage() {
         {/* ── ZEC explainer ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">How it works</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">How it works</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               How does a solar installation work in an apartment building?
             </h2>
@@ -117,7 +117,7 @@ export default function SolarApartmentBuildingPage() {
               In an apartment building, solar electricity is produced centrally and then distributed to residents. The most common solution in Switzerland is the{' '}
               <strong className="text-gray-800">local electricity community (ZEC)</strong>.
             </p>
-            <div className="rounded-2xl bg-[#F97316]/5 border border-[#F97316]/20 p-6 space-y-3">
+            <div className="rounded-2xl bg-[#fcb210]/5 border border-[#fcb210]/20 p-6 space-y-3">
               <p className="font-bold text-gray-900 mb-2">With the ZEC:</p>
               {[
                 'Electricity is used directly within the building',
@@ -126,7 +126,7 @@ export default function SolarApartmentBuildingPage() {
                 'Surplus electricity is fed into the grid',
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">{item}</span>
                 </div>
               ))}
@@ -141,7 +141,7 @@ export default function SolarApartmentBuildingPage() {
         <section>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
             <div className="lg:col-span-2">
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">System calculator</p>
+              <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">System calculator</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
                 How large should the system be?
               </h2>
@@ -153,7 +153,7 @@ export default function SolarApartmentBuildingPage() {
                   <div key={row.label} className="flex justify-between items-center">
                     <span className="text-sm font-bold text-gray-700">{row.label}</span>
                     <div className="text-right">
-                      <span className="text-sm font-bold text-[#F97316]">{row.kwp}</span>
+                      <span className="text-sm font-bold text-[#fcb210]">{row.kwp}</span>
                       <span className="text-xs text-gray-400 ml-2">/ {row.m2}</span>
                     </div>
                   </div>
@@ -170,7 +170,7 @@ export default function SolarApartmentBuildingPage() {
         <section className="bg-gray-50 rounded-3xl p-8 sm:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Costs</p>
+              <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Costs</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
                 What does a solar installation for an apartment building cost?
               </h2>
@@ -184,7 +184,7 @@ export default function SolarApartmentBuildingPage() {
                 {costRows.map((row) => (
                   <div key={row.size} className={`grid grid-cols-2 px-5 py-4 border-t border-gray-200 ${row.highlight ? 'bg-orange-50' : 'bg-white'}`}>
                     <span className="font-bold text-gray-800 text-sm">{row.size}</span>
-                    <span className={`font-bold text-sm ${row.highlight ? 'text-[#F97316]' : 'text-gray-700'}`}>{row.price}</span>
+                    <span className={`font-bold text-sm ${row.highlight ? 'text-[#fcb210]' : 'text-gray-700'}`}>{row.price}</span>
                   </div>
                 ))}
               </div>
@@ -197,7 +197,7 @@ export default function SolarApartmentBuildingPage() {
 
         {/* ── Billing steps ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Billing</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Billing</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
             How is solar electricity billed in an apartment building?
           </h2>
@@ -208,7 +208,7 @@ export default function SolarApartmentBuildingPage() {
               { step: '3', title: 'Bill transparently', text: 'Each apartment only pays for the solar electricity actually consumed, via its sub-meter.' },
             ].map((item) => (
               <div key={item.step} className="relative bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-                <div className="w-9 h-9 rounded-full bg-[#F97316] text-white font-bold text-sm flex items-center justify-center mb-4">
+                <div className="w-9 h-9 rounded-full bg-[#fcb210] text-white font-bold text-sm flex items-center justify-center mb-4">
                   {item.step}
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
@@ -220,7 +220,7 @@ export default function SolarApartmentBuildingPage() {
 
         {/* ── Benefits ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Profitability</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Profitability</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
             Why is a solar installation in an apartment building worthwhile?
           </h2>
@@ -229,8 +229,8 @@ export default function SolarApartmentBuildingPage() {
               const Icon = b.icon;
               return (
                 <div key={b.title} className="flex gap-4 items-start bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-                  <div className="w-10 h-10 rounded-xl bg-[#F97316]/10 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-5 h-5 text-[#F97316]" />
+                  <div className="w-10 h-10 rounded-xl bg-[#fcb210]/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-5 h-5 text-[#fcb210]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 mb-1">{b.title}</h3>
@@ -245,7 +245,7 @@ export default function SolarApartmentBuildingPage() {
         {/* ── Capital investment ── */}
         <section className="rounded-3xl bg-[#0f1f3d] p-8 sm:p-12 overflow-hidden relative">
           <div className="absolute inset-0 opacity-10"
-            style={{ backgroundImage: 'radial-gradient(circle at 75% 50%, #F97316 0%, transparent 55%)' }} />
+            style={{ backgroundImage: 'radial-gradient(circle at 75% 50%, #fcb210 0%, transparent 55%)' }} />
           <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">Capital investment</p>
@@ -263,7 +263,7 @@ export default function SolarApartmentBuildingPage() {
                   'Increase property value in the long term',
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
                     <span className="text-white/80 text-sm">{item}</span>
                   </div>
                 ))}
@@ -277,14 +277,14 @@ export default function SolarApartmentBuildingPage() {
 
         {/* ── Economic factors ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Profitability factors</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Profitability factors</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
             What factors influence profitability?
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {wirtschaftFaktoren.map((f, i) => (
               <div key={f.title} className="flex gap-4 items-start bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-                <div className="w-8 h-8 rounded-lg bg-[#F97316] text-white font-bold text-sm flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-[#fcb210] text-white font-bold text-sm flex items-center justify-center flex-shrink-0">
                   {i + 1}
                 </div>
                 <div>
@@ -300,7 +300,7 @@ export default function SolarApartmentBuildingPage() {
         <section className="bg-gray-50 rounded-3xl p-8 sm:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Calculation example</p>
+              <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Calculation example</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                 Example: Solar installation for an apartment building
               </h2>
@@ -308,7 +308,7 @@ export default function SolarApartmentBuildingPage() {
                 {exampleRows.map((row, i) => (
                   <div key={row.label} className={`flex justify-between items-center px-6 py-4 ${i !== 0 ? 'border-t border-gray-200' : ''} ${row.highlight ? 'bg-orange-50' : 'bg-white'}`}>
                     <span className={`text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>
-                    <span className={`font-bold ${row.highlight ? 'text-[#F97316] text-base' : 'text-gray-900 text-sm'}`}>{row.value}</span>
+                    <span className={`font-bold ${row.highlight ? 'text-[#fcb210] text-base' : 'text-gray-900 text-sm'}`}>{row.value}</span>
                   </div>
                 ))}
               </div>
@@ -324,7 +324,7 @@ export default function SolarApartmentBuildingPage() {
 
         {/* ── FAQ ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">FAQ</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">FAQ</p>
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
             Frequently asked questions about solar installations for apartment buildings
           </h2>
@@ -333,7 +333,7 @@ export default function SolarApartmentBuildingPage() {
 
         {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-          <Zap className="w-10 h-10 text-[#F97316] mx-auto mb-4" />
+          <Zap className="w-10 h-10 text-[#fcb210] mx-auto mb-4" />
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
             Compare offers and plan your installation optimally
           </h2>
@@ -343,7 +343,7 @@ export default function SolarApartmentBuildingPage() {
           <Link
             href="/en/request"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
           >
             Request free quote →
           </Link>

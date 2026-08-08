@@ -111,12 +111,12 @@ function ReviewCard({ review }: { review: Review }) {
           <p className="font-bold text-gray-900 text-sm">{review.name}</p>
           <div className="flex gap-0.5">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-3.5 h-3.5 fill-[#F97316] text-[#F97316]" />
+              <Star key={i} className="w-3.5 h-3.5 fill-[#fcb210] text-[#fcb210]" />
             ))}
           </div>
         </div>
       </div>
-      <div className="border-l-4 pl-3" style={{ borderColor: '#F97316' }}>
+      <div className="border-l-4 pl-3" style={{ borderColor: '#fcb210' }}>
         <p className="text-gray-500 text-sm leading-relaxed">{review.text}</p>
       </div>
     </div>
@@ -133,7 +133,7 @@ export default function Testimonials() {
     <section className="py-16 bg-white overflow-hidden">
       <div className="container-custom mb-10">
         <div className="text-center">
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">{t.label}</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">{t.label}</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-2">
             {t.heading}
           </h2>

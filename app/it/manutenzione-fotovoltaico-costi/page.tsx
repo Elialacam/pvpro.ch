@@ -89,7 +89,7 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
   return (
     <main className="min-h-screen bg-white">
       <section className="relative pt-28 pb-16 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
             <Link href="/it" className="hover:text-white/70 transition-colors">Home</Link>
@@ -117,7 +117,7 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
-                <p className="text-[#F97316] text-sm font-semibold">{s.sub}</p>
+                <p className="text-[#fcb210] text-sm font-semibold">{s.sub}</p>
                 <p className="text-gray-500 text-xs mt-1">{s.note}</p>
               </div>
             ))}
@@ -130,7 +130,7 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
         {/* ── Perché la manutenzione è importante? ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Perché conviene</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Perché conviene</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
               Perché la manutenzione è importante?
             </h2>
@@ -160,14 +160,14 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
         {/* ── Cosa comprende la manutenzione? ── */}
         <section>
           <div className="mb-10">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Panoramica prestazioni</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Panoramica prestazioni</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Cosa comprende la manutenzione di un impianto solare?</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {prestazioni.map((p, i) => (
               <div key={i} className="rounded-2xl p-6" style={{ background: 'linear-gradient(135deg, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>
                 <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center mb-4">
-                  <Wrench className="w-5 h-5 text-[#F97316]" />
+                  <Wrench className="w-5 h-5 text-[#fcb210]" />
                 </div>
                 <h3 className="font-bold text-gray-900 text-base mb-2">{p.titolo}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{p.testo}</p>
@@ -179,7 +179,7 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
         {/* ── Costi & Frequenze ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Panoramica costi</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Panoramica costi</p>
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-5">Quanto costa la manutenzione in Svizzera?</h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-5">
               Nell&apos;arco della durata di vita di 25 anni, ciò corrisponde a costi di manutenzione di ca. CHF 4&apos;000–7&apos;500 — una piccola somma rispetto all&apos;investimento totale.
@@ -196,7 +196,7 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
                   {costi.map((row, i) => (
                     <tr key={row.prestazione} className={row.highlight ? 'bg-orange-50' : i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                       <td className={`px-5 py-3.5 text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-700'}`}>{row.prestazione}</td>
-                      <td className={`px-5 py-3.5 text-right font-bold text-sm ${row.highlight ? 'text-[#F97316]' : 'text-gray-900'}`}>{row.costo}</td>
+                      <td className={`px-5 py-3.5 text-right font-bold text-sm ${row.highlight ? 'text-[#fcb210]' : 'text-gray-900'}`}>{row.costo}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -204,11 +204,11 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
             </div>
           </div>
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Intervalli di manutenzione</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Intervalli di manutenzione</p>
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-5">Con quale frequenza deve essere mantenuto un impianto solare?</h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-5">
               Per una{' '}
-              <Link href="/it/soluzione-completa-fotovoltaico-svizzera" className="text-[#F97316] hover:underline font-medium">soluzione completa</Link>{' '}
+              <Link href="/it/soluzione-completa-fotovoltaico-svizzera" className="text-[#fcb210] hover:underline font-medium">soluzione completa</Link>{' '}
               con accumulo e pompa di calore valgono gli stessi intervalli — l&apos;installatore gestisce il coordinamento.
             </p>
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
@@ -235,7 +235,7 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
         {/* ── Fai da te & Garanzie ── */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Lavori in proprio</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Lavori in proprio</p>
             <h2 className="text-xl font-bold text-gray-900 mb-5">Posso fare la manutenzione da solo?</h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-4">
               L&apos;ispezione visiva e la pulizia semplice possono essere effettuate dal proprietario dell&apos;immobile. Per tutto ciò che riguarda l&apos;elettrica — connessioni, inverter, raccordi — è obbligatorio incaricare un&apos;azienda specializzata certificata.
@@ -256,7 +256,7 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
             <ul className="space-y-4">
               {garanzie.map((g, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="text-white font-semibold text-sm">{g.comp}</p>
                     <p className="text-gray-400 text-sm leading-relaxed">{g.testo}</p>
@@ -274,7 +274,7 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
 
         {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-          <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+          <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
             <Wrench className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Invia subito una richiesta di manutenzione</h2>
@@ -282,21 +282,21 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
             Hai un impianto esistente che deve essere mantenuto? O stai pianificando un nuovo impianto e vuoi subito concludere un contratto di manutenzione? Ti mettiamo in contatto con il partner giusto.
           </p>
           <Link href="/it/richiedere-preventivo-solare" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
             Richiedi preventivo gratuito <ArrowRight className="w-4 h-4" />
           </Link>
           <p className="text-gray-500 text-sm mt-5">
             Prima{' '}
-            <Link href="/it/richiedere-preventivo-solare" className="text-[#F97316] hover:underline font-medium">confrontare preventivi</Link>?{' '}
+            <Link href="/it/richiedere-preventivo-solare" className="text-[#fcb210] hover:underline font-medium">confrontare preventivi</Link>?{' '}
             O tutti i{' '}
-            <Link href="/it/comparatore-fotovoltaico-svizzera" className="text-[#F97316] hover:underline font-medium">fornitori in una panoramica</Link>?
+            <Link href="/it/comparatore-fotovoltaico-svizzera" className="text-[#fcb210] hover:underline font-medium">fornitori in una panoramica</Link>?
           </p>
         </section>
 
         {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Domande frequenti</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Domande frequenti</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Domande frequenti</h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -304,7 +304,7 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
               <details key={i} className="group rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
                 <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-gray-900 text-sm select-none list-none">
                   {faq.question}
-                  <span className="ml-4 text-[#F97316] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
+                  <span className="ml-4 text-[#fcb210] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
                 </summary>
                 <div className="px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-50">
                   <p className="pt-4">{faq.answer}</p>
@@ -328,7 +328,7 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
                 Soluzione completa
               </Link>
               <Link href="/it/richiedere-preventivo-solare" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
-                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
                 Richiedi preventivo <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

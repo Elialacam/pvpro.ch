@@ -34,7 +34,7 @@ export default function NavigationProgress() {
     <div
       className="fixed top-0 left-0 z-[10000] h-[2px] pointer-events-none"
       style={{
-        background: 'linear-gradient(90deg, #F97316, #fb923c)',
+        background: 'linear-gradient(90deg, #fcb210, #ffc812)',
         width: `${width}%`,
         opacity: visible ? 1 : 0,
         transition: width === 0

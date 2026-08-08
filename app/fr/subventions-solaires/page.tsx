@@ -79,7 +79,7 @@ export default function SubventionsSolairesPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Rétribution unique (RU)</p>
+              <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Rétribution unique (RU)</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">Qu'est-ce que la rétribution unique ?</h2>
               <p className="text-gray-600 leading-relaxed mb-5">
                 La rétribution unique est la principale aide fédérale pour les installations photovoltaïques en Suisse. Elle est fournie par la Confédération et gérée par <strong>Pronovo</strong>.
@@ -116,7 +116,7 @@ export default function SubventionsSolairesPage() {
       <section className="py-20" style={{ background: '#f9fafb' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Aperçu des subventions</p>
+            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Aperçu des subventions</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">Quel est le montant de la subvention ?</h2>
             <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
               La subvention est typiquement de <strong className="text-gray-800">300–400 CHF par kWp</strong> installé. Plus l'installation est grande, plus le montant est élevé.
@@ -136,7 +136,7 @@ export default function SubventionsSolairesPage() {
                     {row.highlight && <span className="text-[10px] bg-orange-500 text-white font-bold px-1.5 py-0.5 rounded-full uppercase">Populaire</span>}
                     {row.size}
                   </div>
-                  <div className="px-5 py-5 font-bold text-[#F97316]">{row.foerderung}</div>
+                  <div className="px-5 py-5 font-bold text-[#fcb210]">{row.foerderung}</div>
                   <div className="px-5 py-5 text-gray-600">{row.gesamtkosten}</div>
                   <div className="px-5 py-5 font-bold text-green-600">{row.effektiv}</div>
                 </div>
@@ -176,7 +176,7 @@ export default function SubventionsSolairesPage() {
                     {i < processSteps.length - 1 && (
                       <div className="absolute left-[19px] top-10 w-0.5 h-full" style={{ background: 'rgba(249,115,22,0.2)' }} />
                     )}
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-sm relative z-10" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>{step.n}</div>
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-sm relative z-10" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>{step.n}</div>
                     <div className="pt-1">
                       <p className="font-bold text-white mb-1">{step.title}</p>
                       <p className="text-sm text-gray-400 leading-relaxed">{step.text}</p>
@@ -197,7 +197,7 @@ export default function SubventionsSolairesPage() {
               <Image src="/images/hero-family-solar.webp" alt="Maison individuelle avec installation solaire" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Exemple de calcul</p>
+              <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Exemple de calcul</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">Exemple pour une maison individuelle</h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 De nombreuses maisons individuelles installent un système de <strong>8–10 kWp</strong>, produisant environ <strong>8'000–10'000 kWh</strong> d'électricité par an.
@@ -209,7 +209,7 @@ export default function SubventionsSolairesPage() {
                 </div>
                 <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-orange-100" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
                   <p className="text-orange-700 font-medium">Rétribution unique (RU)</p>
-                  <p className="font-bold text-[#F97316]">− CHF 3'500</p>
+                  <p className="font-bold text-[#fcb210]">− CHF 3'500</p>
                 </div>
                 <div className="h-px bg-gray-200" />
                 <div className="flex items-center justify-between rounded-2xl px-6 py-5 border-2 border-green-200" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
@@ -230,7 +230,7 @@ export default function SubventionsSolairesPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Rentabilité</p>
+              <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Rentabilité</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-5">Une installation solaire est-elle rentable malgré les coûts ?</h2>
               <p className="text-gray-600 leading-relaxed mb-5">
                 Grâce aux subventions de l'État et à la hausse des prix de l'électricité, une installation solaire est rentable pour de nombreux ménages suisses. La plupart s'amortissent en <strong>10–15 ans</strong> pour une durée de vie de 25–30 ans.
@@ -239,7 +239,7 @@ export default function SubventionsSolairesPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {['Consommation d\'électricité du ménage', 'Taux d\'autoconsommation', 'Taille de l\'installation solaire', 'Évolution des prix de l\'électricité'].map(f => (
                   <div key={f} className="flex items-center gap-2.5 rounded-xl px-4 py-3 border border-gray-100 bg-gray-50">
-                    <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
                     <p className="text-sm text-gray-700">{f}</p>
                   </div>
                 ))}
@@ -260,7 +260,7 @@ export default function SubventionsSolairesPage() {
             <p className="text-gray-600 mb-8 max-w-lg mx-auto leading-relaxed">
               Nos installateurs partenaires connaissent tous les programmes de subventions actuels et s'occupent des démarches — vous n'avez rien à faire.
             </p>
-            <Link href="/fr/demande" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            <Link href="/fr/demande" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
               Obtenir un devis gratuit <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

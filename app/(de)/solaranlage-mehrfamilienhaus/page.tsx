@@ -60,7 +60,7 @@ export default function SolaranlageMehrfamilienhausPage() {
       {/* ── Hero ── */}
       <section className="relative bg-[#0f1f3d] pt-28 pb-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
+          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
             <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
@@ -82,7 +82,7 @@ export default function SolaranlageMehrfamilienhausPage() {
               <Link
                 href="/anfrage"
                 className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+                style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
               >
                 Kostenlose Offerte anfordern <ArrowRight className="w-4 h-4" />
               </Link>
@@ -109,7 +109,7 @@ export default function SolaranlageMehrfamilienhausPage() {
         {/* ── ZEV explainer ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Funktionsweise</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Funktionsweise</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Wie funktioniert eine Solaranlage im Mehrfamilienhaus?
             </h2>
@@ -117,7 +117,7 @@ export default function SolaranlageMehrfamilienhausPage() {
               In einem Mehrfamilienhaus wird der Solarstrom zentral produziert und dann auf die Bewohner verteilt. Die häufigste Lösung in der Schweiz ist der{' '}
               <strong className="text-gray-800">Zusammenschluss zum Eigenverbrauch (ZEV)</strong>.
             </p>
-            <div className="rounded-2xl bg-[#F97316]/5 border border-[#F97316]/20 p-6 space-y-3">
+            <div className="rounded-2xl bg-[#fcb210]/5 border border-[#fcb210]/20 p-6 space-y-3">
               <p className="font-bold text-gray-900 mb-2">Beim ZEV gilt:</p>
               {[
                 'Strom wird direkt im Gebäude genutzt',
@@ -126,7 +126,7 @@ export default function SolaranlageMehrfamilienhausPage() {
                 'Überschüssiger Strom wird ins Netz eingespeist',
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">{item}</span>
                 </div>
               ))}
@@ -142,7 +142,7 @@ export default function SolaranlageMehrfamilienhausPage() {
         <section>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
             <div className="lg:col-span-2">
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Anlagenrechner</p>
+              <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Anlagenrechner</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
                 Wie gross sollte die Anlage sein?
               </h2>
@@ -154,7 +154,7 @@ export default function SolaranlageMehrfamilienhausPage() {
                   <div key={row.wohnungen} className="flex justify-between items-center">
                     <span className="text-sm font-bold text-gray-700">{row.wohnungen}</span>
                     <div className="text-right">
-                      <span className="text-sm font-bold text-[#F97316]">{row.kwp}</span>
+                      <span className="text-sm font-bold text-[#fcb210]">{row.kwp}</span>
                       <span className="text-xs text-gray-400 ml-2">/ {row.m2}</span>
                     </div>
                   </div>
@@ -171,7 +171,7 @@ export default function SolaranlageMehrfamilienhausPage() {
         <section className="bg-gray-50 rounded-3xl p-8 sm:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Kosten</p>
+              <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Kosten</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
                 Was kostet eine Solaranlage für ein Mehrfamilienhaus?
               </h2>
@@ -185,7 +185,7 @@ export default function SolaranlageMehrfamilienhausPage() {
                 {costRows.map((row) => (
                   <div key={row.size} className={`grid grid-cols-2 px-5 py-4 border-t border-gray-200 ${row.highlight ? 'bg-orange-50' : 'bg-white'}`}>
                     <span className="font-bold text-gray-800 text-sm">{row.size}</span>
-                    <span className={`font-bold text-sm ${row.highlight ? 'text-[#F97316]' : 'text-gray-700'}`}>{row.price}</span>
+                    <span className={`font-bold text-sm ${row.highlight ? 'text-[#fcb210]' : 'text-gray-700'}`}>{row.price}</span>
                   </div>
                 ))}
               </div>
@@ -198,7 +198,7 @@ export default function SolaranlageMehrfamilienhausPage() {
 
         {/* ── Abrechnungsmodell ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Abrechnung</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Abrechnung</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
             Wie wird Solarstrom im Mehrfamilienhaus berechnet?
           </h2>
@@ -209,7 +209,7 @@ export default function SolaranlageMehrfamilienhausPage() {
               { step: '3', title: 'Transparent abrechnen', text: 'Jede Wohnung zahlt per Unterzähler nur für den tatsächlich verbrauchten Solarstrom.' },
             ].map((item) => (
               <div key={item.step} className="relative bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-                <div className="w-9 h-9 rounded-full bg-[#F97316] text-white font-bold text-sm flex items-center justify-center mb-4">
+                <div className="w-9 h-9 rounded-full bg-[#fcb210] text-white font-bold text-sm flex items-center justify-center mb-4">
                   {item.step}
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
@@ -221,7 +221,7 @@ export default function SolaranlageMehrfamilienhausPage() {
 
         {/* ── Why worthwhile ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Wirtschaftlichkeit</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Wirtschaftlichkeit</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
             Warum lohnt sich eine Solaranlage im Mehrfamilienhaus?
           </h2>
@@ -230,8 +230,8 @@ export default function SolaranlageMehrfamilienhausPage() {
               const Icon = b.icon;
               return (
                 <div key={b.title} className="flex gap-4 items-start bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-                  <div className="w-10 h-10 rounded-xl bg-[#F97316]/10 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-5 h-5 text-[#F97316]" />
+                  <div className="w-10 h-10 rounded-xl bg-[#fcb210]/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-5 h-5 text-[#fcb210]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 mb-1">{b.title}</h3>
@@ -246,7 +246,7 @@ export default function SolaranlageMehrfamilienhausPage() {
         {/* ── Capital investment ── */}
         <section className="rounded-3xl bg-[#0f1f3d] p-8 sm:p-12 overflow-hidden relative">
           <div className="absolute inset-0 opacity-10"
-            style={{ backgroundImage: 'radial-gradient(circle at 75% 50%, #F97316 0%, transparent 55%)' }} />
+            style={{ backgroundImage: 'radial-gradient(circle at 75% 50%, #fcb210 0%, transparent 55%)' }} />
           <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">Kapitalanlage</p>
@@ -264,7 +264,7 @@ export default function SolaranlageMehrfamilienhausPage() {
                   'Langfristig den Immobilienwert steigern',
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
                     <span className="text-white/80 text-sm">{item}</span>
                   </div>
                 ))}
@@ -278,14 +278,14 @@ export default function SolaranlageMehrfamilienhausPage() {
 
         {/* ── Wirtschaftlichkeit factors ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Rentabilität</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Rentabilität</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
             Welche Faktoren beeinflussen die Wirtschaftlichkeit?
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {wirtschaftFaktoren.map((f, i) => (
               <div key={f.title} className="flex gap-4 items-start bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-                <div className="w-8 h-8 rounded-lg bg-[#F97316] text-white font-bold text-sm flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-[#fcb210] text-white font-bold text-sm flex items-center justify-center flex-shrink-0">
                   {i + 1}
                 </div>
                 <div>
@@ -301,7 +301,7 @@ export default function SolaranlageMehrfamilienhausPage() {
         <section className="bg-gray-50 rounded-3xl p-8 sm:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Rechenbeispiel</p>
+              <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Rechenbeispiel</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                 Beispiel: Solaranlage Mehrfamilienhaus
               </h2>
@@ -309,7 +309,7 @@ export default function SolaranlageMehrfamilienhausPage() {
                 {exampleRows.map((row, i) => (
                   <div key={row.label} className={`flex justify-between items-center px-6 py-4 ${i !== 0 ? 'border-t border-gray-200' : ''} ${row.highlight ? 'bg-orange-50' : 'bg-white'}`}>
                     <span className={`text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>
-                    <span className={`font-bold ${row.highlight ? 'text-[#F97316] text-base' : 'text-gray-900 text-sm'}`}>{row.value}</span>
+                    <span className={`font-bold ${row.highlight ? 'text-[#fcb210] text-base' : 'text-gray-900 text-sm'}`}>{row.value}</span>
                   </div>
                 ))}
               </div>
@@ -325,7 +325,7 @@ export default function SolaranlageMehrfamilienhausPage() {
 
         {/* ── FAQ ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">FAQ</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">FAQ</p>
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
             Häufig gestellte Fragen zur Solaranlage Mehrfamilienhaus
           </h2>
@@ -334,7 +334,7 @@ export default function SolaranlageMehrfamilienhausPage() {
 
         {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-          <Zap className="w-10 h-10 text-[#F97316] mx-auto mb-4" />
+          <Zap className="w-10 h-10 text-[#fcb210] mx-auto mb-4" />
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
             Angebote vergleichen und Anlage optimal planen
           </h2>
@@ -344,19 +344,19 @@ export default function SolaranlageMehrfamilienhausPage() {
           <Link
             href="/anfrage"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
           >
             Kostenlose Offerte anfordern →
           </Link>
           <p className="text-gray-500 text-sm mt-5">
             Mehrere Angebote vergleichen?{' '}
-            <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#F97316] hover:underline font-medium">Anbieter für Mehrfamilienhäuser vergleichen</Link>
+            <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#fcb210] hover:underline font-medium">Anbieter für Mehrfamilienhäuser vergleichen</Link>
             {' '}·{' '}
-            <Link href="/solaranlage-offerte-einholen" className="text-[#F97316] hover:underline font-medium">Offerten für Ihr Mehrfamilienhaus</Link>
+            <Link href="/solaranlage-offerte-einholen" className="text-[#fcb210] hover:underline font-medium">Offerten für Ihr Mehrfamilienhaus</Link>
             {' '}·{' '}
-            <Link href="/photovoltaik-installation-schweiz" className="text-[#F97316] hover:underline font-medium">Ablauf der Photovoltaik Installation</Link>
+            <Link href="/photovoltaik-installation-schweiz" className="text-[#fcb210] hover:underline font-medium">Ablauf der Photovoltaik Installation</Link>
             {' '}·{' '}
-            <Link href="/photovoltaik-komplettloesung-schweiz" className="text-[#F97316] hover:underline font-medium">Komplettlösung für Mehrfamilienhäuser</Link>
+            <Link href="/photovoltaik-komplettloesung-schweiz" className="text-[#fcb210] hover:underline font-medium">Komplettlösung für Mehrfamilienhäuser</Link>
           </p>
         </section>
 

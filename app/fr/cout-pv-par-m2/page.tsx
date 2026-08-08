@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const priceRows = [
   { label: 'Installation simple',        range: 'env. 200 – 250 CHF', color: '#6b7280', highlight: false },
-  { label: 'Installation standard',      range: 'env. 250 – 350 CHF', color: '#F97316', highlight: true },
+  { label: 'Installation standard',      range: 'env. 250 – 350 CHF', color: '#fcb210', highlight: true },
   { label: 'Installation haut de gamme', range: 'env. 350 – 400+ CHF', color: '#1e3a5f', highlight: false },
 ];
 
@@ -50,7 +50,7 @@ export default function CoutPVParM2Page() {
       {/* ── Hero ── */}
       <section className="relative bg-[#0f1f3d] pt-28 pb-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: 'radial-gradient(circle at 70% 50%, #F97316 0%, transparent 60%)' }} />
+          style={{ backgroundImage: 'radial-gradient(circle at 70% 50%, #fcb210 0%, transparent 60%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
             <Link href="/fr" className="hover:text-white/70 transition-colors">Accueil</Link>
@@ -88,7 +88,7 @@ export default function CoutPVParM2Page() {
 
         {/* ── Price table ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Aperçu des prix</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Aperçu des prix</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Combien coûte le photovoltaïque par m² ?</h2>
           <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-2xl">
             Les coûts par m² dépendent de la puissance des modules, de la qualité des composants, du type de toit et de la taille de l'installation.
@@ -110,18 +110,18 @@ export default function CoutPVParM2Page() {
         {/* ── Why kWp ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Comprendre les unités</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Comprendre les unités</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Pourquoi ne calcule-t-on souvent pas en m² ?</h2>
             <p className="text-gray-500 leading-relaxed mb-6">
               En pratique, le photovoltaïque est souvent calculé en <strong className="text-gray-800">kWp (kilowatt-crête)</strong>, car les modules ont des puissances différentes, les surfaces de toit sont utilisables différemment et l'efficacité varie selon la technologie.
             </p>
-            <div className="rounded-2xl bg-[#F97316]/5 border border-[#F97316]/20 p-6">
-              <p className="text-sm font-bold text-[#F97316] mb-3">Conversion approximative</p>
+            <div className="rounded-2xl bg-[#fcb210]/5 border border-[#fcb210]/20 p-6">
+              <p className="text-sm font-bold text-[#fcb210] mb-3">Conversion approximative</p>
               <p className="text-3xl font-bold text-gray-900 mb-4">1 kWp ≈ 5–6 m²</p>
               <div className="space-y-2 text-sm text-gray-600">
                 {["Installation de 10 kWp → env. 50–60 m² de surface de toit", "Installation de 20 kWp → env. 100–120 m² de surface de toit"].map((item) => (
                   <div key={item} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -135,13 +135,13 @@ export default function CoutPVParM2Page() {
 
         {/* ── m² vs kWp ── */}
         <section className="bg-gray-50 rounded-3xl p-8 sm:p-12">
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Comparaison</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Comparaison</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">Coûts par m² vs. coûts par kWp</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {comparisonRows.map((row) => (
               <div key={row.unit} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                 <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">{row.unit}</p>
-                <p className="text-3xl font-bold text-[#F97316] mb-2">{row.price}</p>
+                <p className="text-3xl font-bold text-[#fcb210] mb-2">{row.price}</p>
                 <p className="text-sm text-gray-500">{row.note}</p>
               </div>
             ))}
@@ -157,7 +157,7 @@ export default function CoutPVParM2Page() {
             <Image src="/images/asset-haus-luftbild-2.webp" alt="Maison individuelle avec installation solaire" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
           </div>
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Exemple de calcul</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Exemple de calcul</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Exemple : installation solaire pour une maison individuelle</h2>
             <p className="text-gray-500 leading-relaxed mb-6">
               Une maison individuelle suisse typique avec 60 m² de surface de toit et env. 10 kWp de puissance :
@@ -166,7 +166,7 @@ export default function CoutPVParM2Page() {
               {exampleRows.map((row, i) => (
                 <div key={row.position} className={`flex justify-between items-center px-5 py-4 ${i !== 0 ? 'border-t border-gray-100' : ''} ${row.last ? 'bg-orange-50' : 'bg-white'}`}>
                   <span className={`text-sm ${row.last ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.position}</span>
-                  <span className={`font-bold ${row.last ? 'text-[#F97316] text-lg' : 'text-gray-900'}`}>{row.value}</span>
+                  <span className={`font-bold ${row.last ? 'text-[#fcb210] text-lg' : 'text-gray-900'}`}>{row.value}</span>
                 </div>
               ))}
             </div>
@@ -178,15 +178,15 @@ export default function CoutPVParM2Page() {
 
         {/* ── Factors ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Facteurs d'influence</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Facteurs d'influence</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">Quels facteurs influencent les coûts par m² ?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {factors.map((f) => {
               const Icon = f.icon;
               return (
                 <div key={f.title} className="flex gap-4 items-start bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-                  <div className="w-10 h-10 rounded-xl bg-[#F97316]/10 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-5 h-5 text-[#F97316]" />
+                  <div className="w-10 h-10 rounded-xl bg-[#fcb210]/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-5 h-5 text-[#fcb210]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 mb-1">{f.title}</h3>
@@ -201,7 +201,7 @@ export default function CoutPVParM2Page() {
         {/* ── Energy production ── */}
         <section className="rounded-3xl bg-[#0f1f3d] p-8 sm:p-12 text-white overflow-hidden relative">
           <div className="absolute inset-0 opacity-10"
-            style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #F97316 0%, transparent 60%)' }} />
+            style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #fcb210 0%, transparent 60%)' }} />
           <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">Production d'électricité</p>
@@ -211,7 +211,7 @@ export default function CoutPVParM2Page() {
                 <strong className="text-white">150 – 200 kWh d'électricité par an</strong>. La production exacte dépend de l'orientation, de la pente et de l'emplacement.
               </p>
               <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-5 py-4">
-                <Zap className="w-6 h-6 text-[#F97316] flex-shrink-0" />
+                <Zap className="w-6 h-6 text-[#fcb210] flex-shrink-0" />
                 <p className="text-sm text-white/80">
                   <strong className="text-white">50 m²</strong> → env. <strong className="text-white">7'500 – 10'000 kWh</strong> par an
                 </p>
@@ -229,7 +229,7 @@ export default function CoutPVParM2Page() {
                     <span className="text-white font-bold">{row.kwh}</span>
                   </div>
                   <div className="h-2 rounded-full bg-white/10">
-                    <div className="h-2 rounded-full bg-[#F97316]" style={{ width: `${row.pct}%` }} />
+                    <div className="h-2 rounded-full bg-[#fcb210]" style={{ width: `${row.pct}%` }} />
                   </div>
                 </div>
               ))}
@@ -240,7 +240,7 @@ export default function CoutPVParM2Page() {
         {/* ── Quand ça vaut ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Rentabilité</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Rentabilité</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Quand le photovoltaïque est-il rentable par m² ?</h2>
             <p className="text-gray-500 leading-relaxed mb-6">
               Plus on consomme soi-même l'électricité produite, plus la rentabilité de l'installation est élevée.
@@ -253,7 +253,7 @@ export default function CoutPVParM2Page() {
                 'Le toit n\'est pas ombragé',
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#fcb210] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">{item}</span>
                 </div>
               ))}
@@ -266,7 +266,7 @@ export default function CoutPVParM2Page() {
 
         {/* ── FAQ ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">FAQ</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">FAQ</p>
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
             Questions fréquentes sur les coûts du photovoltaïque par m²
           </h2>
@@ -275,7 +275,7 @@ export default function CoutPVParM2Page() {
 
         {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-          <TrendingDown className="w-10 h-10 text-[#F97316] mx-auto mb-4" />
+          <TrendingDown className="w-10 h-10 text-[#fcb210] mx-auto mb-4" />
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
             Comparer les offres et calculer précisément les coûts
           </h2>
@@ -285,7 +285,7 @@ export default function CoutPVParM2Page() {
           <Link
             href="/fr/demande"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
           >
             Obtenir des devis gratuits →
           </Link>

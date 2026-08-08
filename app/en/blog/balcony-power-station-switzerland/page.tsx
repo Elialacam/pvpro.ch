@@ -40,7 +40,7 @@ export default function BalconyPowerStationSwitzerlandPage() {
         <Image src="/images/balkonkraftwerk-schweiz.webp" alt="Balcony power station in Switzerland – mini solar system on balcony with view of the Alps" fill sizes="100vw" className="object-cover object-center" />
         <div className="absolute inset-0 bg-[#0f1f3d]/70" />
         <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
+          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
         <div className="relative z-10 max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 w-full">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-8">
             <Link href="/en" className="hover:text-white/70 transition-colors">Home</Link>
@@ -51,7 +51,7 @@ export default function BalconyPowerStationSwitzerlandPage() {
           </nav>
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-5">
-              <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#F97316]/20 text-orange-400 uppercase tracking-widest">Guide</span>
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#fcb210]/20 text-orange-400 uppercase tracking-widest">Guide</span>
               <span className="flex items-center gap-1.5 text-white/40 text-xs">
                 <Calendar className="w-3.5 h-3.5" /> 17 March 2026
               </span>
@@ -155,10 +155,10 @@ export default function BalconyPowerStationSwitzerlandPage() {
                 <div>
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-gray-600">Solar installation (10 kWp)</span>
-                    <span className="font-bold text-[#F97316]">9,000–11,000 kWh</span>
+                    <span className="font-bold text-[#fcb210]">9,000–11,000 kWh</span>
                   </div>
                   <div className="h-4 rounded-full bg-gray-200">
-                    <div className="h-4 rounded-full bg-[#F97316]" style={{ width: '90%' }} />
+                    <div className="h-4 rounded-full bg-[#fcb210]" style={{ width: '90%' }} />
                   </div>
                 </div>
                 <p className="text-xs text-gray-400">A full solar installation produces <strong>15–20× more electricity</strong> per year.</p>
@@ -173,17 +173,17 @@ export default function BalconyPowerStationSwitzerlandPage() {
                 <div className="grid grid-cols-3 bg-gray-50 px-5 py-3 text-xs font-bold text-gray-400 uppercase tracking-wider">
                   <span>Factor</span>
                   <span className="text-center">Balcony power station</span>
-                  <span className="text-center text-[#F97316]">Solar installation</span>
+                  <span className="text-center text-[#fcb210]">Solar installation</span>
                 </div>
                 {comparisonRows.map((row) => (
                   <div key={row.factor} className="grid grid-cols-3 px-5 py-3.5 border-t border-gray-100 bg-white text-sm">
                     <span className="font-bold text-gray-800">{row.factor}</span>
                     <span className={`text-center ${row.winner === 'balkon' ? 'text-green-600 font-bold' : 'text-gray-500'}`}>{row.balkon}</span>
-                    <span className={`text-center ${row.winner === 'solar' ? 'text-[#F97316] font-bold' : 'text-gray-500'}`}>{row.solar}</span>
+                    <span className={`text-center ${row.winner === 'solar' ? 'text-[#fcb210] font-bold' : 'text-gray-500'}`}>{row.solar}</span>
                   </div>
                 ))}
               </div>
-              <div className="mt-4 rounded-xl bg-[#F97316]/5 border border-[#F97316]/20 p-4">
+              <div className="mt-4 rounded-xl bg-[#fcb210]/5 border border-[#fcb210]/20 p-4">
                 <p className="text-sm font-bold text-gray-900 mb-1">Conclusion:</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   A balcony power station is a small supplement — a solar installation is a <strong>real energy solution</strong>. For a homeowner, a balcony power station leaves thousands of francs in annual savings on the table.
@@ -206,12 +206,12 @@ export default function BalconyPowerStationSwitzerlandPage() {
                     ))}
                   </div>
                 </div>
-                <div className="rounded-2xl border border-[#F97316]/30 p-6 bg-orange-50 shadow-sm">
-                  <p className="font-bold text-[#F97316] text-sm mb-4 uppercase tracking-wide">Solar installation useful if…</p>
+                <div className="rounded-2xl border border-[#fcb210]/30 p-6 bg-orange-50 shadow-sm">
+                  <p className="font-bold text-[#fcb210] text-sm mb-4 uppercase tracking-wide">Solar installation useful if…</p>
                   <div className="space-y-2">
                     {['You own a home', 'You want to significantly reduce energy costs', 'You aim for long-term energy independence', 'You want to increase the value of your property'].map((item) => (
                       <div key={item} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
                         <span className="text-gray-700 text-sm font-medium">{item}</span>
                       </div>
                     ))}
@@ -223,9 +223,9 @@ export default function BalconyPowerStationSwitzerlandPage() {
             {/* Alternative */}
             <section className="rounded-3xl bg-[#0f1f3d] p-8 text-white relative overflow-hidden">
               <div className="absolute inset-0 opacity-10"
-                style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #F97316 0%, transparent 55%)' }} />
+                style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #fcb210 0%, transparent 55%)' }} />
               <div className="relative">
-                <TrendingUp className="w-8 h-8 text-[#F97316] mb-4" />
+                <TrendingUp className="w-8 h-8 text-[#fcb210] mb-4" />
                 <h2 className="text-2xl font-bold text-white mb-3">Alternative: solar installation instead of balcony power station</h2>
                 <p className="text-white/70 leading-relaxed mb-4">
                   Many start with the idea of a balcony power station and then realise: <strong className="text-white">the effect is too small.</strong>
@@ -242,7 +242,7 @@ export default function BalconyPowerStationSwitzerlandPage() {
                     const Icon = item.icon;
                     return (
                       <div key={item.label} className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
-                        <Icon className="w-5 h-5 text-[#F97316] mx-auto mb-1" />
+                        <Icon className="w-5 h-5 text-[#fcb210] mx-auto mb-1" />
                         <p className="font-bold text-white text-lg">{item.label}</p>
                         <p className="text-white/50 text-xs">{item.sub}</p>
                       </div>
@@ -252,7 +252,7 @@ export default function BalconyPowerStationSwitzerlandPage() {
                 <Link
                   href="/en/get-solar-panel-quotes"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-                  style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+                  style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
                 >
                   Get a free quote <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -269,7 +269,7 @@ export default function BalconyPowerStationSwitzerlandPage() {
                   <details key={i} className="group border-b border-gray-100 last:border-0">
                     <summary className="flex items-center justify-between gap-4 py-5 cursor-pointer list-none select-none">
                       <span className="font-bold text-gray-900 text-sm sm:text-base">{f.q}</span>
-                      <span className="text-[#F97316] flex-shrink-0 text-xl group-open:rotate-45 transition-transform duration-200">+</span>
+                      <span className="text-[#fcb210] flex-shrink-0 text-xl group-open:rotate-45 transition-transform duration-200">+</span>
                     </summary>
                     <p className="pb-5 text-gray-500 text-sm leading-relaxed">{f.a}</p>
                   </details>
@@ -283,7 +283,7 @@ export default function BalconyPowerStationSwitzerlandPage() {
           <aside className="space-y-6">
             <div className="sticky top-28">
               <div className="rounded-2xl border border-gray-100 p-6 shadow-sm bg-white mb-6">
-                <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-4">At a glance</p>
+                <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-4">At a glance</p>
                 <div className="space-y-3 text-sm">
                   {[
                     { label: 'Allowed in CH?', value: 'Yes, with registration' },
@@ -302,7 +302,7 @@ export default function BalconyPowerStationSwitzerlandPage() {
               </div>
 
               <div className="rounded-2xl p-6 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-                <Zap className="w-8 h-8 text-[#F97316] mx-auto mb-3" />
+                <Zap className="w-8 h-8 text-[#fcb210] mx-auto mb-3" />
                 <p className="font-bold text-gray-900 text-base mb-2">Homeowner?</p>
                 <p className="text-gray-500 text-sm leading-relaxed mb-4">
                   A full solar installation saves you 10× more than a balcony power station.
@@ -310,7 +310,7 @@ export default function BalconyPowerStationSwitzerlandPage() {
                 <Link
                   href="/en/get-solar-panel-quotes"
                   className="block w-full py-3 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity"
-                  style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+                  style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
                 >
                   Get a quote now →
                 </Link>
@@ -324,7 +324,7 @@ export default function BalconyPowerStationSwitzerlandPage() {
                     { href: '/en/blog/solar-subsidies-2026', title: 'Solar subsidies 2026 in Switzerland' },
                     { href: '/en/blog/solar-battery-storage-switzerland', title: 'Battery storage: is the investment worth it?' },
                   ].map((a) => (
-                    <Link key={a.href} href={a.href} className="block text-sm text-gray-700 hover:text-[#F97316] transition-colors leading-snug border-b border-gray-50 last:border-0 pb-2 last:pb-0">
+                    <Link key={a.href} href={a.href} className="block text-sm text-gray-700 hover:text-[#fcb210] transition-colors leading-snug border-b border-gray-50 last:border-0 pb-2 last:pb-0">
                       → {a.title}
                     </Link>
                   ))}

@@ -109,7 +109,7 @@ export default function SolaranlageInstallierenPage() {
 
       {/* ── Hero ── */}
       <section className="relative pt-28 pb-16 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
             <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
@@ -135,7 +135,7 @@ export default function SolaranlageInstallierenPage() {
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
-                <p className="text-[#F97316] text-sm font-semibold">{s.sub}</p>
+                <p className="text-[#fcb210] text-sm font-semibold">{s.sub}</p>
                 <p className="text-gray-500 text-xs mt-1">{s.note}</p>
               </div>
             ))}
@@ -148,7 +148,7 @@ export default function SolaranlageInstallierenPage() {
         {/* ── Was passiert bei der Installation ── */}
         <section>
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Schritt für Schritt</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Schritt für Schritt</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Was passiert bei der Installation einer Solaranlage?
             </h2>
@@ -162,7 +162,7 @@ export default function SolaranlageInstallierenPage() {
               {steps.map((step) => (
                 <div key={step.n} className="flex gap-6 items-start">
                   <div className="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold text-lg z-10"
-                    style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                    style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
                     {step.n}
                   </div>
                   <div className="rounded-2xl p-6 flex-1" style={{ background: 'linear-gradient(135deg, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>
@@ -171,12 +171,12 @@ export default function SolaranlageInstallierenPage() {
                       {step.n === '2' ? (
                         <>
                           Der Installateur übernimmt die Meldung bei der Gemeinde oder — bei bewilligungspflichtigen Anlagen — das Baugesuch. In den meisten Fällen ist eine Solaranlage auf dem Dach{' '}
-                          <Link href="/bewilligungspflicht-solaranlage-schweiz" className="text-[#F97316] hover:underline font-medium">bewilligungsfrei</Link>.
+                          <Link href="/bewilligungspflicht-solaranlage-schweiz" className="text-[#fcb210] hover:underline font-medium">bewilligungsfrei</Link>.
                         </>
                       ) : step.n === '5' ? (
                         <>
                           Nach der Installation wird die Anlage in Betrieb genommen und beim lokalen Netzbetreiber angemeldet. Der Installateur übernimmt in der Regel auch die Anmeldung der{' '}
-                          <Link href="/foerderungen" className="text-[#F97316] hover:underline font-medium">Einmalvergütung (EIV)</Link> bei Pronovo.
+                          <Link href="/foerderungen" className="text-[#fcb210] hover:underline font-medium">Einmalvergütung (EIV)</Link> bei Pronovo.
                         </>
                       ) : step.text}
                     </p>
@@ -190,7 +190,7 @@ export default function SolaranlageInstallierenPage() {
         {/* ── Wie lange dauert die Installation ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Zeitplanung</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Zeitplanung</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
               Wie lange dauert die Installation?
             </h2>
@@ -210,7 +210,7 @@ export default function SolaranlageInstallierenPage() {
                     <tr key={row.size} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                       <td className="px-5 py-3 text-gray-700 font-medium">{row.size}</td>
                       <td className="px-5 py-3 text-center">
-                        <span className="inline-flex items-center gap-1.5 text-[#F97316] font-semibold">
+                        <span className="inline-flex items-center gap-1.5 text-[#fcb210] font-semibold">
                           <Clock className="w-3.5 h-3.5" /> {row.duration}
                         </span>
                       </td>
@@ -228,13 +228,13 @@ export default function SolaranlageInstallierenPage() {
         {/* ── Was kostet die Installation ── */}
         <section>
           <div className="text-center mb-10">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Kosten</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Kosten</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Was kostet die Installation einer Solaranlage?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Die Installationskosten sind im Gesamtpreis einer Solaranlage enthalten. Typische Richtwerte für ein{' '}
-              <Link href="/solaranlage-einfamilienhaus" className="text-[#F97316] hover:underline font-medium">Einfamilienhaus</Link>:
+              <Link href="/solaranlage-einfamilienhaus" className="text-[#fcb210] hover:underline font-medium">Einfamilienhaus</Link>:
             </p>
           </div>
           <div className="max-w-2xl mx-auto overflow-hidden rounded-2xl border border-gray-200 shadow-sm mb-8">
@@ -257,10 +257,10 @@ export default function SolaranlageInstallierenPage() {
           </div>
           <div className="max-w-2xl mx-auto bg-orange-50 border border-orange-200 rounded-xl p-6">
             <p className="text-orange-800 text-sm leading-relaxed">
-              Nach Abzug der Bundesförderung (<Link href="/foerderungen" className="text-[#F97316] hover:underline font-medium">Einmalvergütung EIV</Link>) reduzieren sich die{' '}
-              <Link href="/solaranlage-kosten" className="text-[#F97316] hover:underline font-medium">Kosten</Link>{' '}
+              Nach Abzug der Bundesförderung (<Link href="/foerderungen" className="text-[#fcb210] hover:underline font-medium">Einmalvergütung EIV</Link>) reduzieren sich die{' '}
+              <Link href="/solaranlage-kosten" className="text-[#fcb210] hover:underline font-medium">Kosten</Link>{' '}
               um 300–400 CHF pro kWp. Durch den{' '}
-              <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#F97316] hover:underline font-medium">Vergleich mehrerer Offerten</Link>{' '}
+              <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#fcb210] hover:underline font-medium">Vergleich mehrerer Offerten</Link>{' '}
               können Sie zusätzlich mehrere tausend Franken sparen.
             </p>
           </div>
@@ -269,7 +269,7 @@ export default function SolaranlageInstallierenPage() {
         {/* ── Worauf achten ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Checkliste</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Checkliste</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
               Worauf achten bei der Wahl des Installateurs?
             </h2>
@@ -279,7 +279,7 @@ export default function SolaranlageInstallierenPage() {
             <ul className="space-y-4 mb-6">
               {criteria.map(c => (
                 <li key={c.title} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-[#fcb210] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm leading-relaxed">
                     <strong className="text-gray-900">{c.title}</strong> — {c.text}
                   </span>
@@ -306,7 +306,7 @@ export default function SolaranlageInstallierenPage() {
         {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
           <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
             <Sun className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
@@ -314,13 +314,13 @@ export default function SolaranlageInstallierenPage() {
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
             Füllen Sie unser Formular in 2 Minuten aus und erhalten Sie bis zu 3 Offerten von{' '}
-            <Link href="/anfrage" className="text-[#F97316] hover:underline font-medium">zertifizierten Installateuren</Link>{' '}
+            <Link href="/anfrage" className="text-[#fcb210] hover:underline font-medium">zertifizierten Installateuren</Link>{' '}
             aus Ihrem Kanton — kostenlos und unverbindlich.
           </p>
           <Link
             href="/anfrage"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
           >
             Kostenlose Offerte anfordern <ArrowRight className="w-4 h-4" />
           </Link>
@@ -329,7 +329,7 @@ export default function SolaranlageInstallierenPage() {
         {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Häufige Fragen</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Häufige Fragen</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Häufig gestellte Fragen</h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -337,7 +337,7 @@ export default function SolaranlageInstallierenPage() {
               <details key={i} className="group rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
                 <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-gray-900 text-sm select-none list-none">
                   {faq.question}
-                  <span className="ml-4 text-[#F97316] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
+                  <span className="ml-4 text-[#fcb210] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
                 </summary>
                 <div className="px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-50">
                   <p className="pt-4">{faq.answer}</p>
@@ -370,7 +370,7 @@ export default function SolaranlageInstallierenPage() {
                 Schutz bei Insolvenz des Installateurs
               </Link>
               <Link href="/anfrage" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
-                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
                 Offerte anfragen <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

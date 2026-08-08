@@ -57,7 +57,7 @@ export default function UeberUnsPage() {
         {/* Hero section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
           <div>
-            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Unsere Geschichte</p>
+            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Unsere Geschichte</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-6 leading-tight">
               Die unabhängige Schweizer Solar­plattform
             </h1>
@@ -84,7 +84,7 @@ export default function UeberUnsPage() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-24">
           {stats.map((s) => (
             <div key={s.label} className="text-center rounded-2xl p-8" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-              <p className="text-3xl sm:text-4xl font-bold text-[#F97316] mb-2">{s.value}</p>
+              <p className="text-3xl sm:text-4xl font-bold text-[#fcb210] mb-2">{s.value}</p>
               <p className="text-sm text-gray-600 font-medium">{s.label}</p>
             </div>
           ))}
@@ -93,7 +93,7 @@ export default function UeberUnsPage() {
         {/* Mission */}
         <div className="mb-24">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Unsere Mission</p>
+            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Unsere Mission</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-5">
               Wir machen Solarenergie zugänglich für alle
             </h2>
@@ -108,7 +108,7 @@ export default function UeberUnsPage() {
               return (
                 <div key={v.title} className="rounded-2xl border border-gray-100 p-8 hover:shadow-lg transition-shadow">
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-                    <Icon className="w-6 h-6 text-[#F97316]" />
+                    <Icon className="w-6 h-6 text-[#fcb210]" />
                   </div>
                   <h3 className="font-bold text-gray-900 text-lg mb-3">{v.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{v.text}</p>
@@ -130,7 +130,7 @@ export default function UeberUnsPage() {
             />
           </div>
           <div className="order-1 lg:order-2">
-            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Wie wir arbeiten</p>
+            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Wie wir arbeiten</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">
               Ihr Interesse kommt zuerst
             </h2>
@@ -141,7 +141,7 @@ export default function UeberUnsPage() {
                 { title: 'Geprüfte Qualität', text: 'Wir prüfen jeden Installateur vor der Aufnahme ins Netzwerk. Zertifikate, Referenzen, Versicherungsnachweis und Kundenbewertungen sind Pflicht.' },
               ].map((item) => (
                 <div key={item.title} className="flex gap-4">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
                     <span className="text-white text-xs font-bold">✓</span>
                   </div>
                   <div>
@@ -159,24 +159,24 @@ export default function UeberUnsPage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-8">Kontakt</h2>
           <div className="flex flex-col gap-4 text-sm max-w-sm">
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#F97316] mt-0.5 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-[#fcb210] mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">Adresse</p>
                   <p className="font-semibold text-gray-800">Via Santi Pietro e Paolo 16<br />6953 Lugaggia, Schweiz</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+                <Mail className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
                 <div>
                   <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">E-Mail</p>
-                  <a href="mailto:anfrage@pvpro.ch" className="font-semibold text-gray-800 hover:text-[#F97316] transition-colors">anfrage@pvpro.ch</a>
+                  <a href="mailto:anfrage@pvpro.ch" className="font-semibold text-gray-800 hover:text-[#fcb210] transition-colors">anfrage@pvpro.ch</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+                <Phone className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
                 <div>
                   <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">Telefon</p>
-                  <a href="tel:+41762703887" className="font-semibold text-gray-800 hover:text-[#F97316] transition-colors">+41 76 270 38 87</a>
+                  <a href="tel:+41762703887" className="font-semibold text-gray-800 hover:text-[#fcb210] transition-colors">+41 76 270 38 87</a>
                 </div>
               </div>
           </div>
@@ -191,7 +191,7 @@ export default function UeberUnsPage() {
           <Link
             href="/anfrage"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
           >
             Kostenlose Offerte anfordern →
           </Link>

@@ -180,7 +180,7 @@ export default function HowItWorks() {
                 onClick={() => goTo(i)}
                 className="relative flex-1 text-left rounded-2xl border-2 transition-all duration-300 overflow-hidden focus:outline-none"
                 style={{
-                  borderColor: isActive ? '#F97316' : '#E5E7EB',
+                  borderColor: isActive ? '#fcb210' : '#E5E7EB',
                   background: isActive ? '#fff' : '#F9FAFB',
                   boxShadow: isActive ? '0 4px 24px rgba(249,115,22,0.10)' : 'none',
                 }}
@@ -190,7 +190,7 @@ export default function HowItWorks() {
                   className="absolute bottom-0 left-0 h-[3px] transition-none"
                   style={{
                     width: isActive ? `${progress * 100}%` : '0%',
-                    background: '#F97316',
+                    background: '#fcb210',
                   }}
                 />
 
@@ -198,7 +198,7 @@ export default function HowItWorks() {
                   {/* Number */}
                   <span
                     className="text-3xl font-black leading-none block mb-3 transition-colors duration-300"
-                    style={{ color: isActive ? '#F97316' : '#D1D5DB' }}
+                    style={{ color: isActive ? '#fcb210' : '#D1D5DB' }}
                   >
                     {s.number}
                   </span>

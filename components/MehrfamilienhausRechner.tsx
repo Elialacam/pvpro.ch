@@ -74,7 +74,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
     <div className="border-b border-gray-100 last:border-0">
       <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between gap-4 py-5 text-left">
         <span className="font-bold text-gray-900 text-sm sm:text-base">{q}</span>
-        <ChevronDown className={`w-5 h-5 text-[#F97316] flex-shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-5 h-5 text-[#fcb210] flex-shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && <p className="pb-5 text-gray-500 text-sm leading-relaxed">{a}</p>}
     </div>
@@ -125,9 +125,9 @@ export default function MehrfamilienhausRechner() {
           <div className="grid grid-cols-5 gap-2">
             {STEPS.map((st, i) => (
               <button key={i} onClick={() => setStep(i)}
-                className={`rounded-xl border-2 p-3 text-center transition-all ${step === i ? 'border-[#F97316] bg-orange-50' : 'border-gray-100 bg-white hover:border-gray-200'}`}>
-                <Building2 className={`w-5 h-5 mx-auto mb-1 ${step === i ? 'text-[#F97316]' : 'text-gray-400'}`} />
-                <p className={`font-bold text-xs ${step === i ? 'text-[#F97316]' : 'text-gray-700'}`}>{st.wohnungen}</p>
+                className={`rounded-xl border-2 p-3 text-center transition-all ${step === i ? 'border-[#fcb210] bg-orange-50' : 'border-gray-100 bg-white hover:border-gray-200'}`}>
+                <Building2 className={`w-5 h-5 mx-auto mb-1 ${step === i ? 'text-[#fcb210]' : 'text-gray-400'}`} />
+                <p className={`font-bold text-xs ${step === i ? 'text-[#fcb210]' : 'text-gray-700'}`}>{st.wohnungen}</p>
               </button>
             ))}
           </div>
@@ -137,7 +137,7 @@ export default function MehrfamilienhausRechner() {
         <div className="mb-8">
           <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">{lab.groesse}</p>
           <div className="relative h-6 rounded-full bg-gray-100 overflow-hidden">
-            <div className="h-full rounded-full bg-gradient-to-r from-[#F97316] to-amber-400 transition-all duration-500"
+            <div className="h-full rounded-full bg-gradient-to-r from-[#fcb210] to-amber-400 transition-all duration-500"
               style={{ width: `${Math.min(100, (s.kwpMax / 120) * 100)}%` }} />
             <div className="absolute inset-0 flex items-center justify-end pr-3">
               <span className="text-xs font-bold text-white drop-shadow">{s.kwpMin}–{s.kwpMax} kWp</span>
@@ -148,7 +148,7 @@ export default function MehrfamilienhausRechner() {
 
         <div className="rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 border border-orange-100 p-6">
           <div className="flex items-center gap-2 mb-5">
-            <Zap className="w-5 h-5 text-[#F97316]" />
+            <Zap className="w-5 h-5 text-[#fcb210]" />
             <p className="font-bold text-gray-900">{lab.empfehlung(s.wohnungen)}</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -158,7 +158,7 @@ export default function MehrfamilienhausRechner() {
               { label: lab.investition, value: `${fmt(lo)}–${fmt(hi)} CHF` },
               { label: lab.produktion, value: `${fmt(prodMin)}–${fmt(prodMax)} kWh` },
             ].map((item) => (
-              <div key={item.label} className={`rounded-xl p-3 text-center ${item.accent ? 'bg-[#F97316] text-white' : 'bg-white border border-orange-100'}`}>
+              <div key={item.label} className={`rounded-xl p-3 text-center ${item.accent ? 'bg-[#fcb210] text-white' : 'bg-white border border-orange-100'}`}>
                 <p className={`text-xs font-bold uppercase tracking-wide mb-1 ${item.accent ? 'text-orange-100' : 'text-gray-400'}`}>{item.label}</p>
                 <p className={`font-bold text-sm ${item.accent ? 'text-white' : 'text-gray-900'}`}>{item.value}</p>
               </div>

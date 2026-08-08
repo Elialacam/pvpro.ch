@@ -80,7 +80,7 @@ export default function LiveBar() {
   // header doesn't jump down after hydration (layout shift).
 
   return (
-    <div className="bg-[#d4af37] text-white text-xs sm:text-sm py-1.5 overflow-hidden">
+    <div className="bg-[#ffc812] text-white text-xs sm:text-sm py-1.5 overflow-hidden">
       <div className="container-custom flex items-center justify-center gap-4 sm:gap-8 whitespace-nowrap">
         <span className="hidden sm:flex items-center gap-1.5 font-semibold">
           <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-none stroke-current stroke-2"><path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>

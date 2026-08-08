@@ -70,7 +70,7 @@ export default function WieEsFunktioniertPage() {
 
         {/* Page header */}
         <div className="max-w-3xl mb-20">
-          <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Einfach & transparent</p>
+          <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Einfach & transparent</p>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-6 leading-tight">
             In 3 Schritten zur besten Solarofferte
           </h1>
@@ -92,7 +92,7 @@ export default function WieEsFunktioniertPage() {
                 <div className="flex flex-col sm:flex-row gap-8 pb-16">
                   {/* Left: number + icon */}
                   <div className="flex-shrink-0 flex flex-col items-center sm:items-start gap-0">
-                    <div className="relative w-[72px] h-[72px] rounded-2xl flex items-center justify-center shadow-md" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                    <div className="relative w-[72px] h-[72px] rounded-2xl flex items-center justify-center shadow-md" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
                       <Icon className="w-8 h-8 text-white" />
                       <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-gray-900 text-white text-xs font-bold flex items-center justify-center">
                         {step.number}
@@ -101,14 +101,14 @@ export default function WieEsFunktioniertPage() {
                   </div>
                   {/* Right: content */}
                   <div className="flex-1 pt-2">
-                    <p className="text-xs font-semibold text-[#F97316] uppercase tracking-widest mb-1">{step.subtitle}</p>
+                    <p className="text-xs font-semibold text-[#fcb210] uppercase tracking-widest mb-1">{step.subtitle}</p>
                     <h2 className="text-2xl font-bold text-gray-900 mb-3">{step.title}</h2>
                     <p className="text-gray-600 leading-relaxed mb-5 max-w-xl">{step.description}</p>
                     <ul className="flex flex-col gap-2">
                       {step.details.map((d) => (
                         <li key={d} className="flex items-center gap-2.5 text-sm text-gray-600">
                           <span className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-                            <span className="text-[#F97316] text-[10px] font-bold">✓</span>
+                            <span className="text-[#fcb210] text-[10px] font-bold">✓</span>
                           </span>
                           {d}
                         </li>
@@ -124,7 +124,7 @@ export default function WieEsFunktioniertPage() {
         {/* Benefits grid */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Warum PVPro?</p>
+            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Warum PVPro?</p>
             <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Die Vorteile auf einen Blick</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -133,7 +133,7 @@ export default function WieEsFunktioniertPage() {
               return (
                 <div key={b.title} className="rounded-2xl border border-gray-100 p-7 hover:shadow-lg transition-shadow">
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-                    <Icon className="w-5 h-5 text-[#F97316]" />
+                    <Icon className="w-5 h-5 text-[#fcb210]" />
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">{b.title}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed">{b.text}</p>
@@ -160,7 +160,7 @@ export default function WieEsFunktioniertPage() {
             ))}
           </div>
           <div className="mt-6 pt-6 border-t border-gray-100">
-            <Link href="/faq" className="text-sm font-semibold text-[#F97316] hover:underline">
+            <Link href="/faq" className="text-sm font-semibold text-[#fcb210] hover:underline">
               Alle FAQ ansehen →
             </Link>
           </div>
@@ -175,7 +175,7 @@ export default function WieEsFunktioniertPage() {
           <Link
             href="/anfrage"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
           >
             Kostenlose Offerte anfordern →
           </Link>

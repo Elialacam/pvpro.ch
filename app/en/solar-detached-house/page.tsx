@@ -54,7 +54,7 @@ export default function SolarDetachedHousePage() {
       {/* ── Hero ── */}
       <section className="relative bg-[#0f1f3d] pt-28 pb-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
+          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
             <Link href="/en" className="hover:text-white/70 transition-colors">Home</Link>
@@ -75,7 +75,7 @@ export default function SolarDetachedHousePage() {
               <Link
                 href="/en/request"
                 className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+                style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
               >
                 Request free quote <ArrowRight className="w-4 h-4" />
               </Link>
@@ -103,7 +103,7 @@ export default function SolarDetachedHousePage() {
         <section>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
             <div className="lg:col-span-2">
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Size calculator</p>
+              <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Size calculator</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
                 How large should your solar installation be?
               </h2>
@@ -124,7 +124,7 @@ export default function SolarDetachedHousePage() {
         {/* ── Cost table ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Costs</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Costs</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               What does a solar installation for a detached house cost?
             </h2>
@@ -140,7 +140,7 @@ export default function SolarDetachedHousePage() {
               {costRows.map((row) => (
                 <div key={row.size} className={`grid grid-cols-2 px-5 py-4 border-t border-gray-100 ${row.highlight ? 'bg-orange-50' : 'bg-white'}`}>
                   <span className="font-bold text-gray-800 text-sm">{row.size}</span>
-                  <span className={`font-bold text-sm ${row.highlight ? 'text-[#F97316]' : 'text-gray-700'}`}>{row.price}</span>
+                  <span className={`font-bold text-sm ${row.highlight ? 'text-[#fcb210]' : 'text-gray-700'}`}>{row.price}</span>
                 </div>
               ))}
             </div>
@@ -153,7 +153,7 @@ export default function SolarDetachedHousePage() {
         {/* ── Production ── */}
         <section className="rounded-3xl bg-[#0f1f3d] p-8 sm:p-12 overflow-hidden relative">
           <div className="absolute inset-0 opacity-10"
-            style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #F97316 0%, transparent 55%)' }} />
+            style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #fcb210 0%, transparent 55%)' }} />
           <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">Electricity production</p>
@@ -175,7 +175,7 @@ export default function SolarDetachedHousePage() {
                     <span className="text-white font-bold">{row.value}</span>
                   </div>
                   <div className="h-2 rounded-full bg-white/10">
-                    <div className="h-2 rounded-full bg-[#F97316]" style={{ width: `${row.pct}%` }} />
+                    <div className="h-2 rounded-full bg-[#fcb210]" style={{ width: `${row.pct}%` }} />
                   </div>
                 </div>
               ))}
@@ -192,7 +192,7 @@ export default function SolarDetachedHousePage() {
             <Image src="/images/asset-beratung-indoor-2.webp" alt="Solar installation consultation" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" />
           </div>
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Profitability</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Profitability</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Is a solar installation for a detached house worth it?
             </h2>
@@ -202,7 +202,7 @@ export default function SolarDetachedHousePage() {
             <div className="space-y-3">
               {benefits.map((b) => (
                 <div key={b} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#fcb210] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">{b}</span>
                 </div>
               ))}
@@ -214,7 +214,7 @@ export default function SolarDetachedHousePage() {
         <section className="bg-gray-50 rounded-3xl p-8 sm:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Subsidies</p>
+              <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Subsidies</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
                 Subsidies for solar installations in Switzerland
               </h2>
@@ -228,12 +228,12 @@ export default function SolarDetachedHousePage() {
                   "Tax deductions at federal level",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700 text-sm">{item}</span>
                   </div>
                 ))}
               </div>
-              <Link href="/en/solar-subsidies" className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-[#F97316] hover:underline">
+              <Link href="/en/solar-subsidies" className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-[#fcb210] hover:underline">
                 View all subsidies <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -243,7 +243,7 @@ export default function SolarDetachedHousePage() {
                 { label: 'Federal OTP subsidy',   value: '– CHF 3,600',            color: 'text-green-600',  highlight: false },
                 { label: 'Cantonal subsidy',      value: 'varies',                 color: 'text-green-600',  highlight: false },
                 { label: 'Tax deductions',        value: 'varies',                 color: 'text-green-600',  highlight: false },
-                { label: 'Net costs',             value: "approx. CHF 20,000 – 26,000", color: 'text-[#F97316]', highlight: true },
+                { label: 'Net costs',             value: "approx. CHF 20,000 – 26,000", color: 'text-[#fcb210]', highlight: true },
               ].map((row) => (
                 <div key={row.label} className={`flex justify-between items-center px-5 py-3.5 rounded-xl ${row.highlight ? 'bg-orange-50 border border-orange-100' : 'bg-white border border-gray-100'}`}>
                   <span className={`text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>
@@ -256,7 +256,7 @@ export default function SolarDetachedHousePage() {
 
         {/* ── Battery storage ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Battery storage</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Battery storage</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">With or without battery storage?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-gray-100 p-6 shadow-sm bg-white">
@@ -268,32 +268,32 @@ export default function SolarDetachedHousePage() {
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Self-consumption approx. 25–40%</span></div>
               </div>
             </div>
-            <div className="rounded-2xl border border-[#F97316]/30 p-6 shadow-sm bg-orange-50">
+            <div className="rounded-2xl border border-[#fcb210]/30 p-6 shadow-sm bg-orange-50">
               <p className="font-bold text-gray-900 text-lg mb-1">With battery storage</p>
-              <p className="text-sm text-[#F97316] font-semibold mb-4">Recommended for high consumption</p>
+              <p className="text-sm text-[#fcb210] font-semibold mb-4">Recommended for high consumption</p>
               <div className="space-y-2 text-sm text-gray-600">
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0" /><span>Self-consumption up to 50–65%</span></div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0" /><span>Use electricity in the evening too</span></div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0" /><span>Greater independence</span></div>
+                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Self-consumption up to 50–65%</span></div>
+                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Use electricity in the evening too</span></div>
+                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Greater independence</span></div>
               </div>
             </div>
           </div>
-          <Link href="/en/solar-with-battery" className="inline-flex items-center gap-2 mt-5 text-sm font-bold text-[#F97316] hover:underline">
+          <Link href="/en/solar-with-battery" className="inline-flex items-center gap-2 mt-5 text-sm font-bold text-[#fcb210] hover:underline">
             Learn more about battery storage <ArrowRight className="w-4 h-4" />
           </Link>
         </section>
 
         {/* ── Factors ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Cost factors</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Cost factors</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">What factors influence the costs?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {factors.map((f) => {
               const Icon = f.icon;
               return (
                 <div key={f.title} className="flex gap-4 items-start bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-                  <div className="w-10 h-10 rounded-xl bg-[#F97316]/10 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-5 h-5 text-[#F97316]" />
+                  <div className="w-10 h-10 rounded-xl bg-[#fcb210]/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-5 h-5 text-[#fcb210]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 mb-1">{f.title}</h3>
@@ -307,14 +307,14 @@ export default function SolarDetachedHousePage() {
 
         {/* ── Example ── */}
         <section className="bg-gray-50 rounded-3xl p-8 sm:p-12">
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Calculation example</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Calculation example</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">Example: Solar installation for a detached house</h2>
           <div className="max-w-lg">
             <div className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
               {exampleRows.map((row, i) => (
                 <div key={row.label} className={`flex justify-between items-center px-6 py-4 ${i !== 0 ? 'border-t border-gray-100' : ''} ${row.highlight ? 'bg-orange-50' : 'bg-white'}`}>
                   <span className={`text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>
-                  <span className={`font-bold ${row.highlight ? 'text-[#F97316] text-base' : 'text-gray-900 text-sm'}`}>{row.value}</span>
+                  <span className={`font-bold ${row.highlight ? 'text-[#fcb210] text-base' : 'text-gray-900 text-sm'}`}>{row.value}</span>
                 </div>
               ))}
             </div>
@@ -323,7 +323,7 @@ export default function SolarDetachedHousePage() {
 
         {/* ── FAQ ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">FAQ</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">FAQ</p>
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
             Frequently asked questions about solar installations for detached houses
           </h2>
@@ -332,7 +332,7 @@ export default function SolarDetachedHousePage() {
 
         {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-          <Sun className="w-10 h-10 text-[#F97316] mx-auto mb-4" />
+          <Sun className="w-10 h-10 text-[#fcb210] mx-auto mb-4" />
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
             Compare offers and optimise costs
           </h2>
@@ -342,7 +342,7 @@ export default function SolarDetachedHousePage() {
           <Link
             href="/en/request"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
           >
             Request free quote →
           </Link>

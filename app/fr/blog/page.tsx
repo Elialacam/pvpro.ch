@@ -43,7 +43,7 @@ export default function BlogFrPage() {
         <div className="flex flex-wrap gap-2 mb-12">
           {tags.map((tag, i) => (
             <span key={tag} className="px-4 py-1.5 rounded-full text-sm font-medium cursor-pointer transition-colors"
-              style={i === 0 ? { background: '#F97316', color: '#fff' } : { background: '#f5f5f5', color: '#555' }}>
+              style={i === 0 ? { background: '#fcb210', color: '#fff' } : { background: '#f5f5f5', color: '#555' }}>
               {tag}
             </span>
           ))}
@@ -61,7 +61,7 @@ export default function BlogFrPage() {
                     <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-xs font-semibold text-gray-700 px-2.5 py-1 rounded-full">{post.tag}</span>
                   </div>
                   <div className="p-5 flex flex-col flex-1">
-                    <h3 className="font-bold text-gray-900 text-base leading-snug mb-2 group-hover:text-[#F97316] transition-colors line-clamp-2">{post.title}</h3>
+                    <h3 className="font-bold text-gray-900 text-base leading-snug mb-2 group-hover:text-[#fcb210] transition-colors line-clamp-2">{post.title}</h3>
                     <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 flex-1">{post.excerpt}</p>
                     <div className="flex items-center gap-4 mt-4 pt-3 border-t border-gray-100 text-xs text-gray-400">
                       <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />{post.date}</span>

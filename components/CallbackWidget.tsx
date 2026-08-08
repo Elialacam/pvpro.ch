@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Check, ChevronDown, Send } from 'lucide-react';
 
-const GOLD = '#D4AF37';
+const GOLD = '#ffc812';
 const NAVY = '#1F2937';
 
 const CONSULTANT_NAME = 'Mario Kopar';

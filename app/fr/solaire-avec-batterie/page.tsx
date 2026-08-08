@@ -79,7 +79,7 @@ export default function SolaireAvecBatteriePage() {
               <div className="flex flex-col gap-6">
                 {[
                   { label: 'Sans stockage', pct: 30, color: '#6b7280' },
-                  { label: 'Avec stockage',  pct: 70, color: '#F97316' },
+                  { label: 'Avec stockage',  pct: 70, color: '#fcb210' },
                 ].map(item => (
                   <div key={item.label}>
                     <div className="flex justify-between items-center mb-2">
@@ -103,7 +103,7 @@ export default function SolaireAvecBatteriePage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Fonctionnement</p>
+              <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Fonctionnement</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">
                 Comment fonctionne une installation solaire avec batterie ?
               </h2>
@@ -116,7 +116,7 @@ export default function SolaireAvecBatteriePage() {
 
               <div className="flex items-center gap-3 flex-wrap">
                 {[
-                  { icon: Sun,     label: 'Installation solaire', color: '#F97316' },
+                  { icon: Sun,     label: 'Installation solaire', color: '#fcb210' },
                   { icon: Battery, label: 'Stockage',             color: '#3b82f6' },
                   { icon: Home,    label: 'Maison',               color: '#10b981' },
                 ].map((item, i, arr) => {
@@ -147,7 +147,7 @@ export default function SolaireAvecBatteriePage() {
       <section className="py-20" style={{ background: '#f9fafb' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Pourquoi ça vaut la peine ?</p>
+            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Pourquoi ça vaut la peine ?</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
               Les avantages d'un stockage batterie
             </h2>
@@ -161,7 +161,7 @@ export default function SolaireAvecBatteriePage() {
               return (
                 <div key={a.title} className="rounded-2xl border border-gray-100 bg-white p-7 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-                    <Icon className="w-5 h-5 text-[#F97316]" />
+                    <Icon className="w-5 h-5 text-[#fcb210]" />
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">{a.title}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed">{a.text}</p>
@@ -177,7 +177,7 @@ export default function SolaireAvecBatteriePage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Coûts & prix</p>
+              <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Coûts & prix</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">
                 Combien coûte une installation solaire avec batterie ?
               </h2>
@@ -197,7 +197,7 @@ export default function SolaireAvecBatteriePage() {
                     style={row.highlight ? { background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' } : { background: '#f9fafb' }}
                   >
                     <p className={`font-medium text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-700'}`}>{row.label}</p>
-                    <p className={`font-bold ${row.highlight ? 'text-[#F97316] text-lg' : 'text-gray-900'}`}>{row.range}</p>
+                    <p className={`font-bold ${row.highlight ? 'text-[#fcb210] text-lg' : 'text-gray-900'}`}>{row.range}</p>
                   </div>
                 ))}
               </div>
@@ -242,7 +242,7 @@ export default function SolaireAvecBatteriePage() {
               <Image src="/images/solaranlage-flachdach-basel-rhein.webp" alt="Installation solaire sur toit plat à Bâle au bord du Rhin" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Production d'électricité</p>
+              <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Production d'électricité</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">
                 Combien d'électricité produit une installation solaire ?
               </h2>
@@ -257,7 +257,7 @@ export default function SolaireAvecBatteriePage() {
               <div className="flex flex-col gap-2.5">
                 {quandUtile.map(w => (
                   <div key={w} className="flex items-center gap-3 rounded-xl px-4 py-3 bg-gray-50 border border-gray-100">
-                    <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
                     <p className="text-sm text-gray-700">{w}</p>
                   </div>
                 ))}
@@ -271,7 +271,7 @@ export default function SolaireAvecBatteriePage() {
       <section className="py-20" style={{ background: '#f9fafb' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">FAQ</p>
+            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">FAQ</p>
             <h2 className="text-3xl font-bold text-gray-900 tracking-tight">
               Questions fréquentes sur le stockage batterie
             </h2>
@@ -296,7 +296,7 @@ export default function SolaireAvecBatteriePage() {
             <Link
               href="/fr/demande"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity"
-              style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+              style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
             >
               Obtenir des devis gratuits
               <ArrowRight className="w-4 h-4" />

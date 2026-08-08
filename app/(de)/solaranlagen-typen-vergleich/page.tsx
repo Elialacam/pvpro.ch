@@ -156,7 +156,7 @@ export default function SolaranlagenTypenVergleichPage() {
 
       {/* ── Hero ── */}
       <section className="relative pt-28 pb-16 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
             <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
@@ -184,7 +184,7 @@ export default function SolaranlagenTypenVergleichPage() {
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
-                <p className="text-[#F97316] text-sm font-semibold">{s.sub}</p>
+                <p className="text-[#fcb210] text-sm font-semibold">{s.sub}</p>
                 <p className="text-gray-500 text-xs mt-1">{s.note}</p>
               </div>
             ))}
@@ -197,7 +197,7 @@ export default function SolaranlagenTypenVergleichPage() {
         {/* ── Vergleichstabelle ── */}
         <section>
           <div className="mb-8">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Überblick</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Überblick</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Die wichtigsten Solaranlagen Typen im Überblick
             </h2>
@@ -216,7 +216,7 @@ export default function SolaranlagenTypenVergleichPage() {
                 {vergleichTabelle.map((row, i) => (
                   <tr key={row.typ} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="px-5 py-4 font-bold text-gray-900 text-sm">{row.typ}</td>
-                    <td className="px-5 py-4 text-center font-bold text-[#F97316] text-sm">{row.wirkungsgrad}</td>
+                    <td className="px-5 py-4 text-center font-bold text-[#fcb210] text-sm">{row.wirkungsgrad}</td>
                     <td className="px-5 py-4 text-center text-gray-700 text-sm">{row.kosten}</td>
                     <td className="px-5 py-4 text-gray-600 text-sm hidden sm:table-cell">{row.ideal}</td>
                   </tr>
@@ -229,7 +229,7 @@ export default function SolaranlagenTypenVergleichPage() {
         {/* ── Modul-Typen Detailkarten ── */}
         <section>
           <div className="mb-8">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Detailvergleich</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Detailvergleich</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Die vier Typen im Detail</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -240,11 +240,11 @@ export default function SolaranlagenTypenVergleichPage() {
                 <p className="text-gray-600 text-sm leading-relaxed mb-5">
                   {i === 2
                     ? <>Dünnschichtmodule werden auf eine dünne Trägerschicht aufgedampft und sind flexibler als kristalline Module. Sie eignen sich besonders für{' '}
-                      <Link href="/solaranlage-mehrfamilienhaus" className="text-[#F97316] hover:underline font-medium">Flachdächer</Link>{' '}
+                      <Link href="/solaranlage-mehrfamilienhaus" className="text-[#fcb210] hover:underline font-medium">Flachdächer</Link>{' '}
                       und unkonventionelle Anwendungen.</>
                     : i === 3
                     ? <>Bifaziale Module produzieren Strom von beiden Seiten — vorne durch direktes Sonnenlicht, hinten durch reflektiertes Licht. Bei Schnee oder hellen Dachbelägen ist der Mehrertrag besonders hoch. Ideal für{' '}
-                      <Link href="/solaranlage-mehrfamilienhaus" className="text-[#F97316] hover:underline font-medium">Flachdächer</Link>.</>
+                      <Link href="/solaranlage-mehrfamilienhaus" className="text-[#fcb210] hover:underline font-medium">Flachdächer</Link>.</>
                     : m.intro}
                 </p>
                 <div className="grid grid-cols-2 gap-4 mb-5">
@@ -282,22 +282,22 @@ export default function SolaranlagenTypenVergleichPage() {
         {/* ── Situations-Tabelle ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Entscheidungshilfe</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Entscheidungshilfe</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
               Welcher Typ ist der richtige für mich?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
               Die Wahl hängt von Ihrer konkreten Situation ab. Für ein{' '}
-              <Link href="/solaranlage-einfamilienhaus" className="text-[#F97316] hover:underline font-medium">Einfamilienhaus</Link>{' '}
+              <Link href="/solaranlage-einfamilienhaus" className="text-[#fcb210] hover:underline font-medium">Einfamilienhaus</Link>{' '}
               in der Schweiz ist monokristallin fast immer die beste Wahl — besonders im{' '}
-              <Link href="/photovoltaik-schweizer-klima" className="text-[#F97316] hover:underline font-medium">Schweizer Klima</Link>{' '}
+              <Link href="/photovoltaik-schweizer-klima" className="text-[#fcb210] hover:underline font-medium">Schweizer Klima</Link>{' '}
               mit viel diffusem Licht.
             </p>
             <p className="text-gray-600 leading-relaxed">
               In der Praxis empfiehlt ein zertifizierter{' '}
-              <Link href="/solaranlage-installieren-schweiz" className="text-[#F97316] hover:underline font-medium">Installateur</Link>{' '}
+              <Link href="/solaranlage-installieren-schweiz" className="text-[#fcb210] hover:underline font-medium">Installateur</Link>{' '}
               den richtigen Modultyp nach Besichtigung Ihres Dachs. PVPro.ch vermittelt{' '}
-              <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#F97316] hover:underline font-medium">Anbieter</Link>,
+              <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#fcb210] hover:underline font-medium">Anbieter</Link>,
               die alle Technologien kennen und neutral beraten.
             </p>
           </div>
@@ -313,7 +313,7 @@ export default function SolaranlagenTypenVergleichPage() {
                 {situationsTabelle.map((row, i) => (
                   <tr key={row.situation} className={row.highlight ? 'bg-orange-50' : i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className={`px-5 py-3.5 text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-700'}`}>{row.situation}</td>
-                    <td className={`px-5 py-3.5 text-right font-bold text-sm ${row.highlight ? 'text-[#F97316]' : 'text-gray-900'}`}>{row.empfehlung}</td>
+                    <td className={`px-5 py-3.5 text-right font-bold text-sm ${row.highlight ? 'text-[#fcb210]' : 'text-gray-900'}`}>{row.empfehlung}</td>
                   </tr>
                 ))}
               </tbody>
@@ -324,7 +324,7 @@ export default function SolaranlagenTypenVergleichPage() {
         {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
           <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
             <Zap className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
@@ -336,22 +336,22 @@ export default function SolaranlagenTypenVergleichPage() {
           <Link
             href="/anfrage"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
           >
             Kostenlose Offerte anfordern <ArrowRight className="w-4 h-4" />
           </Link>
           <p className="text-gray-500 text-sm mt-5">
             Zuerst{' '}
-            <Link href="/solaranlage-offerte-einholen" className="text-[#F97316] hover:underline font-medium">Offerten vergleichen</Link>?{' '}
+            <Link href="/solaranlage-offerte-einholen" className="text-[#fcb210] hover:underline font-medium">Offerten vergleichen</Link>?{' '}
             Mehr zu den{' '}
-            <Link href="/solaranlage-kosten" className="text-[#F97316] hover:underline font-medium">Kosten einer Solaranlage</Link>.
+            <Link href="/solaranlage-kosten" className="text-[#fcb210] hover:underline font-medium">Kosten einer Solaranlage</Link>.
           </p>
         </section>
 
         {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Häufige Fragen</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Häufige Fragen</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Häufig gestellte Fragen</h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -359,7 +359,7 @@ export default function SolaranlagenTypenVergleichPage() {
               <details key={i} className="group rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
                 <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-gray-900 text-sm select-none list-none">
                   {faq.question}
-                  <span className="ml-4 text-[#F97316] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
+                  <span className="ml-4 text-[#fcb210] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
                 </summary>
                 <div className="px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-50">
                   <p className="pt-4">{faq.answer}</p>
@@ -389,7 +389,7 @@ export default function SolaranlagenTypenVergleichPage() {
                 Solaranlage Mehrfamilienhaus
               </Link>
               <Link href="/anfrage" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
-                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
                 Offerte anfragen <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

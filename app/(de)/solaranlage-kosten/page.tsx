@@ -346,17 +346,17 @@ export default function SolaranlageKostenPage() {
               → Mehr Informationen: Solaranlage mit Speicher
             </Link>
             <p className="text-sm text-gray-500 mt-4">
-              <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#F97316] hover:underline">Lohnt sich eine Solaranlage 2026?</Link>
+              <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#fcb210] hover:underline">Lohnt sich eine Solaranlage 2026?</Link>
               {' '}·{' '}
-              <Link href="/blog/solaranlage-steuerabzug-schweiz-2026" className="text-[#F97316] hover:underline">Steuerabzug Solaranlage Schweiz 2026</Link>
+              <Link href="/blog/solaranlage-steuerabzug-schweiz-2026" className="text-[#fcb210] hover:underline">Steuerabzug Solaranlage Schweiz 2026</Link>
               {' '}·{' '}
-              <Link href="/blog/solaranlage-waermepumpe-kombinieren-schweiz" className="text-[#F97316] hover:underline">Solaranlage + Wärmepumpe</Link>
+              <Link href="/blog/solaranlage-waermepumpe-kombinieren-schweiz" className="text-[#fcb210] hover:underline">Solaranlage + Wärmepumpe</Link>
               {' '}·{' '}
-              <Link href="/blog/solaranlage-installateur-konkurs-garantie-schweiz" className="text-[#F97316] hover:underline">Garantie und Schutz bei Insolvenz</Link>
+              <Link href="/blog/solaranlage-installateur-konkurs-garantie-schweiz" className="text-[#fcb210] hover:underline">Garantie und Schutz bei Insolvenz</Link>
               {' '}·{' '}
-              <Link href="/blog/solaranlage-versicherung-schweiz" className="text-[#F97316] hover:underline">Versicherungskosten für Solaranlagen</Link>
+              <Link href="/blog/solaranlage-versicherung-schweiz" className="text-[#fcb210] hover:underline">Versicherungskosten für Solaranlagen</Link>
               {' '}·{' '}
-              <Link href="/blog/chinesische-vs-europaeische-solarmodule-schweiz" className="text-[#F97316] hover:underline">Kostenunterschied chinesische vs. europäische Module</Link>
+              <Link href="/blog/chinesische-vs-europaeische-solarmodule-schweiz" className="text-[#fcb210] hover:underline">Kostenunterschied chinesische vs. europäische Module</Link>
             </p>
           </div>
         </div>
@@ -462,17 +462,17 @@ export default function SolaranlageKostenPage() {
             />
             <p className="text-center text-sm text-gray-500 mt-4">
               Möchten Sie zuerst Anbieter vergleichen?{' '}
-              <a href="/vergleichsportal-photovoltaik-schweiz" className="text-[#F97316] hover:underline font-medium">Anbieter kostenlos vergleichen</a>
+              <a href="/vergleichsportal-photovoltaik-schweiz" className="text-[#fcb210] hover:underline font-medium">Anbieter kostenlos vergleichen</a>
               {' '}·{' '}
-              <a href="/solaranlage-installieren-schweiz" className="text-[#F97316] hover:underline font-medium">Was kostet die Installation?</a>
+              <a href="/solaranlage-installieren-schweiz" className="text-[#fcb210] hover:underline font-medium">Was kostet die Installation?</a>
               {' '}·{' '}
-              <a href="/solaranlage-offerte-einholen" className="text-[#F97316] hover:underline font-medium">Kostenlose Offerten einholen</a>
+              <a href="/solaranlage-offerte-einholen" className="text-[#fcb210] hover:underline font-medium">Kostenlose Offerten einholen</a>
               {' '}·{' '}
-              <a href="/photovoltaik-schweizer-klima" className="text-[#F97316] hover:underline font-medium">Photovoltaik im Schweizer Klima</a>
+              <a href="/photovoltaik-schweizer-klima" className="text-[#fcb210] hover:underline font-medium">Photovoltaik im Schweizer Klima</a>
               {' '}·{' '}
-              <a href="/photovoltaik-wartung-kosten" className="text-[#F97316] hover:underline font-medium">Wartungskosten im Überblick</a>
+              <a href="/photovoltaik-wartung-kosten" className="text-[#fcb210] hover:underline font-medium">Wartungskosten im Überblick</a>
               {' '}·{' '}
-              <a href="/solaranlagen-typen-vergleich" className="text-[#F97316] hover:underline font-medium">Kosten je nach Modultyp</a>
+              <a href="/solaranlagen-typen-vergleich" className="text-[#fcb210] hover:underline font-medium">Kosten je nach Modultyp</a>
             </p>
           </div>
         </div>

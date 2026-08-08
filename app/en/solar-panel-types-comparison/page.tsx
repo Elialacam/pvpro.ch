@@ -154,7 +154,7 @@ export default function SolarPanelTypesComparisonPage() {
   return (
     <main className="min-h-screen bg-white">
       <section className="relative pt-28 pb-16 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
             <Link href="/en" className="hover:text-white/70 transition-colors">Home</Link>
@@ -182,7 +182,7 @@ export default function SolarPanelTypesComparisonPage() {
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
-                <p className="text-[#F97316] text-sm font-semibold">{s.sub}</p>
+                <p className="text-[#fcb210] text-sm font-semibold">{s.sub}</p>
                 <p className="text-gray-500 text-xs mt-1">{s.note}</p>
               </div>
             ))}
@@ -195,7 +195,7 @@ export default function SolarPanelTypesComparisonPage() {
         {/* ── Overview table ── */}
         <section>
           <div className="mb-8">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Overview</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Overview</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">The main solar panel types at a glance</h2>
           </div>
           <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
@@ -212,7 +212,7 @@ export default function SolarPanelTypesComparisonPage() {
                 {table.map((row, i) => (
                   <tr key={row.type} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="px-5 py-4 font-bold text-gray-900 text-sm">{row.type}</td>
-                    <td className="px-5 py-4 text-center font-bold text-[#F97316] text-sm">{row.efficiency}</td>
+                    <td className="px-5 py-4 text-center font-bold text-[#fcb210] text-sm">{row.efficiency}</td>
                     <td className="px-5 py-4 text-center text-gray-700 text-sm">{row.costs}</td>
                     <td className="px-5 py-4 text-gray-600 text-sm hidden sm:table-cell">{row.ideal}</td>
                   </tr>
@@ -225,7 +225,7 @@ export default function SolarPanelTypesComparisonPage() {
         {/* ── The four types in detail ── */}
         <section>
           <div className="mb-8">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Detailed comparison</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Detailed comparison</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">The four types in detail</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -236,11 +236,11 @@ export default function SolarPanelTypesComparisonPage() {
                 <p className="text-gray-600 text-sm leading-relaxed mb-5">
                   {i === 2
                     ? <>Thin-film panels are deposited on a thin substrate and are more flexible than crystalline panels. They are particularly suitable for{' '}
-                      <Link href="/en/solar-apartment-building" className="text-[#F97316] hover:underline font-medium">flat roofs</Link>{' '}
+                      <Link href="/en/solar-apartment-building" className="text-[#fcb210] hover:underline font-medium">flat roofs</Link>{' '}
                       and unconventional applications.</>
                     : i === 3
                     ? <>Bifacial panels generate electricity from both sides — from direct sunlight at the front, and from reflected light at the rear. The additional yield is particularly high with snow or light roof coverings. Ideal for{' '}
-                      <Link href="/en/solar-apartment-building" className="text-[#F97316] hover:underline font-medium">flat roofs</Link>.</>
+                      <Link href="/en/solar-apartment-building" className="text-[#fcb210] hover:underline font-medium">flat roofs</Link>.</>
                     : m.intro}
                 </p>
                 <div className="grid grid-cols-2 gap-4 mb-5">
@@ -278,22 +278,22 @@ export default function SolarPanelTypesComparisonPage() {
         {/* ── Decision guide ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Decision guide</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Decision guide</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
               Which type is right for me?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
               The choice depends on your specific situation. For a{' '}
-              <Link href="/en/solar-detached-house" className="text-[#F97316] hover:underline font-medium">single-family home</Link>{' '}
+              <Link href="/en/solar-detached-house" className="text-[#fcb210] hover:underline font-medium">single-family home</Link>{' '}
               in Switzerland, monocrystalline is almost always the best choice — especially in the{' '}
-              <Link href="/en/solar-panels-swiss-climate" className="text-[#F97316] hover:underline font-medium">Swiss climate</Link>{' '}
+              <Link href="/en/solar-panels-swiss-climate" className="text-[#fcb210] hover:underline font-medium">Swiss climate</Link>{' '}
               with a lot of diffuse light.
             </p>
             <p className="text-gray-600 leading-relaxed">
               In practice, a certified{' '}
-              <Link href="/en/solar-panel-installation-switzerland" className="text-[#F97316] hover:underline font-medium">installer</Link>{' '}
+              <Link href="/en/solar-panel-installation-switzerland" className="text-[#fcb210] hover:underline font-medium">installer</Link>{' '}
               recommends the right panel type after inspecting your roof. PVPro.ch connects you with{' '}
-              <Link href="/en/solar-comparison-portal-switzerland" className="text-[#F97316] hover:underline font-medium">providers</Link>{' '}
+              <Link href="/en/solar-comparison-portal-switzerland" className="text-[#fcb210] hover:underline font-medium">providers</Link>{' '}
               who know all technologies and give neutral advice.
             </p>
           </div>
@@ -309,7 +309,7 @@ export default function SolarPanelTypesComparisonPage() {
                 {situationsTable.map((row, i) => (
                   <tr key={row.situation} className={row.highlight ? 'bg-orange-50' : i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className={`px-5 py-3.5 text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-700'}`}>{row.situation}</td>
-                    <td className={`px-5 py-3.5 text-right font-bold text-sm ${row.highlight ? 'text-[#F97316]' : 'text-gray-900'}`}>{row.recommendation}</td>
+                    <td className={`px-5 py-3.5 text-right font-bold text-sm ${row.highlight ? 'text-[#fcb210]' : 'text-gray-900'}`}>{row.recommendation}</td>
                   </tr>
                 ))}
               </tbody>
@@ -319,7 +319,7 @@ export default function SolarPanelTypesComparisonPage() {
 
         {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-          <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+          <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
             <Zap className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Which type suits your roof?</h2>
@@ -327,21 +327,21 @@ export default function SolarPanelTypesComparisonPage() {
             A certified installer from your canton will analyse your roof and recommend the optimal panel type for your situation — free of charge and without obligation.
           </p>
           <Link href="/en/get-solar-panel-quotes" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
             Get free quote <ArrowRight className="w-4 h-4" />
           </Link>
           <p className="text-gray-500 text-sm mt-5">
             First{' '}
-            <Link href="/en/get-solar-panel-quotes" className="text-[#F97316] hover:underline font-medium">compare quotes</Link>?{' '}
+            <Link href="/en/get-solar-panel-quotes" className="text-[#fcb210] hover:underline font-medium">compare quotes</Link>?{' '}
             More about the{' '}
-            <Link href="/en/solar-panel-costs" className="text-[#F97316] hover:underline font-medium">costs of a solar system</Link>.
+            <Link href="/en/solar-panel-costs" className="text-[#fcb210] hover:underline font-medium">costs of a solar system</Link>.
           </p>
         </section>
 
         {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Frequently asked questions</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Frequently asked questions</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Frequently Asked Questions</h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -349,7 +349,7 @@ export default function SolarPanelTypesComparisonPage() {
               <details key={i} className="group rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
                 <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-gray-900 text-sm select-none list-none">
                   {faq.question}
-                  <span className="ml-4 text-[#F97316] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
+                  <span className="ml-4 text-[#fcb210] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
                 </summary>
                 <div className="px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-50">
                   <p className="pt-4">{faq.answer}</p>
@@ -373,7 +373,7 @@ export default function SolarPanelTypesComparisonPage() {
                 Solar for apartment building
               </Link>
               <Link href="/en/get-solar-panel-quotes" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
-                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
                 Get a quote <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

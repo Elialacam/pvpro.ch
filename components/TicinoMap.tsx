@@ -27,7 +27,7 @@ const mapStyles = [
 function markerIcon(g: any) {
   return {
     path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z',
-    fillColor: '#F97316',
+    fillColor: '#fcb210',
     fillOpacity: 1,
     strokeColor: '#FFFFFF',
     strokeWeight: 2,
@@ -99,7 +99,7 @@ export default function TicinoMap() {
       // Ticino highlight
       new g.maps.Polygon({
         paths: ticinoBoundary,
-        strokeColor: '#F97316',
+        strokeColor: '#fcb210',
         strokeOpacity: 1,
         strokeWeight: 3,
         fillOpacity: 0,
@@ -133,7 +133,7 @@ export default function TicinoMap() {
             `<div style="font-family:inherit;padding:4px 2px;min-width:190px">
                <div style="font-weight:700;font-size:15px;color:#1F2937;margin-bottom:2px">${city.name}</div>
                <div style="color:#374151;font-size:12px;margin-bottom:10px">${city.tagline}</div>
-               <a href="/it/richiesta" style="display:inline-block;background:#F97316;color:#fff;font-weight:600;font-size:13px;padding:8px 14px;border-radius:8px;text-decoration:none">Richiedi preventivo →</a>
+               <a href="/it/richiesta" style="display:inline-block;background:#fcb210;color:#fff;font-weight:600;font-size:13px;padding:8px 14px;border-radius:8px;text-decoration:none">Richiedi preventivo →</a>
              </div>`
           );
           infoWindow.open({ map, anchor: marker });

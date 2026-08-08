@@ -79,7 +79,7 @@ export default function IncentiviSolariPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Remunerazione unica (RU)</p>
+              <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Remunerazione unica (RU)</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">Cos'è la remunerazione unica?</h2>
               <p className="text-gray-600 leading-relaxed mb-5">
                 La remunerazione unica è il principale incentivo federale per gli impianti fotovoltaici in Svizzera. È fornita dalla Confederazione e gestita da <strong>Pronovo</strong>.
@@ -116,7 +116,7 @@ export default function IncentiviSolariPage() {
       <section className="py-20" style={{ background: '#f9fafb' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Panoramica incentivi</p>
+            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Panoramica incentivi</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">A quanto ammonta l'incentivo?</h2>
             <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
               L'incentivo è tipicamente di <strong className="text-gray-800">300–400 CHF per kWp</strong> installato. Più grande è l'impianto, più alto è l'importo.
@@ -136,7 +136,7 @@ export default function IncentiviSolariPage() {
                     {row.highlight && <span className="text-[10px] bg-orange-500 text-white font-bold px-1.5 py-0.5 rounded-full uppercase">Popolare</span>}
                     {row.size}
                   </div>
-                  <div className="px-5 py-5 font-bold text-[#F97316]">{row.incentivo}</div>
+                  <div className="px-5 py-5 font-bold text-[#fcb210]">{row.incentivo}</div>
                   <div className="px-5 py-5 text-gray-600">{row.totale}</div>
                   <div className="px-5 py-5 font-bold text-green-600">{row.netto}</div>
                 </div>
@@ -176,7 +176,7 @@ export default function IncentiviSolariPage() {
                     {i < processSteps.length - 1 && (
                       <div className="absolute left-[19px] top-10 w-0.5 h-full" style={{ background: 'rgba(249,115,22,0.2)' }} />
                     )}
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-sm relative z-10" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>{step.n}</div>
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-sm relative z-10" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>{step.n}</div>
                     <div className="pt-1">
                       <p className="font-bold text-white mb-1">{step.title}</p>
                       <p className="text-sm text-gray-400 leading-relaxed">{step.text}</p>
@@ -197,7 +197,7 @@ export default function IncentiviSolariPage() {
               <Image src="/images/hero-family-solar.webp" alt="Casa unifamiliare con impianto solare" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Esempio di calcolo</p>
+              <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Esempio di calcolo</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">Esempio per una casa unifamiliare</h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 Molte case unifamiliari installano un impianto da <strong>8–10 kWp</strong>, producendo circa <strong>8'000–10'000 kWh</strong> di elettricità all'anno.
@@ -209,7 +209,7 @@ export default function IncentiviSolariPage() {
                 </div>
                 <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-orange-100" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
                   <p className="text-orange-700 font-medium">Rimunerazione unica (RU)</p>
-                  <p className="font-bold text-[#F97316]">− CHF 3'500</p>
+                  <p className="font-bold text-[#fcb210]">− CHF 3'500</p>
                 </div>
                 <div className="h-px bg-gray-200" />
                 <div className="flex items-center justify-between rounded-2xl px-6 py-5 border-2 border-green-200" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
@@ -230,7 +230,7 @@ export default function IncentiviSolariPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Redditività</p>
+              <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Redditività</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-5">Un impianto solare conviene nonostante i costi?</h2>
               <p className="text-gray-600 leading-relaxed mb-5">
                 Grazie agli incentivi statali e all'aumento dei prezzi dell'elettricità, un impianto solare è conveniente per molte famiglie svizzere. La maggior parte si ammortizza in <strong>10–15 anni</strong> con una durata di vita di 25–30 anni.
@@ -239,7 +239,7 @@ export default function IncentiviSolariPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {['Consumo elettrico del nucleo familiare', 'Quota di autoconsumo', 'Dimensione dell\'impianto solare', 'Andamento dei prezzi dell\'elettricità'].map(f => (
                   <div key={f} className="flex items-center gap-2.5 rounded-xl px-4 py-3 border border-gray-100 bg-gray-50">
-                    <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
                     <p className="text-sm text-gray-700">{f}</p>
                   </div>
                 ))}
@@ -260,7 +260,7 @@ export default function IncentiviSolariPage() {
             <p className="text-gray-600 mb-8 max-w-lg mx-auto leading-relaxed">
               I nostri installatori partner conoscono tutti i programmi incentivanti attuali e si occupano delle pratiche — tu non devi preoccuparti di nulla.
             </p>
-            <Link href="/it/richiesta" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            <Link href="/it/richiesta" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
               Richiedi preventivo gratuito <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

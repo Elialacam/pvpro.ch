@@ -64,7 +64,7 @@ export default function PlzWidget() {
 
   return (
     <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid #f0f0f0', boxShadow: '0 8px 32px rgba(0,0,0,0.08)' }}>
-      <div className="px-6 py-5" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+      <div className="px-6 py-5" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
         <p className="text-white font-bold text-lg leading-snug">{c.heading}</p>
         <p className="text-orange-100 text-sm mt-1">{c.sub}</p>
       </div>
@@ -87,7 +87,7 @@ export default function PlzWidget() {
             type="submit"
             disabled={plz.length < 4}
             className="w-full py-3.5 rounded-xl font-bold text-sm text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90 active:scale-[0.98]"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
           >
             {c.cta}
           </button>

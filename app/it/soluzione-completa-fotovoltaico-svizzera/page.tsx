@@ -51,27 +51,27 @@ const faqs = [
 
 const componenti = [
   {
-    icon: <Sun className="w-6 h-6 text-[#F97316]" />,
+    icon: <Sun className="w-6 h-6 text-[#fcb210]" />,
     titolo: 'Impianto fotovoltaico',
     testo: "La base di ogni soluzione completa. Produce elettricità dall'energia solare per l'autoconsumo e l'immissione in rete.",
   },
   {
-    icon: <Battery className="w-6 h-6 text-[#F97316]" />,
+    icon: <Battery className="w-6 h-6 text-[#fcb210]" />,
     titolo: 'Accumulo a batteria',
     testo: "Accumula l'eccesso di energia solare per l'uso serale e notturno. Aumenta l'autoconsumo da circa il 30% fino al 70%.",
   },
   {
-    icon: <Thermometer className="w-6 h-6 text-[#F97316]" />,
+    icon: <Thermometer className="w-6 h-6 text-[#fcb210]" />,
     titolo: 'Pompa di calore',
     testo: "Utilizza l'energia solare autoprodotta per il riscaldamento e l'acqua calda. Uno dei modi più efficaci per massimizzare l'autoconsumo.",
   },
   {
-    icon: <Car className="w-6 h-6 text-[#F97316]" />,
+    icon: <Car className="w-6 h-6 text-[#fcb210]" />,
     titolo: 'Stazione di ricarica veicoli elettrici (Wallbox)',
     testo: "Ricarica il veicolo elettrico direttamente con energia solare — particolarmente economico e sostenibile.",
   },
   {
-    icon: <Settings className="w-6 h-6 text-[#F97316]" />,
+    icon: <Settings className="w-6 h-6 text-[#fcb210]" />,
     titolo: 'Sistema di gestione energetica',
     testo: "Controlla automaticamente quando quale energia va dove — per la massima efficienza senza sforzo manuale.",
   },
@@ -108,7 +108,7 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
 
       {/* ── Hero ── */}
       <section className="relative pt-28 pb-16 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
             <Link href="/it" className="hover:text-white/70 transition-colors">Home</Link>
@@ -136,7 +136,7 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
-                <p className="text-[#F97316] text-sm font-semibold">{s.sub}</p>
+                <p className="text-[#fcb210] text-sm font-semibold">{s.sub}</p>
                 <p className="text-gray-500 text-xs mt-1">{s.note}</p>
               </div>
             ))}
@@ -149,7 +149,7 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
         {/* ── Componenti ── */}
         <section>
           <div className="mb-10">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Panoramica</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Panoramica</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Cos&apos;è una soluzione fotovoltaica completa?
             </h2>
@@ -173,7 +173,7 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
         {/* ── Costi ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Panoramica prezzi</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Panoramica prezzi</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
               Quanto costa una soluzione completa in Svizzera?
             </h2>
@@ -182,7 +182,7 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
             </p>
             <p className="text-gray-600 leading-relaxed">
               L&apos;autoconsumo può salire fino all&apos;80%, il che riduce notevolmente il tempo di ammortamento. Ricevi ora{' '}
-              <Link href="/it/richiedere-preventivo-solare" className="text-[#F97316] hover:underline font-medium">preventivi gratuiti</Link>.
+              <Link href="/it/richiedere-preventivo-solare" className="text-[#fcb210] hover:underline font-medium">preventivi gratuiti</Link>.
             </p>
           </div>
           <div>
@@ -198,7 +198,7 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
                   {costi.map((row, i) => (
                     <tr key={row.componente} className={row.highlight ? 'bg-orange-50' : i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                       <td className={`px-5 py-3.5 ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-700'}`}>{row.componente}</td>
-                      <td className={`px-5 py-3.5 text-right font-bold ${row.highlight ? 'text-[#F97316]' : 'text-gray-900'}`}>{row.costo}</td>
+                      <td className={`px-5 py-3.5 text-right font-bold ${row.highlight ? 'text-[#fcb210]' : 'text-gray-900'}`}>{row.costo}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -220,14 +220,14 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
             <ul className="space-y-3">
               {vantaggi.map((v, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-300 text-sm leading-relaxed">{v}</span>
                 </li>
               ))}
             </ul>
           </div>
           <div className="rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Checklist</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Checklist</p>
             <h2 className="text-xl font-bold text-gray-900 mb-5">
               A cosa prestare attenzione nella scelta di un fornitore di soluzioni complete?
             </h2>
@@ -237,7 +237,7 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
             <ul className="space-y-3">
               {criteri.map((c, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm leading-relaxed">{c}</span>
                 </li>
               ))}
@@ -248,7 +248,7 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
         {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
           <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
             <Zap className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
@@ -258,21 +258,21 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
             Compila il nostro modulo e ricevi fino a 3 preventivi da installatori certificati che offrono soluzioni complete da un&apos;unica fonte — gratuitamente e senza impegno.
           </p>
           <Link href="/it/richiesta" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
             Richiedi preventivo gratuito <ArrowRight className="w-4 h-4" />
           </Link>
           <p className="text-gray-500 text-sm mt-5">
             Prima{' '}
-            <Link href="/it/richiedere-preventivo-solare" className="text-[#F97316] hover:underline font-medium">confronta i preventivi</Link>
+            <Link href="/it/richiedere-preventivo-solare" className="text-[#fcb210] hover:underline font-medium">confronta i preventivi</Link>
             {' '}o{' '}
-            <Link href="/it/comparatore-fotovoltaico-svizzera" className="text-[#F97316] hover:underline font-medium">confronta i fornitori</Link>?
+            <Link href="/it/comparatore-fotovoltaico-svizzera" className="text-[#fcb210] hover:underline font-medium">confronta i fornitori</Link>?
           </p>
         </section>
 
         {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Domande frequenti</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Domande frequenti</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Domande frequenti</h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -280,7 +280,7 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
               <details key={i} className="group rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
                 <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-gray-900 text-sm select-none list-none">
                   {faq.question}
-                  <span className="ml-4 text-[#F97316] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
+                  <span className="ml-4 text-[#fcb210] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
                 </summary>
                 <div className="px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-50">
                   <p className="pt-4">{faq.answer}</p>

@@ -37,7 +37,7 @@ export default function ComeFunzionaSolarePage() {
       {/* ── Hero ── */}
       <section className="relative bg-[#0f1f3d] pt-28 pb-0 overflow-hidden">
         <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
+          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-8">
             <Link href="/it" className="hover:text-white/70 transition-colors">Home</Link>
@@ -46,7 +46,7 @@ export default function ComeFunzionaSolarePage() {
           </nav>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
             <div className="pb-12">
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-4">Tecnologia & conoscenza</p>
+              <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-4">Tecnologia & conoscenza</p>
               <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
                 Come funziona un impianto solare? Spiegato semplicemente
               </h1>
@@ -57,7 +57,7 @@ export default function ComeFunzionaSolarePage() {
                 <Link
                   href="/it/richiesta"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-                  style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+                  style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
                 >
                   Ricevi un preventivo gratuito <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -87,7 +87,7 @@ export default function ComeFunzionaSolarePage() {
               { val: '0 CHF', label: 'Carburante necessario' },
             ].map((s) => (
               <div key={s.label}>
-                <p className="text-2xl sm:text-3xl font-bold text-[#F97316]">{s.val}</p>
+                <p className="text-2xl sm:text-3xl font-bold text-[#fcb210]">{s.val}</p>
                 <p className="text-xs text-gray-500 mt-1">{s.label}</p>
               </div>
             ))}
@@ -113,7 +113,7 @@ export default function ComeFunzionaSolarePage() {
             <div className="rounded-2xl bg-gray-50 border border-gray-100 p-6">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Fotovoltaico vs. solare termico</p>
               <div className="space-y-3">
-                <div className="flex items-start gap-3 p-4 rounded-xl bg-white border border-[#F97316]/20">
+                <div className="flex items-start gap-3 p-4 rounded-xl bg-white border border-[#fcb210]/20">
                   <span className="text-2xl">⚡</span>
                   <div>
                     <p className="font-bold text-gray-900 text-sm">Fotovoltaico</p>
@@ -139,7 +139,7 @@ export default function ComeFunzionaSolarePage() {
       {/* ── CTA bottom ── */}
       <section className="py-16 bg-[#0f1f3d] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: 'radial-gradient(circle at 30% 60%, #F97316 0%, transparent 55%)' }} />
+          style={{ backgroundImage: 'radial-gradient(circle at 30% 60%, #fcb210 0%, transparent 55%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Pronti per il vostro impianto solare?
@@ -151,7 +151,7 @@ export default function ComeFunzionaSolarePage() {
             <Link
               href="/it/richiesta"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-xl"
-              style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+              style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
             >
               Ricevi un preventivo gratuito <ArrowRight className="w-4 h-4" />
             </Link>

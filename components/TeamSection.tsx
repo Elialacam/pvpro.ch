@@ -73,7 +73,7 @@ export default function TeamSection() {
       <div
         aria-hidden
         className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-[0.07] blur-3xl"
-        style={{ background: '#F97316' }}
+        style={{ background: '#fcb210' }}
       />
 
       <div className="container-custom relative z-10">
@@ -82,8 +82,8 @@ export default function TeamSection() {
           {/* Left — text + stats (takes most of the space) */}
           <div className="flex-1 min-w-0">
             {/* Eyebrow */}
-            <span className="inline-flex items-center gap-2 text-[#F97316] text-sm font-bold uppercase tracking-widest mb-5">
-              <span className="block w-6 h-px bg-[#F97316]" />
+            <span className="inline-flex items-center gap-2 text-[#fcb210] text-sm font-bold uppercase tracking-widest mb-5">
+              <span className="block w-6 h-px bg-[#fcb210]" />
               {c.eyebrow}
             </span>
 

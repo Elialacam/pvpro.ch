@@ -267,7 +267,7 @@ const OptionCard = memo(function OptionCard({ label, sublabel, isSelected, onCli
       onClick={onClick}
       className="relative flex flex-col items-center justify-center rounded-2xl p-5 sm:p-6 transition-all duration-150 bg-white w-full aspect-square"
       style={{
-        border: isSelected ? '2.5px solid #F97316' : '2px solid #e5e7eb',
+        border: isSelected ? '2.5px solid #fcb210' : '2px solid #e5e7eb',
         boxShadow: isSelected
           ? '0 6px 20px rgba(249,115,22,0.16)'
           : '0 1px 4px rgba(0,0,0,0.04)',
@@ -287,7 +287,7 @@ const OptionCard = memo(function OptionCard({ label, sublabel, isSelected, onCli
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          className="absolute top-2 right-2 w-6 h-6 rounded-full flex items-center justify-center shadow" style={{ background: '#F97316' }}
+          className="absolute top-2 right-2 w-6 h-6 rounded-full flex items-center justify-center shadow" style={{ background: '#fcb210' }}
         >
           <Check className="w-3 h-3 text-white" strokeWidth={4} />
         </motion.div>
@@ -536,7 +536,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
                   <div className="w-0.5 h-10 bg-gray-100 overflow-hidden relative">
                     <motion.div
                       className="w-full absolute top-0 left-0"
-                      style={{ background: '#F97316' }}
+                      style={{ background: '#fcb210' }}
                       initial={{ height: 0 }}
                       animate={{ height: isDone || isActive ? '100%' : 0 }}
                       transition={{ duration: 0.6, ease: 'easeInOut' }}
@@ -557,7 +557,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
                     {isActive && (
                       <motion.div
                         className="absolute -inset-1.5 rounded-full"
-                        style={{ border: '2.5px solid #F97316' }}
+                        style={{ border: '2.5px solid #fcb210' }}
                         animate={{ scale: [1, 1.35, 1], opacity: [0.8, 0, 0.8] }}
                         transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut' }}
                       />
@@ -566,7 +566,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
                       className="w-14 h-14 rounded-full flex items-center justify-center"
                       animate={{
                         background: isDone ? '#dcfce7' : isActive ? '#FFF7ED' : '#f3f4f6',
-                        color: isDone ? '#16a34a' : isActive ? '#F97316' : '#d1d5db',
+                        color: isDone ? '#16a34a' : isActive ? '#fcb210' : '#d1d5db',
                       }}
                       transition={{ duration: 0.4 }}
                     >
@@ -768,7 +768,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
 
       {/* Progress bar */}
       <div className="w-full h-1 bg-gray-100">
-        <motion.div className="h-full" style={{ background: '#F97316' }} animate={{ width: `${progressPct}%` }} transition={{ duration: 0.4, ease: 'easeOut' }} />
+        <motion.div className="h-full" style={{ background: '#fcb210' }} animate={{ width: `${progressPct}%` }} transition={{ duration: 0.4, ease: 'easeOut' }} />
       </div>
 
       {/* Step counter */}

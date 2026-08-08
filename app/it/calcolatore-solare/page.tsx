@@ -90,8 +90,8 @@ const systemSizes = [
     nettokosten: "18'500 CHF",
     amort: '8–11 anni',
     haushalt: '3–4 persone / casa unifamiliare',
-    color: 'border-[#F97316]/30 bg-orange-50',
-    badge: 'bg-[#F97316]/10 text-[#F97316]',
+    color: 'border-[#fcb210]/30 bg-orange-50',
+    badge: 'bg-[#fcb210]/10 text-[#fcb210]',
     highlight: true,
   },
   {
@@ -184,7 +184,7 @@ export default function CalcolatoreSolarePage() {
       <section className="relative bg-[#0f1f3d] pt-28 pb-0 overflow-hidden">
         <div
           className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }}
+          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }}
         />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-8">
@@ -195,7 +195,7 @@ export default function CalcolatoreSolarePage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
             <div className="pb-12">
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-4">Strumento gratuito</p>
+              <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-4">Strumento gratuito</p>
               <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
                 Calcolatore solare Svizzera 2026
               </h1>
@@ -204,15 +204,15 @@ export default function CalcolatoreSolarePage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <div className="flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-2 rounded-full">
-                  <CheckCircle className="w-4 h-4 text-[#F97316]" />
+                  <CheckCircle className="w-4 h-4 text-[#fcb210]" />
                   <span className="text-white/80 text-sm">100% gratuito</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-2 rounded-full">
-                  <CheckCircle className="w-4 h-4 text-[#F97316]" />
+                  <CheckCircle className="w-4 h-4 text-[#fcb210]" />
                   <span className="text-white/80 text-sm">Risultati istantanei</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-2 rounded-full">
-                  <CheckCircle className="w-4 h-4 text-[#F97316]" />
+                  <CheckCircle className="w-4 h-4 text-[#fcb210]" />
                   <span className="text-white/80 text-sm">Dati del mercato svizzero</span>
                 </div>
               </div>
@@ -227,7 +227,7 @@ export default function CalcolatoreSolarePage() {
               ].map(s => (
                 <div key={s.label} className="bg-white/8 border border-white/10 rounded-2xl p-5">
                   <p className="text-2xl font-bold text-white">{s.val}</p>
-                  <p className="text-[#F97316] text-xs font-semibold mt-0.5">{s.unit}</p>
+                  <p className="text-[#fcb210] text-xs font-semibold mt-0.5">{s.unit}</p>
                   <p className="text-white/50 text-xs mt-1">{s.label}</p>
                 </div>
               ))}
@@ -258,7 +258,7 @@ export default function CalcolatoreSolarePage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Valori di riferimento</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Valori di riferimento</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Dimensioni tipiche degli impianti in Svizzera</h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
               Secondo le dimensioni del nucleo familiare e la superficie disponibile, si raccomandano diverse potenze. Tutti i prezzi prima degli incentivi cantonali — questi possono ridurre i costi di un ulteriore 10–15%.
@@ -269,10 +269,10 @@ export default function CalcolatoreSolarePage() {
             {systemSizes.map(s => (
               <div
                 key={s.kwp}
-                className={`rounded-2xl border-2 p-6 relative ${s.color} ${s.highlight ? 'ring-2 ring-[#F97316]/30' : ''}`}
+                className={`rounded-2xl border-2 p-6 relative ${s.color} ${s.highlight ? 'ring-2 ring-[#fcb210]/30' : ''}`}
               >
                 {s.highlight && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F97316] text-white text-xs font-bold px-4 py-1 rounded-full">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#fcb210] text-white text-xs font-bold px-4 py-1 rounded-full">
                     Dimensione più popolare
                   </div>
                 )}
@@ -316,7 +316,7 @@ export default function CalcolatoreSolarePage() {
           </div>
           <p className="text-center text-xs text-gray-400 mt-6">
             Valori indicativi 2026. I costi effettivi possono variare in base all'installatore, al cantone e all'impianto.
-            <Link href="/it/costi-impianto-solare" className="text-[#F97316] ml-1 hover:underline">Panoramica dettagliata dei costi →</Link>
+            <Link href="/it/costi-impianto-solare" className="text-[#fcb210] ml-1 hover:underline">Panoramica dettagliata dei costi →</Link>
           </p>
         </div>
       </section>
@@ -325,7 +325,7 @@ export default function CalcolatoreSolarePage() {
       <section className="py-16 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Fattori di influenza</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Fattori di influenza</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Cosa influenza il tuo rendimento solare?</h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
               Il calcolatore utilizza valori medi. In pratica, sei fattori giocano un ruolo decisivo — capiscili per interpretare correttamente il risultato.
@@ -335,12 +335,12 @@ export default function CalcolatoreSolarePage() {
             {factors.map(f => (
               <div key={f.title} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                 <div className="flex items-start gap-4 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#F97316]/10 flex items-center justify-center flex-shrink-0">
-                    <f.icon className="w-5 h-5 text-[#F97316]" />
+                  <div className="w-10 h-10 rounded-xl bg-[#fcb210]/10 flex items-center justify-center flex-shrink-0">
+                    <f.icon className="w-5 h-5 text-[#fcb210]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 text-sm">{f.title}</h3>
-                    <span className="text-xs text-[#F97316] font-medium">{f.tip}</span>
+                    <span className="text-xs text-[#fcb210] font-medium">{f.tip}</span>
                   </div>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed">{f.body}</p>
@@ -354,12 +354,12 @@ export default function CalcolatoreSolarePage() {
       <section className="py-16 bg-[#0f1f3d] relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #F97316 0%, transparent 55%)' }}
+          style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #fcb210 0%, transparent 55%)' }}
         />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Valori di riferimento svizzeri</p>
+              <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Valori di riferimento svizzeri</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
                 I numeri dietro il calcolatore
               </h2>
@@ -369,7 +369,7 @@ export default function CalcolatoreSolarePage() {
               <Link
                 href="/it/richiesta"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity"
-                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+                style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
               >
                 Richiedi preventivi concreti ora <ArrowRight className="w-4 h-4" />
               </Link>
@@ -390,7 +390,7 @@ export default function CalcolatoreSolarePage() {
       <section className="py-16 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">È semplice</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">È semplice</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Dal calcolo al preventivo</h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-sm">
               Il calcolatore è il primo passo. In altri tre semplici passaggi ottieni preventivi vincolanti da installatori svizzeri certificati.
@@ -406,7 +406,7 @@ export default function CalcolatoreSolarePage() {
               <div key={s.step} className="relative">
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold text-white"
-                  style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+                  style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
                 >
                   {s.step}
                 </div>
@@ -423,7 +423,7 @@ export default function CalcolatoreSolarePage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Differenze cantonali</p>
+              <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Differenze cantonali</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
                 Rendimento solare per Cantone in Svizzera
               </h2>
@@ -433,7 +433,7 @@ export default function CalcolatoreSolarePage() {
               <p className="text-gray-600 leading-relaxed mb-6">
                 La Svizzera tedesca e l'Altopiano si situano a 1'600–1'900 ore — condizioni eccellenti per l'energia solare. La differenza di rendimento annuo tra Ginevra e Zurigo è inferiore al 15%. Gli impianti solari sono convenienti in tutta la Svizzera.
               </p>
-              <Link href="/it/richiesta" className="inline-flex items-center gap-2 text-sm font-bold text-[#F97316] hover:underline">
+              <Link href="/it/richiesta" className="inline-flex items-center gap-2 text-sm font-bold text-[#fcb210] hover:underline">
                 Richiedi preventivi per la mia posizione <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -454,7 +454,7 @@ export default function CalcolatoreSolarePage() {
                   <div className="h-1.5 bg-gray-100 rounded-full mb-2">
                     <div
                       className="h-1.5 rounded-full"
-                      style={{ width: `${r.bar}%`, background: 'linear-gradient(90deg, #fb923c, #F97316)' }}
+                      style={{ width: `${r.bar}%`, background: 'linear-gradient(90deg, #ffc812, #fcb210)' }}
                     />
                   </div>
                   <p className="text-xs text-gray-400">{r.ertrag}</p>
@@ -469,7 +469,7 @@ export default function CalcolatoreSolarePage() {
       <section className="py-16 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Redditività</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Redditività</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Cosa ti porta concretamente un impianto solare?</h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-sm">
               Con un impianto tipico da 10 kWp in Svizzera — calcolato con 25 ct/kWh di prezzo dell'elettricità e 35% di autoconsumo senza accumulo.
@@ -482,7 +482,7 @@ export default function CalcolatoreSolarePage() {
                 label: "Risparmio annuo di elettricità",
                 value: 'CHF 950',
                 sub: "≈ 3'325 kWh autoconsumati × 25 ct",
-                color: 'text-[#F97316]',
+                color: 'text-[#fcb210]',
                 bg: 'bg-orange-50',
               },
               {
@@ -555,8 +555,8 @@ export default function CalcolatoreSolarePage() {
               { icon: TrendingUp, title: "Pianificare l'ammortamento", desc: "Scopri quando il tuo investimento viene ripagato e quanto risparmierai in 25 anni." },
             ].map(b => (
               <div key={b.title} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                <div className="w-11 h-11 rounded-xl bg-[#F97316]/10 flex items-center justify-center mb-4">
-                  <b.icon className="w-5 h-5 text-[#F97316]" />
+                <div className="w-11 h-11 rounded-xl bg-[#fcb210]/10 flex items-center justify-center mb-4">
+                  <b.icon className="w-5 h-5 text-[#fcb210]" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2 text-sm">{b.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{b.desc}</p>
@@ -570,7 +570,7 @@ export default function CalcolatoreSolarePage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Domande frequenti</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Domande frequenti</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Domande sul calcolatore e la redditività</h2>
           </div>
           <div className="max-w-3xl mx-auto">
@@ -579,7 +579,7 @@ export default function CalcolatoreSolarePage() {
                 <details key={index} className="group rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
                   <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-gray-900 text-sm select-none list-none">
                     {faq.question}
-                    <span className="ml-4 text-[#F97316] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
+                    <span className="ml-4 text-[#fcb210] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
                   </summary>
                   <div className="px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-50">
                     <p className="pt-4">{faq.answer}</p>

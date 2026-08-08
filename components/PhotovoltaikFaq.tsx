@@ -40,7 +40,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
     <div className="border-b border-gray-100 last:border-0">
       <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between gap-4 py-5 text-left">
         <span className="font-bold text-gray-900 text-sm sm:text-base">{q}</span>
-        <ChevronDown className={`w-5 h-5 text-[#F97316] flex-shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-5 h-5 text-[#fcb210] flex-shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && <p className="pb-5 text-gray-500 text-sm leading-relaxed">{a}</p>}
     </div>

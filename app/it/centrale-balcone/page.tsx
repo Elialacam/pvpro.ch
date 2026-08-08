@@ -17,7 +17,7 @@ export default function CentraleBalconePage() {
           <span className="text-gray-700 font-medium">Centrale balcone Svizzera</span>
         </nav>
         <div className="mb-16 max-w-3xl">
-          <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-2">Mini impianto solare</p>
+          <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-2">Mini impianto solare</p>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-6">
             Centrale solare balcone in Svizzera
           </h1>
@@ -34,7 +34,7 @@ export default function CentraleBalconePage() {
         <div className="rounded-2xl p-10 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Pianificate un impianto più grande?</h2>
           <p className="text-gray-600 mb-6 max-w-md mx-auto">Per i proprietari di casa, un impianto solare completo è spesso più conveniente. Confrontate offerte gratuite ora.</p>
-          <Link href="/it/richiesta" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+          <Link href="/it/richiesta" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
             Richiedete un preventivo gratuito →
           </Link>
         </div>

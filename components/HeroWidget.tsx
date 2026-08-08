@@ -67,7 +67,7 @@ export default function HeroWidget() {
             className="absolute inset-y-0 left-0 rounded-full"
             style={{
               width: `${pct}%`,
-              background: 'linear-gradient(90deg, #fdba74, #F97316)',
+              background: 'linear-gradient(90deg, #fdba74, #fcb210)',
             }}
           />
           {/* Native input (invisible, for interaction) */}
@@ -86,7 +86,7 @@ export default function HeroWidget() {
             className="absolute top-1/2 -translate-y-1/2 w-[22px] h-[22px] rounded-full bg-white pointer-events-none"
             style={{
               left: `calc(${pct}% - 11px)`,
-              border: '2.5px solid #F97316',
+              border: '2.5px solid #fcb210',
               boxShadow: '0 2px 10px rgba(249,115,22,0.30)',
             }}
           />
@@ -101,7 +101,7 @@ export default function HeroWidget() {
       <div className="flex items-center justify-between pt-1 border-t border-gray-100">
         <div>
           <p className="text-[11px] text-gray-400 font-semibold uppercase tracking-wider mb-1">{t.savings}</p>
-          <p className="text-2xl font-bold text-[#F97316] tabular-nums leading-none">
+          <p className="text-2xl font-bold text-[#fcb210] tabular-nums leading-none">
             CHF {savingFormatted}
             <span className="text-sm font-semibold text-orange-300 ml-1">{t.per}</span>
           </p>
@@ -120,7 +120,7 @@ export default function HeroWidget() {
       <Link
         href={formUrl}
         className="w-full text-center font-bold text-[15px] py-4 rounded-2xl text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98] tracking-wide"
-        style={{ background: '#F97316' }}
+        style={{ background: '#fcb210' }}
       >
         {t.cta} →
       </Link>

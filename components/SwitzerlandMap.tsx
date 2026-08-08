@@ -42,7 +42,7 @@ const mapStyles = [
 function markerIcon(g: any, labelBelow?: boolean) {
   return {
     path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z',
-    fillColor: '#F97316',
+    fillColor: '#fcb210',
     fillOpacity: 1,
     strokeColor: '#FFFFFF',
     strokeWeight: 2,
@@ -119,7 +119,7 @@ export default function SwitzerlandMap() {
       // Switzerland highlight
       new g.maps.Polygon({
         paths: swissBoundary,
-        strokeColor: '#F97316',
+        strokeColor: '#fcb210',
         strokeOpacity: 1,
         strokeWeight: 3,
         fillOpacity: 0,
@@ -157,7 +157,7 @@ export default function SwitzerlandMap() {
                  <img src="/images/cantons/${(city as any).canton.toLowerCase()}.png" alt="${(city as any).canton}" style="height:18px;width:auto" />
                </div>
                <div style="color:#374151;font-size:12px;line-height:1.4;margin-bottom:8px">${t.popup}</div>
-               <a href="${t.formHref}" style="display:inline-block;background:#F97316;color:#fff;font-weight:600;font-size:13px;padding:6px 12px;border-radius:8px;text-decoration:none">${t.cta}</a>
+               <a href="${t.formHref}" style="display:inline-block;background:#fcb210;color:#fff;font-weight:600;font-size:13px;padding:6px 12px;border-radius:8px;text-decoration:none">${t.cta}</a>
              </div>`
           );
           infoWindow.open({ map, anchor: marker });

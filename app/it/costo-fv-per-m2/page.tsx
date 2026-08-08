@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const priceRows = [
   { label: 'Impianto base',    range: 'ca. 200 – 250 CHF',  color: '#6b7280', highlight: false },
-  { label: 'Impianto standard', range: 'ca. 250 – 350 CHF', color: '#F97316', highlight: true },
+  { label: 'Impianto standard', range: 'ca. 250 – 350 CHF', color: '#fcb210', highlight: true },
   { label: 'Impianto premium', range: 'ca. 350 – 400+ CHF', color: '#1e3a5f', highlight: false },
 ];
 
@@ -50,7 +50,7 @@ export default function CostoFVPerM2Page() {
       {/* ── Hero ── */}
       <section className="relative bg-[#0f1f3d] pt-28 pb-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: 'radial-gradient(circle at 70% 50%, #F97316 0%, transparent 60%)' }} />
+          style={{ backgroundImage: 'radial-gradient(circle at 70% 50%, #fcb210 0%, transparent 60%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
             <Link href="/it" className="hover:text-white/70 transition-colors">Home</Link>
@@ -88,7 +88,7 @@ export default function CostoFVPerM2Page() {
 
         {/* ── Price table ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Panoramica prezzi</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Panoramica prezzi</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Quanto costa il fotovoltaico per m²?</h2>
           <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-2xl">
             Il costo per m² dipende dalla potenza dei moduli, dalla qualità dei componenti, dal tipo di tetto e dalla dimensione dell'impianto.
@@ -110,18 +110,18 @@ export default function CostoFVPerM2Page() {
         {/* ── Why kWp ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Capire le unità</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Capire le unità</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Perché spesso non si calcola in m²?</h2>
             <p className="text-gray-500 leading-relaxed mb-6">
               In pratica, il fotovoltaico viene solitamente calcolato in <strong className="text-gray-800">kWp (kilowatt di picco)</strong>, perché i moduli hanno potenze diverse, le superfici del tetto sono utilizzabili in modo diverso e l'efficienza varia a seconda della tecnologia.
             </p>
-            <div className="rounded-2xl bg-[#F97316]/5 border border-[#F97316]/20 p-6">
-              <p className="text-sm font-bold text-[#F97316] mb-3">Conversione approssimativa</p>
+            <div className="rounded-2xl bg-[#fcb210]/5 border border-[#fcb210]/20 p-6">
+              <p className="text-sm font-bold text-[#fcb210] mb-3">Conversione approssimativa</p>
               <p className="text-3xl font-bold text-gray-900 mb-4">1 kWp ≈ 5–6 m²</p>
               <div className="space-y-2 text-sm text-gray-600">
                 {["Impianto da 10 kWp → ca. 50–60 m² di superficie del tetto", "Impianto da 20 kWp → ca. 100–120 m² di superficie del tetto"].map((item) => (
                   <div key={item} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -135,13 +135,13 @@ export default function CostoFVPerM2Page() {
 
         {/* ── m² vs kWp ── */}
         <section className="bg-gray-50 rounded-3xl p-8 sm:p-12">
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Confronto</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Confronto</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">Costo per m² vs. costo per kWp</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {comparisonRows.map((row) => (
               <div key={row.unit} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                 <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">{row.unit}</p>
-                <p className="text-3xl font-bold text-[#F97316] mb-2">{row.price}</p>
+                <p className="text-3xl font-bold text-[#fcb210] mb-2">{row.price}</p>
                 <p className="text-sm text-gray-500">{row.note}</p>
               </div>
             ))}
@@ -157,7 +157,7 @@ export default function CostoFVPerM2Page() {
             <Image src="/images/asset-haus-luftbild-2.webp" alt="Casa unifamiliare con impianto solare" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
           </div>
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Esempio di calcolo</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Esempio di calcolo</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Esempio: impianto solare per una casa unifamiliare</h2>
             <p className="text-gray-500 leading-relaxed mb-6">
               Una tipica casa unifamiliare svizzera con 60 m² di superficie del tetto e ca. 10 kWp di potenza:
@@ -166,7 +166,7 @@ export default function CostoFVPerM2Page() {
               {exampleRows.map((row, i) => (
                 <div key={row.position} className={`flex justify-between items-center px-5 py-4 ${i !== 0 ? 'border-t border-gray-100' : ''} ${row.last ? 'bg-orange-50' : 'bg-white'}`}>
                   <span className={`text-sm ${row.last ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.position}</span>
-                  <span className={`font-bold ${row.last ? 'text-[#F97316] text-lg' : 'text-gray-900'}`}>{row.value}</span>
+                  <span className={`font-bold ${row.last ? 'text-[#fcb210] text-lg' : 'text-gray-900'}`}>{row.value}</span>
                 </div>
               ))}
             </div>
@@ -178,15 +178,15 @@ export default function CostoFVPerM2Page() {
 
         {/* ── Factors ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Fattori di influenza</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Fattori di influenza</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">Quali fattori influenzano i costi per m²?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {factors.map((f) => {
               const Icon = f.icon;
               return (
                 <div key={f.title} className="flex gap-4 items-start bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-                  <div className="w-10 h-10 rounded-xl bg-[#F97316]/10 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-5 h-5 text-[#F97316]" />
+                  <div className="w-10 h-10 rounded-xl bg-[#fcb210]/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-5 h-5 text-[#fcb210]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 mb-1">{f.title}</h3>
@@ -201,7 +201,7 @@ export default function CostoFVPerM2Page() {
         {/* ── Energy production ── */}
         <section className="rounded-3xl bg-[#0f1f3d] p-8 sm:p-12 text-white overflow-hidden relative">
           <div className="absolute inset-0 opacity-10"
-            style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #F97316 0%, transparent 60%)' }} />
+            style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #fcb210 0%, transparent 60%)' }} />
           <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">Produzione di elettricità</p>
@@ -211,7 +211,7 @@ export default function CostoFVPerM2Page() {
                 <strong className="text-white">150 – 200 kWh di elettricità all'anno</strong>. La produzione esatta dipende dall'orientamento, dall'inclinazione e dalla posizione.
               </p>
               <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-5 py-4">
-                <Zap className="w-6 h-6 text-[#F97316] flex-shrink-0" />
+                <Zap className="w-6 h-6 text-[#fcb210] flex-shrink-0" />
                 <p className="text-sm text-white/80">
                   <strong className="text-white">50 m²</strong> → ca. <strong className="text-white">7'500 – 10'000 kWh</strong> all'anno
                 </p>
@@ -229,7 +229,7 @@ export default function CostoFVPerM2Page() {
                     <span className="text-white font-bold">{row.kwh}</span>
                   </div>
                   <div className="h-2 rounded-full bg-white/10">
-                    <div className="h-2 rounded-full bg-[#F97316]" style={{ width: `${row.pct}%` }} />
+                    <div className="h-2 rounded-full bg-[#fcb210]" style={{ width: `${row.pct}%` }} />
                   </div>
                 </div>
               ))}
@@ -240,7 +240,7 @@ export default function CostoFVPerM2Page() {
         {/* ── Quando conviene ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Redditività</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Redditività</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Quando conviene il fotovoltaico per m²?</h2>
             <p className="text-gray-500 leading-relaxed mb-6">
               Più elettricità si consuma autonomamente, maggiore è la redditività dell'impianto.
@@ -253,7 +253,7 @@ export default function CostoFVPerM2Page() {
                 'Il tetto non è ombreggiato',
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#fcb210] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">{item}</span>
                 </div>
               ))}
@@ -266,7 +266,7 @@ export default function CostoFVPerM2Page() {
 
         {/* ── FAQ ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">FAQ</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">FAQ</p>
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
             Domande frequenti sui costi del fotovoltaico per m²
           </h2>
@@ -275,7 +275,7 @@ export default function CostoFVPerM2Page() {
 
         {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-          <TrendingDown className="w-10 h-10 text-[#F97316] mx-auto mb-4" />
+          <TrendingDown className="w-10 h-10 text-[#fcb210] mx-auto mb-4" />
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
             Confronta le offerte e calcola i costi con precisione
           </h2>
@@ -285,7 +285,7 @@ export default function CostoFVPerM2Page() {
           <Link
             href="/it/richiesta"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
           >
             Ottieni preventivi gratuiti →
           </Link>

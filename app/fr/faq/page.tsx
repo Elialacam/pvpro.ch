@@ -34,7 +34,7 @@ export default function FaqFrPage() {
 
         {/* Header */}
         <div className="mb-12">
-          <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-2">Aide &amp; support</p>
+          <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-2">Aide &amp; support</p>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-4">
             Questions fréquentes
           </h1>
@@ -58,7 +58,7 @@ export default function FaqFrPage() {
           <Link
             href="/fr/demande"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
           >
             Obtenir des devis gratuits →
           </Link>

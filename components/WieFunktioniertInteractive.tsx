@@ -14,7 +14,7 @@ function getLocale(pathname: string) {
 
 const stepsDE = [
   { num: '01', icon: Sun,       title: 'Sonnenlicht trifft auf die Module',       body: 'Die Solarmodule auf Ihrem Dach bestehen aus vielen kleinen Solarzellen. Sobald Sonnenstrahlen auf sie treffen, wird Energie freigesetzt — rund um die Uhr, auch bei bewölktem Himmel.', color: '#FBBF24', bg: '#FFFBEB' },
-  { num: '02', icon: Zap,       title: 'Solarzellen erzeugen Gleichstrom',        body: 'Durch den photoelektrischen Effekt wird das Licht direkt in elektrische Energie umgewandelt. Es entsteht Gleichstrom (DC) — wie bei einer Batterie.', color: '#F97316', bg: '#FFF7ED' },
+  { num: '02', icon: Zap,       title: 'Solarzellen erzeugen Gleichstrom',        body: 'Durch den photoelektrischen Effekt wird das Licht direkt in elektrische Energie umgewandelt. Es entsteht Gleichstrom (DC) — wie bei einer Batterie.', color: '#fcb210', bg: '#FFF7ED' },
   { num: '03', icon: ArrowRight, title: 'Wechselrichter macht den Strom nutzbar', body: 'Da Haushaltsgeräte mit Wechselstrom (AC) laufen, wandelt der Wechselrichter den Gleichstrom um. Dieses Gerät ist das Herzstück Ihrer Anlage.', color: '#10B981', bg: '#F0FDF4' },
   { num: '04', icon: Home,      title: 'Strom wird im Haus genutzt',              body: 'Der umgewandelte Strom versorgt Ihre Geräte, Ihre Beleuchtung und Ihre Wärmepumpe — direkt aus Ihrer eigenen Produktion, ohne Kosten.', color: '#3B82F6', bg: '#EFF6FF' },
   { num: '05', icon: Battery,   title: 'Überschuss wird gespeichert oder eingespeist', body: 'Produzieren Sie mehr Strom als Sie verbrauchen, wird er in einem Batteriespeicher gespeichert — oder ins öffentliche Netz eingespeist und vergütet.', color: '#8B5CF6', bg: '#F5F3FF' },
@@ -22,7 +22,7 @@ const stepsDE = [
 
 const stepsIT = [
   { num: '01', icon: Sun,       title: 'La luce solare raggiunge i moduli',       body: 'I moduli solari sul tuo tetto sono composti da molte piccole celle fotovoltaiche. Non appena i raggi solari le colpiscono, viene liberata energia — tutto il giorno, anche con il cielo nuvoloso.', color: '#FBBF24', bg: '#FFFBEB' },
-  { num: '02', icon: Zap,       title: 'Le celle producono corrente continua',     body: 'Grazie all\'effetto fotoelettrico, la luce viene convertita direttamente in energia elettrica. Si genera corrente continua (DC) — come in una batteria.', color: '#F97316', bg: '#FFF7ED' },
+  { num: '02', icon: Zap,       title: 'Le celle producono corrente continua',     body: 'Grazie all\'effetto fotoelettrico, la luce viene convertita direttamente in energia elettrica. Si genera corrente continua (DC) — come in una batteria.', color: '#fcb210', bg: '#FFF7ED' },
   { num: '03', icon: ArrowRight, title: 'L\'inverter rende l\'energia utilizzabile', body: 'Poiché gli elettrodomestici funzionano a corrente alternata (AC), l\'inverter converte la corrente continua. Questo dispositivo è il cuore del tuo impianto.', color: '#10B981', bg: '#F0FDF4' },
   { num: '04', icon: Home,      title: 'L\'energia viene usata in casa',           body: 'La corrente convertita alimenta i tuoi apparecchi, l\'illuminazione e la pompa di calore — direttamente dalla tua produzione, senza costi.', color: '#3B82F6', bg: '#EFF6FF' },
   { num: '05', icon: Battery,   title: 'L\'eccedenza viene accumulata o immessa in rete', body: 'Se produci più energia di quella che consumi, viene immagazzinata in una batteria di accumulo — oppure immessa nella rete pubblica e remunerata.', color: '#8B5CF6', bg: '#F5F3FF' },
@@ -30,7 +30,7 @@ const stepsIT = [
 
 const stepsFR = [
   { num: '01', icon: Sun,       title: 'La lumière solaire atteint les modules',       body: 'Les modules solaires sur votre toit sont composés de nombreuses petites cellules photovoltaïques. Dès que les rayons solaires les frappent, de l\'énergie est libérée — en continu, même par temps nuageux.', color: '#FBBF24', bg: '#FFFBEB' },
-  { num: '02', icon: Zap,       title: 'Les cellules produisent du courant continu',   body: 'Grâce à l\'effet photoélectrique, la lumière est convertie directement en énergie électrique. Il se forme un courant continu (DC) — comme dans une batterie.', color: '#F97316', bg: '#FFF7ED' },
+  { num: '02', icon: Zap,       title: 'Les cellules produisent du courant continu',   body: 'Grâce à l\'effet photoélectrique, la lumière est convertie directement en énergie électrique. Il se forme un courant continu (DC) — comme dans une batterie.', color: '#fcb210', bg: '#FFF7ED' },
   { num: '03', icon: ArrowRight, title: 'L\'onduleur rend le courant utilisable',       body: 'Comme les appareils ménagers fonctionnent en courant alternatif (AC), l\'onduleur convertit le courant continu. Cet appareil est le cœur de votre installation.', color: '#10B981', bg: '#F0FDF4' },
   { num: '04', icon: Home,      title: 'Le courant est utilisé dans la maison',        body: 'Le courant converti alimente vos appareils, votre éclairage et votre pompe à chaleur — directement depuis votre propre production, sans frais.', color: '#3B82F6', bg: '#EFF6FF' },
   { num: '05', icon: Battery,   title: 'Le surplus est stocké ou injecté dans le réseau', body: 'Si vous produisez plus d\'électricité que vous n\'en consommez, elle est stockée dans une batterie — ou injectée dans le réseau public et rémunérée.', color: '#8B5CF6', bg: '#F5F3FF' },
@@ -176,19 +176,19 @@ function ProductionCalc({ locale }: { locale: string }) {
 
   return (
     <div className="rounded-3xl border border-gray-100 shadow-sm bg-white p-7 sm:p-10">
-      <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-1">{T.calcLabel}</p>
+      <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-1">{T.calcLabel}</p>
       <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">{T.calcTitle}</h2>
       <p className="text-gray-500 text-sm mb-8">{T.calcSub}</p>
 
       <div className="mb-8">
         <div className="flex justify-between items-center mb-3">
           <span className="text-sm font-bold text-gray-700">{T.groesse}</span>
-          <span className="px-3 py-1 rounded-full text-sm font-bold text-white" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>{kwp} kWp</span>
+          <span className="px-3 py-1 rounded-full text-sm font-bold text-white" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>{kwp} kWp</span>
         </div>
         <input type="range" min={3} max={20} step={1} value={kwp}
           onChange={(e) => setKwp(Number(e.target.value))}
           className="w-full h-2 rounded-full appearance-none cursor-pointer slider-orange"
-          style={{ background: `linear-gradient(to right, #F97316 ${((kwp - 3) / 17) * 100}%, #e5e7eb ${((kwp - 3) / 17) * 100}%)` }}
+          style={{ background: `linear-gradient(to right, #fcb210 ${((kwp - 3) / 17) * 100}%, #e5e7eb ${((kwp - 3) / 17) * 100}%)` }}
         />
         <div className="flex justify-between text-xs text-gray-400 mt-1">
           <span>{T.klein}</span><span>{T.gross}</span>
@@ -197,11 +197,11 @@ function ProductionCalc({ locale }: { locale: string }) {
 
       <div className="flex gap-3 mb-8 flex-wrap">
         <button onClick={() => setHasEv(!hasEv)}
-          className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold border transition-all ${hasEv ? 'border-[#F97316] bg-orange-50 text-[#F97316]' : 'border-gray-200 text-gray-500'}`}>
+          className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold border transition-all ${hasEv ? 'border-[#fcb210] bg-orange-50 text-[#fcb210]' : 'border-gray-200 text-gray-500'}`}>
           {T.evLabel}
         </button>
         <button onClick={() => setHasHeatpump(!hasHeatpump)}
-          className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold border transition-all ${hasHeatpump ? 'border-[#F97316] bg-orange-50 text-[#F97316]' : 'border-gray-200 text-gray-500'}`}>
+          className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold border transition-all ${hasHeatpump ? 'border-[#fcb210] bg-orange-50 text-[#fcb210]' : 'border-gray-200 text-gray-500'}`}>
           {T.waermeLabel}
         </button>
       </div>
@@ -218,8 +218,8 @@ function ProductionCalc({ locale }: { locale: string }) {
           <p className="text-xs text-gray-500">kWh</p>
         </div>
         <div className="rounded-2xl bg-orange-50 border border-orange-100 p-4 text-center col-span-2 sm:col-span-1">
-          <p className="text-xs text-[#F97316] mb-1 uppercase tracking-wide font-bold">{T.ersparnis}</p>
-          <p className="text-2xl font-bold text-[#F97316]">~{savedChf.toLocaleString('de-CH')}</p>
+          <p className="text-xs text-[#fcb210] mb-1 uppercase tracking-wide font-bold">{T.ersparnis}</p>
+          <p className="text-2xl font-bold text-[#fcb210]">~{savedChf.toLocaleString('de-CH')}</p>
           <p className="text-xs text-gray-500">CHF</p>
         </div>
       </div>
@@ -233,7 +233,7 @@ function ProductionCalc({ locale }: { locale: string }) {
                 <span className="font-bold text-gray-900">{Math.min(evCoverage, 100)}%</span>
               </div>
               <div className="h-2 bg-gray-200 rounded-full">
-                <div className="h-2 rounded-full bg-[#F97316] transition-all duration-500" style={{ width: `${Math.min(evCoverage, 100)}%` }} />
+                <div className="h-2 rounded-full bg-[#fcb210] transition-all duration-500" style={{ width: `${Math.min(evCoverage, 100)}%` }} />
               </div>
             </div>
           )}
@@ -253,10 +253,10 @@ function ProductionCalc({ locale }: { locale: string }) {
 
       <div className="mt-6 pt-6 border-t border-gray-100 flex flex-col sm:flex-row gap-3">
         <Link href={formUrl} className="flex-1 text-center py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity"
-          style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+          style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
           {T.ctaOfferte}
         </Link>
-        <Link href={T.ctaKostenHref} className="flex-1 text-center py-3.5 rounded-full font-bold text-gray-700 text-sm border border-gray-200 hover:border-[#F97316] hover:text-[#F97316] transition-colors">
+        <Link href={T.ctaKostenHref} className="flex-1 text-center py-3.5 rounded-full font-bold text-gray-700 text-sm border border-gray-200 hover:border-[#fcb210] hover:text-[#fcb210] transition-colors">
           {T.ctaKosten}
         </Link>
       </div>
@@ -270,7 +270,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
     <div className="border-b border-gray-100 last:border-0">
       <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between gap-4 py-5 text-left">
         <span className="font-bold text-gray-900 text-sm sm:text-base">{q}</span>
-        <ChevronDown className={`w-5 h-5 text-[#F97316] flex-shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-5 h-5 text-[#fcb210] flex-shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && <p className="pb-5 text-gray-500 text-sm leading-relaxed">{a}</p>}
     </div>
@@ -292,7 +292,7 @@ export default function WieFunktioniertInteractive() {
     <>
       <section className="py-16 border-t border-gray-100">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-2">{T.stepByStep}</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-2">{T.stepByStep}</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-10">{T.howTitle}</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <div className="space-y-3">
@@ -368,7 +368,7 @@ export default function WieFunktioniertInteractive() {
 
       <section className="py-16 bg-gray-50">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-2">{T.components}</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-2">{T.components}</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-10">{T.componentsTitle}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {komponenten.map((k) => (
@@ -376,7 +376,7 @@ export default function WieFunktioniertInteractive() {
                 <span className="text-4xl mb-4 block">{k.icon}</span>
                 <h3 className="font-bold text-gray-900 text-base mb-2">{k.name}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-4">{k.desc}</p>
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-orange-50 text-[#F97316]">{k.fact}</span>
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-orange-50 text-[#fcb210]">{k.fact}</span>
               </div>
             ))}
           </div>
@@ -393,13 +393,13 @@ export default function WieFunktioniertInteractive() {
 
       <section className="py-16 bg-gray-50">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-2">{T.quickLabel}</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-2">{T.quickLabel}</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-10">{T.quickTitle}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {quickFacts.map((item) => (
               <div key={item.q} className="rounded-2xl bg-white border border-gray-100 p-5 shadow-sm">
                 <p className="font-bold text-gray-900 text-sm mb-2 flex items-start gap-2">
-                  <span className="text-[#F97316] font-black flex-shrink-0">Q</span> {item.q}
+                  <span className="text-[#fcb210] font-black flex-shrink-0">Q</span> {item.q}
                 </p>
                 <p className="text-gray-500 text-sm leading-relaxed pl-5">{item.a}</p>
               </div>
@@ -411,7 +411,7 @@ export default function WieFunktioniertInteractive() {
       <section className="py-16">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-2">{T.faqLabel}</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-2">{T.faqLabel}</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">{T.faqTitle}</h2>
             <div className="rounded-2xl border border-gray-100 shadow-sm bg-white px-6">
               {faqs.map((f, i) => <FaqItem key={i} q={f.q} a={f.a} />)}

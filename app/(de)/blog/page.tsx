@@ -52,7 +52,7 @@ export default function BlogPage() {
               key={tag}
               className="px-4 py-1.5 rounded-full text-sm font-medium cursor-pointer transition-colors"
               style={i === 0
-                ? { background: '#F97316', color: '#fff' }
+                ? { background: '#fcb210', color: '#fff' }
                 : { background: '#f5f5f5', color: '#555' }
               }
             >
@@ -93,7 +93,7 @@ export default function BlogPage() {
 
                   {/* Content */}
                   <div className="p-5 flex flex-col flex-1">
-                    <h3 className="font-bold text-gray-900 text-base leading-snug mb-2 group-hover:text-[#F97316] transition-colors line-clamp-2">
+                    <h3 className="font-bold text-gray-900 text-base leading-snug mb-2 group-hover:text-[#fcb210] transition-colors line-clamp-2">
                       {post.title}
                     </h3>
                     <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 flex-1">

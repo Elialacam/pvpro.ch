@@ -110,7 +110,7 @@ export default function FoerderungenPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Einmalvergütung (EIV)</p>
+              <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Einmalvergütung (EIV)</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-6">
                 Was ist die Einmalvergütung?
               </h2>
@@ -161,7 +161,7 @@ export default function FoerderungenPage() {
       <section className="py-20" style={{ background: '#f9fafb' }}>
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Förderübersicht</p>
+            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Förderübersicht</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
               Wie hoch ist die Förderung?
             </h2>
@@ -188,7 +188,7 @@ export default function FoerderungenPage() {
                     {row.highlight && <span className="text-[10px] bg-orange-500 text-white font-bold px-1.5 py-0.5 rounded-full uppercase">Beliebt</span>}
                     {row.size}
                   </div>
-                  <div className="px-5 py-5 font-bold text-[#F97316]">{row.foerderung}</div>
+                  <div className="px-5 py-5 font-bold text-[#fcb210]">{row.foerderung}</div>
                   <div className="px-5 py-5 text-gray-600">{row.gesamtkosten}</div>
                   <div className="px-5 py-5 font-bold text-green-600">{row.effektiv}</div>
                 </div>
@@ -217,7 +217,7 @@ export default function FoerderungenPage() {
             </div>
 
             <div>
-              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Rechenbeispiel</p>
+              <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Rechenbeispiel</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
                 Beispiel für ein Einfamilienhaus
               </h2>
@@ -233,7 +233,7 @@ export default function FoerderungenPage() {
                 </div>
                 <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-orange-100" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
                   <p className="text-orange-700 font-medium">Einmalvergütung (EIV)</p>
-                  <p className="font-bold text-[#F97316]">− CHF 3'500</p>
+                  <p className="font-bold text-[#fcb210]">− CHF 3'500</p>
                 </div>
                 <div className="h-px bg-gray-200" />
                 <div className="flex items-center justify-between rounded-2xl px-6 py-5 border-2 border-green-200" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
@@ -292,7 +292,7 @@ export default function FoerderungenPage() {
                     {i < processSteps.length - 1 && (
                       <div className="absolute left-[19px] top-10 w-0.5 h-full" style={{ background: 'rgba(249,115,22,0.2)' }} />
                     )}
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-sm relative z-10" style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-sm relative z-10" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
                       {step.n}
                     </div>
                     <div className="pt-1">
@@ -313,7 +313,7 @@ export default function FoerderungenPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-3">Wirtschaftlichkeit</p>
+              <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Wirtschaftlichkeit</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-5">
                 Lohnt sich eine Solaranlage trotz Investitionskosten?
               </h2>
@@ -321,11 +321,11 @@ export default function FoerderungenPage() {
                 Dank staatlicher Förderungen und steigender Strompreise lohnt sich eine Solaranlage für viele Schweizer Haushalte. Viele Anlagen amortisieren sich innerhalb von <strong>10–15 Jahren</strong> bei einer Lebensdauer von 25–30 Jahren.
               </p>
               <p className="text-gray-500 text-sm leading-relaxed mt-1 mb-3">
-                <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#F97316] hover:underline font-medium">Lohnt sich eine Solaranlage mit Förderung?</Link>
+                <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#fcb210] hover:underline font-medium">Lohnt sich eine Solaranlage mit Förderung?</Link>
                 {' '}·{' '}
-                <Link href="/blog/solaranlage-steuerabzug-schweiz-2026" className="text-[#F97316] hover:underline font-medium">Solaranlage steuerlich abziehen — wie geht das?</Link>
+                <Link href="/blog/solaranlage-steuerabzug-schweiz-2026" className="text-[#fcb210] hover:underline font-medium">Solaranlage steuerlich abziehen — wie geht das?</Link>
                 {' '}·{' '}
-                <Link href="/blog/solaranlage-waermepumpe-kombinieren-schweiz" className="text-[#F97316] hover:underline font-medium">Solaranlage + Wärmepumpe kombinieren</Link>
+                <Link href="/blog/solaranlage-waermepumpe-kombinieren-schweiz" className="text-[#fcb210] hover:underline font-medium">Solaranlage + Wärmepumpe kombinieren</Link>
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
                 Die tatsächliche Wirtschaftlichkeit hängt von folgenden Faktoren ab:
@@ -333,7 +333,7 @@ export default function FoerderungenPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {wirtschaftlichkeit.map(f => (
                   <div key={f} className="flex items-center gap-2.5 rounded-xl px-4 py-3 border border-gray-100 bg-gray-50">
-                    <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
                     <p className="text-sm text-gray-700">{f}</p>
                   </div>
                 ))}
@@ -358,28 +358,28 @@ export default function FoerderungenPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 pb-4">
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
-              <ArrowRight className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+              <ArrowRight className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
               <p className="text-gray-600 text-sm">
                 Benötigen Sie eine Bewilligung?{' '}
-                <Link href="/bewilligungspflicht-solaranlage-schweiz" className="text-[#F97316] hover:underline font-medium">
+                <Link href="/bewilligungspflicht-solaranlage-schweiz" className="text-[#fcb210] hover:underline font-medium">
                   Alle Infos zur Bewilligungspflicht für Solaranlagen in der Schweiz →
                 </Link>
               </p>
             </div>
             <div className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
-              <ArrowRight className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+              <ArrowRight className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
               <p className="text-gray-600 text-sm">
-                <Link href="/foerderungen-kanton-zuerich" className="text-[#F97316] hover:underline font-medium">
+                <Link href="/foerderungen-kanton-zuerich" className="text-[#fcb210] hover:underline font-medium">
                   Förderung Kanton Zürich im Detail →
                 </Link>
                 {' '}EIV, kantonale Beiträge, Solarpflicht und steuerliche Abzüge für Zürcherinnen und Zürcher.
               </p>
             </div>
             <div className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
-              <ArrowRight className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+              <ArrowRight className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
               <p className="text-gray-600 text-sm">
                 Batteriespeicher sicher finanzieren?{' '}
-                <Link href="/blog/batteriespeicher-brandgefahr-sicherheit-schweiz" className="text-[#F97316] hover:underline font-medium">
+                <Link href="/blog/batteriespeicher-brandgefahr-sicherheit-schweiz" className="text-[#fcb210] hover:underline font-medium">
                   Förderung für sichere Batteriespeicher — Brandrisiko & Sicherheit erklärt →
                 </Link>
               </p>
@@ -402,14 +402,14 @@ export default function FoerderungenPage() {
             <Link
               href="/anfrage"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm transition-opacity hover:opacity-90"
-              style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+              style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
             >
               Kostenlose Offerte anfordern
               <ArrowRight className="w-4 h-4" />
             </Link>
             <p className="text-gray-500 text-sm mt-4">
               Oder zuerst Anbieter vergleichen:{' '}
-              <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#F97316] hover:underline font-medium">Geprüfte Installateure finden</Link>
+              <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#fcb210] hover:underline font-medium">Geprüfte Installateure finden</Link>
             </p>
           </div>
         </div>

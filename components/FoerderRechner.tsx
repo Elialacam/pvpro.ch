@@ -96,7 +96,7 @@ export default function FoerderRechner() {
           </div>
           <div className="text-right">
             <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">{tx.estimatedLabel}</p>
-            <p className="text-3xl font-bold text-[#F97316]">CHF {formatChf(foerderung)}</p>
+            <p className="text-3xl font-bold text-[#fcb210]">CHF {formatChf(foerderung)}</p>
           </div>
         </div>
 
@@ -106,7 +106,7 @@ export default function FoerderRechner() {
             onChange={e => setKwp(Number(e.target.value))}
             className="w-full h-2 rounded-full appearance-none cursor-pointer"
             style={{
-              background: `linear-gradient(to right, #F97316 0%, #F97316 ${((kwp - 3) / 27) * 100}%, #e5e7eb ${((kwp - 3) / 27) * 100}%, #e5e7eb 100%)`,
+              background: `linear-gradient(to right, #fcb210 0%, #fcb210 ${((kwp - 3) / 27) * 100}%, #e5e7eb ${((kwp - 3) / 27) * 100}%, #e5e7eb 100%)`,
             }}
           />
           <div className="flex justify-between text-xs text-gray-400 mt-2">
@@ -122,7 +122,7 @@ export default function FoerderRechner() {
           </div>
           <div className="rounded-2xl p-4 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
             <p className="text-xs text-orange-400 font-semibold mb-1">{tx.subsidyLabel}</p>
-            <p className="font-bold text-[#F97316] text-lg">− CHF {formatChf(foerderung)}</p>
+            <p className="font-bold text-[#fcb210] text-lg">− CHF {formatChf(foerderung)}</p>
           </div>
           <div className="rounded-2xl p-4 text-center" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
             <p className="text-xs text-green-500 font-semibold mb-1">{tx.effectiveLabel}</p>
@@ -138,7 +138,7 @@ export default function FoerderRechner() {
           <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
             <div
               className="h-full rounded-full transition-all duration-500"
-              style={{ width: `${prozent}%`, background: 'linear-gradient(to right, #fb923c, #F97316)' }}
+              style={{ width: `${prozent}%`, background: 'linear-gradient(to right, #ffc812, #fcb210)' }}
             />
           </div>
         </div>

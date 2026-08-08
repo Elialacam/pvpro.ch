@@ -65,7 +65,7 @@ export default function BlogSection({ locale = 'de' }: Props) {
         {/* Header */}
         <div className="flex items-end justify-between mb-12">
           <div>
-            <p className="text-sm font-semibold text-[#F97316] uppercase tracking-widest mb-2">{t.eyebrow}</p>
+            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-2">{t.eyebrow}</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
               {t.title}
             </h2>
@@ -104,7 +104,7 @@ export default function BlogSection({ locale = 'de' }: Props) {
 
               {/* Content */}
               <div className="p-6 flex flex-col flex-1">
-                <h3 className="font-bold text-gray-900 text-base leading-snug mb-3 group-hover:text-[#F97316] transition-colors line-clamp-2">
+                <h3 className="font-bold text-gray-900 text-base leading-snug mb-3 group-hover:text-[#fcb210] transition-colors line-clamp-2">
                   {post.title}
                 </h3>
                 <p className="text-sm text-gray-500 leading-relaxed line-clamp-3 flex-1">
@@ -131,7 +131,7 @@ export default function BlogSection({ locale = 'de' }: Props) {
         <div className="mt-10 text-center sm:hidden">
           <Link
             href={t.blogHref}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#F97316]"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#fcb210]"
           >
             {t.viewAllMobile} <ArrowRight className="w-4 h-4" />
           </Link>

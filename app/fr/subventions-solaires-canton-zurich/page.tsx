@@ -62,7 +62,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
 
       {/* ── Hero ── */}
       <section className="relative pt-28 pb-16 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
             <Link href="/fr" className="hover:text-white/70 transition-colors">Accueil</Link>
@@ -92,7 +92,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
-                <p className="text-[#F97316] text-sm font-semibold">{s.sub}</p>
+                <p className="text-[#fcb210] text-sm font-semibold">{s.sub}</p>
                 <p className="text-gray-500 text-xs mt-1">{s.note}</p>
               </div>
             ))}
@@ -105,14 +105,14 @@ export default function SubventionsSolairesCantonsZurichPage() {
         {/* ── Subvention fédérale RU ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Niveau fédéral</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Niveau fédéral</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
               Subvention fédérale : la{' '}
-              <Link href="/fr/subventions-solaires" className="text-[#F97316] hover:underline">Rétribution Unique (RU)</Link>
+              <Link href="/fr/subventions-solaires" className="text-[#fcb210] hover:underline">Rétribution Unique (RU)</Link>
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
               La principale subvention pour les installations solaires en Suisse est la{' '}
-              <Link href="/fr/subventions-solaires" className="text-[#F97316] hover:underline font-medium">Rétribution Unique (RU)</Link>{' '}
+              <Link href="/fr/subventions-solaires" className="text-[#fcb210] hover:underline font-medium">Rétribution Unique (RU)</Link>{' '}
               de la Confédération. Elle s&apos;applique également dans le Canton de Zurich et est gérée par Pronovo.
             </p>
             <ul className="space-y-3 mb-6">
@@ -123,7 +123,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
                 "L'installateur s'occupe généralement de l'inscription pour vous",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
                 </li>
               ))}
@@ -157,7 +157,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
         {/* ── Subvention cantonale ── */}
         <section>
           <div className="mb-10">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Niveau cantonal</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Niveau cantonal</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Subvention cantonale dans le Canton de Zurich
             </h2>
@@ -211,7 +211,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
                 "Les grandes rénovations de toiture",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <CheckCircle className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-300 text-sm leading-relaxed">{item}</span>
                 </li>
               ))}
@@ -227,7 +227,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
         {/* ── Comment demander ── */}
         <section>
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Étape par étape</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Étape par étape</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Comment demander la subvention dans le Canton de Zurich ?
             </h2>
@@ -236,7 +236,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
             {steps.map(step => (
               <div key={step.n} className="rounded-2xl p-7 text-center" style={{ background: 'linear-gradient(135deg, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>
                 <div className="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-base mx-auto mb-5"
-                  style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                  style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
                   {step.n}
                 </div>
                 <h3 className="font-bold text-gray-900 text-sm mb-3">Étape {step.n} — {step.title}</h3>
@@ -244,7 +244,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
                   {step.link ? (
                     <>
                       Après l&apos;{' '}
-                      <Link href="/fr/installer-panneau-solaire-suisse" className="text-[#F97316] hover:underline font-medium">installation</Link>,
+                      <Link href="/fr/installer-panneau-solaire-suisse" className="text-[#fcb210] hover:underline font-medium">installation</Link>,
                       l&apos;installateur enregistre l&apos;installation auprès de Pronovo pour la RU.
                     </>
                   ) : step.text}
@@ -257,7 +257,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
         {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
           <div className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
             <FileText className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
@@ -270,16 +270,16 @@ export default function SubventionsSolairesCantonsZurichPage() {
             <Link
               href="/fr/demande"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-              style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+              style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
             >
               Demander une offre gratuite <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
           <p className="text-gray-500 text-sm mt-5">
             Voulez-vous d&apos;abord{' '}
-            <Link href="/fr/demander-offre-panneau-solaire" className="text-[#F97316] hover:underline font-medium">comparer des offres</Link> ?{' '}
+            <Link href="/fr/demander-offre-panneau-solaire" className="text-[#fcb210] hover:underline font-medium">comparer des offres</Link> ?{' '}
             Ou toutes les{' '}
-            <Link href="/fr/subventions-solaires" className="text-[#F97316] hover:underline font-medium">subventions suisses</Link>{' '}
+            <Link href="/fr/subventions-solaires" className="text-[#fcb210] hover:underline font-medium">subventions suisses</Link>{' '}
             en aperçu ?
           </p>
         </section>
@@ -287,7 +287,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
         {/* ── FAQ ── */}
         <section>
           <div className="text-center mb-10">
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Questions fréquentes</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Questions fréquentes</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Questions fréquemment posées</h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -295,7 +295,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
               <details key={i} className="group rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
                 <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-gray-900 text-sm select-none list-none">
                   {faq.question}
-                  <span className="ml-4 text-[#F97316] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
+                  <span className="ml-4 text-[#fcb210] flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
                 </summary>
                 <div className="px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-50">
                   <p className="pt-4">{faq.answer}</p>
@@ -316,7 +316,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
                 Demander des offres
               </Link>
               <Link href="/fr/demande" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
-                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}>
+                style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
                 Demander une offre <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

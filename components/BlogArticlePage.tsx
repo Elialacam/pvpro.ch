@@ -54,7 +54,7 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
         {/* Dark overlay */}
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(13,17,23,0.88) 0%, rgba(26,34,54,0.82) 100%)' }} />
         {/* Orange radial glow */}
-        <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(circle at 70% 30%, #F97316 0%, transparent 55%)' }} />
+        <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(circle at 70% 30%, #fcb210 0%, transparent 55%)' }} />
 
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
 
@@ -92,7 +92,7 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
               {heroStats.map(s => (
                 <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)' }}>
                   <p className="text-lg font-bold text-white mb-0.5">{s.value}</p>
-                  <p className="text-[#F97316] text-xs font-semibold leading-tight">{s.label}</p>
+                  <p className="text-[#fcb210] text-xs font-semibold leading-tight">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -133,7 +133,7 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
                   <ul className="space-y-2.5 my-5">
                     {section.bullets.map((b, j) => (
                       <li key={j} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
                         <span className="text-gray-700 text-sm leading-relaxed">{b}</span>
                       </li>
                     ))}
@@ -152,14 +152,14 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
 
             {/* ── CTA block ── */}
             <section className="rounded-3xl p-8 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
-              <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #F97316 0%, transparent 55%)' }} />
+              <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #fcb210 0%, transparent 55%)' }} />
               <div className="relative">
                 <h2 className="text-2xl font-bold text-white mb-3">{article.ctaHeading}</h2>
                 <p className="text-gray-400 leading-relaxed mb-6 text-sm">{article.ctaText}</p>
                 <Link
                   href={article.formUrl}
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-                  style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+                  style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
                 >
                   {article.ctaButton} <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -175,7 +175,7 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
                     <details key={i} className="group rounded-2xl border border-gray-100 bg-white overflow-hidden shadow-sm">
                       <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-gray-900 text-sm select-none list-none">
                         {faq.question}
-                        <span className="ml-4 text-[#F97316] flex-shrink-0 text-xl font-light group-open:rotate-45 transition-transform duration-200">+</span>
+                        <span className="ml-4 text-[#fcb210] flex-shrink-0 text-xl font-light group-open:rotate-45 transition-transform duration-200">+</span>
                       </summary>
                       <div className="px-6 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-50">
                         <p className="pt-4">{faq.answer}</p>
@@ -201,7 +201,7 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
                 <Link
                   href={article.formUrl}
                   className="block w-full py-3 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity"
-                  style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+                  style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
                 >
                   {article.ctaButton} →
                 </Link>
@@ -216,9 +216,9 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
                       <Link
                         key={p.slug}
                         href={p.href ?? `${blogBase}/${p.slug}`}
-                        className="flex items-start gap-2 text-sm text-gray-700 hover:text-[#F97316] transition-colors leading-snug border-b border-gray-50 last:border-0 pb-2.5 last:pb-0"
+                        className="flex items-start gap-2 text-sm text-gray-700 hover:text-[#fcb210] transition-colors leading-snug border-b border-gray-50 last:border-0 pb-2.5 last:pb-0"
                       >
-                        <ArrowRight className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-[#F97316]" />
+                        <ArrowRight className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-[#fcb210]" />
                         {p.title}
                       </Link>
                     ))}
@@ -235,9 +235,9 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
                       <Link
                         key={p.href}
                         href={p.href}
-                        className="flex items-start gap-2 text-sm text-gray-700 hover:text-[#F97316] transition-colors leading-snug border-b border-gray-50 last:border-0 pb-2.5 last:pb-0"
+                        className="flex items-start gap-2 text-sm text-gray-700 hover:text-[#fcb210] transition-colors leading-snug border-b border-gray-50 last:border-0 pb-2.5 last:pb-0"
                       >
-                        <ArrowRight className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-[#F97316]" />
+                        <ArrowRight className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-[#fcb210]" />
                         {p.label}
                       </Link>
                     ))}
@@ -248,7 +248,7 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
               {/* Back to blog */}
               <Link
                 href={blogBase}
-                className="flex items-center gap-2 text-sm text-gray-400 hover:text-[#F97316] transition-colors"
+                className="flex items-center gap-2 text-sm text-gray-400 hover:text-[#fcb210] transition-colors"
               >
                 ← {backLabel}
               </Link>

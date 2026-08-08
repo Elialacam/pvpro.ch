@@ -21,19 +21,19 @@ export default function CityPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="flex flex-col gap-3 max-w-2xl">
             <div className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
-              <ArrowRight className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+              <ArrowRight className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
               <p className="text-gray-600 text-sm">
                 Informationen zur{' '}
-                <Link href="/bewilligungspflicht-solaranlage-schweiz" className="text-[#F97316] hover:underline font-medium">
+                <Link href="/bewilligungspflicht-solaranlage-schweiz" className="text-[#fcb210] hover:underline font-medium">
                   Bewilligungspflicht im Kanton Zürich
                 </Link>
                 {' '}— Wann brauchen Sie eine Baugenehmigung und wann genügt eine Meldung?
               </p>
             </div>
             <div className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
-              <ArrowRight className="w-4 h-4 text-[#F97316] flex-shrink-0" />
+              <ArrowRight className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
               <p className="text-gray-600 text-sm">
-                <Link href="/foerderungen-kanton-zuerich" className="text-[#F97316] hover:underline font-medium">
+                <Link href="/foerderungen-kanton-zuerich" className="text-[#fcb210] hover:underline font-medium">
                   Alle Förderungen im Kanton Zürich
                 </Link>
                 {' '}— EIV, kantonale Beiträge, Solarpflicht und steuerliche Abzüge im Detail.

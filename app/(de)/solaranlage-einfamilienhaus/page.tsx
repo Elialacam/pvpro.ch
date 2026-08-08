@@ -54,7 +54,7 @@ export default function SolaranlageEinfamilienhausPage() {
       {/* ── Hero ── */}
       <section className="relative bg-[#0f1f3d] pt-28 pb-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />
+          style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
             <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
@@ -75,7 +75,7 @@ export default function SolaranlageEinfamilienhausPage() {
               <Link
                 href="/anfrage"
                 className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-                style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+                style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
               >
                 Kostenlose Offerte anfordern <ArrowRight className="w-4 h-4" />
               </Link>
@@ -103,7 +103,7 @@ export default function SolaranlageEinfamilienhausPage() {
         <section>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
             <div className="lg:col-span-2">
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Grössenrechner</p>
+              <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Grössenrechner</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
                 Wie gross sollte Ihre Solaranlage sein?
               </h2>
@@ -124,7 +124,7 @@ export default function SolaranlageEinfamilienhausPage() {
         {/* ── Cost table ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Kosten</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Kosten</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Was kostet eine Solaranlage für ein Einfamilienhaus?
             </h2>
@@ -140,7 +140,7 @@ export default function SolaranlageEinfamilienhausPage() {
               {costRows.map((row) => (
                 <div key={row.size} className={`grid grid-cols-2 px-5 py-4 border-t border-gray-100 ${row.highlight ? 'bg-orange-50' : 'bg-white'}`}>
                   <span className="font-bold text-gray-800 text-sm">{row.size}</span>
-                  <span className={`font-bold text-sm ${row.highlight ? 'text-[#F97316]' : 'text-gray-700'}`}>{row.price}</span>
+                  <span className={`font-bold text-sm ${row.highlight ? 'text-[#fcb210]' : 'text-gray-700'}`}>{row.price}</span>
                 </div>
               ))}
             </div>
@@ -153,7 +153,7 @@ export default function SolaranlageEinfamilienhausPage() {
         {/* ── Production ── */}
         <section className="rounded-3xl bg-[#0f1f3d] p-8 sm:p-12 overflow-hidden relative">
           <div className="absolute inset-0 opacity-10"
-            style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #F97316 0%, transparent 55%)' }} />
+            style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #fcb210 0%, transparent 55%)' }} />
           <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">Stromproduktion</p>
@@ -175,7 +175,7 @@ export default function SolaranlageEinfamilienhausPage() {
                     <span className="text-white font-bold">{row.value}</span>
                   </div>
                   <div className="h-2 rounded-full bg-white/10">
-                    <div className="h-2 rounded-full bg-[#F97316]" style={{ width: `${row.pct}%` }} />
+                    <div className="h-2 rounded-full bg-[#fcb210]" style={{ width: `${row.pct}%` }} />
                   </div>
                 </div>
               ))}
@@ -192,7 +192,7 @@ export default function SolaranlageEinfamilienhausPage() {
             <Image src="/images/asset-beratung-indoor-2.webp" alt="Solaranlage Beratung" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" />
           </div>
           <div>
-            <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Wirtschaftlichkeit</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Wirtschaftlichkeit</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Lohnt sich eine Solaranlage für ein Einfamilienhaus?
             </h2>
@@ -200,18 +200,18 @@ export default function SolaranlageEinfamilienhausPage() {
               Ja, in den meisten Fällen lohnt sich eine Photovoltaikanlage langfristig. Durch Eigenverbrauch und Förderungen amortisiert sich die Anlage über die Jahre.
             </p>
             <p className="text-gray-500 text-sm leading-relaxed mb-4">
-              <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#F97316] hover:underline font-medium">Lohnt sich Solar für Ihr Haus?</Link>
+              <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#fcb210] hover:underline font-medium">Lohnt sich Solar für Ihr Haus?</Link>
               {' '}·{' '}
-              <Link href="/blog/solaranlage-steuerabzug-schweiz-2026" className="text-[#F97316] hover:underline font-medium">Solaranlage von Steuern abziehen</Link>
+              <Link href="/blog/solaranlage-steuerabzug-schweiz-2026" className="text-[#fcb210] hover:underline font-medium">Solaranlage von Steuern abziehen</Link>
               {' '}·{' '}
-              <Link href="/blog/solaranlage-waermepumpe-kombinieren-schweiz" className="text-[#F97316] hover:underline font-medium">Solaranlage + Wärmepumpe kombinieren</Link>
+              <Link href="/blog/solaranlage-waermepumpe-kombinieren-schweiz" className="text-[#fcb210] hover:underline font-medium">Solaranlage + Wärmepumpe kombinieren</Link>
               {' '}·{' '}
-              <Link href="/blog/besten-solarinstallateur-schweiz-finden" className="text-[#F97316] hover:underline font-medium">Solarinstallateur für Einfamilienhaus finden</Link>
+              <Link href="/blog/besten-solarinstallateur-schweiz-finden" className="text-[#fcb210] hover:underline font-medium">Solarinstallateur für Einfamilienhaus finden</Link>
             </p>
             <div className="space-y-3">
               {benefits.map((b) => (
                 <div key={b} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#F97316] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#fcb210] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">{b}</span>
                 </div>
               ))}
@@ -223,7 +223,7 @@ export default function SolaranlageEinfamilienhausPage() {
         <section className="bg-gray-50 rounded-3xl p-8 sm:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Förderungen</p>
+              <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Förderungen</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
                 Förderungen für Solaranlagen in der Schweiz
               </h2>
@@ -237,12 +237,12 @@ export default function SolaranlageEinfamilienhausPage() {
                   'Steuerliche Abzüge auf Bundesebene',
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700 text-sm">{item}</span>
                   </div>
                 ))}
               </div>
-              <Link href="/foerderungen" className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-[#F97316] hover:underline">
+              <Link href="/foerderungen" className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-[#fcb210] hover:underline">
                 Alle Förderungen ansehen <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -252,7 +252,7 @@ export default function SolaranlageEinfamilienhausPage() {
                 { label: 'Bundesförderung EIV', value: '– 3\'600 CHF', color: 'text-green-600' },
                 { label: 'Kantonale Förderung', value: 'variiert', color: 'text-green-600' },
                 { label: 'Steuerabzüge', value: 'variiert', color: 'text-green-600' },
-                { label: 'Effektive Kosten', value: "ca. 20'000 – 26'000 CHF", color: 'text-[#F97316]', highlight: true },
+                { label: 'Effektive Kosten', value: "ca. 20'000 – 26'000 CHF", color: 'text-[#fcb210]', highlight: true },
               ].map((row, i) => (
                 <div key={row.label} className={`flex justify-between items-center px-5 py-3.5 rounded-xl ${row.highlight ? 'bg-orange-50 border border-orange-100' : 'bg-white border border-gray-100'}`}>
                   <span className={`text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>
@@ -265,7 +265,7 @@ export default function SolaranlageEinfamilienhausPage() {
 
         {/* ── Speicher ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Speicher</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Speicher</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">Mit oder ohne Batteriespeicher?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-gray-100 p-6 shadow-sm bg-white">
@@ -277,44 +277,44 @@ export default function SolaranlageEinfamilienhausPage() {
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Eigenverbrauch ca. 25–40 %</span></div>
               </div>
             </div>
-            <div className="rounded-2xl border border-[#F97316]/30 p-6 shadow-sm bg-orange-50">
+            <div className="rounded-2xl border border-[#fcb210]/30 p-6 shadow-sm bg-orange-50">
               <p className="font-bold text-gray-900 text-lg mb-1">Mit Batteriespeicher</p>
-              <p className="text-sm text-[#F97316] font-semibold mb-4">Empfohlen bei hohem Verbrauch</p>
+              <p className="text-sm text-[#fcb210] font-semibold mb-4">Empfohlen bei hohem Verbrauch</p>
               <div className="space-y-2 text-sm text-gray-600">
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0" /><span>Eigenverbrauch bis 50–65 %</span></div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0" /><span>Strom auch am Abend nutzen</span></div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#F97316] flex-shrink-0" /><span>Höhere Unabhängigkeit</span></div>
+                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Eigenverbrauch bis 50–65 %</span></div>
+                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Strom auch am Abend nutzen</span></div>
+                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Höhere Unabhängigkeit</span></div>
               </div>
             </div>
           </div>
-          <Link href="/solaranlage-mit-speicher" className="inline-flex items-center gap-2 mt-5 text-sm font-bold text-[#F97316] hover:underline">
+          <Link href="/solaranlage-mit-speicher" className="inline-flex items-center gap-2 mt-5 text-sm font-bold text-[#fcb210] hover:underline">
             Mehr über Batteriespeicher erfahren <ArrowRight className="w-4 h-4" />
           </Link>
-          <Link href="/blog/batteriespeicher-brandgefahr-sicherheit-schweiz" className="inline-flex items-center gap-2 mt-3 text-sm font-semibold text-gray-500 hover:text-[#F97316] hover:underline">
+          <Link href="/blog/batteriespeicher-brandgefahr-sicherheit-schweiz" className="inline-flex items-center gap-2 mt-3 text-sm font-semibold text-gray-500 hover:text-[#fcb210] hover:underline">
             Batteriespeicher sicher installieren <ArrowRight className="w-4 h-4" />
           </Link>
-          <Link href="/blog/solaranlage-installateur-konkurs-garantie-schweiz" className="inline-flex items-center gap-2 mt-3 text-sm font-semibold text-gray-500 hover:text-[#F97316] hover:underline">
+          <Link href="/blog/solaranlage-installateur-konkurs-garantie-schweiz" className="inline-flex items-center gap-2 mt-3 text-sm font-semibold text-gray-500 hover:text-[#fcb210] hover:underline">
             Was passiert wenn der Installateur pleite geht? <ArrowRight className="w-4 h-4" />
           </Link>
-          <Link href="/blog/chinesische-vs-europaeische-solarmodule-schweiz" className="inline-flex items-center gap-2 mt-3 text-sm font-semibold text-gray-500 hover:text-[#F97316] hover:underline">
+          <Link href="/blog/chinesische-vs-europaeische-solarmodule-schweiz" className="inline-flex items-center gap-2 mt-3 text-sm font-semibold text-gray-500 hover:text-[#fcb210] hover:underline">
             Die besten Solarmodule für Ihr Einfamilienhaus <ArrowRight className="w-4 h-4" />
           </Link>
-          <Link href="/blog/solaranlage-norddach-schweiz" className="inline-flex items-center gap-2 mt-3 text-sm font-semibold text-gray-500 hover:text-[#F97316] hover:underline">
+          <Link href="/blog/solaranlage-norddach-schweiz" className="inline-flex items-center gap-2 mt-3 text-sm font-semibold text-gray-500 hover:text-[#fcb210] hover:underline">
             Solaranlage auch auf dem Norddach möglich <ArrowRight className="w-4 h-4" />
           </Link>
         </section>
 
         {/* ── Factors ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Einflussfaktoren</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Einflussfaktoren</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">Welche Faktoren beeinflussen die Kosten?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {factors.map((f) => {
               const Icon = f.icon;
               return (
                 <div key={f.title} className="flex gap-4 items-start bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-                  <div className="w-10 h-10 rounded-xl bg-[#F97316]/10 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-5 h-5 text-[#F97316]" />
+                  <div className="w-10 h-10 rounded-xl bg-[#fcb210]/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-5 h-5 text-[#fcb210]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 mb-1">{f.title}</h3>
@@ -328,14 +328,14 @@ export default function SolaranlageEinfamilienhausPage() {
 
         {/* ── Example ── */}
         <section className="bg-gray-50 rounded-3xl p-8 sm:p-12">
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Rechenbeispiel</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Rechenbeispiel</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">Beispiel: Solaranlage für ein Einfamilienhaus</h2>
           <div className="max-w-lg">
             <div className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
               {exampleRows.map((row, i) => (
                 <div key={row.label} className={`flex justify-between items-center px-6 py-4 ${i !== 0 ? 'border-t border-gray-100' : ''} ${row.highlight ? 'bg-orange-50' : 'bg-white'}`}>
                   <span className={`text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>
-                  <span className={`font-bold ${row.highlight ? 'text-[#F97316] text-base' : 'text-gray-900 text-sm'}`}>{row.value}</span>
+                  <span className={`font-bold ${row.highlight ? 'text-[#fcb210] text-base' : 'text-gray-900 text-sm'}`}>{row.value}</span>
                 </div>
               ))}
             </div>
@@ -344,7 +344,7 @@ export default function SolaranlageEinfamilienhausPage() {
 
         {/* ── FAQ ── */}
         <section>
-          <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">FAQ</p>
+          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">FAQ</p>
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
             Häufig gestellte Fragen zur Solaranlage Einfamilienhaus
           </h2>
@@ -353,7 +353,7 @@ export default function SolaranlageEinfamilienhausPage() {
 
         {/* ── CTA ── */}
         <section className="rounded-3xl p-10 sm:p-14 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-          <Sun className="w-10 h-10 text-[#F97316] mx-auto mb-4" />
+          <Sun className="w-10 h-10 text-[#fcb210] mx-auto mb-4" />
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
             Angebote vergleichen und Kosten optimieren
           </h2>
@@ -363,29 +363,29 @@ export default function SolaranlageEinfamilienhausPage() {
           <Link
             href="/anfrage"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-            style={{ background: 'linear-gradient(135deg, #fb923c, #F97316)' }}
+            style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
           >
             Kostenlose Offerte anfordern →
           </Link>
           <p className="text-gray-500 text-sm mt-5">
             Möchten Sie zuerst Anbieter vergleichen?{' '}
-            <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#F97316] hover:underline font-medium">Photovoltaik Anbieter vergleichen</Link>
+            <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#fcb210] hover:underline font-medium">Photovoltaik Anbieter vergleichen</Link>
             {' '}·{' '}
-            <Link href="/solaranlage-installieren-schweiz" className="text-[#F97316] hover:underline font-medium">Wie läuft die Installation ab?</Link>
+            <Link href="/solaranlage-installieren-schweiz" className="text-[#fcb210] hover:underline font-medium">Wie läuft die Installation ab?</Link>
             {' '}·{' '}
-            <Link href="/solaranlage-offerte-einholen" className="text-[#F97316] hover:underline font-medium">Jetzt Offerten einholen</Link>
+            <Link href="/solaranlage-offerte-einholen" className="text-[#fcb210] hover:underline font-medium">Jetzt Offerten einholen</Link>
             {' '}·{' '}
-            <Link href="/foerderungen-kanton-zuerich" className="text-[#F97316] hover:underline font-medium">Förderung im Kanton Zürich</Link>
+            <Link href="/foerderungen-kanton-zuerich" className="text-[#fcb210] hover:underline font-medium">Förderung im Kanton Zürich</Link>
             {' '}·{' '}
-            <Link href="/photovoltaik-schweizer-klima" className="text-[#F97316] hover:underline font-medium">Welche Module passen zum Schweizer Klima?</Link>
+            <Link href="/photovoltaik-schweizer-klima" className="text-[#fcb210] hover:underline font-medium">Welche Module passen zum Schweizer Klima?</Link>
             {' '}·{' '}
-            <Link href="/photovoltaik-installation-schweiz" className="text-[#F97316] hover:underline font-medium">Installationsablauf Schritt für Schritt</Link>
+            <Link href="/photovoltaik-installation-schweiz" className="text-[#fcb210] hover:underline font-medium">Installationsablauf Schritt für Schritt</Link>
             {' '}·{' '}
-            <Link href="/photovoltaik-komplettloesung-schweiz" className="text-[#F97316] hover:underline font-medium">Komplettlösung für Ihr Einfamilienhaus</Link>
+            <Link href="/photovoltaik-komplettloesung-schweiz" className="text-[#fcb210] hover:underline font-medium">Komplettlösung für Ihr Einfamilienhaus</Link>
             {' '}·{' '}
-            <Link href="/photovoltaik-wartung-kosten" className="text-[#F97316] hover:underline font-medium">Was kostet die Wartung?</Link>
+            <Link href="/photovoltaik-wartung-kosten" className="text-[#fcb210] hover:underline font-medium">Was kostet die Wartung?</Link>
             {' '}·{' '}
-            <Link href="/solaranlagen-typen-vergleich" className="text-[#F97316] hover:underline font-medium">Welcher Modultyp ist der richtige?</Link>
+            <Link href="/solaranlagen-typen-vergleich" className="text-[#fcb210] hover:underline font-medium">Welcher Modultyp ist der richtige?</Link>
           </p>
         </section>
 

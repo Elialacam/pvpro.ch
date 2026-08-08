@@ -433,7 +433,7 @@ export default function Header() {
               style={
                 transparent
                   ? { borderColor: 'rgba(255,255,255,0.9)', color: 'white' }
-                  : { borderColor: '#F97316', color: '#F97316' }
+                  : { borderColor: '#fcb210', color: '#fcb210' }
               }
             >
               {cta}
