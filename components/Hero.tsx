@@ -203,16 +203,22 @@ export default function Hero() {
         </p>
 
         {/* Trustpilot badge */}
-        <div className="mt-4 inline-block rounded-xl px-3 py-2" style={{ background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(6px)' }}>
+        <a
+          href="https://it.trustpilot.com/review/pvpro.ch"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-block rounded-xl px-3 py-2"
+          style={{ background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(6px)' }}
+        >
           <img
             src="/images/trustpilot-badge.png"
             alt="Trustpilot 5 Sterne"
-            width={140}
-            height={76}
+            width={160}
+            height={87}
             loading="eager"
             decoding="async"
           />
-        </div>
+        </a>
       </div>
 
       {/* Premium widget — bottom right */}
