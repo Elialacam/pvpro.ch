@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, FileText, Clock, Coins } from 'lucide-react';
 import { Metadata } from 'next';
 import FaqSchema from '@/components/FaqSchema';
@@ -188,7 +189,7 @@ export default function RichiederePrevenitivoSolarePage() {
         {/* ── Contenuto di un buon preventivo ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <img loading="lazy" src="/images/asset-beratung-indoor-2.webp" alt="Preventivo solare Svizzera" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Preventivo solare Svizzera" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
           </div>
           <div>
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Lista di controllo</p>

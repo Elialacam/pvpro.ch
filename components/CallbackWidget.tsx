@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Check, ChevronDown, Send } from 'lucide-react';
@@ -260,12 +261,7 @@ export default function CallbackWidget() {
               />
               <div className="relative flex items-center gap-3">
                 <div className="relative shrink-0">
-                  <img
-                    src="/images/consultant.png"
-                    alt={t.alt}
-                    className="h-11 w-11 rounded-full object-cover object-center"
-                    style={{ border: `2px solid ${GOLD}` }}
-                  />
+                  <Image src="/images/consultant.png" alt={t.alt} width={256} height={256} sizes="44px" className="h-11 w-11 rounded-full object-cover object-center" />
                   <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-[#0f172a] bg-green-400" />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -520,11 +516,7 @@ export default function CallbackWidget() {
                 transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
               />
               <span className="absolute inset-[3px] overflow-hidden rounded-full bg-white shadow-lg">
-                <img
-                  src="/images/consultant.png"
-                  alt={t.alt}
-                  className="h-full w-full object-cover object-center"
-                />
+                <Image src="/images/consultant.png" alt={t.alt} width={256} height={256} sizes="56px" className="h-full w-full object-cover object-center" />
               </span>
               <span className="absolute bottom-0.5 right-0.5 z-10 h-3.5 w-3.5 rounded-full border-2 border-white bg-green-400" />
             </button>

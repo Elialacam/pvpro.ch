@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
 import WieFunktioniertInteractive from '@/components/WieFunktioniertInteractive';
@@ -69,11 +70,7 @@ export default function HowSolarWorksPage() {
               </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden self-center shadow-2xl mb-8">
-              <img
-                src="/images/wie-funktioniert-solaranlage.webp"
-                alt="How a solar installation works – illustration with sun, solar modules, inverter, storage and household electricity"
-                className="w-full h-auto block"
-              />
+              <Image src="/images/wie-funktioniert-solaranlage.webp" alt="How a solar installation works – illustration with sun, solar modules, inverter, storage and household electricity" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-auto block" />
             </div>
           </div>
         </div>

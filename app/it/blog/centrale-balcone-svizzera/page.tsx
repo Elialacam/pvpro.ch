@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight, Calendar, Clock, CheckCircle2, XCircle, ArrowRight, AlertTriangle, Zap, TrendingUp } from 'lucide-react';
 import { Metadata } from 'next';
 
@@ -36,11 +37,7 @@ export default function CentraleBalconeSvizzeraPage() {
 
       {/* ── Hero ── */}
       <section className="relative bg-[#0f1f3d] pt-28 pb-16 overflow-hidden min-h-[480px] flex flex-col justify-end">
-        <img
-          src="/images/balkonkraftwerk-schweiz.webp"
-          alt="Centrale solare da balcone in Svizzera – mini-impianto su balcone con vista sulle Alpi"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
+        <Image src="/images/balkonkraftwerk-schweiz.webp" alt="Centrale solare da balcone in Svizzera – mini-impianto su balcone con vista sulle Alpi" fill sizes="100vw" className="object-cover object-center" />
         <div className="absolute inset-0 bg-[#0f1f3d]/70" />
         <div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #F97316 0%, transparent 55%)' }} />

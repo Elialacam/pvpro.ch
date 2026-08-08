@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, Star, BarChart2, Users } from 'lucide-react';
 import { Metadata } from 'next';
 import FaqSchema from '@/components/FaqSchema';
@@ -160,11 +161,7 @@ export default function VergleichsportalPage() {
             </ul>
           </div>
           <div className="rounded-3xl overflow-hidden">
-            <img
-              src="/images/asset-beratung-indoor-2.webp"
-              alt="Vergleich Photovoltaik Anbieter Schweiz"
-              className="w-full h-72 object-cover rounded-3xl"
-            />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Vergleich Photovoltaik Anbieter Schweiz" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Wussten Sie?</p>
               <p className="text-gray-700 text-sm leading-relaxed">
@@ -218,11 +215,7 @@ export default function VergleichsportalPage() {
         {/* ── Welche Anbieter empfehlenswert ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="rounded-3xl overflow-hidden">
-            <img
-              src="/images/asset-installateur-dach-2.webp"
-              alt="Zertifizierter Photovoltaik Installateur Schweiz"
-              className="w-full h-72 object-cover rounded-3xl object-top"
-            />
+            <Image src="/images/asset-installateur-dach-2.webp" alt="Zertifizierter Photovoltaik Installateur Schweiz" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" />
           </div>
           <div>
             <p className="text-xs font-bold text-[#F97316] uppercase tracking-widest mb-3">Qualitätskriterien</p>

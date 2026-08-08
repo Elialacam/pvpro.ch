@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight, Sun, CheckCircle2, TrendingUp, Users, Building2, Zap, ArrowRight, BarChart3 } from 'lucide-react';
 import { Metadata } from 'next';
 import MehrfamilienhausRechner, { MehrfamilienhausFaq } from '@/components/MehrfamilienhausRechner';
@@ -132,7 +133,7 @@ export default function SolareCondominioPage() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <img loading="lazy" src="/images/asset-haus-luftbild-3.webp" alt="Condominio con impianto solare" className="w-full h-80 object-cover" />
+            <Image src="/images/asset-haus-luftbild-3.webp" alt="Condominio con impianto solare" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" />
           </div>
         </section>
 
@@ -189,7 +190,7 @@ export default function SolareCondominioPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <img loading="lazy" src="/images/asset-installateur-dach-5.webp" alt="Montaggio impianto solare condominio" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-installateur-dach-5.webp" alt="Montaggio impianto solare condominio" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>
@@ -269,7 +270,7 @@ export default function SolareCondominioPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img loading="lazy" src="/images/asset-haus-solar-ev-1.webp" alt="Condominio solare investimento" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-haus-solar-ev-1.webp" alt="Condominio solare investimento" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>
@@ -316,7 +317,7 @@ export default function SolareCondominioPage() {
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <img loading="lazy" src="/images/asset-beratung-indoor-3.webp" alt="Pianificazione impianto solare condominio" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-beratung-indoor-3.webp" alt="Pianificazione impianto solare condominio" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>

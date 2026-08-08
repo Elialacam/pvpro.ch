@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, Wrench, Clock, Sun } from 'lucide-react';
 import { Metadata } from 'next';
 import FaqSchema from '@/components/FaqSchema';
@@ -220,7 +221,7 @@ export default function InstallerPanneauSolaireSuissePage() {
             </div>
           </div>
           <div>
-            <img loading="lazy" src="/images/asset-installateur-dach-2.webp" alt="Installation solaire Suisse" className="w-full h-72 object-cover rounded-3xl object-top" />
+            <Image src="/images/asset-installateur-dach-2.webp" alt="Installation solaire Suisse" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" />
           </div>
         </section>
 
@@ -292,7 +293,7 @@ export default function InstallerPanneauSolaireSuissePage() {
             </div>
           </div>
           <div>
-            <img loading="lazy" src="/images/asset-beratung-indoor-2.webp" alt="Choisir installateur Suisse" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Choisir installateur Suisse" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Conseil</p>
               <p className="text-gray-700 text-sm leading-relaxed">

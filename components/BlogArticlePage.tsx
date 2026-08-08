@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getImageFocus } from '@/lib/imageFocus';
 import { ChevronRight, Calendar, Clock, ArrowRight, AlertTriangle, CheckCircle2 } from 'lucide-react';
 import { BlogArticle } from '@/lib/blogArticles';
@@ -49,14 +50,7 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
       {/* ── HERO ── */}
       <section className="relative pt-28 pb-14 overflow-hidden min-h-[540px]">
         {/* Background image */}
-        <img
-          src={article.image}
-          alt={article.title}
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: getImageFocus(article.image) }}
-        />
+        <Image src={article.image} alt={article.title} fill sizes="100vw" className="object-cover" priority style={{ objectPosition: getImageFocus(article.image) }} />
         {/* Dark overlay */}
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(13,17,23,0.88) 0%, rgba(26,34,54,0.82) 100%)' }} />
         {/* Orange radial glow */}
