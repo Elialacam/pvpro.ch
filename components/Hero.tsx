@@ -176,7 +176,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="absolute bottom-0 left-0 z-20 w-full pb-14 px-5 sm:px-10 lg:px-16 max-w-4xl">
+      <div className="absolute bottom-0 left-0 z-20 w-full pb-32 sm:pb-20 lg:pb-14 px-5 sm:px-10 lg:px-16 max-w-4xl">
         <h1
           className="text-white font-black leading-none tracking-tight mb-5"
           style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', lineHeight: 1.05 }}
@@ -201,6 +201,19 @@ export default function Hero() {
         <p className="text-white/60 text-sm mt-5 font-medium">
           {content.trustBadge}
         </p>
+
+        {/* Trustpilot badge */}
+        <div className="mt-4">
+          <img
+            src="/images/trustpilot-badge.png"
+            alt="Trustpilot 5 Sterne"
+            width={110}
+            height={45}
+            loading="eager"
+            decoding="async"
+            className="brightness-0 invert opacity-80"
+          />
+        </div>
       </div>
 
       {/* Premium widget — bottom right */}
