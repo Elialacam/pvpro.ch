@@ -217,6 +217,7 @@ export default function Hero() {
             height={87}
             loading="eager"
             decoding="async"
+            className="w-24 sm:w-40"
           />
         </a>
       </div>
