@@ -198,9 +198,11 @@ export default function Hero() {
           {content.cta} →
         </Link>
 
-        <p className="text-white/60 text-sm mt-5 font-medium">
-          {content.trustBadge}
-        </p>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3 mt-5 gap-1">
+          {content.trustBadge.split(' · ').map((item, i) => (
+            <span key={i} className="text-white/60 text-sm font-medium">{item}</span>
+          ))}
+        </div>
 
         {/* Trustpilot badge */}
         <a
