@@ -11,5 +11,6 @@ export const modules: ModuleMap = {
   "./components/mockups/how-it-works/Timeline.tsx": () => import("../components/mockups/how-it-works/Timeline.tsx"),
   "./components/mockups/how-it-works/TimelineMobile.tsx": () => import("../components/mockups/how-it-works/TimelineMobile.tsx"),
   "./components/mockups/how-it-works/TimelineReveal.tsx": () => import("../components/mockups/how-it-works/TimelineReveal.tsx"),
-  "./components/mockups/how-it-works/TimelineStacked.tsx": () => import("../components/mockups/how-it-works/TimelineStacked.tsx")
+  "./components/mockups/how-it-works/TimelineStacked.tsx": () => import("../components/mockups/how-it-works/TimelineStacked.tsx"),
+  "./components/mockups/how-it-works-current/Current.tsx": () => import("../components/mockups/how-it-works-current/Current.tsx")
 };
