@@ -190,11 +190,7 @@ export default function Hero() {
           {content.subtitle}
         </p>
 
-        <Link
-          href={formUrl}
-          className="inline-block font-bold text-base sm:text-lg px-7 py-4 rounded-2xl transition-all shadow-lg"
-          style={{ background: '#F97316', color: '#fff' }}
-        >
+        <Link href={formUrl} className="btn-primary text-base sm:text-lg px-8 py-4">
           {content.cta} →
         </Link>
 

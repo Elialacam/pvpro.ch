@@ -68,20 +68,11 @@ export default function TeamSection() {
   const c = teamContent[locale] || teamContent.de;
 
   return (
-    <section className="relative overflow-hidden bg-[#0f172a] py-16 lg:py-20">
-      {/* Decorative background dots */}
+    <section className="relative overflow-hidden bg-white py-16 lg:py-20">
+      {/* Subtle orange radial glow top-right */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-        }}
-      />
-      {/* Subtle orange glow top-right */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-20 right-0 w-96 h-96 rounded-full opacity-10 blur-3xl"
+        className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-[0.07] blur-3xl"
         style={{ background: '#F97316' }}
       />
 
@@ -97,12 +88,12 @@ export default function TeamSection() {
             </span>
 
             {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-5 max-w-xl">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5 max-w-xl">
               {c.title}
             </h2>
 
             {/* Description */}
-            <p className="text-slate-400 text-base leading-relaxed mb-10 max-w-lg">
+            <p className="text-gray-500 text-base leading-relaxed mb-10 max-w-lg">
               {c.description}
             </p>
 
@@ -111,11 +102,10 @@ export default function TeamSection() {
               {c.stats.map((s, i) => (
                 <div
                   key={i}
-                  className="rounded-2xl px-5 py-4 border border-white/10 text-center"
-                  style={{ background: 'rgba(255,255,255,0.05)' }}
+                  className="rounded-2xl px-5 py-4 border border-orange-100 bg-orange-50 text-center"
                 >
-                  <div className="text-3xl font-black text-white leading-none mb-1">{s.value}</div>
-                  <div className="text-slate-400 text-xs">{s.label}</div>
+                  <div className="text-3xl font-black text-gray-900 leading-none mb-1">{s.value}</div>
+                  <div className="text-gray-500 text-xs">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -123,7 +113,7 @@ export default function TeamSection() {
 
           {/* Right — small portrait card */}
           <div className="flex-shrink-0 flex justify-center lg:justify-end">
-            <div className="relative w-56 h-64 sm:w-64 sm:h-72 rounded-3xl overflow-hidden border-2 border-white/10 shadow-2xl">
+            <div className="relative w-56 h-64 sm:w-64 sm:h-72 rounded-3xl overflow-hidden border border-orange-100 shadow-xl">
               {/* Inner gradient overlay at bottom */}
               <div
                 className="absolute inset-x-0 bottom-0 h-16 z-10"
