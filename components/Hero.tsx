@@ -203,15 +203,14 @@ export default function Hero() {
         </p>
 
         {/* Trustpilot badge */}
-        <div className="mt-4">
+        <div className="mt-4 inline-block rounded-xl px-3 py-2" style={{ background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(6px)' }}>
           <img
             src="/images/trustpilot-badge.png"
             alt="Trustpilot 5 Sterne"
-            width={110}
-            height={45}
+            width={140}
+            height={76}
             loading="eager"
             decoding="async"
-            className="brightness-0 invert opacity-80"
           />
         </div>
       </div>
