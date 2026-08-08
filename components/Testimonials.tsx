@@ -133,7 +133,7 @@ export default function Testimonials() {
     <section className="py-16 bg-white overflow-hidden">
       <div className="container-custom mb-10">
         <div className="text-center">
-          <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">{t.label}</p>
+          <p className="text-sm font-bold text-[#ffc812] uppercase tracking-widest mb-2">{t.label}</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-2">
             {t.heading}
           </h2>

@@ -82,8 +82,8 @@ export default function TeamSection() {
           {/* Left — text + stats (takes most of the space) */}
           <div className="flex-1 min-w-0">
             {/* Eyebrow */}
-            <span className="inline-flex items-center gap-2 text-[#fcb210] text-sm font-bold uppercase tracking-widest mb-5">
-              <span className="block w-6 h-px bg-[#fcb210]" />
+            <span className="inline-flex items-center gap-2 text-[#ffc812] text-sm font-bold uppercase tracking-widest mb-5">
+              <span className="block w-6 h-px bg-[#ffc812]" />
               {c.eyebrow}
             </span>
 

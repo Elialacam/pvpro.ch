@@ -19,9 +19,17 @@ export default function FAQ({ items }: FAQProps) {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const eyebrows: Record<string, string> = { de: 'Häufige Fragen', fr: 'Questions fréquentes', en: 'Common Questions', it: 'Domande frequenti' };
+
   return (
     <section className="section-padding bg-gray-50">
       <div className="container-custom max-w-4xl">
+        {!items && (
+          <div className="text-center mb-10">
+            <p className="text-sm font-bold text-[#ffc812] uppercase tracking-widest mb-2">{eyebrows[locale] ?? eyebrows.de}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">{content.title}</h2>
+          </div>
+        )}
         <div className="space-y-4">
           {faqItems.map((item, index) => (
             <div

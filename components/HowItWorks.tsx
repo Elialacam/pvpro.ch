@@ -8,6 +8,7 @@ import Link from 'next/link';
 const STEP_DURATION = 4000; // ms per step
 
 const content: Record<Locale, {
+  eyebrow: string;
   title: string;
   subtitle: string;
   cta: string;
@@ -15,6 +16,7 @@ const content: Record<Locale, {
   steps: { number: string; title: string; description: string; detail: string }[];
 }> = {
   de: {
+    eyebrow: 'Schritt für Schritt',
     title: "So funktioniert's",
     subtitle: 'In drei einfachen Schritten von der Anfrage bis zur passenden Solar-Offerte.',
     cta: 'Jetzt starten',
@@ -41,6 +43,7 @@ const content: Record<Locale, {
     ],
   },
   fr: {
+    eyebrow: 'Étape par étape',
     title: 'Comment ça marche',
     subtitle: 'En trois étapes simples, de la demande jusqu\'à la bonne offre solaire.',
     cta: 'Commencer',
@@ -67,6 +70,7 @@ const content: Record<Locale, {
     ],
   },
   en: {
+    eyebrow: 'Step by Step',
     title: 'How It Works',
     subtitle: 'Three simple steps from your request to the right solar quote.',
     cta: 'Get Started',
@@ -93,6 +97,7 @@ const content: Record<Locale, {
     ],
   },
   it: {
+    eyebrow: 'Passo dopo passo',
     title: 'Come funziona',
     subtitle: 'Tre semplici passi dalla richiesta al preventivo solare giusto.',
     cta: 'Inizia ora',
@@ -162,7 +167,8 @@ export default function HowItWorks() {
 
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-4">
+          <p className="text-sm font-bold text-[#ffc812] uppercase tracking-widest mb-2">{c.eyebrow}</p>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 mb-4">
             {c.title}
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">

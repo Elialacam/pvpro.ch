@@ -518,7 +518,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6">
         <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-10">
-          <Image src="/logo-pvpro.png" alt="PVPro.ch" width={220} height={64} className="h-14 w-auto" />
+          <Image src="/logo-pvpro.png" alt="PVPro.ch" width={320} height={92} className="h-20 w-auto" priority />
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }}
@@ -754,12 +754,12 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   return (
     <div className="min-h-screen bg-[#fafafa] flex flex-col">
       {/* Header */}
-      <header className="w-full bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
+      <header className="w-full bg-white border-b border-gray-100 px-6 py-6 relative flex items-center justify-center">
         <Link href={locale === 'de' ? '/' : `/${locale}`}>
-          <Image src="/logo-pvpro.png" alt="PVPro.ch" width={220} height={64} className="h-14 w-auto" />
+          <Image src="/logo-pvpro.png" alt="PVPro.ch" width={320} height={92} className="h-20 w-auto" priority />
         </Link>
         {step > 1 && (
-          <button onClick={goBack} className="flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
+          <button onClick={goBack} className="absolute right-6 flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
             <ChevronLeft className="w-4 h-4" />
             {t.back}
           </button>
@@ -767,13 +767,13 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       </header>
 
       {/* Progress bar */}
-      <div className="w-full h-1 bg-gray-100">
-        <motion.div className="h-full" style={{ background: '#fcb210' }} animate={{ width: `${progressPct}%` }} transition={{ duration: 0.4, ease: 'easeOut' }} />
+      <div className="w-full h-1.5 bg-gray-100">
+        <motion.div className="h-full" style={{ background: 'linear-gradient(90deg, #ffc812, #fcb210)' }} animate={{ width: `${progressPct}%` }} transition={{ duration: 0.4, ease: 'easeOut' }} />
       </div>
 
       {/* Step counter */}
       <div className="text-center pt-6 pb-2">
-        <span className="text-xs font-semibold text-gray-400 tracking-widest uppercase">
+        <span className="text-xs font-bold tracking-widest uppercase" style={{ color: '#fcb210' }}>
           {step} / {TOTAL_STEPS}
         </span>
       </div>

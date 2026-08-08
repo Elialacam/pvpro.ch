@@ -65,7 +65,7 @@ export default function BlogSection({ locale = 'de' }: Props) {
         {/* Header */}
         <div className="flex items-end justify-between mb-12">
           <div>
-            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-2">{t.eyebrow}</p>
+            <p className="text-sm font-bold text-[#ffc812] uppercase tracking-widest mb-2">{t.eyebrow}</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
               {t.title}
             </h2>
