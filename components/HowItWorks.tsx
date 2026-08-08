@@ -1,171 +1,250 @@
 'use client';
 
-import { FileText, Search, CheckCircle } from 'lucide-react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocale } from '@/lib/LocaleContext';
 import { Locale } from '@/lib/i18n';
+import Link from 'next/link';
 
-// HowItWorks content per locale
-const howItWorksContent: Record<Locale, {
+const STEP_DURATION = 4000; // ms per step
+
+const content: Record<Locale, {
   title: string;
   subtitle: string;
   cta: string;
-  steps: {
-    step: string;
-    title: string;
-    description: string;
-  }[];
+  ctaHref: string;
+  steps: { number: string; title: string; description: string; detail: string }[];
 }> = {
   de: {
-    title: 'So funktioniert\'s',
-    subtitle: 'In 3 einfachen Schritten vergleichen Sie die Angebote und wählen die günstigste Lösung',
+    title: "So funktioniert's",
+    subtitle: 'In drei einfachen Schritten von der Anfrage bis zur passenden Solar-Offerte.',
     cta: 'Jetzt starten',
+    ctaHref: '/anfrage',
     steps: [
       {
-        step: '1',
+        number: '01',
         title: 'Formular ausfüllen',
-        description: 'Formular ausfüllen (2 Minuten) — kostenlos und unverbindlich.',
+        description: 'In 2 Minuten, kostenlos und unverbindlich.',
+        detail: 'Geben Sie einfach Ihre Adresse und Ihren Stromverbrauch ein. Das dauert weniger als 2 Minuten — ohne Registrierung und völlig kostenlos.',
       },
       {
-        step: '2',
-        title: 'Angebote vergleichen',
-        description: 'Erhalten Sie bis zu 3 massgeschneiderte Offerten von zertifizierten Installateuren in Ihrem Kanton.',
+        number: '02',
+        title: 'Offerten erhalten',
+        description: 'Bis zu 3 Offerten von geprüften Installateuren.',
+        detail: 'Wir schicken Ihre Anfrage an bis zu 3 geprüfte Installateure aus Ihrem Kanton. Sie erhalten konkrete Angebote — transparent und vergleichbar.',
       },
       {
-        step: '3',
-        title: 'Installateur wählen',
-        description: 'Wir vergleichen echte Preise und zertifizierte Installateure in Ihrem Kanton — Sie wählen das beste Angebot.',
+        number: '03',
+        title: 'Vergleichen & wählen',
+        description: 'Sie wählen das beste Angebot — ohne Verpflichtung.',
+        detail: 'Sie vergleichen die Preise und wählen den Installateur, der am besten zu Ihnen passt. Kein Druck, keine versteckten Kosten.',
       },
     ],
   },
   fr: {
     title: 'Comment ça marche',
-    subtitle: 'En 3 étapes simples, comparez les offres et choisissez la solution la plus avantageuse',
-    cta: 'Commencer maintenant',
+    subtitle: 'En trois étapes simples, de la demande jusqu\'à la bonne offre solaire.',
+    cta: 'Commencer',
+    ctaHref: '/fr/demande',
     steps: [
       {
-        step: '1',
+        number: '01',
         title: 'Remplir le formulaire',
-        description: 'Remplissez le formulaire (2 minutes) — gratuit et sans engagement.',
+        description: 'En 2 minutes, gratuit et sans engagement.',
+        detail: 'Entrez simplement votre adresse et votre consommation électrique. Cela prend moins de 2 minutes — sans inscription et entièrement gratuit.',
       },
       {
-        step: '2',
-        title: 'Comparer les offres',
-        description: 'Recevez jusqu\'à 3 devis personnalisés d\'installateurs certifiés dans votre canton.',
+        number: '02',
+        title: 'Recevoir les offres',
+        description: "Jusqu'à 3 offres d'installateurs certifiés.",
+        detail: "Nous transmettons votre demande à jusqu'à 3 installateurs certifiés de votre canton. Vous recevez des offres concrètes — transparentes et comparables.",
       },
       {
-        step: '3',
-        title: 'Choisir l\'installateur',
-        description: 'Nous comparons les prix réels et les installateurs certifiés dans votre canton — vous choisissez la meilleure offre.',
+        number: '03',
+        title: 'Comparer & choisir',
+        description: 'Vous choisissez la meilleure offre — sans obligation.',
+        detail: "Vous comparez les prix et choisissez l'installateur qui vous convient le mieux. Sans pression, sans frais cachés.",
       },
     ],
   },
   en: {
     title: 'How It Works',
-    subtitle: 'In 3 simple steps, compare offers and choose the most affordable solution',
+    subtitle: 'Three simple steps from your request to the right solar quote.',
     cta: 'Get Started',
+    ctaHref: '/en/request',
     steps: [
       {
-        step: '1',
+        number: '01',
         title: 'Fill Out the Form',
-        description: 'Fill out the form (2 minutes) — free and no obligation.',
+        description: 'In 2 minutes, free and no obligation.',
+        detail: 'Just enter your address and energy consumption. It takes less than 2 minutes — no registration required and completely free.',
       },
       {
-        step: '2',
-        title: 'Compare Quotes',
-        description: 'Receive up to 3 customized quotes from certified installers in your canton.',
+        number: '02',
+        title: 'Receive Quotes',
+        description: 'Up to 3 quotes from certified installers.',
+        detail: 'We send your request to up to 3 certified installers in your canton. You receive concrete offers — transparent and comparable.',
       },
       {
-        step: '3',
-        title: 'Choose Your Installer',
-        description: 'We compare real prices and certified installers in your canton — you choose the best offer.',
+        number: '03',
+        title: 'Compare & Choose',
+        description: 'You choose the best offer — no commitment.',
+        detail: 'You compare prices and choose the installer that suits you best. No pressure, no hidden costs.',
       },
     ],
   },
   it: {
     title: 'Come funziona',
-    subtitle: 'In 3 semplici passi confronti le offerte e scegli la soluzione più conveniente',
+    subtitle: 'Tre semplici passi dalla richiesta al preventivo solare giusto.',
     cta: 'Inizia ora',
+    ctaHref: '/it/richiedere-preventivo-solare',
     steps: [
       {
-        step: '1',
+        number: '01',
         title: 'Compila il modulo',
-        description: 'Compila il modulo (2 minuti) — gratuito e senza impegno.',
+        description: 'In 2 minuti, gratuito e senza impegno.',
+        detail: 'Inserisci semplicemente il tuo indirizzo e il consumo energetico. Ci vogliono meno di 2 minuti — senza registrazione e completamente gratuito.',
       },
       {
-        step: '2',
-        title: 'Confronta i preventivi',
-        description: 'Ricevi fino a 3 preventivi personalizzati da installatori certificati in Ticino.',
+        number: '02',
+        title: 'Ricevi i preventivi',
+        description: 'Fino a 3 preventivi da installatori certificati.',
+        detail: 'Inviamo la tua richiesta a fino a 3 installatori certificati in Ticino. Ricevi offerte concrete — trasparenti e confrontabili.',
       },
       {
-        step: '3',
-        title: 'Scegli il tuo installatore',
-        description: 'Confrontiamo prezzi reali e installatori certificati in Ticino — tu scegli l\'offerta migliore.',
+        number: '03',
+        title: 'Confronta & scegli',
+        description: "Scegli l'offerta migliore — senza impegno.",
+        detail: "Confronti i prezzi e scegli l'installatore più adatto. Nessuna pressione, nessun costo nascosto.",
       },
     ],
   },
 };
 
-const icons = [FileText, Search, CheckCircle];
-
 export default function HowItWorks() {
   const locale = useLocale();
-  const content = howItWorksContent[locale] || howItWorksContent.de;
+  const c = content[locale] || content.de;
+  const [active, setActive] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const rafRef = useRef<number | null>(null);
+  const startRef = useRef<number>(Date.now());
+
+  const goTo = useCallback((idx: number) => {
+    setActive(idx);
+    setProgress(0);
+    startRef.current = Date.now();
+  }, []);
+
+  // Tick progress bar
+  useEffect(() => {
+    const tick = () => {
+      const elapsed = Date.now() - startRef.current;
+      const pct = Math.min(elapsed / STEP_DURATION, 1);
+      setProgress(pct);
+      if (pct < 1) {
+        rafRef.current = requestAnimationFrame(tick);
+      } else {
+        setActive(prev => (prev + 1) % c.steps.length);
+        setProgress(0);
+        startRef.current = Date.now();
+        rafRef.current = requestAnimationFrame(tick);
+      }
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+  }, [c.steps.length]);
+
+  const step = c.steps[active];
 
   return (
     <section className="section-padding bg-gray-50">
       <div className="container-custom">
-        <div className="text-center mb-16">
+
+        {/* Header */}
+        <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-4">
-            {content.title}
+            {c.title}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {content.subtitle}
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            {c.subtitle}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative">
-          {/* Connection Lines for Desktop */}
-          <div className="hidden md:block absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-200 via-primary-300 to-primary-200 transform translate-y-[-50%] z-0"
-               style={{ left: '16.67%', right: '16.67%' }} />
-
-          {content.steps.map((item, index) => {
-            const Icon = icons[index];
+        {/* Step tabs */}
+        <div className="flex flex-col sm:flex-row gap-3 mb-0">
+          {c.steps.map((s, i) => {
+            const isActive = i === active;
             return (
-              <div key={index} className="relative z-10">
-                <div className="text-center">
-                  {/* Step Number Badge */}
-                  <div className="relative inline-block mb-6">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-primary-100 relative z-20">
-                      <Icon className="w-10 h-10 text-primary" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-sans font-semibold tracking-tight text-sm shadow-md z-30">
-                      {item.step}
-                    </div>
-                  </div>
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className="relative flex-1 text-left rounded-2xl border-2 transition-all duration-300 overflow-hidden focus:outline-none"
+                style={{
+                  borderColor: isActive ? '#F97316' : '#E5E7EB',
+                  background: isActive ? '#fff' : '#F9FAFB',
+                  boxShadow: isActive ? '0 4px 24px rgba(249,115,22,0.10)' : 'none',
+                }}
+              >
+                {/* Progress bar — only on active */}
+                <div
+                  className="absolute bottom-0 left-0 h-[3px] transition-none"
+                  style={{
+                    width: isActive ? `${progress * 100}%` : '0%',
+                    background: '#F97316',
+                  }}
+                />
 
-                  <h3 className="text-xl font-sans font-semibold tracking-tight text-gray-900 mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {item.description}
-                  </p>
+                <div className="px-5 pt-5 pb-6">
+                  {/* Number */}
+                  <span
+                    className="text-3xl font-black leading-none block mb-3 transition-colors duration-300"
+                    style={{ color: isActive ? '#F97316' : '#D1D5DB' }}
+                  >
+                    {s.number}
+                  </span>
+                  {/* Title */}
+                  <p className="font-bold text-gray-900 text-base mb-1">{s.title}</p>
+                  {/* Short desc */}
+                  <p className="text-sm text-gray-500">{s.description}</p>
                 </div>
-              </div>
+              </button>
             );
           })}
         </div>
 
-        <div className="text-center mt-12">
-          <button 
-            onClick={() => {
-              window.location.href = '/anfrage';
-            }}
+        {/* Active step detail panel */}
+        <div
+          key={active}
+          className="mt-4 rounded-2xl bg-white border border-gray-100 shadow-sm px-7 py-6 flex items-start gap-5"
+          style={{ animation: 'hiw-fade 0.3s ease' }}
+        >
+          {/* Large number */}
+          <span className="hidden sm:block text-6xl font-black text-orange-100 leading-none select-none flex-shrink-0">
+            {step.number}
+          </span>
+          <div>
+            <p className="font-bold text-gray-900 text-lg mb-2">{step.title}</p>
+            <p className="text-gray-600 leading-relaxed">{step.detail}</p>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-10">
+          <Link
+            href={c.ctaHref}
             className="btn-primary"
           >
-            {content.cta}
-          </button>
+            {c.cta}
+          </Link>
         </div>
       </div>
+
+      <style>{`
+        @keyframes hiw-fade {
+          from { opacity: 0; transform: translateY(8px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </section>
   );
 }
