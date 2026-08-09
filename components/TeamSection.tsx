@@ -82,38 +82,43 @@ export default function TeamSection() {
           {/* Left — text + stats */}
           <div className="flex-1 min-w-0">
 
-            {/* Eyebrow */}
-            <span className="inline-flex items-center gap-2 text-[#ffc812] text-sm font-bold uppercase tracking-widest mb-5">
-              <span className="block w-6 h-px bg-[#ffc812]" />
-              {c.eyebrow}
-            </span>
+            {/* Header row: eyebrow + title, small photo on the right (mobile/tablet) */}
+            <div className="flex items-start justify-between gap-5 lg:block">
+              <div className="min-w-0">
+                {/* Eyebrow */}
+                <span className="inline-flex items-center gap-2 text-[#ffc812] text-sm font-bold uppercase tracking-widest mb-5">
+                  <span className="block w-6 h-px bg-[#ffc812]" />
+                  {c.eyebrow}
+                </span>
 
-            {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5 max-w-xl">
-              {c.title}
-            </h2>
+                {/* Headline */}
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5 max-w-xl">
+                  {c.title}
+                </h2>
+              </div>
 
-            {/* Description */}
-            <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
-              {c.description}
-            </p>
-
-            {/* Mobile-only photo (hidden on lg+) */}
-            <div className="lg:hidden mb-10">
-              <div className="relative w-full max-w-sm h-56 rounded-2xl overflow-hidden border border-orange-100 shadow-md">
-                <div
-                  className="absolute inset-x-0 bottom-0 h-10 z-10"
-                  style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45), transparent)' }}
-                />
-                <Image
-                  src={c.image || '/team-new.webp'}
-                  alt={c.imageAlt}
-                  fill
-                  className="object-cover object-top"
-                  sizes="384px"
-                />
+              {/* Small photo on the right (hidden on lg+, desktop has its own) */}
+              <div className="flex-shrink-0 lg:hidden">
+                <div className="relative w-28 h-32 sm:w-32 sm:h-36 rounded-2xl overflow-hidden border border-orange-100 shadow-md">
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-8 z-10"
+                    style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45), transparent)' }}
+                  />
+                  <Image
+                    src={c.image || '/team-new.webp'}
+                    alt={c.imageAlt}
+                    fill
+                    className="object-cover object-top"
+                    sizes="128px"
+                  />
+                </div>
               </div>
             </div>
+
+            {/* Description */}
+            <p className="text-gray-500 text-base leading-relaxed mb-10 max-w-lg">
+              {c.description}
+            </p>
 
             {/* Stats grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
