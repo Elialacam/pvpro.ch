@@ -1,0 +1,27 @@
+.flip-card-scene {
+  perspective: 1100px;
+}
+
+.flip-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 700ms cubic-bezier(.2, .75, .2, 1);
+}
+
+.flip-card-scene:hover .flip-card-inner,
+.flip-card-scene:focus-within .flip-card-inner,
+.flip-card-scene.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-card-inner { transition-duration: 1ms; }
+}

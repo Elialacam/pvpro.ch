@@ -1,0 +1,81 @@
+.v4-reveal-card {
+  --reveal-duration: 760ms;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease;
+}
+
+.v4-reveal-card:hover,
+.v4-reveal-card:focus-within {
+  transform: translateY(-5px);
+  border-color: rgba(252, 178, 16, .72);
+  box-shadow: 0 22px 54px rgba(102, 72, 10, .15);
+}
+
+.v4-card-copy { transition: opacity 420ms ease, transform 620ms cubic-bezier(.22,.8,.25,1); }
+.v4-reveal-card:hover .v4-card-copy,
+.v4-reveal-card:focus-within .v4-card-copy {
+  opacity: .08;
+  transform: translateX(-18px);
+}
+
+.v4-curtain {
+  position: absolute;
+  inset: 0 0 0 32%;
+  z-index: 2;
+  transform: translateX(101%);
+  transition: transform var(--reveal-duration) cubic-bezier(.76,0,.18,1);
+  pointer-events: none;
+}
+
+.v4-reveal-card:hover .v4-curtain,
+.v4-reveal-card:focus-within .v4-curtain { transform: translateX(0); }
+
+.v4-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.14) translateX(-5%);
+  transition: transform 1100ms cubic-bezier(.22,.8,.25,1);
+}
+
+.v4-reveal-card:hover .v4-photo,
+.v4-reveal-card:focus-within .v4-photo { transform: scale(1.03) translateX(0); }
+
+.v4-curtain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(24, 31, 30, .12), rgba(24, 31, 30, .42) 68%, rgba(24, 31, 30, .7));
+}
+
+.v4-curtain-label {
+  position: absolute;
+  z-index: 3;
+  right: 22px;
+  bottom: 20px;
+  color: white;
+  text-align: right;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 320ms ease 420ms, transform 320ms ease 420ms;
+}
+.v4-reveal-card:hover .v4-curtain-label,
+.v4-reveal-card:focus-within .v4-curtain-label { opacity: 1; transform: translateY(0); }
+
+.v4-edge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #ffc812;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 420ms ease 250ms;
+}
+.v4-reveal-card:hover .v4-edge,
+.v4-reveal-card:focus-within .v4-edge { transform: scaleY(1); }
