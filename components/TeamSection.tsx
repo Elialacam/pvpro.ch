@@ -79,18 +79,41 @@ export default function TeamSection() {
       <div className="container-custom relative z-10">
         <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
 
-          {/* Left — text + stats (takes most of the space) */}
+          {/* Left — text + stats */}
           <div className="flex-1 min-w-0">
-            {/* Eyebrow */}
-            <span className="inline-flex items-center gap-2 text-[#ffc812] text-sm font-bold uppercase tracking-widest mb-5">
-              <span className="block w-6 h-px bg-[#ffc812]" />
-              {c.eyebrow}
-            </span>
 
-            {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5 max-w-xl">
-              {c.title}
-            </h2>
+            {/* Mobile header row: eyebrow + inline mini photo */}
+            <div className="flex items-start gap-4 lg:block">
+              <div className="flex-1 min-w-0">
+                {/* Eyebrow */}
+                <span className="inline-flex items-center gap-2 text-[#ffc812] text-sm font-bold uppercase tracking-widest mb-5">
+                  <span className="block w-6 h-px bg-[#ffc812]" />
+                  {c.eyebrow}
+                </span>
+
+                {/* Headline */}
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5 max-w-xl">
+                  {c.title}
+                </h2>
+              </div>
+
+              {/* Mobile-only mini photo (hidden on lg+) */}
+              <div className="flex-shrink-0 lg:hidden">
+                <div className="relative w-24 h-28 rounded-2xl overflow-hidden border border-orange-100 shadow-md">
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-8 z-10"
+                    style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45), transparent)' }}
+                  />
+                  <Image
+                    src={c.image || '/team-new.webp'}
+                    alt={c.imageAlt}
+                    fill
+                    className="object-cover object-top"
+                    sizes="96px"
+                  />
+                </div>
+              </div>
+            </div>
 
             {/* Description */}
             <p className="text-gray-500 text-base leading-relaxed mb-10 max-w-lg">
@@ -111,10 +134,9 @@ export default function TeamSection() {
             </div>
           </div>
 
-          {/* Right — small portrait card */}
-          <div className="flex-shrink-0 flex justify-center lg:justify-end">
-            <div className="relative w-56 h-64 sm:w-64 sm:h-72 rounded-3xl overflow-hidden border border-orange-100 shadow-xl">
-              {/* Inner gradient overlay at bottom */}
+          {/* Right — desktop portrait card (hidden on mobile) */}
+          <div className="hidden lg:flex flex-shrink-0 justify-end">
+            <div className="relative w-64 h-72 rounded-3xl overflow-hidden border border-orange-100 shadow-xl">
               <div
                 className="absolute inset-x-0 bottom-0 h-16 z-10"
                 style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.7), transparent)' }}
