@@ -97,17 +97,13 @@ export default function TeamSection() {
             </p>
           </div>
 
-          {/* Large photo — fills the entire right column */}
-          <div className="relative min-h-[240px] md:min-h-full rounded-3xl overflow-hidden border border-orange-100 shadow-xl">
-            <div
-              className="absolute inset-x-0 bottom-0 h-14 z-10"
-              style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.55), transparent)' }}
-            />
+          {/* Large photo — whole image visible, no crop */}
+          <div className="relative min-h-[240px] md:min-h-full rounded-3xl overflow-hidden border border-orange-100 shadow-xl bg-orange-50">
             <Image
               src={c.image || '/team-new.webp'}
               alt={c.imageAlt}
               fill
-              className="object-cover object-top"
+              className="object-contain"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
