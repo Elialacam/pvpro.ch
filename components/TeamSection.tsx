@@ -99,7 +99,7 @@ export default function TeamSection() {
 
               {/* Mobile-only mini photo (hidden on lg+) */}
               <div className="flex-shrink-0 lg:hidden">
-                <div className="relative w-24 h-28 rounded-2xl overflow-hidden border border-orange-100 shadow-md">
+                <div className="relative w-32 h-36 rounded-2xl overflow-hidden border border-orange-100 shadow-md">
                   <div
                     className="absolute inset-x-0 bottom-0 h-8 z-10"
                     style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45), transparent)' }}
@@ -109,7 +109,7 @@ export default function TeamSection() {
                     alt={c.imageAlt}
                     fill
                     className="object-cover object-top"
-                    sizes="96px"
+                    sizes="128px"
                   />
                 </div>
               </div>
@@ -136,7 +136,7 @@ export default function TeamSection() {
 
           {/* Right — desktop portrait card (hidden on mobile) */}
           <div className="hidden lg:flex flex-shrink-0 justify-end">
-            <div className="relative w-64 h-72 rounded-3xl overflow-hidden border border-orange-100 shadow-xl">
+            <div className="relative w-72 h-80 rounded-3xl overflow-hidden border border-orange-100 shadow-xl">
               <div
                 className="absolute inset-x-0 bottom-0 h-16 z-10"
                 style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.7), transparent)' }}
@@ -146,7 +146,7 @@ export default function TeamSection() {
                 alt={c.imageAlt}
                 fill
                 className="object-cover object-top"
-                sizes="256px"
+                sizes="288px"
                 priority
               />
             </div>
