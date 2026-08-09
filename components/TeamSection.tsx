@@ -14,8 +14,8 @@ const teamContent: Record<Locale, {
 }> = {
   de: {
     eyebrow: 'Unser Netzwerk',
-    title: 'Geprüfte Fachbetriebe. Echte Preise. Keine Überraschungen.',
-    description: 'Wir arbeiten ausschliesslich mit zertifizierten Schweizer Installateuren zusammen — sorgfältig ausgewählt, regelmässig überprüft und persönlich begleitet.',
+    title: 'Hinter jeder Offerte steht ein geprüfter Schweizer Betrieb.',
+    description: 'Nicht jeder Betrieb kommt ins Netzwerk — nur zertifizierte, geprüfte Schweizer Installateure. So kommen Ihre Offerten von Fachleuten, die ihr Handwerk verstehen, und nicht vom günstigsten Namen aus dem Internet.',
     stats: [
       { value: '25+',  label: 'Geprüfte Partner' },
       { value: '20+',  label: 'Jahre Erfahrung' },
@@ -82,43 +82,38 @@ export default function TeamSection() {
           {/* Left — text + stats */}
           <div className="flex-1 min-w-0">
 
-            {/* Mobile header row: eyebrow + inline mini photo */}
-            <div className="flex items-start gap-4 lg:block">
-              <div className="flex-1 min-w-0">
-                {/* Eyebrow */}
-                <span className="inline-flex items-center gap-2 text-[#ffc812] text-sm font-bold uppercase tracking-widest mb-5">
-                  <span className="block w-6 h-px bg-[#ffc812]" />
-                  {c.eyebrow}
-                </span>
+            {/* Eyebrow */}
+            <span className="inline-flex items-center gap-2 text-[#ffc812] text-sm font-bold uppercase tracking-widest mb-5">
+              <span className="block w-6 h-px bg-[#ffc812]" />
+              {c.eyebrow}
+            </span>
 
-                {/* Headline */}
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5 max-w-xl">
-                  {c.title}
-                </h2>
-              </div>
-
-              {/* Mobile-only mini photo (hidden on lg+) */}
-              <div className="flex-shrink-0 lg:hidden">
-                <div className="relative w-32 h-36 rounded-2xl overflow-hidden border border-orange-100 shadow-md">
-                  <div
-                    className="absolute inset-x-0 bottom-0 h-8 z-10"
-                    style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45), transparent)' }}
-                  />
-                  <Image
-                    src={c.image || '/team-new.webp'}
-                    alt={c.imageAlt}
-                    fill
-                    className="object-cover object-top"
-                    sizes="128px"
-                  />
-                </div>
-              </div>
-            </div>
+            {/* Headline */}
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5 max-w-xl">
+              {c.title}
+            </h2>
 
             {/* Description */}
-            <p className="text-gray-500 text-base leading-relaxed mb-10 max-w-lg">
+            <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
               {c.description}
             </p>
+
+            {/* Mobile-only photo (hidden on lg+) */}
+            <div className="lg:hidden mb-10">
+              <div className="relative w-full max-w-sm h-56 rounded-2xl overflow-hidden border border-orange-100 shadow-md">
+                <div
+                  className="absolute inset-x-0 bottom-0 h-10 z-10"
+                  style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45), transparent)' }}
+                />
+                <Image
+                  src={c.image || '/team-new.webp'}
+                  alt={c.imageAlt}
+                  fill
+                  className="object-cover object-top"
+                  sizes="384px"
+                />
+              </div>
+            </div>
 
             {/* Stats grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
