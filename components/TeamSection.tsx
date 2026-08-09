@@ -77,8 +77,8 @@ export default function TeamSection() {
       />
 
       <div className="container-custom relative z-10">
-        {/* Header row: text on the left, small photo top-right */}
-        <div className="flex items-start justify-between gap-6">
+        {/* Two columns: text left, large photo filling the right side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch">
           <div className="min-w-0">
             {/* Eyebrow */}
             <span className="inline-flex items-center gap-2 text-[#ffc812] text-sm font-bold uppercase tracking-widest mb-5">
@@ -97,21 +97,19 @@ export default function TeamSection() {
             </p>
           </div>
 
-          {/* Small photo top-right */}
-          <div className="flex-shrink-0">
-            <div className="relative w-28 h-32 sm:w-36 sm:h-40 rounded-2xl overflow-hidden border border-orange-100 shadow-md">
-              <div
-                className="absolute inset-x-0 bottom-0 h-8 z-10"
-                style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45), transparent)' }}
-              />
-              <Image
-                src={c.image || '/team-new.webp'}
-                alt={c.imageAlt}
-                fill
-                className="object-cover object-top"
-                sizes="144px"
-              />
-            </div>
+          {/* Large photo — fills the entire right column */}
+          <div className="relative min-h-[240px] md:min-h-full rounded-3xl overflow-hidden border border-orange-100 shadow-xl">
+            <div
+              className="absolute inset-x-0 bottom-0 h-14 z-10"
+              style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.55), transparent)' }}
+            />
+            <Image
+              src={c.image || '/team-new.webp'}
+              alt={c.imageAlt}
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
         </div>
 
