@@ -77,81 +77,55 @@ export default function TeamSection() {
       />
 
       <div className="container-custom relative z-10">
-        <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
+        {/* Header row: text on the left, small photo top-right */}
+        <div className="flex items-start justify-between gap-6">
+          <div className="min-w-0">
+            {/* Eyebrow */}
+            <span className="inline-flex items-center gap-2 text-[#ffc812] text-sm font-bold uppercase tracking-widest mb-5">
+              <span className="block w-6 h-px bg-[#ffc812]" />
+              {c.eyebrow}
+            </span>
 
-          {/* Left — text + stats */}
-          <div className="flex-1 min-w-0">
-
-            {/* Header row: eyebrow + title, small photo on the right (mobile/tablet) */}
-            <div className="flex items-start justify-between gap-5 lg:block">
-              <div className="min-w-0">
-                {/* Eyebrow */}
-                <span className="inline-flex items-center gap-2 text-[#ffc812] text-sm font-bold uppercase tracking-widest mb-5">
-                  <span className="block w-6 h-px bg-[#ffc812]" />
-                  {c.eyebrow}
-                </span>
-
-                {/* Headline */}
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5 max-w-xl">
-                  {c.title}
-                </h2>
-              </div>
-
-              {/* Small photo on the right (hidden on lg+, desktop has its own) */}
-              <div className="flex-shrink-0 lg:hidden">
-                <div className="relative w-28 h-32 sm:w-32 sm:h-36 rounded-2xl overflow-hidden border border-orange-100 shadow-md">
-                  <div
-                    className="absolute inset-x-0 bottom-0 h-8 z-10"
-                    style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45), transparent)' }}
-                  />
-                  <Image
-                    src={c.image || '/team-new.webp'}
-                    alt={c.imageAlt}
-                    fill
-                    className="object-cover object-top"
-                    sizes="128px"
-                  />
-                </div>
-              </div>
-            </div>
+            {/* Headline */}
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5 max-w-xl">
+              {c.title}
+            </h2>
 
             {/* Description */}
-            <p className="text-gray-500 text-base leading-relaxed mb-10 max-w-lg">
+            <p className="text-gray-500 text-base leading-relaxed max-w-lg">
               {c.description}
             </p>
-
-            {/* Stats grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {c.stats.map((s, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl px-5 py-4 border border-orange-100 bg-orange-50 text-center"
-                >
-                  <div className="text-3xl font-black text-gray-900 leading-none mb-1">{s.value}</div>
-                  <div className="text-gray-500 text-xs">{s.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
 
-          {/* Right — desktop portrait card (hidden on mobile) */}
-          <div className="hidden lg:flex flex-shrink-0 justify-end">
-            <div className="relative w-72 h-80 rounded-3xl overflow-hidden border border-orange-100 shadow-xl">
+          {/* Small photo top-right */}
+          <div className="flex-shrink-0">
+            <div className="relative w-28 h-32 sm:w-36 sm:h-40 rounded-2xl overflow-hidden border border-orange-100 shadow-md">
               <div
-                className="absolute inset-x-0 bottom-0 h-16 z-10"
-                style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.7), transparent)' }}
+                className="absolute inset-x-0 bottom-0 h-8 z-10"
+                style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45), transparent)' }}
               />
               <Image
                 src={c.image || '/team-new.webp'}
                 alt={c.imageAlt}
                 fill
                 className="object-cover object-top"
-                sizes="288px"
-                priority
+                sizes="144px"
               />
             </div>
           </div>
+        </div>
 
+        {/* Stats grid — full width */}
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {c.stats.map((s, i) => (
+            <div
+              key={i}
+              className="rounded-2xl px-5 py-4 border border-orange-100 bg-orange-50 text-center"
+            >
+              <div className="text-3xl font-black text-gray-900 leading-none mb-1">{s.value}</div>
+              <div className="text-gray-500 text-xs">{s.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
