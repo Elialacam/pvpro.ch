@@ -285,13 +285,20 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 });
   }
 
+  // AutoSEO "Send Test" ping: acknowledge without publishing anything
+  if (body.event === 'test') {
+    return NextResponse.json({ url: 'https://www.pvpro.ch/blog' });
+  }
+
   const title: string = body.title || body.headline || '';
   const content: string =
-    body.content || body.html || body.markdown || body.body || body.text || '';
+    body.content_markdown || body.content || body.content_html || body.html ||
+    body.markdown || body.body || body.text || '';
   const metaDescription: string =
     body.meta_description || body.metaDescription || body.description || '';
   const imageUrl: string =
-    body.image || body.image_url || body.featured_image || body.featuredImage || body.cover_image || '';
+    body.heroImageUrl || body.image || body.image_url || body.featured_image ||
+    body.featuredImage || body.cover_image || '';
 
   if (!title || !content || content.length < 200) {
     return NextResponse.json(
