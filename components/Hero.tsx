@@ -205,17 +205,17 @@ export default function Hero() {
           href="https://it.trustpilot.com/review/pvpro.ch"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-block rounded-xl px-3 py-2"
-          style={{ background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(6px)' }}
+          className="mt-4 inline-block rounded-xl px-2.5 py-1.5"
+          style={{ background: 'rgba(255,255,255,0.88)', backdropFilter: 'blur(8px)' }}
         >
           <img
             src="/images/trustpilot-badge.png"
             alt="Trustpilot 5 Sterne"
-            width={160}
-            height={87}
+            width={120}
+            height={65}
             loading="eager"
             decoding="async"
-            className="w-24 sm:w-40"
+            className="w-20 sm:w-28"
           />
         </a>
       </div>
