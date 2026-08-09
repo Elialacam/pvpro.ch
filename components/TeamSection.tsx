@@ -97,13 +97,13 @@ export default function TeamSection() {
             </p>
           </div>
 
-          {/* Large photo — whole image visible, no crop */}
-          <div className="relative min-h-[240px] md:min-h-full rounded-3xl overflow-hidden border border-orange-100 shadow-xl bg-orange-50">
+          {/* Large photo — square, no crop, no empty bands */}
+          <div className="relative aspect-square w-full rounded-3xl overflow-hidden border border-orange-100 shadow-xl">
             <Image
               src={c.image || '/team-new.webp'}
               alt={c.imageAlt}
               fill
-              className="object-contain"
+              className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
