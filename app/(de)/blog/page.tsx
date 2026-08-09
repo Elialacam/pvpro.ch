@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { getImageFocus } from '@/lib/imageFocus';
 import Link from 'next/link';
 import { blogPosts } from '@/lib/blogPosts';
+import { getAutoBlogCards } from '@/lib/autoBlog';
 import PlzWidget from '@/components/PlzWidget';
 import { Calendar, Clock, ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
@@ -70,7 +71,7 @@ export default function BlogPage() {
               Alle Beiträge
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {blogPosts.map((post) => (
+              {[...getAutoBlogCards('de'), ...blogPosts].map((post) => (
                 <Link
                   key={post.slug}
                   href={post.href ?? `/blog/${post.slug}`}

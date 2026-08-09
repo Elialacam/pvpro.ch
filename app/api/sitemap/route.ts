@@ -224,7 +224,7 @@ ${entry4('/impressum', '/fr/mentions-legales', '/en/imprint', '/it/note-legali',
   return new Response(xml.trim(), {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
     },
   });
 }

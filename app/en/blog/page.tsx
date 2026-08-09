@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { getImageFocus } from '@/lib/imageFocus';
 import Link from 'next/link';
 import { blogPostsI18n } from '@/lib/blogPostsI18n';
+import { getAutoBlogCards } from '@/lib/autoBlog';
 import PlzWidget from '@/components/PlzWidget';
 import { Calendar, Clock, ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
@@ -53,7 +54,7 @@ export default function BlogEnPage() {
           <div className="flex-1 min-w-0">
             <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8">All articles</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {blogPostsI18n.en.map((post) => (
+              {[...getAutoBlogCards('en'), ...blogPostsI18n.en].map((post) => (
                 <Link key={post.slug} href={post.href ?? `/en/blog/${post.slug}`}
                   className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
                   <div className="relative h-48 overflow-hidden bg-gray-100">
