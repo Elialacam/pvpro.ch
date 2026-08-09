@@ -52,6 +52,7 @@ const reviews = [
     quote: 'In der Mittagspause ausgefüllt, am nächsten Tag die Offerten gehabt.',
     detail: 'Ich hatte mit viel Aufwand gerechnet, Formulare, Rückfragen, das ganze Theater. War aber in ein paar Minuten erledigt. Einzig eine Offerte kam erst zwei Tage später, aber das war völlig okay.',
     photo: '/images/projects/project6.jpg',
+    photoPosition: '72% 50%',
     location: 'Mehrfamilienhaus, Luzern',
   },
 ];
@@ -149,6 +150,7 @@ export default function Testimonials() {
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    style={{ objectPosition: (review as { photoPosition?: string }).photoPosition || '50% 50%' }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-gray-900/10 to-transparent" />
                   <div className="absolute left-0 right-0 bottom-0 p-6 text-white">
