@@ -1,0 +1,209 @@
+Connect Site
+Publishing Platform
+Show all
+Unsure? Chat to us on support or email hello@getautoseo.com
+
+
+Webhooks
+Any endpoint
+Webhook Integration
+Send articles to any endpoint automatically. Works with custom CMS platforms, Zapier, Make, n8n, and more.
+
+Skip the manual setup — use our AI vibe coding prompt instead
+
+We've written a ready-to-go prompt you can paste into Cursor, Claude Code, or any AI coding assistant to build your webhook endpoint in seconds.
+
+Check it out
+Webhook Connected
+
+URL: https://www.pvpro.ch/api/autoseo
+
+Send Test
+Disconnect
+Add your sitemap for automatic live URL detection
+
+If your webhook endpoint doesn't return a published URL, we'll check your sitemap every 15 minutes to find new articles. This keeps social auto-posting and backlink tracking working.
+
+Add sitemap
+3 articles haven't been sent to your webhook yet
+
+These articles were created before you connected your webhook. Sending will also mark them as published.
+
+Send all now
+What We Send
+METHOD
+POST
+HEADERS
+Content-Type: application/json
+Authorization: Bearer aseo_wh_a796cf3f10cefeffb69fe73fffa54fc4
+X-AutoSEO-Event: article.published or article.updated
+X-AutoSEO-Signature: <HMAC-SHA256 hash>
+X-AutoSEO-Delivery: <unique delivery UUID>
+Example Payload
+{
+  "event": "article.published",
+  "id": 42,
+  "title": "How to Grow Your Business with SEO",
+  "slug": "how-to-grow-your-business-with-seo",
+  "published_url": "https://example.com/blog/how-to-grow-your-business-with-seo",
+  "metaDescription": "Learn practical SEO strategies to attract more customers...",
+  "content_html": "<h1>How to Grow Your Business...</h1><p>Full HTML content...</p>",
+  "content_markdown": "# How to Grow Your Business...\n\nFull markdown content...",
+  "heroImageUrl": "https://cdn.example.com/hero-image.jpg",
+  "heroImageAlt": "Alt text for the hero image",
+  "infographicImageUrl": "https://cdn.example.com/infographic.png",
+  "keywords": ["seo strategies"],
+  "metaKeywords": "seo, business growth, marketing",
+  "wordpressTags": "seo, marketing, growth",
+  "faqSchema": [{"question": "What is SEO?", "answer": "SEO stands for..."}],
+  "languageCode": "en",
+  "sourceArticleId": null,
+  "status": "published",
+  "publishedAt": "2026-03-04T10:30:00.000Z",
+  "updatedAt": "2026-03-04T10:30:00.000Z",
+  "createdAt": "2026-03-04T09:00:00.000Z"
+}
+Payload Fields
+Field	Type	Description
+event	string	article.published, article.updated, or test. Use this to decide whether to insert or update.
+id	integer	Unique article ID — use this to match updates to existing posts
+title	string	Article title
+slug	string	URL-friendly slug
+published_url	string|null	The live URL of the post (set after first publish)
+metaDescription	string	SEO meta description (150-160 chars)
+content_html	string	Full article in HTML
+content_markdown	string	Full article in Markdown
+heroImageUrl	string|null	Featured hero image URL
+heroImageAlt	string|null	Alt text for the hero image
+infographicImageUrl	string|null	Infographic image URL (if enabled)
+keywords	array	Target keywords
+metaKeywords	string|null	Comma-separated SEO keywords
+wordpressTags	string|null	Comma-separated tags
+faqSchema	array|null	FAQ structured data (question/answer pairs)
+languageCode	string	ISO language code for this article (e.g. en, es, de)
+sourceArticleId	integer|null	For translated articles, the ID of the original source article. Null for primary-language articles.
+status	string	Always published for webhook deliveries
+publishedAt	string	ISO 8601 publication timestamp
+updatedAt	string	ISO 8601 last updated timestamp
+createdAt	string	ISO 8601 creation timestamp
+Response Format (recommended)
+Return a JSON response with the published URL so we can link directly to the live article in your dashboard. We check for url, published_url, or permalink fields.
+
+// Your endpoint should return:
+HTTP 200
+Content-Type: application/json
+
+{
+  "url": "https://yoursite.com/blog/how-to-grow-your-business-with-seo"
+}
+If you can't return a URL, just return an HTTP 200. You'll be able to add the URL manually from your content calendar.
+
+Verifying Webhook Signatures
+Every webhook includes an X-AutoSEO-Signature header — an HMAC-SHA256 hash of the JSON body using your bearer token. Verify it to confirm the request came from AutoSEO.
+
+// Node.js / Express example
+const crypto = require('crypto');
+const SECRET = 'aseo_wh_a796cf3f10cefeffb69fe73fffa54fc4';
+
+// IMPORTANT: Use the raw request body string, not JSON.stringify(parsed).
+// With Express, add: app.use(express.raw({ type: 'application/json' }))
+// or use express.json() with { verify: (req, res, buf) => { req.rawBody = buf; } }
+
+function verifySignature(rawBody, signature) {
+  const expected = crypto
+    .createHmac('sha256', SECRET)
+    .update(rawBody)
+    .digest('hex');
+  return crypto.timingSafeEqual(
+    Buffer.from(signature),
+    Buffer.from(expected)
+  );
+}
+
+// In your endpoint handler:
+const sig = req.headers['x-autoseo-signature'];
+if (!verifySignature(req.rawBody, sig)) {
+  return res.status(401).send('Invalid signature');
+}
+Quick Setup with AI
+Copy this prompt into Cursor, Claude Code, or any AI coding assistant to generate a ready-to-use webhook endpoint for your project.
+
+
+Copy Prompt
+Create a webhook endpoint in my project that receives article data from AutoSEO (https://getautoseo.com).
+
+CRITICAL: Do NOT drop, delete, alter, or modify any existing database tables, columns, data, or RLS policies. Only CREATE new tables and functions. Never use DROP TABLE, TRUNCATE, or DELETE on existing tables. This project has existing data that must be preserved. Use CREATE TABLE IF NOT EXISTS for any new tables.
+
+## What the endpoint must do:
+
+1. Accept POST requests with a JSON body
+2. Verify the Authorization header contains this exact Bearer token: `aseo_wh_a796cf3f10cefeffb69fe73fffa54fc4` — reject with HTTP 401 if missing or wrong
+3. Optionally also verify the HMAC-SHA256 signature (sent in `X-AutoSEO-Signature` header, computed from the raw JSON request body string using the same token as the HMAC secret — use the raw body bytes, not a re-serialized version)
+4. Check the `event` field and `id` to decide whether to insert or update:
+   - `article.published`: Insert a new blog post (store the `id` so you can match updates later)
+   - `article.updated`: Update the existing post matching this `id` with the new content
+   - Recommended: use an UPSERT on the `id` field so both events work reliably
+5. Return HTTP 200 with a JSON response containing the published URL: `{"url": "https://mysite.com/blog/the-slug"}`
+
+## Incoming request format:
+
+Headers:
+- Content-Type: application/json
+- Authorization: Bearer aseo_wh_a796cf3f10cefeffb69fe73fffa54fc4
+- X-AutoSEO-Signature: <hmac-sha256-hex-digest>
+- X-AutoSEO-Event: article.published or article.updated
+- X-AutoSEO-Delivery: <uuid>
+
+JSON body fields:
+- event (string): "article.published", "article.updated", or "test"
+- id (integer): Unique article ID from AutoSEO — use this to match updates to existing posts
+- title (string): Article title
+- slug (string): URL-friendly slug
+- published_url (string|null): The live URL of the post (set after first publish)
+- metaDescription (string): SEO meta description
+- content_html (string): Full article as HTML — use this for rendering
+- content_markdown (string): Full article as Markdown — use this for storage if your CMS prefers markdown
+- heroImageUrl (string|null): Featured hero image URL (fully qualified)
+- heroImageAlt (string|null): Alt text for the hero image (use for img alt attribute)
+- infographicImageUrl (string|null): Infographic image URL (fully qualified)
+- keywords (array): Target keywords, e.g. ["seo strategies"]
+- metaKeywords (string|null): Comma-separated SEO keywords
+- faqSchema (array|null): FAQ structured data as [{question, answer}] pairs
+- languageCode (string): ISO language code for this article, e.g. "en", "es", "de"
+- sourceArticleId (integer|null): for translated articles, the ID of the original source article
+- status (string): Always "published"
+- publishedAt (string): ISO 8601 timestamp
+- updatedAt (string): ISO 8601 timestamp
+- createdAt (string): ISO 8601 timestamp
+
+## Requirements:
+
+- If event is "test", just return 200 with `{"url": "https://mysite.com/test"}` — don't create a post
+- Download the heroImageUrl and infographicImageUrl and store them locally (don't hotlink)
+- Store the AutoSEO article `id` so duplicate deliveries update instead of creating duplicates
+- The response MUST include `{"url": "https://..."}` with the full public URL of the published post
+- Handle errors gracefully — return 500 if something goes wrong so AutoSEO retries the delivery
+Common Questions
+When are webhooks sent?
+
+Whenever an article is published, updated, or its hero image finishes generating. Your endpoint receives the complete, ready-to-publish article.
+
+What should my endpoint return?
+
+Return HTTP 200 to acknowledge receipt. If possible, include {"url": "https://..."} in your JSON response so we can link to the live article. Any non-2xx response triggers up to 3 automatic retries (1 min, 5 min, 15 min).
+
+Can I use this with Zapier, Make, or n8n?
+
+Yes. Create a "Webhook" trigger in any of those tools, copy the URL they give you, and paste it here. You'll receive the full article data in your automation flow.
+
+Is my bearer token stored securely?
+
+Yes. We auto-generate a unique token for your site and store it securely. The same token is embedded in your Lovable prompt and AI setup prompts so everything matches without manual copying.
+
+What happens if my endpoint is temporarily down?
+
+We retry failed deliveries up to 3 times with increasing delays. If all retries fail, the webhook is skipped for that article. Your endpoint should be reliable or queue-backed.
+
+Can I use this with serverless functions?
+
+Absolutely. Webhooks work with AWS Lambda, Vercel Functions, Cloudflare Workers, Netlify Functions, and any platform that can receive POST requests.
