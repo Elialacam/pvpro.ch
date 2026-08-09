@@ -78,7 +78,7 @@ export default function TeamSection() {
 
       <div className="container-custom relative z-10">
         {/* Two columns: text left, large photo filling the right side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="min-w-0">
             {/* Eyebrow */}
             <span className="inline-flex items-center gap-2 text-[#ffc812] text-sm font-bold uppercase tracking-widest mb-5">
@@ -98,7 +98,7 @@ export default function TeamSection() {
           </div>
 
           {/* Photo — square, no crop, no empty bands */}
-          <div className="relative aspect-square w-full max-w-xs sm:max-w-sm mx-auto md:ml-auto md:mr-0 rounded-3xl overflow-hidden border border-orange-100 shadow-xl">
+          <div className="relative aspect-square w-full max-w-xs sm:max-w-sm mx-auto rounded-3xl overflow-hidden border border-orange-100 shadow-xl">
             <Image
               src={c.image || '/team-new.webp'}
               alt={c.imageAlt}
