@@ -8,7 +8,7 @@ import { useLocale } from '@/lib/LocaleContext';
 const reviews = [
   {
     name: 'Markus B., Wil SG',
-    kWp: '9,2 kWp',
+    kWp: '30 kWp',
     quote: 'Kein einziger Werbeanruf – genau das hatte ich befürchtet.',
     detail: 'Bei so einem Vergleichsportal rechnet man ja fast damit, dass danach das Telefon nicht mehr stillsteht. Bei mir kam nichts dergleichen. Ich habe die drei Offerten per Mail bekommen und konnte in Ruhe schauen, ohne dass mich jemand bedrängt hat.',
     photo: '/images/projects/project1.png',
@@ -16,7 +16,7 @@ const reviews = [
   },
   {
     name: 'Sandra K., Bülach ZH',
-    kWp: null,
+    kWp: '13 kWp',
     quote: 'Ich habe auf den Haken gewartet – es gab keinen.',
     detail: 'Ehrlich gesagt dachte ich, irgendwo kommt dann noch eine Rechnung oder eine versteckte Gebühr. Nichts davon. Der Vergleich war wirklich gratis, und die Offerten kamen direkt von den Installateuren, ohne Zwischenkosten.',
     photo: '/images/projects/project2.png',
@@ -24,7 +24,7 @@ const reviews = [
   },
   {
     name: 'Peter H., Chur GR',
-    kWp: '11 kWp',
+    kWp: '25 kWp',
     quote: 'Kein Billiganbieter, sondern ein Fachbetrieb aus der Region.',
     detail: 'Meine Sorge war, dass ich an irgendeine anonyme Firma gerate. Stattdessen kam die Offerte von einem Betrieb aus dem Nachbarort, den sogar mein Nachbar schon kannte. Die Anlage läuft jetzt seit dem Sommer einwandfrei.',
     photo: '/images/projects/project3.png',
@@ -32,7 +32,7 @@ const reviews = [
   },
   {
     name: 'Nadia F., Frauenfeld TG',
-    kWp: null,
+    kWp: '12 kWp',
     quote: 'Wirklich drei Offerten – und ich konnte selber vergleichen.',
     detail: 'Ich hatte erwartet, dass man mich einfach an eine einzige Firma weiterreicht. Es waren tatsächlich drei unabhängige Angebote mit unterschiedlichen Preisen. Erst dadurch habe ich gemerkt, wie gross die Unterschiede sein können.',
     photo: '/images/projects/project4.jpg',
@@ -40,7 +40,7 @@ const reviews = [
   },
   {
     name: 'Thomas R., Olten SO',
-    kWp: '8,5 kWp',
+    kWp: '13 kWp',
     quote: 'War skeptisch gegenüber Vergleichsportalen – am Ende über 4\'000 Franken gespart.',
     detail: 'Von solchen Seiten halte ich normalerweise wenig. Aber die günstigste der drei Offerten lag deutlich unter dem, was mir eine Firma vorher direkt angeboten hatte. Rund 4\'000 Franken Unterschied für praktisch dieselbe Anlage.',
     photo: '/images/projects/project5.jpg',
@@ -48,7 +48,7 @@ const reviews = [
   },
   {
     name: 'Claudia W., Luzern',
-    kWp: null,
+    kWp: '20 kWp',
     quote: 'In der Mittagspause ausgefüllt, am nächsten Tag die Offerten gehabt.',
     detail: 'Ich hatte mit viel Aufwand gerechnet, Formulare, Rückfragen, das ganze Theater. War aber in ein paar Minuten erledigt. Einzig eine Offerte kam erst zwei Tage später, aber das war völlig okay.',
     photo: '/images/projects/project6.jpg',
