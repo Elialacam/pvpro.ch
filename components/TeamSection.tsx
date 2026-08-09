@@ -97,8 +97,8 @@ export default function TeamSection() {
             </p>
           </div>
 
-          {/* Large photo — square, no crop, no empty bands */}
-          <div className="relative aspect-square w-full rounded-3xl overflow-hidden border border-orange-100 shadow-xl">
+          {/* Photo — square, no crop, no empty bands */}
+          <div className="relative aspect-square w-full max-w-xs sm:max-w-sm mx-auto md:ml-auto md:mr-0 rounded-3xl overflow-hidden border border-orange-100 shadow-xl">
             <Image
               src={c.image || '/team-new.webp'}
               alt={c.imageAlt}
