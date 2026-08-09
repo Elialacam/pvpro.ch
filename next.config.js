@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -17,7 +14,7 @@ const nextConfig = {
   },
   compress: true,
   poweredByHeader: false,
-  swcMinify: true,
+  allowedDevOrigins: ['127.0.0.1', 'f53d4855-3247-438a-938a-8b3ba4e73521-00-d7ywm99h5osn.spock.replit.dev'],
   async redirects() {
     return [
       { source: '/fotovoltaico-ticino',                        destination: '/it/fotovoltaico-ticino',  permanent: true },

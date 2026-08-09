@@ -1,4 +1,5 @@
 - [Image assets](image-assets.md) — content images can be WebP; og/social + logos/favicons must stay as-is; check openGraph refs before converting.
+- [Next.js v16 upgrade](nextjs-upgrade-v16.md) — forced upgrade from 14→16 (CVE block); removed eslint/swcMinify from config, deleted app/sitemap.ts conflict, added allowedDevOrigins.
 - [Floating contact widget](floating-widget.md) — bottom-right widget flips between CallbackWidget (callback form) and WhatsAppFloating; mount in app/layout.tsx; watch shared "wa-*" CSS used by LiveBar.
 - [Lead submission flow](lead-flow.md) — slead.ch == LeadSync; all forms route via /api/anfrage; Web3Forms removed, never reintroduce.
 - [Blog image focal points](blog-image-focus.md) — object-position per image auto-computed via sharp attention; regen with `npm run generate:image-focus` when blog images change.
