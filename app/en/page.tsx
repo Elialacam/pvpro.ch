@@ -65,9 +65,9 @@ export default function EnglishHomePage() {
       />
 
       <Hero />
-      <Testimonials />
       <TeamSection />
       <SwissMap />
+      <Testimonials />
       <HowItWorks />
 
       <section className="section-padding bg-white">

@@ -65,9 +65,9 @@ export default function FrenchHomePage() {
       />
 
       <Hero />
-      <Testimonials />
       <TeamSection />
       <SwissMap />
+      <Testimonials />
       <HowItWorks />
 
       <section className="section-padding bg-white">

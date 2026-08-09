@@ -63,9 +63,9 @@ export default function HomePage() {
 
       <Hero />
       <HowItWorks />
-      <Testimonials />
       <TeamSection />
       <SwissMap />
+      <Testimonials />
 
       {/* Cities Section - Internal Linking */}
       <section className="section-padding bg-white">
