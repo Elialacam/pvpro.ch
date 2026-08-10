@@ -265,7 +265,7 @@ const OptionCard = memo(function OptionCard({ label, sublabel, isSelected, onCli
       whileHover={{ scale: 1.025, y: -2 }}
       whileTap={{ scale: 0.97 }}
       onClick={onClick}
-      className="relative flex flex-col items-center justify-center rounded-2xl p-5 sm:p-6 transition-all duration-150 bg-white w-full aspect-square"
+      className="relative flex flex-col items-center justify-center rounded-2xl px-4 py-4 sm:py-5 transition-all duration-150 bg-white w-full"
       style={{
         border: isSelected ? '2.5px solid #fcb210' : '2px solid #e5e7eb',
         boxShadow: isSelected
@@ -274,10 +274,10 @@ const OptionCard = memo(function OptionCard({ label, sublabel, isSelected, onCli
         background: isSelected ? '#FFF7ED' : '#ffffff',
       }}
     >
-      <div className="flex-1 flex items-center justify-center w-full">
-        <img src={imageSrc} alt={label} className="w-full h-full object-contain max-h-28 sm:max-h-32" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
+      <div className="flex items-center justify-center w-full h-16 sm:h-20">
+        <img src={imageSrc} alt={label} className="w-full h-full object-contain" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
       </div>
-      <p className="text-sm sm:text-base font-bold text-gray-900 text-center leading-tight mt-3">
+      <p className="text-sm sm:text-base font-bold text-gray-900 text-center leading-tight mt-2">
         {label}
       </p>
       {sublabel && (
@@ -300,8 +300,8 @@ const OptionCard = memo(function OptionCard({ label, sublabel, isSelected, onCli
 function StepWrapper({ title, sub, children }: { title: string; sub: string; children: React.ReactNode }) {
   return (
     <div>
-      <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-2">{title}</h1>
-      <p className="text-sm sm:text-base text-gray-500 mb-8 leading-relaxed">{sub}</p>
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mb-1.5">{title}</h1>
+      <p className="text-sm sm:text-base text-gray-500 mb-5 leading-relaxed">{sub}</p>
       {children}
     </div>
   );
@@ -776,14 +776,14 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       </div>
 
       {/* Step counter */}
-      <div className="text-center pt-6 pb-2">
+      <div className="text-center pt-4 pb-1">
         <span className="text-xs font-bold tracking-widest uppercase" style={{ color: '#fcb210' }}>
           {step} / {TOTAL_STEPS}
         </span>
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex items-start justify-center px-4 py-6 sm:py-10">
+      <div className="flex-1 flex items-start justify-center px-4 py-3 sm:py-5">
         <div className="w-full max-w-md">
           <AnimatePresence custom={direction} mode="popLayout">
             <motion.div
