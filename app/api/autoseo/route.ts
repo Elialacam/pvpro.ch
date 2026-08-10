@@ -19,6 +19,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { after } from 'next/server';
 import { timingSafeEqual } from 'crypto';
 import dns from 'dns/promises';
 import net from 'net';
@@ -310,7 +311,38 @@ export async function POST(req: NextRequest) {
   const slug = slugify(body.slug || title);
   if (!slug) return NextResponse.json({ error: 'Could not derive slug' }, { status: 400 });
 
-  try {
+  // AutoSEO's client times out after 30s, but translation + commit takes longer.
+  // Acknowledge immediately and finish the work in the background (after()).
+  after(async () => {
+    try {
+      await processArticle({ slug, title, content, metaDescription, imageUrl });
+      console.log(`AutoSEO: published "${title}" (${slug})`);
+    } catch (err) {
+      console.error(`AutoSEO: background publish failed for ${slug}:`, err);
+    }
+  });
+
+  return NextResponse.json({
+    url: `https://www.pvpro.ch/blog/${slug}`,
+    status: 'accepted',
+    note: 'Article is being translated and published; it appears in the sitemap after the next deploy.',
+  });
+}
+
+async function processArticle({
+  slug,
+  title,
+  content,
+  metaDescription,
+  imageUrl,
+}: {
+  slug: string;
+  title: string;
+  content: string;
+  metaDescription: string;
+  imageUrl: string;
+}) {
+  {
     // 3. Cover image: download safely and prepare commit (optional)
     let imagePath = FALLBACK_IMAGE;
     let imageCommit: { repoPath: string; base64: string } | null = null;
@@ -388,20 +420,5 @@ export async function POST(req: NextRequest) {
       ...(imageCommit ? [{ path: imageCommit.repoPath, contentBase64: imageCommit.base64 }] : []),
     ];
     await githubCommitFiles(commitFiles, `AutoSEO: new article "${de.title}" (${slug})`);
-
-    return NextResponse.json({
-      ok: true,
-      slug,
-      urls: {
-        de: `https://www.pvpro.ch/blog/${slug}`,
-        fr: `https://www.pvpro.ch/fr/blog/${slug}`,
-        en: `https://www.pvpro.ch/en/blog/${slug}`,
-        it: `https://www.pvpro.ch/it/blog/${slug}`,
-      },
-      note: 'Committed to GitHub; Vercel will deploy automatically.',
-    });
-  } catch (err: any) {
-    console.error('AutoSEO webhook failed:', err);
-    return NextResponse.json({ error: err?.message || 'Internal error' }, { status: 500 });
   }
 }
