@@ -206,7 +206,7 @@ export default function Hero() {
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 inline-block rounded-xl px-2.5 py-1.5"
-          style={{ background: 'rgba(255,255,255,1)', backdropFilter: 'blur(8px)' }}
+          style={{ background: 'rgba(255,255,255,0.65)', backdropFilter: 'blur(8px)' }}
         >
           <img
             src="/images/trustpilot-badge.png"
