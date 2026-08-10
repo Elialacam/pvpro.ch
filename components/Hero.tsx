@@ -65,7 +65,6 @@ export default function Hero() {
   const pathname = usePathname();
   const formUrl = getFormUrl(pathname);
   const [current, setCurrent] = useState(0);
-  const [animating, setAnimating] = useState(false);
   // Only mount slides that have been (or are about to be) shown, so the
   // browser doesn't download all hero images upfront.
   const [mounted, setMounted] = useState<Set<number>>(() => new Set([0, 1]));
@@ -104,12 +103,8 @@ export default function Hero() {
     const doSwitch = () => {
       if (cancelled) return;
       cancelled = true;
-      setAnimating(true);
-      setTimeout(() => {
-        setCurrent(pending);
-        setAnimating(false);
-        setPending(null);
-      }, 400);
+      setCurrent(pending);
+      setPending(null);
     };
     if (loadedImgs.has(pending)) {
       doSwitch();
@@ -126,11 +121,7 @@ export default function Hero() {
     const timer = setInterval(() => {
       const next = (current + 1) % slides.length;
       mountSlide((next + 1) % slides.length); // preload the slide after next
-      setAnimating(true);
-      setTimeout(() => {
-        setCurrent(next);
-        setAnimating(false);
-      }, 400);
+      setCurrent(next);
     }, SLIDE_DURATION);
     return () => clearInterval(timer);
   }, [current]);
@@ -143,7 +134,7 @@ export default function Hero() {
         <div
           key={src}
           className="absolute inset-0 transition-opacity duration-700"
-          style={{ opacity: i === current ? (animating ? 0 : 1) : 0 }}
+          style={{ opacity: i === current ? 1 : 0 }}
         >
           {mounted.has(i) && (
             <Image
@@ -206,7 +197,7 @@ export default function Hero() {
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 inline-block rounded-xl px-2.5 py-1.5"
-          style={{ background: 'rgba(255,255,255,0.65)', backdropFilter: 'blur(8px)' }}
+          style={{ background: 'rgba(255,255,255,0.88)' }}
         >
           <img
             src="/images/trustpilot-badge.png"
