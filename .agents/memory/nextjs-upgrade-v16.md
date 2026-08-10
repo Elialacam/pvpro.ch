@@ -16,3 +16,5 @@ description: Notes on the forced upgrade from 14.2.22 to 16.3.0 and breaking cha
 5. **`middleware.ts` deprecation** — Next.js 16 prefers `proxy.ts`; left as-is (just a warning, not breaking)
 
 **How to apply:** If Next.js is reinstalled or upgraded, expect these same warnings. The fix is already in next.config.js and the sitemap files are removed.
+
+**Async params (Next 16):** in dynamic routes `params` is a Promise — sync access (`params.slug`) silently 404s any slug NOT prerendered by generateStaticParams (prerendered ones still work, masking the bug). All `[slug]` pages must `await params`. Symptom: new/dynamic content 404s while old content renders fine.

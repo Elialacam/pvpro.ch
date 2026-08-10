@@ -4,7 +4,7 @@ import { getBlogArticle, getBlogArticleSlugs } from '@/lib/blogArticles';
 import BlogArticlePage from '@/components/BlogArticlePage';
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 const itSlugToDeSlug: Record<string, string> = {
@@ -37,7 +37,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const deSlug = resolveSlug(params.slug);
+  const { slug } = await params;
+  const deSlug = resolveSlug(slug);
   const article = getBlogArticle(deSlug, 'it');
   if (!article) return {};
   return {
@@ -56,8 +57,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function BlogPostItPage({ params }: Props) {
-  const deSlug = resolveSlug(params.slug);
+export default async function BlogPostItPage({ params }: Props) {
+  const { slug } = await params;
+  const deSlug = resolveSlug(slug);
   const article = getBlogArticle(deSlug, 'it');
   if (!article) notFound();
   return <BlogArticlePage article={article} blogBase="/it/blog" homeHref="/it" />;
