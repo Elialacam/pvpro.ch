@@ -26,8 +26,8 @@ const teamContent: Record<Locale, {
   },
   fr: {
     eyebrow: 'Notre réseau',
-    title: 'Entreprises certifiées. Prix réels. Zéro surprise.',
-    description: "Nous travaillons exclusivement avec des installateurs suisses certifiés — soigneusement sélectionnés, régulièrement contrôlés et accompagnés personnellement.",
+    title: 'Derrière chaque devis, une entreprise suisse certifiée.',
+    description: "Toutes les entreprises n'entrent pas dans notre réseau — uniquement des installateurs suisses certifiés et contrôlés. Vos devis proviennent ainsi de professionnels qui maîtrisent leur métier, et non du nom le moins cher trouvé sur Internet.",
     stats: [
       { value: '25+',  label: 'Partenaires certifiés' },
       { value: '20+',  label: "Ans d'expérience" },
@@ -38,8 +38,8 @@ const teamContent: Record<Locale, {
   },
   en: {
     eyebrow: 'Our Network',
-    title: 'Certified Companies. Real Prices. No Surprises.',
-    description: 'We work exclusively with certified Swiss installers — carefully selected, regularly reviewed and personally supported.',
+    title: 'Behind every quote stands a certified Swiss company.',
+    description: 'Not every company makes it into our network — only certified, vetted Swiss installers. That way your quotes come from professionals who know their craft, not from the cheapest name on the internet.',
     stats: [
       { value: '25+',  label: 'Certified Partners' },
       { value: '20+',  label: 'Years Experience' },
