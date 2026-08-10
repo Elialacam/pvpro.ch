@@ -63,9 +63,9 @@ export default function ItalianHomePage() {
 
       <Hero />
       <HowItWorks />
+      <TeamSection />
       <SwissMap />
       <Testimonials />
-      <TeamSection />
 
       <BlogSection locale="it" />
       <FAQ />
