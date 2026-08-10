@@ -754,16 +754,20 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   return (
     <div className="min-h-screen bg-[#fafafa] flex flex-col">
       {/* Header */}
-      <header className="w-full bg-white border-b border-gray-100 px-6 py-6 relative flex items-center justify-center">
-        <Link href={locale === 'de' ? '/' : `/${locale}`}>
-          <Image src="/logo-pvpro.png" alt="PVPro.ch" width={400} height={116} className="h-28 sm:h-20 w-auto" priority />
-        </Link>
-        {step > 1 && (
-          <button onClick={goBack} className="absolute right-6 flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
-            <ChevronLeft className="w-4 h-4" />
-            {t.back}
-          </button>
-        )}
+      <header className="w-full bg-white border-b border-gray-100 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="relative flex items-center justify-between h-16 sm:h-[72px]">
+            <Link href={locale === 'de' ? '/' : `/${locale}`} className="flex-shrink-0 z-10">
+              <Image src="/logo-pvpro.png" alt="PVPro.ch" width={220} height={64} className="h-28 sm:h-32 w-auto -my-8" priority />
+            </Link>
+            {step > 1 && (
+              <button onClick={goBack} className="flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
+                <ChevronLeft className="w-4 h-4" />
+                {t.back}
+              </button>
+            )}
+          </div>
+        </div>
       </header>
 
       {/* Progress bar */}
