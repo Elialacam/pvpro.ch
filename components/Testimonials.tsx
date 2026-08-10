@@ -4,58 +4,7 @@ import { useState } from 'react';
 import { Star, Check, MapPin } from 'lucide-react';
 import Image from 'next/image';
 import { useLocale } from '@/lib/LocaleContext';
-
-const reviews = [
-  {
-    name: 'Markus B., Wil SG',
-    kWp: '30 kWp',
-    quote: 'Kein einziger Werbeanruf – genau das hatte ich befürchtet.',
-    detail: 'Bei so einem Vergleichsportal rechnet man ja fast damit, dass danach das Telefon nicht mehr stillsteht. Bei mir kam nichts dergleichen. Ich habe die drei Offerten per Mail bekommen und konnte in Ruhe schauen, ohne dass mich jemand bedrängt hat.',
-    photo: '/images/projects/project1.png',
-    location: 'Gewerbegebäude, Wil',
-  },
-  {
-    name: 'Sandra K., Bülach ZH',
-    kWp: '13 kWp',
-    quote: 'Ich habe auf den Haken gewartet – es gab keinen.',
-    detail: 'Ehrlich gesagt dachte ich, irgendwo kommt dann noch eine Rechnung oder eine versteckte Gebühr. Nichts davon. Der Vergleich war wirklich gratis, und die Offerten kamen direkt von den Installateuren, ohne Zwischenkosten.',
-    photo: '/images/projects/project2.png',
-    location: 'Einfamilienhaus, Bülach',
-  },
-  {
-    name: 'Peter H., Chur GR',
-    kWp: '25 kWp',
-    quote: 'Kein Billiganbieter, sondern ein Fachbetrieb aus der Region.',
-    detail: 'Meine Sorge war, dass ich an irgendeine anonyme Firma gerate. Stattdessen kam die Offerte von einem Betrieb aus dem Nachbarort, den sogar mein Nachbar schon kannte. Die Anlage läuft jetzt seit dem Sommer einwandfrei.',
-    photo: '/images/projects/project3.png',
-    location: 'Grossanlage, Chur',
-  },
-  {
-    name: 'Nadia F., Frauenfeld TG',
-    kWp: '12 kWp',
-    quote: 'Wirklich drei Offerten – und ich konnte selber vergleichen.',
-    detail: 'Ich hatte erwartet, dass man mich einfach an eine einzige Firma weiterreicht. Es waren tatsächlich drei unabhängige Angebote mit unterschiedlichen Preisen. Erst dadurch habe ich gemerkt, wie gross die Unterschiede sein können.',
-    photo: '/images/projects/project4.jpg',
-    location: 'Wohnhaus, Ticino',
-  },
-  {
-    name: 'Thomas R., Olten SO',
-    kWp: '13 kWp',
-    quote: 'War skeptisch gegenüber Vergleichsportalen – am Ende über 4\'000 Franken gespart.',
-    detail: 'Von solchen Seiten halte ich normalerweise wenig. Aber die günstigste der drei Offerten lag deutlich unter dem, was mir eine Firma vorher direkt angeboten hatte. Rund 4\'000 Franken Unterschied für praktisch dieselbe Anlage.',
-    photo: '/images/projects/project5.jpg',
-    location: 'Flachdach, Olten',
-  },
-  {
-    name: 'Claudia W., Luzern',
-    kWp: '20 kWp',
-    quote: 'In der Mittagspause ausgefüllt, am nächsten Tag die Offerten gehabt.',
-    detail: 'Ich hatte mit viel Aufwand gerechnet, Formulare, Rückfragen, das ganze Theater. War aber in ein paar Minuten erledigt. Einzig eine Offerte kam erst zwei Tage später, aber das war völlig okay.',
-    photo: '/images/projects/project6.jpg',
-    photoPosition: '72% 50%',
-    location: 'Mehrfamilienhaus, Luzern',
-  },
-];
+import { reviewBase, reviewTexts, reviewLabels } from './testimonialsData';
 
 const sectionText: Record<string, { label: string; heading: string; sub: string }> = {
   de: { label: 'Kundenstimmen', heading: 'Was unsere Kunden sagen', sub: 'Echte Erfahrungen. Echte Anlagen. Fahren Sie über eine Karte.' },
@@ -93,6 +42,10 @@ export default function Testimonials() {
   const t = sectionText[locale] || sectionText.de;
   const hint = hoverHint[locale] || hoverHint.de;
   const note = footerNote[locale] || footerNote.de;
+  const loc = (['de', 'fr', 'en', 'it'].includes(locale) ? locale : 'de') as 'de' | 'fr' | 'en' | 'it';
+  const texts = reviewTexts[loc];
+  const labels = reviewLabels[loc];
+  const reviews = reviewBase.map((r, i) => ({ ...r, ...texts[i] }));
   const [flipped, setFlipped] = useState<number | null>(null);
 
   return (
@@ -128,7 +81,7 @@ export default function Testimonials() {
                   <div className="flex items-center justify-between mb-4">
                     <Stars />
                     <span className="inline-flex items-center gap-1 rounded-full bg-[#fff8df] px-2.5 py-1 text-[10px] font-semibold text-gray-500">
-                      <Check size={12} strokeWidth={3} color="#fcb210" /> Google-Rezension
+                      <Check size={12} strokeWidth={3} color="#fcb210" /> {labels.googleReview}
                     </span>
                   </div>
                   <p className="text-lg font-bold leading-[1.25] text-gray-900">"{review.quote}"</p>
@@ -136,7 +89,7 @@ export default function Testimonials() {
                   <div className="mt-auto flex items-end justify-between border-t border-gray-100 pt-4">
                     <div>
                       <p className="text-sm font-bold text-gray-900">{review.name}</p>
-                      <p className="mt-1 text-xs text-gray-400">Solar-Kunde</p>
+                      <p className="mt-1 text-xs text-gray-400">{labels.customer}</p>
                     </div>
                     <span className="text-[10px] uppercase tracking-wider text-gray-400">{hint}</span>
                   </div>
@@ -146,7 +99,7 @@ export default function Testimonials() {
                 <article className="flip-card-face flip-card-back absolute inset-0 overflow-hidden rounded-2xl bg-gray-900 shadow-[0_20px_50px_rgba(83,70,35,0.2)]">
                   <Image
                     src={review.photo}
-                    alt={`Solaranlage von ${review.name}`}
+                    alt={`${labels.photoAlt} ${review.name}`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -160,7 +113,7 @@ export default function Testimonials() {
                     <div className="flex items-end justify-between">
                       <div>
                         <p className="text-lg font-bold">{review.name}</p>
-                        <p className="text-xs text-white/65">Realisierte Solaranlage</p>
+                        <p className="text-xs text-white/65">{labels.realized}</p>
                       </div>
                       {review.kWp && (
                         <span className="rounded-lg px-2.5 py-1.5 text-xs font-bold text-gray-900" style={{ background: '#ffc812' }}>
