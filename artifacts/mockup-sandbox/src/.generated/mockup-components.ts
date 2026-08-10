@@ -5,5 +5,10 @@ export const modules: ModuleMap = {
   "./components/mockups/testimonials/V2SpotlightReveal.tsx": () => import("../components/mockups/testimonials/V2SpotlightReveal.tsx"),
   "./components/mockups/testimonials/V3MosaicUnveil.tsx": () => import("../components/mockups/testimonials/V3MosaicUnveil.tsx"),
   "./components/mockups/testimonials/V4SlideReveal.tsx": () => import("../components/mockups/testimonials/V4SlideReveal.tsx"),
-  "./components/mockups/testimonials/V5GlassStack.tsx": () => import("../components/mockups/testimonials/V5GlassStack.tsx")
+  "./components/mockups/testimonials/V5GlassStack.tsx": () => import("../components/mockups/testimonials/V5GlassStack.tsx"),
+  "./components/mockups/funnel-forms/CardSwipe.tsx": () => import("../components/mockups/funnel-forms/CardSwipe.tsx"),
+  "./components/mockups/funnel-forms/ChatBubble.tsx": () => import("../components/mockups/funnel-forms/ChatBubble.tsx"),
+  "./components/mockups/funnel-forms/CinematicDark.tsx": () => import("../components/mockups/funnel-forms/CinematicDark.tsx"),
+  "./components/mockups/funnel-forms/NarrativeProfile.tsx": () => import("../components/mockups/funnel-forms/NarrativeProfile.tsx"),
+  "./components/mockups/funnel-forms/SolarCalculator.tsx": () => import("../components/mockups/funnel-forms/SolarCalculator.tsx")
 };
