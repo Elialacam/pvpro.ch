@@ -65,10 +65,10 @@ export default function EnglishHomePage() {
       />
 
       <Hero />
+      <HowItWorks />
       <TeamSection />
       <SwissMap />
       <Testimonials />
-      <HowItWorks />
 
       <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">
