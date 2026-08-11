@@ -482,6 +482,8 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         sessionStorage.getItem('fbclid') ??
         '';
 
+      const eventId = crypto.randomUUID();
+
       const res = await fetch('/api/anfrage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -493,12 +495,13 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           ...(formData.zipCode ? { zip_code: formData.zipCode } : {}),
           utm_source,
           ...(fbclid ? { fbclid } : {}),
+          event_id: eventId,
         }),
       });
       const data = await res.json();
       if (data.success) {
         trackStep(6);
-        (window as any).fbq?.('track', 'Lead', { content_name: 'Solar Quote Request', value: 50.0, currency: 'CHF' });
+        (window as any).fbq?.('track', 'Lead', { content_name: 'Solar Quote Request', value: 50.0, currency: 'CHF' }, { eventID: eventId });
         (window as any).gtag?.('event', 'conversion', { send_to: 'AW-17901154625/LyaGCIXE-fUbEMHi99dC', value: 1.0, currency: 'CHF' });
         fetch('/api/send-confirmation', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) }).catch(() => {});
         router.push(t.dankeUrl);
