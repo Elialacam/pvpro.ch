@@ -109,7 +109,7 @@ export default function ClientLogos({ label }: { label?: string }) {
                 return (
                   <div
                     key={`${copy}-${logo.src}`}
-                    className="mx-10 sm:mx-14 flex h-11 sm:h-14 w-24 sm:w-28 shrink-0 items-center justify-center"
+                    className="mx-8 sm:mx-11 flex h-11 sm:h-14 w-24 sm:w-28 shrink-0 items-center justify-center"
                   >
                     {logo.href ? (
                       <a
