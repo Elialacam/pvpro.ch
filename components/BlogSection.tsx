@@ -3,6 +3,7 @@ import { getImageFocus } from '@/lib/imageFocus';
 import Link from 'next/link';
 import { blogPosts } from '@/lib/blogPosts';
 import { blogPostsI18n } from '@/lib/blogPostsI18n';
+import { getAutoBlogCards } from '@/lib/autoBlog';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 const labels: Record<string, { eyebrow: string; title: string; viewAll: string; viewAllMobile: string; blogHref: string; min: string }> = {
@@ -47,11 +48,14 @@ interface Props {
 export default function BlogSection({ locale = 'de' }: Props) {
   const t = labels[locale] ?? labels.de;
 
-  const allPosts = locale !== 'de' && blogPostsI18n[locale]
+  const staticPosts = locale !== 'de' && blogPostsI18n[locale]
     ? blogPostsI18n[locale]
     : blogPosts;
 
-  const featured = allPosts.slice(0, 3);
+  // Auto-generated articles first (already sorted newest-first), then static posts —
+  // same ordering as the blog listing pages. New auto articles appear here automatically.
+  const autoCards = getAutoBlogCards((['de', 'fr', 'en', 'it'].includes(locale) ? locale : 'de') as 'de' | 'fr' | 'en' | 'it');
+  const featured = [...autoCards, ...staticPosts].slice(0, 3);
 
   function articleHref(post: { slug: string; href?: string }) {
     if (post.href) return post.href;
