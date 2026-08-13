@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 
 const LOGOS: { src: string; alt: string; href?: string }[] = [
-  { src: '/clients/client-01.webp', alt: 'Solion' },
+  { src: '/clients/client-01.webp', alt: 'Solion', href: 'https://solion.ch/' },
   { src: '/clients/client-02.webp', alt: 'SolGal Sagl', href: 'https://solgal.ch/' },
   { src: '/clients/client-03.webp', alt: 'Elektrobedarf', href: 'https://www.elektrobedarf.ch/' },
   { src: '/clients/client-04.webp', alt: 'Ecosol Swiss', href: 'https://ecosolswiss.ch/' },
@@ -103,14 +103,13 @@ export default function ClientLogos({ label }: { label?: string }) {
                     alt={copy === 0 ? logo.alt : ''}
                     width={320}
                     height={80}
-                    style={{ width: 'auto', height: 'auto' }}
-                    className="max-h-full max-w-full object-contain grayscale opacity-55 transition-all duration-300 hover:grayscale-0 hover:opacity-100"
+                    className="h-full w-full object-contain grayscale opacity-55 transition-all duration-300 hover:grayscale-0 hover:opacity-100"
                   />
                 );
                 return (
                   <div
                     key={`${copy}-${logo.src}`}
-                    className="mx-6 sm:mx-8 flex h-11 sm:h-14 w-24 sm:w-28 shrink-0 items-center justify-center"
+                    className="mx-10 sm:mx-14 flex h-11 sm:h-14 w-24 sm:w-28 shrink-0 items-center justify-center"
                   >
                     {logo.href ? (
                       <a
