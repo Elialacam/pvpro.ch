@@ -76,11 +76,11 @@ export default function ClientLogos({ label }: { label?: string }) {
 
   return (
     <section
-      className="bg-white py-10 sm:py-12 border-y border-gray-100"
+      className="bg-white py-6 sm:py-8 border-y border-gray-100"
       aria-label={label || 'Partner'}
     >
       {label && (
-        <p className="text-center text-sm font-medium uppercase tracking-widest text-gray-400 mb-8 px-4">
+        <p className="text-center text-sm font-medium uppercase tracking-widest text-gray-400 mb-6 px-4">
           {label}
         </p>
       )}
