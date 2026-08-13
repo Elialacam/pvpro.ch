@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero';
+import ClientLogos from '@/components/ClientLogos';
 import HowItWorks from '@/components/HowItWorks';
 import SwissMap from '@/components/SwissMapLazy';
 import Testimonials from '@/components/Testimonials';
@@ -63,6 +64,7 @@ export default function ItalianHomePage() {
 
       <Hero />
       <HowItWorks />
+      <ClientLogos label="I nostri installatori partner" />
       <TeamSection />
       <SwissMap />
       <Testimonials />

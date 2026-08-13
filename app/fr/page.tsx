@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero';
+import ClientLogos from '@/components/ClientLogos';
 import HowItWorks from '@/components/HowItWorks';
 import Testimonials from '@/components/Testimonials';
 import TeamSection from '@/components/TeamSection';
@@ -66,6 +67,7 @@ export default function FrenchHomePage() {
 
       <Hero />
       <HowItWorks />
+      <ClientLogos label="Nos installateurs partenaires" />
       <TeamSection />
       <SwissMap />
       <Testimonials />
