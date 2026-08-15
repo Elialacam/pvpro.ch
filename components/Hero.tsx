@@ -167,7 +167,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="absolute bottom-0 left-0 z-20 w-full pb-24 sm:pb-20 lg:pb-14 px-5 sm:px-10 lg:px-16 max-w-4xl">
+      <div className="absolute bottom-0 left-0 z-20 w-full pb-36 sm:pb-20 lg:pb-14 px-5 sm:px-10 lg:px-16 max-w-4xl">
         <h1
           className="text-white font-black leading-none tracking-tight mb-3 sm:mb-5"
           style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', lineHeight: 1.05 }}
