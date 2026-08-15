@@ -168,7 +168,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="absolute z-20 w-full px-5 sm:px-10 lg:px-16 max-w-4xl
-        top-1/2 -translate-y-[38%] left-0
+        top-1/2 -translate-y-[48%] left-0
         sm:top-auto sm:translate-y-0 sm:bottom-0 sm:pb-20 lg:pb-14">
         <h1
           className="text-white font-black leading-none tracking-tight mb-3 sm:mb-5"
