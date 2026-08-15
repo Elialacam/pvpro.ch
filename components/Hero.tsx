@@ -167,9 +167,9 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="absolute bottom-0 left-0 z-20 w-full pb-32 sm:pb-20 lg:pb-14 px-5 sm:px-10 lg:px-16 max-w-4xl">
+      <div className="absolute bottom-0 left-0 z-20 w-full pb-24 sm:pb-20 lg:pb-14 px-5 sm:px-10 lg:px-16 max-w-4xl">
         <h1
-          className="text-white font-black leading-none tracking-tight mb-5"
+          className="text-white font-black leading-none tracking-tight mb-3 sm:mb-5"
           style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', lineHeight: 1.05 }}
         >
           {content.titleLine1}
@@ -177,7 +177,7 @@ export default function Hero() {
           {content.titleLine2}
         </h1>
 
-        <p className="text-white/85 text-lg sm:text-xl font-normal mb-8 max-w-xl leading-relaxed">
+        <p className="text-white/85 text-base sm:text-xl font-normal mb-5 sm:mb-8 max-w-xl leading-snug sm:leading-relaxed">
           {content.subtitle}
         </p>
 
@@ -185,9 +185,9 @@ export default function Hero() {
           {content.cta} →
         </Link>
 
-        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3 mt-5 gap-1">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3 mt-4 sm:mt-5 gap-0.5">
           {content.trustBadge.split(' · ').map((item, i) => (
-            <span key={i} className="text-white/60 text-sm font-medium">{item}</span>
+            <span key={i} className="text-white/60 text-xs sm:text-sm font-medium">{item}</span>
           ))}
         </div>
 
@@ -196,7 +196,7 @@ export default function Hero() {
           href="https://it.trustpilot.com/review/pvpro.ch"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-block rounded-xl px-2.5 py-1.5"
+          className="mt-3 sm:mt-4 inline-block rounded-xl px-2.5 py-1.5"
           style={{ background: 'rgba(255,255,255,0.88)' }}
         >
           <img
