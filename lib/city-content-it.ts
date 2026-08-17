@@ -55,9 +55,9 @@ export const cityContentsIT: Record<string, CityContent> = {
           description: 'La Confederazione promuove nuovi impianti fotovoltaici con una sovvenzione unica che copre fino al 30% dei costi di investimento. Per un impianto da 5 kWp a Lugano, questo corrisponde a circa CHF 2.600-3.500.'
         },
         {
-          name: 'Programma Energia Canton Ticino',
-          amount: 'Ulteriori 10-15%',
-          description: 'Il Canton Ticino offre ulteriori sovvenzioni per impianti innovativi con batterie di accumulo. Attraverso il programma \"Energia\", i proprietari di case ricevono anche consulenza energetica gratuita e supporto per le richieste.'
+          name: 'Contributo cantonale FER – Ticino',
+          amount: 'Soggetto a requisiti',
+          description: 'Il Canton Ticino può offrire contributi aggiuntivi tramite il Fondo Energie Rinnovabili (FER), a seconda del tipo di impianto e delle condizioni applicabili. Verificate l\'ammissibilità sul sito ufficiale del Cantone prima di presentare la richiesta.'
         },
         {
           name: 'Deduzioni fiscali Ticino',
@@ -113,7 +113,7 @@ export const cityContentsIT: Record<string, CityContent> = {
       },
       {
         question: 'Quali sovvenzioni sono disponibili a Lugano?',
-        answer: 'A Lugano beneficiate di diversi programmi di sovvenzioni: 1) Rimunerazione Unica Federale (RU) fino a CHF 3.500, 2) Programma Energia Canton Ticino con ulteriori 10-15%, 3) Deduzioni fiscali fino a CHF 6.000/anno, 4) Possibili incentivi comunali. In totale, fino al 45% dei costi di investimento possono essere coperti da sovvenzioni.'
+        answer: 'Potete cumulare: 1) La Rimunerazione Unica Federale (RU) tramite Pronovo, che può coprire fino al 30% dei costi di un impianto di riferimento. 2) Eventuali contributi cantonali ticinesi (FER), soggetti a requisiti di ammissibilità. 3) Deduzioni fiscali cantonali. 4) Possibili incentivi comunali variabili per località. Gli importi esatti dipendono dalle caratteristiche del vostro impianto — verificate sempre le condizioni aggiornate.'
       },
       {
         question: 'Quanto velocemente si ammortizza un impianto fotovoltaico a Lugano?',

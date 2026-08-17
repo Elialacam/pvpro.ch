@@ -7,8 +7,8 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 const citySlug = 'ticino';
 
 export const metadata: Metadata = {
-  title: 'Impianto Fotovoltaico in Ticino 2026 – Preventivi e Incentivi | PVPro.ch',
-  description: "Confronta fino a 3 preventivi per impianti fotovoltaici in Ticino. 2'157 ore di sole, ROI di 4–6 anni, incentivi federali e cantonali. Installatori certificati in tutto il Ticino.",
+  title: 'Fotovoltaico Ticino 2026: Incentivi e fino a 3 Offerte | PvPro',
+  description: "Confronta gratuitamente fino a 3 offerte per il fotovoltaico in Ticino. Scopri incentivi 2026, costi, autoconsumo e soluzioni con o senza batteria.",
   alternates: {
     canonical: 'https://www.pvpro.ch/it/fotovoltaico-ticino',
     languages: {
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Impianto Fotovoltaico in Ticino 2026 – Preventivi e Incentivi',
-    description: "Il Ticino ha il sole migliore della Svizzera: 2'157 ore/anno e ROI di soli 4–6 anni. Confronta preventivi da installatori certificati.",
+    title: 'Fotovoltaico Ticino 2026: Incentivi e fino a 3 Offerte',
+    description: "Confronta gratuitamente fino a 3 offerte per il fotovoltaico in Ticino. Scopri incentivi 2026, costi, autoconsumo e soluzioni con o senza batteria.",
     url: 'https://www.pvpro.ch/it/fotovoltaico-ticino',
     type: 'website',
     locale: 'it_CH',

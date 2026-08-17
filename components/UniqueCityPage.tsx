@@ -121,8 +121,8 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 <div className="text-xs text-gray-500 mt-1">{t(lang, 'Schneller ROI', 'Retour rapide', 'ROI rapido')}</div>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-3xl font-sans font-semibold tracking-tight text-primary mb-2">45%</div>
-                <div className="text-sm text-gray-600">{t(lang, 'Förderung möglich', 'Aides possibles', 'Sussidi possibili')}</div>
+                <div className="text-3xl font-sans font-semibold tracking-tight text-primary mb-2">{t(lang, 'bis 30%', "jusqu'à 30%", 'fino al 30%')}</div>
+                <div className="text-sm text-gray-600">{t(lang, 'Bundesförderung möglich', 'Aide fédérale possible', 'Incentivo federale possibile')}</div>
                 <div className="text-xs text-gray-500 mt-1">{t(lang, 'Bund + Kanton', 'Confédération + Canton', 'Confederazione + Cantone')}</div>
               </div>
             </div>
@@ -218,9 +218,9 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                   <li className="flex gap-2">
                     <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
                     <span>{t(lang,
-                      'Zusatzboni für Höhenlagen und steile Flächen',
-                      'Bonus supplémentaires pour les toits en pente et en altitude',
-                      'Bonus per altitudine e superfici inclinate'
+                      'Mögliche kantonale Zusatzförderung',
+                      'Aides cantonales possibles selon situation',
+                      'Eventuali contributi cantonali aggiuntivi'
                     )}</span>
                   </li>
                 </ul>
@@ -404,9 +404,9 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 </div>
               </div>
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <div className="text-4xl font-sans font-semibold tracking-tight text-white mb-2 drop-shadow-lg">45%</div>
+                <div className="text-4xl font-sans font-semibold tracking-tight text-white mb-2 drop-shadow-lg">{t(lang, 'bis 30%', "jusqu'à 30%", 'fino al 30%')}</div>
                 <div className="text-sm text-white/90 font-medium">
-                  {t(lang, 'Förderung', 'Subventions', 'Sussidi')}
+                  {t(lang, 'Bundesförderung', 'Aide fédérale', 'Incentivo federale')}
                 </div>
               </div>
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
@@ -503,7 +503,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             {t(lang,
               `Starten Sie jetzt Ihr Solarprojekt in ${city.name}!`,
               `Lancez votre projet solaire à ${city.name} maintenant !`,
-              `Inizia ora il tuo progetto solare a ${city.name}!`
+              `Inizia ora il tuo progetto solare in ${city.name}!`
             )}
           </h2>
           <p className="text-xl mb-8 opacity-90">
