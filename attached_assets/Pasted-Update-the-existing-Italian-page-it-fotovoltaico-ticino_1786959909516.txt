@@ -1,0 +1,104 @@
+Update the existing Italian page `/it/fotovoltaico-ticino` without redesigning it. Preserve the current layout, branding, responsiveness, animations and lead form, but replace outdated or unsupported information with accurate 2026 content.
+
+Remove or correct these claims everywhere they appear, including visible text, cards, FAQs, metadata and structured data:
+
+* Remove “bonus per l’altitudine”: since 1 January 2026 it has been replaced by the winter electricity production bonus, generally relevant to new systems from 100 kW that meet the required winter yield.
+* Remove the unsupported claims “45% di sussidi”, “ROI di 4–6 anni guaranteed”, “25% more production than Zurich” and “the mild climate reduces thermal losses of solar panels”.
+* Do not claim that incentives are paid immediately.
+* Do not present PvPro as “the leading Swiss platform” unless this can be proven.
+* Replace absolute promises with realistic ranges and clearly state that profitability depends on roof characteristics, consumption, self-consumption, battery, electricity tariffs, installation price and available incentives.
+
+Update the page around this positioning:
+
+“Confronta fino a 3 offerte per un impianto fotovoltaico in Ticino”
+
+Explain that photovoltaic systems are supported through federal and, where applicable, cantonal or municipal incentives. The ordinary federal one-off remuneration can cover up to 30% of the investment costs of a reference installation. Additional support depends on the system, municipality and applicable programme and must be checked individually.
+
+Add a new prominent section titled:
+
+“Nel 2026 l’autoconsumo è più importante che mai”
+
+Explain concisely that the remuneration for electricity fed into the grid can vary significantly. For photovoltaic installations that received the Ticino FER contribution, the official FER-CU tariffs for Q2 2026 are:
+
+* below 30 kW: 5.0 ct./kWh;
+* 30–150 kW without self-consumption: 6.0 ct./kWh;
+* 30–150 kW with self-consumption: 4.8 ct./kWh;
+* 150 kW or more: 4.6 ct./kWh.
+
+Mention that these tariffs may change and must always be verified on the official Canton Ticino website. Explain that increasing self-consumption through intelligent energy management, a battery, a heat pump or electric-vehicle charging can improve the value of the energy produced. Do not promise that a battery is always financially advantageous.
+
+Add a comparison block for:
+
+* photovoltaic system without battery;
+* photovoltaic system with battery;
+* optional wallbox or heat-pump integration.
+
+The CTA should invite the user to request offers both with and without battery so they can compare investment, estimated self-consumption and expected payback period.
+
+Recommended CTA:
+
+“Confronta gratuitamente fino a 3 offerte personalizzate”
+
+Supporting text:
+
+“Ricevi proposte da installatori attivi nella tua regione e valuta costi, incentivi, batteria e rendimento previsto. Il servizio è gratuito e senza impegno.”
+
+Update the lead form, if these questions are not already present, to collect:
+
+* property ownership;
+* municipality/postcode;
+* property type;
+* approximate roof type and size;
+* annual electricity consumption;
+* desired timeframe;
+* interest in battery;
+* interest in wallbox;
+* interest in heat pump;
+* approximate available budget.
+
+Keep the form short by using conditional steps rather than displaying every field at once.
+
+Add an incentives section explaining these three levels clearly:
+
+1. Federal one-off remuneration through Pronovo.
+2. Possible Canton Ticino FER contribution, subject to eligibility.
+3. Possible municipal incentives that vary by location.
+
+Add a disclaimer that the final amounts depend on the system characteristics and current regulations. Link to authoritative sources:
+
+* Federal photovoltaic incentives:
+  `https://www.bfe.admin.ch/bfe/de/home/foerderung/erneuerbare-energien/foerderung-photovoltaikanlagen.html`
+* Canton Ticino FER tariffs:
+  `https://www4.ti.ch/generale/fer/fondo-energie-rinnovabili-fer/tariffe-energia`
+* AET FER information:
+  `https://www.aet.ch/it/fondo-energie-rinnovabili`
+* Swissolar 2026 changes:
+  `https://www.swissolar.ch/it/news/detail/novita-2026-per-gli-impianti-fotovoltaici-80786`
+
+Improve the FAQ with accurate answers to:
+
+* Quali incentivi fotovoltaici sono disponibili in Ticino nel 2026?
+* Quanto costa un impianto fotovoltaico in Ticino?
+* Quanto tempo serve per ammortizzare l’investimento?
+* Conviene aggiungere una batteria?
+* Quanto viene pagata l’energia immessa nella rete?
+* Posso richiedere offerte con e senza accumulo?
+* Come funzionano le comunità locali di energia e l’autoconsumo?
+* Come vengono selezionati gli installatori?
+
+For costs and payback periods, use only cautious indicative ranges and explain the variables. Never invent statistics or guarantees.
+
+SEO requirements:
+
+* Keep the main keyword focused on “fotovoltaico Ticino”.
+* Naturally include related terms such as “impianto fotovoltaico Ticino”, “preventivo fotovoltaico Ticino”, “incentivi fotovoltaico Ticino 2026”, “pannelli solari Ticino”, “batteria fotovoltaico” and “confronto offerte fotovoltaico”.
+* Update the title tag to approximately:
+  “Fotovoltaico Ticino 2026: Incentivi e fino a 3 Offerte | PvPro”
+* Update the meta description to approximately:
+  “Confronta gratuitamente fino a 3 offerte per il fotovoltaico in Ticino. Scopri incentivi 2026, costi, autoconsumo e soluzioni con o senza batteria.”
+* Update canonical URL, Open Graph data, FAQ schema and all structured data so they match the visible content.
+* Do not keyword-stuff or create repetitive filler text.
+* Show a visible “Aggiornato ad agosto 2026” label near the main information section.
+* Use official source links as contextual citations to strengthen trust.
+
+Before finishing, search the complete codebase for the removed claims and ensure they no longer appear on this page. Verify mobile and desktop layout, ensure all CTA buttons still lead to the correct form, and confirm that no existing tracking, Pixel, CAPI, consent or lead-submission functionality has been broken.
