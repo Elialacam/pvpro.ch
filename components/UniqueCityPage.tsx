@@ -287,7 +287,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                       {t(lang, '5 kWp Anlage (typisch)', 'Installation 5 kWc (typique)', 'Impianto 5 kWp (tipico)')}
                     </span>
                     <span className="text-2xl font-sans font-semibold tracking-tight text-gray-900">
-                      {content.pricing.typical5kw.min.toLocaleString()}–{content.pricing.typical5kw.max.toLocaleString()} CHF
+                      {content.pricing.typical5kw.min.toLocaleString('de-CH')}–{content.pricing.typical5kw.max.toLocaleString('de-CH')} CHF
                     </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
@@ -300,7 +300,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                       {t(lang, 'Nach Förderung', 'Après subventions', 'Dopo i sussidi')}
                     </span>
                     <span className="text-2xl font-sans font-semibold tracking-tight text-green-600">
-                      {content.pricing.afterSubsidy5kw.min.toLocaleString()}–{content.pricing.afterSubsidy5kw.max.toLocaleString()} CHF
+                      {content.pricing.afterSubsidy5kw.min.toLocaleString('de-CH')}–{content.pricing.afterSubsidy5kw.max.toLocaleString('de-CH')} CHF
                     </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
