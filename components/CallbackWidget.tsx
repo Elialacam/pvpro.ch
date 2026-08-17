@@ -185,7 +185,7 @@ export default function CallbackWidget() {
     setTeaser(false);
   }, [open, hidden]);
 
-  const hiddenPaths = ['/anfrage', '/en/get-solar-panel-quotes', '/fr/demander-offre-panneau-solaire', '/it/richiedere-preventivo-solare'];
+  const hiddenPaths = ['/anfrage', '/en/get-solar-panel-quotes', '/fr/demander-offre-panneau-solaire', '/it/richiedere-preventivo-solare', '/danke', '/en/thank-you', '/fr/merci', '/it/grazie'];
   if (pathname && hiddenPaths.includes(pathname)) return null;
   if (hidden) return null;
 
