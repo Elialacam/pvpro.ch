@@ -450,6 +450,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title={t(lang, `Karte von ${city.name}`, `Carte de ${city.name}`, `Mappa di ${city.name}`)}
+              suppressHydrationWarning
             />
             <div className="absolute bottom-6 left-6 bg-white px-6 py-3 rounded-lg shadow-lg">
               <div className="flex items-center gap-2">
