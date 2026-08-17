@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { City } from '@/lib/cities';
 import { CityContent } from '@/lib/city-content';
 import Link from 'next/link';
@@ -29,6 +30,8 @@ function getFormUrl(lang: string) {
 
 export default function UniqueCityPage({ city, content, accentColor = 'orange' }: UniqueCityPageProps) {
   const lang = city.language;
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
 
   const colors = {
     orange: {
@@ -441,17 +444,18 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
           </div>
 
           <div className="relative rounded-2xl overflow-hidden shadow-xl h-[500px]">
-            <iframe
-              src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDQF_fL_qx_1QZVlvJFNRl5ETBhjcJOFAE&q=${encodeURIComponent(city.name + ', Schweiz')}&zoom=10`}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title={t(lang, `Karte von ${city.name}`, `Carte de ${city.name}`, `Mappa di ${city.name}`)}
-              suppressHydrationWarning
-            />
+            {mounted && (
+              <iframe
+                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDQF_fL_qx_1QZVlvJFNRl5ETBhjcJOFAE&q=${encodeURIComponent(city.name + ', Schweiz')}&zoom=10`}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title={t(lang, `Karte von ${city.name}`, `Carte de ${city.name}`, `Mappa di ${city.name}`)}
+              />
+            )}
             <div className="absolute bottom-6 left-6 bg-white px-6 py-3 rounded-lg shadow-lg">
               <div className="flex items-center gap-2">
                 <MapPin className={`w-5 h-5 ${theme.icon}`} />
