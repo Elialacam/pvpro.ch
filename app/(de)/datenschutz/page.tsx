@@ -22,8 +22,8 @@ export default function DatenschutzPage() {
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
             NOBA Media Sagl<br />
-            Via Santi Pietro e Paolo 16<br />
-            6953 Lugaggia<br />
+            Via Rinaldo Simen 3<br />
+            6900 Lugano<br />
             Schweiz<br />
             <br />
             E-Mail: anfrage@pvpro.ch<br />

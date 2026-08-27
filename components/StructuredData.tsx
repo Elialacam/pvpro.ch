@@ -16,9 +16,9 @@ export default function StructuredData() {
     "email": "anfrage@pvpro.ch",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Via Santi Pietro e Paolo 16",
-      "addressLocality": "Lugaggia",
-      "postalCode": "6953",
+      "streetAddress": "Via Rinaldo Simen 3",
+      "addressLocality": "Lugano",
+      "postalCode": "6900",
       "addressKanton": "TI",
       "addressCountry": "CH"
     },

@@ -16,8 +16,8 @@ export default function ImpressumPage() {
 
           <div className="bg-gray-50 rounded-xl p-6 mb-8">
             <p className="text-gray-900 font-sans font-bold mb-4">NOBA Media Sagl</p>
-            <p className="text-gray-600 mb-2">Via Santi Pietro e Paolo 16</p>
-            <p className="text-gray-600 mb-2">6953 Lugaggia</p>
+            <p className="text-gray-600 mb-2">Via Rinaldo Simen 3</p>
+            <p className="text-gray-600 mb-2">6900 Lugano</p>
             <p className="text-gray-600 mb-2">Schweiz</p>
             <p className="text-gray-600 mb-2">
               <strong>E-Mail:</strong> anfrage@pvpro.ch

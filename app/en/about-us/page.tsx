@@ -161,7 +161,7 @@ export default function AboutUsPage() {
               <MapPin className="w-4 h-4 text-[#fcb210] mt-0.5 flex-shrink-0" />
               <div>
                 <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">Address</p>
-                <p className="font-semibold text-gray-800">Via Santi Pietro e Paolo 16<br />6953 Lugaggia, Switzerland</p>
+                <p className="font-semibold text-gray-800">Via Rinaldo Simen 3<br />6900 Lugano, Switzerland</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
