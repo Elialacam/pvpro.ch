@@ -118,6 +118,18 @@ async function sendOpenAIConversion({
   }
 }
 
+function sanitizeSourceUrl(value: string): string {
+  try {
+    const url = new URL(value)
+    if (url.protocol !== 'https:' && url.protocol !== 'http:') {
+      throw new Error('Unsupported source URL protocol')
+    }
+    return `${url.origin}${url.pathname}`
+  } catch {
+    return 'https://www.pvpro.ch/anfrage'
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
@@ -132,8 +144,8 @@ export async function POST(request: NextRequest) {
     const fbclid     = body.fbclid     ?? ''
     const eventId    = body.event_id   ?? ''
     const marketingConsent = body.marketing_consent === true
-    const openAiBrowserRef = body.openai_browser_ref ?? ''
-    const sourceUrl  = request.headers.get('referer') ?? ''
+    const openAiBrowserRef = request.cookies.get('__obref')?.value ?? body.openai_browser_ref ?? ''
+    const sourceUrl  = sanitizeSourceUrl(request.headers.get('referer') ?? '')
     const forwardedFor = request.headers.get('x-forwarded-for') ?? ''
     const ipAddress = forwardedFor.split(',')[0]?.trim() || undefined
     const userAgent = request.headers.get('user-agent') ?? undefined

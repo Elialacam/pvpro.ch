@@ -16,6 +16,7 @@ declare global {
   interface Window {
     google?: typeof google;
     oaiq?: (...args: any[]) => void;
+    __pvproOpenAIAdsInitialized?: boolean;
   }
 }
 

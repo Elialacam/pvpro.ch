@@ -36,6 +36,12 @@ export default function TrackingScripts() {
     };
   }, [delayed]);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).oaiq) {
+      (window as any).oaiq('consent', consent?.marketing === true);
+    }
+  }, [consent?.marketing]);
+
   const handleConsentChange = useCallback((newConsent: CookieConsent) => {
     setConsent(newConsent);
   }, []);
@@ -91,12 +97,18 @@ export default function TrackingScripts() {
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
-                (function(w,d,s,u,n,a,m){
-                  w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)};
-                  a=d.createElement(s);a.async=1;a.src=u;
-                  m=d.getElementsByTagName(s)[0];m.parentNode.insertBefore(a,m);
-                })(window,document,'script','https://bzrcdn.openai.com/sdk/oaiq.min.js','oaiq');
-                window.oaiq('init', '8NEq6ZtADcZQCEFa5sRNhY');
+                (function(w,d,s,u){
+                  if(w.oaiq)return;
+                  var q=function(){q.q.push(arguments)};
+                  q.q=[];w.oaiq=q;
+                  var js=d.createElement(s);js.async=true;js.src=u;
+                  var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(js,f);
+                })(window,document,'script','https://bzrcdn.openai.com/sdk/oaiq.min.js');
+                window.oaiq('consent', true);
+                if(!window.__pvproOpenAIAdsInitialized){
+                  window.oaiq('init', { pixelId: '8NEq6ZtADcZQCEFa5sRNhY' });
+                  window.__pvproOpenAIAdsInitialized=true;
+                }
               `,
             }}
           />
