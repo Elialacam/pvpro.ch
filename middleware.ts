@@ -18,6 +18,16 @@ export function middleware(request: NextRequest) {
   }
 
   const pathname = request.nextUrl.pathname;
+  const formPaths = ['/anfrage', '/fr/demande', '/en/request', '/it/richiesta'];
+  const hasChatGPTSource = request.cookies.get('pvpro_source')?.value === 'chatgpt';
+
+  // Carry ChatGPT Ads attribution onto the internal form URL. This also
+  // handles client-side navigations and buttons that use window.location.
+  if (hasChatGPTSource && formPaths.includes(pathname) && request.nextUrl.searchParams.get('source') !== 'chatgpt') {
+    const url = request.nextUrl.clone();
+    url.searchParams.set('source', 'chatgpt');
+    return NextResponse.redirect(url);
+  }
 
   // Check if the pathname already has a valid locale
   const pathnameHasLocale = locales.some(

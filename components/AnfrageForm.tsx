@@ -476,6 +476,10 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         new URLSearchParams(window.location.search).get('utm_source') ??
         sessionStorage.getItem('utm_source') ??
         'organic';
+      const source =
+        new URLSearchParams(window.location.search).get('source') ??
+        sessionStorage.getItem('pvpro_source') ??
+        '';
 
       const fbclid =
         new URLSearchParams(window.location.search).get('fbclid') ??
@@ -494,6 +498,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           'COMPLETE ADDRESS': formData.address,
           ...(formData.zipCode ? { zip_code: formData.zipCode } : {}),
           utm_source,
+          ...(source === 'chatgpt' ? { source: 'chatgpt' } : {}),
           ...(fbclid ? { fbclid } : {}),
           event_id: eventId,
         }),
