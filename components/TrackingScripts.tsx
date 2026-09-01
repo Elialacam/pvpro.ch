@@ -86,6 +86,20 @@ export default function TrackingScripts() {
               `,
             }}
           />
+          <Script
+            id="openai-ads-pixel"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(w,d,s,u,n,a,m){
+                  w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)};
+                  a=d.createElement(s);a.async=1;a.src=u;
+                  m=d.getElementsByTagName(s)[0];m.parentNode.insertBefore(a,m);
+                })(window,document,'script','https://bzrcdn.openai.com/sdk/oaiq.min.js','oaiq');
+                window.oaiq('init', '8NEq6ZtADcZQCEFa5sRNhY');
+              `,
+            }}
+          />
         </>
       )}
 

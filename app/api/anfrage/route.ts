@@ -4,6 +4,7 @@ import { createHash } from 'crypto'
 export const runtime = 'nodejs'
 
 const PIXEL_ID = '1848326999213371'
+const OPENAI_ADS_PIXEL_ID = '8NEq6ZtADcZQCEFa5sRNhY'
 
 function sha256(value: string): string {
   return createHash('sha256').update(value.trim().toLowerCase()).digest('hex')
@@ -55,6 +56,68 @@ async function sendMetaCAPI(email: string, phone: string, sourceUrl: string, fbc
   }
 }
 
+async function sendOpenAIConversion({
+  email,
+  sourceUrl,
+  eventId,
+  browserRef,
+  ipAddress,
+  userAgent,
+}: {
+  email: string
+  sourceUrl: string
+  eventId: string
+  browserRef?: string
+  ipAddress?: string
+  userAgent?: string
+}) {
+  const token = process.env.OPENAI_CONVERSIONS_API_KEY
+  if (!token) return
+
+  const user: Record<string, string[]> & {
+    obref?: string
+    ip_address?: string
+    user_agent?: string
+  } = {
+    emails_sha256: [sha256(email)],
+  }
+
+  if (browserRef) user.obref = browserRef
+  if (ipAddress) user.ip_address = ipAddress
+  if (userAgent) user.user_agent = userAgent
+
+  try {
+    const res = await fetch(
+      `https://bzr.openai.com/v1/events?pid=${encodeURIComponent(OPENAI_ADS_PIXEL_ID)}`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          validate_only: false,
+          events: [{
+            id: eventId,
+            type: 'lead_created',
+            timestamp_ms: Date.now(),
+            action_source: 'web',
+            source_url: sourceUrl || 'https://www.pvpro.ch/anfrage',
+            user,
+            data: { type: 'customer_action' },
+          }],
+        }),
+      }
+    )
+
+    if (!res.ok) {
+      console.error('OpenAI Ads CAPI error:', res.status, await res.text())
+    }
+  } catch (err) {
+    console.error('OpenAI Ads CAPI exception:', err)
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
@@ -68,9 +131,14 @@ export async function POST(request: NextRequest) {
     const source     = body.source     ?? ''
     const fbclid     = body.fbclid     ?? ''
     const eventId    = body.event_id   ?? ''
+    const marketingConsent = body.marketing_consent === true
+    const openAiBrowserRef = body.openai_browser_ref ?? ''
     const sourceUrl  = request.headers.get('referer') ?? ''
+    const forwardedFor = request.headers.get('x-forwarded-for') ?? ''
+    const ipAddress = forwardedFor.split(',')[0]?.trim() || undefined
+    const userAgent = request.headers.get('user-agent') ?? undefined
 
-    // Send to LeadSync and Meta CAPI in parallel
+    // Send to LeadSync and conversion APIs in parallel.
     const [leadsyncRes] = await Promise.all([
       fetch('https://lead-suryoyo.replit.app/api/webhook/form', {
         method: 'POST',
@@ -81,6 +149,16 @@ export async function POST(request: NextRequest) {
         body: JSON.stringify({ name, phone, email, address, ...(zip_code ? { zip_code } : {}), utm_source: utm_source || 'organic', ...(source ? { source } : {}), ...(fbclid ? { fbclid } : {}) }),
       }),
       sendMetaCAPI(email, phone, sourceUrl, fbclid || undefined, eventId || undefined),
+      marketingConsent && eventId
+        ? sendOpenAIConversion({
+            email,
+            sourceUrl,
+            eventId,
+            browserRef: openAiBrowserRef || undefined,
+            ipAddress,
+            userAgent,
+          })
+        : Promise.resolve(),
     ])
 
     if (!leadsyncRes.ok) {

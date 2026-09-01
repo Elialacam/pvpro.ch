@@ -10,9 +10,13 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getConsent } from '@/lib/cookieConsent';
 
 declare global {
-  interface Window { google?: typeof google; }
+  interface Window {
+    google?: typeof google;
+    oaiq?: (...args: any[]) => void;
+  }
 }
 
 const TOTAL_STEPS = 6;
@@ -487,6 +491,15 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         '';
 
       const eventId = crypto.randomUUID();
+      const marketingConsent = getConsent()?.marketing === true;
+      const openAiBrowserRef = marketingConsent
+        ? document.cookie
+            .split('; ')
+            .find((cookie) => cookie.startsWith('__obref='))
+            ?.split('=')
+            .slice(1)
+            .join('=') ?? ''
+        : '';
 
       const res = await fetch('/api/anfrage', {
         method: 'POST',
@@ -501,6 +514,8 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           ...(source === 'chatgpt' ? { source: 'chatgpt' } : {}),
           ...(fbclid ? { fbclid } : {}),
           event_id: eventId,
+          marketing_consent: marketingConsent,
+          ...(openAiBrowserRef ? { openai_browser_ref: decodeURIComponent(openAiBrowserRef) } : {}),
         }),
       });
       const data = await res.json();
@@ -508,6 +523,9 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         trackStep(6);
         (window as any).fbq?.('track', 'Lead', { content_name: 'Solar Quote Request', value: 50.0, currency: 'CHF' }, { eventID: eventId });
         (window as any).gtag?.('event', 'conversion', { send_to: 'AW-17901154625/LyaGCIXE-fUbEMHi99dC', value: 1.0, currency: 'CHF' });
+        if (marketingConsent) {
+          window.oaiq?.('measure', 'lead_created', { type: 'customer_action' }, { event_id: eventId });
+        }
         fetch('/api/send-confirmation', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) }).catch(() => {});
         router.push(t.dankeUrl);
       }
