@@ -67,7 +67,9 @@ export default function Hero() {
   const [current, setCurrent] = useState(0);
   // Only mount slides that have been (or are about to be) shown, so the
   // browser doesn't download all hero images upfront.
-  const [mounted, setMounted] = useState<Set<number>>(() => new Set([0, 1]));
+  // Keep the first paint to one image. The next slide is preloaded after the
+  // page has settled, instead of competing with the LCP image on mobile.
+  const [mounted, setMounted] = useState<Set<number>>(() => new Set([0]));
   const [loadedImgs, setLoadedImgs] = useState<Set<number>>(() => new Set());
   const [pending, setPending] = useState<number | null>(null);
 
@@ -118,6 +120,11 @@ export default function Hero() {
   }, [pending, loadedImgs]);
 
   useEffect(() => {
+    const preloadTimer = setTimeout(() => mountSlide(1), 2400);
+    return () => clearTimeout(preloadTimer);
+  }, [mountSlide]);
+
+  useEffect(() => {
     const timer = setInterval(() => {
       const next = (current + 1) % slides.length;
       mountSlide((next + 1) % slides.length); // preload the slide after next
@@ -142,7 +149,7 @@ export default function Hero() {
               alt="PVPro Solaranlage"
               fill
               priority={i === 0}
-              quality={i === 0 ? 90 : 75}
+              quality={i === 0 ? 75 : 70}
               className="object-cover object-center"
               sizes="100vw"
               onLoad={() => markLoaded(i)}

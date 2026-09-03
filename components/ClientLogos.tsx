@@ -35,6 +35,12 @@ export default function ClientLogos({ label }: { label?: string }) {
     let raf = 0;
     let running = false;
     let visible = false;
+    let halfWidth = 0;
+
+    const measure = () => {
+      halfWidth = track.scrollWidth / 2;
+    };
+    measure();
 
     const step = (now: number) => {
       const dt = Math.min(now - last, 64) / 1000;
@@ -42,8 +48,7 @@ export default function ClientLogos({ label }: { label?: string }) {
       // ease current speed toward target for a smooth slow-down
       speed += (targetSpeed.current - speed) * Math.min(1, dt * 6);
       offset += speed * dt;
-      const half = track.scrollWidth / 2;
-      if (half > 0 && offset >= half) offset -= half;
+      if (halfWidth > 0 && offset >= halfWidth) offset -= halfWidth;
       track.style.transform = `translate3d(${-offset}px, 0, 0)`;
       raf = requestAnimationFrame(step);
     };
@@ -65,10 +70,13 @@ export default function ClientLogos({ label }: { label?: string }) {
       sync();
     });
     io.observe(track);
+    const resizeObserver = new ResizeObserver(measure);
+    resizeObserver.observe(track);
     document.addEventListener('visibilitychange', sync);
 
     return () => {
       io.disconnect();
+      resizeObserver.disconnect();
       document.removeEventListener('visibilitychange', sync);
       cancelAnimationFrame(raf);
     };
@@ -103,6 +111,7 @@ export default function ClientLogos({ label }: { label?: string }) {
                     alt={copy === 0 ? logo.alt : ''}
                     width={320}
                     height={80}
+                    sizes="112px"
                     className="h-full w-full object-contain grayscale opacity-55 transition-all duration-300 hover:grayscale-0 hover:opacity-100"
                   />
                 );
