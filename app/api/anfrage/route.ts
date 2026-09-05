@@ -10,18 +10,57 @@ function sha256(value: string): string {
   return createHash('sha256').update(value.trim().toLowerCase()).digest('hex')
 }
 
-async function sendMetaCAPI(email: string, phone: string, sourceUrl: string, fbclid?: string, eventId?: string) {
+function normalizePhone(phone: string): string {
+  let digits = phone.replace(/\D/g, '')
+  if (digits.startsWith('00')) {
+    digits = digits.slice(2)
+  } else if (digits.startsWith('0')) {
+    digits = `41${digits.slice(1)}`
+  }
+  return digits
+}
+
+async function sendMetaCAPI({
+  email,
+  phone,
+  firstName,
+  lastName,
+  sourceUrl,
+  fbclid,
+  fbp,
+  fbc,
+  clientIp,
+  userAgent,
+  eventId,
+}: {
+  email: string
+  phone: string
+  firstName?: string
+  lastName?: string
+  sourceUrl: string
+  fbclid?: string
+  fbp?: string
+  fbc?: string
+  clientIp?: string
+  userAgent?: string
+  eventId?: string
+}) {
   const token = process.env.META_CAPI_TOKEN
   if (!token) return
 
-  const normalizedPhone = phone.replace(/\s+/g, '').replace(/^\+41/, '0041')
-
   const userData: Record<string, any> = {
     em: [sha256(email)],
-    ph: [sha256(normalizedPhone)],
+    ph: [sha256(normalizePhone(phone))],
   }
 
-  if (fbclid) {
+  if (firstName) userData.fn = [sha256(firstName)]
+  if (lastName) userData.ln = [sha256(lastName)]
+  if (clientIp) userData.client_ip_address = clientIp
+  if (userAgent) userData.client_user_agent = userAgent
+  if (fbp) userData.fbp = fbp
+  if (fbc) {
+    userData.fbc = fbc
+  } else if (fbclid) {
     userData.fbc = `fb.1.${Date.now()}.${fbclid}`
   }
 
@@ -145,10 +184,15 @@ export async function POST(request: NextRequest) {
     const eventId    = body.event_id   ?? ''
     const marketingConsent = body.marketing_consent === true
     const openAiBrowserRef = request.cookies.get('__obref')?.value ?? body.openai_browser_ref ?? ''
+    const fbp = request.cookies.get('_fbp')?.value
+    const fbc = request.cookies.get('_fbc')?.value
     const sourceUrl  = sanitizeSourceUrl(request.headers.get('referer') ?? '')
     const forwardedFor = request.headers.get('x-forwarded-for') ?? ''
     const ipAddress = forwardedFor.split(',')[0]?.trim() || undefined
     const userAgent = request.headers.get('user-agent') ?? undefined
+    const nameParts = name.trim().split(/\s+/).filter(Boolean)
+    const firstName = nameParts[0]
+    const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : undefined
 
     // Send to LeadSync and conversion APIs in parallel.
     const [leadsyncRes] = await Promise.all([
@@ -160,7 +204,19 @@ export async function POST(request: NextRequest) {
         },
         body: JSON.stringify({ name, phone, email, address, ...(zip_code ? { zip_code } : {}), utm_source: utm_source || 'organic', ...(source ? { source } : {}), ...(fbclid ? { fbclid } : {}) }),
       }),
-      sendMetaCAPI(email, phone, sourceUrl, fbclid || undefined, eventId || undefined),
+      sendMetaCAPI({
+        email,
+        phone,
+        firstName,
+        lastName,
+        sourceUrl,
+        fbclid: fbclid || undefined,
+        fbp,
+        fbc,
+        clientIp: ipAddress,
+        userAgent,
+        eventId: eventId || undefined,
+      }),
       marketingConsent && eventId
         ? sendOpenAIConversion({
             email,
