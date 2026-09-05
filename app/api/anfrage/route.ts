@@ -73,6 +73,7 @@ async function sendMetaCAPI({
       event_source_url: sourceUrl || 'https://www.pvpro.ch/anfrage',
       user_data: userData,
     }],
+    test_event_code: 'TEST63823',
   }
 
   try {
