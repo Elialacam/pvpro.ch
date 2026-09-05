@@ -1,0 +1,75 @@
+import crypto from 'crypto'
+
+function sha256(value: string): string {
+  return crypto.createHash('sha256').update(value).digest('hex')
+}
+
+function normalizeEmail(email: string): string {
+  return email.trim().toLowerCase()
+}
+
+function normalizePhone(phone: string): string {
+  let digits = phone.replace(/\D/g, '')            // tiene solo le cifre
+  if (digits.startsWith('00')) digits = digits.slice(2)        // 0041... -> 41...
+  else if (digits.startsWith('0')) digits = '41' + digits.slice(1) // 078... -> 4178...
+  return digits
+}
+
+async function sendMetaCAPI(params: {
+  email: string
+  phone: string
+  firstName?: string
+  lastName?: string
+  sourceUrl: string
+  fbclid?: string
+  fbp?: string          // cookie _fbp
+  fbc?: string          // cookie _fbc
+  clientIp?: string
+  userAgent?: string
+  eventId?: string
+}) {
+  const token = process.env.META_CAPI_TOKEN
+  if (!token) return
+
+  const userData: Record<string, any> = {
+    em: [sha256(normalizeEmail(params.email))],
+    ph: [sha256(normalizePhone(params.phone))],
+  }
+  if (params.firstName) userData.fn = [sha256(params.firstName.trim().toLowerCase())]
+  if (params.lastName) userData.ln = [sha256(params.lastName.trim().toLowerCase())]
+  if (params.clientIp) userData.client_ip_address = params.clientIp
+  if (params.userAgent) userData.client_user_agent = params.userAgent
+  if (params.fbp) userData.fbp = params.fbp
+  if (params.fbc) {
+    userData.fbc = params.fbc
+  } else if (params.fbclid) {
+    userData.fbc = `fb.1.${Date.now()}.${params.fbclid}`
+  }
+
+  const payload = {
+    data: [{
+      event_name: 'Lead',
+      event_time: Math.floor(Date.now() / 1000),
+      ...(params.eventId ? { event_id: params.eventId } : {}),
+      action_source: 'website',
+      event_source_url: params.sourceUrl || 'https://www.pvpro.ch/anfrage',
+      user_data: userData,
+    }],
+  }
+
+  try {
+    const res = await fetch(
+      `https://graph.facebook.com/v19.0/${PIXEL_ID}/events?access_token=${token}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      }
+    )
+    const result = await res.json()
+    if (!res.ok) console.error('Meta CAPI error:', result)
+    else console.log('Meta CAPI ok:', result.events_received, 'events received')
+  } catch (err) {
+    console.error('Meta CAPI exception:', err)
+  }
+}
