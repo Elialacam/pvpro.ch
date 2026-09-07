@@ -173,9 +173,22 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
 
-    const name       = body['FULL NAME']        ?? body.name       ?? ''
-    const phone      = body['PHONE NUMBER']     ?? body.phone      ?? ''
-    const email      = body['EMAIL']            ?? body.email      ?? ''
+    const rawName    = body['FULL NAME']        ?? body.name
+    const rawPhone   = body['PHONE NUMBER']     ?? body.phone
+    const rawEmail   = body['EMAIL']            ?? body.email
+    const name       = typeof rawName === 'string' ? rawName.trim() : ''
+    const phone      = typeof rawPhone === 'string' ? rawPhone.trim() : ''
+    const email      = typeof rawEmail === 'string' ? rawEmail.trim().toLowerCase() : ''
+
+    const normalizedPhone = normalizePhone(phone)
+    const validName = name.length >= 2 && name.length <= 100
+    const validEmail = email.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    const validPhone = /^41\d{9}$/.test(normalizedPhone)
+
+    if (!validName || !validEmail || !validPhone) {
+      return NextResponse.json({ error: 'Invalid contact data' }, { status: 400 })
+    }
+
     const address    = body['COMPLETE ADDRESS'] ?? body.address    ?? ''
     const zip_code   = body.zip_code            ?? ''
     const utm_source = body.utm_source ?? ''
