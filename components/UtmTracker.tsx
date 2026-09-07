@@ -14,8 +14,14 @@ export default function UtmTracker() {
 
     // Keep ChatGPT Ads attribution for the current browsing session.
     // The session cookie lets middleware carry it onto form-page navigations.
-    if (params.get('source')?.toLowerCase() === 'chatgpt') {
+    const source = params.get('source')?.toLowerCase()
+    const hasNewAttribution = Boolean(params.get('utm_source') || params.get('fbclid'))
+
+    if (source === 'chatgpt') {
       sessionStorage.setItem(CHATGPT_SOURCE_KEY, 'chatgpt')
+    } else if (hasNewAttribution) {
+      sessionStorage.removeItem(CHATGPT_SOURCE_KEY)
+      document.cookie = `${CHATGPT_SOURCE_KEY}=; path=/; Max-Age=0; SameSite=Lax`
     }
     if (sessionStorage.getItem(CHATGPT_SOURCE_KEY) === 'chatgpt') {
       document.cookie = `${CHATGPT_SOURCE_KEY}=chatgpt; path=/; SameSite=Lax`
