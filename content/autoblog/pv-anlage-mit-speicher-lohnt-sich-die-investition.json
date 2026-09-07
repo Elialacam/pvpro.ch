@@ -1,198 +1,190 @@
 {
   "slug": "pv-anlage-mit-speicher-lohnt-sich-die-investition",
-  "createdAt": "2026-09-07T10:17:49.743Z",
+  "createdAt": "2026-09-07T10:18:46.522Z",
   "articles": {
     "de": {
       "slug": "pv-anlage-mit-speicher-lohnt-sich-die-investition",
       "locale": "de",
       "title": "PV-Anlage mit Speicher: Lohnt sich die Investition?",
-      "metaDescription": "Die Kosten einer PV-Anlage mit Speicher hängen von Größe und Eigenverbrauch ab. Erfahren Sie, wie Sie dank Förderungen in der Schweiz die Investition amortisieren können.",
+      "metaDescription": "Erfahren Sie, wie sich die Kosten einer PV-Anlage mit Speicher durch Eigenverbrauch und Schweizer Förderungen amortisieren lassen. Entdecken Sie alle Optionen.",
       "image": "/images/autoblog/pv-anlage-mit-speicher-lohnt-sich-die-investition.jpg",
       "date": "7. September 2026",
       "readMin": 8,
       "tag": "Finanzen",
-      "intro": "Die Kosten einer PV-Anlage mit Speicher variieren stark, abhängig von der Dimensionierung und dem Eigenverbrauch. Investitionen amortisieren sich durch Eigenverbrauch und Förderungen wie die Einmalvergütung in der Schweiz. Erfahren Sie, wie eine PV-Anlage mit Speicher besonders bei hohem Eigenverbrauch im Haushalt von Vorteil sein kann.",
+      "intro": "Die Kosten einer PV-Anlage mit Speicher variieren je nach Grösse und Eigenverbrauch. In der Schweiz können Investitionen durch Förderungen, wie z.B. die Einmalvergütung, amortisiert werden. Ob sich eine Investition lohnt, hängt von Ihrem Eigenverbrauch, der Anlagengrösse und den genutzten Förderungen ab.",
       "sections": [
         {
-          "heading": "Drei Haushaltstypen: Finde das passende System für deinen Verbrauch",
+          "heading": "Drei Haushaltstypen: So findest du das System zu deinem Verbrauch",
           "content": [
-            "Welches System zu dir passt, hängt primär von deinem täglichen Stromverbrauch ab. Typische Situationen aus der Beratung: Ein Single-Haushalt mit niedrigem Tagesbedarf benötigt eine kleine Kapazität zur Vermeidung von Fixkosten. Ein Familienhaus mit hohem Abendverbrauch hingegen profitiert von mittlerer Größe plus Speicher.",
-            "Für ein Mehrfamilienhaus mit großer Dachfläche eignet sich ein leistungsstarkes System mit großer Speichereinheit, abgestimmt auf mehrere Lastprofile. Kleine Haushalte fahren oft mit kleineren Dimensionierungen am besten, um unnötige Fixkosten zu vermeiden."
+            "Welches System zu Ihnen passt, hängt primär von Ihrem täglichen Stromverbrauch ab. Hier sind typische Szenarien:",
+            "Kleine Haushalte fahren oft mit kleineren Dimensionierungen am besten und vermeiden so unnötige Fixkosten. Für Gebäude unterschiedlicher Grösse verändern sich die Einsparpotenziale individuell."
           ],
           "bullets": [
-            "Single-Haushalt: Kleine Kapazität für Grundlast",
-            "Familienhaus: Mittlere Größe plus Speicher",
-            "Mehrfamilienhaus: Leistungsstarkes System mit großem Speicher"
-          ]
+            "Single-Haushalt: kleine Kapazität für Grundlast",
+            "Familienhaus: mittlere Grösse plus Speicher",
+            "Mehrfamilienhaus: leistungsstarkes System mit Speicher"
+          ],
+          "highlight": "Im Idealfall sollte die dimensionierte Anlage genau auf Ihren Verbrauch abgestimmt sein."
         },
         {
           "heading": "Module und Wechselrichter: So setzen sich die Anschaffungskosten zusammen",
           "content": [
-            "Die Kosten einer PV-Anlage mit Speicher hängen wesentlich von der gewählten Hardware ab. Der Wechselrichter ist das Herzstück der Anlage und beeinflusst die Effizienz entscheidend. Wechselrichter wandeln erzeugten Gleichstrom direkt in nutzbaren Wechselstrom um.",
-            "Für eine langfristige Ertragssicherheit ist eine sorgfältige Auswahl der Komponenten entscheidend. Förderungen wie die Einmalvergütung reduzieren die finanzielle Belastung."
+            "Die Kosten einer PV-Anlage mit Speicher hängen stark von der gewählten Hardware ab. Der Wechselrichter ist das zentrale Element und seine Auswahl bestimmt die Effizienz der Anlage maßgeblich.",
+            "Eine grössere Speichereinheit erhöht zwar die Anschaffungskosten, doch kann damit oft jede Förderung gesteigert werden. Die Einmalvergütung reduziert die finanzielle Belastung spürbar."
           ],
-          "highlight": "Ein sorgfältig ausgewählter Wechselrichter erhöht die Effizienz und senkt langfristig die Kosten."
+          "highlight": "Planen Sie die Speicherkosten nicht nur für die Batterie, sondern berücksichtigen Sie auch den passenden Hybrid-Wechselrichter."
         },
         {
           "heading": "5 kWp und 10 kWp mit Speicher: Komplettanlagen im Kostenvergleich",
           "content": [
-            "Eine PV-Anlage mit Speicher muss auf den Strombedarf des Haushalts abgestimmt sein. Eine 5 kWp-Anlage eignet sich für kleine Haushalte, während 10 kWp für Familien mit höherem Eigenverbrauch ideal sind.",
-            "Förderprogramme reduzieren die Anschaffungskosten erheblich und Rückliefervergütungen für eingespeisten Solarstrom bringen zusätzliche Erträge."
+            "Die optimalen Kosten für eine PV-Anlage mit Speicher richten sich nach dem Strombedarf Ihres Haushalts. Kleinere Systeme passen zu Paaren, größere sind für Familien geeignet.",
+            "Ein passender Speicher ermöglicht den profitablen Einsatz des erzeugten Stroms auch ausserhalb der Sonnenstunden."
           ],
-          "highlight": "Eine genau dimensionierte Anlage wirtschaftet effizienter und spart langfristig Kosten."
+          "bullets": [
+            "5 kWp Komplettanlage: Für 1–2 Personen, kompakt und zielgerichtet",
+            "10 kWp Komplettanlage: Für Familien, höherer Eigenverbrauch"
+          ],
+          "highlight": "Einrichtung und Förderprogramme reduzieren Ihre finanziellen Hürden erheblich."
         },
         {
           "heading": "Förderungen senken deine Netto-Investition spürbar",
           "content": [
-            "Staatliche Förderungen wie die Einmalvergütung reduzieren die Kosten einer PV-Anlage mit Speicher in der Schweiz erheblich. Der Eigenverbrauch ist der größte Renditehebel, während die Einmalvergütung je nach Anlagengröße einen signifikanten Teil der Kosten deckt.",
-            "Steuerliche Abzugsmöglichkeiten senken die finanzielle Belastung weiter."
+            "Staatliche Förderungen reduzieren die Ausgaben für eine PV-Anlage in der Schweiz deutlich. Die Kombination aus Direktförderung und Steuerabzug verbessert die Netto-Rechnung erheblich.",
+            "Wer Förderungen auslässt, verschenkt bares Geld. Es lohnt sich, die spezifischen Boni in Ihrem Kanton zu überprüfen."
           ],
-          "highlight": "Staatliche Förderungen und steuerliche Vorteile verbessern die Wirtschaftlichkeit deiner PV-Anlage deutlich."
+          "highlight": "Nutzen Sie alle verfügbaren Förderungen, um die Investition zu optimieren."
         },
         {
           "heading": "Steigende Stromtarife verkürzen die Amortisationszeit",
           "content": [
-            "Höhere Stromtarife reduzieren die Amortisationszeit einer PV-Anlage mit Speicher erheblich. Jede Erhöhung der Netzpreise steigert den Wert der selbst erzeugten Energie deutlich.",
-            "Ein hoher Eigenverbrauch sichert die Erträge dauerhaft ab und minimiert Abhängigkeiten von Marktpreisen."
-          ]
+            "Höhere Stromtarife verkürzen die Amortisationszeit Ihrer PV-Anlage mit Speicher. Ein hoher Eigenverbrauch schützt Ihr Budget vor schwankenden Strompreisen und sichert langfristige Erträge.",
+            "Der Fokus liegt auf der Eigennutzung, da Einspeisevergütungen sinken und die Unabhängigkeit vom Netz attraktiver wird."
+          ],
+          "highlight": "Maximieren Sie Ihre Unabhängigkeit und sichern Sie sich gegen Preissteigerungen ab."
         },
         {
           "heading": "Reparaturkosten: Womit du nach der Installation rechnen musst",
           "content": [
-            "Unerwartete Reparaturen durch Überspannung oder Unwetter können nach der Installation auftreten. Häufig betroffen sind Wechselrichter, die als Herzstück je nach Nutzungsdauer ausfallen können.",
-            "Regelmäßige Inspektionen und Wartung reduzieren unerwartete Kosten erheblich."
-          ]
-        },
-        {
-          "heading": "Wann ein Speicher die Rendite bremst statt sie zu steigern",
-          "content": [
-            "Ein Stromspeicher lohnt sich weniger, wenn der erzeugte Solarstrom bereits tagsüber vollständig verbraucht wird. In solchen Fällen amortisiert sich die Investition in einen Speicher langsamer.",
-            "Die Entscheidung für einen Stromspeicher sollte sorgfältig abgewogen werden, insbesondere in Hinblick auf förderbare Kosten und den Eigenverbrauch."
-          ]
+            "Unvorhergesehene Schäden können zu Reparaturkosten führen. Wechselrichter und Module sind kritische Komponenten, bei denen Defekte auftreten können.",
+            "Regelmäßige Inspektionen minimieren das Risiko von Ausfällen und helfen bei der Erhaltung der Anlage."
+          ],
+          "highlight": "Ein klarer Wartungsplan schützt Ihre Anlage und mindert Risiken aus unvorhergesehener Instandhaltung."
         }
       ],
       "ctaHeading": "Planung jetzt starten",
-      "ctaText": "Ob sich eine PV-Anlage mit Speicher für dich lohnt, hängt von Eigenverbrauch, sauberer Dimensionierung und genutzten Förderungen ab: genau die Leitfragen aus dem Einstieg.",
-      "ctaButton": "Jetzt ein Angebot einholen",
+      "ctaText": "Ob sich eine PV-Anlage mit Speicher für Sie lohnt, hängt vom Eigenverbrauch, der Dimensionierung und den genutzten Förderungen ab. Lassen Sie sich von Experten beraten.",
+      "ctaButton": "Angebot einholen",
       "formUrl": "/anfrage",
       "relatedSlugs": [],
       "faqs": [
         {
           "question": "Welche Reparaturkosten können anfallen?",
-          "answer": "Laufende Kosten hängen von der regelmäßigen Pflege und dem Zustand ab. Ein frühzeitiger Kostenvergleich mit Fachbetrieben hilft dir, künftige Ausgaben realistisch einzuschätzen."
+          "answer": "Laufende Kosten hängen von regelmäßiger Pflege ab. Ein frühzeitiger Kostenvergleich mit Fachbetrieben hilft beim Einschätzen der künftigen Ausgaben."
         },
         {
           "question": "Was kostet eine 5 kWp-Komplettanlage ohne Speicher?",
-          "answer": "Kosten pro kWp variieren je nach Dachform und Komponentenauswahl stark. Eine Förderung senkt deinen finanziellen Aufwand spürbar."
-        },
-        {
-          "question": "Was kostet eine 10 kWp-Komplettanlage ohne Speicher?",
-          "answer": "Der Preis richtet sich nach dem individuellen Aufwand vor Ort. Ein Vergleich zertifizierter Schweizer Fachbetriebe macht Preis und Leistung transparent."
+          "answer": "Kosten variieren stark je nach Dachform und Komponentenauswahl. Förderungen reduzieren den finanziellen Aufwand spürbar."
         },
         {
           "question": "Was kosten 5 kWp- und 10 kWp-Komplettanlagen mit Speicher?",
-          "answer": "Eine PV-Anlage mit Speicher wird maßgeblich durch die Kapazität der Batterie bestimmt. Ein Stromspeicher erhöht den Eigenverbrauch im Haushalt deutlich."
+          "answer": "Die Kosten werden massgeblich durch die Batteriekapazität beeinflusst. Ein Stromspeicher erhöht den Eigenverbrauch im Haushalt deutlich."
         },
         {
           "question": "Ist die Miete einer Komplettanlage eine Alternative?",
-          "answer": "Ein direkter Vergleich von Kauf und Miete zeigt die wirtschaftlichen Unterschiede für dein Eigenheim auf. Unabhängige Berater können hierbei unterstützen."
+          "answer": "Der direkte Vergleich von Kauf und Miete zeigt die wirtschaftlichen Unterschiede auf. Unabhängige Berater helfen bei der Entscheidung."
         }
       ]
     },
     "fr": {
       "slug": "pv-anlage-mit-speicher-lohnt-sich-die-investition",
       "locale": "fr",
-      "title": "Installation PV avec stockage : l'investissement en vaut-il la peine ?",
-      "metaDescription": "Les coûts d'une installation PV avec stockage dépendent de la taille et de l'autoconsommation. Découvrez comment l'investissement peut être amorti grâce aux subventions en Suisse.",
+      "title": "Installation PV avec stockage : L'investissement en vaut-il la peine ?",
+      "metaDescription": "Découvrez comment amortir les coûts d'une installation PV avec stockage grâce à l'autoconsommation et aux subventions suisses. Explorez toutes les options disponibles.",
       "image": "/images/autoblog/pv-anlage-mit-speicher-lohnt-sich-die-investition.jpg",
       "date": "7 septembre 2026",
       "readMin": 8,
       "tag": "Finances",
-      "intro": "Les coûts d'une installation PV avec stockage varient fortement, selon le dimensionnement et l'autoconsommation. Les investissements s'amortissent grâce à l'autoconsommation et les subventions telles que la rétribution unique en Suisse. Découvrez comment une installation PV avec stockage peut être particulièrement bénéfique en cas de forte autoconsommation dans le foyer.",
+      "intro": "Les coûts d'une installation PV avec stockage varient selon la taille et l'autoconsommation. En Suisse, les investissements peuvent être amortis grâce à des subventions, telles que l'Indemnité Unique. La rentabilité d'un investissement dépend de votre autoconsommation, de la taille de l'installation et des subventions utilisées.",
       "sections": [
         {
-          "heading": "Trois types de foyers : Trouvez le système adapté à votre consommation",
+          "heading": "Trois types de ménages : Trouvez le système adapté à votre consommation",
           "content": [
-            "Le système qui vous convient dépend principalement de votre consommation électrique quotidienne. Situations typiques de conseil : Un foyer de célibataire avec une demande quotidienne faible a besoin d'une petite capacité pour éviter les coûts fixes. Une maison familiale avec une forte consommation en soirée profite d'une taille moyenne avec stockage.",
-            "Pour une maison multifamiliale avec une grande surface de toit, un système puissant avec une grande unité de stockage, adapté à plusieurs profils de charge, est approprié. Les petits foyers bénéficient souvent de dimensionnements plus petits pour éviter des coûts fixes inutiles."
+            "Le système qui vous convient dépend principalement de votre consommation quotidienne d'électricité. Voici des scénarios typiques :",
+            "Les petits ménages préfèrent souvent des installations de petite taille afin de minimiser les coûts fixes inutiles. Pour les bâtiments de tailles variées, le potentiel d'économies change individuellement."
           ],
           "bullets": [
-            "Foyer de célibataire : Petite capacité pour la charge de base",
-            "Maison familiale : Taille moyenne avec stockage",
-            "Maison multifamiliale : Système puissant avec grand stockage"
-          ]
-        },
-        {
-          "heading": "Modules et onduleurs : Comment les coûts d'acquisition se composent",
-          "content": [
-            "Les coûts d'une installation PV avec stockage dépendent essentiellement du matériel choisi. L'onduleur est le cœur du système et influence de manière décisive l'efficacité. Les onduleurs transforment le courant continu produit en courant alternatif utilisable.",
-            "Pour garantir un rendement à long terme, un choix minutieux des composants est crucial. Les subventions telles que la rétribution unique réduisent le fardeau financier."
+            "Ménage individuel : petite capacité pour la charge de base",
+            "Maison familiale : taille moyenne avec stockage",
+            "Immeuble collectif : système puissant avec stockage"
           ],
-          "highlight": "Un onduleur soigneusement choisi augmente l'efficacité et réduit les coûts à long terme."
+          "highlight": "Idéalement, l'installation dimensionnée devrait être parfaitement ajustée à votre consommation."
         },
         {
-          "heading": "Comparaison des coûts : Installations complètes de 5 kWp et 10 kWp avec stockage",
+          "heading": "Modules et onduleurs : Composition des coûts d'acquisition",
           "content": [
-            "Une installation PV avec stockage doit être adaptée aux besoins en électricité du foyer. Une installation de 5 kWp est conseillée pour les petits foyers, tandis que 10 kWp est idéal pour les familles avec une autoconsommation plus élevée.",
-            "Les programmes de subventions réduisent considérablement les coûts d'acquisition et les rétributions pour l'électricité solaire injectée apportent des revenus supplémentaires."
+            "Les coûts d'une installation PV avec stockage dépendent fortement du matériel choisi. L'onduleur est l'élément central, et son choix détermine en grande partie l'efficacité de l'installation.",
+            "Une unité de stockage plus grande augmente certes les coûts d'acquisition, mais elle peut souvent accroître chaque subvention. L'Indemnité Unique réduit significativement la charge financière."
           ],
-          "highlight": "Un système correctement dimensionné fonctionne plus efficacement et permet des économies à long terme."
+          "highlight": "Prévoyez les coûts de stockage non seulement pour la batterie, mais tenez compte également de l'onduleur hybride approprié."
         },
         {
-          "heading": "Les subventions réduisent significativement votre investissement net",
+          "heading": "5 kWc et 10 kWc avec stockage : Comparaison des coûts des installations complètes",
           "content": [
-            "Les subventions étatiques comme la rétribution unique réduisent considérablement les coûts d'une installation PV avec stockage en Suisse. L'autoconsommation est le principal levier de rentabilité, tandis que la rétribution unique couvre une part significative des coûts selon la taille de l'installation.",
-            "Les déductions fiscales réduisent encore la charge financière."
+            "Les coûts optimaux pour une installation PV avec stockage dépendent de la consommation d'électricité de votre ménage. Les systèmes plus petits conviennent aux couples, tandis que ceux plus grands sont adaptés aux familles.",
+            "Un stockage approprié permet d'utiliser de manière rentable l'électricité produite en dehors des heures d'ensoleillement."
           ],
-          "highlight": "Les subventions étatiques et les avantages fiscaux améliorent significativement la rentabilité de votre installation PV."
+          "bullets": [
+            "Installation complète de 5 kWc : Pour 1 à 2 personnes, compacte et ciblée",
+            "Installation complète de 10 kWc : Pour familles, autoconsommation plus élevée"
+          ],
+          "highlight": "L'installation et les programmes de subvention réduisent considérablement vos obstacles financiers."
         },
         {
-          "heading": "L'augmentation des tarifs de l'électricité raccourcit le temps d'amortissement",
+          "heading": "Les subventions réduisent de façon notable votre investissement net",
           "content": [
-            "Des tarifs d'électricité plus élevés réduisent considérablement le temps d'amortissement d'une installation PV avec stockage. Chaque hausse des prix du réseau accroît la valeur de l'énergie auto-produite.",
-            "Une forte autoconsommation garantit des revenus durables et minimise les dépendances aux prix du marché."
-          ]
+            "Les subventions gouvernementales réduisent considérablement les dépenses pour une installation PV en Suisse. La combinaison entre subvention directe et déduction fiscale améliore considérablement le calcul net.",
+            "Ignorer les subventions revient à perdre de l'argent. Il est précieux de vérifier les primes spécifiques dans votre canton."
+          ],
+          "highlight": "Utilisez toutes les subventions disponibles pour optimiser l'investissement."
         },
         {
-          "heading": "Les coûts de réparation : À quoi s'attendre après l'installation",
+          "heading": "Les tarifs d'électricité croissants raccourcissent le temps d'amortissement",
           "content": [
-            "Des réparations inattendues dues à une surtension ou à des intempéries peuvent survenir après l'installation. Les onduleurs, en tant que cœur du système, peuvent tomber en panne selon la durée d'utilisation.",
-            "Des inspections et un entretien réguliers réduisent considérablement les coûts inattendus."
-          ]
+            "Des tarifs d'électricité plus élevés raccourcissent le temps d'amortissement de votre installation PV avec stockage. Une autoconsommation élevée protège votre budget contre les fluctuations des prix de l'électricité et garantit des rendements à long terme.",
+            "L'accent est mis sur l'autoconsommation, car les tarifs de rachat diminuent et l'indépendance vis-à-vis du réseau devient plus attrayante."
+          ],
+          "highlight": "Maximisez votre indépendance et protégez-vous contre les augmentations de prix."
         },
         {
-          "heading": "Quand un stockage freine la rentabilité plutôt que de l'augmenter",
+          "heading": "Coûts de réparation : À quoi vous attendre après l'installation",
           "content": [
-            "Un stockage d'électricité est moins rentable si l'énergie solaire produite est déjà entièrement consommée pendant la journée. Dans de tels cas, l'investissement dans un stockage s'amortit plus lentement.",
-            "La décision d'opter pour un stockage doit être soigneusement considérée, notamment en ce qui concerne les coûts subventionnables et l'autoconsommation."
-          ]
+            "Les dommages imprévus peuvent entraîner des coûts de réparation. Les onduleurs et les modules sont des composants critiques où des défauts peuvent survenir.",
+            "Des inspections régulières minimisent le risque de pannes et aident à maintenir l'installation."
+          ],
+          "highlight": "Un plan de maintenance clair protège votre installation et réduit les risques liés à l'entretien imprévu."
         }
       ],
-      "ctaHeading": "Commencez votre planification maintenant",
-      "ctaText": "La pertinence d'une installation PV avec stockage dépend de l'autoconsommation, du bon dimensionnement et des subventions utilisées : autant de questions clés dès le début.",
-      "ctaButton": "Demander un devis maintenant",
+      "ctaHeading": "Commencez à planifier maintenant",
+      "ctaText": "La rentabilité d'une installation PV avec stockage dépend de l'autoconsommation, de la dimensionnement et des subventions utilisées. Consultez les experts pour obtenir des conseils.",
+      "ctaButton": "Obtenir une offre",
       "formUrl": "/fr/demande",
       "relatedSlugs": [],
       "faqs": [
         {
-          "question": "Quels coûts de réparation peuvent survenir ?",
-          "answer": "Les coûts courants dépendent de l'entretien régulier et de l'état du système. Une comparaison précoce des coûts avec des entreprises spécialisées vous aide à estimer vos dépenses futures de manière réaliste."
+          "question": "Quels coûts de réparation peuvent survenir ?",
+          "answer": "Les coûts courants dépendent de l'entretien régulier. Une comparaison précoce des coûts avec des entreprises spécialisées aide à estimer les dépenses futures."
         },
         {
-          "question": "Quel est le coût d'une installation complète de 5 kWp sans stockage ?",
-          "answer": "Les coûts par kWp varient fortement selon la forme du toit et le choix des composants. Une subvention réduit considérablement votre effort financier."
+          "question": "Quel est le coût d'une installation complète de 5 kWc sans stockage ?",
+          "answer": "Les coûts varient fortement selon la forme du toit et le choix des composants. Les subventions réduisent considérablement la charge financière."
         },
         {
-          "question": "Quel est le coût d'une installation complète de 10 kWp sans stockage ?",
-          "answer": "Le prix dépend des efforts individuels spécifiques à votre emplacement. Une comparaison d'entreprises certifiées en Suisse rend le prix et la performance transparents."
+          "question": "Quels sont les coûts des installations complètes de 5 kWc et 10 kWc avec stockage ?",
+          "answer": "Les coûts sont principalement influencés par la capacité de la batterie. Un stockage d'électricité augmente considérablement l'autoconsommation dans le ménage."
         },
         {
-          "question": "Quels sont les coûts des installations complètes de 5 kWp et 10 kWp avec stockage ?",
-          "answer": "Une installation PV avec stockage est principalement déterminée par la capacité de la batterie. Un stockage d'électricité augmente considérablement l'autoconsommation dans le foyer."
-        },
-        {
-          "question": "La location d'une installation complète est-elle une alternative ?",
-          "answer": "Une comparaison directe entre achat et location met en lumière les différences économiques pour votre propriété. Des conseillers indépendants peuvent vous aider à cet égard."
+          "question": "La location d'une installation complète est-elle une alternative ?",
+          "answer": "La comparaison directe entre l'achat et la location montre les différences économiques. Des conseillers indépendants aident à la décision."
         }
       ]
     },
@@ -200,193 +192,185 @@
       "slug": "pv-anlage-mit-speicher-lohnt-sich-die-investition",
       "locale": "en",
       "title": "PV System with Battery: Is the Investment Worth It?",
-      "metaDescription": "The costs of a PV system with a battery depend on size and self-consumption. Learn how to amortize the investment through incentives in Switzerland.",
+      "metaDescription": "Learn how the costs of a PV system with battery can be offset through self-consumption and Swiss incentives. Discover all options available.",
       "image": "/images/autoblog/pv-anlage-mit-speicher-lohnt-sich-die-investition.jpg",
       "date": "September 7, 2026",
       "readMin": 8,
       "tag": "Finance",
-      "intro": "The costs of a PV system with a battery vary greatly depending on the sizing and self-consumption. Investments are amortized through self-consumption and incentives such as the one-time remuneration in Switzerland. Discover how a PV system with a battery can be particularly advantageous for households with high self-consumption.",
+      "intro": "The costs of a PV system with a battery vary depending on size and self-consumption. In Switzerland, investments can be amortized through incentives such as the one-time payment. Whether the investment is worthwhile depends on your self-consumption, system size, and used incentives.",
       "sections": [
         {
-          "heading": "Three Household Types: Find the Right System for Your Usage",
+          "heading": "Three Household Types: Find the System for Your Consumption",
           "content": [
-            "The system that suits you best primarily depends on your daily electricity consumption. Typical consultation scenarios: A single household with low daily demand requires a small capacity to avoid fixed costs. A family house with high evening consumption benefits from medium size plus battery.",
-            "For a multi-family house with a large roof area, a powerful system with a large storage unit, tailored to multiple load profiles, is suitable. Small households often do best with smaller dimensions to avoid unnecessary fixed costs."
+            "Which system suits you primarily depends on your daily electricity consumption. Here are typical scenarios:",
+            "Small households often do best with smaller setups, thus avoiding unnecessary fixed costs. Savings potential varies individually for buildings of different sizes."
           ],
           "bullets": [
-            "Single Household: Small capacity for base load",
-            "Family House: Medium size plus battery",
-            "Multi-Family House: Powerful system with large battery"
-          ]
+            "Single household: small capacity for base load",
+            "Family house: medium size plus storage",
+            "Multi-family house: powerful system with storage"
+          ],
+          "highlight": "Ideally, the system should be perfectly matched to your consumption."
         },
         {
-          "heading": "Modules and Inverters: Breakdown of Acquisition Costs",
+          "heading": "Modules and Inverters: Understanding Acquisition Costs",
           "content": [
-            "The costs of a PV system with a battery are significantly influenced by the chosen hardware. The inverter is the heart of the system and crucially affects efficiency. Inverters convert produced direct current directly into usable alternating current.",
-            "For long-term yield security, careful component selection is crucial. Incentives like the one-time remuneration reduce the financial burden."
+            "The costs of a PV system with a battery heavily depend on the chosen hardware. The inverter is the central element and its selection significantly determines the system's efficiency.",
+            "While a larger storage unit increases acquisition costs, it often enhances any incentives. The one-time payment significantly reduces the financial burden."
           ],
-          "highlight": "A carefully selected inverter increases efficiency and reduces costs in the long term."
+          "highlight": "Plan for storage costs not just for the battery, but also consider the suitable hybrid inverter."
         },
         {
-          "heading": "5 kWp and 10 kWp with Battery: Complete System Cost Comparison",
+          "heading": "5 kWp and 10 kWp with Battery: Comparing Complete System Costs",
           "content": [
-            "A PV system with a battery must be adjusted to the household's electricity needs. A 5 kWp system is suitable for small households, while 10 kWp is ideal for families with higher self-consumption.",
-            "Incentive programs significantly reduce acquisition costs, and feed-in tariffs for supplied solar power bring additional returns."
+            "The optimal costs for a PV system with a battery depend on your household's electricity needs. Smaller systems suit couples, while larger ones are ideal for families.",
+            "The right storage allows profitable use of generated electricity even outside sunny hours."
           ],
-          "highlight": "A precisely dimensioned system operates more efficiently and saves costs in the long run."
+          "bullets": [
+            "5 kWp complete system: For 1–2 people, compact and targeted",
+            "10 kWp complete system: For families, higher self-consumption"
+          ],
+          "highlight": "Setup and incentive programs significantly reduce your financial hurdles."
         },
         {
           "heading": "Incentives Significantly Reduce Your Net Investment",
           "content": [
-            "Government incentives such as the one-time remuneration significantly reduce the costs of a PV system with a battery in Switzerland. Self-consumption is the biggest lever for returns, while the one-time remuneration covers a significant portion of the costs depending on system size.",
-            "Tax deduction opportunities further reduce the financial burden."
+            "Government incentives markedly lower the expenses for a PV system in Switzerland. The combination of direct incentives and tax deductions improves the net calculation considerably.",
+            "Missing out on incentives means leaving money on the table. It's worth checking the specific bonuses in your canton."
           ],
-          "highlight": "Government incentives and tax benefits significantly improve the economic viability of your PV system."
+          "highlight": "Utilize all available incentives to optimize the investment."
         },
         {
-          "heading": "Rising Electricity Prices Shorten the Payback Period",
+          "heading": "Rising Electricity Tariffs Shorten the Amortization Period",
           "content": [
-            "Higher electricity prices considerably shorten the payback period of a PV system with a battery. Each increase in network prices significantly enhances the value of self-generated energy.",
-            "High self-consumption secures long-term returns and minimizes dependency on market prices."
-          ]
+            "Higher electricity tariffs shorten the amortization period of your PV system with battery. High self-consumption protects your budget from fluctuating electricity prices and ensures long-term yields.",
+            "The focus is on self-use, as feed-in tariffs decrease and independence from the grid becomes more attractive."
+          ],
+          "highlight": "Maximize your independence and safeguard against price increases."
         },
         {
           "heading": "Repair Costs: What to Expect After Installation",
           "content": [
-            "Unexpected repairs due to over-voltage or storms can occur after installation. Often affected are inverters, which can fail depending on usage duration.",
-            "Regular inspections and maintenance considerably reduce unexpected costs."
-          ]
-        },
-        {
-          "heading": "When a Battery Slows Returns Instead of Increasing Them",
-          "content": [
-            "A battery is less worthwhile if the generated solar power is already fully consumed during the day. In such cases, the investment in a battery amortizes more slowly.",
-            "The decision for a battery should be carefully considered, especially regarding eligible costs and self-consumption."
-          ]
+            "Unexpected damages can lead to repair costs. Inverters and modules are critical components where defects may occur.",
+            "Regular inspections minimize the risk of failures and help maintain the system."
+          ],
+          "highlight": "A clear maintenance plan protects your system and reduces risks from unforeseen maintenance."
         }
       ],
       "ctaHeading": "Start Planning Now",
-      "ctaText": "Whether a PV system with a battery is worthwhile for you depends on self-consumption, accurate sizing, and used incentives: exactly the key questions from the introduction.",
-      "ctaButton": "Get a Quote Now",
+      "ctaText": "Whether a PV system with battery is worthwhile for you depends on self-consumption, sizing, and used incentives. Get advice from experts.",
+      "ctaButton": "Get a Quote",
       "formUrl": "/en/request",
       "relatedSlugs": [],
       "faqs": [
         {
-          "question": "What Repair Costs Can Occur?",
-          "answer": "Ongoing costs depend on regular maintenance and condition. An early cost comparison with specialist firms helps you realistically estimate future expenses."
+          "question": "What repair costs can arise?",
+          "answer": "Ongoing costs depend on regular maintenance. Early cost comparison with specialized firms helps estimate future expenses."
         },
         {
-          "question": "What Does a 5 kWp Complete System Without Battery Cost?",
-          "answer": "Costs per kWp vary greatly depending on roof shape and component choice. An incentive significantly reduces your financial effort."
+          "question": "What does a 5 kWp complete system without battery cost?",
+          "answer": "Costs vary greatly depending on roof type and component choice. Incentives significantly reduce the financial effort."
         },
         {
-          "question": "What Does a 10 kWp Complete System Without Battery Cost?",
-          "answer": "The price depends on the individual effort on site. A comparison of certified Swiss specialist firms makes price and performance transparent."
+          "question": "What do 5 kWp and 10 kWp complete systems with battery cost?",
+          "answer": "Costs are significantly influenced by battery capacity. A power storage greatly increases household self-consumption."
         },
         {
-          "question": "What Do 5 kWp and 10 kWp Complete Systems with Battery Cost?",
-          "answer": "A PV system with a battery is primarily determined by the battery's capacity. A battery significantly increases self-consumption in the household."
-        },
-        {
-          "question": "Is Renting a Complete System an Alternative?",
-          "answer": "A direct comparison of purchase and rental highlights the economic differences for your home. Independent advisors can assist with this.}]}"
+          "question": "Is renting a complete system an alternative?",
+          "answer": "A direct comparison between buying and renting highlights economic differences. Independent advisors assist in making the decision."
         }
       ]
     },
     "it": {
       "slug": "pv-anlage-mit-speicher-lohnt-sich-die-investition",
       "locale": "it",
-      "title": "Impianto fotovoltaico con accumulatore: vale la pena l'investimento?",
-      "metaDescription": "I costi di un impianto fotovoltaico con accumulatore dipendono dalla dimensione e dall'autoconsumo. Scopri come ammortizzare l'investimento grazie agli incentivi in Svizzera.",
+      "title": "Impianto fotovoltaico con accumulo: Vale l'investimento?",
+      "metaDescription": "Scopri come i costi di un impianto fotovoltaico con accumulo possono essere ammortizzati grazie all'autoconsumo e agli incentivi svizzeri. Esplora tutte le opzioni.",
       "image": "/images/autoblog/pv-anlage-mit-speicher-lohnt-sich-die-investition.jpg",
       "date": "7 settembre 2026",
       "readMin": 8,
       "tag": "Finanza",
-      "intro": "I costi di un impianto fotovoltaico con accumulatore variano notevolmente, in base alla dimensione e all'autoconsumo. Gli investimenti si ammortizzano attraverso l'autoconsumo e gli incentivi come l'indennità unica in Svizzera. Scopri come un impianto fotovoltaico con accumulatore possa essere particolarmente vantaggioso in caso di elevato autoconsumo domestico.",
+      "intro": "I costi di un impianto fotovoltaico con accumulo variano in base alla dimensione e all'autoconsumo. In Svizzera, gli investimenti possono essere ammortizzati grazie agli incentivi, come ad esempio il contributo unico. Se un investimento conviene dipende dal tuo autoconsumo, dalla dimensione dell'impianto e dagli incentivi utilizzati.",
       "sections": [
         {
-          "heading": "Tre tipi di nucleo familiare: Trova il sistema adatto al tuo consumo",
+          "heading": "Tre tipi di abitazioni: trova il sistema adatto al tuo consumo",
           "content": [
-            "Il sistema più adeguato a te dipende principalmente dal tuo consumo giornaliero di energia. Situazioni tipiche dalla consulenza: un nucleo familiare con basso consumo giornaliero necessita di una piccola capacità per evitare costi fissi. Una casa familiare con elevato consumo serale beneficia invece di una dimensione media più accumulatore.",
-            "Per un edificio plurifamiliare con ampia superficie sul tetto, si adatta un sistema potente con grande unità di accumulo, calibrato su diversi profili di carico. I piccoli nuclei familiari spesso trovano conveniente optare per dimensioni minori, per evitare costi fissi inutili."
+            "Il sistema adatto a voi dipende principalmente dal vostro consumo elettrico giornaliero. Ecco gli scenari tipici:",
+            "Le piccole abitazioni spesso si adattano meglio a dimensioni minori, evitando così costi fissi non necessari. Per edifici di varia dimensione i potenziali di risparmio cambiano individualmente."
           ],
           "bullets": [
-            "Nucleo familiare singolo: Piccola capacità per il carico di base",
-            "Casa familiare: Dimensione media più accumulatore",
-            "Edificio plurifamiliare: Sistema potente con grande accumulatore"
-          ]
-        },
-        {
-          "heading": "Moduli e inverter: Come si compongono i costi d'acquisto",
-          "content": [
-            "I costi di un impianto fotovoltaico con accumulatore dipendono essenzialmente dall'hardware scelto. L'inverter è il cuore dell'impianto e influenza decisamente l'efficienza. Gli inverter convertono la corrente continua generata in corrente alternata utilizzabile.",
-            "Per una sicurezza durevole del rendimento, una scelta accurata dei componenti è fondamentale. Gli incentivi come l'indennità unica riducono il carico finanziario."
+            "Abitazione singola: piccola capacità per il carico base",
+            "Casa familiare: dimensioni medie con accumulo",
+            "Plurifamiliare: sistema potente con accumulo"
           ],
-          "highlight": "Un inverter selezionato con cura aumenta l'efficienza e riduce i costi sul lungo periodo."
+          "highlight": "Ideale sarebbe che l'impianto dimensionato fosse esattamente calibrato sul tuo consumo."
         },
         {
-          "heading": "5 kWp e 10 kWp con accumulatore: Confronto costi degli impianti completi",
+          "heading": "Moduli e inverter: Come sono composti i costi di acquisto",
           "content": [
-            "Un impianto fotovoltaico con accumulatore deve essere dimensionato in base al fabbisogno energetico del nucleo familiare. Un impianto da 5 kWp è ideale per piccoli nuclei, mentre i 10 kWp sono perfetti per famiglie con elevato autoconsumo.",
-            "I programmi di incentivazione riducono notevolmente i costi d'acquisto e le remunerazioni per l'energia solare immessa in rete apportano ulteriori rendite."
+            "I costi di un impianto fotovoltaico con accumulo dipendono molto dall'hardware scelto. L'inverter è l'elemento centrale e la sua selezione determina l'efficienza dell'impianto in modo significativo.",
+            "Un'unità di accumulo più grande aumenta i costi di acquisto, ma di solito permette anche di incrementare ogni incentivazione. Il contributo unico riduce sensibilmente l'onere finanziario."
           ],
-          "highlight": "Un impianto correttamente dimensionato funziona in modo più efficiente e risparmia costi a lungo termine."
+          "highlight": "Pianificate i costi dell'accumulo tenendo conto non solo della batteria, ma anche dell'inverter ibrido adeguato."
         },
         {
-          "heading": "Gli incentivi riducono significativamente la tua spesa netta",
+          "heading": "5 kWp e 10 kWp con accumulo: Confronto costi degli impianti completi",
           "content": [
-            "Gli incentivi statali come l'indennità unica riducono notevolmente i costi di un impianto fotovoltaico con accumulatore in Svizzera. L'autoconsumo è il principale fattore di rendimento, mentre l'indennità unica copre una parte significativa dei costi a seconda della dimensione dell’impianto.",
-            "Le possibilità di detrazioni fiscali riducono ulteriormente il carico finanziario."
+            "I costi ottimali per un impianto fotovoltaico con accumulo dipendono dal fabbisogno elettrico della tua abitazione. I sistemi più piccoli sono adatti per le coppie, mentre quelli più grandi ai nuclei familiari.",
+            "Un accumulo adeguato consente l'uso redditizio dell'energia generata anche al di fuori delle ore di sole."
           ],
-          "highlight": "Incentivi statali e vantaggi fiscali migliorano notevolmente la sostenibilità economica del tuo impianto fotovoltaico."
+          "bullets": [
+            "Impianto completo da 5 kWp: Per 1-2 persone, compatto e mirato",
+            "Impianto completo da 10 kWp: Per famiglie, maggiore autoconsumo"
+          ],
+          "highlight": "L'installazione e i programmi di incentivazione riducono notevolmente le tue barriere finanziarie."
         },
         {
-          "heading": "Aumenti delle tariffe elettriche accorciano il tempo di ammortamento",
+          "heading": "Gli incentivi riducono sensibilmente l'investimento netto",
           "content": [
-            "Tariffe elettriche più alte riducono in maniera significativa il tempo di ammortamento di un impianto fotovoltaico con accumulatore. Ogni aumento dei prezzi di rete incrementa sensibilmente il valore dell'energia auto-generata.",
-            "Un elevato autoconsumo assicura i rendimenti nel tempo e minimizza le dipendenze dai prezzi di mercato."
-          ]
+            "Gli incentivi statali riducono notevolmente le spese per un impianto fotovoltaico in Svizzera. La combinazione tra incentivi diretti e deduzioni fiscali migliora significativamente il calcolo netto.",
+            "Ignorare gli incentivi significa rinunciare a soldi veri. Conviene controllare i bonus specifici nel tuo Cantone."
+          ],
+          "highlight": "Sfruttate tutti gli incentivi disponibili per ottimizzare l'investimento."
+        },
+        {
+          "heading": "Tariffe elettriche in aumento riducono il tempo di ammortamento",
+          "content": [
+            "Tariffe elettriche più elevate riducono il tempo di ammortamento del tuo impianto fotovoltaico con accumulo. Un alto autoconsumo protegge il tuo bilancio dai prezzi variabili dell'elettricità e assicura rendimenti a lungo termine.",
+            "L'attenzione è sull'uso proprio poiché le tariffe di vendita diminuiscono e l'indipendenza dalla rete diventa più attraente."
+          ],
+          "highlight": "Massimizzate la vostra indipendenza e proteggersi contro gli aumenti dei prezzi."
         },
         {
           "heading": "Costi di riparazione: Cosa aspettarsi dopo l'installazione",
           "content": [
-            "Riparazioni inaspettate dovute a sovratensioni o intemperie possono verificarsi dopo l'installazione. Spesso sono coinvolti gli inverter, che possono guastarsi a seconda della durata di utilizzo.",
-            "Ispezioni e manutenzioni regolari riducono notevolmente i costi imprevisti."
-          ]
-        },
-        {
-          "heading": "Quando un accumulatore frena il rendimento invece di aumentarlo",
-          "content": [
-            "Un accumulatore di energia è meno conveniente se l'energia solare generata viene già completamente consumata durante il giorno. In questi casi, l'investimento in un accumulatore si ammortizza più lentamente.",
-            "La decisione di optare per un accumulatore di energia deve essere valutata con cura, soprattutto riguardo ai costi incentivabili e all'autoconsumo."
-          ]
+            "Danni imprevisti possono portare a costi di riparazione. Inverter e moduli sono componenti critici dove possono insorgere guasti.",
+            "Ispezioni regolari riducono il rischio di malfunzionamenti e aiutano nella manutenzione dell'impianto."
+          ],
+          "highlight": "Un piano di manutenzione chiaro protegge il tuo impianto e riduce i rischi di manutenzioni impreviste."
         }
       ],
-      "ctaHeading": "Inizia la pianificazione ora",
-      "ctaText": "La convenienza di un impianto fotovoltaico con accumulatore dipende da autoconsumo, accurata dimensionamento e incentivi utilizzati: esattamente le domande principali dall'inizio.",
-      "ctaButton": "Richiedi ora un'offerta",
+      "ctaHeading": "Inizia ora la pianificazione",
+      "ctaText": "Se un impianto fotovoltaico con accumulo conviene dipende dal tuo autoconsumo, dalla dimensione e dagli incentivi utilizzati. Fatti consigliare da esperti.",
+      "ctaButton": "Richiedi un'offerta",
       "formUrl": "/it/richiesta",
       "relatedSlugs": [],
       "faqs": [
         {
-          "question": "Quali costi di riparazione possono insorgere?",
-          "answer": "I costi correnti dipendono dalla manutenzione regolare e dalle condizioni del sistema. Un confronto tempestivo dei costi con le aziende specializzate ti aiuta a stimare realisticamente le spese future."
+          "question": "Quali costi di riparazione possono sorgere?",
+          "answer": "I costi correnti dipendono dalla manutenzione regolare. Un confronto dei costi anticipato con specialisti aiuta nella stima delle spese future."
         },
         {
-          "question": "Quanto costa un impianto completo da 5 kWp senza accumulatore?",
-          "answer": "I costi per kWp variano notevolmente a seconda della forma del tetto e della selezione dei componenti. Un incentivo riduce notevolmente il tuo impegno finanziario."
+          "question": "Qual è il costo di un impianto completo da 5 kWp senza accumulo?",
+          "answer": "I costi variano molto in base alla forma del tetto e alla scelta dei componenti. Gli incentivi riducono significativamente l'onere finanziario."
         },
         {
-          "question": "Quanto costa un impianto completo da 10 kWp senza accumulatore?",
-          "answer": "Il prezzo dipende dal lavoro specifico in loco. Un confronto tra aziende svizzere certificate rende il costo e il valore trasparenti."
+          "question": "Quali sono i costi degli impianti completi da 5 kWp e 10 kWp con accumulo?",
+          "answer": "I costi sono influenzati principalmente dalla capacità della batteria. Un accumulo aumenta notevolmente l'autoconsumo domestico."
         },
         {
-          "question": "Quanto costano gli impianti completi da 5 kWp e 10 kWp con accumulatore?",
-          "answer": "Un impianto fotovoltaico con accumulatore è fortemente influenzato dalla capacità della batteria. Un accumulatore di energia aumenta notevolmente l'autoconsumo nel nucleo familiare."
-        },
-        {
-          "question": "È un'alternativa noleggiare un impianto completo?",
-          "answer": "Un confronto diretto tra acquisto e noleggio mostra le differenze economiche per il tuo immobile. Consulenti indipendenti possono supportarti in questo. "
+          "question": "Il noleggio di un impianto completo è un'alternativa?",
+          "answer": "Il confronto diretto tra acquisto e noleggio mostra le differenze economiche. Consulenti indipendenti aiutano nella decisione."
         }
       ]
     }
