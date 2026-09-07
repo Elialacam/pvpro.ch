@@ -194,7 +194,7 @@ export async function POST(request: NextRequest) {
     const firstName = nameParts[0]
     const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : undefined
 
-    // Send to LeadSync and conversion APIs in parallel.
+    // Save to LeadSync before sending the Meta conversion.
     const [leadsyncRes] = await Promise.all([
       fetch('https://lead-suryoyo.replit.app/api/webhook/form', {
         method: 'POST',
@@ -203,19 +203,6 @@ export async function POST(request: NextRequest) {
           'x-api-key': 'f528ee7621a5c97665efd7561ac35a3ae0ab10eb4eef03b1',
         },
         body: JSON.stringify({ name, phone, email, address, ...(zip_code ? { zip_code } : {}), utm_source: utm_source || 'organic', ...(source ? { source } : {}), ...(fbclid ? { fbclid } : {}) }),
-      }),
-      sendMetaCAPI({
-        email,
-        phone,
-        firstName,
-        lastName,
-        sourceUrl,
-        fbclid: fbclid || undefined,
-        fbp,
-        fbc,
-        clientIp: ipAddress,
-        userAgent,
-        eventId: eventId || undefined,
       }),
       marketingConsent && eventId
         ? sendOpenAIConversion({
@@ -234,6 +221,20 @@ export async function POST(request: NextRequest) {
       console.error('LeadSync error:', leadsyncRes.status, text)
       return NextResponse.json({ error: 'Submission failed' }, { status: 400 })
     }
+
+    await sendMetaCAPI({
+      email,
+      phone,
+      firstName,
+      lastName,
+      sourceUrl,
+      fbclid: fbclid || undefined,
+      fbp,
+      fbc,
+      clientIp: ipAddress,
+      userAgent,
+      eventId: eventId || undefined,
+    })
 
     return NextResponse.json({ success: true }, { status: 200 })
   } catch (error: any) {
