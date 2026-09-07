@@ -335,6 +335,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   const [selectedPlaceCoords, setSelectedPlaceCoords] = useState<any>(null);
   const [validationErrors, setValidationErrors] = useState<Record<string, boolean>>({});
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const submitLockRef = useRef(false);
   const autocompleteService = useRef<any>(null);
   const placesService = useRef<any>(null);
 
@@ -464,8 +465,14 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   };
 
   const handleSubmit = async () => {
-    if (!validateContact()) return;
+    if (submitLockRef.current) return;
+    submitLockRef.current = true;
+    if (!validateContact()) {
+      submitLockRef.current = false;
+      return;
+    }
     setIsSubmitting(true);
+    let submissionSucceeded = false;
     try {
       const fullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
       const formatPhone = (raw: string) => {
@@ -529,8 +536,14 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         }
         fetch('/api/send-confirmation', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) }).catch(() => {});
         router.push(t.dankeUrl);
+        submissionSucceeded = true;
       }
-    } finally { setIsSubmitting(false); }
+    } finally {
+      if (!submissionSucceeded) {
+        submitLockRef.current = false;
+        setIsSubmitting(false);
+      }
+    }
   };
 
   const progressPct = Math.round(((step - 1) / TOTAL_STEPS) * 100);
