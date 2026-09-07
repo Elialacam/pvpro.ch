@@ -65,6 +65,7 @@ async function sendMetaCAPI({
   }
 
   const payload = {
+    test_event_code: 'TEST98749',
     data: [{
       event_name: 'Lead',
       event_time: Math.floor(Date.now() / 1000),
