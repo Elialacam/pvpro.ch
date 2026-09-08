@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FoerderRechner from '@/components/FoerderRechner';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solar Subsidies in Switzerland 2026 | PVPro.ch',
+  title: 'Solar Subsidies in Switzerland 2026 | PvPro.ch',
   description: 'One-time payment (OTP), cantonal programmes and tax deductions for photovoltaic installations in Switzerland. Calculate your subsidy now.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-subsidies',

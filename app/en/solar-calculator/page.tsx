@@ -10,7 +10,7 @@ import {
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solar Calculator Switzerland 2026 – Calculate Costs & Yield | PVPro.ch',
+  title: 'Solar Calculator Switzerland 2026 – Calculate Costs & Yield | PvPro.ch',
   description: 'Free solar calculator for Switzerland. Calculate the costs, yield and payback period of your solar installation in 30 seconds. With subsidies and 2026 reference values.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-calculator',
@@ -28,7 +28,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/en/solar-calculator',
     type: 'website',
     locale: 'en_GB',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/en/solar-calculator', locale: 'en' });
 
@@ -171,7 +171,7 @@ export default function SolarCalculatorPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebApplication',
-            name: 'PVPro.ch Solar Calculator',
+            name: 'PvPro.ch Solar Calculator',
             description: 'Free solar calculator for Switzerland',
             url: 'https://www.pvpro.ch/en/solar-calculator',
             applicationCategory: 'Calculator',

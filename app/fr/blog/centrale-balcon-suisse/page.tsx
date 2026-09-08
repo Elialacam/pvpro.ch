@@ -9,8 +9,8 @@ import ArticleStructuredData from '@/components/ArticleStructuredData';
 import { articleDates } from '@/lib/blogUtils';
 
 const baseMetadata: Metadata = {
-  title: 'Centrale solaire de balcon en Suisse : autorisée, coûts et vaut-elle vraiment la peine ? | PVPro.ch',
-  description: "Les mini-centrales solaires de balcon sont-elles autorisées en Suisse ? Coûts, règles et si une centrale de balcon vaut la peine — avec comparaison honnête à l'installation solaire.",
+  title: 'Centrale solaire de balcon Suisse',
+  description: "Découvrez les règles, coûts et la rentabilité d'une centrale de balcon en Suisse face à une installation solaire complète.",
   authors: [{ name: 'Elia Alacam' }],
   alternates: articleAlternates('centrale-balcon-suisse', 'fr'),
 };

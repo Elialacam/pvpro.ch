@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Richiedere preventivo solare Svizzera 2026 – Gratuito & senza impegno | PVPro.ch',
+  title: 'Richiedere preventivo solare Svizzera 2026 – Gratuito & senza impegno | PvPro.ch',
   description: 'Richiedete preventivi gratuiti per il vostro impianto solare in Svizzera. Fino a 3 preventivi da installatori certificati nel vostro Cantone. Confrontate e risparmiate.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/richiedere-preventivo-solare',
@@ -24,13 +24,13 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/it/richiedere-preventivo-solare',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/it/richiedere-preventivo-solare', locale: 'it' });
 
 const faqs = [
   {
-    question: 'Quanti preventivi riceverò tramite PVPro.ch?',
+    question: 'Quanti preventivi riceverò tramite PvPro.ch?',
     answer: "Ricevete fino a 3 preventivi personalizzati da installatori certificati del vostro Cantone. Avete così immediatamente una base di confronto.",
   },
   {
@@ -43,11 +43,11 @@ const faqs = [
   },
   {
     question: 'Riceverò chiamate pubblicitarie indesiderate dopo la richiesta?',
-    answer: "No. PVPro.ch garantisce che non riceverete chiamate pubblicitarie indesiderate. Solo gli installatori che vi inviano un preventivo vi contatteranno.",
+    answer: "No. PvPro.ch garantisce che non riceverete chiamate pubblicitarie indesiderate. Solo gli installatori che vi inviano un preventivo vi contatteranno.",
   },
   {
     question: 'Posso richiedere preventivi anche per un condominio?',
-    answer: "Sì. PVPro.ch gestisce preventivi per tutti i tipi di edifici — case unifamiliari, condomini ed edifici commerciali.",
+    answer: "Sì. PvPro.ch gestisce preventivi per tutti i tipi di edifici — case unifamiliari, condomini ed edifici commerciali.",
   },
   {
     question: 'Cosa succede se nessun preventivo mi convince?',
@@ -102,7 +102,7 @@ export default function RichiederePrevenitivoSolarePage() {
             <p className="text-gray-400 text-lg leading-relaxed">
               Chi vuole acquistare un impianto solare non dovrebbe mai firmare il primo preventivo. In Svizzera i{' '}
               <Link href="/it/costi-impianto-solare" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">costi</Link>{' '}
-              per lo stesso impianto possono variare di diversi migliaia di franchi tra diversi installatori. PVPro.ch vi permette di ottenere gratuitamente fino a 3 preventivi da installatori locali certificati — in meno di 2 minuti.
+              per lo stesso impianto possono variare di diversi migliaia di franchi tra diversi installatori. PvPro.ch vi permette di ottenere gratuitamente fino a 3 preventivi da installatori locali certificati — in meno di 2 minuti.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -162,7 +162,7 @@ export default function RichiederePrevenitivoSolarePage() {
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">In 3 passi</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Quanto è semplice richiedere preventivi?</h2>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Un tempo richiedere preventivi significava: cercare da soli, telefonare, fissare appuntamenti, aspettare. Con PVPro.ch si fa in 3 passi:
+              Un tempo richiedere preventivi significava: cercare da soli, telefonare, fissare appuntamenti, aspettare. Con PvPro.ch si fa in 3 passi:
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -210,7 +210,7 @@ export default function RichiederePrevenitivoSolarePage() {
             </ul>
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="text-orange-800 text-sm leading-relaxed">
-                <strong>Consiglio:</strong> Se un preventivo non contiene questi punti, fate domande — o richiedete un preventivo tramite PVPro.ch da uno dei nostri partner certificati.
+                <strong>Consiglio:</strong> Se un preventivo non contiene questi punti, fate domande — o richiedete un preventivo tramite PvPro.ch da uno dei nostri partner certificati.
               </p>
             </div>
           </div>
@@ -242,7 +242,7 @@ export default function RichiederePrevenitivoSolarePage() {
           <div className="text-center mb-10">
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Tutti i tipi di edifici</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Per quali tipi di edifici posso richiedere preventivi?</h2>
-            <p className="text-gray-600 max-w-xl mx-auto leading-relaxed">Tramite PVPro.ch potete richiedere preventivi per tutti i tipi di edifici:</p>
+            <p className="text-gray-600 max-w-xl mx-auto leading-relaxed">Tramite PvPro.ch potete richiedere preventivi per tutti i tipi di edifici:</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {buildingTypes.map(b => (

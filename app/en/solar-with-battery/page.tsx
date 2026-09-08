@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solar installation with battery storage: costs, benefits and how it works | PVPro.ch',
+  title: 'Solar installation with battery storage: costs, benefits and how it works | PvPro.ch',
   description: 'How does a solar installation with battery storage work? Costs, benefits, storage size and self-consumption in Switzerland explained simply.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-with-battery',

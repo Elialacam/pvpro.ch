@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FoerderRechner from '@/components/FoerderRechner';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Förderungen für Solaranlagen in der Schweiz 2026 | PVPro.ch',
+  title: 'Förderungen für Solaranlagen in der Schweiz 2026 | PvPro.ch',
   description: 'Einmalvergütung (EIV), kantonale Förderprogramme und steuerliche Abzüge für Photovoltaikanlagen in der Schweiz. Jetzt Förderung berechnen.',
   alternates: {
     canonical: 'https://www.pvpro.ch/foerderungen',

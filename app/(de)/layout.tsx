@@ -7,11 +7,11 @@ import { LocaleProvider } from "@/lib/LocaleContext";
 
 export const metadata: Metadata = {
   title: {
-    default: 'Solaranlagen vergleichen | PVPro.ch',
-    template: '%s | PVPro.ch',
+    default: 'Solaranlagen vergleichen | PvPro.ch',
+    template: '%s | PvPro.ch',
   },
   description: "Vergleichen Sie kostenlos bis zu 3 geprüfte Offerten für Ihre Solaranlage von qualifizierten Schweizer Fachbetrieben – transparent und unverbindlich.",
-  authors: [{ name: 'PVPro.ch' }],
+  authors: [{ name: 'PvPro.ch' }],
   robots: {
     index: true,
     follow: true,
@@ -43,8 +43,8 @@ export default function GermanLayout({
             "@context": "https://schema.org",
             "@type": "WebSite",
             "url": "https://www.pvpro.ch",
-            "name": "PVPro.ch",
-            "alternateName": "PVPro.ch",
+            "name": "PvPro.ch",
+            "alternateName": "PvPro.ch",
             "description": "Vergleichsplattform für Solaranlagen in der Schweiz",
             "inLanguage": "de-CH",
             "potentialAction": {

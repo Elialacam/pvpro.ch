@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solarrechner Schweiz 2026 – Kosten & Ertrag berechnen | PVPro.ch',
+  title: 'Solarrechner Schweiz 2026 – Kosten & Ertrag berechnen | PvPro.ch',
   description: 'Kostenloser Solarrechner für die Schweiz. Berechnen Sie in 30 Sekunden Kosten, Ertrag und Amortisation Ihrer Solaranlage. Mit Förderungen, Eigenverbrauch und Richtwerten für 2026.',
   alternates: {
     canonical: 'https://www.pvpro.ch/solarrechner',
@@ -27,7 +27,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/solarrechner',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/solarrechner', locale: 'de' });
 
@@ -171,7 +171,7 @@ export default function SolarrechnerPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebApplication',
-            name: 'PVPro.ch Solarrechner',
+            name: 'PvPro.ch Solarrechner',
             description: 'Kostenloser Solarrechner für die Schweiz',
             url: 'https://www.pvpro.ch/solarrechner',
             applicationCategory: 'Calculator',

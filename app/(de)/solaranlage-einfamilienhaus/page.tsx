@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solaranlage Einfamilienhaus Schweiz: Kosten, Grösse und Vorteile | PVPro.ch',
+  title: 'Solaranlage Einfamilienhaus Schweiz: Kosten, Grösse und Vorteile | PvPro.ch',
   description: 'Was kostet eine Solaranlage für ein Einfamilienhaus in der Schweiz? Preise, Grösse, Förderung und Tipps einfach erklärt. Jetzt Angebote vergleichen.',
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-einfamilienhaus',
@@ -359,7 +359,7 @@ export default function SolaranlageEinfamilienhausPage() {
             Angebote vergleichen und Kosten optimieren
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Die Preise für Solaranlagen unterscheiden sich stark je nach Anbieter. Über PVPro.ch erhalten Sie kostenlos bis zu 3 Offerten von geprüften Installateuren in Ihrem Kanton.
+            Die Preise für Solaranlagen unterscheiden sich stark je nach Anbieter. Über PvPro.ch erhalten Sie kostenlos bis zu 3 Offerten von geprüften Installateuren in Ihrem Kanton.
           </p>
           <Link
             href="/anfrage"

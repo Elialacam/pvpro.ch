@@ -6,8 +6,8 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Installare impianto solare Svizzera 2026 – Fornitori & Costi | PVPro.ch',
-  description: 'Installare un impianto solare in Svizzera: trova installatori certificati nel tuo Cantone. Confronta preventivi gratuiti e risparmia fino al 30% con PVPro.ch.',
+  title: 'Installare impianto solare Svizzera 2026 – Fornitori & Costi | PvPro.ch',
+  description: 'Installare un impianto solare in Svizzera: trova installatori certificati nel tuo Cantone. Confronta preventivi gratuiti e risparmia fino al 30% con PvPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/installare-impianto-solare-svizzera',
     languages: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/it/installare-impianto-solare-svizzera',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/it/installare-impianto-solare-svizzera', locale: 'it' });
 
@@ -51,7 +51,7 @@ const faqs = [
   },
   {
     question: "Come trovo il miglior installatore nel mio Cantone?",
-    answer: "PVPro.ch vi mette gratuitamente in contatto con fino a 3 installatori certificati del vostro Cantone — per confrontare direttamente prezzi e prestazioni.",
+    answer: "PvPro.ch vi mette gratuitamente in contatto con fino a 3 installatori certificati del vostro Cantone — per confrontare direttamente prezzi e prestazioni.",
   },
 ];
 
@@ -125,7 +125,7 @@ export default function InstallareImpiantoSolareSvizzeraPage() {
               Far installare un impianto solare in Svizzera
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Un impianto solare è un investimento a lungo termine. Chi lo fa installare deve scegliere l&apos;azienda giusta — perché qualità, prezzo e servizio variano molto. PVPro.ch vi mette gratuitamente in contatto con installatori svizzeri certificati del vostro Cantone.
+              Un impianto solare è un investimento a lungo termine. Chi lo fa installare deve scegliere l&apos;azienda giusta — perché qualità, prezzo e servizio variano molto. PvPro.ch vi mette gratuitamente in contatto con installatori svizzeri certificati del vostro Cantone.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -289,7 +289,7 @@ export default function InstallareImpiantoSolareSvizzeraPage() {
             </ul>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
               <p className="text-gray-700 text-sm leading-relaxed">
-                <strong>PVPro.ch verifica tutti questi criteri in anticipo</strong> — ricevete solo preventivi da aziende che soddisfano i nostri standard.
+                <strong>PvPro.ch verifica tutti questi criteri in anticipo</strong> — ricevete solo preventivi da aziende che soddisfano i nostri standard.
               </p>
             </div>
           </div>

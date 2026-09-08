@@ -3,7 +3,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Imprint',
-  description: 'Imprint and legal information for PVPro.ch.',
+  description: 'Imprint and legal information for PvPro.ch.',
 }, { path: '/en/imprint', locale: 'en' });
 
 export default function ImprintPage() {

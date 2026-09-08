@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Photovoltaik Schweizer Klima 2026 – Welche Anlage passt? | PVPro.ch',
+  title: 'Photovoltaik Schweizer Klima 2026 – Welche Anlage passt? | PvPro.ch',
   description: 'Welche Photovoltaik Anlagen eignen sich für das Schweizer Klima? Schnee, Kälte, Nebel — wir erklären, was wirklich zählt und welche Module in der Schweiz am besten funktionieren.',
   alternates: {
     canonical: 'https://www.pvpro.ch/photovoltaik-schweizer-klima',
@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/photovoltaik-schweizer-klima',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/photovoltaik-schweizer-klima', locale: 'de' });
 

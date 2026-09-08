@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solaranlage mit Speicher: Kosten, Vorteile und Speichergröße in der Schweiz | PVPro.ch',
+  title: 'Solaranlage mit Speicher: Kosten, Vorteile und Speichergröße in der Schweiz | PvPro.ch',
   description: 'Wie funktioniert eine Solaranlage mit Speicher? Erfahren Sie Kosten, Vorteile, Speichergrößen und wie viel Strom Sie selbst nutzen können.',
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-mit-speicher',

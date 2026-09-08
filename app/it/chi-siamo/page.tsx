@@ -5,8 +5,8 @@ import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Chi siamo – PVPro.ch | Piattaforma solare svizzera indipendente',
-  description: 'Scopri PVPro.ch – la piattaforma svizzera indipendente che mette in contatto i proprietari con installatori fotovoltaici certificati.',
+  title: 'Chi siamo | PvPro.ch',
+  description: 'Scopri PvPro.ch – la piattaforma svizzera indipendente che mette in contatto i proprietari con installatori fotovoltaici certificati.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/chi-siamo',
     languages: {
@@ -63,7 +63,7 @@ export default function ChiSiamoPage() {
               La piattaforma solare svizzera indipendente
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              PVPro.ch è stata fondata con una missione chiara: aiutare i proprietari svizzeri a trovare il miglior impianto solare al miglior prezzo — in modo semplice, trasparente e gratuito.
+              PvPro.ch è stata fondata con una missione chiara: aiutare i proprietari svizzeri a trovare il miglior impianto solare al miglior prezzo — in modo semplice, trasparente e gratuito.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
               In un mercato spesso poco trasparente e difficile da confrontare, facciamo chiarezza. Ti mettiamo in contatto con fino a 3 installatori certificati del tuo Cantone e lasciamo che le offerte parlino da sole.
@@ -72,7 +72,7 @@ export default function ChiSiamoPage() {
           <div className="rounded-2xl overflow-hidden shadow-xl">
             <Image
               src="/team-new.webp"
-              alt="Il team PVPro.ch"
+              alt="Il team PvPro.ch"
               width={800}
               height={500}
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -100,7 +100,7 @@ export default function ChiSiamoPage() {
               Rendiamo l'energia solare accessibile a tutti
             </h2>
             <p className="text-gray-500 text-lg leading-relaxed">
-              Passare all'energia solare è uno dei migliori investimenti che un proprietario possa fare. Ma il percorso per arrivarci è spesso complicato. PVPro.ch rende questo passo semplice, veloce e sicuro.
+              Passare all'energia solare è uno dei migliori investimenti che un proprietario possa fare. Ma il percorso per arrivarci è spesso complicato. PvPro.ch rende questo passo semplice, veloce e sicuro.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -16,9 +16,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Solaranlagen in der Schweiz vergleichen | PVPro.ch',
+  title: 'Solar-Offerten vergleichen: 3 geprüfte Betriebe | PvPro.ch',
   description: 'Vergleichen Sie kostenlos bis zu 3 Offerten für Ihre Photovoltaikanlage in der Schweiz.',
-  authors: [{ name: 'PVPro.ch' }],
+  authors: [{ name: 'PvPro.ch' }],
   metadataBase: new URL('https://www.pvpro.ch'),
   icons: {
     icon: [

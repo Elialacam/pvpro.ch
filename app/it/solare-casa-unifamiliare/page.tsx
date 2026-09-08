@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Impianto solare casa unifamiliare Svizzera: costi, dimensioni e vantaggi | PVPro.ch',
+  title: 'Impianto solare casa unifamiliare Svizzera: costi, dimensioni e vantaggi | PvPro.ch',
   description: 'Quanto costa un impianto solare per una casa unifamiliare in Svizzera? Prezzi, dimensioni, incentivi e consigli spiegati semplicemente. Confronta le offerte ora.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/solare-casa-unifamiliare',
@@ -338,7 +338,7 @@ export default function SolareCasaUnifamiliarePage() {
             Confronta le offerte e ottimizza i costi
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            I prezzi degli impianti solari variano notevolmente a seconda del fornitore. Tramite PVPro.ch ricevete gratuitamente fino a 3 preventivi da installatori certificati nel vostro Cantone.
+            I prezzi degli impianti solari variano notevolmente a seconda del fornitore. Tramite PvPro.ch ricevete gratuitamente fino a 3 preventivi da installatori certificati nel vostro Cantone.
           </p>
           <Link
             href="/it/richiesta"

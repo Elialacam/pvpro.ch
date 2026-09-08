@@ -11,7 +11,7 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 const citySlug = 'bienne';
 
 const baseMetadata: Metadata = {
-  title: 'Installation solaire Biel/Bienne – Comparez 3 offres 2026 | PVPro.ch',
+  title: 'Installation solaire Biel/Bienne – Comparez 3 offres 2026 | PvPro.ch',
   description: "Panneaux solaires à Bienne : comparez jusqu'à 3 offres certifiées. Triple subvention : RU fédérale + Canton de Berne + fonds énergie municipal. Gratuit & sans engagement.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/solaire-bienne',

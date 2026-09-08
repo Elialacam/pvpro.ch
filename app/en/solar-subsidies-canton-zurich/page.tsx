@@ -5,8 +5,8 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solar Subsidies Canton Zurich 2026 – OUR, solar obligation & grants | PVPro.ch',
-  description: 'What solar panel subsidies exist in Canton Zurich 2026? OUR, cantonal grants, solar obligation and how to apply. Find out now on PVPro.ch.',
+  title: 'Solar Subsidies Canton Zurich 2026 – OUR, solar obligation & grants | PvPro.ch',
+  description: 'What solar panel subsidies exist in Canton Zurich 2026? OUR, cantonal grants, solar obligation and how to apply. Find out now on PvPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-subsidies-canton-zurich',
     languages: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/en/solar-subsidies-canton-zurich',
     type: 'website',
     locale: 'en_US',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/en/solar-subsidies-canton-zurich', locale: 'en' });
 

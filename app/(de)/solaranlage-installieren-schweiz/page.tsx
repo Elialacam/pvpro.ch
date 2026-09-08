@@ -6,8 +6,8 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solaranlage installieren lassen Schweiz 2026 – Anbieter & Kosten | PVPro.ch',
-  description: 'Solaranlage installieren lassen in der Schweiz: Finden Sie zertifizierte Anbieter in Ihrem Kanton. Kostenlose Offerten vergleichen und bis zu 30% sparen mit PVPro.ch.',
+  title: 'Solaranlage installieren lassen Schweiz 2026 – Anbieter & Kosten | PvPro.ch',
+  description: 'Solaranlage installieren lassen in der Schweiz: Finden Sie zertifizierte Anbieter in Ihrem Kanton. Kostenlose Offerten vergleichen und bis zu 30% sparen mit PvPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-installieren-schweiz',
     languages: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/solaranlage-installieren-schweiz',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/solaranlage-installieren-schweiz', locale: 'de' });
 
@@ -51,7 +51,7 @@ const faqs = [
   },
   {
     question: 'Wie finde ich den besten Installateur in meinem Kanton?',
-    answer: 'PVPro.ch vermittelt Ihnen kostenlos bis zu 3 zertifizierte Installateure aus Ihrem Kanton — so können Sie Preise und Leistungen direkt vergleichen.',
+    answer: 'PvPro.ch vermittelt Ihnen kostenlos bis zu 3 zertifizierte Installateure aus Ihrem Kanton — so können Sie Preise und Leistungen direkt vergleichen.',
   },
 ];
 
@@ -125,7 +125,7 @@ export default function SolaranlageInstallierenPage() {
               Solaranlage installieren lassen in der Schweiz
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Eine Solaranlage ist eine langfristige Investition. Wer sie installieren lässt, sollte den richtigen Fachbetrieb wählen — denn Qualität, Preis und Service variieren stark. PVPro.ch verbindet Sie kostenlos mit geprüften Schweizer Installateuren aus Ihrem Kanton.
+              Eine Solaranlage ist eine langfristige Investition. Wer sie installieren lässt, sollte den richtigen Fachbetrieb wählen — denn Qualität, Preis und Service variieren stark. PvPro.ch verbindet Sie kostenlos mit geprüften Schweizer Installateuren aus Ihrem Kanton.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -289,7 +289,7 @@ export default function SolaranlageInstallierenPage() {
             </ul>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
               <p className="text-gray-700 text-sm leading-relaxed">
-                <strong>PVPro.ch prüft all diese Kriterien im Voraus</strong> — Sie erhalten nur Offerten von Betrieben, die unsere Standards erfüllen.
+                <strong>PvPro.ch prüft all diese Kriterien im Voraus</strong> — Sie erhalten nur Offerten von Betrieben, die unsere Standards erfüllen.
               </p>
             </div>
           </div>

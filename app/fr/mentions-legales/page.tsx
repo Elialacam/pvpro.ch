@@ -3,7 +3,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 
 const baseMetadata: Metadata = {
   title: 'Mentions légales',
-  description: 'Mentions légales et informations juridiques concernant PVPro.ch.',
+  description: 'Mentions légales et informations juridiques concernant PvPro.ch.',
 };
 
 export default function MentionsLegalesPage() {

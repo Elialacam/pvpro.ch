@@ -11,7 +11,7 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 const citySlug = 'fribourg';
 
 const baseMetadata: Metadata = {
-  title: 'Installation solaire Canton de Fribourg – Comparez 3 offres 2026 | PVPro.ch',
+  title: 'Installation solaire Canton de Fribourg – Comparez 3 offres 2026 | PvPro.ch',
   description: "Panneau solaire à Fribourg : comparez jusqu'à 3 offres d'installateurs certifiés. Subventions RU fédérale + aide cantonale fribourgeoise. Gratuit & sans engagement.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/solaire-fribourg',

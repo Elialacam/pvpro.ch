@@ -43,8 +43,8 @@ const italianCantonNames: Record<string, string> = {
 };
 
 export const metadata: Metadata = pageMetadata({
-  title: 'PVPro.ch - Confronta impianti fotovoltaici in Ticino | Preventivi gratuiti',
-  description: 'Confronta gratuitamente fino a 3 preventivi per il tuo impianto fotovoltaico in Ticino. Risparmia tempo e denaro con PVPro.ch.',
+  title: 'Preventivi fotovoltaico: 3 ditte verificate | PvPro.ch',
+  description: 'Confronta gratuitamente fino a tre preventivi da installatori fotovoltaici certificati in Svizzera.',
 }, { path: '/it', locale: 'it' });
 
 export default function ItalianHomePage() {

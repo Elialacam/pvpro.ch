@@ -13,6 +13,13 @@ import path from 'path';
 import type { BlogArticle } from './blogArticles';
 import type { BlogPost } from './blogPosts';
 import { autoBlogPath, getAutoBlogSlugRecord, type BlogLocale } from './autoBlogSlugs';
+import { articleMetaDescription } from './blogUtils';
+
+function autoSeoTitle(article: BlogArticle): string {
+  // Generated-content slugs are localized, editorial route names. They remain
+  // short enough for the fixed metadata suffix and keep every route distinct.
+  return article.seoTitle ?? article.slug.replace(/pvpro/gi, '').replace(/-+/g, ' ').trim();
+}
 
 export interface AutoBlogFile {
   slug: string;
@@ -59,6 +66,8 @@ export function getAutoArticle(slug: string, locale: string): BlogArticle | unde
   if (!article) return undefined;
   return {
     ...article,
+    seoTitle: autoSeoTitle(article),
+    metaDescription: articleMetaDescription(article.metaDescription, article.locale, article.slug),
     slug: file.localeSlugs?.[locale as BlogLocale] ?? canonical?.slugs[locale as BlogLocale] ?? article.slug,
     publishedAt: file.createdAt,
     modifiedAt: file.createdAt,
@@ -79,10 +88,10 @@ export function getAutoArticleLocaleSlugs(locale: BlogLocale): string[] {
 /** Card metadata for the blog listing pages, per locale. */
 export function getAutoBlogCards(locale: 'de' | 'fr' | 'en' | 'it'): BlogPost[] {
   const authors: Record<string, string> = {
-    de: 'PVPro.ch Redaktion',
-    fr: 'PVPro.ch Rédaction',
-    en: 'PVPro.ch Editorial',
-    it: 'Redazione PVPro.ch',
+    de: 'PvPro.ch Redaktion',
+    fr: 'PvPro.ch Rédaction',
+    en: 'PvPro.ch Editorial',
+    it: 'Redazione PvPro.ch',
   };
   return getAutoBlogFiles()
     .map((f) => {
@@ -92,7 +101,7 @@ export function getAutoBlogCards(locale: 'de' | 'fr' | 'en' | 'it'): BlogPost[] 
       return {
         slug: f.localeSlugs?.[locale] ?? getAutoBlogSlugRecord(f.slug)?.slugs[locale] ?? f.slug,
         title: a.title,
-        excerpt: a.metaDescription,
+        excerpt: articleMetaDescription(a.metaDescription, a.locale, a.slug),
         image: a.image,
         author: authors[locale],
         date: a.date,

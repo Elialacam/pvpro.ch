@@ -8,7 +8,7 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 const citySlug = 'biel';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solaranlage Biel/Bienne – Offerten vergleichen 2026 | PVPro.ch',
+  title: 'Solaranlage Biel/Bienne – Offerten vergleichen 2026 | PvPro.ch',
   description: "Solaranlage in Biel/Bienne: Bis zu 3 Offerten vergleichen. Dreifache Förderung: EIV Bund + Kanton Bern + Energiefonds Stadt Biel. Unverbindlich & kostenlos.",
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-biel',

@@ -3,7 +3,7 @@ import AnfrageForm from '@/components/AnfrageForm';
 import { pageMetadata } from '@/lib/pageMetadata';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Request free solar quotes | PVPro.ch',
+  title: 'Request free solar quotes | PvPro.ch',
   description: 'Receive free quotes from certified Swiss solar installers in just a few minutes.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/request',

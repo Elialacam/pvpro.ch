@@ -15,8 +15,8 @@ import FaqSchema from '@/components/FaqSchema';
 import { faqContent } from '@/lib/faqData';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'PVPro.ch - Solaranlagen in der Schweiz vergleichen | Kostenlose Offerten',
-  description: 'Vergleichen Sie kostenlos bis zu 3 geprüfte Offerten für Ihre Solaranlage. Ein Netzwerk aus über 25 qualifizierten Schweizer Fachbetrieben mit über 20 Jahren Erfahrung – zuverlässig, transparent und unverbindlich.',
+  title: 'Solar-Offerten vergleichen: 3 geprüfte Betriebe | PvPro.ch',
+  description: 'Vergleichen Sie kostenlos bis zu drei Offerten von geprüften Schweizer Solarbetrieben für Ihre Solaranlage.',
 }, { path: '/', locale: 'de' });
 
 export default function HomePage() {

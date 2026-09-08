@@ -10,7 +10,7 @@ import {
 import FaqSchema from '@/components/FaqSchema';
 
 const baseMetadata: Metadata = {
-  title: 'Calculateur solaire Suisse 2026 – Calculer coûts et rendement | PVPro.ch',
+  title: 'Calculateur solaire Suisse 2026 – Calculer coûts et rendement | PvPro.ch',
   description: 'Calculateur solaire gratuit pour la Suisse. Calculez en 30 secondes les coûts, le rendement et l\'amortissement de votre installation solaire. Avec subventions et valeurs de référence 2026.',
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/calculateur-solaire',
@@ -28,7 +28,7 @@ const baseMetadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/calculateur-solaire',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 };
 
@@ -171,7 +171,7 @@ export default function CalculateurSolairePage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebApplication',
-            name: 'PVPro.ch Calculateur Solaire',
+            name: 'PvPro.ch Calculateur Solaire',
             description: 'Calculateur solaire gratuit pour la Suisse',
             url: 'https://www.pvpro.ch/fr/calculateur-solaire',
             applicationCategory: 'Calculator',

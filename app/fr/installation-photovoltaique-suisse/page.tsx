@@ -5,8 +5,8 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 const baseMetadata: Metadata = {
-  title: "Installation photovoltaïque Suisse 2026 – Étapes, durée & coûts | PVPro.ch",
-  description: "Comment fonctionne l'installation d'une installation photovoltaïque en Suisse ? Étapes, durée, coûts et ce à quoi vous devez faire attention — tout expliqué par PVPro.ch.",
+  title: "Installation photovoltaïque Suisse 2026 – Étapes, durée & coûts | PvPro.ch",
+  description: "Comment fonctionne l'installation d'une installation photovoltaïque en Suisse ? Étapes, durée, coûts et ce à quoi vous devez faire attention — tout expliqué par PvPro.ch.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/installation-photovoltaique-suisse',
     languages: {
@@ -23,7 +23,7 @@ const baseMetadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/installation-photovoltaique-suisse',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 };
 
@@ -222,7 +222,7 @@ export default function InstallationPhotovoltaiqueSuissePage() {
             <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">Prestations de l&apos;installateur</p>
             <h2 className="text-xl font-bold text-white mb-5">Que fait un bon installateur ?</h2>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Un installateur professionnel prend en charge l&apos;ensemble du processus pour vous. PVPro.ch ne met en relation qu&apos;avec des installateurs qui effectuent toutes ces étapes de manière fiable.
+              Un installateur professionnel prend en charge l&apos;ensemble du processus pour vous. PvPro.ch ne met en relation qu&apos;avec des installateurs qui effectuent toutes ces étapes de manière fiable.
             </p>
             <ul className="space-y-3">
               {[

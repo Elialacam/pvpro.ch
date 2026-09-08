@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import MehrfamilienhausRechner, { MehrfamilienhausFaq } from '@/components/MehrfamilienhausRechner';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solar installation for apartment buildings Switzerland: costs, ZEC and profitability | PVPro.ch',
+  title: 'Solar installation for apartment buildings Switzerland: costs, ZEC and profitability | PvPro.ch',
   description: 'How much does a solar installation for an apartment building cost? Costs, ZEC, size and profitability for multiple residential units in Switzerland.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-apartment-building',
@@ -339,7 +339,7 @@ export default function SolarApartmentBuildingPage() {
             Compare offers and plan your installation optimally
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Every building is different and requires an individual solution. Via PVPro.ch you compare multiple offers for free and find the best solution for your building.
+            Every building is different and requires an individual solution. Via PvPro.ch you compare multiple offers for free and find the best solution for your building.
           </p>
           <Link
             href="/en/request"

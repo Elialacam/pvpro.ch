@@ -25,7 +25,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
         answer: 'Eine typische Solaranlage für ein Einfamilienhaus kostet zwischen 9.500 und 25.000 CHF. Der genaue Preis hängt von der Grösse der Anlage, der Dachbeschaffenheit und den verwendeten Komponenten ab. Mit einem Batteriespeicher liegen die Kosten höher, zwischen 19.500 und 35.000 CHF.',
       },
       {
-        question: 'Wie funktioniert die Vermittlung bei PVPro.ch?',
+        question: 'Wie funktioniert die Vermittlung bei PvPro.ch?',
         answer: 'Sie füllen unser kurzes Formular aus, in dem Sie Ihre Anforderungen angeben. Wir leiten Ihre Anfrage an bis zu 3 geprüfte Solarteure in Ihrem Kanton weiter. Diese erstellen individuelle Angebote für Sie. Sie vergleichen die Offerten und wählen das beste Angebot aus – ganz ohne Verpflichtung.',
       },
       {
@@ -41,7 +41,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
         answer: 'Ja! Selbst in weniger sonnenreichen Kantonen der Schweiz produzieren Solaranlagen genug Strom, um sich zu amortisieren. Moderne Solarmodule arbeiten auch bei diffusem Licht effizient. Die durchschnittliche Amortisationszeit in der Schweiz liegt bei 10-15 Jahren, bei einer Lebensdauer von 25-30 Jahren.',
       },
       {
-        question: 'Ist der Service von PVPro.ch wirklich kostenlos?',
+        question: 'Ist der Service von PvPro.ch wirklich kostenlos?',
         answer: 'Ja, unser Service ist zu 100% kostenlos und unverbindlich für Sie. Wir finanzieren uns durch Provisionen von unseren Partner-Installateuren. Sie zahlen für die Vermittlung nichts und erhalten dennoch die gleichen Preise wie bei direkter Anfrage beim Solarteur.',
       },
     ],
@@ -57,7 +57,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
         answer: "Une installation solaire typique pour une maison individuelle coûte entre CHF 9.500 et CHF 25.000. Le prix exact dépend de la taille de l'installation, de l'état du toit et des composants utilisés. Avec une batterie de stockage, les coûts sont plus élevés, entre CHF 19.500 et CHF 35.000.",
       },
       {
-        question: "Comment fonctionne l'intermédiation de PVPro.ch?",
+        question: "Comment fonctionne l'intermédiation de PvPro.ch?",
         answer: "Vous remplissez notre court formulaire en indiquant vos besoins. Nous transmettons votre demande à un maximum de 3 installateurs certifiés dans votre canton. Ceux-ci préparent des offres personnalisées pour vous. Vous comparez les devis et choisissez la meilleure offre - sans aucun engagement.",
       },
       {
@@ -73,7 +73,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
         answer: "Oui! Même dans les zones moins ensoleillées de Suisse, les installations solaires produisent assez d'électricité pour s'amortir. Les modules solaires modernes fonctionnent efficacement même avec une lumière diffuse. La période d'amortissement moyenne en Suisse est de 10-15 ans, pour une durée de vie de 25-30 ans.",
       },
       {
-        question: 'Le service de PVPro.ch est-il vraiment gratuit?',
+        question: 'Le service de PvPro.ch est-il vraiment gratuit?',
         answer: "Oui, notre service est à 100% gratuit et sans engagement pour vous. Nous nous finançons par des commissions de nos installateurs partenaires. Vous ne payez rien pour l'intermédiation et recevez néanmoins les mêmes prix qu'en cas de demande directe auprès de l'installateur.",
       },
     ],
@@ -89,7 +89,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
         answer: 'A typical solar system for a single-family home costs between CHF 9,500 and CHF 25,000. The exact price depends on the system size, roof characteristics, and components used. With a battery storage system, costs are higher, between CHF 19,500 and CHF 35,000.',
       },
       {
-        question: 'How does the PVPro.ch referral service work?',
+        question: 'How does the PvPro.ch referral service work?',
         answer: 'You fill out our short form indicating your requirements. We forward your request to up to 3 certified installers in your canton. They prepare personalized quotes for you. You compare the offers and choose the best one - completely without obligation.',
       },
       {
@@ -105,7 +105,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
         answer: 'Yes! Even in less sunny areas of Switzerland, solar systems produce enough electricity to pay for themselves. Modern solar modules work efficiently even with diffuse light. The average payback period in Switzerland is 10-15 years, with a lifespan of 25-30 years.',
       },
       {
-        question: 'Is PVPro.ch service really free?',
+        question: 'Is PvPro.ch service really free?',
         answer: 'Yes, our service is 100% free and non-binding for you. We are financed through commissions from our partner installers. You pay nothing for the referral and still receive the same prices as if you contacted the installer directly.',
       },
     ],
@@ -121,7 +121,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
         answer: "Un tipico impianto solare per una casa unifamiliare costa tra CHF 9.500 e CHF 25.000. Il prezzo esatto dipende dalle dimensioni dell'impianto, dalle caratteristiche del tetto e dai componenti utilizzati. Con un sistema di accumulo a batteria, i costi sono più elevati, tra CHF 19.500 e CHF 35.000.",
       },
       {
-        question: 'Come funziona il servizio di PVPro.ch?',
+        question: 'Come funziona il servizio di PvPro.ch?',
         answer: 'Compili il nostro breve modulo indicando le tue esigenze. Inoltriamo la tua richiesta a un massimo di 3 installatori certificati in Ticino. Questi prepareranno preventivi personalizzati per te. Tu confronti le offerte e scegli la migliore - completamente senza impegno.',
       },
       {
@@ -137,7 +137,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
         answer: "Sì! E in Ticino ancora di più: con oltre 2'000 ore di sole all'anno è tra le zone più soleggiate della Svizzera. I moderni moduli solari funzionano in modo efficiente anche con luce diffusa. Il periodo medio di ammortamento è di 10-15 anni, con una durata di vita di 25-30 anni.",
       },
       {
-        question: 'Il servizio di PVPro.ch è davvero gratuito?',
+        question: 'Il servizio di PvPro.ch è davvero gratuito?',
         answer: "Sì, il nostro servizio è al 100% gratuito e non vincolante per te. Ci finanziamo tramite commissioni dai nostri installatori partner. Non paghi nulla per l'intermediazione e ricevi comunque gli stessi prezzi come se contattassi direttamente l'installatore.",
       },
     ],

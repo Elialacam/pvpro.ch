@@ -10,7 +10,7 @@ export default function ArticleStructuredData({ article, canonicalPath, faqs = a
     '@context': 'https://schema.org', '@type': 'Article', headline: article.title,
     datePublished: dates.publishedAt, dateModified: dates.modifiedAt,
     author: { '@type': 'Person', name: 'Elia Alacam', url: `${BLOG_ORIGIN}${author.href}` },
-    publisher: { '@type': 'Organization', name: 'PVPro.ch', logo: { '@type': 'ImageObject', url: `${BLOG_ORIGIN}/logo-pvpro.png` } },
+    publisher: { '@type': 'Organization', name: 'PvPro.ch', logo: { '@type': 'ImageObject', url: `${BLOG_ORIGIN}/logo-pvpro.png` } },
     image: `${BLOG_ORIGIN}${article.image}`, inLanguage: `${article.locale}-CH`,
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${BLOG_ORIGIN}${canonicalPath}` },
   };

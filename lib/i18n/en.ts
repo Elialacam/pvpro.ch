@@ -48,7 +48,7 @@ export const en: TranslationKeys = {
     error: 'An error occurred. Please try again.',
   },
   usp: {
-    title: 'Why PVPro.ch?',
+    title: 'Why PvPro.ch?',
     compare: {
       title: 'Up to 3 Quotes to Compare',
       description: 'Receive multiple offers from certified installers and choose the best one.',
@@ -94,7 +94,7 @@ export const en: TranslationKeys = {
     terms: 'Terms',
     legal: 'Legal',
     followUs: 'Follow Us',
-    copyright: '© 2024 PVPro.ch. All rights reserved.',
+    copyright: '© 2024 PvPro.ch. All rights reserved.',
   },
   testimonials: {
     title: 'What Our Customers Say',
@@ -132,7 +132,7 @@ export const en: TranslationKeys = {
     costs: 'Costs',
   },
   meta: {
-    homeTitle: 'PVPro.ch - Compare Solar Systems in Switzerland | Free Quotes',
+    homeTitle: 'PvPro.ch - Compare Solar Systems in Switzerland | Free Quotes',
     homeDescription: 'Compare solar system offers from certified installers in Switzerland for free. Save up to 30% by comparing. No obligation.',
   },
 };

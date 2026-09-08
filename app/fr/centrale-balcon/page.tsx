@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 
 const baseMetadata: Metadata = {
-  title: 'Centrale solaire balcon Suisse – Mini-installation pour balcon | PVPro.ch',
+  title: 'Centrale solaire balcon Suisse – Mini-installation pour balcon | PvPro.ch',
   description: "Centrale solaire pour balcon en Suisse : coûts, inscription, bases légales et conseils pour locataires et propriétaires. Produisez votre propre électricité sans toit.",
 };
 

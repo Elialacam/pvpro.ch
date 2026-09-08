@@ -62,19 +62,19 @@ const SLIDE_DURATION = 6000;
 const trustpilotContent: Record<Locale, { href: string; alt: string }> = {
   de: {
     href: 'https://de-ch.trustpilot.com/review/pvpro.ch',
-    alt: 'Trustpilot: 5 Sterne für PVPro.ch',
+    alt: 'Trustpilot: 5 Sterne für PvPro.ch',
   },
   fr: {
     href: 'https://fr.trustpilot.com/review/pvpro.ch',
-    alt: 'Trustpilot : 5 étoiles pour PVPro.ch',
+    alt: 'Trustpilot : 5 étoiles pour PvPro.ch',
   },
   en: {
     href: 'https://www.trustpilot.com/review/pvpro.ch',
-    alt: 'Trustpilot: 5 stars for PVPro.ch',
+    alt: 'Trustpilot: 5 stars for PvPro.ch',
   },
   it: {
     href: 'https://it.trustpilot.com/review/pvpro.ch',
-    alt: 'Trustpilot: 5 stelle per PVPro.ch',
+    alt: 'Trustpilot: 5 stelle per PvPro.ch',
   },
 };
 
@@ -166,7 +166,7 @@ export default function Hero() {
           {mounted.has(i) && (
             <Image
               src={src}
-              alt="PVPro.ch Solaranlage"
+              alt="PvPro.ch Solaranlage"
               fill
               priority={i === 0}
               quality={i === 0 ? 75 : 70}

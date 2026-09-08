@@ -17,7 +17,7 @@ const wfFaqs = [
 ];
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Come funziona un impianto solare? Spiegato semplicemente (Svizzera) | PVPro.ch',
+  title: 'Come funziona un impianto solare? Spiegato semplicemente (Svizzera) | PvPro.ch',
   description: 'Come funziona un impianto solare? Spiegazione semplice con esempi, produzione di energia e risposte alle domande frequenti sul fotovoltaico.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/come-funziona-solare',

@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
 
 const baseMetadata: Metadata = {
-  title: 'Installation solaire maison individuelle Suisse : coûts, taille et avantages | PVPro.ch',
+  title: 'Installation solaire maison individuelle Suisse : coûts, taille et avantages | PvPro.ch',
   description: 'Combien coûte une installation solaire pour une maison individuelle en Suisse ? Prix, taille, subventions et conseils expliqués simplement. Comparez les offres maintenant.',
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/solaire-maison-individuelle',
@@ -338,7 +338,7 @@ export default function SolaireMaisonIndividuellePage() {
             Comparer les offres et optimiser les coûts
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Les prix des installations solaires varient considérablement selon les prestataires. Via PVPro.ch, obtenez gratuitement jusqu'à 3 devis d'installateurs certifiés dans votre canton.
+            Les prix des installations solaires varient considérablement selon les prestataires. Via PvPro.ch, obtenez gratuitement jusqu'à 3 devis d'installateurs certifiés dans votre canton.
           </p>
           <Link
             href="/fr/demande"

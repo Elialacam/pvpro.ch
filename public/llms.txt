@@ -1,8 +1,8 @@
-# PVPro.ch
-PVPro.ch helps homeowners in Switzerland compare solar installation offers.
+# PvPro.ch
+PvPro.ch helps homeowners in Switzerland compare solar installation offers.
 The service is managed by NOBA Media Sagl in Lugano.
 Its founder is Elia Alacam.
-PVPro.ch works with more than 25 partners.
+PvPro.ch works with more than 25 partners.
 Its partners bring more than 20 years of experience.
 More than 1,000 quote requests have been transmitted through the service.
 Users can request up to three verified offers without obligation.
@@ -17,4 +17,4 @@ English: https://www.pvpro.ch/en
 English offers: https://www.pvpro.ch/en/request
 Solar costs: https://www.pvpro.ch/solaranlage-kosten
 How it works: https://www.pvpro.ch/wie-es-funktioniert
-About PVPro.ch: https://www.pvpro.ch/ueber-uns
+About PvPro.ch: https://www.pvpro.ch/ueber-uns

@@ -3,7 +3,7 @@ import AnfrageForm from '@/components/AnfrageForm';
 import { pageMetadata } from '@/lib/pageMetadata';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Demander des devis solaires gratuits | PVPro.ch',
+  title: 'Demander des devis solaires gratuits | PvPro.ch',
   description: 'Recevez en quelques minutes des devis gratuits d\'installateurs solaires certifiés en Suisse.',
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/demande',

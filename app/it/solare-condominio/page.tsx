@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import MehrfamilienhausRechner, { MehrfamilienhausFaq } from '@/components/MehrfamilienhausRechner';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Impianto solare condominio Svizzera: costi, CEL e redditività | PVPro.ch',
+  title: 'Impianto solare condominio Svizzera: costi, CEL e redditività | PvPro.ch',
   description: 'Quanto costa un impianto solare per un condominio? Costi, CEL, dimensioni e redditività per più unità abitative in Svizzera.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/solare-condominio',
@@ -339,7 +339,7 @@ export default function SolareCondominioPage() {
             Confronta le offerte e pianifica l'impianto in modo ottimale
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Ogni edificio è diverso e richiede una soluzione individuale. Tramite PVPro.ch confrontate gratuitamente più offerte e trovate la soluzione migliore per il vostro edificio.
+            Ogni edificio è diverso e richiede una soluzione individuale. Tramite PvPro.ch confrontate gratuitamente più offerte e trovate la soluzione migliore per il vostro edificio.
           </p>
           <Link
             href="/it/richiesta"

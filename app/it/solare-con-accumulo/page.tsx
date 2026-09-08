@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Impianto solare con accumulo: costi, vantaggi e funzionamento | PVPro.ch',
+  title: 'Impianto solare con accumulo: costi, vantaggi e funzionamento | PvPro.ch',
   description: 'Come funziona un impianto solare con accumulo a batteria? Costi, vantaggi, dimensionamento e autoconsumo in Svizzera spiegati semplicemente.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/solare-con-accumulo',

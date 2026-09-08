@@ -6,11 +6,11 @@ import { LocaleProvider } from "@/lib/LocaleContext";
 
 export const metadata: Metadata = {
   title: {
-    default: 'Compare solar systems in Switzerland | PVPro.ch',
-    template: '%s | PVPro.ch',
+    default: 'Compare solar systems in Switzerland | PvPro.ch',
+    template: '%s | PvPro.ch',
   },
   description: 'Compare solar system offers from certified installers in Switzerland for free. Save up to 30% by comparing. No obligation.',
-  authors: [{ name: 'PVPro.ch' }],
+  authors: [{ name: 'PvPro.ch' }],
   robots: {
     index: true,
     follow: true,
@@ -40,7 +40,7 @@ export default function EnglishLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "PVPro.ch",
+            "name": "PvPro.ch",
             "url": "https://www.pvpro.ch",
             "logo": "https://www.pvpro.ch/logo-pvpro.png",
             "sameAs": [
@@ -65,8 +65,8 @@ export default function EnglishLayout({
             "@context": "https://schema.org",
             "@type": "WebSite",
             "url": "https://www.pvpro.ch/en",
-            "name": "PVPro.ch",
-            "alternateName": "PVPro.ch",
+            "name": "PvPro.ch",
+            "alternateName": "PvPro.ch",
             "description": "Comparison platform for solar systems in Switzerland",
             "inLanguage": "en-CH",
             "potentialAction": {

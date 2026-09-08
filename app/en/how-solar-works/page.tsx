@@ -17,7 +17,7 @@ const wfFaqs = [
 ];
 
 export const metadata: Metadata = pageMetadata({
-  title: 'How does a solar installation work? Simply explained (Switzerland) | PVPro.ch',
+  title: 'How does a solar installation work? Simply explained (Switzerland) | PvPro.ch',
   description: 'How does a solar installation work? Simple explanation with examples, electricity production and answers to frequently asked questions about photovoltaics.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/how-solar-works',

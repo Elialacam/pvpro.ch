@@ -5,8 +5,8 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Photovoltaik Komplettlösung Schweiz 2026 – Alles aus einer Hand | PVPro.ch',
-  description: 'Welche Schweizer Firmen bieten Komplettlösungen für Photovoltaik Anlagen an? Module, Speicher, Wärmepumpe und Installation aus einer Hand. Jetzt vergleichen mit PVPro.ch.',
+  title: 'Photovoltaik Komplettlösung Schweiz 2026 – Alles aus einer Hand | PvPro.ch',
+  description: 'Welche Schweizer Firmen bieten Komplettlösungen für Photovoltaik Anlagen an? Module, Speicher, Wärmepumpe und Installation aus einer Hand. Jetzt vergleichen mit PvPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/photovoltaik-komplettloesung-schweiz',
     languages: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/photovoltaik-komplettloesung-schweiz',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/photovoltaik-komplettloesung-schweiz', locale: 'de' });
 
@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     question: 'Wie finde ich einen Anbieter für Komplettlösungen in meinem Kanton?',
-    answer: 'PVPro.ch vermittelt kostenlos zertifizierte Installateure, die Komplettlösungen anbieten. Einfach Formular ausfüllen und bis zu 3 Offerten erhalten.',
+    answer: 'PvPro.ch vermittelt kostenlos zertifizierte Installateure, die Komplettlösungen anbieten. Einfach Formular ausfüllen und bis zu 3 Offerten erhalten.',
   },
   {
     question: 'Kann ich meine bestehende Solaranlage um einen Speicher oder eine Wallbox erweitern?',
@@ -149,7 +149,7 @@ export default function PhotovoltaikKomplettloesungSchweizPage() {
             {[
               { val: 'Bis zu 80%', sub: 'Eigenverbrauch mit Komplettlösung', note: 'dank optimiertem Energiemanagement' },
               { val: '1 Anbieter', sub: 'für alles zuständig', note: 'von Planung bis Inbetriebnahme' },
-              { val: '25+', sub: 'geprüfte Partner in der Schweiz', note: 'zertifizierte Installateure auf PVPro.ch' },
+              { val: '25+', sub: 'geprüfte Partner in der Schweiz', note: 'zertifizierte Installateure auf PvPro.ch' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -171,7 +171,7 @@ export default function PhotovoltaikKomplettloesungSchweizPage() {
               Was ist eine Photovoltaik Komplettlösung?
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              Eine Komplettlösung kombiniert mehrere Energietechnologien zu einem integrierten System. PVPro.ch vermittelt{' '}
+              Eine Komplettlösung kombiniert mehrere Energietechnologien zu einem integrierten System. PvPro.ch vermittelt{' '}
               <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#fcb210] hover:underline font-medium">Anbieter</Link>,
               die all diese Komponenten aus einer Hand liefern und installieren.
             </p>
@@ -273,7 +273,7 @@ export default function PhotovoltaikKomplettloesungSchweizPage() {
             </ul>
             <div className="mt-6 bg-orange-50 border border-orange-200 rounded-xl p-4">
               <p className="text-orange-800 text-sm">
-                <strong className="text-orange-600">PVPro.ch</strong> vermittelt Installateure, die Komplettlösungen aus einer Hand anbieten — geprüft und zertifiziert.
+                <strong className="text-orange-600">PvPro.ch</strong> vermittelt Installateure, die Komplettlösungen aus einer Hand anbieten — geprüft und zertifiziert.
               </p>
             </div>
           </div>

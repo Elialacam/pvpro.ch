@@ -5,8 +5,8 @@ import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 
 const baseMetadata: Metadata = {
-  title: 'À propos – PVPro.ch | Plateforme solaire suisse indépendante',
-  description: "Découvrez PVPro.ch – la plateforme suisse indépendante qui met en relation les propriétaires avec des installateurs photovoltaïques certifiés.",
+  title: 'À propos | PvPro.ch',
+  description: "Découvrez PvPro.ch – la plateforme suisse indépendante qui met en relation les propriétaires avec des installateurs photovoltaïques certifiés.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/a-propos',
     languages: {
@@ -63,7 +63,7 @@ export default function AProposPage() {
               La plateforme solaire suisse indépendante
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              PVPro.ch a été fondé avec une mission claire : aider les propriétaires suisses à trouver la meilleure installation solaire au meilleur prix — simplement, en toute transparence et gratuitement.
+              PvPro.ch a été fondé avec une mission claire : aider les propriétaires suisses à trouver la meilleure installation solaire au meilleur prix — simplement, en toute transparence et gratuitement.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
               Dans un marché souvent peu transparent et difficile à comparer, nous apportons de la clarté. Nous vous mettons en relation avec jusqu'à 3 installateurs certifiés de votre canton et laissons les offres parler d'elles-mêmes.
@@ -72,7 +72,7 @@ export default function AProposPage() {
           <div className="rounded-2xl overflow-hidden shadow-xl">
             <Image
               src="/team-new.webp"
-              alt="L'équipe PVPro.ch"
+              alt="L'équipe PvPro.ch"
               width={800}
               height={500}
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -100,7 +100,7 @@ export default function AProposPage() {
               Nous rendons l'énergie solaire accessible à tous
             </h2>
             <p className="text-gray-500 text-lg leading-relaxed">
-              Passer à l'énergie solaire est l'un des meilleurs investissements qu'un propriétaire puisse faire. Mais le chemin pour y arriver est souvent compliqué. PVPro.ch rend cette démarche simple, rapide et sécurisée.
+              Passer à l'énergie solaire est l'un des meilleurs investissements qu'un propriétaire puisse faire. Mais le chemin pour y arriver est souvent compliqué. PvPro.ch rend cette démarche simple, rapide et sécurisée.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

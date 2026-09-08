@@ -140,7 +140,7 @@ export const cityContentsFR: Record<string, CityContent> = {
     testimonial: {
       initials: 'MD',
       name: 'Marie Dubois',
-      quote: 'Genève offre d\'excellentes conditions pour l\'énergie solaire. Notre installation produit beaucoup plus que prévu. Avec PVPro.ch, nous avons reçu trois offres compétitives et choisi la meilleure. Un service vraiment recommandable!'
+      quote: 'Genève offre d\'excellentes conditions pour l\'énergie solaire. Notre installation produit beaucoup plus que prévu. Avec PvPro.ch, nous avons reçu trois offres compétitives et choisi la meilleure. Un service vraiment recommandable!'
     }
   }
 };

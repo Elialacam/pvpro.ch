@@ -6,8 +6,8 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solar Panel Installation Switzerland 2026 – Providers & Costs | PVPro.ch',
-  description: 'Solar panel installation in Switzerland: find certified providers in your canton. Compare free quotes and save up to 30% with PVPro.ch.',
+  title: 'Solar Panel Installation Switzerland 2026 – Providers & Costs | PvPro.ch',
+  description: 'Solar panel installation in Switzerland: find certified providers in your canton. Compare free quotes and save up to 30% with PvPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-panel-installation-switzerland',
     languages: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/en/solar-panel-installation-switzerland',
     type: 'website',
     locale: 'en_US',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/en/solar-panel-installation-switzerland', locale: 'en' });
 
@@ -51,7 +51,7 @@ const faqs = [
   },
   {
     question: 'How do I find the best installer in my canton?',
-    answer: 'PVPro.ch connects you free of charge with up to 3 certified installers from your canton — so you can directly compare prices and services.',
+    answer: 'PvPro.ch connects you free of charge with up to 3 certified installers from your canton — so you can directly compare prices and services.',
   },
 ];
 
@@ -125,7 +125,7 @@ export default function SolarPanelInstallationSwitzerlandPage() {
               Get solar panels installed in Switzerland
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              A solar system is a long-term investment. Choosing the right company matters — because quality, price and service vary enormously. PVPro.ch connects you free of charge with verified Swiss installers from your canton.
+              A solar system is a long-term investment. Choosing the right company matters — because quality, price and service vary enormously. PvPro.ch connects you free of charge with verified Swiss installers from your canton.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -289,7 +289,7 @@ export default function SolarPanelInstallationSwitzerlandPage() {
             </ul>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
               <p className="text-gray-700 text-sm leading-relaxed">
-                <strong>PVPro.ch checks all these criteria in advance</strong> — you only receive quotes from companies that meet our standards.
+                <strong>PvPro.ch checks all these criteria in advance</strong> — you only receive quotes from companies that meet our standards.
               </p>
             </div>
           </div>

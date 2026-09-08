@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
 
 const baseMetadata: Metadata = {
-  title: 'Installation solaire avec batterie : coûts, avantages et fonctionnement | PVPro.ch',
+  title: 'Installation solaire avec batterie : coûts, avantages et fonctionnement | PvPro.ch',
   description: 'Comment fonctionne une installation solaire avec batterie ? Coûts, avantages, taille du stockage et autoconsommation en Suisse.',
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/solaire-avec-batterie',

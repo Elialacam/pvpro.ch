@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Förderung Solaranlage Kanton Zürich 2026 – EIV, Solarpflicht & Beiträge | PVPro.ch',
+  title: 'Förderung Solaranlage Kanton Zürich 2026 – EIV, Solarpflicht & Beiträge | PvPro.ch',
   description: 'Welche Förderungen gibt es für Solaranlagen im Kanton Zürich 2026? EIV, kantonale Beiträge, Solarpflicht und wie Sie die Förderung beantragen. Jetzt informieren.',
   alternates: {
     canonical: 'https://www.pvpro.ch/foerderungen-kanton-zuerich',
@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/foerderungen-kanton-zuerich',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/foerderungen-kanton-zuerich', locale: 'de' });
 

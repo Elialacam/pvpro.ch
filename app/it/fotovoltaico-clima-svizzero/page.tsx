@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Fotovoltaico e clima svizzero 2026 – Quale impianto scegliere? | PVPro.ch',
+  title: 'Fotovoltaico e clima svizzero 2026 – Quale impianto scegliere? | PvPro.ch',
   description: 'Quali impianti fotovoltaici sono adatti al clima svizzero? Neve, freddo, nebbia — spieghiamo cosa conta davvero e quali moduli funzionano meglio in Svizzera.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/fotovoltaico-clima-svizzero',
@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/it/fotovoltaico-clima-svizzero',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/it/fotovoltaico-clima-svizzero', locale: 'it' });
 

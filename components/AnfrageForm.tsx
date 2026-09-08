@@ -92,7 +92,7 @@ const i18n = {
     lastName: 'Nachname',
     email: 'E-Mail',
     phone: 'Telefonnummer',
-    consentText: 'Ich bin einverstanden, dass PVPro.ch meine Angaben an bis zu 3 geprüfte Solarinstallateure weitergibt, damit diese mir eine Offerte erstellen.',
+    consentText: 'Ich bin einverstanden, dass PvPro.ch meine Angaben an bis zu 3 geprüfte Solarinstallateure weitergibt, damit diese mir eine Offerte erstellen.',
     privacyLinkLabel: 'Datenschutzerklärung',
     privacyHref: '/datenschutz',
     submit: 'Kostenlose Offerten anfordern',
@@ -138,7 +138,7 @@ const i18n = {
     lastName: 'Nom',
     email: 'E-mail',
     phone: 'Numéro de téléphone',
-    consentText: 'J’accepte que PVPro.ch transmette mes données à un maximum de 3 installateurs solaires vérifiés afin qu’ils puissent me préparer un devis.',
+    consentText: 'J’accepte que PvPro.ch transmette mes données à un maximum de 3 installateurs solaires vérifiés afin qu’ils puissent me préparer un devis.',
     privacyLinkLabel: 'Protection des données',
     privacyHref: '/fr/protection-des-donnees',
     submit: 'Demander des devis gratuits',
@@ -184,7 +184,7 @@ const i18n = {
     lastName: 'Last name',
     email: 'E-mail',
     phone: 'Phone number',
-    consentText: 'I agree that PVPro.ch may share my information with up to 3 verified solar installers so that they can prepare a quote for me.',
+    consentText: 'I agree that PvPro.ch may share my information with up to 3 verified solar installers so that they can prepare a quote for me.',
     privacyLinkLabel: 'Privacy Policy',
     privacyHref: '/en/privacy',
     submit: 'Request free quotes',
@@ -230,7 +230,7 @@ const i18n = {
     lastName: 'Cognome',
     email: 'E-mail',
     phone: 'Numero di telefono',
-    consentText: 'Acconsento che PVPro.ch trasmetta i miei dati a un massimo di 3 installatori verificati perché mi preparino un preventivo.',
+    consentText: 'Acconsento che PvPro.ch trasmetta i miei dati a un massimo di 3 installatori verificati perché mi preparino un preventivo.',
     privacyLinkLabel: 'Protezione dei dati',
     privacyHref: '/it/protezione-dati',
     submit: 'Richiedi preventivi gratuiti',
@@ -565,7 +565,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6">
         <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-10">
-          <Image src="/logo-pvpro.png" alt="PVPro.ch" width={320} height={92} sizes="275px" className="h-20 w-auto" loading="lazy" />
+          <Image src="/logo-pvpro.png" alt="PvPro.ch" width={320} height={92} sizes="275px" className="h-20 w-auto" loading="lazy" />
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }}
@@ -809,7 +809,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="relative flex items-center justify-between h-16 sm:h-[72px]">
             <Link href={locale === 'de' ? '/' : `/${locale}`} className="flex-shrink-0 z-10">
-              <Image src="/logo-pvpro.png" alt="PVPro.ch" width={220} height={64} sizes="440px" className="h-28 sm:h-32 w-auto -my-8" loading="lazy" />
+              <Image src="/logo-pvpro.png" alt="PvPro.ch" width={220} height={64} sizes="440px" className="h-28 sm:h-32 w-auto -my-8" loading="lazy" />
             </Link>
             {step > 1 && (
               <button onClick={goBack} className="flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">

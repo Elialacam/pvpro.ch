@@ -11,8 +11,8 @@ import { articleDates } from '@/lib/blogUtils';
 import { articleAlternates } from '@/lib/articleSeoRoutes';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Balkonkraftwerk Schweiz: erlaubt, Kosten und lohnt es sich wirklich? | PVPro.ch',
-  description: 'Sind Balkonkraftwerke in der Schweiz erlaubt? Kosten, Regeln und ob sich ein Balkonkraftwerk lohnt – mit ehrlichem Vergleich zur Solaranlage.',
+  title: 'Balkonkraftwerk Schweiz: Regeln & Kosten',
+  description: 'Balkonkraftwerke in der Schweiz: Regeln, Kosten und ein ehrlicher Vergleich mit einer vollwertigen Solaranlage.',
   authors: [{ name: 'Elia Alacam' }],
   alternates: articleAlternates('balkonkraftwerk-schweiz', 'de'),
 }, { path: '/blog/balkonkraftwerk-schweiz', locale: 'de', type: 'article' });

@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Vielen Dank – Ihre Anfrage wurde versendet',
-  description: 'Vielen Dank für Ihre Anfrage bei PVPro.ch. Ihre Anfrage wurde erfolgreich versendet.',
+  description: 'Vielen Dank für Ihre Anfrage bei PvPro.ch. Ihre Anfrage wurde erfolgreich versendet.',
   robots: { index: false, follow: false },
 }, { path: '/danke', locale: 'de' });
 

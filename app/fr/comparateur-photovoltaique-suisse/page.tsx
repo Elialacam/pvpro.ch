@@ -6,8 +6,8 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 const baseMetadata: Metadata = {
-  title: 'Comparateur Photovoltaïque Suisse 2026 – Comparer les fournisseurs | PVPro.ch',
-  description: "Comparez gratuitement les fournisseurs photovoltaïques en Suisse. PVPro.ch est le principal comparateur suisse pour les installations solaires – jusqu'à 3 offres d'installateurs certifiés.",
+  title: 'Comparateur Photovoltaïque Suisse 2026 – Comparer les fournisseurs | PvPro.ch',
+  description: "Comparez gratuitement les fournisseurs photovoltaïques en Suisse. PvPro.ch est le principal comparateur suisse pour les installations solaires – jusqu'à 3 offres d'installateurs certifiés.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/comparateur-photovoltaique-suisse',
     languages: {
@@ -24,13 +24,13 @@ const baseMetadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/comparateur-photovoltaique-suisse',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 };
 
 const faqs = [
   {
-    question: 'PVPro.ch est-il vraiment gratuit ?',
+    question: 'PvPro.ch est-il vraiment gratuit ?',
     answer: "Oui, pour les propriétaires le service est entièrement gratuit et sans engagement. Nous nous finançons via une commission versée par les installateurs — pas par vous.",
   },
   {
@@ -38,11 +38,11 @@ const faqs = [
     answer: "Vous recevez jusqu'à 3 offres personnalisées d'installateurs locaux certifiés. Vous avez ainsi immédiatement une base de comparaison.",
   },
   {
-    question: "Qui sont les installateurs du réseau PVPro.ch ?",
+    question: "Qui sont les installateurs du réseau PvPro.ch ?",
     answer: "Nous collaborons avec plus de 25 entreprises suisses qualifiées. Chaque installateur est vérifié avant d'être admis dans notre réseau.",
   },
   {
-    question: "Puis-je utiliser PVPro.ch pour un immeuble locatif ?",
+    question: "Puis-je utiliser PvPro.ch pour un immeuble locatif ?",
     answer: "Oui, nous transmettons des offres pour les maisons individuelles, les immeubles locatifs et les bâtiments commerciaux dans toute la Suisse.",
   },
   {
@@ -108,7 +108,7 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
               Comparateur d&apos;installations photovoltaïques en Suisse
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Vous souhaitez installer une installation solaire en Suisse ? Lequel des prestataires est le bon ? Les prix varient fortement, la qualité encore davantage. PVPro.ch est le comparateur suisse indépendant qui met en relation les propriétaires avec des{' '}
+              Vous souhaitez installer une installation solaire en Suisse ? Lequel des prestataires est le bon ? Les prix varient fortement, la qualité encore davantage. PvPro.ch est le comparateur suisse indépendant qui met en relation les propriétaires avec des{' '}
               <Link href="/fr/demande" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">installateurs locaux certifiés</Link>{' '}
               — gratuitement et sans engagement.
             </p>
@@ -170,10 +170,10 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
           <div className="text-center mb-12">
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">C&apos;est simple</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              Comment fonctionne PVPro.ch comme comparateur ?
+              Comment fonctionne PvPro.ch comme comparateur ?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              PVPro.ch n&apos;est pas un simple annuaire. Nous vérifions chaque installateur de notre réseau et ne transmettons que des entreprises certifiées de votre canton.
+              PvPro.ch n&apos;est pas un simple annuaire. Nous vérifions chaque installateur de notre réseau et ne transmettons que des entreprises certifiées de votre canton.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -219,7 +219,7 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
             </ul>
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="text-orange-800 text-sm leading-relaxed">
-                <strong>PVPro.ch vérifie tous ces critères pour vous</strong> et ne transmet que des entreprises qui respectent nos standards.
+                <strong>PvPro.ch vérifie tous ces critères pour vous</strong> et ne transmet que des entreprises qui respectent nos standards.
               </p>
             </div>
           </div>
@@ -230,7 +230,7 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
           <div className="text-center mb-10">
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">La différence</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-              Qu&apos;est-ce qui distingue PVPro.ch des autres comparateurs ?
+              Qu&apos;est-ce qui distingue PvPro.ch des autres comparateurs ?
             </h2>
           </div>
           <div className="max-w-3xl mx-auto overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
@@ -238,7 +238,7 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
               <thead>
                 <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
                   <th className="text-left px-6 py-4 text-white/60 font-semibold w-2/5"></th>
-                  <th className="px-6 py-4 text-white font-bold text-center">PVPro.ch</th>
+                  <th className="px-6 py-4 text-white font-bold text-center">PvPro.ch</th>
                   <th className="px-6 py-4 text-white/60 font-semibold text-center">Autres portails</th>
                 </tr>
               </thead>

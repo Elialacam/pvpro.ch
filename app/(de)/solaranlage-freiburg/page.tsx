@@ -8,7 +8,7 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 const citySlug = 'freiburg';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solaranlage Kanton Freiburg – Offerten vergleichen 2026 | PVPro.ch',
+  title: 'Solaranlage Kanton Freiburg – Offerten vergleichen 2026 | PvPro.ch',
   description: "Solaranlage im Kanton Freiburg: Bis zu 3 Offerten von geprüften Installateuren vergleichen. Förderungen EIV + kantonaler Beitrag. Unverbindlich & kostenlos.",
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-freiburg',

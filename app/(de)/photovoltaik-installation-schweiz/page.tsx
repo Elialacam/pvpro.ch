@@ -5,8 +5,8 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Photovoltaik Installation Schweiz 2026 – Ablauf, Dauer & Kosten | PVPro.ch',
-  description: 'Wie funktioniert die Installation einer Photovoltaik Anlage in der Schweiz? Ablauf, Dauer, Kosten und was Sie beachten müssen — alles erklärt von PVPro.ch.',
+  title: 'Photovoltaik Installation Schweiz 2026 – Ablauf, Dauer & Kosten | PvPro.ch',
+  description: 'Wie funktioniert die Installation einer Photovoltaik Anlage in der Schweiz? Ablauf, Dauer, Kosten und was Sie beachten müssen — alles erklärt von PvPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/photovoltaik-installation-schweiz',
     languages: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/photovoltaik-installation-schweiz',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/photovoltaik-installation-schweiz', locale: 'de' });
 
@@ -264,7 +264,7 @@ export default function PhotovoltaikInstallationSchweizPage() {
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Ein professioneller{' '}
               <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">Anbieter</Link>{' '}
-              übernimmt den gesamten Prozess für Sie. PVPro.ch vermittelt nur Installateure, die all diese Schritte zuverlässig übernehmen.
+              übernimmt den gesamten Prozess für Sie. PvPro.ch vermittelt nur Installateure, die all diese Schritte zuverlässig übernehmen.
             </p>
             <ul className="space-y-3">
               {installateurLeistungen.map((item, i) => (

@@ -7,7 +7,7 @@ import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, Pig
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Costi impianto solare Svizzera 2026 – Quanto costa un impianto fotovoltaico? | PVPro.ch',
+  title: 'Costi impianto solare Svizzera 2026 – Quanto costa un impianto fotovoltaico? | PvPro.ch',
   description: "Quanto costa un impianto solare in Svizzera? Prezzi 2026: 15'000 – 35'000 CHF per una casa unifamiliare. Costi per kWp, incentivi e accumulo. Confronta offerte gratuitamente.",
   alternates: {
     canonical: 'https://www.pvpro.ch/it/costi-impianto-solare',
@@ -25,7 +25,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/it/costi-impianto-solare',
     type: 'article',
     locale: 'it_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/it/costi-impianto-solare', locale: 'it' });
 
@@ -109,8 +109,8 @@ export default function CostiImpiantoSolarePage() {
             "@type": "Article",
             "headline": "Quanto costa un impianto solare in Svizzera? Prezzi attuali 2026",
             "description": "Costi attuali per impianti solari in Svizzera. Impianti 5–10 kWp, costi per kWp, incentivi e accumulo a batteria.",
-            "author": { "@type": "Organization", "name": "PVPro.ch" },
-            "publisher": { "@type": "Organization", "name": "PVPro.ch", "url": "https://www.pvpro.ch" },
+            "author": { "@type": "Organization", "name": "PvPro.ch" },
+            "publisher": { "@type": "Organization", "name": "PvPro.ch", "url": "https://www.pvpro.ch" },
             "datePublished": "2025-01-01",
             "dateModified": new Date().toISOString().split('T')[0],
           })

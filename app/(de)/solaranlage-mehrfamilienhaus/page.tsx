@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import MehrfamilienhausRechner, { MehrfamilienhausFaq } from '@/components/MehrfamilienhausRechner';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solaranlage Mehrfamilienhaus Schweiz: Kosten, ZEV und Wirtschaftlichkeit | PVPro.ch',
+  title: 'Solaranlage Mehrfamilienhaus Schweiz: Kosten, ZEV und Wirtschaftlichkeit | PvPro.ch',
   description: 'Was kostet eine Solaranlage für ein Mehrfamilienhaus? Erfahren Sie Kosten, ZEV, Grösse und wie sich Solarstrom für mehrere Parteien lohnt.',
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus',
@@ -340,7 +340,7 @@ export default function SolaranlageMehrfamilienhausPage() {
             Angebote vergleichen und Anlage optimal planen
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Jede Immobilie ist unterschiedlich und benötigt eine individuelle Lösung. Über PVPro.ch vergleichen Sie kostenlos mehrere Angebote und finden die beste Lösung für Ihr Gebäude.
+            Jede Immobilie ist unterschiedlich und benötigt eine individuelle Lösung. Über PvPro.ch vergleichen Sie kostenlos mehrere Angebote und finden die beste Lösung für Ihr Gebäude.
           </p>
           <Link
             href="/anfrage"

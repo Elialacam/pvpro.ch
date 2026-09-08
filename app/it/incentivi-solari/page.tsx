@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FoerderRechner from '@/components/FoerderRechner';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Incentivi solari in Svizzera 2026 | PVPro.ch',
+  title: 'Incentivi solari in Svizzera 2026 | PvPro.ch',
   description: 'Remunerazione unica (RU), programmi cantonali e deduzioni fiscali per impianti fotovoltaici in Svizzera. Calcola il tuo incentivo ora.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/incentivi-solari',

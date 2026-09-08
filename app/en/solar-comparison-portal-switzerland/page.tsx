@@ -6,8 +6,8 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solar Comparison Portal Switzerland 2026 – Compare Providers & Save | PVPro.ch',
-  description: "Compare solar panel providers in Switzerland for free. PVPro.ch is Switzerland's leading comparison portal for solar systems – up to 3 quotes from certified installers.",
+  title: 'Solar Comparison Portal Switzerland 2026 – Compare Providers & Save | PvPro.ch',
+  description: "Compare solar panel providers in Switzerland for free. PvPro.ch is Switzerland's leading comparison portal for solar systems – up to 3 quotes from certified installers.",
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-comparison-portal-switzerland',
     languages: {
@@ -24,13 +24,13 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/en/solar-comparison-portal-switzerland',
     type: 'website',
     locale: 'en_US',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/en/solar-comparison-portal-switzerland', locale: 'en' });
 
 const faqs = [
   {
-    question: 'Is PVPro.ch really free?',
+    question: 'Is PvPro.ch really free?',
     answer: 'Yes, the service is completely free and non-binding for homeowners. We are funded by a referral fee paid by the installers — not by you.',
   },
   {
@@ -38,11 +38,11 @@ const faqs = [
     answer: 'You receive up to 3 tailored quotes from verified local installers. This gives you an immediate basis for comparison.',
   },
   {
-    question: 'Who are the installers in the PVPro.ch network?',
+    question: 'Who are the installers in the PvPro.ch network?',
     answer: 'We work with over 25 qualified Swiss companies. Each installer is verified before being admitted to our network.',
   },
   {
-    question: 'Can I use PVPro.ch for an apartment building?',
+    question: 'Can I use PvPro.ch for an apartment building?',
     answer: 'Yes, we provide quotes for single-family homes, apartment buildings and commercial properties throughout Switzerland.',
   },
   {
@@ -108,7 +108,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
               Solar Panel Comparison Portal in Switzerland
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Want to install a solar system in Switzerland? Which provider is right for you? Prices vary enormously, quality even more so. PVPro.ch is the independent Swiss comparison portal that connects homeowners with{' '}
+              Want to install a solar system in Switzerland? Which provider is right for you? Prices vary enormously, quality even more so. PvPro.ch is the independent Swiss comparison portal that connects homeowners with{' '}
               <Link href="/en/quote" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">certified local installers</Link>{' '}
               — free of charge and without obligation.
             </p>
@@ -165,15 +165,15 @@ export default function SolarComparisonPortalSwitzerlandPage() {
           </div>
         </section>
 
-        {/* ── How PVPro.ch works ── */}
+        {/* ── How PvPro.ch works ── */}
         <section>
           <div className="text-center mb-12">
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">How it works</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              How does PVPro.ch work as a comparison portal?
+              How does PvPro.ch work as a comparison portal?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              PVPro.ch is not a regular directory. We verify every installer in our network and only connect you with certified companies from your canton.
+              PvPro.ch is not a regular directory. We verify every installer in our network and only connect you with certified companies from your canton.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -219,7 +219,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
             </ul>
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="text-orange-800 text-sm leading-relaxed">
-                <strong>PVPro.ch checks all these criteria for you</strong> and only refers companies that meet our standards.
+                <strong>PvPro.ch checks all these criteria for you</strong> and only refers companies that meet our standards.
               </p>
             </div>
           </div>
@@ -230,7 +230,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
           <div className="text-center mb-10">
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">The difference</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-              What sets PVPro.ch apart from other comparison portals?
+              What sets PvPro.ch apart from other comparison portals?
             </h2>
           </div>
           <div className="max-w-3xl mx-auto overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
@@ -238,7 +238,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
               <thead>
                 <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
                   <th className="text-left px-6 py-4 text-white/60 font-semibold w-2/5"></th>
-                  <th className="px-6 py-4 text-white font-bold text-center">PVPro.ch</th>
+                  <th className="px-6 py-4 text-white font-bold text-center">PvPro.ch</th>
                   <th className="px-6 py-4 text-white/60 font-semibold text-center">Other portals</th>
                 </tr>
               </thead>

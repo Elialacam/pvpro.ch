@@ -9,7 +9,7 @@ import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Blog & Guides | PVPro.ch – Solar energy in Switzerland',
+  title: 'Swiss solar blog',
   description: 'Current guides, news and tips on solar installations, subsidies and photovoltaics in Switzerland.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/blog',
@@ -36,7 +36,7 @@ export default function BlogEnPage() {
         </nav>
 
         <div className="mb-10">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-4">PVPro.ch Blog</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-4">PvPro.ch Blog</h1>
           <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
             Guides, news and tips on solar energy, photovoltaic subsidies and sustainable energy in Switzerland.
           </p>

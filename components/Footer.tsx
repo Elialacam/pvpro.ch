@@ -14,8 +14,8 @@ const footerContent: Record<string, {
   columns: { title: string; links: { label: string; href: string }[] }[];
 }> = {
   de: {
-    description: 'PVPro.ch ist eine unabhängige Schweizer Plattform, die Immobilienbesitzer mit geprüften Photovoltaik-Installateuren verbindet.',
-    copyright: '© 2026 PVPro.ch. Alle Rechte vorbehalten.',
+    description: 'PvPro.ch ist eine unabhängige Schweizer Plattform, die Immobilienbesitzer mit geprüften Photovoltaik-Installateuren verbindet.',
+    copyright: '© 2026 PvPro.ch. Alle Rechte vorbehalten.',
     columns: [
       {
         title: 'Ressourcen',
@@ -50,8 +50,8 @@ const footerContent: Record<string, {
     ],
   },
   fr: {
-    description: "PVPro.ch est une plateforme suisse indépendante qui met en relation les propriétaires avec des installateurs photovoltaïques certifiés.",
-    copyright: '© 2026 PVPro.ch. Tous droits réservés.',
+    description: "PvPro.ch est une plateforme suisse indépendante qui met en relation les propriétaires avec des installateurs photovoltaïques certifiés.",
+    copyright: '© 2026 PvPro.ch. Tous droits réservés.',
     columns: [
       {
         title: 'Ressources',
@@ -86,8 +86,8 @@ const footerContent: Record<string, {
     ],
   },
   en: {
-    description: 'PVPro.ch is an independent Swiss platform connecting homeowners with certified photovoltaic installers.',
-    copyright: '© 2026 PVPro.ch. All rights reserved.',
+    description: 'PvPro.ch is an independent Swiss platform connecting homeowners with certified photovoltaic installers.',
+    copyright: '© 2026 PvPro.ch. All rights reserved.',
     columns: [
       {
         title: 'Resources',
@@ -122,8 +122,8 @@ const footerContent: Record<string, {
     ],
   },
   it: {
-    description: 'PVPro.ch è una piattaforma svizzera indipendente che mette in contatto i proprietari immobiliari con installatori fotovoltaici certificati.',
-    copyright: '© 2026 PVPro.ch. Tutti i diritti riservati.',
+    description: 'PvPro.ch è una piattaforma svizzera indipendente che mette in contatto i proprietari immobiliari con installatori fotovoltaici certificati.',
+    copyright: '© 2026 PvPro.ch. Tutti i diritti riservati.',
     columns: [
       {
         title: 'Risorse',
@@ -179,7 +179,7 @@ export default function Footer() {
             <Link href={homeHref}>
               <Image
                 src="/logo-pvpro.png"
-                alt="PVPro.ch"
+                alt="PvPro.ch"
                 width={130}
                 height={36}
                 sizes="440px"

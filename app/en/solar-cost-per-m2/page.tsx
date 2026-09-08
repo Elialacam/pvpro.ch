@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import PhotovoltaikFaq from '@/components/PhotovoltaikFaq';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solar cost per m² Switzerland: prices, examples and calculation | PVPro.ch',
+  title: 'Solar cost per m² Switzerland: prices, examples and calculation | PvPro.ch',
   description: 'How much does solar cost per m² in Switzerland? Prices, examples and costs per kWp explained simply. Compare offers now.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-cost-per-m2',
@@ -281,7 +281,7 @@ export default function SolarCostPerM2Page() {
             Compare offers and calculate costs accurately
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            The cost per m² is only a rough guide. Via PVPro.ch you get free quotes from certified installers — accurately calculated for your home.
+            The cost per m² is only a rough guide. Via PvPro.ch you get free quotes from certified installers — accurately calculated for your home.
           </p>
           <Link
             href="/en/request"

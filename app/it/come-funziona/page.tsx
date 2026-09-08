@@ -4,8 +4,8 @@ import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Come funziona – PVPro.ch | Preventivi solari in 3 passi',
-  description: 'Scopri come funziona PVPro.ch: compila il modulo, ricevi fino a 3 preventivi certificati e scegli il miglior installatore. Gratuito e senza impegno.',
+  title: 'Come funziona – PvPro.ch | Preventivi solari in 3 passi',
+  description: 'Scopri come funziona PvPro.ch: compila il modulo, ricevi fino a 3 preventivi certificati e scegli il miglior installatore. Gratuito e senza impegno.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/come-funziona',
     languages: {
@@ -54,14 +54,14 @@ const steps = [
     details: [
       'Prezzi reali, nessuna offerta civetta',
       'Nessun installatore ha la priorità',
-      'Nessun contratto con PVPro.ch',
+      'Nessun contratto con PvPro.ch',
       'Decisione libera, senza minimo',
     ],
   },
 ];
 
 const benefits = [
-  { Icon: Clock,       title: 'Risparmio di tempo',      text: 'Invece di contattare tu stesso più installatori, PVPro.ch lo fa per te — in meno di 2 minuti.' },
+  { Icon: Clock,       title: 'Risparmio di tempo',      text: 'Invece di contattare tu stesso più installatori, PvPro.ch lo fa per te — in meno di 2 minuti.' },
   { Icon: ShieldCheck, title: 'Qualità certificata',      text: 'Solo installatori con certificazioni valide, attestazioni assicurative e referenze positive.' },
   { Icon: Euro,        title: 'Gratuito',                 text: 'Il nostro servizio è 100% gratuito per i proprietari. Ci finanziamo con commissioni degli installatori.' },
   { Icon: Phone,       title: 'Supporto personalizzato',  text: 'Per qualsiasi domanda, il nostro team è disponibile per telefono ed e-mail.' },
@@ -86,7 +86,7 @@ export default function ComeFunzionaPage() {
             Il miglior preventivo solare in 3 passi
           </h1>
           <p className="text-lg text-gray-600 leading-relaxed">
-            PVPro.ch rende il confronto degli impianti solari semplice, veloce e gratuito. Non devi contattare più installatori da solo — lo facciamo noi per te.
+            PvPro.ch rende il confronto degli impianti solari semplice, veloce e gratuito. Non devi contattare più installatori da solo — lo facciamo noi per te.
           </p>
         </div>
 
@@ -132,7 +132,7 @@ export default function ComeFunzionaPage() {
         {/* Benefits grid */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Perché PVPro.ch?</p>
+            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Perché PvPro.ch?</p>
             <h2 className="text-3xl font-bold text-gray-900 tracking-tight">I vantaggi in sintesi</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -159,7 +159,7 @@ export default function ComeFunzionaPage() {
               { q: 'Il servizio è davvero gratuito?', a: "Sì, al 100%. Ci finanziamo con commissioni degli installatori — senza costi aggiuntivi per te." },
               { q: "Sono obbligato ad accettare un'offerta?", a: 'No. Puoi rifiutare tutti i preventivi senza alcuna conseguenza.' },
               { q: 'Quanto tempo per ricevere i preventivi?', a: 'Di solito entro 24–48 ore dalla tua richiesta.' },
-              { q: 'In quali zone opera PVPro.ch?', a: 'Siamo attivi in tutta la Svizzera, in tutti i 26 cantoni.' },
+              { q: 'In quali zone opera PvPro.ch?', a: 'Siamo attivi in tutta la Svizzera, in tutti i 26 cantoni.' },
             ].map((faq) => (
               <div key={faq.q}>
                 <p className="font-bold text-gray-900 mb-1 text-sm">{faq.q}</p>

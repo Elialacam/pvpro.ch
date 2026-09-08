@@ -4,8 +4,8 @@ import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'How It Works – PVPro.ch | Solar Quotes in 3 Steps',
-  description: 'How PVPro.ch works: fill in the form, receive up to 3 certified quotes and choose the best installer. Free and no obligation.',
+  title: 'How It Works – PvPro.ch | Solar Quotes in 3 Steps',
+  description: 'How PvPro.ch works: fill in the form, receive up to 3 certified quotes and choose the best installer. Free and no obligation.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/how-it-works',
     languages: {
@@ -54,14 +54,14 @@ const steps = [
     details: [
       'Real prices, no bait offers',
       'No installer has priority',
-      'No contract with PVPro.ch',
+      'No contract with PvPro.ch',
       'Free decision, no minimum order',
     ],
   },
 ];
 
 const benefits = [
-  { Icon: Clock,       title: 'Time saving',      text: 'Instead of contacting multiple installers yourself, PVPro.ch handles the search for you — in less than 2 minutes.' },
+  { Icon: Clock,       title: 'Time saving',      text: 'Instead of contacting multiple installers yourself, PvPro.ch handles the search for you — in less than 2 minutes.' },
   { Icon: ShieldCheck, title: 'Certified quality', text: 'Only installers with valid certifications, proof of insurance and positive references.' },
   { Icon: Euro,        title: 'Free of charge',   text: 'Our service is 100% free for homeowners. We are funded by installer commissions — no extra cost for you.' },
   { Icon: Phone,       title: 'Personal support', text: 'If you have questions, our team is available by phone and email at any time.' },
@@ -86,7 +86,7 @@ export default function HowItWorksPage() {
             Get the best solar quote in 3 steps
           </h1>
           <p className="text-lg text-gray-600 leading-relaxed">
-            PVPro.ch makes comparing solar installations simple, fast and free. You don't need to contact multiple installers yourself — we do it for you.
+            PvPro.ch makes comparing solar installations simple, fast and free. You don't need to contact multiple installers yourself — we do it for you.
           </p>
         </div>
 
@@ -132,7 +132,7 @@ export default function HowItWorksPage() {
         {/* Benefits grid */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Why PVPro.ch?</p>
+            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Why PvPro.ch?</p>
             <h2 className="text-3xl font-bold text-gray-900 tracking-tight">The benefits at a glance</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -159,7 +159,7 @@ export default function HowItWorksPage() {
               { q: 'Is the service really free?', a: 'Yes, 100%. We are funded by installer commissions — at no extra cost to you.' },
               { q: 'Am I obliged to choose an offer?', a: 'No. You can decline all quotes without any consequences.' },
               { q: 'How quickly will I receive quotes?', a: 'Usually within 24–48 hours of your request.' },
-              { q: 'Which cantons is PVPro.ch active in?', a: 'We operate throughout Switzerland, in all 26 cantons.' },
+              { q: 'Which cantons is PvPro.ch active in?', a: 'We operate throughout Switzerland, in all 26 cantons.' },
             ].map((faq) => (
               <div key={faq.q}>
                 <p className="font-bold text-gray-900 mb-1 text-sm">{faq.q}</p>

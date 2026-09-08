@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Incentivi solari Cantone di Zurigo 2026 – RU, obbligo solare & contributi | PVPro.ch',
+  title: 'Incentivi solari Cantone di Zurigo 2026 – RU, obbligo solare & contributi | PvPro.ch',
   description: 'Quali incentivi esistono per gli impianti solari nel Cantone di Zurigo 2026? RU, contributi cantonali, obbligo solare e come richiederli. Informatevi ora.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/incentivi-solari-cantone-zurigo',
@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/it/incentivi-solari-cantone-zurigo',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/it/incentivi-solari-cantone-zurigo', locale: 'it' });
 

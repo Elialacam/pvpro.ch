@@ -9,8 +9,8 @@ import ArticleStructuredData from '@/components/ArticleStructuredData';
 import { articleDates } from '@/lib/blogUtils';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Centrale solare da balcone in Svizzera: permessa, costi e conviene? | PVPro.ch',
-  description: 'I mini impianti solari da balcone sono permessi in Svizzera? Costi, regole e se una centrale da balcone conviene — con confronto onesto con un impianto fotovoltaico completo.',
+  title: 'Solare da balcone in Svizzera',
+  description: 'Scopri regole, costi e convenienza del solare da balcone in Svizzera rispetto a un impianto fotovoltaico completo.',
   authors: [{ name: 'Elia Alacam' }],
   alternates: articleAlternates('centrale-balcone-svizzera', 'it'),
 }, { path: '/it/blog/centrale-balcone-svizzera', locale: 'it', type: 'article' });

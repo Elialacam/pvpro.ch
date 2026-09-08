@@ -6,11 +6,11 @@ import { LocaleProvider } from "@/lib/LocaleContext";
 
 export const metadata: Metadata = {
   title: {
-    default: 'Confronta impianti fotovoltaici in Ticino | PVPro.ch',
-    template: '%s | PVPro.ch',
+    default: 'Confronta impianti fotovoltaici in Ticino | PvPro.ch',
+    template: '%s | PvPro.ch',
   },
   description: 'Confronta gratuitamente le offerte di impianti fotovoltaici da installatori certificati in Ticino. Risparmia fino al 30% con il confronto. 100% senza impegno.',
-  authors: [{ name: 'PVPro.ch' }],
+  authors: [{ name: 'PvPro.ch' }],
   robots: {
     index: true,
     follow: true,
@@ -40,7 +40,7 @@ export default function ItalianLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "PVPro.ch",
+            "name": "PvPro.ch",
             "url": "https://www.pvpro.ch",
             "logo": "https://www.pvpro.ch/logo-pvpro.png",
             "sameAs": [
@@ -65,8 +65,8 @@ export default function ItalianLayout({
             "@context": "https://schema.org",
             "@type": "WebSite",
             "url": "https://www.pvpro.ch/it",
-            "name": "PVPro.ch",
-            "alternateName": "PVPro.ch",
+            "name": "PvPro.ch",
+            "alternateName": "PvPro.ch",
             "description": "Piattaforma di confronto per impianti fotovoltaici in Ticino",
             "inLanguage": "it-CH",
             "potentialAction": {

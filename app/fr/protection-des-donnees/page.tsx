@@ -3,7 +3,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 
 const baseMetadata: Metadata = {
   title: 'Protection des données',
-  description: 'Politique de confidentialité de PVPro.ch - Informations sur le traitement de vos données personnelles.',
+  description: 'Politique de confidentialité de PvPro.ch - Informations sur le traitement de vos données personnelles.',
 };
 
 export default function ProtectionDonneesPage() {

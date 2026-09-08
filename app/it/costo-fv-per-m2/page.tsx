@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import PhotovoltaikFaq from '@/components/PhotovoltaikFaq';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Costo fotovoltaico per m² Svizzera: prezzi, esempi e calcolo | PVPro.ch',
+  title: 'Costo fotovoltaico per m² Svizzera: prezzi, esempi e calcolo | PvPro.ch',
   description: 'Quanto costa il fotovoltaico per m² in Svizzera? Prezzi, esempi e costi per kWp spiegati semplicemente. Confronta le offerte ora.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/costo-fv-per-m2',
@@ -281,7 +281,7 @@ export default function CostoFVPerM2Page() {
             Confronta le offerte e calcola i costi con precisione
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Il costo per m² è solo un'orientamento approssimativo. Tramite PVPro.ch ottenete gratuitamente preventivi da installatori certificati — calcolati con precisione per la vostra casa.
+            Il costo per m² è solo un'orientamento approssimativo. Tramite PvPro.ch ottenete gratuitamente preventivi da installatori certificati — calcolati con precisione per la vostra casa.
           </p>
           <Link
             href="/it/richiesta"

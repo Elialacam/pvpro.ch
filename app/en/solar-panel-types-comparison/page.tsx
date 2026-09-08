@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solar Panel Types Comparison Switzerland 2026 – Which One Suits Me? | PVPro.ch',
+  title: 'Solar Panel Types Comparison Switzerland 2026 – Which One Suits Me? | PvPro.ch',
   description: 'Comparison of different solar panel types in Switzerland: monocrystalline, polycrystalline, thin-film, bifacial. What are the differences and which is worth it?',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-panel-types-comparison',
@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/en/solar-panel-types-comparison',
     type: 'website',
     locale: 'en_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/en/solar-panel-types-comparison', locale: 'en' });
 
@@ -293,7 +293,7 @@ export default function SolarPanelTypesComparisonPage() {
             <p className="text-gray-600 leading-relaxed">
               In practice, a certified{' '}
               <Link href="/en/solar-panel-installation-switzerland" className="text-[#fcb210] hover:underline font-medium">installer</Link>{' '}
-              recommends the right panel type after inspecting your roof. PVPro.ch connects you with{' '}
+              recommends the right panel type after inspecting your roof. PvPro.ch connects you with{' '}
               <Link href="/en/solar-comparison-portal-switzerland" className="text-[#fcb210] hover:underline font-medium">providers</Link>{' '}
               who know all technologies and give neutral advice.
             </p>

@@ -4,7 +4,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Thank You – Your request has been sent',
-  description: 'Your PVPro.ch solar quote request has been sent successfully.',
+  description: 'Your PvPro.ch solar quote request has been sent successfully.',
   robots: { index: false, follow: false },
 }, { path: '/en/thank-you', locale: 'en' });
 

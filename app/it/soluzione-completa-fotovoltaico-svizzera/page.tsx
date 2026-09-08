@@ -5,8 +5,8 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Soluzione completa fotovoltaico Svizzera 2026 – Tutto da un fornitore | PVPro.ch',
-  description: "Quali aziende svizzere offrono soluzioni complete per impianti fotovoltaici? Moduli, accumulo, pompa di calore e installazione da un unico fornitore. Confronta con PVPro.ch.",
+  title: 'Soluzione completa fotovoltaico Svizzera 2026 – Tutto da un fornitore | PvPro.ch',
+  description: "Quali aziende svizzere offrono soluzioni complete per impianti fotovoltaici? Moduli, accumulo, pompa di calore e installazione da un unico fornitore. Confronta con PvPro.ch.",
   alternates: {
     canonical: 'https://www.pvpro.ch/it/soluzione-completa-fotovoltaico-svizzera',
     languages: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/it/soluzione-completa-fotovoltaico-svizzera',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/it/soluzione-completa-fotovoltaico-svizzera', locale: 'it' });
 
@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     question: "Come trovo un fornitore di soluzioni complete nel mio Cantone?",
-    answer: "PVPro.ch mette gratuitamente in contatto con installatori certificati che offrono soluzioni complete. Basta compilare il modulo e ricevere fino a 3 preventivi.",
+    answer: "PvPro.ch mette gratuitamente in contatto con installatori certificati che offrono soluzioni complete. Basta compilare il modulo e ricevere fino a 3 preventivi.",
   },
   {
     question: "Posso ampliare il mio impianto solare esistente con un accumulo o una wallbox?",
@@ -133,7 +133,7 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
             {[
               { val: "Fino all'80%", sub: "Autoconsumo con soluzione completa", note: "grazie alla gestione energetica ottimizzata" },
               { val: '1 fornitore', sub: "responsabile di tutto", note: "dalla pianificazione alla messa in servizio" },
-              { val: '25+', sub: "partner qualificati in Svizzera", note: "installatori certificati su PVPro.ch" },
+              { val: '25+', sub: "partner qualificati in Svizzera", note: "installatori certificati su PvPro.ch" },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -155,7 +155,7 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
               Cos&apos;è una soluzione fotovoltaica completa?
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              Una soluzione completa combina diverse tecnologie energetiche in un sistema integrato. PVPro.ch mette in contatto con fornitori che consegnano e installano tutti questi componenti da un&apos;unica fonte.
+              Una soluzione completa combina diverse tecnologie energetiche in un sistema integrato. PvPro.ch mette in contatto con fornitori che consegnano e installano tutti questi componenti da un&apos;unica fonte.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

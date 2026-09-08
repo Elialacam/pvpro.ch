@@ -9,7 +9,7 @@ import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 
 const baseMetadata: Metadata = {
-  title: 'Blog & Guides | PVPro.ch – Énergie solaire en Suisse',
+  title: 'Blog solaire Suisse',
   description: 'Guides actuels, actualités et conseils sur les installations solaires, les subventions et le photovoltaïque en Suisse.',
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/blog',
@@ -36,7 +36,7 @@ export default function BlogFrPage() {
         </nav>
 
         <div className="mb-10">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-4">PVPro.ch Blog</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-4">PvPro.ch Blog</h1>
           <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
             Guides, actualités et conseils sur l'énergie solaire, les subventions photovoltaïques et l'énergie durable en Suisse.
           </p>

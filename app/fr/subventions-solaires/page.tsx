@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FoerderRechner from '@/components/FoerderRechner';
 
 const baseMetadata: Metadata = {
-  title: 'Subventions solaires en Suisse 2026 | PVPro.ch',
+  title: 'Subventions solaires en Suisse 2026 | PvPro.ch',
   description: 'Rétribution unique (RU), programmes cantonaux et déductions fiscales pour les installations photovoltaïques en Suisse. Calculez votre subvention maintenant.',
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/subventions-solaires',

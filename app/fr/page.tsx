@@ -13,8 +13,8 @@ import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 
 const baseMetadata: Metadata = {
-  title: 'PVPro.ch - Comparez les installations solaires en Suisse | Devis gratuits',
-  description: 'Comparez gratuitement jusqu\'à 3 devis per votre installation solaire en Suisse. Gagnez du temps et de l\'argent avec PVPro.ch.',
+  title: 'Comparer les offres solaires : 3 entreprises certifiées | PvPro.ch',
+  description: 'Comparez gratuitement jusqu’à 3 devis pour votre installation solaire en Suisse.',
 };
 
 export default function FrenchHomePage() {
@@ -24,7 +24,7 @@ export default function FrenchHomePage() {
       answer: 'Une installation solaire typique pour une maison individuelle coûte entre CHF 9.500 et CHF 25.000. Le prix exact dépend de la taille de l\'installation, de l\'état du toit et des composants utilisés. Avec une batterie de stockage, les coûts sont plus élevés, entre CHF 19.500 et CHF 35.000.',
     },
     {
-      question: 'Comment fonctionne l\'intermédiation de PVPro.ch?',
+      question: 'Comment fonctionne l\'intermédiation de PvPro.ch?',
       answer: 'Vous remplissez notre court formulaire en indiquant vos besoins. Nous transmettons votre demande à un maximum de 3 installateurs certifiés dans votre canton. Ceux-ci préparent des offres personnalisées pour vous. Vous comparez les devis et choisissez la meilleure offre - sans aucun engagement.',
     },
     {
@@ -40,7 +40,7 @@ export default function FrenchHomePage() {
       answer: 'Oui! Même dans les zones moins ensoleillées de Suisse, les installations solaires produisent assez d\'électricité pour s\'amortir. Les modules solaires modernes fonctionnent efficacement même avec une lumière diffuse. La période d\'amortissement moyenne en Suisse est de 10-15 ans, pour une durée de vie de 25-30 ans.',
     },
     {
-      question: 'Le service de PVPro.ch est-il vraiment gratuit?',
+      question: 'Le service de PvPro.ch est-il vraiment gratuit?',
       answer: 'Oui, notre service est à 100% gratuit et sans engagement pour vous. Nous nous finançons par des commissions de nos installateurs partenaires. Vous ne payez rien pour l\'intermédiation et recevez néanmoins les mêmes prix qu\'en cas de demande directe auprès de l\'installateur.',
     },
   ];

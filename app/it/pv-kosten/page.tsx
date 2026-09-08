@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Costo fotovoltaico per m² Svizzera | PVPro.ch',
+  title: 'Costo fotovoltaico per m² Svizzera | PvPro.ch',
   description: 'Informazioni sui costi del fotovoltaico per metro quadrato in Svizzera.',
 }, { path: '/it/pv-kosten', locale: 'it' });
 

@@ -7,7 +7,7 @@ import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, Pig
 import FaqSchema from '@/components/FaqSchema';
 
 const baseMetadata: Metadata = {
-  title: 'Coût installation solaire Suisse 2026 – Combien coûte une installation ? | PVPro.ch',
+  title: 'Coût installation solaire Suisse 2026 – Combien coûte une installation ? | PvPro.ch',
   description: 'Combien coûte une installation solaire en Suisse ? Prix 2026 : 15\'000 – 35\'000 CHF pour une maison individuelle. Coûts par kWp, subventions et stockage. Comparez des offres gratuitement.',
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/cout-installation-solaire',
@@ -25,7 +25,7 @@ const baseMetadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/cout-installation-solaire',
     type: 'article',
     locale: 'fr_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 };
 
@@ -109,8 +109,8 @@ export default function CoutInstallationSolairePage() {
             "@type": "Article",
             "headline": "Combien coûte une installation solaire en Suisse ? Prix actuels 2026",
             "description": "Coûts actuels pour les installations solaires en Suisse. Installations 5–10 kWp, coûts par kWp, subventions et stockage par batterie.",
-            "author": { "@type": "Organization", "name": "PVPro.ch" },
-            "publisher": { "@type": "Organization", "name": "PVPro.ch", "url": "https://www.pvpro.ch" },
+            "author": { "@type": "Organization", "name": "PvPro.ch" },
+            "publisher": { "@type": "Organization", "name": "PvPro.ch", "url": "https://www.pvpro.ch" },
             "datePublished": "2025-01-01",
             "dateModified": new Date().toISOString().split('T')[0],
           })

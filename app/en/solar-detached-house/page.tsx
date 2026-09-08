@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solar installation for detached houses Switzerland: costs, size and benefits | PVPro.ch',
+  title: 'Solar installation for detached houses Switzerland: costs, size and benefits | PvPro.ch',
   description: 'What does a solar installation for a detached house in Switzerland cost? Prices, size, subsidies and tips explained simply. Compare offers now.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-detached-house',
@@ -338,7 +338,7 @@ export default function SolarDetachedHousePage() {
             Compare offers and optimise costs
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Solar installation prices vary greatly depending on the provider. Via PVPro.ch you receive up to 3 free quotes from certified installers in your canton.
+            Solar installation prices vary greatly depending on the provider. Via PvPro.ch you receive up to 3 free quotes from certified installers in your canton.
           </p>
           <Link
             href="/en/request"

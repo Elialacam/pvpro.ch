@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Solaranlage Offerte einholen Schweiz 2026 – Kostenlos & unverbindlich | PVPro.ch',
+  title: 'Solaranlage Offerte einholen Schweiz 2026 – Kostenlos & unverbindlich | PvPro.ch',
   description: 'Kostenlose Offerten für Ihre Solaranlage in der Schweiz einholen. Bis zu 3 Angebote von zertifizierten Installateuren in Ihrem Kanton. Jetzt vergleichen und sparen.',
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-offerte-einholen',
@@ -24,13 +24,13 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/solaranlage-offerte-einholen',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/solaranlage-offerte-einholen', locale: 'de' });
 
 const faqs = [
   {
-    question: 'Wie viele Offerten erhalte ich über PVPro.ch?',
+    question: 'Wie viele Offerten erhalte ich über PvPro.ch?',
     answer: 'Sie erhalten bis zu 3 massgeschneiderte Offerten von zertifizierten Installateuren aus Ihrem Kanton. So haben Sie sofort eine Vergleichsbasis.',
   },
   {
@@ -43,11 +43,11 @@ const faqs = [
   },
   {
     question: 'Erhalte ich Werbeanrufe nach meiner Anfrage?',
-    answer: 'Nein. PVPro.ch garantiert, dass Sie keine unerwünschten Werbeanrufe erhalten. Nur die Installateure, die Ihnen ein Angebot schicken, nehmen Kontakt auf.',
+    answer: 'Nein. PvPro.ch garantiert, dass Sie keine unerwünschten Werbeanrufe erhalten. Nur die Installateure, die Ihnen ein Angebot schicken, nehmen Kontakt auf.',
   },
   {
     question: 'Kann ich auch für ein Mehrfamilienhaus Offerten einholen?',
-    answer: 'Ja. PVPro.ch vermittelt Offerten für alle Gebäudetypen — Einfamilienhäuser, Mehrfamilienhäuser und Gewerbegebäude.',
+    answer: 'Ja. PvPro.ch vermittelt Offerten für alle Gebäudetypen — Einfamilienhäuser, Mehrfamilienhäuser und Gewerbegebäude.',
   },
   {
     question: 'Was passiert, wenn mir keine Offerte gefällt?',
@@ -126,7 +126,7 @@ export default function SolaranlageOfferteEinholenPage() {
             <p className="text-gray-400 text-lg leading-relaxed">
               Wer eine Solaranlage kaufen möchte, sollte nie beim ersten Angebot unterschreiben. In der Schweiz können die{' '}
               <Link href="/solaranlage-kosten" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">Kosten</Link>{' '}
-              für die gleiche Anlage je nach Installateur um mehrere tausend Franken variieren. PVPro.ch ermöglicht es Ihnen, kostenlos bis zu 3 Offerten von geprüften lokalen Installateuren einzuholen — in weniger als 2 Minuten.
+              für die gleiche Anlage je nach Installateur um mehrere tausend Franken variieren. PvPro.ch ermöglicht es Ihnen, kostenlos bis zu 3 Offerten von geprüften lokalen Installateuren einzuholen — in weniger als 2 Minuten.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -192,7 +192,7 @@ export default function SolaranlageOfferteEinholenPage() {
               Wie einfach ist es, Offerten einzuholen?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Früher bedeutete Offerten einholen: selbst recherchieren, anrufen, Termine vereinbaren, warten. Mit PVPro.ch geht das in 3 Schritten:
+              Früher bedeutete Offerten einholen: selbst recherchieren, anrufen, Termine vereinbaren, warten. Mit PvPro.ch geht das in 3 Schritten:
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -248,7 +248,7 @@ export default function SolaranlageOfferteEinholenPage() {
             </ul>
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="text-orange-800 text-sm leading-relaxed">
-                <strong>Tipp:</strong> Wenn eine Offerte diese Punkte nicht enthält, sollten Sie nachfragen — oder über PVPro.ch eine Offerte von einem unserer geprüften Partner einholen.
+                <strong>Tipp:</strong> Wenn eine Offerte diese Punkte nicht enthält, sollten Sie nachfragen — oder über PvPro.ch eine Offerte von einem unserer geprüften Partner einholen.
               </p>
             </div>
           </div>
@@ -285,7 +285,7 @@ export default function SolaranlageOfferteEinholenPage() {
               Für welche Gebäudetypen kann ich Offerten einholen?
             </h2>
             <p className="text-gray-600 max-w-xl mx-auto leading-relaxed">
-              Über PVPro.ch können Sie Offerten für alle Gebäudetypen einholen:
+              Über PvPro.ch können Sie Offerten für alle Gebäudetypen einholen:
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">

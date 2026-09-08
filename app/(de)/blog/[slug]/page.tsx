@@ -6,6 +6,7 @@ import { getAutoArticleLocaleSlugs } from '@/lib/autoBlog';
 import { getAutoBlogSlugRecord, autoBlogPath, autoBlogByLegacySlug } from '@/lib/autoBlogSlugs';
 import BlogArticlePage from '@/components/BlogArticlePage';
 import { articleAlternates } from '@/lib/articleSeoRoutes';
+import { articleMetaDescription, articleSeoTitle } from '@/lib/blogUtils';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -21,8 +22,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = getBlogArticle(auto?.legacySlug ?? slug, 'de');
   if (!article) return {};
   return pageMetadata({
-    title: `${article.title} | PVPro.ch`,
-    description: article.metaDescription,
+    title: articleSeoTitle(article),
+    description: articleMetaDescription(article.metaDescription, article.locale, article.slug),
     authors: [{ name: 'Elia Alacam' }],
     alternates: articleAlternates(slug, 'de'),
   }, { path: auto ? autoBlogPath(auto, 'de') : `/blog/${slug}`, locale: 'de', type: 'article' });

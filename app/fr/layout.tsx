@@ -6,11 +6,11 @@ import { LocaleProvider } from "@/lib/LocaleContext";
 
 export const metadata: Metadata = {
   title: {
-    default: 'Comparer les installations solaires | PVPro.ch',
-    template: '%s | PVPro.ch',
+    default: 'Comparer les installations solaires | PvPro.ch',
+    template: '%s | PvPro.ch',
   },
   description: 'Comparez gratuitement les offres d’installateurs solaires certifiés en Suisse. Économisez jusqu’à 30 %, sans engagement.',
-  authors: [{ name: 'PVPro.ch' }],
+  authors: [{ name: 'PvPro.ch' }],
   robots: {
     index: true,
     follow: true,
@@ -40,7 +40,7 @@ export default function FrenchLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "PVPro.ch",
+            "name": "PvPro.ch",
             "url": "https://www.pvpro.ch",
             "logo": "https://www.pvpro.ch/logo-pvpro.png",
             "sameAs": [
@@ -65,8 +65,8 @@ export default function FrenchLayout({
             "@context": "https://schema.org",
             "@type": "WebSite",
             "url": "https://www.pvpro.ch/fr",
-            "name": "PVPro.ch",
-            "alternateName": "PVPro.ch",
+            "name": "PvPro.ch",
+            "alternateName": "PvPro.ch",
             "description": "Plateforme de comparaison d'installations solaires en Suisse",
             "inLanguage": "fr-CH",
             "potentialAction": {

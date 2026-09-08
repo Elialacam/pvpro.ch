@@ -9,8 +9,8 @@ import ArticleStructuredData from '@/components/ArticleStructuredData';
 import { articleDates } from '@/lib/blogUtils';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Balcony Power Station in Switzerland: Allowed, Costs and Is It Really Worth It? | PVPro.ch',
-  description: 'Are balcony power stations allowed in Switzerland? Costs, rules and whether a balcony power station is worth it — with an honest comparison to a full solar installation.',
+  title: 'Balcony solar Switzerland: rules & costs',
+  description: 'Learn the rules, costs and value of balcony solar in Switzerland compared with a full solar installation.',
   authors: [{ name: 'Elia Alacam' }],
   alternates: articleAlternates('balcony-power-station-switzerland', 'en'),
 }, { path: '/en/blog/balcony-power-station-switzerland', locale: 'en', type: 'article' });

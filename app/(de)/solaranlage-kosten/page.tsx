@@ -24,7 +24,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/solaranlage-kosten',
     type: 'article',
     locale: 'de_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/solaranlage-kosten', locale: 'de' });
 
@@ -109,8 +109,8 @@ export default function SolaranlageKostenPage() {
             "@type": "Article",
             "headline": "Was kostet eine Solaranlage in der Schweiz? Aktuelle Preise 2026",
             "description": "Aktuelle Kosten für Solaranlagen in der Schweiz. 5–10 kWp Anlagen, Kosten pro kWp, Förderungen und Batteriespeicher.",
-            "author": { "@type": "Organization", "name": "PVPro.ch" },
-            "publisher": { "@type": "Organization", "name": "PVPro.ch", "url": "https://www.pvpro.ch" },
+            "author": { "@type": "Organization", "name": "PvPro.ch" },
+            "publisher": { "@type": "Organization", "name": "PvPro.ch", "url": "https://www.pvpro.ch" },
             "datePublished": "2025-01-01",
             "dateModified": new Date().toISOString().split('T')[0],
           })

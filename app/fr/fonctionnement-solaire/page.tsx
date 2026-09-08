@@ -17,7 +17,7 @@ const wfFaqs = [
 ];
 
 const baseMetadata: Metadata = {
-  title: "Comment fonctionne une installation solaire ? Expliqué simplement (Suisse) | PVPro.ch",
+  title: "Comment fonctionne une installation solaire ? Expliqué simplement (Suisse) | PvPro.ch",
   description: "Comment fonctionne une installation solaire ? Explication simple avec exemples, production d'électricité et réponses aux questions fréquentes sur le photovoltaïque.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/fonctionnement-solaire',

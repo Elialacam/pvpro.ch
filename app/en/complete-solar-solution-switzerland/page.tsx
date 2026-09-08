@@ -5,8 +5,8 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Complete Solar Solution Switzerland 2026 – All-in-One | PVPro.ch',
-  description: 'Which Swiss companies offer complete solar panel solutions? Modules, storage, heat pump and installation from a single provider. Compare now with PVPro.ch.',
+  title: 'Complete Solar Solution Switzerland 2026 – All-in-One | PvPro.ch',
+  description: 'Which Swiss companies offer complete solar panel solutions? Modules, storage, heat pump and installation from a single provider. Compare now with PvPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/complete-solar-solution-switzerland',
     languages: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/en/complete-solar-solution-switzerland',
     type: 'website',
     locale: 'en_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/en/complete-solar-solution-switzerland', locale: 'en' });
 
@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     question: 'How do I find a complete solution provider in my canton?',
-    answer: 'PVPro.ch connects you free of charge with certified installers offering complete solutions. Simply fill in the form and receive up to 3 quotes.',
+    answer: 'PvPro.ch connects you free of charge with certified installers offering complete solutions. Simply fill in the form and receive up to 3 quotes.',
   },
   {
     question: 'Can I expand my existing solar system with storage or a charging station?',
@@ -133,7 +133,7 @@ export default function CompleteSolarSolutionSwitzerlandPage() {
             {[
               { val: 'Up to 80%', sub: 'Self-consumption with complete solution', note: 'thanks to optimised energy management' },
               { val: '1 provider', sub: 'responsible for everything', note: 'from planning to commissioning' },
-              { val: '25+', sub: 'qualified partners in Switzerland', note: 'certified installers on PVPro.ch' },
+              { val: '25+', sub: 'qualified partners in Switzerland', note: 'certified installers on PvPro.ch' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -155,7 +155,7 @@ export default function CompleteSolarSolutionSwitzerlandPage() {
               What is a complete solar solution?
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              A complete solution combines several energy technologies into an integrated system. PVPro.ch connects you with providers who deliver and install all these components from a single source.
+              A complete solution combines several energy technologies into an integrated system. PvPro.ch connects you with providers who deliver and install all these components from a single source.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

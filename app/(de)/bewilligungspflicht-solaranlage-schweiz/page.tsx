@@ -6,8 +6,8 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Bewilligungspflicht Solaranlage Schweiz 2026 – Was Sie wissen müssen | PVPro.ch',
-  description: 'Braucht eine Solaranlage in der Schweiz eine Baubewilligung? Wir erklären die Regeln für alle Kantone, wann eine Bewilligung nötig ist und wie PVPro.ch hilft.',
+  title: 'Bewilligungspflicht Solaranlage Schweiz 2026 – Was Sie wissen müssen | PvPro.ch',
+  description: 'Braucht eine Solaranlage in der Schweiz eine Baubewilligung? Wir erklären die Regeln für alle Kantone, wann eine Bewilligung nötig ist und wie PvPro.ch hilft.',
   alternates: {
     canonical: 'https://www.pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
     languages: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/bewilligungspflicht-solaranlage-schweiz',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro.ch',
+    siteName: 'PvPro.ch',
   },
 }, { path: '/bewilligungspflicht-solaranlage-schweiz', locale: 'de' });
 
@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     question: 'Wer meldet die Solaranlage bei der Gemeinde?',
-    answer: 'In der Regel übernimmt der zertifizierte Installateur die Meldung. PVPro.ch vermittelt ausschliesslich zertifizierte Unternehmen, die diesen Prozess kennen und routiniert abwickeln.',
+    answer: 'In der Regel übernimmt der zertifizierte Installateur die Meldung. PvPro.ch vermittelt ausschliesslich zertifizierte Unternehmen, die diesen Prozess kennen und routiniert abwickeln.',
   },
   {
     question: 'Gilt die Bewilligungsfreiheit auch für Balkonkraftwerke?',
@@ -67,7 +67,7 @@ const steps = [
   {
     n: '1',
     title: 'Installateur kontaktieren',
-    text: 'Ein zertifizierter Installateur prüft Ihre Situation und klärt ab, ob eine Bewilligung erforderlich ist. PVPro.ch vermittelt Sie kostenlos.',
+    text: 'Ein zertifizierter Installateur prüft Ihre Situation und klärt ab, ob eine Bewilligung erforderlich ist. PvPro.ch vermittelt Sie kostenlos.',
   },
   {
     n: '2',

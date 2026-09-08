@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const city = getCityBySlug(citySlug);
   if (!city) return pageMetadata({ title: 'Stadt nicht gefunden' }, { path: '/solaranlage-solothurn', locale: 'de' });
   return pageMetadata({
-    title: `Solaranlage ${city.name} ${city.canton} - Offerten vergleichen | PVPro.ch`,
+    title: `Solaranlage ${city.name} ${city.canton} - Offerten vergleichen | PvPro.ch`,
     description: `Solaranlage in ${city.name}: Jetzt bis zu 3 Offerten von geprüften Solarteuren vergleichen. Sichern Sie sich Förderungen in ${city.name}. Unverbindlich & Kostenlos.`,
   }, { path: '/solaranlage-solothurn', locale: 'de' });
 }

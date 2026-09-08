@@ -7,7 +7,7 @@ import FaqSchema from '@/components/FaqSchema';
 import { faqContent } from '@/lib/faqData';
 
 const baseMetadata: Metadata = {
-  title: 'FAQ – Questions fréquentes | PVPro.ch',
+  title: 'FAQ – Questions fréquentes | PvPro.ch',
   description: 'Réponses aux questions les plus fréquentes sur les installations solaires en Suisse : coûts, subventions, installation et plus.',
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/faq',
