@@ -78,17 +78,31 @@ export default function HeroWidget() {
 
     if (!isDesktop || prefersReducedMotion) return;
 
-    const timeouts: ReturnType<typeof setTimeout>[] = [];
-    const startDelay = 800;
+    let animationFrame: number;
+    let startTime: number | null = null;
+    const startDelay = 700;
+    const duration = 3200;
+    const targetValue = 300;
 
-    for (let animatedValue = MIN + STEP; animatedValue <= 220; animatedValue += STEP) {
-      const delay = startDelay + ((animatedValue - MIN) / STEP) * 140;
-      timeouts.push(setTimeout(() => {
-        if (!userInteracted.current) setValue(animatedValue);
-      }, delay));
-    }
+    const animate = (timestamp: number) => {
+      if (userInteracted.current) return;
+      if (startTime === null) startTime = timestamp;
 
-    return () => timeouts.forEach(clearTimeout);
+      const elapsed = timestamp - startTime;
+      if (elapsed < startDelay) {
+        animationFrame = requestAnimationFrame(animate);
+        return;
+      }
+
+      const progress = Math.min((elapsed - startDelay) / duration, 1);
+      const easedProgress = 0.5 - Math.cos(progress * Math.PI) / 2;
+      setValue(MIN + (targetValue - MIN) * easedProgress);
+
+      if (progress < 1) animationFrame = requestAnimationFrame(animate);
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
   }, []);
 
   const pct = ((value - MIN) / (MAX - MIN)) * 100;
@@ -146,6 +160,9 @@ export default function HeroWidget() {
             step={STEP}
             value={value}
             onChange={handleChange}
+            onPointerDown={() => {
+              userInteracted.current = true;
+            }}
             className="energy-slider absolute w-full opacity-0 cursor-pointer"
             style={{ top: '-9px', height: '24px' }}
           />
