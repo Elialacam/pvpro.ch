@@ -25,7 +25,6 @@ const footerContent: Record<string, {
           { label: 'Förderungen',                 href: '/foerderungen' },
           { label: 'Solaranlage Kosten',          href: '/solaranlage-kosten' },
           { label: 'Solaranlage Steuerabzug 2026', href: '/blog/solaranlage-steuerabzug-schweiz-2026' },
-          { label: 'FAQ',                         href: '/faq' },
         ],
       },
       {
@@ -43,6 +42,7 @@ const footerContent: Record<string, {
         links: [
           { label: 'Über uns',            href: '/ueber-uns' },
           { label: 'Wie es funktioniert', href: '/wie-es-funktioniert' },
+          { label: 'FAQ',                  href: '/faq' },
           { label: 'Datenschutz',         href: '/datenschutz' },
           { label: 'Impressum',           href: '/impressum' },
         ],
