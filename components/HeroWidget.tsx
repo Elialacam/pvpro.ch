@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLocale } from '@/lib/LocaleContext';
@@ -70,6 +70,26 @@ export default function HeroWidget() {
   const pathname = usePathname();
   const formUrl = getFormUrl(pathname);
   const [value, setValue] = useState(DEFAULT);
+  const userInteracted = useRef(false);
+
+  useEffect(() => {
+    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!isDesktop || prefersReducedMotion) return;
+
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+    const startDelay = 800;
+
+    for (let animatedValue = MIN + STEP; animatedValue <= 220; animatedValue += STEP) {
+      const delay = startDelay + ((animatedValue - MIN) / STEP) * 140;
+      timeouts.push(setTimeout(() => {
+        if (!userInteracted.current) setValue(animatedValue);
+      }, delay));
+    }
+
+    return () => timeouts.forEach(clearTimeout);
+  }, []);
 
   const pct = ((value - MIN) / (MAX - MIN)) * 100;
   const annualCost = value * 12;
@@ -77,6 +97,7 @@ export default function HeroWidget() {
   const maximumSavings = Math.min(annualCost, annualCost * MAX_SAVINGS_RATE);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    userInteracted.current = true;
     setValue(Number(e.target.value));
   }, []);
 
