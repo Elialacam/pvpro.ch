@@ -6287,7 +6287,7 @@ const articles: BlogArticle[] = [
 export function getBlogArticle(slug: string, locale: string): BlogArticle | undefined {
   const manual = articles.find(a => a.slug === slug && a.locale === locale);
   if (manual) return manual;
-  // Auto-generated articles (AutoSEO webhook) — server-side only.
+  // Previously generated articles stored as local JSON — server-side only.
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const { getAutoArticle } = require('./autoBlog') as typeof import('./autoBlog');
   return getAutoArticle(slug, locale);

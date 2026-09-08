@@ -1,5 +1,5 @@
 /**
- * Auto-generated blog articles (AutoSEO webhook → GitHub commit).
+ * Previously generated blog articles retained as local content.
  *
  * Each file in content/autoblog/<slug>.json contains one article in all
  * 4 locales. These are merged with the hand-written articles in
