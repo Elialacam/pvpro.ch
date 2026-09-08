@@ -6,9 +6,10 @@ import { usePathname } from 'next/navigation';
 import { useLocale } from '@/lib/LocaleContext';
 import { getFormUrl } from '@/lib/i18n/formUrls';
 
-const MIN = 50;
-const MAX = 500;
-const DEFAULT = 150;
+const MIN = 100;
+const MAX = 1500;
+const STEP = 20;
+const DEFAULT = 100;
 const MIN_SAVINGS_RATE = 0.4;
 const MAX_SAVINGS_RATE = 0.7;
 
@@ -121,7 +122,7 @@ export default function HeroWidget() {
             type="range"
             min={MIN}
             max={MAX}
-            step={10}
+            step={STEP}
             value={value}
             onChange={handleChange}
             className="energy-slider absolute w-full opacity-0 cursor-pointer"
