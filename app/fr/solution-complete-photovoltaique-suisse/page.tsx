@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, Zap, Battery, Thermometer, Car, Settings } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Solution complète photovoltaïque Suisse 2026 – Tout en un | PVPro.ch",
   description: "Quelles entreprises suisses proposent des solutions complètes pour les installations photovoltaïques ? Modules, stockage, pompe à chaleur et installation en un seul prestataire. Comparez avec PVPro.ch.",
   alternates: {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/solution-complete-photovoltaique-suisse',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
 };
 
@@ -295,3 +296,5 @@ export default function SolutionCompletePhotovoltaiqueSuissePage() {
     </main>
   );
 }
+
+export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/solution-complete-photovoltaique-suisse', locale: 'fr' });

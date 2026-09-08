@@ -1,0 +1,23 @@
+Sul sito i numeri economici e climatici sono diversi da pagina a pagina (costo di un 10 kWp: 16'000–20'000, 22'000, 25'000–26'000, 22'000–30'000 a seconda della pagina; ammortamento da 4–6 a 10–15 anni; ore di sole di Zürich 1'566 in una pagina e 1'700 in un'altra; RU 350 CHF/kWp in un punto e 380 + 700 in un altro; /foerderungen mostra "30% Rabatt" e subito sotto "deckt 13% der Kosten").
+
+Crea una fonte unica: un file di configurazione (es. lib/facts.ts) con tutti i valori economici e climatici, e fai leggere da lì tutte le pagine e i componenti (home, pagine cantonali DE/FR/IT, /foerderungen, /solaranlage-kosten, /solarrechner, pagine servizio, blocchi incentivi) in tutte le lingue. Nessun numero economico deve restare scritto a mano nei componenti.
+
+Valori iniziali:
+- costo chiavi in mano: CHF 2'000–2'800 per kWp (impianti piccoli verso il valore alto)
+- 5 kWp: 12'000–15'000 lordi; 8 kWp: 17'000–22'000; 10 kWp: 20'000–26'000; 15 kWp: 28'000–36'000
+- rimunerazione unica (RU/EIV): circa CHF 350 per kWp, esempio 10 kWp = CHF 3'500. Verifica su pronovo.ch la tariffa 2026 e l'eventuale contributo base e scrivimi cosa trovi.
+- produzione: 950–1'000 kWh per kWp all'anno (Altopiano), 1'050–1'100 in Ticino e Vallese
+- autoconsumo: 25–35% senza batteria, 60–80% con batteria
+- prezzo dell'elettricità: 25–30 ct/kWh (varia per Comune, fonte ElCom)
+- rimunerazione per l'immissione: 4–15 ct/kWh secondo il gestore (fonte pvtarif.ch)
+- ammortamento: 8–12 anni (Altopiano), 7–10 anni (Ticino e Vallese)
+- durata moduli: 25–30 anni
+- batteria: 5 kWh CHF 4'000–6'000; 10 kWh CHF 7'000–10'000
+- ore di sole per Cantone: un solo valore per Cantone, dalla norma climatica MeteoSvizzera 1991–2020 della stazione di riferimento del Cantone, con la fonte scritta sotto la cifra. Oggi Bern e Uri hanno lo stesso valore (1'694) e Zürich e Thurgau lo stesso (1'566): verificali e sostituiscili.
+
+Regole:
+1. In /foerderungen togli "30% Rabatt" nel blocco in alto; mostra la RU in CHF per kWp e la percentuale reale calcolata.
+2. Ogni pagina con numeri economici mostra "Richtwerte, Stand: September 2026" (IT "Valori indicativi, aggiornato settembre 2026", FR ed EN equivalenti), letto dal file di configurazione.
+3. In /solaranlage-kosten i "22'000–30'000 CHF nach Abzug der Förderungen" per 10 kWp contraddicono l'esempio sulla stessa pagina: usa i valori del file, lordo e netto separati.
+4. Le pagine cantonali usano gli stessi intervalli nazionali; solo produzione e ammortamento cambiano per Ticino e Vallese.
+Non cambiare i testi non numerici. Alla fine elenca ogni pagina e ogni numero sostituito (vecchio → nuovo).

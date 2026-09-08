@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Sun, Zap, TrendingDown, CheckCircle2, Home, Ruler, Award, Wrench } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import PhotovoltaikFaq from '@/components/PhotovoltaikFaq';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Costo fotovoltaico per m² Svizzera: prezzi, esempi e calcolo | PVPro.ch',
   description: 'Quanto costa il fotovoltaico per m² in Svizzera? Prezzi, esempi e costi per kWp spiegati semplicemente. Confronta le offerte ora.',
   alternates: {
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/photovoltaik-kosten-pro-m2',
     },
   },
-};
+}, { path: '/it/costo-fv-per-m2', locale: 'it' });
 
 const priceRows = [
   { label: 'Impianto base',    range: 'ca. 200 – 250 CHF',  color: '#6b7280', highlight: false },
@@ -129,7 +130,7 @@ export default function CostoFVPerM2Page() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-panel-closeup-1.webp" alt="Pannelli solari Svizzera" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+            <Image src="/images/asset-panel-closeup-1.webp" alt="Pannelli solari Svizzera" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
           </div>
         </section>
 
@@ -154,7 +155,7 @@ export default function CostoFVPerM2Page() {
         {/* ── Example ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-haus-luftbild-2.webp" alt="Casa unifamiliare con impianto solare" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+            <Image src="/images/asset-haus-luftbild-2.webp" alt="Casa unifamiliare con impianto solare" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Esempio di calcolo</p>
@@ -260,7 +261,7 @@ export default function CostoFVPerM2Page() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-beratung-indoor-1.webp" alt="Consulenza solare Svizzera" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+            <Image src="/images/asset-beratung-indoor-1.webp" alt="Consulenza solare Svizzera" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
           </div>
         </section>
 
@@ -280,7 +281,7 @@ export default function CostoFVPerM2Page() {
             Confronta le offerte e calcola i costi con precisione
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Il costo per m² è solo un'orientamento approssimativo. Tramite PVPro ottenete gratuitamente preventivi da installatori certificati — calcolati con precisione per la vostra casa.
+            Il costo per m² è solo un'orientamento approssimativo. Tramite PVPro.ch ottenete gratuitamente preventivi da installatori certificati — calcolati con precisione per la vostra casa.
           </p>
           <Link
             href="/it/richiesta"

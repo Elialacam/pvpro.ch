@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "dMAxJsChnV4M-qy8clRBE"
+uri = "file://reports/pvpro-route-title-report.html"
+type = "text"
+title = "Elenco completo route e nuovi title"
+description = "334 route DE/IT/FR/EN con il title SEO finale di ciascuna."
+logical_id = "6a773212-d5af-4b6d-a61c-93eeee81cd46"
+content_hash = "sha256:d8314ee7275954791ee13397bb1523108113dd52046ec1a9e9acdc5d37b8b737"
+size = 55046
+mtime_ms = 1788867851437
+storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:f53d4855-3247-438a-938a-8b3ba4e73521/6a773212-d5af-4b6d-a61c-93eeee81cd46/74ddf59e-670e-4e2f-af58-35988a359013"
+storage_version_token = "1788867852203346"
+content_type = "text/html"

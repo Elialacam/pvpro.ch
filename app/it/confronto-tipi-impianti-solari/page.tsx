@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Zap, CheckCircle, XCircle } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Confronto tipi impianti solari Svizzera 2026 – Quale fa per me? | PVPro.ch',
   description: "Confronto dei diversi tipi di impianti fotovoltaici in Svizzera: monocristallino, policristallino, film sottile, bifacciale. Quali sono le differenze e quale conviene?",
   alternates: {
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/it/confronto-tipi-impianti-solari',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/it/confronto-tipi-impianti-solari', locale: 'it' });
 
 const faqs = [
   {

@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, Wrench, Clock, Sun } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Solar Panel Installation Switzerland 2026 – Providers & Costs | PVPro.ch',
   description: 'Solar panel installation in Switzerland: find certified providers in your canton. Compare free quotes and save up to 30% with PVPro.ch.',
   alternates: {
@@ -23,9 +24,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/en/solar-panel-installation-switzerland',
     type: 'website',
     locale: 'en_US',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/en/solar-panel-installation-switzerland', locale: 'en' });
 
 const faqs = [
   {
@@ -221,7 +222,7 @@ export default function SolarPanelInstallationSwitzerlandPage() {
             </div>
           </div>
           <div>
-            <Image src="/images/asset-installateur-dach-2.webp" alt="Solar installation Switzerland" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" />
+            <Image src="/images/asset-installateur-dach-2.webp" alt="Solar installation Switzerland" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" loading="lazy"/>
           </div>
         </section>
 
@@ -293,7 +294,7 @@ export default function SolarPanelInstallationSwitzerlandPage() {
             </div>
           </div>
           <div>
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Choose installer Switzerland" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Choose installer Switzerland" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Tip</p>
               <p className="text-gray-700 text-sm leading-relaxed">

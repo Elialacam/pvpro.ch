@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, Star, BarChart2, Users } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: 'Comparateur Photovoltaïque Suisse 2026 – Comparer les fournisseurs | PVPro.ch',
   description: "Comparez gratuitement les fournisseurs photovoltaïques en Suisse. PVPro.ch est le principal comparateur suisse pour les installations solaires – jusqu'à 3 offres d'installateurs certifiés.",
   alternates: {
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/comparateur-photovoltaique-suisse',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
 };
 
@@ -37,7 +38,7 @@ const faqs = [
     answer: "Vous recevez jusqu'à 3 offres personnalisées d'installateurs locaux certifiés. Vous avez ainsi immédiatement une base de comparaison.",
   },
   {
-    question: "Qui sont les installateurs du réseau PVPro ?",
+    question: "Qui sont les installateurs du réseau PVPro.ch ?",
     answer: "Nous collaborons avec plus de 25 entreprises suisses qualifiées. Chaque installateur est vérifié avant d'être admis dans notre réseau.",
   },
   {
@@ -154,7 +155,7 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
             </ul>
           </div>
           <div className="rounded-3xl overflow-hidden">
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Comparaison installateurs photovoltaïques Suisse" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Comparaison installateurs photovoltaïques Suisse" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Le saviez-vous ?</p>
               <p className="text-gray-700 text-sm leading-relaxed">
@@ -196,7 +197,7 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
         {/* ── Quels installateurs ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="rounded-3xl overflow-hidden">
-            <Image src="/images/asset-installateur-dach-2.webp" alt="Installateur photovoltaïque certifié Suisse" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" />
+            <Image src="/images/asset-installateur-dach-2.webp" alt="Installateur photovoltaïque certifié Suisse" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" loading="lazy"/>
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Critères de qualité</p>
@@ -345,3 +346,5 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
     </main>
   );
 }
+
+export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/comparateur-photovoltaique-suisse', locale: 'fr' });

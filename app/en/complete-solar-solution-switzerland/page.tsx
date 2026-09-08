@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, Zap, Battery, Thermometer, Car, Settings } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Complete Solar Solution Switzerland 2026 – All-in-One | PVPro.ch',
   description: 'Which Swiss companies offer complete solar panel solutions? Modules, storage, heat pump and installation from a single provider. Compare now with PVPro.ch.',
   alternates: {
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/en/complete-solar-solution-switzerland',
     type: 'website',
     locale: 'en_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/en/complete-solar-solution-switzerland', locale: 'en' });
 
 const faqs = [
   {

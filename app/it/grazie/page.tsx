@@ -1,12 +1,13 @@
-"use client";
-
-import { useEffect } from 'react';
+import { Metadata } from 'next';
 import ThankYouConfirmation from '@/components/ThankYouConfirmation';
+import { pageMetadata } from '@/lib/pageMetadata';
+
+export const metadata: Metadata = pageMetadata({
+  title: 'Grazie – La tua richiesta è stata inviata | PVPro.ch',
+  description: 'La tua richiesta di preventivo per un impianto solare è stata inviata a PVPro.ch.',
+  robots: { index: false, follow: false },
+}, { path: '/it/grazie', locale: 'it' });
 
 export default function GrazieItPage() {
-  useEffect(() => {
-    document.title = 'Grazie – La tua richiesta è stata inviata | PVPro';
-  }, []);
-
   return <ThankYouConfirmation locale="it" />;
 }

@@ -1,7 +1,6 @@
 import Hero from '@/components/Hero';
 import ClientLogos from '@/components/ClientLogos';
 import HowItWorks from '@/components/HowItWorks';
-import Testimonials from '@/components/Testimonials';
 import TeamSection from '@/components/TeamSection';
 import SwissMap from '@/components/SwissMapLazy';
 import BlogSection from '@/components/BlogSection';
@@ -11,11 +10,12 @@ import { cities } from '@/lib/cities';
 import Link from 'next/link';
 import { MapPin } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
-  title: 'PV Pro - Compare solar systems in Switzerland | Free Quotes',
-  description: 'Compare up to 3 free quotes for your solar system in Switzerland. Save time and money with PV Pro.',
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'PVPro.ch - Compare solar systems in Switzerland | Free Quotes',
+  description: 'Compare up to 3 free quotes for your solar system in Switzerland. Save time and money with PVPro.ch.',
+}, { path: '/en', locale: 'en' });
 
 export default function EnglishHomePage() {
   const defaultFAQs = [
@@ -24,7 +24,7 @@ export default function EnglishHomePage() {
       answer: 'A typical solar system for a single-family home costs between CHF 9,500 and CHF 25,000. The exact price depends on the system size, roof characteristics, and components used. With a battery storage system, costs are higher, between CHF 19,500 and CHF 35,000.',
     },
     {
-      question: 'How does the PVPro referral service work?',
+      question: 'How does the PVPro.ch referral service work?',
       answer: 'You fill out our short form indicating your requirements. We forward your request to up to 3 certified installers in your canton. They prepare personalized quotes for you. You compare the offers and choose the best one - completely without obligation.',
     },
     {
@@ -40,7 +40,7 @@ export default function EnglishHomePage() {
       answer: 'Yes! Even in less sunny areas of Switzerland, solar systems produce enough electricity to pay for themselves. Modern solar modules work efficiently even with diffuse light. The average payback period in Switzerland is 10-15 years, with a lifespan of 25-30 years.',
     },
     {
-      question: 'Is PVPro service really free?',
+      question: 'Is PVPro.ch service really free?',
       answer: 'Yes, our service is 100% free and non-binding for you. We are financed through commissions from our partner installers. You pay nothing for the referral and still receive the same prices as if you contacted the installer directly.',
     },
   ];
@@ -70,7 +70,6 @@ export default function EnglishHomePage() {
       <ClientLogos label="Our partner installers" />
       <TeamSection />
       <SwissMap />
-      <Testimonials />
 
       <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">

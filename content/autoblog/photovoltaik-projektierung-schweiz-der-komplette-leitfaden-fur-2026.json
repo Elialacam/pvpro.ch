@@ -3,11 +3,11 @@
   "createdAt": "2026-08-23T10:22:48.730Z",
   "articles": {
     "de": {
-      "slug": "photovoltaik-projektierung-schweiz-der-komplette-leitfaden-fur-2026",
+      "slug": "photovoltaik-projektierung-schweiz",
       "locale": "de",
       "title": "Photovoltaik Projektierung in der Schweiz: Der Leitfaden für 2026",
       "metaDescription": "Optimieren Sie Ihre Photovoltaik Anlage mit unserem Leitfaden für 2026. Vermeiden Sie teure Fehler dank neuer Regeln und steigern Sie Ihre Rendite.",
-      "image": "/images/autoblog/photovoltaik-projektierung-schweiz-der-komplette-leitfaden-fur-2026.jpg",
+      "image": "/images/blog/photovoltaik-projektierung-schweiz-der-komplette-leitfaden-fur-2026.jpg",
       "date": "23. August 2026",
       "readMin": 15,
       "tag": "Ratgeber",
@@ -62,7 +62,7 @@
           "heading": "Qualitätssicherung: Den richtigen Partner für die Projektierung finden",
           "content": [
             "Die Wahl des richtigen Partners ist entscheidend für Ihren Erfolg. Achten Sie auf Transparenz und Unabhängigkeit bei der Auswahl Ihres Projektierers.",
-            "Das Solarprofi-Label von Swissolar ist ein bewährtes Qualitätsmerkmal. PV Pro bietet Zugang zu zertifizierten Partnern mit regionaler Verankerung."
+            "Das Solarprofi-Label von Swissolar ist ein bewährtes Qualitätsmerkmal. PVPro.ch bietet Zugang zu zertifizierten Partnern mit regionaler Verankerung."
           ],
           "bullets": [
             "Detaillierte Ertragsprognosen bereitstellen",
@@ -101,11 +101,11 @@
       ]
     },
     "fr": {
-      "slug": "photovoltaik-projektierung-schweiz-der-komplette-leitfaden-fur-2026",
+      "slug": "conception-photovoltaique-suisse",
       "locale": "fr",
       "title": "Conception photovoltaïque en Suisse : Le guide pour 2026",
       "metaDescription": "Optimisez votre installation photovoltaïque avec notre guide 2026. Évitez les erreurs coûteuses grâce aux nouvelles règles et augmentez votre rendement.",
-      "image": "/images/autoblog/photovoltaik-projektierung-schweiz-der-komplette-leitfaden-fur-2026.jpg",
+      "image": "/images/blog/photovoltaik-projektierung-schweiz-der-komplette-leitfaden-fur-2026.jpg",
       "date": "23 août 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -160,7 +160,7 @@
           "heading": "Assurance qualité : Trouver le bon partenaire pour la conception",
           "content": [
             "Le choix du bon partenaire est crucial pour votre succès. Assurez-vous de la transparence et de l'indépendance lors de la sélection de votre concepteur.",
-            "Le label Solarprofi de Swissolar est un gage de qualité éprouvé. PV Pro offre un accès à des partenaires certifiés ayant une bonne implantation locale."
+            "Le label Solarprofi de Swissolar est un gage de qualité éprouvé. PVPro.ch offre un accès à des partenaires certifiés ayant une bonne implantation locale."
           ],
           "bullets": [
             "Fourniture de prévisions de rendement détaillées",
@@ -199,11 +199,11 @@
       ]
     },
     "en": {
-      "slug": "photovoltaik-projektierung-schweiz-der-komplette-leitfaden-fur-2026",
+      "slug": "swiss-photovoltaic-planning",
       "locale": "en",
       "title": "Photovoltaic Project Planning in Switzerland: The Guide for 2026",
       "metaDescription": "Optimize your photovoltaic system with our guide for 2026. Avoid costly mistakes thanks to new regulations and increase your returns.",
-      "image": "/images/autoblog/photovoltaik-projektierung-schweiz-der-komplette-leitfaden-fur-2026.jpg",
+      "image": "/images/blog/photovoltaik-projektierung-schweiz-der-komplette-leitfaden-fur-2026.jpg",
       "date": "August 23, 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -258,7 +258,7 @@
           "heading": "Quality Assurance: Finding the Right Partner for Project Planning",
           "content": [
             "Choosing the right partner is crucial to your success. Pay attention to transparency and independence when selecting your project planner.",
-            "The Solarprofi label from Swissolar is a proven quality mark. PV Pro offers access to certified partners with local ties."
+            "The Solarprofi label from Swissolar is a proven quality mark. PVPro.ch offers access to certified partners with local ties."
           ],
           "bullets": [
             "Provide detailed yield forecasts",
@@ -297,11 +297,11 @@
       ]
     },
     "it": {
-      "slug": "photovoltaik-projektierung-schweiz-der-komplette-leitfaden-fur-2026",
+      "slug": "progettazione-fotovoltaica-svizzera",
       "locale": "it",
       "title": "Progettazione fotovoltaica in Svizzera: La guida per il 2026",
       "metaDescription": "Ottimizza il tuo impianto fotovoltaico con la nostra guida per il 2026. Evita errori costosi grazie alle nuove regole e aumenta il tuo rendimento.",
-      "image": "/images/autoblog/photovoltaik-projektierung-schweiz-der-komplette-leitfaden-fur-2026.jpg",
+      "image": "/images/blog/photovoltaik-projektierung-schweiz-der-komplette-leitfaden-fur-2026.jpg",
       "date": "23 agosto 2026",
       "readMin": 15,
       "tag": "Guida",
@@ -356,7 +356,7 @@
           "heading": "Assicurazione della qualità: Trovare il giusto partner per la progettazione",
           "content": [
             "La scelta del giusto partner è fondamentale per il tuo successo. Presta attenzione a trasparenza e indipendenza nella selezione del tuo progettista.",
-            "Il label Solarprofi di Swissolar è un accreditato marchio di qualità. PV Pro offre accesso a partner certificati con radicamento locale."
+            "Il label Solarprofi di Swissolar è un accreditato marchio di qualità. PVPro.ch offre accesso a partner certificati con radicamento locale."
           ],
           "bullets": [
             "Fornire previsioni dettagliate di rendimento",
@@ -394,5 +394,11 @@
         }
       ]
     }
+  },
+  "localeSlugs": {
+    "de": "photovoltaik-projektierung-schweiz",
+    "it": "progettazione-fotovoltaica-svizzera",
+    "fr": "conception-photovoltaique-suisse",
+    "en": "swiss-photovoltaic-planning"
   }
 }

@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { ChevronRight, FileText, Search, CheckCircle, Clock, ShieldCheck, Euro, Phone } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Comment ça marche – PVPro.ch | Devis solaires en 3 étapes",
-  description: "Découvrez comment PVPro fonctionne : remplissez le formulaire, recevez jusqu'à 3 devis certifiés et choisissez le meilleur installateur. Gratuit et sans engagement.",
+  description: "Découvrez comment PVPro.ch fonctionne : remplissez le formulaire, recevez jusqu'à 3 devis certifiés et choisissez le meilleur installateur. Gratuit et sans engagement.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/comment-ca-marche',
     languages: {
@@ -53,14 +54,14 @@ const steps = [
     details: [
       "Vrais prix, sans offres d'appel",
       "Aucun installateur n'a la priorité",
-      'Aucun contrat avec PVPro',
+      'Aucun contrat avec PVPro.ch',
       'Décision libre, sans minimum',
     ],
   },
 ];
 
 const benefits = [
-  { Icon: Clock,       title: 'Gain de temps',       text: "Au lieu de contacter plusieurs installateurs vous-même, PVPro s'en charge — en moins de 2 minutes." },
+  { Icon: Clock,       title: 'Gain de temps',       text: "Au lieu de contacter plusieurs installateurs vous-même, PVPro.ch s'en charge — en moins de 2 minutes." },
   { Icon: ShieldCheck, title: 'Qualité certifiée',    text: "Uniquement des installateurs avec certifications valides, attestations d'assurance et références positives." },
   { Icon: Euro,        title: 'Gratuit',              text: "Notre service est 100% gratuit pour les propriétaires. Nous nous finançons par des commissions des installateurs." },
   { Icon: Phone,       title: 'Support personnalisé', text: 'Pour toute question, notre équipe est disponible par téléphone et e-mail.' },
@@ -85,7 +86,7 @@ export default function CommentCaMarchePage() {
             3 étapes pour le meilleur devis solaire
           </h1>
           <p className="text-lg text-gray-600 leading-relaxed">
-            PVPro rend la comparaison d'installations solaires simple, rapide et gratuite. Vous n'avez pas besoin de contacter plusieurs installateurs — nous le faisons pour vous.
+            PVPro.ch rend la comparaison d'installations solaires simple, rapide et gratuite. Vous n'avez pas besoin de contacter plusieurs installateurs — nous le faisons pour vous.
           </p>
         </div>
 
@@ -131,7 +132,7 @@ export default function CommentCaMarchePage() {
         {/* Benefits grid */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Pourquoi PVPro ?</p>
+            <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Pourquoi PVPro.ch ?</p>
             <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Les avantages en un coup d'œil</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -158,7 +159,7 @@ export default function CommentCaMarchePage() {
               { q: 'Le service est-il vraiment gratuit ?', a: "Oui, à 100%. Nous nous finançons par des commissions des installateurs — sans supplément pour vous." },
               { q: "Suis-je obligé d'accepter une offre ?", a: 'Non. Vous pouvez refuser toutes les offres sans aucune conséquence.' },
               { q: 'Combien de temps pour recevoir les devis ?', a: "En général dans les 24 à 48 heures suivant votre demande." },
-              { q: 'Dans quelles zones PVPro est-il actif ?', a: 'Nous sommes actifs dans toute la Suisse, dans les 26 cantons.' },
+              { q: 'Dans quelles zones PVPro.ch est-il actif ?', a: 'Nous sommes actifs dans toute la Suisse, dans les 26 cantons.' },
             ].map((faq) => (
               <div key={faq.q}>
                 <p className="font-bold text-gray-900 mb-1 text-sm">{faq.q}</p>
@@ -192,3 +193,5 @@ export default function CommentCaMarchePage() {
     </main>
   );
 }
+
+export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/comment-ca-marche', locale: 'fr' });

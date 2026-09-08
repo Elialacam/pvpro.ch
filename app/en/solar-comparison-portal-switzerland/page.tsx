@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, Star, BarChart2, Users } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Solar Comparison Portal Switzerland 2026 – Compare Providers & Save | PVPro.ch',
   description: "Compare solar panel providers in Switzerland for free. PVPro.ch is Switzerland's leading comparison portal for solar systems – up to 3 quotes from certified installers.",
   alternates: {
@@ -23,9 +24,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/en/solar-comparison-portal-switzerland',
     type: 'website',
     locale: 'en_US',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/en/solar-comparison-portal-switzerland', locale: 'en' });
 
 const faqs = [
   {
@@ -37,7 +38,7 @@ const faqs = [
     answer: 'You receive up to 3 tailored quotes from verified local installers. This gives you an immediate basis for comparison.',
   },
   {
-    question: 'Who are the installers in the PVPro network?',
+    question: 'Who are the installers in the PVPro.ch network?',
     answer: 'We work with over 25 qualified Swiss companies. Each installer is verified before being admitted to our network.',
   },
   {
@@ -154,7 +155,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
             </ul>
           </div>
           <div className="rounded-3xl overflow-hidden">
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Compare solar panel providers Switzerland" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Compare solar panel providers Switzerland" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Did you know?</p>
               <p className="text-gray-700 text-sm leading-relaxed">
@@ -164,7 +165,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
           </div>
         </section>
 
-        {/* ── How PVPro works ── */}
+        {/* ── How PVPro.ch works ── */}
         <section>
           <div className="text-center mb-12">
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">How it works</p>
@@ -196,7 +197,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
         {/* ── Which providers ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="rounded-3xl overflow-hidden">
-            <Image src="/images/asset-installateur-dach-2.webp" alt="Certified solar installer Switzerland" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" />
+            <Image src="/images/asset-installateur-dach-2.webp" alt="Certified solar installer Switzerland" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" loading="lazy"/>
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Quality criteria</p>

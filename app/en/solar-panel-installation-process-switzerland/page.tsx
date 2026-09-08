@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText, Clock } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Solar Panel Installation Process Switzerland 2026 – Steps, Duration & Costs | PVPro.ch',
   description: 'How does solar panel installation work in Switzerland? Steps, duration, costs and what to watch out for — all explained by PVPro.ch.',
   alternates: {
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/en/solar-panel-installation-process-switzerland',
     type: 'website',
     locale: 'en_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/en/solar-panel-installation-process-switzerland', locale: 'en' });
 
 const faqs = [
   {

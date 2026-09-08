@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, Zap, Battery, Thermometer, Car, Settings } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Soluzione completa fotovoltaico Svizzera 2026 – Tutto da un fornitore | PVPro.ch',
   description: "Quali aziende svizzere offrono soluzioni complete per impianti fotovoltaici? Moduli, accumulo, pompa di calore e installazione da un unico fornitore. Confronta con PVPro.ch.",
   alternates: {
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/it/soluzione-completa-fotovoltaico-svizzera',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/it/soluzione-completa-fotovoltaico-svizzera', locale: 'it' });
 
 const faqs = [
   {

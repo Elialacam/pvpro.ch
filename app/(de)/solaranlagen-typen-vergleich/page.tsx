@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Zap, CheckCircle, XCircle } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Solaranlagen Typen Vergleich Schweiz 2026 – Welche passt zu mir? | PVPro.ch',
   description: 'Vergleich der verschiedenen Solaranlagen Typen in der Schweiz: monokristallin, polykristallin, Dünnschicht, bifazial. Was sind die Unterschiede und welche lohnt sich?',
   alternates: {
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/solaranlagen-typen-vergleich',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/solaranlagen-typen-vergleich', locale: 'de' });
 
 const faqs = [
   {

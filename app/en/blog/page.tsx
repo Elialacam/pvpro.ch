@@ -6,8 +6,9 @@ import { getAutoBlogCards } from '@/lib/autoBlog';
 import PlzWidget from '@/components/PlzWidget';
 import { Calendar, Clock, ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Blog & Guides | PVPro.ch – Solar energy in Switzerland',
   description: 'Current guides, news and tips on solar installations, subsidies and photovoltaics in Switzerland.',
   alternates: {
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/blog',
     },
   },
-};
+}, { path: '/en/blog', locale: 'en' });
 
 const tags = ['All', 'Guides', 'Subsidies', 'Storage', 'Tips', 'Finance'];
 
@@ -35,7 +36,7 @@ export default function BlogEnPage() {
         </nav>
 
         <div className="mb-10">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-4">PVPro Blog</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-4">PVPro.ch Blog</h1>
           <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
             Guides, news and tips on solar energy, photovoltaic subsidies and sustainable energy in Switzerland.
           </p>
@@ -58,7 +59,7 @@ export default function BlogEnPage() {
                 <Link key={post.slug} href={post.href ?? `/en/blog/${post.slug}`}
                   className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
                   <div className="relative h-48 overflow-hidden bg-gray-100">
-                    <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: getImageFocus(post.image) }} sizes="(max-width: 640px) 100vw, 50vw" />
+                    <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: getImageFocus(post.image) }} sizes="(max-width: 640px) 100vw, 50vw" loading="lazy"/>
                     <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-xs font-semibold text-gray-700 px-2.5 py-1 rounded-full">{post.tag}</span>
                   </div>
                   <div className="p-5 flex flex-col flex-1">

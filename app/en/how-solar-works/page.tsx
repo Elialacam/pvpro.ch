@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import WieFunktioniertInteractive from '@/components/WieFunktioniertInteractive';
 import FaqSchema from '@/components/FaqSchema';
 
@@ -15,7 +16,7 @@ const wfFaqs = [
   { question: 'How long does a 10 kWh storage last?', answer: 'A 10 kWh storage covers the evening and night for most households. With high consumption (e.g. heat pump), it discharges faster.' },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'How does a solar installation work? Simply explained (Switzerland) | PVPro.ch',
   description: 'How does a solar installation work? Simple explanation with examples, electricity production and answers to frequently asked questions about photovoltaics.',
   alternates: {
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/wie-funktioniert',
     },
   },
-};
+}, { path: '/en/how-solar-works', locale: 'en' });
 
 export default function HowSolarWorksPage() {
   return (
@@ -70,7 +71,7 @@ export default function HowSolarWorksPage() {
               </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden self-center shadow-2xl mb-8">
-              <Image src="/images/wie-funktioniert-solaranlage.webp" alt="How a solar installation works – illustration with sun, solar modules, inverter, storage and household electricity" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-auto block" />
+              <Image src="/images/wie-funktioniert-solaranlage.webp" alt="How a solar installation works – illustration with sun, solar modules, inverter, storage and household electricity" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-auto block" priority />
             </div>
           </div>
         </div>

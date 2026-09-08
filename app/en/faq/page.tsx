@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FAQ from '@/components/FAQ';
 import FaqSchema from '@/components/FaqSchema';
 import { faqContent } from '@/lib/faqData';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'FAQ – Frequently Asked Questions | PVPro.ch',
   description: 'Answers to the most common questions about solar installations in Switzerland: costs, subsidies, installation and more.',
   alternates: {
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/faq',
     },
   },
-};
+}, { path: '/en/faq', locale: 'en' });
 
 export default function FaqEnPage() {
   return (

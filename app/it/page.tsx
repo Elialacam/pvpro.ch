@@ -2,75 +2,105 @@ import Hero from '@/components/Hero';
 import ClientLogos from '@/components/ClientLogos';
 import HowItWorks from '@/components/HowItWorks';
 import SwissMap from '@/components/SwissMapLazy';
-import Testimonials from '@/components/Testimonials';
 import TeamSection from '@/components/TeamSection';
 import BlogSection from '@/components/BlogSection';
 import CtaAnfrage from '@/components/CtaAnfrage';
 import FAQ from '@/components/FAQ';
+import FaqSchema from '@/components/FaqSchema';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
+import { faqContent } from '@/lib/faqData';
+import Link from 'next/link';
+import { MapPin } from 'lucide-react';
+import { cities } from '@/lib/cities';
 
-export const metadata: Metadata = {
-  title: 'PV Pro - Confronta impianti fotovoltaici in Ticino | Preventivi gratuiti',
-  description: 'Confronta gratuitamente fino a 3 preventivi per il tuo impianto fotovoltaico in Ticino. Risparmia tempo e denaro con PV Pro.',
+const italianCantonNames: Record<string, string> = {
+  zurich: 'Zurigo',
+  basel: 'Basilea',
+  bern: 'Berna',
+  geneve: 'Ginevra',
+  vaud: 'Vaud',
+  thurgau: 'Turgovia',
+  luzern: 'Lucerna',
+  'st-gallen': 'San Gallo',
+  ticino: 'Ticino',
+  schwyz: 'Svitto',
+  valais: 'Vallese',
+  uri: 'Uri',
+  schaffhausen: 'Sciaffusa',
+  appenzell: 'Appenzello',
+  graubunden: 'Grigioni',
+  glarus: 'Glarona',
+  zug: 'Zugo',
+  unterwalden: 'Untervaldo',
+  solothurn: 'Soletta',
+  aargau: 'Argovia',
+  freiburg: 'Friburgo',
+  biel: 'Bienne',
+  wallis: 'Vallese',
+  fribourg: 'Friburgo',
+  bienne: 'Bienne',
 };
 
-export default function ItalianHomePage() {
-  const defaultFAQs = [
-    {
-      question: 'Quanto costa un impianto fotovoltaico in Ticino?',
-      answer: 'Un tipico impianto fotovoltaico per una casa unifamiliare costa tra CHF 9.500 e CHF 25.000. Il prezzo esatto dipende dalle dimensioni dell\'impianto, dalle caratteristiche del tetto e dai componenti utilizzati. Con un sistema di accumulo a batteria, i costi sono più elevati, tra CHF 19.500 e CHF 35.000.',
-    },
-    {
-      question: 'Come funziona il servizio di intermediazione di PVPro?',
-      answer: 'Compili il nostro breve modulo indicando le tue esigenze. Inoltriamo la tua richiesta a un massimo di 3 installatori certificati in Ticino. Questi preparano preventivi personalizzati per te. Tu confronti le offerte e scegli la migliore - senza alcun impegno.',
-    },
-    {
-      question: 'Esistono sovvenzioni per gli impianti fotovoltaici in Ticino?',
-      answer: 'Sì! In Ticino puoi beneficiare di diverse sovvenzioni: la Rimunerazione Unica (RU) della Confederazione copre fino al 30% dei costi d\'investimento. A questa si aggiungono gli incentivi cantonali e comunali ticinesi, oltre alle deduzioni fiscali. I nostri installatori partner ti aiutano a richiedere tutte le sovvenzioni disponibili.',
-    },
-    {
-      question: 'Quanto tempo ci vuole per installare un impianto fotovoltaico?',
-      answer: 'Dalla richiesta all\'installazione, ci vogliono solitamente 2-4 mesi. Il montaggio vero e proprio sul tetto dura di norma solo 1-3 giorni, a seconda delle dimensioni dell\'impianto. Dopo l\'installazione, seguono la messa in funzione e il collaudo da parte del gestore della rete.',
-    },
-    {
-      question: 'Un impianto fotovoltaico conviene anche con poco sole?',
-      answer: "Sì! E in Ticino ancora di più: con oltre 2'000 ore di sole all'anno è tra le zone più soleggiate della Svizzera. I moderni moduli fotovoltaici funzionano in modo efficiente anche con luce diffusa. Il periodo medio di ammortamento è di 10-15 anni, con una durata di vita di 25-30 anni.",
-    },
-    {
-      question: 'Il servizio di PVPro è davvero gratuito?',
-      answer: 'Sì, il nostro servizio è al 100% gratuito e senza impegno per te. Ci finanziamo tramite commissioni dai nostri installatori partner. Non paghi nulla per l\'intermediazione e ricevi comunque gli stessi prezzi che se contattassi direttamente l\'installatore.',
-    },
-  ];
+export const metadata: Metadata = pageMetadata({
+  title: 'PVPro.ch - Confronta impianti fotovoltaici in Ticino | Preventivi gratuiti',
+  description: 'Confronta gratuitamente fino a 3 preventivi per il tuo impianto fotovoltaico in Ticino. Risparmia tempo e denaro con PVPro.ch.',
+}, { path: '/it', locale: 'it' });
 
+export default function ItalianHomePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": defaultFAQs.map(faq => ({
-              "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.answer
-              }
-            }))
-          })
-        }}
-      />
+      <FaqSchema faqs={faqContent.it.faqs} />
 
       <Hero />
       <HowItWorks />
       <ClientLogos label="I nostri installatori partner" />
       <TeamSection />
       <SwissMap />
-      <Testimonials />
+
+      <section className="section-padding bg-white">
+        <div className="container-custom max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-4">
+              Impianti fotovoltaici nei Cantoni svizzeri
+            </h2>
+            <p className="text-xl text-gray-600">
+              Ti mettiamo in contatto con installatori qualificati in tutta la Svizzera
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {cities.map((city) => {
+              const href = city.language === 'fr'
+                ? `/fr/solaire-${city.slug}`
+                : city.language === 'it'
+                  ? `/it/fotovoltaico-${city.slug}`
+                  : `/solaranlage-${city.slug}`;
+
+              return (
+                <Link
+                  key={city.slug}
+                  href={href}
+                  className="group flex items-center gap-2 p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary-50 transition-all duration-200 cursor-pointer"
+                >
+                  <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <div className="font-sans font-bold text-gray-900 group-hover:text-primary transition-colors truncate">
+                      {italianCantonNames[city.slug] || city.name}
+                    </div>
+                    <div className="text-xs text-gray-500">
+                      {city.canton}
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       <BlogSection locale="it" />
-      <FAQ />
+      <FAQ items={faqContent.it.faqs} />
       <CtaAnfrage />
     </>
   );

@@ -3,11 +3,11 @@
   "createdAt": "2026-08-22T10:15:57.454Z",
   "articles": {
     "de": {
-      "slug": "fragen-an-den-solarteur-so-bereiten-sie-sich-auf-die-photovoltaik-experten-berat",
+      "slug": "fragen-an-den-solarteur",
       "locale": "de",
       "title": "Fragen an den Solarteur: So bereiten Sie sich auf die Photovoltaik Experten Beratung vor",
       "metaDescription": "Fragen an Solarteur stellen ohne Stress: Unser Leitfaden zeigt, wie Sie sich optimal vorbereiten, Offerten vergleichen und Fördergelder sichern.",
-      "image": "/images/autoblog/fragen-an-den-solarteur-so-bereiten-sie-sich-auf-die-photovoltaik-experten-berat.jpg",
+      "image": "/images/blog/fragen-an-den-solarteur-so-bereiten-sie-sich-auf-die-photovoltaik-experten-berat.jpg",
       "date": "22. August 2026",
       "readMin": 15,
       "tag": "Ratgeber",
@@ -67,7 +67,7 @@
         }
       ],
       "ctaHeading": "Ihr Weg zur massgeschneiderten Solarlösung",
-      "ctaText": "Die richtige Vorbereitung auf das Beratungsgespräch ist entscheidend für den Erfolg Ihres Solarprojekts. Nutzen Sie PV Pro, um bis zu drei Offerten von geprüften Experten zu vergleichen und profitieren Sie von reduzierten Kosten.",
+      "ctaText": "Die richtige Vorbereitung auf das Beratungsgespräch ist entscheidend für den Erfolg Ihres Solarprojekts. Nutzen Sie PVPro.ch, um bis zu drei Offerten von geprüften Experten zu vergleichen und profitieren Sie von reduzierten Kosten.",
       "ctaButton": "Jetzt kostenlose Offerten vergleichen",
       "formUrl": "/anfrage",
       "relatedSlugs": [],
@@ -87,11 +87,11 @@
       ]
     },
     "fr": {
-      "slug": "fragen-an-den-solarteur-so-bereiten-sie-sich-auf-die-photovoltaik-experten-berat",
+      "slug": "questions-au-specialiste-solaire",
       "locale": "fr",
       "title": "Questions à poser au spécialiste du solaire : Comment bien préparer votre consultation avec un expert en photovoltaïque",
       "metaDescription": "Poser des questions à un spécialiste du solaire sans stress : Notre guide montre comment se préparer au mieux, comparer les offres et obtenir des subventions.",
-      "image": "/images/autoblog/fragen-an-den-solarteur-so-bereiten-sie-sich-auf-die-photovoltaik-experten-berat.jpg",
+      "image": "/images/blog/fragen-an-den-solarteur-so-bereiten-sie-sich-auf-die-photovoltaik-experten-berat.jpg",
       "date": "22 août 2026",
       "readMin": 15,
       "tag": "Guide pratique",
@@ -151,7 +151,7 @@
         }
       ],
       "ctaHeading": "Votre chemin vers une solution solaire sur mesure",
-      "ctaText": "Une bonne préparation à la consultation est essentielle au succès de votre projet solaire. Utilisez PV Pro pour comparer jusqu'à trois offres d'experts vérifiés et bénéficiez de coûts réduits.",
+      "ctaText": "Une bonne préparation à la consultation est essentielle au succès de votre projet solaire. Utilisez PVPro.ch pour comparer jusqu'à trois offres d'experts vérifiés et bénéficiez de coûts réduits.",
       "ctaButton": "Comparer les offres gratuites maintenant",
       "formUrl": "/fr/demande",
       "relatedSlugs": [],
@@ -171,11 +171,11 @@
       ]
     },
     "en": {
-      "slug": "fragen-an-den-solarteur-so-bereiten-sie-sich-auf-die-photovoltaik-experten-berat",
+      "slug": "questions-for-solar-installer",
       "locale": "en",
       "title": "Questions for the Solar Installer: How to Prepare for Your Photovoltaic Expert Consultation",
       "metaDescription": "Stress-free questions for your solar installer: Our guide shows you how to prepare optimally, compare offers, and secure funding.",
-      "image": "/images/autoblog/fragen-an-den-solarteur-so-bereiten-sie-sich-auf-die-photovoltaik-experten-berat.jpg",
+      "image": "/images/blog/fragen-an-den-solarteur-so-bereiten-sie-sich-auf-die-photovoltaik-experten-berat.jpg",
       "date": "August 22, 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -235,7 +235,7 @@
         }
       ],
       "ctaHeading": "Your Path to a Tailor-Made Solar Solution",
-      "ctaText": "Proper preparation for the consultation is crucial for the success of your solar project. Use PV Pro to compare up to three offers from vetted experts and benefit from reduced costs.",
+      "ctaText": "Proper preparation for the consultation is crucial for the success of your solar project. Use PVPro.ch to compare up to three offers from vetted experts and benefit from reduced costs.",
       "ctaButton": "Compare Free Offers Now",
       "formUrl": "/en/request",
       "relatedSlugs": [],
@@ -255,11 +255,11 @@
       ]
     },
     "it": {
-      "slug": "fragen-an-den-solarteur-so-bereiten-sie-sich-auf-die-photovoltaik-experten-berat",
+      "slug": "domande-al-solarteur",
       "locale": "it",
       "title": "Domande per il Solarteur: Come prepararsi alla consulenza con esperti di fotovoltaico",
       "metaDescription": "Domande al Solarteur senza stress: La nostra guida mostra come prepararsi al meglio, confrontare le offerte e ottenere incentivi cantonali.",
-      "image": "/images/autoblog/fragen-an-den-solarteur-so-bereiten-sie-sich-auf-die-photovoltaik-experten-berat.jpg",
+      "image": "/images/blog/fragen-an-den-solarteur-so-bereiten-sie-sich-auf-die-photovoltaik-experten-berat.jpg",
       "date": "22 agosto 2026",
       "readMin": 15,
       "tag": "Guida",
@@ -319,7 +319,7 @@
         }
       ],
       "ctaHeading": "Il vostro percorso verso una soluzione solare su misura",
-      "ctaText": "La giusta preparazione all'incontro di consulenza è determinante per il successo del vostro progetto solare. Utilizzate PV Pro per confrontare fino a tre offerte da esperti verificati e approfittate di costi ridotti.",
+      "ctaText": "La giusta preparazione all'incontro di consulenza è determinante per il successo del vostro progetto solare. Utilizzate PVPro.ch per confrontare fino a tre offerte da esperti verificati e approfittate di costi ridotti.",
       "ctaButton": "Confrontate ora offerte gratuite",
       "formUrl": "/it/richiesta",
       "relatedSlugs": [],
@@ -338,5 +338,11 @@
         }
       ]
     }
+  },
+  "localeSlugs": {
+    "de": "fragen-an-den-solarteur",
+    "it": "domande-al-solarteur",
+    "fr": "questions-au-specialiste-solaire",
+    "en": "questions-for-solar-installer"
   }
 }

@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, FileText, Clock, Coins } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Solaranlage Offerte einholen Schweiz 2026 – Kostenlos & unverbindlich | PVPro.ch',
   description: 'Kostenlose Offerten für Ihre Solaranlage in der Schweiz einholen. Bis zu 3 Angebote von zertifizierten Installateuren in Ihrem Kanton. Jetzt vergleichen und sparen.',
   alternates: {
@@ -23,9 +24,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/solaranlage-offerte-einholen',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/solaranlage-offerte-einholen', locale: 'de' });
 
 const faqs = [
   {
@@ -219,7 +220,7 @@ export default function SolaranlageOfferteEinholenPage() {
         {/* ── Was steht in einer guten Offerte ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Solaranlage Offerte Schweiz" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Solaranlage Offerte Schweiz" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Checkliste</p>

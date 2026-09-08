@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import { getCityBySlug } from '@/lib/cities';
 import { cityContents, CityContent } from '@/lib/city-content';
 import { notFound } from 'next/navigation';
@@ -9,6 +10,11 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 
 // This is a template for the city pages.
 const citySlug = 'zurich';
+
+export const metadata: Metadata = pageMetadata({
+  title: 'Solaranlage Zürich – Offerten vergleichen',
+  description: 'Solaranlage in Zürich: Jetzt bis zu 3 Offerten von geprüften Solarteuren vergleichen. Sichern Sie sich Förderungen in Zürich. Unverbindlich und kostenlos.',
+}, { path: '/solaranlage-zurich', locale: 'de' });
 
 export default function CityPage() {
   const city = getCityBySlug(citySlug);

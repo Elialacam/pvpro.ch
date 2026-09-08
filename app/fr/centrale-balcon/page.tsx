@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: 'Centrale solaire balcon Suisse – Mini-installation pour balcon | PVPro.ch',
   description: "Centrale solaire pour balcon en Suisse : coûts, inscription, bases légales et conseils pour locataires et propriétaires. Produisez votre propre électricité sans toit.",
 };
@@ -42,3 +43,5 @@ export default function CentraleBalconPage() {
     </main>
   );
 }
+
+export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/centrale-balcon', locale: 'fr' });

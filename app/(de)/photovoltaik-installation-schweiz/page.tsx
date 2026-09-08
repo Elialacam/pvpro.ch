@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText, Clock } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Photovoltaik Installation Schweiz 2026 – Ablauf, Dauer & Kosten | PVPro.ch',
   description: 'Wie funktioniert die Installation einer Photovoltaik Anlage in der Schweiz? Ablauf, Dauer, Kosten und was Sie beachten müssen — alles erklärt von PVPro.ch.',
   alternates: {
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/photovoltaik-installation-schweiz',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/photovoltaik-installation-schweiz', locale: 'de' });
 
 const faqs = [
   {

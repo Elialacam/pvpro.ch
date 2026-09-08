@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Sun, CheckCircle2, TrendingUp, Users, Building2, Zap, ArrowRight, BarChart3 } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import MehrfamilienhausRechner, { MehrfamilienhausFaq } from '@/components/MehrfamilienhausRechner';
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: 'Installation solaire immeuble Suisse : coûts, RCP et rentabilité | PVPro.ch',
   description: 'Combien coûte une installation solaire pour un immeuble ? Coûts, RCP, taille et rentabilité pour plusieurs logements en Suisse.',
   alternates: {
@@ -133,7 +134,7 @@ export default function SolaireImmeubleePage() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-haus-luftbild-3.webp" alt="Immeuble avec installation solaire" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" />
+            <Image src="/images/asset-haus-luftbild-3.webp" alt="Immeuble avec installation solaire" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" loading="lazy"/>
           </div>
         </section>
 
@@ -190,7 +191,7 @@ export default function SolaireImmeubleePage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <Image src="/images/asset-installateur-dach-5.webp" alt="Montage installation solaire immeuble" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-installateur-dach-5.webp" alt="Montage installation solaire immeuble" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
             </div>
           </div>
         </section>
@@ -270,7 +271,7 @@ export default function SolaireImmeubleePage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <Image src="/images/asset-haus-solar-ev-1.webp" alt="Immeuble solaire investissement" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-haus-solar-ev-1.webp" alt="Immeuble solaire investissement" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
             </div>
           </div>
         </section>
@@ -317,7 +318,7 @@ export default function SolaireImmeubleePage() {
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <Image src="/images/asset-beratung-indoor-3.webp" alt="Planification installation solaire immeuble" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-beratung-indoor-3.webp" alt="Planification installation solaire immeuble" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
             </div>
           </div>
         </section>
@@ -338,7 +339,7 @@ export default function SolaireImmeubleePage() {
             Comparer les offres et planifier l'installation de façon optimale
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Chaque immeuble est différent et nécessite une solution individuelle. Via PVPro, comparez gratuitement plusieurs offres et trouvez la meilleure solution pour votre bâtiment.
+            Chaque immeuble est différent et nécessite une solution individuelle. Via PVPro.ch, comparez gratuitement plusieurs offres et trouvez la meilleure solution pour votre bâtiment.
           </p>
           <Link
             href="/fr/demande"
@@ -353,3 +354,5 @@ export default function SolaireImmeubleePage() {
     </main>
   );
 }
+
+export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/solaire-immeuble', locale: 'fr' });

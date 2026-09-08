@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Balcony Power Station Switzerland – Mini Solar Panel for Balcony | PVPro.ch',
   description: 'Balcony power station in Switzerland: costs, registration, legal framework and tips for tenants and homeowners. Generate your own electricity without a roof.',
-};
+}, { path: '/en/balcony-power-station', locale: 'en' });
 
 export default function BalconyPowerStationPage() {
   return (

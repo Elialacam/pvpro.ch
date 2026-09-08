@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, Wrench, Clock, Sun } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Installare impianto solare Svizzera 2026 – Fornitori & Costi | PVPro.ch',
   description: 'Installare un impianto solare in Svizzera: trova installatori certificati nel tuo Cantone. Confronta preventivi gratuiti e risparmia fino al 30% con PVPro.ch.',
   alternates: {
@@ -23,9 +24,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/it/installare-impianto-solare-svizzera',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/it/installare-impianto-solare-svizzera', locale: 'it' });
 
 const faqs = [
   {
@@ -221,7 +222,7 @@ export default function InstallareImpiantoSolareSvizzeraPage() {
             </div>
           </div>
           <div>
-            <Image src="/images/asset-installateur-dach-2.webp" alt="Installazione solare Svizzera" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" />
+            <Image src="/images/asset-installateur-dach-2.webp" alt="Installazione solare Svizzera" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" loading="lazy"/>
           </div>
         </section>
 
@@ -293,7 +294,7 @@ export default function InstallareImpiantoSolareSvizzeraPage() {
             </div>
           </div>
           <div>
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Scegliere installatore Svizzera" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Scegliere installatore Svizzera" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Consiglio</p>
               <p className="text-gray-700 text-sm leading-relaxed">

@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Shield, Wrench, CheckCircle, AlertCircle } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Entretien photovoltaïque coûts Suisse 2026 – Combien coûte la maintenance ? | PVPro.ch",
   description: "Combien coûte l'entretien d'une installation photovoltaïque en Suisse ? Nettoyage, inspection, réparation — tous les coûts en un coup d'œil. Informez-vous sur PVPro.ch.",
   alternates: {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/entretien-photovoltaique-couts',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
 };
 
@@ -340,3 +341,5 @@ export default function EntretienPhotovoltaiqueCoutsPage() {
     </main>
   );
 }
+
+export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/entretien-photovoltaique-couts', locale: 'fr' });

@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import AnfrageForm from '@/components/AnfrageForm';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Kostenlose Solarofferte anfordern | PVPro.ch',
   description: 'Fordern Sie in wenigen Minuten kostenlose Solaranlagen-Offerten von geprüften Schweizer Installateuren an.',
   alternates: {
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
-};
+}, { path: '/anfrage', locale: 'de' });
 
 export default function AnfragePage() {
   return <AnfrageForm />;

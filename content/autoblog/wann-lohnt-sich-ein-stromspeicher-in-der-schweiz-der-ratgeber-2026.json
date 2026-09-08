@@ -3,11 +3,11 @@
   "createdAt": "2026-09-04T10:03:25.107Z",
   "articles": {
     "de": {
-      "slug": "wann-lohnt-sich-ein-stromspeicher-in-der-schweiz-der-ratgeber-2026",
+      "slug": "stromspeicher-rentabilitaet-schweiz",
       "locale": "de",
       "title": "Wann lohnt sich ein Stromspeicher in der Schweiz? Der Ratgeber 2026",
       "metaDescription": "Unser Ratgeber 2026 zeigt, wie Sie von 25% geringeren Speicherpreisen und hohen Stromtarifen profitieren können. Jetzt Steuervorteile nutzen!",
-      "image": "/images/autoblog/wann-lohnt-sich-ein-stromspeicher-in-der-schweiz-der-ratgeber-2026.jpg",
+      "image": "/images/blog/wann-lohnt-sich-ein-stromspeicher-in-der-schweiz-der-ratgeber-2026.jpg",
       "date": "4. September 2026",
       "readMin": 15,
       "tag": "Ratgeber",
@@ -85,11 +85,11 @@
       ]
     },
     "fr": {
-      "slug": "wann-lohnt-sich-ein-stromspeicher-in-der-schweiz-der-ratgeber-2026",
+      "slug": "rentabilite-stockage-electricite-suisse",
       "locale": "fr",
       "title": "Quand un stockage d'électricité est-il rentable en Suisse ? Le guide 2026",
       "metaDescription": "Notre guide 2026 montre comment profiter d'une baisse de 25% des prix de stockage et de tarifs électriques élevés. Profitez dès maintenant des avantages fiscaux !",
-      "image": "/images/autoblog/wann-lohnt-sich-ein-stromspeicher-in-der-schweiz-der-ratgeber-2026.jpg",
+      "image": "/images/blog/wann-lohnt-sich-ein-stromspeicher-in-der-schweiz-der-ratgeber-2026.jpg",
       "date": "4 septembre 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -167,11 +167,11 @@
       ]
     },
     "en": {
-      "slug": "wann-lohnt-sich-ein-stromspeicher-in-der-schweiz-der-ratgeber-2026",
+      "slug": "solar-battery-worthwhile",
       "locale": "en",
       "title": "When is a Solar Battery Worthwhile in Switzerland? The Guide 2026",
       "metaDescription": "Our 2026 guide shows how you can benefit from 25% lower battery prices and high electricity tariffs. Take advantage of tax benefits now!",
-      "image": "/images/autoblog/wann-lohnt-sich-ein-stromspeicher-in-der-schweiz-der-ratgeber-2026.jpg",
+      "image": "/images/blog/wann-lohnt-sich-ein-stromspeicher-in-der-schweiz-der-ratgeber-2026.jpg",
       "date": "September 4, 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -249,11 +249,11 @@
       ]
     },
     "it": {
-      "slug": "wann-lohnt-sich-ein-stromspeicher-in-der-schweiz-der-ratgeber-2026",
+      "slug": "convenienza-accumulatore-svizzera",
       "locale": "it",
       "title": "Quando conviene un accumulatore di energia in Svizzera? La guida 2026",
       "metaDescription": "La nostra guida 2026 mostra come beneficiare di prezzi degli accumulatori ridotti del 25% e di alte tariffe elettriche. Approfitta ora dei vantaggi fiscali!",
-      "image": "/images/autoblog/wann-lohnt-sich-ein-stromspeicher-in-der-schweiz-der-ratgeber-2026.jpg",
+      "image": "/images/blog/wann-lohnt-sich-ein-stromspeicher-in-der-schweiz-der-ratgeber-2026.jpg",
       "date": "4 settembre 2026",
       "readMin": 15,
       "tag": "Guida",
@@ -330,5 +330,11 @@
         }
       ]
     }
+  },
+  "localeSlugs": {
+    "de": "stromspeicher-rentabilitaet-schweiz",
+    "it": "convenienza-accumulatore-svizzera",
+    "fr": "rentabilite-stockage-electricite-suisse",
+    "en": "solar-battery-worthwhile"
   }
 }

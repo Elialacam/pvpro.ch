@@ -2,8 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight, Users, Shield, Star, MapPin, Phone, Mail } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'About Us – PVPro.ch | Independent Swiss Solar Platform',
   description: 'Learn about PVPro.ch – the independent Swiss platform connecting homeowners with certified photovoltaic installers.',
   alternates: {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/ueber-uns',
     },
   },
-};
+}, { path: '/en/about-us', locale: 'en' });
 
 const values = [
   {
@@ -71,9 +72,10 @@ export default function AboutUsPage() {
           <div className="rounded-2xl overflow-hidden shadow-xl">
             <Image
               src="/team-new.webp"
-              alt="The PVPro team"
+              alt="The PVPro.ch team"
               width={800}
               height={500}
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="w-full h-auto object-cover"
               priority
             />
@@ -98,7 +100,7 @@ export default function AboutUsPage() {
               We make solar energy accessible to everyone
             </h2>
             <p className="text-gray-500 text-lg leading-relaxed">
-              Switching to solar energy is one of the best investments a homeowner can make. But the path to get there is often complicated. PVPro makes this step simple, fast and safe.
+              Switching to solar energy is one of the best investments a homeowner can make. But the path to get there is often complicated. PVPro.ch makes this step simple, fast and safe.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -125,6 +127,8 @@ export default function AboutUsPage() {
               alt="Family with solar installation"
               width={800}
               height={500}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy"
               className="w-full h-auto object-cover"
             />
           </div>

@@ -1,23 +1,14 @@
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import CtaAnfrage from '@/components/CtaAnfrage';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
-  title: 'Costi impianto solare Svizzera 2026 – Quanto costa un impianto fotovoltaico? | PVPro',
+export const metadata: Metadata = pageMetadata({
+  title: 'Costi impianto solare Svizzera 2026 – Quanto costa un impianto fotovoltaico? | PVPro.ch',
   description: "Quanto costa un impianto solare in Svizzera? Prezzi 2026: 15'000 – 35'000 CHF per una casa unifamiliare. Costi per kWp, incentivi e accumulo. Confronta offerte gratuitamente.",
-  keywords: [
-    'Costi impianto solare Svizzera',
-    'Prezzo pannello solare Svizzera',
-    'Fotovoltaico costi Svizzera',
-    'Prezzo impianto solare casa unifamiliare',
-    'PV costo per kWp',
-    'Impianto 10 kW costo',
-    'Impianto solare con accumulo costo',
-    'Incentivi solari Svizzera',
-  ],
   alternates: {
     canonical: 'https://www.pvpro.ch/it/costi-impianto-solare',
     languages: {
@@ -34,9 +25,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/it/costi-impianto-solare',
     type: 'article',
     locale: 'it_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/it/costi-impianto-solare', locale: 'it' });
 
 const costTable = [
   { size: '5 kWp', production: "4'500 – 5'000 kWh", price: "13'000 – 18'000 CHF", area: 'circa 30 – 35 m²', ideal: 'Casa piccola' },
@@ -118,8 +109,8 @@ export default function CostiImpiantoSolarePage() {
             "@type": "Article",
             "headline": "Quanto costa un impianto solare in Svizzera? Prezzi attuali 2026",
             "description": "Costi attuali per impianti solari in Svizzera. Impianti 5–10 kWp, costi per kWp, incentivi e accumulo a batteria.",
-            "author": { "@type": "Organization", "name": "PVPro" },
-            "publisher": { "@type": "Organization", "name": "PVPro", "url": "https://www.pvpro.ch" },
+            "author": { "@type": "Organization", "name": "PVPro.ch" },
+            "publisher": { "@type": "Organization", "name": "PVPro.ch", "url": "https://www.pvpro.ch" },
             "datePublished": "2025-01-01",
             "dateModified": new Date().toISOString().split('T')[0],
           })
@@ -168,6 +159,7 @@ export default function CostiImpiantoSolarePage() {
                 alt="Impianto solare su casa unifamiliare svizzera – vista aerea"
                 width={700}
                 height={500}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="w-full h-auto object-cover"
                 priority
               />

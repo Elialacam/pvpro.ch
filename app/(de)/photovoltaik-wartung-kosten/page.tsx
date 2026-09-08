@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Shield, Wrench, CheckCircle, AlertCircle } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Photovoltaik Wartung Kosten Schweiz 2026 – Was kostet die Wartung? | PVPro.ch',
   description: 'Was kostet die Wartung einer Photovoltaikanlage in der Schweiz? Reinigung, Inspektion, Reparatur — alle Kosten im Überblick. Jetzt informieren auf PVPro.ch.',
   alternates: {
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/photovoltaik-wartung-kosten',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/photovoltaik-wartung-kosten', locale: 'de' });
 
 const faqs = [
   {

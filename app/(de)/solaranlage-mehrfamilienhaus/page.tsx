@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Sun, CheckCircle2, TrendingUp, Users, Building2, Zap, ArrowRight, BarChart3 } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import MehrfamilienhausRechner, { MehrfamilienhausFaq } from '@/components/MehrfamilienhausRechner';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Solaranlage Mehrfamilienhaus Schweiz: Kosten, ZEV und Wirtschaftlichkeit | PVPro.ch',
   description: 'Was kostet eine Solaranlage für ein Mehrfamilienhaus? Erfahren Sie Kosten, ZEV, Grösse und wie sich Solarstrom für mehrere Parteien lohnt.',
   alternates: {
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus',
     },
   },
-};
+}, { path: '/solaranlage-mehrfamilienhaus', locale: 'de' });
 
 const costRows = [
   { size: 'Kleine Anlage (15–30 kWp)', price: "ca. 40'000 – 80'000 CHF", highlight: false },
@@ -134,7 +135,7 @@ export default function SolaranlageMehrfamilienhausPage() {
           </div>
           {/* ZEV flow diagram */}
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-haus-luftbild-3.webp" alt="Mehrfamilienhaus mit Solaranlage" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" />
+            <Image src="/images/asset-haus-luftbild-3.webp" alt="Mehrfamilienhaus mit Solaranlage" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" loading="lazy"/>
           </div>
         </section>
 
@@ -191,7 +192,7 @@ export default function SolaranlageMehrfamilienhausPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <Image src="/images/asset-installateur-dach-5.webp" alt="Solaranlage Mehrfamilienhaus Montage" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-installateur-dach-5.webp" alt="Solaranlage Mehrfamilienhaus Montage" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
             </div>
           </div>
         </section>
@@ -271,7 +272,7 @@ export default function SolaranlageMehrfamilienhausPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <Image src="/images/asset-haus-solar-ev-1.webp" alt="Mehrfamilienhaus Solaranlage Investition" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-haus-solar-ev-1.webp" alt="Mehrfamilienhaus Solaranlage Investition" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
             </div>
           </div>
         </section>
@@ -318,7 +319,7 @@ export default function SolaranlageMehrfamilienhausPage() {
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <Image src="/images/asset-beratung-indoor-3.webp" alt="Mehrfamilienhaus Solaranlage Planung" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-beratung-indoor-3.webp" alt="Mehrfamilienhaus Solaranlage Planung" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
             </div>
           </div>
         </section>
@@ -339,7 +340,7 @@ export default function SolaranlageMehrfamilienhausPage() {
             Angebote vergleichen und Anlage optimal planen
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Jede Immobilie ist unterschiedlich und benötigt eine individuelle Lösung. Über PVPro vergleichen Sie kostenlos mehrere Angebote und finden die beste Lösung für Ihr Gebäude.
+            Jede Immobilie ist unterschiedlich und benötigt eine individuelle Lösung. Über PVPro.ch vergleichen Sie kostenlos mehrere Angebote und finden die beste Lösung für Ihr Gebäude.
           </p>
           <Link
             href="/anfrage"

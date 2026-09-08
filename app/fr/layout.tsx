@@ -5,45 +5,12 @@ import PageTransition from "@/components/PageTransition";
 import { LocaleProvider } from "@/lib/LocaleContext";
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://www.pvpro.ch/fr',
-    languages: {
-      'de-CH': 'https://www.pvpro.ch',
-      'fr-CH': 'https://www.pvpro.ch/fr',
-      'en-CH': 'https://www.pvpro.ch/en',
-      'it-CH': 'https://www.pvpro.ch/it',
-      'x-default': 'https://www.pvpro.ch',
-    },
-  },
   title: {
-    default: 'PV Pro - Comparer les installations solaires en Suisse | Devis gratuits',
-    template: '%s | PV Pro',
+    default: 'Comparer les installations solaires | PVPro.ch',
+    template: '%s | PVPro.ch',
   },
-  description: 'Comparez gratuitement les offres d\'installations solaires d\'installateurs certifiés en Suisse. Économisez jusqu\'à 30% grâce à la comparaison. 100% sans engagement.',
-  keywords: ['Installation solaire', 'Photovoltaïque', 'Solaire Suisse', 'Coûts installation solaire', 'Installateur solaire', 'Comparer installations solaires'],
-  authors: [{ name: 'PV Pro' }],
-  openGraph: {
-    type: 'website',
-    locale: 'fr_CH',
-    url: 'https://www.pvpro.ch/fr',
-    siteName: 'PV Pro',
-    title: 'PV Pro - Comparer les installations solaires en Suisse',
-    description: 'Comparez gratuitement plusieurs offres d\'installations solaires d\'installateurs certifiés suisses. Économisez jusqu\'à 30%.',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'PV Pro - Installations Solaires Suisse',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'PV Pro - Comparer les installations solaires en Suisse',
-    description: 'Comparez gratuitement les offres d\'installations solaires. Économisez jusqu\'à 30%.',
-    images: ['/og-image.jpg'],
-  },
+  description: 'Comparez gratuitement les offres d’installateurs solaires certifiés en Suisse. Économisez jusqu’à 30 %, sans engagement.',
+  authors: [{ name: 'PVPro.ch' }],
   robots: {
     index: true,
     follow: true,
@@ -73,7 +40,7 @@ export default function FrenchLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "PV Pro",
+            "name": "PVPro.ch",
             "url": "https://www.pvpro.ch",
             "logo": "https://www.pvpro.ch/logo-pvpro.png",
             "sameAs": [
@@ -98,8 +65,8 @@ export default function FrenchLayout({
             "@context": "https://schema.org",
             "@type": "WebSite",
             "url": "https://www.pvpro.ch/fr",
-            "name": "PV Pro",
-            "alternateName": "PVPro",
+            "name": "PVPro.ch",
+            "alternateName": "PVPro.ch",
             "description": "Plateforme de comparaison d'installations solaires en Suisse",
             "inLanguage": "fr-CH",
             "potentialAction": {

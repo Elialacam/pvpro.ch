@@ -12,9 +12,9 @@ export interface ReviewBase {
 }
 
 export const reviewBase: ReviewBase[] = [
-  { name: 'Markus B., Wil SG', kWp: '30 kWp', photo: '/images/projects/project1.png' },
-  { name: 'Sandra K., Bülach ZH', kWp: '13 kWp', photo: '/images/projects/project2.png' },
-  { name: 'Peter H., Chur GR', kWp: '25 kWp', photo: '/images/projects/project3.png' },
+  { name: 'Markus B., Wil SG', kWp: '30 kWp', photo: '/images/projects/project1.webp' },
+  { name: 'Sandra K., Bülach ZH', kWp: '13 kWp', photo: '/images/projects/project2.webp' },
+  { name: 'Peter H., Chur GR', kWp: '25 kWp', photo: '/images/projects/project3.webp' },
   { name: 'Nadia F., Frauenfeld TG', kWp: '12 kWp', photo: '/images/projects/project4.jpg' },
   { name: 'Thomas R., Olten SO', kWp: '13 kWp', photo: '/images/projects/project5.jpg' },
   { name: 'Claudia W., Luzern', kWp: '20 kWp', photo: '/images/projects/project6.jpg', photoPosition: '72% 50%' },

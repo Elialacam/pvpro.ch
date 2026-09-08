@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Shield, Wrench, CheckCircle, AlertCircle } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Manutenzione fotovoltaico costi Svizzera 2026 – Quanto costa la manutenzione? | PVPro.ch',
   description: "Quanto costa la manutenzione di un impianto fotovoltaico in Svizzera? Pulizia, ispezione, riparazione — tutti i costi in una panoramica. Informati su PVPro.ch.",
   alternates: {
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/it/manutenzione-fotovoltaico-costi',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/it/manutenzione-fotovoltaico-costi', locale: 'it' });
 
 const faqs = [
   {

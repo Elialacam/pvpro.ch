@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Impressum',
-  description: 'Impressum und rechtliche Informationen zu PVPro.',
-};
+  description: 'Impressum und rechtliche Informationen zu PVPro.ch.',
+}, { path: '/impressum', locale: 'de' });
 
 export default function ImpressumPage() {
   return (

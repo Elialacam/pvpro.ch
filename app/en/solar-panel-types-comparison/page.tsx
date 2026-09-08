@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Zap, CheckCircle, XCircle } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Solar Panel Types Comparison Switzerland 2026 – Which One Suits Me? | PVPro.ch',
   description: 'Comparison of different solar panel types in Switzerland: monocrystalline, polycrystalline, thin-film, bifacial. What are the differences and which is worth it?',
   alternates: {
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/en/solar-panel-types-comparison',
     type: 'website',
     locale: 'en_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/en/solar-panel-types-comparison', locale: 'en' });
 
 const faqs = [
   {

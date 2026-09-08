@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import AnfrageForm from '@/components/AnfrageForm';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Richiedi preventivi solari gratuiti | PVPro.ch',
   description: 'Ricevi in pochi minuti preventivi gratuiti da installatori solari certificati in Svizzera.',
   alternates: {
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
-};
+}, { path: '/it/richiesta', locale: 'it' });
 
 export default function RichiestaPage() {
   return <AnfrageForm locale="it" />;

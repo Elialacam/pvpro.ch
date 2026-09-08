@@ -3,11 +3,11 @@
   "createdAt": "2026-08-17T10:30:45.246Z",
   "articles": {
     "de": {
-      "slug": "solaranlage-investition-sinnvoll-2026-warum-sich-photovoltaik-in-der-schweiz-jet",
+      "slug": "solaranlage-investition-2026",
       "locale": "de",
       "title": "Solaranlage Investition sinnvoll 2026: Warum sich Photovoltaik in der Schweiz jetzt lohnt",
       "metaDescription": "Ist eine Solaranlage Investition sinnvoll für 2026? Erfahren Sie, wie Sie mit dem neuen Energiegesetz und lokalen Stromgemeinschaften in der Schweiz profitieren.",
-      "image": "/images/autoblog/solaranlage-investition-sinnvoll-2026-warum-sich-photovoltaik-in-der-schweiz-jet.jpg",
+      "image": "/images/blog/solaranlage-investition-sinnvoll-2026-warum-sich-photovoltaik-in-der-schweiz-jet.jpg",
       "date": "17. August 2026",
       "readMin": 15,
       "tag": "Ratgeber",
@@ -72,11 +72,11 @@
       ]
     },
     "fr": {
-      "slug": "solaranlage-investition-sinnvoll-2026-warum-sich-photovoltaik-in-der-schweiz-jet",
+      "slug": "investissement-solaire-2026",
       "locale": "fr",
       "title": "Investir dans une installation solaire en 2026 : Pourquoi le photovoltaïque en Suisse est rentabilisé dès maintenant",
       "metaDescription": "Un investissement dans une installation solaire est-il rentable pour 2026 ? Découvrez comment profiter de la nouvelle loi sur l'énergie et des communautés électriques locales en Suisse.",
-      "image": "/images/autoblog/solaranlage-investition-sinnvoll-2026-warum-sich-photovoltaik-in-der-schweiz-jet.jpg",
+      "image": "/images/blog/solaranlage-investition-sinnvoll-2026-warum-sich-photovoltaik-in-der-schweiz-jet.jpg",
       "date": "17 août 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -141,11 +141,11 @@
       ]
     },
     "en": {
-      "slug": "solaranlage-investition-sinnvoll-2026-warum-sich-photovoltaik-in-der-schweiz-jet",
+      "slug": "solar-investment-2026",
       "locale": "en",
       "title": "Solar System Investment Worthwhile in 2026: Why Photovoltaics in Switzerland Make Sense Now",
       "metaDescription": "Is a solar system investment worthwhile for 2026? Learn how you can benefit from the new energy law and local electricity communities in Switzerland.",
-      "image": "/images/autoblog/solaranlage-investition-sinnvoll-2026-warum-sich-photovoltaik-in-der-schweiz-jet.jpg",
+      "image": "/images/blog/solaranlage-investition-sinnvoll-2026-warum-sich-photovoltaik-in-der-schweiz-jet.jpg",
       "date": "August 17, 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -210,11 +210,11 @@
       ]
     },
     "it": {
-      "slug": "solaranlage-investition-sinnvoll-2026-warum-sich-photovoltaik-in-der-schweiz-jet",
+      "slug": "investimento-impianto-solare-2026",
       "locale": "it",
       "title": "Investimento in Impianti Solari conveniente nel 2026: Perché il fotovoltaico in Svizzera conviene ora",
       "metaDescription": "L'investimento in impianti solari è conveniente per il 2026? Scopri come trarre vantaggio dalla nuova legge energetica e dalle comunità elettriche locali in Svizzera.",
-      "image": "/images/autoblog/solaranlage-investition-sinnvoll-2026-warum-sich-photovoltaik-in-der-schweiz-jet.jpg",
+      "image": "/images/blog/solaranlage-investition-sinnvoll-2026-warum-sich-photovoltaik-in-der-schweiz-jet.jpg",
       "date": "17 agosto 2026",
       "readMin": 15,
       "tag": "Guida",
@@ -278,5 +278,11 @@
         }
       ]
     }
+  },
+  "localeSlugs": {
+    "de": "solaranlage-investition-2026",
+    "it": "investimento-impianto-solare-2026",
+    "fr": "investissement-solaire-2026",
+    "en": "solar-investment-2026"
   }
 }

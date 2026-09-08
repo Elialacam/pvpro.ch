@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import { getCityBySlug } from '@/lib/cities';
 import { cityContents } from '@/lib/city-content';
 import { notFound } from 'next/navigation';
@@ -6,8 +7,8 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 
 const citySlug = 'ticino';
 
-export const metadata: Metadata = {
-  title: 'Fotovoltaico Ticino 2026: Incentivi e fino a 3 Offerte | PvPro',
+export const metadata: Metadata = pageMetadata({
+  title: 'Fotovoltaico Ticino 2026: Incentivi e fino a 3 Offerte | PVPro.ch',
   description: "Confronta gratuitamente fino a 3 offerte per il fotovoltaico in Ticino. Scopri incentivi 2026, costi, autoconsumo e soluzioni con o senza batteria.",
   alternates: {
     canonical: 'https://www.pvpro.ch/it/fotovoltaico-ticino',
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/it/fotovoltaico-ticino',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/it/fotovoltaico-ticino', locale: 'it' });
 
 export default function CityPage() {
   const city = getCityBySlug(citySlug);

@@ -3,11 +3,11 @@
   "createdAt": "2026-08-14T10:36:20.436Z",
   "articles": {
     "de": {
-      "slug": "kosten-einer-solaranlage-in-der-schweiz-2026-der-komplette-preis-ratgeber",
+      "slug": "solaranlage-kosten-schweiz-2026",
       "locale": "de",
       "title": "Kosten einer Solaranlage in der Schweiz 2026: Der komplette Preis-Ratgeber",
       "metaDescription": "Erfahren Sie, wie viel eine Solaranlage 2026 in der Schweiz kostet, welche Förderungen es gibt und wie Sie bis zu 30% sparen können.",
-      "image": "/images/autoblog/kosten-einer-solaranlage-in-der-schweiz-2026-der-komplette-preis-ratgeber.jpg",
+      "image": "/images/blog/kosten-einer-solaranlage-in-der-schweiz-2026-der-komplette-preis-ratgeber.jpg",
       "date": "14. August 2026",
       "readMin": 15,
       "tag": "Finanzen",
@@ -93,11 +93,11 @@
       ]
     },
     "fr": {
-      "slug": "kosten-einer-solaranlage-in-der-schweiz-2026-der-komplette-preis-ratgeber",
+      "slug": "cout-installation-solaire-suisse",
       "locale": "fr",
       "title": "Coût d'une installation solaire en Suisse 2026 : Le guide complet des prix",
       "metaDescription": "Découvrez combien coûte une installation solaire en Suisse en 2026, quelles subventions sont disponibles et comment vous pouvez économiser jusqu'à 30%.",
-      "image": "/images/autoblog/kosten-einer-solaranlage-in-der-schweiz-2026-der-komplette-preis-ratgeber.jpg",
+      "image": "/images/blog/kosten-einer-solaranlage-in-der-schweiz-2026-der-komplette-preis-ratgeber.jpg",
       "date": "14 août 2026",
       "readMin": 15,
       "tag": "Finances",
@@ -183,11 +183,11 @@
       ]
     },
     "en": {
-      "slug": "kosten-einer-solaranlage-in-der-schweiz-2026-der-komplette-preis-ratgeber",
+      "slug": "swiss-solar-system-cost",
       "locale": "en",
       "title": "Cost of a Solar System in Switzerland 2026: The Complete Price Guide",
       "metaDescription": "Discover the cost of a solar system in Switzerland in 2026, what incentives are available, and how you can save up to 30%.",
-      "image": "/images/autoblog/kosten-einer-solaranlage-in-der-schweiz-2026-der-komplette-preis-ratgeber.jpg",
+      "image": "/images/blog/kosten-einer-solaranlage-in-der-schweiz-2026-der-komplette-preis-ratgeber.jpg",
       "date": "August 14, 2026",
       "readMin": 15,
       "tag": "Finance",
@@ -273,11 +273,11 @@
       ]
     },
     "it": {
-      "slug": "kosten-einer-solaranlage-in-der-schweiz-2026-der-komplette-preis-ratgeber",
+      "slug": "costi-impianto-solare-svizzera",
       "locale": "it",
       "title": "Costi di un impianto solare in Svizzera 2026: La guida completa ai prezzi",
       "metaDescription": "Scopri quanto costa un impianto solare nel 2026 in Svizzera, quali incentivi sono disponibili e come puoi risparmiare fino al 30%.",
-      "image": "/images/autoblog/kosten-einer-solaranlage-in-der-schweiz-2026-der-komplette-preis-ratgeber.jpg",
+      "image": "/images/blog/kosten-einer-solaranlage-in-der-schweiz-2026-der-komplette-preis-ratgeber.jpg",
       "date": "14 agosto 2026",
       "readMin": 15,
       "tag": "Finanza",
@@ -362,5 +362,11 @@
         }
       ]
     }
+  },
+  "localeSlugs": {
+    "de": "solaranlage-kosten-schweiz-2026",
+    "it": "costi-impianto-solare-svizzera",
+    "fr": "cout-installation-solaire-suisse",
+    "en": "swiss-solar-system-cost"
   }
 }

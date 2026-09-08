@@ -12,9 +12,11 @@ import fs from 'fs';
 import path from 'path';
 import type { BlogArticle } from './blogArticles';
 import type { BlogPost } from './blogPosts';
+import { autoBlogPath, getAutoBlogSlugRecord, type BlogLocale } from './autoBlogSlugs';
 
 export interface AutoBlogFile {
   slug: string;
+  localeSlugs?: Record<BlogLocale, string>;
   createdAt: string; // ISO date
   articles: Record<'de' | 'fr' | 'en' | 'it', BlogArticle>;
 }
@@ -50,22 +52,37 @@ export function getAutoBlogFiles(): AutoBlogFile[] {
 }
 
 export function getAutoArticle(slug: string, locale: string): BlogArticle | undefined {
-  const file = getAutoBlogFiles().find((f) => f.slug === slug);
+  const canonical = getAutoBlogSlugRecord(slug, locale as BlogLocale);
+  const file = getAutoBlogFiles().find((f) => f.slug === (canonical?.legacySlug ?? slug));
   if (!file) return undefined;
-  return file.articles[locale as 'de' | 'fr' | 'en' | 'it'];
+  const article = file.articles[locale as BlogLocale];
+  if (!article) return undefined;
+  return {
+    ...article,
+    slug: file.localeSlugs?.[locale as BlogLocale] ?? canonical?.slugs[locale as BlogLocale] ?? article.slug,
+    publishedAt: file.createdAt,
+    modifiedAt: file.createdAt,
+  };
 }
 
 export function getAutoSlugs(): string[] {
   return getAutoBlogFiles().map((f) => f.slug);
 }
 
+/** Canonical static-route params for generated content in one locale. */
+export function getAutoArticleLocaleSlugs(locale: BlogLocale): string[] {
+  return getAutoBlogFiles()
+    .map((file) => file.localeSlugs?.[locale] ?? getAutoBlogSlugRecord(file.slug)?.slugs[locale])
+    .filter((slug): slug is string => !!slug);
+}
+
 /** Card metadata for the blog listing pages, per locale. */
 export function getAutoBlogCards(locale: 'de' | 'fr' | 'en' | 'it'): BlogPost[] {
   const authors: Record<string, string> = {
-    de: 'PVPro Redaktion',
-    fr: 'PVPro Rédaction',
-    en: 'PVPro Editorial',
-    it: 'Redazione PVPro',
+    de: 'PVPro.ch Redaktion',
+    fr: 'PVPro.ch Rédaction',
+    en: 'PVPro.ch Editorial',
+    it: 'Redazione PVPro.ch',
   };
   return getAutoBlogFiles()
     .map((f) => {
@@ -73,15 +90,19 @@ export function getAutoBlogCards(locale: 'de' | 'fr' | 'en' | 'it'): BlogPost[] 
       if (!a) return null;
       const base = locale === 'de' ? '/blog' : `/${locale}/blog`;
       return {
-        slug: f.slug,
+        slug: f.localeSlugs?.[locale] ?? getAutoBlogSlugRecord(f.slug)?.slugs[locale] ?? f.slug,
         title: a.title,
         excerpt: a.metaDescription,
         image: a.image,
         author: authors[locale],
         date: a.date,
-        readMin: a.readMin,
+        readMin: (() => {
+          // Keep card and article reading time based on the same visible editorial content.
+          const { articleReadingMinutes } = require('./blogUtils') as typeof import('./blogUtils');
+          return articleReadingMinutes({ ...a, publishedAt: f.createdAt, modifiedAt: f.createdAt });
+        })(),
         tag: a.tag,
-        href: `${base}/${f.slug}`,
+        href: getAutoBlogSlugRecord(f.slug) ? autoBlogPath(getAutoBlogSlugRecord(f.slug)!, locale) : `${base}/${f.slug}`,
       } as BlogPost;
     })
     .filter((c): c is BlogPost => !!c);

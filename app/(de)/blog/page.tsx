@@ -6,8 +6,9 @@ import { getAutoBlogCards } from '@/lib/autoBlog';
 import PlzWidget from '@/components/PlzWidget';
 import { Calendar, Clock, ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Blog & Ratgeber | PVPro.ch – Solarenergie in der Schweiz',
   description: 'Aktuelle Ratgeber, News und Tipps rund um Solaranlagen, Förderungen und Photovoltaik in der Schweiz.',
   alternates: {
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/blog',
     },
   },
-};
+}, { path: '/blog', locale: 'de' });
 
 const tags = ['Alle', 'Ratgeber', 'Förderungen', 'Speicher', 'Tipps', 'Finanzen'];
 
@@ -39,7 +40,7 @@ export default function BlogPage() {
         {/* Page header */}
         <div className="mb-10">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-4">
-            PVPro Blog
+            PVPro.ch Blog
           </h1>
           <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
             Ratgeber, News und Tipps rund um Solarenergie, Photovoltaik-Förderungen und nachhaltige Energie in der Schweiz.
@@ -85,8 +86,7 @@ export default function BlogPage() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       style={{ objectPosition: getImageFocus(post.image) }}
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                    />
+                      sizes="(max-width: 640px) 100vw, 50vw" loading="lazy"/>
                     <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-xs font-semibold text-gray-700 px-2.5 py-1 rounded-full">
                       {post.tag}
                     </span>

@@ -15,7 +15,7 @@ const footerContent: Record<string, {
 }> = {
   de: {
     description: 'PVPro.ch ist eine unabhängige Schweizer Plattform, die Immobilienbesitzer mit geprüften Photovoltaik-Installateuren verbindet.',
-    copyright: '© 2026 PVPro. Alle Rechte vorbehalten.',
+    copyright: '© 2026 PVPro.ch. Alle Rechte vorbehalten.',
     columns: [
       {
         title: 'Ressourcen',
@@ -51,7 +51,7 @@ const footerContent: Record<string, {
   },
   fr: {
     description: "PVPro.ch est une plateforme suisse indépendante qui met en relation les propriétaires avec des installateurs photovoltaïques certifiés.",
-    copyright: '© 2026 PVPro. Tous droits réservés.',
+    copyright: '© 2026 PVPro.ch. Tous droits réservés.',
     columns: [
       {
         title: 'Ressources',
@@ -87,7 +87,7 @@ const footerContent: Record<string, {
   },
   en: {
     description: 'PVPro.ch is an independent Swiss platform connecting homeowners with certified photovoltaic installers.',
-    copyright: '© 2026 PVPro. All rights reserved.',
+    copyright: '© 2026 PVPro.ch. All rights reserved.',
     columns: [
       {
         title: 'Resources',
@@ -123,7 +123,7 @@ const footerContent: Record<string, {
   },
   it: {
     description: 'PVPro.ch è una piattaforma svizzera indipendente che mette in contatto i proprietari immobiliari con installatori fotovoltaici certificati.',
-    copyright: '© 2026 PVPro. Tutti i diritti riservati.',
+    copyright: '© 2026 PVPro.ch. Tutti i diritti riservati.',
     columns: [
       {
         title: 'Risorse',
@@ -182,6 +182,8 @@ export default function Footer() {
                 alt="PVPro.ch"
                 width={130}
                 height={36}
+                sizes="440px"
+                loading="lazy"
                 className="h-32 w-auto -my-10 -ml-3"
               />
             </Link>

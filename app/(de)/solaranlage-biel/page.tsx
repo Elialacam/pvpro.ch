@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import { getCityBySlug } from '@/lib/cities';
 import { cityContents } from '@/lib/city-content';
 import { notFound } from 'next/navigation';
@@ -6,8 +7,8 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 
 const citySlug = 'biel';
 
-export const metadata: Metadata = {
-  title: 'Solaranlage Biel/Bienne – Offerten vergleichen 2026 | PVPro',
+export const metadata: Metadata = pageMetadata({
+  title: 'Solaranlage Biel/Bienne – Offerten vergleichen 2026 | PVPro.ch',
   description: "Solaranlage in Biel/Bienne: Bis zu 3 Offerten vergleichen. Dreifache Förderung: EIV Bund + Kanton Bern + Energiefonds Stadt Biel. Unverbindlich & kostenlos.",
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-biel',
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/solaranlage-biel',
     },
   },
-};
+}, { path: '/solaranlage-biel', locale: 'de' });
 
 export default function CityPage() {
   const city = getCityBySlug(citySlug);

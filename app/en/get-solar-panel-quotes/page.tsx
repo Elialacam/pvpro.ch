@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, FileText, Clock, Coins } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Get Solar Panel Quotes Switzerland 2026 – Free & No Obligation | PVPro.ch',
   description: 'Request free solar panel quotes in Switzerland. Up to 3 quotes from certified installers in your canton. Compare and save.',
   alternates: {
@@ -23,9 +24,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/en/get-solar-panel-quotes',
     type: 'website',
     locale: 'en_US',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/en/get-solar-panel-quotes', locale: 'en' });
 
 const faqs = [
   {
@@ -189,7 +190,7 @@ export default function GetSolarPanelQuotesPage() {
         {/* ── Quote contents ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Solar panel quote Switzerland" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Solar panel quote Switzerland" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Checklist</p>

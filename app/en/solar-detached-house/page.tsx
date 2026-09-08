@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Sun, CheckCircle2, Home, Ruler, Cpu, Wrench, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Solar installation for detached houses Switzerland: costs, size and benefits | PVPro.ch',
   description: 'What does a solar installation for a detached house in Switzerland cost? Prices, size, subsidies and tips explained simply. Compare offers now.',
   alternates: {
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/solaranlage-einfamilienhaus',
     },
   },
-};
+}, { path: '/en/solar-detached-house', locale: 'en' });
 
 const costRows = [
   { size: 'Small installation (6–8 kWp)',  price: "approx. CHF 20,000 – 25,000", highlight: false },
@@ -146,7 +147,7 @@ export default function SolarDetachedHousePage() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-installateur-dach-1.webp" alt="Solar installation detached house Switzerland" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" />
+            <Image src="/images/asset-installateur-dach-1.webp" alt="Solar installation detached house Switzerland" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" loading="lazy"/>
           </div>
         </section>
 
@@ -181,7 +182,7 @@ export default function SolarDetachedHousePage() {
               ))}
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <Image src="/images/asset-haus-luftbild-1.webp" alt="Detached house with solar installation" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-haus-luftbild-1.webp" alt="Detached house with solar installation" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
             </div>
           </div>
         </section>
@@ -189,7 +190,7 @@ export default function SolarDetachedHousePage() {
         {/* ── Is it worth it ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Solar installation consultation" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Solar installation consultation" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" loading="lazy"/>
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Profitability</p>
@@ -337,7 +338,7 @@ export default function SolarDetachedHousePage() {
             Compare offers and optimise costs
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Solar installation prices vary greatly depending on the provider. Via PVPro you receive up to 3 free quotes from certified installers in your canton.
+            Solar installation prices vary greatly depending on the provider. Via PVPro.ch you receive up to 3 free quotes from certified installers in your canton.
           </p>
           <Link
             href="/en/request"

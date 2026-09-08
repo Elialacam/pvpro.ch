@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, FileText, Clock, Coins } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Demander une offre panneau solaire Suisse 2026 – Gratuit & sans engagement | PVPro.ch",
   description: "Demandez des offres gratuites pour votre installation solaire en Suisse. Jusqu'à 3 devis d'installateurs certifiés dans votre canton. Comparez et économisez.",
   alternates: {
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/demander-offre-panneau-solaire',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
 };
 
@@ -219,7 +220,7 @@ export default function DemanderOffrePanneauSolairePage() {
         {/* ── Que contient une bonne offre ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Offre panneau solaire Suisse" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Offre panneau solaire Suisse" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Liste de contrôle</p>
@@ -378,3 +379,5 @@ export default function DemanderOffrePanneauSolairePage() {
     </main>
   );
 }
+
+export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/demander-offre-panneau-solaire', locale: 'fr' });

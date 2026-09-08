@@ -3,11 +3,11 @@
   "createdAt": "2026-08-28T10:42:18.511Z",
   "articles": {
     "de": {
-      "slug": "solar-offerte-prufen-die-ultimative-checkliste-fur-schweizer-hauseigentumer-2026",
+      "slug": "solarofferte-checkliste-hauseigentuemer",
       "locale": "de",
       "title": "Solar Offerte prüfen: Die ultimative Checkliste für Schweizer Hauseigentümer 2026",
       "metaDescription": "Solar Offerte prüfen Checkliste 2026: Schritt für Schritt Angebote vergleichen, Fördergelder sichern & teure Fehler vermeiden. Jetzt als Hausbesitzer den besten Anbieter finden.",
-      "image": "/images/autoblog/solar-offerte-prufen-die-ultimative-checkliste-fur-schweizer-hauseigentumer-2026.jpg",
+      "image": "/images/blog/solar-offerte-prufen-die-ultimative-checkliste-fur-schweizer-hauseigentumer-2026.jpg",
       "date": "28. August 2026",
       "readMin": 15,
       "tag": "Ratgeber",
@@ -92,11 +92,11 @@
       ]
     },
     "fr": {
-      "slug": "solar-offerte-prufen-die-ultimative-checkliste-fur-schweizer-hauseigentumer-2026",
+      "slug": "checklist-offres-solaires-proprietaires",
       "locale": "fr",
       "title": "Vérification des Offres Solaires: La Check-list Ultime pour les Propriétaires Suisses 2026",
       "metaDescription": "Check-list de vérification des offres solaires 2026: Comparer les offres pas à pas, sécuriser les subventions et éviter les erreurs coûteuses. Trouvez maintenant le meilleur fournisseur en tant que propriétaire.",
-      "image": "/images/autoblog/solar-offerte-prufen-die-ultimative-checkliste-fur-schweizer-hauseigentumer-2026.jpg",
+      "image": "/images/blog/solar-offerte-prufen-die-ultimative-checkliste-fur-schweizer-hauseigentumer-2026.jpg",
       "date": "28 août 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -181,11 +181,11 @@
       ]
     },
     "en": {
-      "slug": "solar-offerte-prufen-die-ultimative-checkliste-fur-schweizer-hauseigentumer-2026",
+      "slug": "solar-quotes-homeowners-checklist",
       "locale": "en",
       "title": "Reviewing Solar Quotes: The Ultimate Checklist for Swiss Homeowners 2026",
       "metaDescription": "Solar Quote Review Checklist 2026: Compare offers step-by-step, secure funding, & avoid costly mistakes. Find the best provider as a homeowner now.",
-      "image": "/images/autoblog/solar-offerte-prufen-die-ultimative-checkliste-fur-schweizer-hauseigentumer-2026.jpg",
+      "image": "/images/blog/solar-offerte-prufen-die-ultimative-checkliste-fur-schweizer-hauseigentumer-2026.jpg",
       "date": "August 28, 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -270,11 +270,11 @@
       ]
     },
     "it": {
-      "slug": "solar-offerte-prufen-die-ultimative-checkliste-fur-schweizer-hauseigentumer-2026",
+      "slug": "checklist-offerte-solari-proprietari",
       "locale": "it",
       "title": "Controllare le Offerte Solari: La Checklist Ultimata per i Proprietari di Case Svizzeri 2026",
       "metaDescription": "Controllare offerte solari 2026: guidati passo dopo passo per confrontare offerte, ottenere sovvenzioni & evitare errori costosi. Trova ora il miglior fornitore.",
-      "image": "/images/autoblog/solar-offerte-prufen-die-ultimative-checkliste-fur-schweizer-hauseigentumer-2026.jpg",
+      "image": "/images/blog/solar-offerte-prufen-die-ultimative-checkliste-fur-schweizer-hauseigentumer-2026.jpg",
       "date": "28 agosto 2026",
       "readMin": 15,
       "tag": "Guida",
@@ -357,5 +357,11 @@
         }
       ]
     }
+  },
+  "localeSlugs": {
+    "de": "solarofferte-checkliste-hauseigentuemer",
+    "it": "checklist-offerte-solari-proprietari",
+    "fr": "checklist-offres-solaires-proprietaires",
+    "en": "solar-quotes-homeowners-checklist"
   }
 }

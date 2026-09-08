@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Sun, Zap, TrendingDown, CheckCircle2, Home, Ruler, Award, Wrench } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import PhotovoltaikFaq from '@/components/PhotovoltaikFaq';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Photovoltaik Kosten pro m² Schweiz: Preise, Beispiele und Berechnung | PVPro.ch',
   description: 'Wie viel kostet Photovoltaik pro m² in der Schweiz? Preise, Beispiele und Kosten pro kWp einfach erklärt. Jetzt Angebote vergleichen.',
   alternates: {
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/photovoltaik-kosten-pro-m2',
     },
   },
-};
+}, { path: '/photovoltaik-kosten-pro-m2', locale: 'de' });
 
 const priceRows = [
   { label: 'Einfache Anlage', range: 'ca. 200 – 250 CHF', color: '#6b7280', highlight: false },
@@ -129,7 +130,7 @@ export default function PhotovoltaikKostenProM2Page() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-panel-closeup-1.webp" alt="Solarpanele Schweiz" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+            <Image src="/images/asset-panel-closeup-1.webp" alt="Solarpanele Schweiz" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
           </div>
         </section>
 
@@ -154,7 +155,7 @@ export default function PhotovoltaikKostenProM2Page() {
         {/* ── Example ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-haus-luftbild-2.webp" alt="Einfamilienhaus mit Solaranlage" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+            <Image src="/images/asset-haus-luftbild-2.webp" alt="Einfamilienhaus mit Solaranlage" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Rechenbeispiel</p>
@@ -260,7 +261,7 @@ export default function PhotovoltaikKostenProM2Page() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-beratung-indoor-1.webp" alt="Solaranlage Beratung Schweiz" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+            <Image src="/images/asset-beratung-indoor-1.webp" alt="Solaranlage Beratung Schweiz" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
           </div>
         </section>
 
@@ -280,7 +281,7 @@ export default function PhotovoltaikKostenProM2Page() {
             Angebote vergleichen und Kosten genau berechnen
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Die Kosten pro m² sind nur eine grobe Orientierung. Über PVPro erhalten Sie kostenlos Offerten von geprüften Installateuren — genau berechnet für Ihr Haus.
+            Die Kosten pro m² sind nur eine grobe Orientierung. Über PVPro.ch erhalten Sie kostenlos Offerten von geprüften Installateuren — genau berechnet für Ihr Haus.
           </p>
           <Link
             href="/anfrage"

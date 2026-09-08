@@ -5,18 +5,37 @@ import { ChevronRight, Calendar, Clock, ArrowRight, AlertTriangle, CheckCircle2 
 import { BlogArticle } from '@/lib/blogArticles';
 import { blogPosts } from '@/lib/blogPosts';
 import { blogPostsI18n } from '@/lib/blogPostsI18n';
-import FaqSchema from '@/components/FaqSchema';
+import { getAutoBlogCards } from '@/lib/autoBlog';
+import { getAutoBlogSlugRecord } from '@/lib/autoBlogSlugs';
+import ArticleAuthorBox from '@/components/ArticleAuthorBox';
+import ArticleStructuredData from '@/components/ArticleStructuredData';
+import { articleDates, articleReadingMinutes, sanitizeFaqs } from '@/lib/blogUtils';
 
 interface Props {
   article: BlogArticle;
   blogBase: string;
   homeHref: string;
+  canonicalPath: string;
 }
 
-export default function BlogArticlePage({ article, blogBase, homeHref }: Props) {
-  const relatedPosts = article.locale === 'de'
+export default function BlogArticlePage({ article, blogBase, homeHref, canonicalPath }: Props) {
+  const readingMinutes = articleReadingMinutes(article);
+  const dates = articleDates(article);
+  const faqs = sanitizeFaqs(article.faqs);
+  const updatedLabel = article.locale === 'fr' ? 'Mis à jour le' : article.locale === 'it' ? 'Aggiornato il' : article.locale === 'en' ? 'Updated on' : 'Aktualisiert am';
+  const staticRelatedPosts = article.locale === 'de'
     ? blogPosts.filter(p => article.relatedSlugs.includes(p.slug))
     : (blogPostsI18n[article.locale] ?? []).filter(p => article.relatedSlugs.includes(p.slug));
+  // Auto content uses legacy identities in relatedSlugs. Cards expose only
+  // canonical locale URLs, so no rendered related link can point at a legacy
+  // generated-article address.
+  const autoRelatedSlugs = new Set(article.relatedSlugs.flatMap((slug) => {
+    const record = getAutoBlogSlugRecord(slug);
+    return record ? [record.slugs[article.locale]] : [slug];
+  }));
+  const autoRelatedPosts = getAutoBlogCards(article.locale)
+    .filter(p => autoRelatedSlugs.has(p.slug));
+  const relatedPosts = [...staticRelatedPosts, ...autoRelatedPosts];
 
   const heroStats = article.sections.find(s => s.stats && s.stats.length > 0)?.stats ?? [];
 
@@ -74,10 +93,13 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
                 {article.tag}
               </span>
               <span className="flex items-center gap-1.5 text-white/40 text-xs">
-                <Calendar className="w-3.5 h-3.5" /> {article.date}
+                <Calendar className="w-3.5 h-3.5" /> <time dateTime={dates.publishedAt}>{article.date}</time>
               </span>
               <span className="flex items-center gap-1.5 text-white/40 text-xs">
-                <Clock className="w-3.5 h-3.5" /> {article.readMin} min
+                {updatedLabel} <time dateTime={dates.modifiedAt}>{article.date}</time>
+              </span>
+              <span className="flex items-center gap-1.5 text-white/40 text-xs">
+                <Clock className="w-3.5 h-3.5" /> {readingMinutes} min
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-6">
@@ -150,28 +172,12 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
               </section>
             ))}
 
-            {/* ── CTA block ── */}
-            <section className="rounded-3xl p-8 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
-              <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #fcb210 0%, transparent 55%)' }} />
-              <div className="relative">
-                <h2 className="text-2xl font-bold text-white mb-3">{article.ctaHeading}</h2>
-                <p className="text-gray-400 leading-relaxed mb-6 text-sm">{article.ctaText}</p>
-                <Link
-                  href={article.formUrl}
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg"
-                  style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}
-                >
-                  {article.ctaButton} <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </section>
-
             {/* ── FAQ ── */}
-            {article.faqs.length > 0 && (
+            {faqs.length > 0 && (
               <section>
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">{faqLabel}</h2>
                 <div className="space-y-3">
-                  {article.faqs.map((faq, i) => (
+                  {faqs.map((faq, i) => (
                     <details key={i} className="group rounded-2xl border border-gray-100 bg-white overflow-hidden shadow-sm">
                       <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-gray-900 text-sm select-none list-none">
                         {faq.question}
@@ -186,7 +192,20 @@ export default function BlogArticlePage({ article, blogBase, homeHref }: Props) 
               </section>
             )}
 
-            {article.faqs.length > 0 && <FaqSchema faqs={article.faqs} />}
+            <ArticleAuthorBox locale={article.locale} />
+            <ArticleStructuredData article={article} canonicalPath={canonicalPath} faqs={faqs} />
+
+            {/* ── CTA block ── */}
+            <section className="rounded-3xl p-8 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
+              <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #fcb210 0%, transparent 55%)' }} />
+              <div className="relative">
+                <h2 className="text-2xl font-bold text-white mb-3">{article.ctaHeading}</h2>
+                <p className="text-gray-400 leading-relaxed mb-6 text-sm">{article.ctaText}</p>
+                <Link href={article.formUrl} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
+                  {article.ctaButton} <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </section>
 
           </article>
 

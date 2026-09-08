@@ -1,23 +1,14 @@
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import CtaAnfrage from '@/components/CtaAnfrage';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
-  title: 'Solar Panel Costs Switzerland 2026 – What does a solar installation cost? | PVPro',
+export const metadata: Metadata = pageMetadata({
+  title: 'Solar Panel Costs Switzerland 2026 – What does a solar installation cost? | PVPro.ch',
   description: 'How much does a solar installation cost in Switzerland? 2026 prices: CHF 15,000 – 35,000 for a detached house. Costs per kWp, subsidies and storage. Compare offers free of charge.',
-  keywords: [
-    'Solar panel costs Switzerland',
-    'Solar installation cost Switzerland',
-    'Photovoltaic costs Switzerland',
-    'Solar installation price detached house',
-    'PV system cost per kWp',
-    '10 kW solar installation cost',
-    'Solar installation with storage cost',
-    'Solar subsidies Switzerland',
-  ],
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-panel-costs',
     languages: {
@@ -34,9 +25,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/en/solar-panel-costs',
     type: 'article',
     locale: 'en_GB',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/en/solar-panel-costs', locale: 'en' });
 
 const costTable = [
   { size: '5 kWp', production: '4,500 – 5,000 kWh', price: 'CHF 13,000 – 18,000', area: 'approx. 30 – 35 m²', ideal: 'Small house' },
@@ -118,8 +109,8 @@ export default function SolarPanelCostsPage() {
             "@type": "Article",
             "headline": "How much does a solar installation cost in Switzerland? Current prices 2026",
             "description": "Current costs for solar installations in Switzerland. 5–10 kWp systems, costs per kWp, subsidies and battery storage.",
-            "author": { "@type": "Organization", "name": "PVPro" },
-            "publisher": { "@type": "Organization", "name": "PVPro", "url": "https://www.pvpro.ch" },
+            "author": { "@type": "Organization", "name": "PVPro.ch" },
+            "publisher": { "@type": "Organization", "name": "PVPro.ch", "url": "https://www.pvpro.ch" },
             "datePublished": "2025-01-01",
             "dateModified": new Date().toISOString().split('T')[0],
           })
@@ -168,6 +159,7 @@ export default function SolarPanelCostsPage() {
                 alt="Solar installation on a Swiss detached house – aerial view"
                 width={700}
                 height={500}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="w-full h-auto object-cover"
                 priority
               />

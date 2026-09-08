@@ -1,0 +1,45 @@
+Riscrivi la pagina /ueber-uns (e /it/chi-siamo, /fr/a-propos, versione EN) con il testo qui sotto. Struttura: H1, sezioni H2, una foto di Elia Alacam in alto (slot immagine, la carico io, alt "Elia Alacam, Gründer PVPro.ch"), blocco contatto in fondo. Togli i contatori ("26 Kantone") e la foto team generica. Aggiungi schema Person per Elia Alacam (name, jobTitle, worksFor Organization PVPro.ch, url). FR ed EN: traduzione completa dal tedesco, nessuna abbreviazione.
+
+--- TESTO DE ---
+H1: Wer hinter PVPro.ch steht
+
+Ich bin Elia Alacam. Ich habe PVPro.ch [2023] in Lugano gegründet, nachdem ich gesehen hatte, wie unterschiedlich Solar-Offerten für dasselbe Dach ausfallen. Zwei Betriebe, dieselbe Anlage, mehrere tausend Franken Unterschied. Der Hausbesitzer merkt das nur, wenn er vergleicht. Genau das macht PVPro.ch möglich.
+
+H2: Was wir tun
+Sie füllen ein Formular aus. Wir prüfen Ihre Anfrage telefonisch und geben sie an bis zu drei Fachbetriebe aus Ihrem Kanton weiter. Die Offerten kommen direkt von den Betrieben. Wir schreiben keine Offerten und wir installieren nicht.
+
+H2: Womit wir Geld verdienen
+Für Sie ist der Service kostenlos. Die Installateure bezahlen uns für den Kontakt. Das sagen wir offen, weil jedes Vergleichsportal so funktioniert und wir es lieber selbst erklären.
+
+H2: Wie ein Betrieb ins Netzwerk kommt
+Wir arbeiten heute mit über 25 Schweizer Fachbetrieben zusammen, viele davon seit über 20 Jahren im Geschäft. Bevor ein Betrieb Anfragen von uns erhält, prüfen wir [Handelsregistereintrag, Versicherung, Referenzen, Kundenbewertungen]. Wer wiederholt schlechtes Feedback bekommt, erhält keine Anfragen mehr.
+
+H2: Zahlen, die stimmen
+Seit dem Start haben wir über 1'000 Offertenanfragen vermittelt. Wir nennen bewusst keine grösseren Zahlen: Auf dieser Website steht nur, was wir belegen können.
+
+H2: Kontakt
+NOBA Media Sagl, Via Rinaldo Simen 3, 6900 Lugano
+anfrage@pvpro.ch, [Telefon]
+Handelsregister CHE-236.020.113
+
+--- TESTO IT ---
+H1: Chi c'è dietro PVPro.ch
+
+Sono Elia Alacam. Ho fondato PVPro.ch nel [2023] a Lugano dopo aver visto quanto cambiano i preventivi fotovoltaici per lo stesso tetto. Due ditte, lo stesso impianto, diverse migliaia di franchi di differenza. Il proprietario se ne accorge solo se confronta. PVPro.ch serve esattamente a questo.
+
+H2: Cosa facciamo
+Compili un modulo. Verifichiamo la richiesta per telefono e la passiamo a un massimo di tre ditte specializzate del tuo Cantone. I preventivi arrivano direttamente dalle ditte. Noi non scriviamo preventivi e non installiamo.
+
+H2: Come guadagniamo
+Per te il servizio è gratuito. Sono gli installatori a pagarci per il contatto. Lo diciamo apertamente perché ogni portale di confronto funziona così e preferiamo spiegarlo noi.
+
+H2: Come una ditta entra nella rete
+Oggi lavoriamo con oltre 25 ditte svizzere, molte delle quali attive da più di 20 anni. Prima che una ditta riceva richieste da noi, verifichiamo [iscrizione al registro di commercio, assicurazione, referenze, recensioni dei clienti]. Chi riceve ripetutamente feedback negativi non riceve più richieste.
+
+H2: Numeri veri
+Dall'inizio abbiamo trasmesso oltre 1'000 richieste di preventivo. Non citiamo apposta numeri più grandi: su questo sito trovi solo quello che possiamo dimostrare.
+
+H2: Contatto
+NOBA Media Sagl, Via Rinaldo Simen 3, 6900 Lugano
+anfrage@pvpro.ch, [telefono]
+Registro di commercio CHE-236.020.113

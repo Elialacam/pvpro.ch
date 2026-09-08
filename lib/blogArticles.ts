@@ -18,6 +18,9 @@ export interface BlogArticle {
   metaDescription: string;
   image: string;
   date: string;
+  /** ISO editorial dates. Manual articles derive this deterministically from date. */
+  publishedAt?: string;
+  modifiedAt?: string;
   readMin: number;
   tag: string;
   intro: string;
@@ -428,7 +431,7 @@ const articles: BlogArticle[] = [
         heading: 'Schritt-für-Schritt: So beantragen Sie Ihre Förderung',
         content: ['Die gute Nachricht: Ihr Installateur übernimmt in der Regel die komplette Förderanmeldung. Trotzdem ist es wichtig, den Prozess zu verstehen, damit nichts vergessen geht.'],
         bullets: ['1. Anlage installieren lassen (Installateur meldet an)', '2. Pronovo-Antrag stellen (meist durch Installateur)', '3. Abnahme durch Netzbetreiber', '4. EIV-Zahlung nach 2–6 Monaten', '5. Kantonalen Beitrag separat beantragen (falls nötig)', '6. Steuerabzug in nächste Steuererklärung'],
-        highlight: 'PVPro-Partnerinstallateure erledigen die komplette Förderung – Sie müssen nichts selbst ausfüllen.',
+        highlight: 'PVPro.ch-Partnerinstallateure erledigen die komplette Förderung – Sie müssen nichts selbst ausfüllen.',
       },
       {
         heading: 'Neue Förderungen 2026: Was ist neu?',
@@ -475,7 +478,7 @@ const articles: BlogArticle[] = [
         heading: 'Étape par étape: comment obtenir vos subventions',
         content: ["Bonne nouvelle: votre installateur prend généralement en charge toute la procédure de subvention. Il est néanmoins important de comprendre le processus."],
         bullets: ["1. Faire installer l'installation (l'installateur déclare)", "2. Déposer la demande Pronovo (généralement par l'installateur)", "3. Réception par le gestionnaire de réseau", "4. Versement RU après 2–6 mois", "5. Demander séparément la contribution cantonale (si nécessaire)", "6. Déduction fiscale dans la prochaine déclaration"],
-        highlight: "Les installateurs partenaires de PVPro s'occupent de toutes les démarches – vous n'avez rien à remplir.",
+        highlight: "Les installateurs partenaires de PVPro.ch s'occupent de toutes les démarches – vous n'avez rien à remplir.",
       },
       {
         heading: 'Nouvelles aides 2026: quoi de neuf?',
@@ -522,7 +525,7 @@ const articles: BlogArticle[] = [
         heading: 'Step by step: how to claim your subsidies',
         content: ['Good news: your installer typically handles the complete subsidy process. Still, it is worth understanding the steps.'],
         bullets: ['1. Have installation completed (installer registers)', '2. File Pronovo application (usually by installer)', '3. Acceptance by grid operator', '4. EIV payment after 2–6 months', '5. Apply separately for cantonal contribution (if applicable)', '6. Tax deduction in next tax return'],
-        highlight: 'PVPro partner installers handle all paperwork – you do not need to fill in anything.',
+        highlight: 'PVPro.ch partner installers handle all paperwork – you do not need to fill in anything.',
       },
       {
         heading: 'New subsidies 2026: what is new?',
@@ -569,7 +572,7 @@ const articles: BlogArticle[] = [
         heading: 'Passo per passo: come ottenere gli incentivi',
         content: ["Buona notizia: il tuo installatore si occupa generalmente di tutta la procedura di incentivazione. Vale comunque la pena capire il processo."],
         bullets: ["1. Fare installare l'impianto (l'installatore registra)", "2. Presentare la domanda Pronovo (di solito dall'installatore)", "3. Collaudo da parte del gestore di rete", "4. Pagamento RU dopo 2–6 mesi", "5. Richiedere separatamente il contributo cantonale (se necessario)", "6. Deduzione fiscale nella prossima dichiarazione dei redditi"],
-        highlight: "Gli installatori partner di PVPro si occupano di tutte le pratiche – non devi compilare nulla tu stesso.",
+        highlight: "Gli installatori partner di PVPro.ch si occupano di tutte le pratiche – non devi compilare nulla tu stesso.",
       },
       {
         heading: 'Nuovi incentivi 2026: cosa c\'è di nuovo?',
@@ -784,7 +787,7 @@ const articles: BlogArticle[] = [
     slug: 'richtigen-solarinstallateur-schweiz-waehlen',
     locale: 'de',
     title: 'Den richtigen Solarinstallateur wählen: 7 wichtige Kriterien',
-    metaDescription: '7 Kriterien für die Wahl des besten Solarinstallateurs in der Schweiz. Zertifizierungen, Referenzen, Garantien und wie PVPro den Vergleich vereinfacht.',
+    metaDescription: '7 Kriterien für die Wahl des besten Solarinstallateurs in der Schweiz. Zertifizierungen, Referenzen, Garantien und wie PVPro.ch den Vergleich vereinfacht.',
     image: '/images/solarinstallateure-offerte-beratung.webp',
     date: '18. Februar 2026',
     readMin: 4,
@@ -809,15 +812,15 @@ const articles: BlogArticle[] = [
       },
     ],
     ctaHeading: 'Jetzt bis zu 3 geprüfte Offerten vergleichen',
-    ctaText: 'PVPro prüft jeden Installateur nach diesen 7 Kriterien vor. Sie erhalten nur Offerten von qualifizierten, lokalen Fachbetrieben.',
+    ctaText: 'PVPro.ch prüft jeden Installateur nach diesen 7 Kriterien vor. Sie erhalten nur Offerten von qualifizierten, lokalen Fachbetrieben.',
     ctaButton: 'Jetzt kostenlose Offerte anfordern',
     formUrl: '/anfrage',
     relatedSlugs: ['foerderungen-photovoltaik-2026', 'roi-photovoltaik-schweiz', 'solaranlage-winter-schweiz'],
     faqs: [
       { question: 'Welche Zertifizierungen sind für Solarinstallateure in der Schweiz Pflicht?', answer: 'Der Installateur muss im STROM-Register des NIV (Niederspannungs-Installationsverordnung) eingetragen sein. Für die EIV-Beantragung ist zusätzlich eine Pronovo-Registrierung nötig.' },
-      { question: 'Wie viele Offerten sollte ich einholen?', answer: 'Mindestens 3 Offerten von verschiedenen Betrieben. Die Preisunterschiede können 20–35% betragen – bei gleichwertiger Qualität. PVPro liefert Ihnen bis zu 3 geprüfte Offerten in wenigen Tagen.' },
-      { question: 'Was tun, wenn der Installateur nach der Installation nicht mehr erreichbar ist?', answer: 'Dokumentieren Sie alles schriftlich und wählen Sie einen etablierten Betrieb mit Referenzen. PVPro-Partner haben alle mindestens 3 Jahre Betriebsgeschichte und lokale Präsenz.' },
-      { question: 'Gibt es schwarze Schafe in der Solarbranche?', answer: 'Leider ja. Häufige Warnsignale: Kein lokaler Betrieb, keine schriftliche Offerte, Druck für sofortige Unterschrift, fehlende Zertifizierungsnachweise. Über PVPro erhalten Sie ausschliesslich geprüfte Betriebe.' },
+      { question: 'Wie viele Offerten sollte ich einholen?', answer: 'Mindestens 3 Offerten von verschiedenen Betrieben. Die Preisunterschiede können 20–35% betragen – bei gleichwertiger Qualität. PVPro.ch liefert Ihnen bis zu 3 geprüfte Offerten in wenigen Tagen.' },
+      { question: 'Was tun, wenn der Installateur nach der Installation nicht mehr erreichbar ist?', answer: 'Dokumentieren Sie alles schriftlich und wählen Sie einen etablierten Betrieb mit Referenzen. PVPro.ch-Partner haben alle mindestens 3 Jahre Betriebsgeschichte und lokale Präsenz.' },
+      { question: 'Gibt es schwarze Schafe in der Solarbranche?', answer: 'Leider ja. Häufige Warnsignale: Kein lokaler Betrieb, keine schriftliche Offerte, Druck für sofortige Unterschrift, fehlende Zertifizierungsnachweise. Über PVPro.ch erhalten Sie ausschliesslich geprüfte Betriebe.' },
     ],
   },
 
@@ -826,7 +829,7 @@ const articles: BlogArticle[] = [
     slug: 'richtigen-solarinstallateur-schweiz-waehlen',
     locale: 'fr',
     title: 'Choisir le bon installateur solaire en Suisse: 7 critères essentiels',
-    metaDescription: "7 critères pour choisir le meilleur installateur solaire en Suisse. Certifications, références, garanties et comment PVPro simplifie la comparaison.",
+    metaDescription: "7 critères pour choisir le meilleur installateur solaire en Suisse. Certifications, références, garanties et comment PVPro.ch simplifie la comparaison.",
     image: '/images/solarinstallateure-offerte-beratung.webp',
     date: '18 février 2026',
     readMin: 4,
@@ -851,15 +854,15 @@ const articles: BlogArticle[] = [
       },
     ],
     ctaHeading: "Comparez maintenant jusqu'à 3 offres vérifiées",
-    ctaText: "PVPro vérifie chaque installateur selon ces 7 critères. Vous ne recevez que des offres d'entreprises qualifiées et locales.",
+    ctaText: "PVPro.ch vérifie chaque installateur selon ces 7 critères. Vous ne recevez que des offres d'entreprises qualifiées et locales.",
     ctaButton: 'Demander une offre gratuite',
     formUrl: '/fr/demande',
     relatedSlugs: ['foerderungen-photovoltaik-2026', 'roi-photovoltaik-schweiz', 'solaranlage-winter-schweiz'],
     faqs: [
       { question: "Quelles certifications sont obligatoires pour les installateurs solaires en Suisse?", answer: "L'installateur doit être inscrit dans le registre compétent selon l'OIBT. Pour la demande de RU, une inscription auprès de Pronovo est également nécessaire." },
-      { question: "Combien d'offres devrait-on obtenir?", answer: "Au moins 3 offres de différentes entreprises. Les différences de prix peuvent atteindre 20–35% pour une qualité équivalente. PVPro vous livre jusqu'à 3 offres vérifiées en quelques jours." },
-      { question: "Que faire si l'installateur n'est plus joignable après l'installation?", answer: "Documentez tout par écrit et choisissez une entreprise établie avec références. Les partenaires PVPro ont tous au moins 3 ans d'activité et une présence locale." },
-      { question: "Y a-t-il de mauvais acteurs dans le secteur solaire?", answer: "Malheureusement oui. Signaux d'alarme fréquents: pas d'entreprise locale, pas d'offre écrite, pression pour signature immédiate, absence de preuves de certification. Via PVPro, vous ne recevez que des entreprises vérifiées." },
+      { question: "Combien d'offres devrait-on obtenir?", answer: "Au moins 3 offres de différentes entreprises. Les différences de prix peuvent atteindre 20–35% pour une qualité équivalente. PVPro.ch vous livre jusqu'à 3 offres vérifiées en quelques jours." },
+      { question: "Que faire si l'installateur n'est plus joignable après l'installation?", answer: "Documentez tout par écrit et choisissez une entreprise établie avec références. Les partenaires PVPro.ch ont tous au moins 3 ans d'activité et une présence locale." },
+      { question: "Y a-t-il de mauvais acteurs dans le secteur solaire?", answer: "Malheureusement oui. Signaux d'alarme fréquents: pas d'entreprise locale, pas d'offre écrite, pression pour signature immédiate, absence de preuves de certification. Via PVPro.ch, vous ne recevez que des entreprises vérifiées." },
     ],
   },
 
@@ -868,7 +871,7 @@ const articles: BlogArticle[] = [
     slug: 'richtigen-solarinstallateur-schweiz-waehlen',
     locale: 'en',
     title: 'Choosing the right solar installer in Switzerland: 7 key criteria',
-    metaDescription: '7 criteria for choosing the best solar installer in Switzerland. Certifications, references, guarantees and how PVPro simplifies comparison.',
+    metaDescription: '7 criteria for choosing the best solar installer in Switzerland. Certifications, references, guarantees and how PVPro.ch simplifies comparison.',
     image: '/images/solarinstallateure-offerte-beratung.webp',
     date: 'February 18, 2026',
     readMin: 4,
@@ -893,15 +896,15 @@ const articles: BlogArticle[] = [
       },
     ],
     ctaHeading: 'Compare up to 3 vetted quotes now',
-    ctaText: 'PVPro vets every installer against these 7 criteria. You only receive quotes from qualified, local companies.',
+    ctaText: 'PVPro.ch vets every installer against these 7 criteria. You only receive quotes from qualified, local companies.',
     ctaButton: 'Request a free quote',
     formUrl: '/en/request',
     relatedSlugs: ['foerderungen-photovoltaik-2026', 'roi-photovoltaik-schweiz', 'solaranlage-winter-schweiz'],
     faqs: [
       { question: 'What certifications are required for solar installers in Switzerland?', answer: 'The installer must be registered in the relevant electrical register under NIV. For the EIV application, an additional Pronovo registration is needed.' },
-      { question: 'How many quotes should I obtain?', answer: 'At least 3 quotes from different companies. Price differences of 20–35% for equivalent quality are common. PVPro delivers up to 3 vetted quotes within a few days.' },
-      { question: 'What to do if the installer is unreachable after installation?', answer: 'Document everything in writing and choose an established company with references. PVPro partners all have at least 3 years of trading history and local presence.' },
-      { question: 'Are there bad actors in the solar industry?', answer: 'Unfortunately yes. Common warning signs: no local company, no written quote, pressure for immediate signature, missing certification proof. Via PVPro you only receive vetted companies.' },
+      { question: 'How many quotes should I obtain?', answer: 'At least 3 quotes from different companies. Price differences of 20–35% for equivalent quality are common. PVPro.ch delivers up to 3 vetted quotes within a few days.' },
+      { question: 'What to do if the installer is unreachable after installation?', answer: 'Document everything in writing and choose an established company with references. PVPro.ch partners all have at least 3 years of trading history and local presence.' },
+      { question: 'Are there bad actors in the solar industry?', answer: 'Unfortunately yes. Common warning signs: no local company, no written quote, pressure for immediate signature, missing certification proof. Via PVPro.ch you only receive vetted companies.' },
     ],
   },
 
@@ -910,7 +913,7 @@ const articles: BlogArticle[] = [
     slug: 'richtigen-solarinstallateur-schweiz-waehlen',
     locale: 'it',
     title: 'Scegliere il giusto installatore solare in Svizzera: 7 criteri fondamentali',
-    metaDescription: "7 criteri per scegliere il miglior installatore solare in Svizzera. Certificazioni, referenze, garanzie e come PVPro semplifica il confronto.",
+    metaDescription: "7 criteri per scegliere il miglior installatore solare in Svizzera. Certificazioni, referenze, garanzie e come PVPro.ch semplifica il confronto.",
     image: '/images/solarinstallateure-offerte-beratung.webp',
     date: '18 febbraio 2026',
     readMin: 4,
@@ -935,15 +938,15 @@ const articles: BlogArticle[] = [
       },
     ],
     ctaHeading: "Confronta ora fino a 3 preventivi verificati",
-    ctaText: "PVPro verifica ogni installatore secondo questi 7 criteri. Ricevi solo preventivi da aziende qualificate e locali.",
+    ctaText: "PVPro.ch verifica ogni installatore secondo questi 7 criteri. Ricevi solo preventivi da aziende qualificate e locali.",
     ctaButton: 'Richiedi preventivo gratuito',
     formUrl: '/it/richiesta',
     relatedSlugs: ['foerderungen-photovoltaik-2026', 'roi-photovoltaik-schweiz', 'solaranlage-winter-schweiz'],
     faqs: [
       { question: "Quali certificazioni sono obbligatorie per gli installatori solari in Svizzera?", answer: "L'installatore deve essere iscritto nel registro elettrico competente secondo l'OIBT. Per la richiesta della RU è necessaria anche un'iscrizione presso Pronovo." },
-      { question: "Quanti preventivi dovrei richiedere?", answer: "Almeno 3 preventivi da aziende diverse. Le differenze di prezzo possono arrivare al 20–35% per qualità equivalente. PVPro ti fornisce fino a 3 preventivi verificati in pochi giorni." },
-      { question: "Cosa fare se l'installatore non è più raggiungibile dopo l'installazione?", answer: "Documenta tutto per iscritto e scegli un'azienda affermata con referenze. I partner PVPro hanno tutti almeno 3 anni di attività e presenza locale." },
-      { question: "Ci sono operatori scorretti nel settore solare?", answer: "Purtroppo sì. Segnali di allarme comuni: nessuna azienda locale, nessun preventivo scritto, pressione per firma immediata, mancanza di prove di certificazione. Tramite PVPro ricevi solo aziende verificate." },
+      { question: "Quanti preventivi dovrei richiedere?", answer: "Almeno 3 preventivi da aziende diverse. Le differenze di prezzo possono arrivare al 20–35% per qualità equivalente. PVPro.ch ti fornisce fino a 3 preventivi verificati in pochi giorni." },
+      { question: "Cosa fare se l'installatore non è più raggiungibile dopo l'installazione?", answer: "Documenta tutto per iscritto e scegli un'azienda affermata con referenze. I partner PVPro.ch hanno tutti almeno 3 anni di attività e presenza locale." },
+      { question: "Ci sono operatori scorretti nel settore solare?", answer: "Purtroppo sì. Segnali di allarme comuni: nessuna azienda locale, nessun preventivo scritto, pressione per firma immediata, mancanza di prove di certificazione. Tramite PVPro.ch ricevi solo aziende verificate." },
     ],
   },
 
@@ -982,7 +985,7 @@ const articles: BlogArticle[] = [
       },
     ],
     ctaHeading: 'Maximale Eigenverbrauchsoptimierung – jetzt Offerte holen',
-    ctaText: 'PVPro-Installateure planen von Anfang an auf maximalen Eigenverbrauch. Kostenlose Beratung und Offerte.',
+    ctaText: 'PVPro.ch-Installateure planen von Anfang an auf maximalen Eigenverbrauch. Kostenlose Beratung und Offerte.',
     ctaButton: 'Jetzt kostenlose Offerte anfordern',
     formUrl: '/anfrage',
     relatedSlugs: ['batteriespeicher-solaranlage-lohnt-sich', 'roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026'],
@@ -1029,7 +1032,7 @@ const articles: BlogArticle[] = [
       },
     ],
     ctaHeading: "Autoconsommation maximale – demandez une offre",
-    ctaText: "Les installateurs PVPro planifient dès le départ pour une autoconsommation maximale. Conseil gratuit et offre sans engagement.",
+    ctaText: "Les installateurs PVPro.ch planifient dès le départ pour une autoconsommation maximale. Conseil gratuit et offre sans engagement.",
     ctaButton: 'Demander une offre gratuite',
     formUrl: '/fr/demande',
     relatedSlugs: ['batteriespeicher-solaranlage-lohnt-sich', 'roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026'],
@@ -1076,7 +1079,7 @@ const articles: BlogArticle[] = [
       },
     ],
     ctaHeading: 'Maximum self-consumption optimisation – request a quote',
-    ctaText: 'PVPro installers plan for maximum self-consumption from the start. Free consultation and quote.',
+    ctaText: 'PVPro.ch installers plan for maximum self-consumption from the start. Free consultation and quote.',
     ctaButton: 'Request a free quote',
     formUrl: '/en/request',
     relatedSlugs: ['batteriespeicher-solaranlage-lohnt-sich', 'roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026'],
@@ -1123,7 +1126,7 @@ const articles: BlogArticle[] = [
       },
     ],
     ctaHeading: "Massimizzazione autoconsumo – richiedi un preventivo",
-    ctaText: "Gli installatori PVPro pianificano fin dall'inizio per un autoconsumo massimo. Consulenza gratuita e preventivo senza impegno.",
+    ctaText: "Gli installatori PVPro.ch pianificano fin dall'inizio per un autoconsumo massimo. Consulenza gratuita e preventivo senza impegno.",
     ctaButton: 'Richiedi preventivo gratuito',
     formUrl: '/it/richiesta',
     relatedSlugs: ['batteriespeicher-solaranlage-lohnt-sich', 'roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026'],
@@ -3130,7 +3133,7 @@ const articles: BlogArticle[] = [
           'Die Förderbeantragung: Ein erfahrener lokaler Installateur kennt die kantonalen Förderprogramme und die Besonderheiten des lokalen Netzbetreibers — und beantragt alles korrekt und rechtzeitig.',
         ],
         stats: [
-          { value: '25+', label: 'geprüfte Fachbetriebe im PVPro-Netzwerk' },
+          { value: '25+', label: 'geprüfte Fachbetriebe im PVPro.ch-Netzwerk' },
           { value: '48 Stunden', label: 'bis zur ersten Offerte' },
           { value: 'CHF 2\'000–4\'000', label: 'durchschnittliche Ersparnis durch Vergleich' },
         ],
@@ -3257,7 +3260,7 @@ const articles: BlogArticle[] = [
           "La demande de subventions: Un installateur local expérimenté connaît les programmes de subventions cantonaux et les particularités du gestionnaire de réseau local — et soumet tout correctement et dans les délais.",
         ],
         stats: [
-          { value: '25+', label: "entreprises qualifiées dans le réseau PVPro" },
+          { value: '25+', label: "entreprises qualifiées dans le réseau PVPro.ch" },
           { value: '48 heures', label: "jusqu'au premier devis" },
           { value: "CHF 2'000–4'000", label: "économie moyenne grâce à la comparaison" },
         ],
@@ -3384,7 +3387,7 @@ const articles: BlogArticle[] = [
           'Subsidy applications: An experienced local installer knows the cantonal subsidy programmes and the specifics of the local grid operator — and submits everything correctly and on time.',
         ],
         stats: [
-          { value: '25+', label: 'qualified companies in the PVPro network' },
+          { value: '25+', label: 'qualified companies in the PVPro.ch network' },
           { value: '48 hours', label: 'until the first quote' },
           { value: "CHF 2'000–4'000", label: 'average savings through comparison' },
         ],
@@ -3511,7 +3514,7 @@ const articles: BlogArticle[] = [
           "La richiesta di sovvenzioni: Un installatore locale esperto conosce i programmi di sovvenzione cantonali e le specificità del gestore di rete locale — e presenta tutto correttamente e nei tempi previsti.",
         ],
         stats: [
-          { value: '25+', label: 'aziende qualificate nella rete PVPro' },
+          { value: '25+', label: 'aziende qualificate nella rete PVPro.ch' },
           { value: '48 ore', label: 'fino al primo preventivo' },
           { value: "CHF 2'000–4'000", label: 'risparmio medio grazie al confronto' },
         ],

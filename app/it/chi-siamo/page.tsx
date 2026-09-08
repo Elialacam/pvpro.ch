@@ -2,8 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight, Users, Shield, Star, MapPin, Phone, Mail } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Chi siamo – PVPro.ch | Piattaforma solare svizzera indipendente',
   description: 'Scopri PVPro.ch – la piattaforma svizzera indipendente che mette in contatto i proprietari con installatori fotovoltaici certificati.',
   alternates: {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/ueber-uns',
     },
   },
-};
+}, { path: '/it/chi-siamo', locale: 'it' });
 
 const values = [
   {
@@ -71,9 +72,10 @@ export default function ChiSiamoPage() {
           <div className="rounded-2xl overflow-hidden shadow-xl">
             <Image
               src="/team-new.webp"
-              alt="Il team PVPro"
+              alt="Il team PVPro.ch"
               width={800}
               height={500}
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="w-full h-auto object-cover"
               priority
             />
@@ -98,7 +100,7 @@ export default function ChiSiamoPage() {
               Rendiamo l'energia solare accessibile a tutti
             </h2>
             <p className="text-gray-500 text-lg leading-relaxed">
-              Passare all'energia solare è uno dei migliori investimenti che un proprietario possa fare. Ma il percorso per arrivarci è spesso complicato. PVPro rende questo passo semplice, veloce e sicuro.
+              Passare all'energia solare è uno dei migliori investimenti che un proprietario possa fare. Ma il percorso per arrivarci è spesso complicato. PVPro.ch rende questo passo semplice, veloce e sicuro.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -125,6 +127,8 @@ export default function ChiSiamoPage() {
               alt="Famiglia con impianto solare"
               width={800}
               height={500}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy"
               className="w-full h-auto object-cover"
             />
           </div>

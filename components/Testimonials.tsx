@@ -102,6 +102,7 @@ export default function Testimonials() {
                     alt={`${labels.photoAlt} ${review.name}`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    loading="lazy"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     style={{ objectPosition: (review as { photoPosition?: string }).photoPosition || '50% 50%' }}
                   />

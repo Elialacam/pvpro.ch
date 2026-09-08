@@ -2,12 +2,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Calendar, Clock, CheckCircle2, XCircle, ArrowRight, AlertTriangle, Zap, TrendingUp } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
+import { articleAlternates } from '@/lib/articleSeoRoutes';
+import ArticleAuthorBox from '@/components/ArticleAuthorBox';
+import ArticleStructuredData from '@/components/ArticleStructuredData';
+import { articleDates } from '@/lib/blogUtils';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Balcony Power Station in Switzerland: Allowed, Costs and Is It Really Worth It? | PVPro.ch',
   description: 'Are balcony power stations allowed in Switzerland? Costs, rules and whether a balcony power station is worth it — with an honest comparison to a full solar installation.',
-  alternates: { canonical: 'https://www.pvpro.ch/en/blog/balcony-power-station-switzerland' },
-};
+  authors: [{ name: 'Elia Alacam' }],
+  alternates: articleAlternates('balcony-power-station-switzerland', 'en'),
+}, { path: '/en/blog/balcony-power-station-switzerland', locale: 'en', type: 'article' });
 
 const comparisonRows = [
   { factor: 'Costs', balkon: 'CHF 300–1,200', solar: 'CHF 20,000–35,000', winner: 'balkon' },
@@ -30,6 +36,7 @@ const faqsEn = [
   { q: 'Can a grid operator detect my balcony power station?', a: 'Yes, through measurements and load profiles, feed-in can be detected. Grid operators can measure changes in power flow and identify unusual load profiles.' },
   { q: 'How long are balcony power stations allowed?', a: 'They are currently allowed as long as legal requirements are met. Changes are possible depending on future regulation.' },
 ];
+const articleDate = articleDates({ date: '17 March 2026', locale: 'en' });
 
 export default function BalconyPowerStationSwitzerlandPage() {
   return (
@@ -37,7 +44,7 @@ export default function BalconyPowerStationSwitzerlandPage() {
 
       {/* ── Hero ── */}
       <section className="relative bg-[#0f1f3d] pt-28 pb-16 overflow-hidden min-h-[480px] flex flex-col justify-end">
-        <Image src="/images/balkonkraftwerk-schweiz.webp" alt="Balcony power station in Switzerland – mini solar system on balcony with view of the Alps" fill sizes="100vw" className="object-cover object-center" />
+        <Image src="/images/balkonkraftwerk-schweiz.webp" alt="Balcony power station in Switzerland – mini solar system on balcony with view of the Alps" fill sizes="100vw" className="object-cover object-center" priority />
         <div className="absolute inset-0 bg-[#0f1f3d]/70" />
         <div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
@@ -53,7 +60,10 @@ export default function BalconyPowerStationSwitzerlandPage() {
             <div className="flex items-center gap-3 mb-5">
               <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#fcb210]/20 text-orange-400 uppercase tracking-widest">Guide</span>
               <span className="flex items-center gap-1.5 text-white/40 text-xs">
-                <Calendar className="w-3.5 h-3.5" /> 17 March 2026
+                <Calendar className="w-3.5 h-3.5" /> <time dateTime={articleDate.publishedAt}>17 March 2026</time>
+              </span>
+              <span className="flex items-center gap-1.5 text-white/40 text-xs">
+                Updated on <time dateTime={articleDate.modifiedAt}>17 March 2026</time>
               </span>
               <span className="flex items-center gap-1.5 text-white/40 text-xs">
                 <Clock className="w-3.5 h-3.5" /> 7 min read
@@ -276,6 +286,8 @@ export default function BalconyPowerStationSwitzerlandPage() {
                 ))}
               </div>
             </section>
+            <ArticleAuthorBox locale="en" />
+            <ArticleStructuredData canonicalPath="/en/blog/balcony-power-station-switzerland" article={{ title: 'Balcony Power Station in Switzerland: what is allowed — and is it really worth it?', date: '17 March 2026', locale: 'en', image: '/images/balkonkraftwerk-schweiz.webp' }} faqs={faqsEn.map(({ q, a }) => ({ question: q, answer: a }))} />
 
           </article>
 

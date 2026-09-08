@@ -3,11 +3,11 @@
   "createdAt": "2026-09-06T10:16:10.921Z",
   "articles": {
     "de": {
-      "slug": "photovoltaik-mit-warmepumpe-heizkosten-senken-in-der-schweiz",
+      "slug": "photovoltaik-waermepumpe-heizkosten",
       "locale": "de",
       "title": "Photovoltaik mit Wärmepumpe: Heizkosten senken in der Schweiz",
       "metaDescription": "Kombinieren Sie Photovoltaik mit Wärmepumpe, um die Heizkosten in der Schweiz zu senken. Erfahren Sie, wie Sie den Eigenverbrauch steigern und Förderungen nutzen.",
-      "image": "/images/autoblog/photovoltaik-mit-warmepumpe-heizkosten-senken-in-der-schweiz.jpg",
+      "image": "/images/blog/photovoltaik-mit-warmepumpe-heizkosten-senken-in-der-schweiz.jpg",
       "date": "6. September 2026",
       "readMin": 8,
       "tag": "Ratgeber",
@@ -105,11 +105,11 @@
       ]
     },
     "fr": {
-      "slug": "photovoltaik-mit-warmepumpe-heizkosten-senken-in-der-schweiz",
+      "slug": "photovoltaique-pompe-chaleur",
       "locale": "fr",
       "title": "Photovoltaïque avec pompe à chaleur : Réduire les coûts de chauffage en Suisse",
       "metaDescription": "Combinez le photovoltaïque et la pompe à chaleur pour diminuer les frais de chauffage en Suisse. Découvrez comment augmenter votre autoconsommation et profiter des subventions.",
-      "image": "/images/autoblog/photovoltaik-mit-warmepumpe-heizkosten-senken-in-der-schweiz.jpg",
+      "image": "/images/blog/photovoltaik-mit-warmepumpe-heizkosten-senken-in-der-schweiz.jpg",
       "date": "6 septembre 2026",
       "readMin": 8,
       "tag": "Conseiller",
@@ -207,11 +207,11 @@
       ]
     },
     "en": {
-      "slug": "photovoltaik-mit-warmepumpe-heizkosten-senken-in-der-schweiz",
+      "slug": "photovoltaics-heat-pump",
       "locale": "en",
       "title": "Photovoltaics with Heat Pumps: Lower Heating Costs in Switzerland",
       "metaDescription": "Combine photovoltaics with heat pumps to reduce heating costs in Switzerland. Learn how to increase self-consumption and take advantage of grants.",
-      "image": "/images/autoblog/photovoltaik-mit-warmepumpe-heizkosten-senken-in-der-schweiz.jpg",
+      "image": "/images/blog/photovoltaik-mit-warmepumpe-heizkosten-senken-in-der-schweiz.jpg",
       "date": "September 6, 2026",
       "readMin": 8,
       "tag": "Guide",
@@ -309,11 +309,11 @@
       ]
     },
     "it": {
-      "slug": "photovoltaik-mit-warmepumpe-heizkosten-senken-in-der-schweiz",
+      "slug": "fotovoltaico-pompa-calore",
       "locale": "it",
       "title": "Fotovoltaico con pompa di calore: ridurre i costi di riscaldamento in Svizzera",
       "metaDescription": "Combina fotovoltaico e pompa di calore per abbassare i costi di riscaldamento in Svizzera. Scopri come aumentare l'autoconsumo e sfruttare gli incentivi.",
-      "image": "/images/autoblog/photovoltaik-mit-warmepumpe-heizkosten-senken-in-der-schweiz.jpg",
+      "image": "/images/blog/photovoltaik-mit-warmepumpe-heizkosten-senken-in-der-schweiz.jpg",
       "date": "6 settembre 2026",
       "readMin": 8,
       "tag": "Guida",
@@ -410,5 +410,11 @@
         }
       ]
     }
+  },
+  "localeSlugs": {
+    "de": "photovoltaik-waermepumpe-heizkosten",
+    "it": "fotovoltaico-pompa-calore",
+    "fr": "photovoltaique-pompe-chaleur",
+    "en": "photovoltaics-heat-pump"
   }
 }

@@ -1,23 +1,14 @@
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import CtaAnfrage from '@/components/CtaAnfrage';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
-  title: 'Coût installation solaire Suisse 2026 – Combien coûte une installation ? | PVPro',
+const baseMetadata: Metadata = {
+  title: 'Coût installation solaire Suisse 2026 – Combien coûte une installation ? | PVPro.ch',
   description: 'Combien coûte une installation solaire en Suisse ? Prix 2026 : 15\'000 – 35\'000 CHF pour une maison individuelle. Coûts par kWp, subventions et stockage. Comparez des offres gratuitement.',
-  keywords: [
-    'Coût installation solaire Suisse',
-    'Prix panneau solaire Suisse',
-    'Photovoltaïque coût Suisse',
-    'Prix installation solaire maison',
-    'PV coût par kWp',
-    'Installation 10 kW coût',
-    'Installation solaire avec stockage coût',
-    'Subvention solaire Suisse',
-  ],
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/cout-installation-solaire',
     languages: {
@@ -34,7 +25,7 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/cout-installation-solaire',
     type: 'article',
     locale: 'fr_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
 };
 
@@ -118,8 +109,8 @@ export default function CoutInstallationSolairePage() {
             "@type": "Article",
             "headline": "Combien coûte une installation solaire en Suisse ? Prix actuels 2026",
             "description": "Coûts actuels pour les installations solaires en Suisse. Installations 5–10 kWp, coûts par kWp, subventions et stockage par batterie.",
-            "author": { "@type": "Organization", "name": "PVPro" },
-            "publisher": { "@type": "Organization", "name": "PVPro", "url": "https://www.pvpro.ch" },
+            "author": { "@type": "Organization", "name": "PVPro.ch" },
+            "publisher": { "@type": "Organization", "name": "PVPro.ch", "url": "https://www.pvpro.ch" },
             "datePublished": "2025-01-01",
             "dateModified": new Date().toISOString().split('T')[0],
           })
@@ -168,6 +159,7 @@ export default function CoutInstallationSolairePage() {
                 alt="Installation solaire sur une maison individuelle suisse – vue aérienne"
                 width={700}
                 height={500}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="w-full h-auto object-cover"
                 priority
               />
@@ -488,3 +480,5 @@ export default function CoutInstallationSolairePage() {
     </>
   );
 }
+
+export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/cout-installation-solaire', locale: 'fr' });

@@ -2,12 +2,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Calendar, Clock, CheckCircle2, XCircle, ArrowRight, AlertTriangle, Zap, TrendingUp } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
+import { articleAlternates } from '@/lib/articleSeoRoutes';
+import ArticleAuthorBox from '@/components/ArticleAuthorBox';
+import ArticleStructuredData from '@/components/ArticleStructuredData';
+import { articleDates } from '@/lib/blogUtils';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Centrale solare da balcone in Svizzera: permessa, costi e conviene? | PVPro.ch',
   description: 'I mini impianti solari da balcone sono permessi in Svizzera? Costi, regole e se una centrale da balcone conviene — con confronto onesto con un impianto fotovoltaico completo.',
-  alternates: { canonical: 'https://www.pvpro.ch/it/blog/centrale-balcone-svizzera' },
-};
+  authors: [{ name: 'Elia Alacam' }],
+  alternates: articleAlternates('centrale-balcone-svizzera', 'it'),
+}, { path: '/it/blog/centrale-balcone-svizzera', locale: 'it', type: 'article' });
 
 const righeConfronto = [
   { fattore: 'Costi', balkon: 'CHF 300–1.200', solar: 'CHF 20.000–35.000', winner: 'balkon' },
@@ -30,6 +36,7 @@ const faqsIt = [
   { q: 'Un gestore di rete può rilevare la mia centrale da balcone?', a: "Sì, tramite misurazioni e profili di carico può essere rilevata l'immissione. I gestori di rete possono misurare le variazioni nel flusso di corrente e identificare profili di carico insoliti." },
   { q: 'Per quanto tempo le centrali da balcone sono permesse?', a: "Attualmente sono permesse finché vengono rispettate le prescrizioni legali vigenti. Modifiche sono tuttavia possibili in base all'evoluzione della normativa." },
 ];
+const articleDate = articleDates({ date: '17 marzo 2026', locale: 'it' });
 
 export default function CentraleBalconeSvizzeraPage() {
   return (
@@ -37,7 +44,7 @@ export default function CentraleBalconeSvizzeraPage() {
 
       {/* ── Hero ── */}
       <section className="relative bg-[#0f1f3d] pt-28 pb-16 overflow-hidden min-h-[480px] flex flex-col justify-end">
-        <Image src="/images/balkonkraftwerk-schweiz.webp" alt="Centrale solare da balcone in Svizzera – mini-impianto su balcone con vista sulle Alpi" fill sizes="100vw" className="object-cover object-center" />
+        <Image src="/images/balkonkraftwerk-schweiz.webp" alt="Centrale solare da balcone in Svizzera – mini-impianto su balcone con vista sulle Alpi" fill sizes="100vw" className="object-cover object-center" priority />
         <div className="absolute inset-0 bg-[#0f1f3d]/70" />
         <div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
@@ -53,7 +60,10 @@ export default function CentraleBalconeSvizzeraPage() {
             <div className="flex items-center gap-3 mb-5">
               <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#fcb210]/20 text-orange-400 uppercase tracking-widest">Guida</span>
               <span className="flex items-center gap-1.5 text-white/40 text-xs">
-                <Calendar className="w-3.5 h-3.5" /> 17 marzo 2026
+                <Calendar className="w-3.5 h-3.5" /> <time dateTime={articleDate.publishedAt}>17 marzo 2026</time>
+              </span>
+              <span className="flex items-center gap-1.5 text-white/40 text-xs">
+                Aggiornato il <time dateTime={articleDate.modifiedAt}>17 marzo 2026</time>
               </span>
               <span className="flex items-center gap-1.5 text-white/40 text-xs">
                 <Clock className="w-3.5 h-3.5" /> 7 min. di lettura
@@ -275,6 +285,8 @@ export default function CentraleBalconeSvizzeraPage() {
                 ))}
               </div>
             </section>
+            <ArticleAuthorBox locale="it" />
+            <ArticleStructuredData canonicalPath="/it/blog/centrale-balcone-svizzera" article={{ title: 'Centrale solare da balcone in Svizzera: cosa è permesso — e conviene davvero?', date: '17 marzo 2026', locale: 'it', image: '/images/balkonkraftwerk-schweiz.webp' }} faqs={faqsIt.map(({ q, a }) => ({ question: q, answer: a }))} />
 
           </article>
 

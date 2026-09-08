@@ -92,7 +92,8 @@ const i18n = {
     lastName: 'Nachname',
     email: 'E-Mail',
     phone: 'Telefonnummer',
-    privacyText: 'Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu.',
+    consentText: 'Ich bin einverstanden, dass PVPro.ch meine Angaben an bis zu 3 geprüfte Solarinstallateure weitergibt, damit diese mir eine Offerte erstellen.',
+    privacyLinkLabel: 'Datenschutzerklärung',
     privacyHref: '/datenschutz',
     submit: 'Kostenlose Offerten anfordern',
     submitting: 'Wird gesendet…',
@@ -137,7 +138,8 @@ const i18n = {
     lastName: 'Nom',
     email: 'E-mail',
     phone: 'Numéro de téléphone',
-    privacyText: 'En envoyant le formulaire, vous acceptez notre politique de confidentialité.',
+    consentText: 'J’accepte que PVPro.ch transmette mes données à un maximum de 3 installateurs solaires vérifiés afin qu’ils puissent me préparer un devis.',
+    privacyLinkLabel: 'Protection des données',
     privacyHref: '/fr/protection-des-donnees',
     submit: 'Demander des devis gratuits',
     submitting: 'Envoi en cours…',
@@ -182,7 +184,8 @@ const i18n = {
     lastName: 'Last name',
     email: 'E-mail',
     phone: 'Phone number',
-    privacyText: 'By submitting, you agree to our privacy policy.',
+    consentText: 'I agree that PVPro.ch may share my information with up to 3 verified solar installers so that they can prepare a quote for me.',
+    privacyLinkLabel: 'Privacy Policy',
     privacyHref: '/en/privacy',
     submit: 'Request free quotes',
     submitting: 'Sending…',
@@ -227,7 +230,8 @@ const i18n = {
     lastName: 'Cognome',
     email: 'E-mail',
     phone: 'Numero di telefono',
-    privacyText: 'Inviando il modulo, accetti la nostra informativa sulla privacy.',
+    consentText: 'Acconsento che PVPro.ch trasmetta i miei dati a un massimo di 3 installatori verificati perché mi preparino un preventivo.',
+    privacyLinkLabel: 'Protezione dei dati',
     privacyHref: '/it/protezione-dati',
     submit: 'Richiedi preventivi gratuiti',
     submitting: 'Invio in corso…',
@@ -325,6 +329,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   const [formData, setFormData] = useState<any>({
     isOwner: null, propertyType: null, roofType: null, wantsBattery: null,
     address: '', zipCode: '', firstName: '', lastName: '', email: '', phone: '',
+    installerSharingConsent: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoadingTransition, setIsLoadingTransition] = useState(false);
@@ -457,6 +462,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     if (!formData.lastName.trim()) errors.lastName = true;
     if (!formData.email.trim()) errors.email = true;
     if (!formData.phone.replace(/^\+41\s?/, '').trim()) errors.phone = true;
+    if (!formData.installerSharingConsent) errors.installerSharingConsent = true;
     setValidationErrors(errors);
     if (Object.keys(errors).length > 0) { setErrorMsg(t.requiredFields); return false; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) { setValidationErrors({ email: true }); setErrorMsg(t.invalidEmail); return false; }
@@ -523,6 +529,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           ...(fbclid ? { fbclid } : {}),
           event_id: eventId,
           marketing_consent: marketingConsent,
+          installer_sharing_consent: formData.installerSharingConsent,
           ...(openAiBrowserRef ? { openai_browser_ref: decodeURIComponent(openAiBrowserRef) } : {}),
         }),
       });
@@ -558,7 +565,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6">
         <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-10">
-          <Image src="/logo-pvpro.png" alt="PVPro.ch" width={320} height={92} className="h-20 w-auto" priority />
+          <Image src="/logo-pvpro.png" alt="PVPro.ch" width={320} height={92} sizes="275px" className="h-20 w-auto" loading="lazy" />
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }}
@@ -763,20 +770,24 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
                 </span>
               )}
             </div>
-            <p className="text-xs text-gray-400 leading-relaxed">
-              {t.privacyText.split('politique de confidentialité').length > 1 ||
-               t.privacyText.split('privacy policy').length > 1 ||
-               t.privacyText.split('informativa sulla privacy').length > 1 ||
-               t.privacyText.split('Datenschutzerklärung').length > 1 ? (
-                <>
-                  {t.privacyText.split(/(Datenschutzerklärung|politique de confidentialité|privacy policy|informativa sulla privacy)/)[0]}
-                  <Link href={t.privacyHref} className="underline hover:text-gray-600">
-                    {t.privacyText.match(/(Datenschutzerklärung|politique de confidentialité|privacy policy|informativa sulla privacy)/)?.[0]}
-                  </Link>
-                  {t.privacyText.split(/(Datenschutzerklärung|politique de confidentialité|privacy policy|informativa sulla privacy)/)[2]}
-                </>
-              ) : t.privacyText}
-            </p>
+            <label className={`flex items-start gap-3 rounded-xl border p-3 text-xs leading-relaxed ${validationErrors.installerSharingConsent ? 'border-red-400 text-red-700' : 'border-gray-200 text-gray-500'}`}>
+              <input
+                type="checkbox"
+                checked={formData.installerSharingConsent}
+                onChange={e => {
+                  setFormData({ ...formData, installerSharingConsent: e.target.checked });
+                  setValidationErrors(p => ({ ...p, installerSharingConsent: false }));
+                }}
+                aria-invalid={validationErrors.installerSharingConsent || undefined}
+                className="mt-0.5 h-4 w-4 shrink-0 accent-primary"
+              />
+              <span>
+                {t.consentText}{' '}
+                <Link href={t.privacyHref} className="underline hover:text-gray-700">
+                  {t.privacyLinkLabel}
+                </Link>
+              </span>
+            </label>
             <button
               onClick={handleSubmit}
               disabled={isSubmitting}
@@ -798,7 +809,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="relative flex items-center justify-between h-16 sm:h-[72px]">
             <Link href={locale === 'de' ? '/' : `/${locale}`} className="flex-shrink-0 z-10">
-              <Image src="/logo-pvpro.png" alt="PVPro.ch" width={220} height={64} className="h-28 sm:h-32 w-auto -my-8" priority />
+              <Image src="/logo-pvpro.png" alt="PVPro.ch" width={220} height={64} sizes="440px" className="h-28 sm:h-32 w-auto -my-8" loading="lazy" />
             </Link>
             {step > 1 && (
               <button onClick={goBack} className="flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">

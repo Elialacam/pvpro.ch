@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText, Clock } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Installation photovoltaïque Suisse 2026 – Étapes, durée & coûts | PVPro.ch",
   description: "Comment fonctionne l'installation d'une installation photovoltaïque en Suisse ? Étapes, durée, coûts et ce à quoi vous devez faire attention — tout expliqué par PVPro.ch.",
   alternates: {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/installation-photovoltaique-suisse',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
 };
 
@@ -341,3 +342,5 @@ export default function InstallationPhotovoltaiqueSuissePage() {
     </main>
   );
 }
+
+export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/installation-photovoltaique-suisse', locale: 'fr' });

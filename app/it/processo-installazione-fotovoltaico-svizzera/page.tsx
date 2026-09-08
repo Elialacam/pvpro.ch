@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText, Clock } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Processo installazione fotovoltaico Svizzera 2026 – Fasi, durata & costi | PVPro.ch',
   description: "Come funziona l'installazione di un impianto fotovoltaico in Svizzera? Fasi, durata, costi e cosa bisogna sapere — tutto spiegato da PVPro.ch.",
   alternates: {
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/it/processo-installazione-fotovoltaico-svizzera',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/it/processo-installazione-fotovoltaico-svizzera', locale: 'it' });
 
 const faqs = [
   {

@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, Zap, Battery, Thermometer, Car, Settings } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Photovoltaik Komplettlösung Schweiz 2026 – Alles aus einer Hand | PVPro.ch',
   description: 'Welche Schweizer Firmen bieten Komplettlösungen für Photovoltaik Anlagen an? Module, Speicher, Wärmepumpe und Installation aus einer Hand. Jetzt vergleichen mit PVPro.ch.',
   alternates: {
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/photovoltaik-komplettloesung-schweiz',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/photovoltaik-komplettloesung-schweiz', locale: 'de' });
 
 const faqs = [
   {

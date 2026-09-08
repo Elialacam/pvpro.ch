@@ -1,230 +1,53 @@
-import { cities } from '@/lib/cities';
-import { getBlogArticleSlugs, getBlogArticle } from '@/lib/blogArticles';
-import { cityContents } from '@/lib/city-content';
+import { getAutoBlogFiles } from '@/lib/autoBlog';
+import { autoBlogPath, autoBlogSlugRegistry, getAutoBlogSlugRecord } from '@/lib/autoBlogSlugs';
+import { getBlogArticle, getBlogArticleSlugs } from '@/lib/blogArticles';
+import { articleDates } from '@/lib/blogUtils';
+import { staticSeoRouteGroups, type SeoLocale, type SeoRouteGroup } from '@/lib/seoRoutes';
+import { manualArticleLocaleSlugs } from '@/lib/articleSeoRoutes';
 
 const BASE = 'https://www.pvpro.ch';
-const TODAY = new Date().toISOString().split('T')[0];
+const locales: SeoLocale[] = ['de', 'fr', 'en', 'it'];
 
-// Hero/primary image per indexable content page (DE path → /images path).
-// The same image is shared across all locales of a page group.
-const HERO: Record<string, string> = {
-  '/solaranlage-kosten': '/images/asset-haus-luftbild-2.webp',
-  '/solaranlage-mit-speicher': '/images/batteriespeicher-weiss-modern.webp',
-  '/solaranlage-einfamilienhaus': '/images/asset-installateur-dach-1.webp',
-  '/solaranlage-mehrfamilienhaus': '/images/asset-haus-luftbild-3.webp',
-  '/photovoltaik-kosten-pro-m2': '/images/asset-panel-closeup-1.webp',
-  '/wie-funktioniert': '/images/wie-funktioniert-solaranlage.webp',
-  '/foerderungen': '/images/hero-solar-panels.webp',
-  '/vergleichsportal-photovoltaik-schweiz': '/images/asset-beratung-indoor-2.webp',
-  '/solaranlage-installieren-schweiz': '/images/asset-installateur-dach-2.webp',
-  '/solaranlage-offerte-einholen': '/images/asset-beratung-indoor-2.webp',
-  '/ueber-uns': '/images/hero-family-solar.webp',
-  '/bewilligungspflicht-solaranlage-schweiz': '/images/asset-installateur-dach-3.webp',
-};
-
-function heroFor(dePath: string): string | undefined {
-  const img = HERO[dePath];
-  return img ? `${BASE}${img}` : undefined;
+function xml(value: string) {
+  return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-// Canton page primary image, looked up by slug from the shared city content map.
-function cityImg(slug: string): string | undefined {
-  const c = cityContents[slug];
-  return c?.image ? `${BASE}${c.image}` : undefined;
+function groupXml(group: SeoRouteGroup, lastmod?: string): string {
+  const paths = locales.flatMap(locale => group.paths[locale] ? [[locale, group.paths[locale]!] as const] : []);
+  const alternateLinks = paths.map(([locale, path]) => `    <xhtml:link rel="alternate" hreflang="${locale}-CH" href="${BASE}${path}"/>`);
+  const defaultPath = group.paths.de ?? paths[0]?.[1];
+  if (defaultPath) alternateLinks.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE}${defaultPath}"/>`);
+  return paths.map(([, path]) => `  <url>
+    <loc>${BASE}${xml(path)}</loc>${lastmod ? `\n    <lastmod>${xml(lastmod)}</lastmod>` : ''}
+    <changefreq>${group.changeFrequency ?? 'monthly'}</changefreq>
+    <priority>${group.priority ?? .6}</priority>
+${alternateLinks.join('\n')}
+  </url>`).join('\n');
 }
 
-// ── Helpers ────────────────────────────────────────────────────────────────────
-
-function xlink(hreflang: string, href: string): string {
-  return `    <xhtml:link rel="alternate" hreflang="${hreflang}" href="${href}"/>`;
+function articleGroup(slug: string): SeoRouteGroup | undefined {
+  const translated = manualArticleLocaleSlugs[slug];
+  const slugs = translated ?? (locales.every(locale => getBlogArticle(slug, locale)) ? Object.fromEntries(locales.map(locale => [locale, slug])) : undefined);
+  if (!slugs || !locales.every(locale => slugs[locale] && getBlogArticle(slug, locale))) return undefined;
+  return { paths: Object.fromEntries(locales.map(locale => [locale, `${locale === 'de' ? '' : `/${locale}`}/blog/${slugs[locale]}`])), priority: .65 };
 }
-
-function urlBlock(
-  loc: string,
-  freq: string,
-  priority: string,
-  altLines: string[],
-  imageLoc?: string,
-): string {
-  const imageLine = imageLoc
-    ? `\n    <image:image><image:loc>${imageLoc}</image:loc></image:image>`
-    : '';
-  return `
-  <url>
-    <loc>${loc}</loc>
-    <lastmod>${TODAY}</lastmod>
-    <changefreq>${freq}</changefreq>
-    <priority>${priority}</priority>
-${altLines.join('\n')}${imageLine}
-  </url>`;
-}
-
-// Full 4-language group — 4 <url> blocks, each with de/fr/en/it + x-default
-function entry4(
-  de: string,
-  fr: string,
-  en: string,
-  it: string,
-  priority: number,
-  freq = 'monthly',
-  imageLoc?: string,
-): string {
-  const p = String(priority);
-  const alts = [
-    xlink('de',        `${BASE}${de}`),
-    xlink('fr',        `${BASE}${fr}`),
-    xlink('en',        `${BASE}${en}`),
-    xlink('it',        `${BASE}${it}`),
-    xlink('x-default', `${BASE}${de}`),
-  ];
-  const img = imageLoc ?? heroFor(de);
-  return [de, fr, en, it]
-    .map((path) => urlBlock(`${BASE}${path}`, freq, p, alts, img))
-    .join('');
-}
-
-// Blog article entry that also embeds the article's cover image (image:image).
-// The cover image is the same across all locales, looked up via the DE slug.
-function blogEntry4(
-  de: string,
-  fr: string,
-  en: string,
-  it: string,
-  priority: number,
-): string {
-  const slug = de.replace('/blog/', '');
-  const article = getBlogArticle(slug, 'de');
-  const imageLoc = article?.image ? `${BASE}${article.image}` : undefined;
-  return entry4(de, fr, en, it, priority, 'monthly', imageLoc);
-}
-
-// DE-only page
-function entryDe(path: string, priority: number, freq = 'monthly', imageLoc?: string): string {
-  return urlBlock(`${BASE}${path}`, freq, String(priority), [
-    xlink('de',        `${BASE}${path}`),
-    xlink('x-default', `${BASE}${path}`),
-  ], imageLoc ?? heroFor(path));
-}
-
-// FR-only page
-function entryFr(path: string, priority: number, freq = 'monthly', imageLoc?: string): string {
-  return urlBlock(`${BASE}${path}`, freq, String(priority), [
-    xlink('fr',        `${BASE}${path}`),
-    xlink('x-default', `${BASE}${path}`),
-  ], imageLoc ?? heroFor(path));
-}
-
-// IT-only page
-function entryIt(path: string, priority: number, freq = 'monthly', imageLoc?: string): string {
-  return urlBlock(`${BASE}${path}`, freq, String(priority), [
-    xlink('it',        `${BASE}${path}`),
-    xlink('x-default', `${BASE}${path}`),
-  ], imageLoc ?? heroFor(path));
-}
-
-// Bilingual DE+FR — 2 <url> blocks with de/fr/x-default
-function entryDeFr(
-  de: string,
-  fr: string,
-  priority: number,
-  freq = 'monthly',
-  imageLoc?: string,
-): string {
-  const p = String(priority);
-  const alts = [
-    xlink('de',        `${BASE}${de}`),
-    xlink('fr',        `${BASE}${fr}`),
-    xlink('x-default', `${BASE}${de}`),
-  ];
-  const img = imageLoc ?? heroFor(de);
-  return urlBlock(`${BASE}${de}`, freq, p, alts, img)
-       + urlBlock(`${BASE}${fr}`, freq, p, alts, img);
-}
-
-// ── Route handler ──────────────────────────────────────────────────────────────
 
 export async function GET() {
-  const bilingualDeSlugs = new Set(['freiburg', 'biel', 'wallis']);
-  const deCities = cities.filter(
-    (c) => c.language === 'de' && !bilingualDeSlugs.has(c.slug),
-  );
-  const blogSlugs = getBlogArticleSlugs();
-
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-
-  <!-- ── Homepages ──────────────────────────────────────────────────────────── -->
-${entry4('/', '/fr', '/en', '/it', 1.0, 'weekly')}
-
-  <!-- ── Core content pages ────────────────────────────────────────────────── -->
-${entry4('/solaranlage-kosten', '/fr/cout-installation-solaire', '/en/solar-panel-costs', '/it/costi-impianto-solare', 0.9)}
-${entry4('/solaranlage-mit-speicher', '/fr/solaire-avec-batterie', '/en/solar-with-battery', '/it/solare-con-accumulo', 0.9)}
-${entry4('/solarrechner', '/fr/calculateur-solaire', '/en/solar-calculator', '/it/calcolatore-solare', 0.85)}
-${entry4('/solaranlage-einfamilienhaus', '/fr/solaire-maison-individuelle', '/en/solar-detached-house', '/it/solare-casa-unifamiliare', 0.85)}
-${entry4('/solaranlage-mehrfamilienhaus', '/fr/solaire-immeuble', '/en/solar-apartment-building', '/it/solare-condominio', 0.85)}
-${entry4('/photovoltaik-kosten-pro-m2', '/fr/cout-pv-par-m2', '/en/solar-cost-per-m2', '/it/costo-fv-per-m2', 0.85)}
-${entry4('/wie-funktioniert', '/fr/fonctionnement-solaire', '/en/how-solar-works', '/it/come-funziona-solare', 0.85)}
-${entry4('/foerderungen', '/fr/subventions-solaires', '/en/solar-subsidies', '/it/incentivi-solari', 0.85)}
-${entry4('/vergleichsportal-photovoltaik-schweiz', '/fr/comparateur-photovoltaique-suisse', '/en/solar-comparison-portal-switzerland', '/it/comparatore-fotovoltaico-svizzera', 0.85)}
-${entry4('/solaranlage-installieren-schweiz', '/fr/installer-panneau-solaire-suisse', '/en/solar-panel-installation-switzerland', '/it/installare-impianto-solare-svizzera', 0.85)}
-${entry4('/solaranlage-offerte-einholen', '/fr/demander-offre-panneau-solaire', '/en/get-solar-panel-quotes', '/it/richiedere-preventivo-solare', 0.85)}
-${entry4('/foerderungen-kanton-zuerich', '/fr/subventions-solaires-canton-zurich', '/en/solar-subsidies-canton-zurich', '/it/incentivi-solari-cantone-zurigo', 0.85)}
-${entry4('/photovoltaik-schweizer-klima', '/fr/photovoltaique-climat-suisse', '/en/solar-panels-swiss-climate', '/it/fotovoltaico-clima-svizzero', 0.85)}
-${entry4('/photovoltaik-installation-schweiz', '/fr/installation-photovoltaique-suisse', '/en/solar-panel-installation-process-switzerland', '/it/processo-installazione-fotovoltaico-svizzera', 0.85)}
-${entry4('/photovoltaik-komplettloesung-schweiz', '/fr/solution-complete-photovoltaique-suisse', '/en/complete-solar-solution-switzerland', '/it/soluzione-completa-fotovoltaico-svizzera', 0.85)}
-${entry4('/photovoltaik-wartung-kosten', '/fr/entretien-photovoltaique-couts', '/en/solar-panel-maintenance-costs', '/it/manutenzione-fotovoltaico-costi', 0.85)}
-${entry4('/solaranlagen-typen-vergleich', '/fr/comparaison-types-panneaux-solaires', '/en/solar-panel-types-comparison', '/it/confronto-tipi-impianti-solari', 0.85)}
-${entry4('/faq', '/fr/faq', '/en/faq', '/it/faq', 0.75)}
-${entry4('/ueber-uns', '/fr/a-propos', '/en/about-us', '/it/chi-siamo', 0.7)}
-${entry4('/anfrage', '/fr/demande', '/en/request', '/it/richiesta', 0.8)}
-${entry4('/danke', '/fr/merci', '/en/thank-you', '/it/grazie', 0.2, 'yearly')}
-
-  <!-- ── Blog ──────────────────────────────────────────────────────────────── -->
-${entry4('/blog', '/fr/blog', '/en/blog', '/it/blog', 0.7, 'weekly')}
-${blogEntry4('/blog/lohnt-sich-solaranlage-schweiz-2026', '/fr/blog/rentabilite-panneau-solaire-suisse-2026', '/en/blog/is-solar-worth-it-switzerland-2026', '/it/blog/vale-la-pena-impianto-solare-svizzera-2026', 0.75)}
-${blogEntry4('/blog/solaranlage-steuerabzug-schweiz-2026', '/fr/blog/deduction-fiscale-panneau-solaire-suisse-2026', '/en/blog/solar-panel-tax-deduction-switzerland-2026', '/it/blog/detrazione-fiscale-impianto-solare-svizzera-2026', 0.75)}
-${blogEntry4('/blog/solaranlage-waermepumpe-kombinieren-schweiz', '/fr/blog/panneaux-solaires-pompe-chaleur-suisse', '/en/blog/solar-panels-heat-pump-combination-switzerland', '/it/blog/impianto-solare-pompa-calore-svizzera', 0.75)}
-${blogEntry4('/blog/besten-solarinstallateur-schweiz-finden', '/fr/blog/trouver-meilleur-installateur-solaire-suisse', '/en/blog/find-best-solar-installer-switzerland', '/it/blog/trovare-miglior-installatore-solare-svizzera', 0.75)}
-${blogEntry4('/blog/batteriespeicher-brandgefahr-sicherheit-schweiz', '/fr/blog/batterie-solaire-danger-incendie-securite-suisse', '/en/blog/solar-battery-fire-risk-safety-switzerland', '/it/blog/batteria-solare-rischio-incendio-sicurezza-svizzera', 0.75)}
-${blogEntry4('/blog/solaranlage-installateur-konkurs-garantie-schweiz', '/fr/blog/installateur-solaire-faillite-garantie-suisse', '/en/blog/solar-installer-bankruptcy-guarantee-switzerland', '/it/blog/installatore-solare-fallimento-garanzia-svizzera', 0.75)}
-${blogEntry4('/blog/solaranlage-versicherung-schweiz', '/fr/blog/assurance-installation-solaire-suisse', '/en/blog/solar-panel-insurance-switzerland', '/it/blog/assicurazione-impianto-solare-svizzera', 0.75)}
-${blogEntry4('/blog/chinesische-vs-europaeische-solarmodule-schweiz', '/fr/blog/panneaux-solaires-chinois-vs-europeens-suisse', '/en/blog/chinese-vs-european-solar-panels-switzerland', '/it/blog/pannelli-solari-cinesi-vs-europei-svizzera', 0.75)}
-${blogEntry4('/blog/solaranlage-norddach-schweiz', '/fr/blog/panneau-solaire-toit-nord-suisse', '/en/blog/solar-panels-north-facing-roof-switzerland', '/it/blog/impianto-solare-tetto-nord-svizzera', 0.75)}
-${blogSlugs.filter(slug => slug !== 'lohnt-sich-solaranlage-schweiz-2026' && slug !== 'solaranlage-steuerabzug-schweiz-2026' && slug !== 'solaranlage-waermepumpe-kombinieren-schweiz' && slug !== 'besten-solarinstallateur-schweiz-finden' && slug !== 'batteriespeicher-brandgefahr-sicherheit-schweiz' && slug !== 'solaranlage-installateur-konkurs-garantie-schweiz' && slug !== 'solaranlage-versicherung-schweiz' && slug !== 'chinesische-vs-europaeische-solarmodule-schweiz' && slug !== 'solaranlage-norddach-schweiz').map((slug) => blogEntry4(`/blog/${slug}`, `/fr/blog/${slug}`, `/en/blog/${slug}`, `/it/blog/${slug}`, 0.6)).join('')}
-
-  <!-- ── Balcony power station (4 languages) ───────────────────────────────── -->
-${entry4('/balkonkraftwerk', '/fr/centrale-balcon', '/en/balcony-power-station', '/it/centrale-balcone', 0.7)}
-
-  <!-- ── DE-only pages ─────────────────────────────────────────────────────── -->
-${entryDe('/bewilligungspflicht-solaranlage-schweiz', 0.8)}
-
-  <!-- ── DE canton pages ───────────────────────────────────────────────────── -->
-${deCities.map((city) => entryDe(`/solaranlage-${city.slug}`, 0.8, 'weekly', cityImg(city.slug))).join('')}
-
-  <!-- ── FR-only canton pages ──────────────────────────────────────────────── -->
-${entryFr('/fr/solaire-geneve', 0.8, 'weekly', cityImg('geneve'))}
-${entryFr('/fr/solaire-vaud',   0.8, 'weekly', cityImg('vaud'))}
-
-  <!-- ── IT canton page ────────────────────────────────────────────────────── -->
-${entryIt('/it/fotovoltaico-ticino', 0.9, 'weekly', cityImg('ticino'))}
-
-  <!-- ── Bilingual canton pages (DE ↔ FR) ──────────────────────────────────── -->
-${entryDeFr('/solaranlage-freiburg', '/fr/solaire-fribourg', 0.8, 'weekly', cityImg('freiburg'))}
-${entryDeFr('/solaranlage-biel',     '/fr/solaire-bienne',   0.8, 'weekly', cityImg('biel'))}
-${entryDeFr('/solaranlage-wallis',   '/fr/solaire-valais',   0.8, 'weekly', cityImg('wallis'))}
-
-  <!-- ── Legal pages ───────────────────────────────────────────────────────── -->
-${entry4('/datenschutz', '/fr/protection-des-donnees', '/en/privacy', '/it/protezione-dati', 0.3, 'yearly')}
-${entry4('/impressum', '/fr/mentions-legales', '/en/imprint', '/it/note-legali', 0.3, 'yearly')}
-
-</urlset>`;
-
-  return new Response(xml.trim(), {
-    headers: {
-      'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
-    },
+  const autoLegacy = new Set(autoBlogSlugRegistry.map(record => record.legacySlug));
+  const manual = getBlogArticleSlugs().filter(slug => !autoLegacy.has(slug)).flatMap(slug => {
+    const group = articleGroup(slug);
+    const article = getBlogArticle(slug, 'de');
+    const date = article ? articleDates(article).modifiedAt : undefined;
+    return group ? [{ group, lastmod: date && /^\d{4}-\d{2}-\d{2}/.test(date) ? date : undefined }] : [];
   });
+  const auto = getAutoBlogFiles().flatMap(file => {
+    const record = getAutoBlogSlugRecord(file.slug);
+    if (!record || !file.createdAt || !/^\d{4}-\d{2}-\d{2}/.test(file.createdAt)) return [];
+    return [{
+    group: { paths: Object.fromEntries(locales.map(locale => [locale, autoBlogPath(record, locale)])), priority: .6 } as SeoRouteGroup,
+    lastmod: file.createdAt,
+    }];
+  });
+  const body = [...staticSeoRouteGroups.map(group => groupXml(group)), ...manual.map(({ group, lastmod }) => groupXml(group, lastmod)), ...auto.map(({ group, lastmod }) => groupXml(group, lastmod))].join('\n');
+  return new Response(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${body}\n</urlset>`, { headers: { 'Content-Type': 'application/xml; charset=utf-8' } });
 }

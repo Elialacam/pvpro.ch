@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Middleware owns slash canonicalization so every normalization is an
+  // explicit 301 and can be combined with host and legacy aliases.
+  skipTrailingSlashRedirect: true,
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -10,7 +13,7 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
-    qualities: [75, 90],
+    qualities: [70, 75, 90],
     domains: [],
   },
   compress: true,
@@ -18,22 +21,6 @@ const nextConfig = {
   allowedDevOrigins: ['127.0.0.1', 'f53d4855-3247-438a-938a-8b3ba4e73521-00-d7ywm99h5osn.spock.replit.dev'],
   async redirects() {
     return [
-      { source: '/fotovoltaico-ticino',                        destination: '/it/fotovoltaico-ticino',  permanent: true },
-      { source: '/it/impianto-fotovoltaico-ginevra',           destination: '/fr/solaire-geneve',       permanent: true },
-      { source: '/it/impianto-fotovoltaico-lugano',            destination: '/it/fotovoltaico-ticino',  permanent: true },
-      { source: '/solaranlage-fribourg',                       destination: '/solaranlage-freiburg',    permanent: true },
-      { source: '/solaranlage-genf',                           destination: '/fr/solaire-geneve',       permanent: true },
-      { source: '/solaranlage-zuerich',                        destination: '/solaranlage-zurich',      permanent: true },
-      { source: '/solaranlage-koeniz',                         destination: '/solaranlage-bern',        permanent: true },
-      { source: '/solaire-geneve',                             destination: '/fr/solaire-geneve',       permanent: true },
-      { source: '/solaranlage-baden',                          destination: '/solaranlage-aargau',      permanent: true },
-      { source: '/solaranlage-lugano',                         destination: '/it/fotovoltaico-ticino',  permanent: true },
-      { source: '/solaranlage-thun',                           destination: '/solaranlage-bern',        permanent: true },
-      { source: '/solaranlage-chur',                           destination: '/solaranlage-graubunden',  permanent: true },
-      { source: '/www.pvpro.ch/solaranlage-fribourg',          destination: '/solaranlage-freiburg',    permanent: true },
-      { source: '/www.pvpro.ch/solaranlage-genf',              destination: '/fr/solaire-geneve',       permanent: true },
-      { source: '/www.pvpro.ch/solaranlage-zuerich',           destination: '/solaranlage-zurich',      permanent: true },
-      { source: '/www.pvpro.ch/it/impianto-fotovoltaico-lugano', destination: '/it/fotovoltaico-ticino', permanent: true },
       // 301: old PNG content images → new WebP (converted in image optimization pass)
       { source: '/images/aurora-energy-batteriespeicher.png',      destination: '/images/aurora-energy-batteriespeicher.webp',      permanent: true },
       { source: '/images/batteriespeicher-weiss-modern.png',       destination: '/images/batteriespeicher-weiss-modern.webp',       permanent: true },
@@ -73,6 +60,21 @@ const nextConfig = {
           { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
+        ],
+      },
+      // Next manages immutable caching for content-hashed /_next/static assets.
+      // Public assets have stable paths but are not content-hashed, so omit
+      // immutable to allow updated files to be refreshed after one year.
+      {
+        source: '/images/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000' },
+        ],
+      },
+      {
+        source: '/badges/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000' },
         ],
       },
     ]

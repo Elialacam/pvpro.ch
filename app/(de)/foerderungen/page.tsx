@@ -2,9 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight, CheckCircle, Info, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FoerderRechner from '@/components/FoerderRechner';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Förderungen für Solaranlagen in der Schweiz 2026 | PVPro.ch',
   description: 'Einmalvergütung (EIV), kantonale Förderprogramme und steuerliche Abzüge für Photovoltaikanlagen in der Schweiz. Jetzt Förderung berechnen.',
   alternates: {
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/foerderungen',
     },
   },
-};
+}, { path: '/foerderungen', locale: 'de' });
 
 const tableRows = [
   { size: '5 kWp',  foerderung: "ca. 1'800 CHF", gesamtkosten: "ca. 13'000 CHF", effektiv: "ca. 11'200 CHF" },
@@ -57,6 +58,7 @@ export default function FoerderungenPage() {
             src="/images/hero-solar-panels.webp"
             alt="Photovoltaikanlage auf einem Hausdach in der Schweiz"
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
@@ -150,6 +152,8 @@ export default function FoerderungenPage() {
                 alt="Wohnquartier mit Solardächern an einem Schweizer See"
                 width={700}
                 height={500}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -212,6 +216,8 @@ export default function FoerderungenPage() {
                 alt="Einfamilienhaus mit Solaranlage"
                 width={700}
                 height={500}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -346,6 +352,8 @@ export default function FoerderungenPage() {
                 alt="Solaranlage auf einem Gewerbe-Flachdach am Rhein"
                 width={700}
                 height={500}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
                 className="w-full h-auto object-cover"
               />
             </div>

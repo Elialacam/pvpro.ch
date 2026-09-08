@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, Star, BarChart2, Users } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Vergleichsportal Photovoltaik Schweiz 2026 – Anbieter vergleichen & sparen | PVPro.ch',
   description: 'Vergleichen Sie Photovoltaik Anbieter in der Schweiz kostenlos. PVPro.ch ist das führende Schweizer Vergleichsportal für Solaranlagen – bis zu 3 Offerten von zertifizierten Installateuren.',
   alternates: {
@@ -23,9 +24,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/vergleichsportal-photovoltaik-schweiz',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/vergleichsportal-photovoltaik-schweiz', locale: 'de' });
 
 const faqs = [
   {
@@ -37,7 +38,7 @@ const faqs = [
     answer: 'Sie erhalten bis zu 3 massgeschneiderte Offerten von geprüften lokalen Installateuren. So haben Sie direkt eine Vergleichsbasis.',
   },
   {
-    question: 'Wer sind die Installateure im PVPro-Netzwerk?',
+    question: 'Wer sind die Installateure im PVPro.ch-Netzwerk?',
     answer: 'Wir arbeiten mit über 25 geprüften Schweizer Fachbetrieben zusammen. Jeder Installateur wird vor der Aufnahme ins Netzwerk geprüft.',
   },
   {
@@ -161,7 +162,7 @@ export default function VergleichsportalPage() {
             </ul>
           </div>
           <div className="rounded-3xl overflow-hidden">
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Vergleich Photovoltaik Anbieter Schweiz" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Vergleich Photovoltaik Anbieter Schweiz" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Wussten Sie?</p>
               <p className="text-gray-700 text-sm leading-relaxed">
@@ -171,7 +172,7 @@ export default function VergleichsportalPage() {
           </div>
         </section>
 
-        {/* ── Wie funktioniert PVPro ── */}
+        {/* ── Wie funktioniert PVPro.ch ── */}
         <section>
           <div className="text-center mb-12">
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">So einfach geht's</p>
@@ -215,7 +216,7 @@ export default function VergleichsportalPage() {
         {/* ── Welche Anbieter empfehlenswert ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="rounded-3xl overflow-hidden">
-            <Image src="/images/asset-installateur-dach-2.webp" alt="Zertifizierter Photovoltaik Installateur Schweiz" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" />
+            <Image src="/images/asset-installateur-dach-2.webp" alt="Zertifizierter Photovoltaik Installateur Schweiz" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" loading="lazy"/>
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Qualitätskriterien</p>

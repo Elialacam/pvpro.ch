@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, FileText, Clock, Coins } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Richiedere preventivo solare Svizzera 2026 – Gratuito & senza impegno | PVPro.ch',
   description: 'Richiedete preventivi gratuiti per il vostro impianto solare in Svizzera. Fino a 3 preventivi da installatori certificati nel vostro Cantone. Confrontate e risparmiate.',
   alternates: {
@@ -23,9 +24,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/it/richiedere-preventivo-solare',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
-};
+}, { path: '/it/richiedere-preventivo-solare', locale: 'it' });
 
 const faqs = [
   {
@@ -189,7 +190,7 @@ export default function RichiederePrevenitivoSolarePage() {
         {/* ── Contenuto di un buon preventivo ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Preventivo solare Svizzera" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Preventivo solare Svizzera" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Lista di controllo</p>

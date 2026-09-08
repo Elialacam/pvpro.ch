@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Zap, CheckCircle, XCircle } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: 'Comparaison types panneaux solaires Suisse 2026 – Lequel me convient ? | PVPro.ch',
   description: "Comparaison des différents types d'installations solaires en Suisse : monocristallin, polycristallin, couche mince, bifacial. Quelles sont les différences et lequel vaut la peine ?",
   alternates: {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/comparaison-types-panneaux-solaires',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PVPro',
+    siteName: 'PVPro.ch',
   },
 };
 
@@ -384,3 +385,5 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
     </main>
   );
 }
+
+export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/comparaison-types-panneaux-solaires', locale: 'fr' });

@@ -59,9 +59,29 @@ const heroContent: Record<Locale, {
 
 const SLIDE_DURATION = 6000;
 
+const trustpilotContent: Record<Locale, { href: string; alt: string }> = {
+  de: {
+    href: 'https://de-ch.trustpilot.com/review/pvpro.ch',
+    alt: 'Trustpilot: 5 Sterne für PVPro.ch',
+  },
+  fr: {
+    href: 'https://fr.trustpilot.com/review/pvpro.ch',
+    alt: 'Trustpilot : 5 étoiles pour PVPro.ch',
+  },
+  en: {
+    href: 'https://www.trustpilot.com/review/pvpro.ch',
+    alt: 'Trustpilot: 5 stars for PVPro.ch',
+  },
+  it: {
+    href: 'https://it.trustpilot.com/review/pvpro.ch',
+    alt: 'Trustpilot: 5 stelle per PVPro.ch',
+  },
+};
+
 export default function Hero() {
   const locale = useLocale();
   const content = heroContent[locale] || heroContent.de;
+  const trustpilot = trustpilotContent[locale] || trustpilotContent.de;
   const pathname = usePathname();
   const formUrl = getFormUrl(pathname);
   const [current, setCurrent] = useState(0);
@@ -146,12 +166,13 @@ export default function Hero() {
           {mounted.has(i) && (
             <Image
               src={src}
-              alt="PVPro Solaranlage"
+              alt="PVPro.ch Solaranlage"
               fill
               priority={i === 0}
               quality={i === 0 ? 75 : 70}
               className="object-cover object-center"
               sizes="100vw"
+              loading={i === 0 ? 'eager' : 'lazy'}
               onLoad={() => markLoaded(i)}
             />
           )}
@@ -202,7 +223,7 @@ export default function Hero() {
 
         {/* Trustpilot badge */}
         <a
-          href="https://it.trustpilot.com/review/pvpro.ch"
+          href={trustpilot.href}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-3 sm:mt-4 inline-block rounded-xl px-2.5 py-1.5"
@@ -210,7 +231,7 @@ export default function Hero() {
         >
           <img
             src="/images/trustpilot-badge.png"
-            alt="Trustpilot 5 Sterne"
+            alt={trustpilot.alt}
             width={120}
             height={65}
             loading="eager"

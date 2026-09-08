@@ -3,11 +3,11 @@
   "createdAt": "2026-09-08T04:58:03.213Z",
   "articles": {
     "de": {
-      "slug": "solaranlage-offerten-vergleichen",
+      "slug": "solaranlage-offerten-sparen",
       "locale": "de",
       "title": "Solaranlage-Offerten vergleichen und bis zu 30% sparen",
       "metaDescription": "Erfahren Sie, wie Sie Solaranlage-Offerten vergleichen, um bis zu 30% zu sparen, indem Sie die Kosten pro kWp analysieren und Angebote von Swissolar-Fachbetrieben prüfen.",
-      "image": "/images/autoblog/solaranlage-offerten-vergleichen.jpg",
+      "image": "/images/blog/solaranlage-offerten-vergleichen.jpg",
       "date": "8. September 2026",
       "readMin": 8,
       "tag": "Ratgeber",
@@ -33,12 +33,12 @@
           ],
           "bullets": [
             "Daten erfassen: Dachfläche und Stromverbrauch.",
-            "Anfrage über PV Pro starten.",
+            "Anfrage über PVPro.ch starten.",
             "Angebote von Fachbetrieben prüfen.",
             "Fördermöglichkeiten erkundigen.",
             "Partner mit klarer Leistungstransparenz wählen."
           ],
-          "highlight": "Fordern Sie kostenlose Erstprüfungen an, um die Vorteile des intelligenten Matchings von pvpro.ch zu nutzen."
+          "highlight": "Fordern Sie kostenlose Erstprüfungen an, um die Vorteile des intelligenten Matchings von PVPro.ch zu nutzen."
         },
         {
           "heading": "Kosten und Preisvergleich: Schweizer Marktpreise verstehen",
@@ -102,11 +102,11 @@
       ]
     },
     "fr": {
-      "slug": "solaranlage-offerten-vergleichen",
+      "slug": "offres-solaires-economies",
       "locale": "fr",
       "title": "Comparer les offres de systèmes solaires et économiser jusqu'à 30%",
       "metaDescription": "Découvrez comment comparer les offres de systèmes solaires pour économiser jusqu'à 30% en analysant les coûts par kWp et en examinant les propositions d'entreprises certifiées Swissolar.",
-      "image": "/images/autoblog/solaranlage-offerten-vergleichen.jpg",
+      "image": "/images/blog/solaranlage-offerten-vergleichen.jpg",
       "date": "8 septembre 2026",
       "readMin": 8,
       "tag": "Guide",
@@ -132,12 +132,12 @@
           ],
           "bullets": [
             "Collecter les données : Surface du toit et consommation d'électricité.",
-            "Lancer la demande via PV Pro.",
+            "Lancer la demande via PVPro.ch.",
             "Examiner les offres de spécialistes.",
             "Explorer les possibilités de subventions.",
             "Choisir un partenaire avec une transparence de performance claire."
           ],
-          "highlight": "Demandez des évaluations initiales gratuites pour tirer parti des avantages du jumelage intelligent de pvpro.ch."
+          "highlight": "Demandez des évaluations initiales gratuites pour tirer parti des avantages du jumelage intelligent de PVPro.ch."
         },
         {
           "heading": "Coûts et comparaison des prix : Comprendre les prix du marché suisse",
@@ -201,11 +201,11 @@
       ]
     },
     "en": {
-      "slug": "solaranlage-offerten-vergleichen",
+      "slug": "solar-quotes-savings",
       "locale": "en",
       "title": "Compare Solar System Quotes and Save up to 30%",
       "metaDescription": "Learn how to compare solar system quotes to save up to 30% by analyzing the cost per kWp and reviewing offers from Swissolar-certified professionals.",
-      "image": "/images/autoblog/solaranlage-offerten-vergleichen.jpg",
+      "image": "/images/blog/solaranlage-offerten-vergleichen.jpg",
       "date": "September 8, 2026",
       "readMin": 8,
       "tag": "Guide",
@@ -231,12 +231,12 @@
           ],
           "bullets": [
             "Gather data: Roof area and electricity consumption.",
-            "Initiate inquiry via PV Pro.",
+            "Initiate inquiry via PVPro.ch.",
             "Review offers from professionals.",
             "Explore funding opportunities.",
             "Choose partners with clear performance transparency."
           ],
-          "highlight": "Request free initial assessments to leverage the benefits of intelligent matching from pvpro.ch."
+          "highlight": "Request free initial assessments to leverage the benefits of intelligent matching from PVPro.ch."
         },
         {
           "heading": "Costs and Price Comparison: Understanding Swiss Market Prices",
@@ -300,11 +300,11 @@
       ]
     },
     "it": {
-      "slug": "solaranlage-offerten-vergleichen",
+      "slug": "offerte-solari-risparmio",
       "locale": "it",
       "title": "Confronta le offerte per impianti solari e risparmia fino al 30%",
       "metaDescription": "Scopri come confrontare le offerte per impianti solari per risparmiare fino al 30%, analizzando i costi per kWp e valutando le proposte dei professionisti Swissolar.",
-      "image": "/images/autoblog/solaranlage-offerten-vergleichen.jpg",
+      "image": "/images/blog/solaranlage-offerten-vergleichen.jpg",
       "date": "8 settembre 2026",
       "readMin": 8,
       "tag": "Guida",
@@ -330,12 +330,12 @@
           ],
           "bullets": [
             "Raccogliere dati: Superficie del tetto e consumo di energia.",
-            "Avvia richiesta tramite PV Pro.",
+            "Avvia richiesta tramite PVPro.ch.",
             "Valutare le offerte dei professionisti.",
             "Informarsi sulle possibilità di finanziamento.",
             "Scegliere partner con trasparenza nelle prestazioni."
           ],
-          "highlight": "Richiedi verifiche iniziali gratuite per sfruttare i vantaggi del matching intelligente di pvpro.ch."
+          "highlight": "Richiedi verifiche iniziali gratuite per sfruttare i vantaggi del matching intelligente di PVPro.ch."
         },
         {
           "heading": "Costi e confronto prezzi: comprendere i prezzi di mercato in Svizzera",
@@ -398,5 +398,11 @@
         }
       ]
     }
+  },
+  "localeSlugs": {
+    "de": "solaranlage-offerten-sparen",
+    "it": "offerte-solari-risparmio",
+    "fr": "offres-solaires-economies",
+    "en": "solar-quotes-savings"
   }
 }
