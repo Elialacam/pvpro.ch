@@ -16,6 +16,43 @@ export default function UtmTracker() {
     // The session cookie lets middleware carry it onto form-page navigations.
     const source = params.get('source')?.toLowerCase()
     const hasNewAttribution = Boolean(params.get('utm_source') || params.get('fbclid'))
+    let cleanupAdScroll: (() => void) | undefined
+
+    if (hasNewAttribution) {
+      const previousScrollRestoration = window.history.scrollRestoration
+      const previousScrollBehavior = document.documentElement.style.scrollBehavior
+      let userInteracted = false
+
+      const scrollToTop = () => {
+        if (!userInteracted) window.scrollTo(0, 0)
+      }
+      const markUserInteraction = () => {
+        userInteracted = true
+      }
+
+      window.history.scrollRestoration = 'manual'
+      document.documentElement.style.scrollBehavior = 'auto'
+      window.addEventListener('touchstart', markUserInteraction, { passive: true })
+      window.addEventListener('wheel', markUserInteraction, { passive: true })
+      scrollToTop()
+
+      const frame = window.requestAnimationFrame(scrollToTop)
+      const scrollTimer = window.setTimeout(scrollToTop, 100)
+      const restoreTimer = window.setTimeout(() => {
+        window.history.scrollRestoration = previousScrollRestoration
+        document.documentElement.style.scrollBehavior = previousScrollBehavior
+      }, 300)
+
+      cleanupAdScroll = () => {
+        window.cancelAnimationFrame(frame)
+        window.clearTimeout(scrollTimer)
+        window.clearTimeout(restoreTimer)
+        window.removeEventListener('touchstart', markUserInteraction)
+        window.removeEventListener('wheel', markUserInteraction)
+        window.history.scrollRestoration = previousScrollRestoration
+        document.documentElement.style.scrollBehavior = previousScrollBehavior
+      }
+    }
 
     if (source === 'chatgpt') {
       sessionStorage.setItem(CHATGPT_SOURCE_KEY, 'chatgpt')
@@ -26,6 +63,8 @@ export default function UtmTracker() {
     if (sessionStorage.getItem(CHATGPT_SOURCE_KEY) === 'chatgpt') {
       document.cookie = `${CHATGPT_SOURCE_KEY}=chatgpt; path=/; SameSite=Lax`
     }
+
+    return cleanupAdScroll
   }, [])
 
   return null
