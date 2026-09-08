@@ -128,6 +128,10 @@ export default function SwitzerlandMap() {
       });
 
       const infoWindow = new g.maps.InfoWindow();
+      g.maps.event.addListener(infoWindow, 'domready', () => {
+        document.querySelector<HTMLButtonElement>('.map-info-window__close')
+          ?.addEventListener('click', () => infoWindow.close(), { once: true });
+      });
 
       cities.forEach((city, i) => {
         const name = city.name[locale as 'de' | 'fr' | 'en'] || city.name.de;
@@ -152,6 +156,7 @@ export default function SwitzerlandMap() {
         marker.addListener('click', () => {
           infoWindow.setContent(
             `<div class="map-info-window">
+               <button type="button" class="map-info-window__close" aria-label="Schliessen">×</button>
                <div class="map-info-window__eyebrow">${t.badge}</div>
                <div class="map-info-window__heading">
                  <span>${name}</span>

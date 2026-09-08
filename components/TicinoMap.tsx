@@ -108,6 +108,10 @@ export default function TicinoMap() {
       });
 
       const infoWindow = new g.maps.InfoWindow();
+      g.maps.event.addListener(infoWindow, 'domready', () => {
+        document.querySelector<HTMLButtonElement>('.map-info-window__close')
+          ?.addEventListener('click', () => infoWindow.close(), { once: true });
+      });
 
       cities.forEach((city, i) => {
         const marker = new g.maps.Marker({
@@ -131,6 +135,7 @@ export default function TicinoMap() {
         marker.addListener('click', () => {
           infoWindow.setContent(
             `<div class="map-info-window">
+               <button type="button" class="map-info-window__close" aria-label="Chiudi">×</button>
                <div class="map-info-window__eyebrow">Canton Ticino</div>
                <div class="map-info-window__heading">
                  <span>${city.name}</span>
