@@ -213,9 +213,9 @@ input[type="range"] {
 /* PVPro Google Maps info window */
 .gm-style .gm-style-iw-c {
   padding: 0 !important;
-  max-width: 232px !important;
+  max-width: 218px !important;
   border: 1px solid rgba(255, 255, 255, 0.72);
-  border-radius: 16px !important;
+  border-radius: 12px !important;
   background: rgba(255, 255, 255, 0.97) !important;
   box-shadow:
     0 18px 40px rgba(15, 23, 42, 0.2),
@@ -231,10 +231,10 @@ input[type="range"] {
   box-shadow: none !important;
 }
 .gm-style button.gm-ui-hover-effect {
-  width: 26px !important;
-  height: 26px !important;
-  top: 8px !important;
-  right: 8px !important;
+  width: 22px !important;
+  height: 22px !important;
+  top: 5px !important;
+  right: 5px !important;
   border-radius: 9999px !important;
   background: #f3f4f6 !important;
   opacity: 1 !important;
@@ -247,17 +247,17 @@ input[type="range"] {
 .gm-style button.gm-ui-hover-effect span {
   width: 11px !important;
   height: 11px !important;
-  margin: 7px !important;
+  margin: 5px !important;
 }
 
 .map-info-window {
-  width: 220px;
-  padding: 14px;
+  width: 206px;
+  padding: 8px 9px 9px;
   color: #111827;
   font-family: inherit;
 }
 .map-info-window__eyebrow {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   color: #b87900;
   font-size: 8px;
   font-weight: 800;
@@ -270,7 +270,7 @@ input[type="range"] {
   align-items: center;
   gap: 7px;
   min-height: 24px;
-  padding-right: 25px;
+  padding-right: 22px;
   font-size: 17px;
   font-weight: 850;
   letter-spacing: -0.035em;
@@ -302,7 +302,7 @@ input[type="range"] {
   box-shadow: 0 0 0 3px rgba(252, 178, 16, 0.2);
 }
 .map-info-window__copy {
-  margin: 8px 0 11px;
+  margin: 5px 0 7px;
   color: #5b6472;
   font-size: 11px;
   line-height: 1.45;
@@ -331,14 +331,11 @@ input[type="range"] {
 
 @media (max-width: 640px) {
   .gm-style .gm-style-iw-c {
-    max-width: 220px !important;
+    max-width: 206px !important;
   }
   .map-info-window {
-    width: 208px;
-    padding: 13px;
-  }
-  .map-info-window__heading {
-    font-size: 16px;
+    width: 194px;
+    padding: 8px 9px 9px;
   }
 }
 
