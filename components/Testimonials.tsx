@@ -29,7 +29,7 @@ const footerNote: Record<string, string> = {
 
 function Stars() {
   return (
-    <div className="flex gap-1" aria-label="5 von 5 Sternen">
+    <div className="flex gap-1" aria-label="Kundenbewertung">
       {Array.from({ length: 5 }, (_, i) => (
         <Star key={i} size={16} fill="#fcb210" strokeWidth={1.5} color="#fcb210" />
       ))}

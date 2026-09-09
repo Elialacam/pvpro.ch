@@ -59,29 +59,9 @@ const heroContent: Record<Locale, {
 
 const SLIDE_DURATION = 6000;
 
-const trustpilotContent: Record<Locale, { href: string; alt: string }> = {
-  de: {
-    href: 'https://de-ch.trustpilot.com/review/pvpro.ch',
-    alt: 'Trustpilot: 5 Sterne für PvPro.ch',
-  },
-  fr: {
-    href: 'https://fr.trustpilot.com/review/pvpro.ch',
-    alt: 'Trustpilot : 5 étoiles pour PvPro.ch',
-  },
-  en: {
-    href: 'https://www.trustpilot.com/review/pvpro.ch',
-    alt: 'Trustpilot: 5 stars for PvPro.ch',
-  },
-  it: {
-    href: 'https://it.trustpilot.com/review/pvpro.ch',
-    alt: 'Trustpilot: 5 stelle per PvPro.ch',
-  },
-};
-
 export default function Hero() {
   const locale = useLocale();
   const content = heroContent[locale] || heroContent.de;
-  const trustpilot = trustpilotContent[locale] || trustpilotContent.de;
   const pathname = usePathname();
   const formUrl = getFormUrl(pathname);
   const [current, setCurrent] = useState(0);
@@ -221,24 +201,6 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Trustpilot badge */}
-        <a
-          href={trustpilot.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 sm:mt-4 inline-block rounded-xl px-2.5 py-1.5"
-          style={{ background: 'rgba(255,255,255,0.88)' }}
-        >
-          <img
-            src="/images/trustpilot-badge.png"
-            alt={trustpilot.alt}
-            width={120}
-            height={65}
-            loading="eager"
-            decoding="async"
-            className="w-20 sm:w-28"
-          />
-        </a>
       </div>
 
       {/* Premium widget — bottom right */}
