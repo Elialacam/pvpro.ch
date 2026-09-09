@@ -29,7 +29,7 @@ const labels: Record<string, {
     savings: 'Mögliche Ersparnis',
     perYear: 'pro Jahr',
     month: '/Monat',
-    note: 'Richtwert. Abhängig von Dach, Eigenverbrauch und Stromtarif. Mit Speicher höher.',
+    note: 'Richtwert. Abhängig von Dach, Eigenverbrauch und Stromtarif. Mit einem Batteriespeicher fällt die Ersparnis höher aus.',
   },
   fr: {
     question: 'Quel est le montant de votre facture mensuelle d’électricité ?',
@@ -38,7 +38,7 @@ const labels: Record<string, {
     savings: 'Économies possibles',
     perYear: 'par an',
     month: '/mois',
-    note: 'Valeur indicative. Dépend du toit, de l’autoconsommation et du tarif d’électricité. Plus élevées avec une batterie.',
+    note: "Valeur indicative. Dépend du toit, de l'autoconsommation et du tarif d'électricité. Avec une batterie, l'économie est plus élevée.",
   },
   en: {
     question: 'What is your monthly electricity bill?',
@@ -47,7 +47,7 @@ const labels: Record<string, {
     savings: 'Potential savings',
     perYear: 'per year',
     month: '/month',
-    note: 'Estimate. Depends on the roof, self-consumption and electricity tariff. Higher with battery storage.',
+    note: 'Indicative value. Depends on your roof, self-consumption and electricity tariff. With a battery the saving is higher.',
   },
   it: {
     question: 'A quanto ammonta la tua bolletta elettrica mensile?',
@@ -56,7 +56,7 @@ const labels: Record<string, {
     savings: 'Risparmio possibile',
     perYear: 'all’anno',
     month: '/mese',
-    note: 'Valore indicativo. Dipende dal tetto, dall’autoconsumo e dalla tariffa elettrica. Più alto con accumulo.',
+    note: "Valore indicativo. Dipende dal tetto, dall'autoconsumo e dalla tariffa elettrica. Con una batteria il risparmio è maggiore.",
   },
 };
 

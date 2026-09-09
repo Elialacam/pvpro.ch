@@ -61,7 +61,6 @@ const footerContent: Record<string, {
           { label: 'Subventions',                   href: '/fr/subventions-solaires' },
           { label: "Coût installation solaire",     href: '/fr/cout-installation-solaire' },
           { label: 'Déduction fiscale solaire 2026', href: '/fr/blog/deduction-fiscale-panneau-solaire-suisse-2026' },
-          { label: 'FAQ',                           href: '/fr/faq' },
         ],
       },
       {
@@ -79,6 +78,7 @@ const footerContent: Record<string, {
         links: [
           { label: 'À propos de nous',          href: '/fr/a-propos' },
           { label: 'Comment ça marche',         href: '/fr/comment-ca-marche' },
+          { label: 'FAQ',                       href: '/fr/faq' },
           { label: 'Protection des données',    href: '/fr/protection-des-donnees' },
           { label: 'Mentions légales',          href: '/fr/mentions-legales' },
         ],
@@ -97,7 +97,6 @@ const footerContent: Record<string, {
           { label: 'Subsidies',                  href: '/en/solar-subsidies' },
           { label: 'Solar system costs',         href: '/en/solar-panel-costs' },
           { label: 'Solar Tax Deduction 2026',   href: '/en/blog/solar-panel-tax-deduction-switzerland-2026' },
-          { label: 'FAQ',                        href: '/en/faq' },
         ],
       },
       {
@@ -115,6 +114,7 @@ const footerContent: Record<string, {
         links: [
           { label: 'About us',        href: '/en/about-us' },
           { label: 'How it works',    href: '/en/how-it-works' },
+          { label: 'FAQ',             href: '/en/faq' },
           { label: 'Privacy policy',  href: '/en/privacy' },
           { label: 'Legal notice',    href: '/en/imprint' },
         ],
@@ -133,7 +133,6 @@ const footerContent: Record<string, {
           { label: 'Sovvenzioni',                 href: '/it/incentivi-solari' },
           { label: 'Costi impianto solare',       href: '/it/costi-impianto-solare' },
           { label: 'Detrazione fiscale solare 2026', href: '/it/blog/detrazione-fiscale-impianto-solare-svizzera-2026' },
-          { label: 'FAQ',                         href: '/it/faq' },
         ],
       },
       {
@@ -151,6 +150,7 @@ const footerContent: Record<string, {
         links: [
           { label: 'Chi siamo',         href: '/it/chi-siamo' },
           { label: 'Come funziona',     href: '/it/come-funziona' },
+          { label: 'FAQ',               href: '/it/faq' },
           { label: 'Privacy',           href: '/it/protezione-dati' },
           { label: 'Note legali',       href: '/it/note-legali' },
         ],
