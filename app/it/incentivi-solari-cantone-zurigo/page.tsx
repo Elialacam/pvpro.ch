@@ -3,6 +3,10 @@ import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText } from 'lucide-rea
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatChf, formatRangeForLocale } from '@/lib/facts';
+
+const itRange = (range: { readonly min: number; readonly max: number }, unit: string) =>
+  formatRangeForLocale(range, unit, 'it');
 
 export const metadata: Metadata = pageMetadata({
   title: 'Incentivi solari Cantone di Zurigo 2026 – RU, obbligo solare & contributi | PvPro.ch',
@@ -30,7 +34,7 @@ export const metadata: Metadata = pageMetadata({
 const faqs = [
   {
     question: "Quanto è l'incentivo per un impianto solare nel Cantone di Zurigo?",
-    answer: "L'incentivo federale (RU) è di circa CHF 300–400 per kWp. Per un impianto da 10 kWp sono circa CHF 3.500. Inoltre esistono programmi cantonali e deduzioni fiscali.",
+    answer: `La RU è di ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} per kWp fino a 30 kWp, più il contributo base. Per 10 kWp è circa ${formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}.`,
   },
   {
     question: "L'obbligo solare si applica anche alle case esistenti nel Cantone di Zurigo?",
@@ -87,9 +91,9 @@ export default function IncentiviSolariCantoneZurigoPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: 'CHF 300–400/kWp', sub: 'Incentivo federale RU', note: 'pagamento unico dopo l\'installazione' },
+               { val: `${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)}/kWp`, sub: 'RU fino a 30 kWp', note: SOURCE_NOTES.it },
               { val: 'Obbligo solare', sub: 'dal 2023 per le nuove costruzioni', note: 'vale in tutto il Cantone di Zurigo' },
-              { val: '7–9 anni', sub: 'Ammortamento nel Cantone ZH', note: 'grazie a incentivi e bassi costi elettrici' },
+               { val: `${ECONOMIC_FACTS.cantonElectricityCtPerKwh.ZH} ct/kWh`, sub: 'Tariffa elettrica Zurigo', note: 'Fonte: ElCom 2026' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -118,7 +122,7 @@ export default function IncentiviSolariCantoneZurigoPage() {
             </p>
             <ul className="space-y-3 mb-6">
               {[
-                "Importo: circa CHF 300–400 per kWp di potenza installata",
+                 `Importo: ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} per kWp fino a 30 kWp, più contributo base`,
                 "Versata una sola volta dopo l'installazione",
                 "Nessuna domanda annuale necessaria",
                 "L'installatore si occupa solitamente della registrazione per voi",
@@ -131,7 +135,7 @@ export default function IncentiviSolariCantoneZurigoPage() {
             </ul>
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="text-orange-800 text-sm leading-relaxed">
-                Per un tipico impianto da 10 kWp ciò rappresenta un incentivo di circa <strong>CHF 3.500</strong>.
+                 Per un impianto da 10 kWp la RU è di circa <strong>{formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}</strong>.
               </p>
             </div>
           </div>
@@ -140,10 +144,9 @@ export default function IncentiviSolariCantoneZurigoPage() {
               <p className="text-white/60 text-xs font-bold uppercase tracking-widest mb-5">RU — Esempio di calcolo 10 kWp</p>
               <div className="space-y-4">
                 {[
-                  { label: "Costi di installazione", value: "CHF 28'000" },
-                  { label: 'Incentivo federale RU', value: "− CHF 3'500" },
-                  { label: 'Deduzione fiscale (ca.)', value: "− CHF 2'800" },
-                  { label: 'Costo effettivo', value: "ca. CHF 21'700", highlight: true },
+                   { label: "Costi di installazione", value: itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF') },
+                   { label: 'Incentivo federale RU', value: `− ${formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}` },
+                   { label: 'Costo netto dopo la RU', value: itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF'), highlight: true },
                 ].map(r => (
                   <div key={r.label} className={`flex justify-between items-center rounded-xl px-5 py-3 ${r.highlight ? 'bg-orange-500/20 border border-orange-500/30' : 'bg-white/5'}`}>
                     <span className={`text-sm font-medium ${r.highlight ? 'text-orange-300' : 'text-white/70'}`}>{r.label}</span>
@@ -169,7 +172,7 @@ export default function IncentiviSolariCantoneZurigoPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { title: 'Programma di promozione energetica', text: 'Contributi per impianti fotovoltaici in combinazione con pompe di calore o isolamento degli edifici.', badge: 'Cantone di Zurigo' },
-              { title: 'Comunità elettriche locali (CEL)', text: 'Dal 2026 potete vendere elettricità solare direttamente al quartiere — riducendo le tariffe di rete fino al 40%.', badge: 'Dal 2026' },
+               { title: 'Comunità elettriche locali (CEL)', text: 'Permettono di vendere elettricità solare direttamente nel quartiere.', badge: 'Dal 2026' },
               { title: 'Deduzioni fiscali', text: 'Gli investimenti in impianti solari possono essere dedotti a livello federale e nel Cantone di Zurigo.', badge: 'Confederazione & Cantone' },
             ].map(c => (
               <div key={c.title} className="rounded-2xl p-8" style={{ background: 'linear-gradient(135deg, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>

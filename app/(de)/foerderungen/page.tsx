@@ -4,6 +4,15 @@ import { ChevronRight, CheckCircle, Info, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FoerderRechner from '@/components/FoerderRechner';
+import {
+  ECONOMIC_FACTS,
+  SYSTEM_PRICE_NOTES,
+  formatChf,
+  formatRangeForLocale,
+  formatSwissNumber,
+  getSourceNote,
+  getSystemCostRange,
+} from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Förderungen für Solaranlagen in der Schweiz 2026 | PvPro.ch',
@@ -20,11 +29,19 @@ export const metadata: Metadata = pageMetadata({
   },
 }, { path: '/foerderungen', locale: 'de' });
 
-const tableRows = [
-  { size: '5 kWp',  foerderung: "ca. 1'800 CHF", gesamtkosten: "ca. 13'000 CHF", effektiv: "ca. 11'200 CHF" },
-  { size: '8 kWp',  foerderung: "ca. 2'800 CHF", gesamtkosten: "ca. 20'800 CHF", effektiv: "ca. 18'000 CHF", highlight: true },
-  { size: '10 kWp', foerderung: "ca. 3'500 CHF", gesamtkosten: "ca. 25'000 CHF", effektiv: "ca. 21'500 CHF" },
-];
+const tableRows = [5, 8, 10].map((size) => {
+  const costs = getSystemCostRange(size);
+  const subsidy = size === 10
+    ? ECONOMIC_FACTS.incentives.tenKwpApprox
+    : size * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30;
+  return {
+    size: `${size} kWp`,
+    foerderung: `ca. ${formatChf(subsidy)}`,
+    gesamtkosten: formatRangeForLocale(costs, 'CHF', 'de'),
+    effektiv: `${formatSwissNumber(costs.min - subsidy)} bis ${formatSwissNumber(costs.max - subsidy)} CHF`,
+    highlight: size === 8,
+  };
+});
 
 const processSteps = [
   { n: '1', title: 'Installation',       text: 'Photovoltaikanlage durch einen zertifizierten Installateur montieren lassen.' },
@@ -86,9 +103,9 @@ export default function FoerderungenPage() {
               {/* Key stats */}
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: '300–400', unit: 'CHF/kWp', label: 'Förderung' },
-                  { value: '10–15',   unit: 'Jahre',    label: 'Amortisation' },
-                  { value: '30%',     unit: 'Rabatt',   label: 'Investition' },
+                  { value: formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30), unit: 'CHF/kWp', label: 'Förderung bis 30 kWp' },
+                  { value: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahre', 'de'), unit: '', label: 'Amortisation' },
+                  { value: formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', 'de'), unit: '', label: 'Bundesanteil' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <p className="text-2xl font-bold text-white">{s.value}</p>
@@ -97,6 +114,7 @@ export default function FoerderungenPage() {
                   </div>
                 ))}
               </div>
+              <p className="mt-4 text-xs text-white/50">{getSourceNote('de')}</p>
             </div>
 
             {/* Interactive calculator */}
@@ -170,7 +188,7 @@ export default function FoerderungenPage() {
               Wie hoch ist die Förderung?
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-              Die Förderung liegt typischerweise bei <strong className="text-gray-800">300–400 CHF pro kWp</strong> installierter Leistung. Je grösser die Anlage, desto höher der Betrag.
+              Die RU beträgt bis 30 kWp <strong className="text-gray-800">{formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} pro kWp</strong>, zuzüglich Grundbeitrag.
             </p>
           </div>
 
@@ -200,7 +218,7 @@ export default function FoerderungenPage() {
             </div>
             <p className="text-xs text-gray-400 text-center mt-4 flex items-center justify-center gap-1.5">
               <Info className="w-3.5 h-3.5" />
-              Richtwerte. Die genaue Höhe hängt von der aktuellen Förderstruktur und der Anlagengrösse ab.
+               {getSourceNote('de')} {SYSTEM_PRICE_NOTES.de}
             </p>
           </div>
         </div>
@@ -228,18 +246,18 @@ export default function FoerderungenPage() {
                 Beispiel für ein Einfamilienhaus
               </h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                Viele Einfamilienhäuser installieren eine Anlage mit <strong>8–10 kWp</strong>, die jährlich rund <strong>8'000–10'000 kWh</strong> Strom produziert.
+                Als Beispiel dient eine Anlage mit 10 kWp. Im Mittelland produziert sie rechnerisch rund <strong>{formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis {formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh</strong> pro Jahr.
               </p>
 
               {/* Calculation breakdown */}
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-gray-100">
                   <p className="text-gray-700 font-medium">Kosten der Solaranlage (10 kWp)</p>
-                  <p className="font-bold text-gray-900">CHF 25'000</p>
+                  <p className="font-bold text-gray-900">{formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de')}</p>
                 </div>
                 <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-orange-100" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
                   <p className="text-orange-700 font-medium">Einmalvergütung (EIV)</p>
-                  <p className="font-bold text-[#fcb210]">− CHF 3'500</p>
+                  <p className="font-bold text-[#fcb210]">− {formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}</p>
                 </div>
                 <div className="h-px bg-gray-200" />
                 <div className="flex items-center justify-between rounded-2xl px-6 py-5 border-2 border-green-200" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
@@ -247,7 +265,7 @@ export default function FoerderungenPage() {
                     <p className="font-bold text-gray-900">Effektive Investition</p>
                     <p className="text-xs text-green-600 mt-0.5">Nach Abzug der Bundesförderung</p>
                   </div>
-                  <p className="font-bold text-green-700 text-2xl">CHF 21'500</p>
+                  <p className="font-bold text-green-700 text-2xl">{formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox)} bis {formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox)} CHF</p>
                 </div>
               </div>
             </div>
@@ -324,7 +342,7 @@ export default function FoerderungenPage() {
                 Lohnt sich eine Solaranlage trotz Investitionskosten?
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                Dank staatlicher Förderungen und steigender Strompreise lohnt sich eine Solaranlage für viele Schweizer Haushalte. Viele Anlagen amortisieren sich innerhalb von <strong>10–15 Jahren</strong> bei einer Lebensdauer von 25–30 Jahren.
+                Dank staatlicher Förderungen und steigender Strompreise lohnt sich eine Solaranlage für viele Schweizer Haushalte. Im Mittelland liegt die Amortisation bei <strong>{formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahren', 'de')}</strong>, die Modullebensdauer bei <strong>{formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahren', 'de')}</strong>.
               </p>
               <p className="text-gray-500 text-sm leading-relaxed mt-1 mb-3">
                 <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#fcb210] hover:underline font-medium">Lohnt sich eine Solaranlage mit Förderung?</Link>

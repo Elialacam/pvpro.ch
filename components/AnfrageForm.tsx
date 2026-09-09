@@ -11,6 +11,7 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { getConsent } from '@/lib/cookieConsent';
+import { ECONOMIC_FACTS } from '@/lib/facts';
 
 declare global {
   interface Window {
@@ -81,7 +82,7 @@ const i18n = {
     step3Title: 'Welche Dachform kommt Ihrer am nächsten?',
     step3Sub: 'Wählen Sie die Dachform, die Ihrer am ähnlichsten ist.',
     step4Title: 'Möchten Sie einen Stromspeicher integrieren?',
-    step4Sub: 'Ein Speicher erhöht Ihren Eigenverbrauch auf bis zu 80%.',
+    step4Sub: `Ein Speicher erhöht Ihren Eigenverbrauch auf bis zu ${ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max}%.`,
     step5Title: 'Wo befindet sich Ihre Liegenschaft?',
     step5Sub: 'Wir prüfen die Eignung Ihres Dachs und verfügbare Förderungen.',
     step6Title: 'Fast geschafft!',
@@ -127,7 +128,7 @@ const i18n = {
     step3Title: 'Quelle forme de toit correspond le mieux à la vôtre?',
     step3Sub: 'Sélectionnez la forme de toit qui ressemble le plus à la vôtre.',
     step4Title: 'Souhaitez-vous intégrer un système de stockage d\'énergie?',
-    step4Sub: 'Un stockage augmente votre autoconsommation jusqu\'à 80%.',
+    step4Sub: `Un stockage augmente votre autoconsommation jusqu'à ${ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max}%.`,
     step5Title: 'Où se situe votre bien immobilier?',
     step5Sub: 'Nous vérifions l\'aptitude de votre toit et les subventions disponibles.',
     step6Title: 'Presque terminé!',
@@ -173,7 +174,7 @@ const i18n = {
     step3Title: 'Which roof shape best matches yours?',
     step3Sub: 'Select the roof shape closest to your own.',
     step4Title: 'Would you like to include a battery storage system?',
-    step4Sub: 'Storage increases your self-consumption to up to 80%.',
+    step4Sub: `Storage increases your self-consumption to up to ${ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max}%.`,
     step5Title: 'Where is your property located?',
     step5Sub: 'We\'ll assess your roof\'s suitability and available subsidies.',
     step6Title: 'Almost done!',
@@ -219,7 +220,7 @@ const i18n = {
     step3Title: 'Quale forma di tetto si avvicina di più alla tua?',
     step3Sub: 'Seleziona la forma del tetto più simile alla tua.',
     step4Title: 'Desideri integrare un sistema di accumulo?',
-    step4Sub: 'Un accumulo aumenta il tuo autoconsumo fino all\'80%.',
+    step4Sub: `Un accumulo aumenta il tuo autoconsumo fino all'${ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max}%.`,
     step5Title: 'Dove si trova il tuo immobile?',
     step5Sub: 'Verificheremo l\'idoneità del tuo tetto e gli incentivi disponibili.',
     step6Title: 'Ci siamo quasi!',

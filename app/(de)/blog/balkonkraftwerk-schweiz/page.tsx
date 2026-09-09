@@ -19,11 +19,10 @@ export const metadata: Metadata = pageMetadata({
 const articleDate = articleDates({ date: '17. März 2026', locale: 'de' });
 
 const comparisonRows = [
-  { factor: 'Kosten', balkon: "300 – 1'200 CHF", solar: "20'000 – 35'000 CHF", winner: 'balkon' },
+  { factor: 'Kosten', balkon: 'je nach Modell', solar: 'gemäss Offerte', winner: 'balkon' },
   { factor: 'Leistung', balkon: '300 – 800 Watt', solar: "8'000 – 12'000 Watt", winner: 'solar' },
-  { factor: 'Jahresproduktion', balkon: '200 – 600 kWh', solar: "8'000 – 12'000 kWh", winner: 'solar' },
-  { factor: 'Einsparung/Jahr', balkon: '50 – 150 CHF', solar: "1'500 – 3'000 CHF", winner: 'solar' },
-  { factor: 'Amortisation', balkon: '3 – 6 Jahre', solar: '8 – 12 Jahre', winner: 'balkon' },
+  { factor: 'Jahresproduktion', balkon: 'gering', solar: 'deutlich höher', winner: 'solar' },
+  { factor: 'Einsparung/Jahr', balkon: 'gering', solar: 'deutlich höher', winner: 'solar' },
   { factor: 'Wertsteigerung', balkon: 'Keine', solar: 'Ja (Immobilie)', winner: 'solar' },
   { factor: 'Förderung', balkon: 'Keine', solar: 'EIV + kantonal', winner: 'solar' },
   { factor: 'Zielgruppe', balkon: 'Mieter', solar: 'Eigentümer', winner: null },
@@ -100,8 +99,8 @@ export default function BalkonkraftwerkSchweizPage() {
                 {[
                   { label: 'Module', value: '1–2' },
                   { label: 'Max. Leistung', value: '800 W' },
-                  { label: 'Produktion/Jahr', value: '200–600 kWh' },
-                  { label: 'Einsparung/Jahr', value: '50–150 CHF' },
+                  { label: 'Produktion/Jahr', value: 'je nach Ausrichtung' },
+                  { label: 'Einsparung/Jahr', value: 'je nach Eigenverbrauch' },
                 ].map((s) => (
                   <div key={s.label} className="rounded-xl bg-gray-50 border border-gray-100 p-4 text-center">
                     <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">{s.label}</p>
@@ -140,7 +139,7 @@ export default function BalkonkraftwerkSchweizPage() {
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Wie viel Strom produziert ein Balkonkraftwerk?</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Ein typisches Balkonkraftwerk produziert ca. <strong>200–600 kWh pro Jahr</strong> — das entspricht dem Grundverbrauch einiger Geräte (Kühlschrank, Standby). Für den Grossteil des Haushaltsstroms reicht das bei weitem nicht.
+                Ein typisches Balkonkraftwerk deckt nur einen kleinen Teil des Haushaltsstroms.
               </p>
               {/* Visual comparison bars */}
               <div className="rounded-2xl bg-gray-50 border border-gray-100 p-6 space-y-5">
@@ -148,7 +147,7 @@ export default function BalkonkraftwerkSchweizPage() {
                 <div>
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-gray-600">Balkonkraftwerk (800 W)</span>
-                    <span className="font-bold text-gray-800">bis 600 kWh</span>
+                    <span className="font-bold text-gray-800">geringe Produktion</span>
                   </div>
                   <div className="h-4 rounded-full bg-gray-200">
                     <div className="h-4 rounded-full bg-gray-400" style={{ width: '5%' }} />
@@ -156,8 +155,8 @@ export default function BalkonkraftwerkSchweizPage() {
                 </div>
                 <div>
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="text-gray-600">Solaranlage (10 kWp)</span>
-                    <span className="font-bold text-[#fcb210]">9'000 – 11'000 kWh</span>
+                    <span className="text-gray-600">Solaranlage</span>
+                    <span className="font-bold text-[#fcb210]">deutlich höhere Produktion</span>
                   </div>
                   <div className="h-4 rounded-full bg-gray-200">
                     <div className="h-4 rounded-full bg-[#fcb210]" style={{ width: '90%' }} />
@@ -233,13 +232,13 @@ export default function BalkonkraftwerkSchweizPage() {
                   Viele starten mit der Idee eines Balkonkraftwerks und stellen dann fest: <strong className="text-white">Der Effekt ist zu klein.</strong>
                 </p>
                 <p className="text-white/70 leading-relaxed mb-6">
-                  Eine vollwertige Solaranlage spart Ihnen jährlich <strong className="text-white">1'500 – 3'000 CHF</strong> — das ist 10–20× mehr als ein Balkonkraftwerk. Und mit der Einmalvergütung (EIV) und kantonalen Förderungen sinken die Anschaffungskosten deutlich.
+                  Eine vollwertige Solaranlage spart deutlich mehr als ein Balkonkraftwerk. Mit der Einmalvergütung und kantonalen Förderungen sinken die Anschaffungskosten.
                 </p>
                 <div className="grid grid-cols-3 gap-3 mb-6">
                   {[
                     { icon: Zap, label: '15–20×', sub: 'mehr Stromproduktion' },
                     { icon: TrendingUp, label: '10–20×', sub: 'mehr Einsparung/Jahr' },
-                    { icon: CheckCircle2, label: '100%', sub: 'Förderung verfügbar' },
+              { icon: CheckCircle2, label: 'Prüfen', sub: 'Förderung verfügbar' },
                   ].map((item) => {
                     const Icon = item.icon;
                     return (
@@ -283,9 +282,9 @@ export default function BalkonkraftwerkSchweizPage() {
                   {[
                     { label: 'Erlaubt in CH?', value: 'Ja, mit Anmeldung' },
                     { label: 'Max. Leistung', value: '800 Watt (plug-and-play)' },
-                    { label: 'Kosten', value: '300 – 1\'200 CHF' },
-                    { label: 'Produktion/Jahr', value: '200 – 600 kWh' },
-                    { label: 'Einsparung/Jahr', value: '50 – 150 CHF' },
+                    { label: 'Kosten', value: 'je nach Modell' },
+                    { label: 'Produktion/Jahr', value: 'je nach Ausrichtung' },
+                    { label: 'Einsparung/Jahr', value: 'je nach Eigenverbrauch' },
                     { label: 'Anmeldepflicht', value: 'Ja, beim Netzbetreiber' },
                   ].map((item) => (
                     <div key={item.label} className="flex justify-between items-start gap-2 py-2 border-b border-gray-50 last:border-0">

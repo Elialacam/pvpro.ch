@@ -74,7 +74,7 @@ const steps = [
 ];
 
 const buildingTypes = [
-  { title: 'Casa unifamiliare', desc: "la richiesta più frequente, tipicamente 8–12 kWp", href: '/it/solare-casa-unifamiliare' },
+  { title: 'Casa unifamiliare', desc: "la richiesta più frequente, dimensionata in base al consumo e al tetto", href: '/it/solare-casa-unifamiliare' },
   { title: 'Condominio', desc: "impianti più grandi con autoconsumo collettivo", href: '/it/solare-condominio' },
   { title: 'Edificio commerciale', desc: "anche per aziende e agricoltura", href: '/it/preventivo' },
 ];
@@ -109,7 +109,7 @@ export default function RichiederePrevenitivoSolarePage() {
             {[
               { val: 'Gratuito', sub: 'nessun rischio, nessun costo nascosto', note: 'completamente gratuito per i proprietari' },
               { val: '24–48 ore', sub: 'fino al primo preventivo', note: 'risposta rapida dagli installatori locali' },
-              { val: 'Fino a CHF 4.000', sub: 'risparmio possibile confrontando', note: 'a seconda delle dimensioni dell\'impianto' },
+              { val: 'Confronto diretto', sub: 'tra offerte diverse', note: 'prezzi, componenti e condizioni' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -129,7 +129,7 @@ export default function RichiederePrevenitivoSolarePage() {
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Il vantaggio decisivo</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">Perché richiedere più preventivi?</h2>
             <p className="text-gray-600 leading-relaxed mb-5">
-              Molti proprietari svizzeri fanno lo stesso errore: contattano un solo installatore e accettano la prima offerta. Ciò che la maggior parte non sa è che per esattamente lo stesso impianto — stessi moduli, stesso inverter, stessa potenza — i prezzi tra diversi installatori possono variare fino a CHF 4.000.
+              Molti proprietari svizzeri fanno lo stesso errore: contattano un solo installatore e accettano la prima offerta. Per lo stesso impianto, i prezzi e le condizioni possono variare tra installatori.
             </p>
             <p className="text-gray-600 leading-relaxed">Il motivo è semplice: gli installatori calcolano diversamente e hanno condizioni di acquisto e margini variabili. Chi confronta, vince.</p>
           </div>
@@ -138,9 +138,9 @@ export default function RichiederePrevenitivoSolarePage() {
               <p className="text-white/60 text-xs font-bold uppercase tracking-widest mb-5">Esempio — impianto 10 kWp</p>
               <div className="space-y-4">
                 {[
-                  { label: 'Installatore A', price: "CHF 29'500", highlight: false },
-                  { label: 'Installatore B', price: "CHF 26'800", highlight: false },
-                  { label: 'Installatore C (più economico)', price: "CHF 25'600", highlight: true },
+                  { label: 'Installatore A', price: "Offerta più alta", highlight: false },
+                  { label: 'Installatore B', price: "Offerta intermedia", highlight: false },
+                  { label: 'Installatore C', price: "Offerta più bassa", highlight: true },
                 ].map(r => (
                   <div key={r.label} className={`flex justify-between items-center rounded-xl px-5 py-3 ${r.highlight ? 'bg-orange-500/20 border border-orange-500/30' : 'bg-white/5'}`}>
                     <span className={`text-sm font-medium ${r.highlight ? 'text-orange-300' : 'text-white/70'}`}>{r.label}</span>
@@ -149,7 +149,7 @@ export default function RichiederePrevenitivoSolarePage() {
                 ))}
                 <div className="border-t border-white/10 pt-4 flex justify-between items-center">
                   <span className="text-white/60 text-sm">Risparmio confrontando</span>
-                  <span className="text-green-400 font-bold">fino a CHF 3.900</span>
+                  <span className="text-green-400 font-bold">offerte confrontabili</span>
                 </div>
               </div>
             </div>

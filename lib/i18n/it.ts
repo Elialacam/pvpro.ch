@@ -27,10 +27,10 @@ export const it: TranslationKeys = {
   hero: {
     title: 'Confronta impianti fotovoltaici in Ticino',
     subtitle: 'Ricevi preventivi gratuiti da installatori certificati',
-    description: 'Confronta gratuitamente le offerte di impianti fotovoltaici da installatori certificati in Ticino. Risparmia fino al 30% con il confronto.',
+    description: 'Confronta gratuitamente le offerte di impianti fotovoltaici da installatori certificati in Ticino.',
     cta: 'Richiedi ora un preventivo gratuito',
-    free: '100% gratuito',
-    nonBinding: '100% senza impegno',
+    free: 'Gratuito',
+    nonBinding: 'Senza impegno',
     certified: 'Installatori certificati',
   },
   form: {
@@ -54,15 +54,15 @@ export const it: TranslationKeys = {
       description: 'Ricevi diverse offerte da installatori certificati e scegli la migliore.',
     },
     save: {
-      title: 'Risparmia fino al 30%',
-      description: 'Confrontando più offerte, risparmierai in media il 30% sui costi di installazione.',
+      title: 'Confronta i preventivi',
+      description: 'Confronta più preventivi per il tuo impianto fotovoltaico.',
     },
     certified: {
       title: 'Solo installatori certificati',
       description: 'Tutti i nostri partner sono certificati e hanno esperienza comprovata con impianti fotovoltaici in Ticino.',
     },
     free: {
-      title: '100% gratuito e senza impegno',
+      title: 'Gratuito e senza impegno',
       description: 'Il nostro servizio è completamente gratuito. Paghi solo l\'installatore che scegli.',
     },
   },
@@ -78,7 +78,7 @@ export const it: TranslationKeys = {
     },
     step3: {
       title: 'Confronta e risparmia',
-      description: 'Scegli l\'offerta migliore e risparmia fino al 30%',
+      description: 'Scegli l\'offerta migliore',
     },
   },
   faq: {
@@ -125,7 +125,6 @@ export const it: TranslationKeys = {
     solarPanel: 'Pannello solare',
     inverter: 'Inverter',
     battery: 'Batteria di accumulo',
-    sunHours: 'Ore di sole',
     subsidy: 'Sovvenzione',
     quote: 'Preventivo',
     installation: 'Installazione',
@@ -133,6 +132,6 @@ export const it: TranslationKeys = {
   },
   meta: {
     homeTitle: 'PvPro.ch - Confronta impianti fotovoltaici in Ticino | Preventivi gratuiti',
-    homeDescription: 'Confronta gratuitamente le offerte di impianti fotovoltaici da installatori certificati in Ticino. Risparmia fino al 30% con il confronto. 100% senza impegno.',
+    homeDescription: 'Confronta gratuitamente le offerte di impianti fotovoltaici da installatori certificati in Ticino. Senza impegno.',
   },
 };

@@ -156,12 +156,6 @@ export default function ComparateurPhotovoltaiqueSuissePage() {
           </div>
           <div className="rounded-3xl overflow-hidden">
             <Image src="/images/asset-beratung-indoor-2.webp" alt="Comparaison installateurs photovoltaïques Suisse" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
-            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Le saviez-vous ?</p>
-              <p className="text-gray-700 text-sm leading-relaxed">
-                Ceux qui comparent au moins 3 offres économisent en moyenne 15 à 25 % par rapport à la première offre — soit jusqu&apos;à 5 000 CHF pour une installation typique.
-              </p>
-            </div>
           </div>
         </section>
 

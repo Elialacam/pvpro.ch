@@ -2,6 +2,12 @@
 
 import { useState } from 'react';
 import { useLocale } from '@/lib/LocaleContext';
+import {
+  ECONOMIC_FACTS,
+  SOURCE_NOTES,
+  STORAGE_PRICE_NOTES,
+  formatSwissNumber,
+} from '@/lib/facts';
 
 type HouseholdKey = 'klein' | 'mittel' | 'gross';
 
@@ -33,6 +39,15 @@ export function SpeicherGroesse() {
   const households = locale === 'it' ? householdsIT : locale === 'fr' ? householdsFR : householdsDE;
   const labels = locale === 'it' ? labelsIT : locale === 'fr' ? labelsFR : labelsDE;
   const h = households[active];
+  const withoutStorage = Math.round(
+    (ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage.min
+      + ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage.max) / 2,
+  );
+  const withStorage = active === 'klein'
+    ? ECONOMIC_FACTS.selfConsumptionPercent.withStorage.min
+    : active === 'mittel'
+      ? Math.round((ECONOMIC_FACTS.selfConsumptionPercent.withStorage.min + ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max) / 2)
+      : ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max;
 
   return (
     <div className="rounded-3xl overflow-hidden border border-gray-100 shadow-xl">
@@ -70,24 +85,25 @@ export function SpeicherGroesse() {
         <div className="flex flex-col gap-3">
           <div>
             <div className="flex justify-between text-xs text-gray-500 mb-1.5">
-              <span>{labels.eigenOhne}</span><span className="font-bold text-gray-600">~30%</span>
+               <span>{labels.eigenOhne}</span><span className="font-bold text-gray-600">~{withoutStorage}%</span>
             </div>
             <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
-              <div className="h-full rounded-full bg-gray-300" style={{ width: '30%' }} />
+               <div className="h-full rounded-full bg-gray-300" style={{ width: `${withoutStorage}%` }} />
             </div>
           </div>
           <div>
             <div className="flex justify-between text-xs text-gray-500 mb-1.5">
               <span>{labels.eigenMit}</span>
-              <span className="font-bold text-[#fcb210]">{active === 'klein' ? '~60%' : active === 'mittel' ? '~70%' : '~80%'}</span>
+               <span className="font-bold text-[#fcb210]">~{withStorage}%</span>
             </div>
             <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
               <div
                 className="h-full rounded-full transition-all duration-700"
-                style={{ width: active === 'klein' ? '60%' : active === 'mittel' ? '70%' : '80%', background: 'linear-gradient(to right, #ffc812, #fcb210)' }}
+                 style={{ width: `${withStorage}%`, background: 'linear-gradient(to right, #ffc812, #fcb210)' }}
               />
             </div>
           </div>
+          <p className="text-xs text-gray-400 mt-5">{SOURCE_NOTES[locale as 'de' | 'it' | 'fr'] || SOURCE_NOTES.de}</p>
         </div>
       </div>
     </div>
@@ -95,21 +111,19 @@ export function SpeicherGroesse() {
 }
 
 const faqsDE = [
-  { q: 'Was kostet eine 10 kW Solaranlage mit Speicher und Montage?', a: "Eine Photovoltaikanlage mit etwa 10 kWp und Batteriespeicher kostet in der Schweiz häufig zwischen 30'000 und 40'000 CHF inklusive Installation. Förderprogramme und ein hoher Eigenverbrauch können die tatsächlichen Kosten langfristig reduzieren." },
+  { q: 'Was kostet eine 10 kW Solaranlage mit Speicher und Montage?', a: `Eine Anlage mit 10 kWp kostet ohne Speicher ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min, 0)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max, 0)} CHF. Ein installierter Speicher mit 10 kWh kostet zusätzlich ${formatSwissNumber(ECONOMIC_FACTS.storageCosts.byCapacity[10].min, 0)} bis ${formatSwissNumber(ECONOMIC_FACTS.storageCosts.byCapacity[10].max, 0)} CHF.` },
   { q: 'Wie lange reicht ein 5 kWh Speicher?', a: 'Ein 5-kWh-Speicher kann je nach Stromverbrauch mehrere Stunden liefern. In vielen Haushalten reicht diese Kapazität aus, um den Strombedarf am Abend zu decken. Für Haushalte mit höherem Verbrauch wird ein grösserer Speicher empfohlen.' },
-  { q: 'Was kostet eine komplette Solaranlage mit Speicher für ein Einfamilienhaus?', a: "Für ein Einfamilienhaus liegen die Gesamtkosten häufig zwischen 25'000 und 40'000 CHF. Der Preis hängt von Anlagengrösse, Speicherkapazität und Installationskosten ab." },
-  { q: 'Wie gross muss ein Batteriespeicher für ein Einfamilienhaus sein?', a: 'Für die meisten Einfamilienhäuser liegt die optimale Speichergrösse zwischen 8 und 12 kWh. Diese Kapazität reicht in vielen Fällen aus, um einen grossen Teil des Solarstroms abends oder nachts zu nutzen.' },
+  { q: 'Was kostet eine komplette Solaranlage mit Speicher für ein Einfamilienhaus?', a: 'Der Gesamtpreis hängt von der gewählten Anlagen- und Speicherkapazität ab. Die Preise für Anlage und Speicher werden deshalb separat ausgewiesen.' },
+  { q: 'Wie gross muss ein Batteriespeicher für ein Einfamilienhaus sein?', a: 'Die passende Speichergrösse hängt vom Verbrauch und vom zeitlichen Lastprofil des Haushalts ab.' },
   { q: 'Kann eine 10-kW-Solaranlage ein ganzes Haus versorgen?', a: 'Eine 10-kWp-Anlage kann einen grossen Teil des Strombedarfs decken. Mit Speicher ist der Eigenverbrauch noch höher, doch in Wintermonaten oder bei sehr hohem Verbrauch bleibt oft ein Netzbezug notwendig.' },
-  { q: 'Wie viele Solarmodule braucht man für eine 10-kW-Anlage?', a: 'Für eine 10-kWp-Anlage werden normalerweise 25–30 Module benötigt. Die genaue Anzahl hängt von der Leistung der einzelnen Module ab — moderne Module haben oft 400–450 Watt.' },
 ];
 
 const faqsIT = [
-  { q: 'Quanto costa un impianto solare da 10 kW con accumulo e installazione?', a: "Un impianto fotovoltaico da circa 10 kWp con batteria di accumulo in Svizzera costa frequentemente tra 30'000 e 40'000 CHF installazione inclusa. I programmi di incentivi e un alto autoconsumo possono ridurre i costi effettivi nel lungo periodo." },
+  { q: 'Quanto costa un impianto solare da 10 kW con accumulo e installazione?', a: `Un impianto da 10 kWp senza accumulo costa da ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min, 0)} a ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max, 0)} CHF. Un accumulo installato da 10 kWh costa in aggiunta da ${formatSwissNumber(ECONOMIC_FACTS.storageCosts.byCapacity[10].min, 0)} a ${formatSwissNumber(ECONOMIC_FACTS.storageCosts.byCapacity[10].max, 0)} CHF.` },
   { q: 'Quanto dura un accumulo da 5 kWh?', a: 'Un accumulo da 5 kWh può fornire energia per diverse ore a seconda del consumo. In molte famiglie questa capacità è sufficiente per coprire il fabbisogno serale. Per consumi più elevati si consiglia un accumulo più grande.' },
-  { q: 'Quanto costa un impianto solare completo con accumulo per una casa unifamiliare?', a: "Per una casa unifamiliare i costi totali si attestano frequentemente tra 25'000 e 40'000 CHF. Il prezzo dipende dalle dimensioni dell'impianto, dalla capacità dell'accumulo e dai costi di installazione." },
-  { q: 'Quanto deve essere grande una batteria per una casa unifamiliare?', a: 'Per la maggior parte delle case unifamiliari la capacità ottimale è tra 8 e 12 kWh. Questa capacità è in molti casi sufficiente per sfruttare gran parte dell\'energia solare nelle ore serali o notturne.' },
+  { q: 'Quanto costa un impianto solare completo con accumulo per una casa unifamiliare?', a: "Il prezzo totale dipende dalle dimensioni dell'impianto e dalla capacità dell'accumulo. I due prezzi sono quindi indicati separatamente." },
+  { q: 'Quanto deve essere grande una batteria per una casa unifamiliare?', a: 'La capacità adatta dipende dal consumo e dal profilo di carico della famiglia.' },
   { q: 'Un impianto da 10 kW può alimentare un\'intera casa?', a: 'Un impianto da 10 kWp può coprire gran parte del fabbisogno elettrico. Con l\'accumulo l\'autoconsumo è ancora maggiore, ma nei mesi invernali o con consumi molto elevati rimane spesso necessario prelevare energia dalla rete.' },
-  { q: 'Quanti moduli solari servono per un impianto da 10 kW?', a: 'Per un impianto da 10 kWp sono normalmente necessari 25–30 moduli. Il numero esatto dipende dalla potenza dei singoli moduli — quelli moderni hanno spesso 400–450 Watt.' },
 ];
 
 export function SpeicherFAQ() {
@@ -135,6 +149,8 @@ export function SpeicherFAQ() {
           )}
         </div>
       ))}
+      <p className="text-xs text-gray-400">{STORAGE_PRICE_NOTES[locale as 'de' | 'it'] || STORAGE_PRICE_NOTES.de}</p>
+      <p className="text-xs text-gray-400">{SOURCE_NOTES[locale as 'de' | 'it'] || SOURCE_NOTES.de}</p>
     </div>
   );
 }

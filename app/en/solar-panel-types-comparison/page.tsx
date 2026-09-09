@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRight, Zap, CheckCircle, XCircle } from 'lucide-reac
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar Panel Types Comparison Switzerland 2026 – Which One Suits Me? | PvPro.ch',
@@ -42,7 +43,7 @@ const faqs = [
   },
   {
     question: 'Which panels last the longest?',
-    answer: 'All high-quality crystalline panels have a performance warranty of 25–30 years. The choice of manufacturer is often more important than the technology.',
+    answer: `The canonical performance warranty is ${ECONOMIC_FACTS.performanceWarranty.percent}% after ${ECONOMIC_FACTS.performanceWarranty.afterYears} years. Module lifespan is ${formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en')}.`,
   },
   {
     question: 'Can I combine different panel types on the same roof?',
@@ -55,10 +56,10 @@ const faqs = [
 ];
 
 const table = [
-  { type: 'Monocrystalline', efficiency: '18–22%', costs: 'Medium–High', ideal: 'Small roofs, high efficiency' },
-  { type: 'Polycrystalline', efficiency: '15–17%', costs: 'Low', ideal: 'Large roofs, budget option' },
-  { type: 'Thin-film', efficiency: '10–13%', costs: 'Low', ideal: 'Flat roofs, special applications' },
-  { type: 'Bifacial', efficiency: '20–24%', costs: 'High', ideal: 'Snow cantons, flat roofs' },
+  { type: 'Monocrystalline', efficiency: 'High', costs: 'Medium–High', ideal: 'Small roofs, high efficiency' },
+  { type: 'Polycrystalline', efficiency: 'Moderate', costs: 'Low', ideal: 'Large roofs, budget option' },
+  { type: 'Thin-film', efficiency: 'Lower', costs: 'Low', ideal: 'Flat roofs, special applications' },
+  { type: 'Bifacial', efficiency: 'High', costs: 'High', ideal: 'Snow cantons, flat roofs' },
 ];
 
 const situationsTable = [
@@ -86,7 +87,7 @@ const panelTypes: PanelType[] = [
     badgeColor: 'bg-orange-100 text-orange-700',
     intro: 'Monocrystalline panels are today by far the most common choice for Swiss single-family homes. They consist of a single silicon crystal and have the highest efficiency of all common technologies.',
     pros: [
-      'Highest efficiency (18–22%)',
+      'High efficiency',
       'Best performance in diffuse light and overcast conditions',
       'Compact — ideal for smaller roof areas',
       'Long lifespan and high reliability',
@@ -109,7 +110,7 @@ const panelTypes: PanelType[] = [
       'Well suited for large roof areas',
     ],
     cons: [
-      'Lower efficiency (15–17%)',
+      'Lower efficiency than monocrystalline modules',
       'Larger area needed for the same output',
       'Recognisable by their blue-shimmering appearance',
     ],
@@ -126,7 +127,7 @@ const panelTypes: PanelType[] = [
       'Perform well at high temperatures',
     ],
     cons: [
-      'Lowest efficiency (10–13%)',
+      'Lower efficiency',
       'Require significantly more area',
       'Shorter lifespan than crystalline panels',
     ],
@@ -177,9 +178,9 @@ export default function SolarPanelTypesComparisonPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: '22%', sub: 'max. efficiency monocrystalline', note: 'best value under standard conditions' },
+              { val: 'High', sub: 'monocrystalline efficiency', note: 'depends on manufacturer and model' },
               { val: '4 types', sub: 'in direct comparison', note: 'mono, poly, thin-film, bifacial' },
-              { val: '25–30 years', sub: 'lifespan of all types', note: 'with manufacturer performance warranty' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en'), sub: 'module lifespan', note: SOURCE_NOTES.en },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>

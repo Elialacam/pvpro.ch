@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText } from 'lucide-rea
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar Panels & Swiss Climate 2026 – Which System Fits? | PvPro.ch',
@@ -38,15 +39,11 @@ const faqs = [
   },
   {
     question: 'Do solar panels produce electricity in winter?',
-    answer: 'Yes, but less than in summer. In winter, sunshine hours are shorter and the angle is lower. A well-dimensioned system still makes a useful contribution in winter.',
+    answer: 'Yes, but less than in summer. A well-dimensioned system still makes a useful contribution in winter.',
   },
   {
     question: 'Are solar modules winterproof?',
     answer: 'Yes. High-quality modules are designed for temperatures down to -40°C and withstand snow loads of several hundred kilograms per square metre.',
-  },
-  {
-    question: 'Which cantons are best for solar panels?',
-    answer: "Ticino, with over 2,100 sunshine hours, offers the best conditions. But even in the Plateau and eastern Switzerland, solar panels are worthwhile — the payback period is slightly longer but still attractive.",
   },
 ];
 
@@ -66,14 +63,6 @@ const modules = [
     badge: 'High Altitudes',
     text: 'The lower the temperature coefficient, the better the performance in cold weather. Especially relevant for high-altitude locations in Switzerland.',
   },
-];
-
-const sunshine = [
-  { region: 'Ticino (Lugano)', hours: 'approx. 2,157' },
-  { region: 'Valais (Sion)', hours: 'approx. 2,000' },
-  { region: 'Lake Geneva area', hours: 'approx. 1,800' },
-  { region: 'Plateau (Zurich, Bern)', hours: 'approx. 1,500–1,600' },
-  { region: 'Eastern Switzerland (St. Gallen)', hours: 'approx. 1,500' },
 ];
 
 export default function SolarPanelsSwissClimatePage() {
@@ -104,9 +93,8 @@ export default function SolarPanelsSwissClimatePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: '1,300–2,100', sub: 'Sunshine hours by canton', note: 'depending on altitude and canton' },
-              { val: '+5–10%', sub: 'Extra yield in cold weather', note: 'thanks to the temperature effect' },
-              { val: '25–30 years', sub: 'Lifespan in the Swiss climate', note: 'with manufacturer warranty' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh/kWp', 'en'), sub: 'Production on the Plateau', note: 'annual indicative range' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en'), sub: 'Module lifespan', note: SOURCE_NOTES.en },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -119,44 +107,6 @@ export default function SolarPanelsSwissClimatePage() {
       </section>
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 py-16 space-y-20">
-
-        {/* ── Sunshine hours ── */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div>
-            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Solar yield by canton</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
-              How does the Swiss climate affect solar production?
-            </h2>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              Switzerland has a very diverse climate — from the foggy Plateau to the sunny Ticino. What many do not know: photovoltaic modules need light, not heat. And there is plenty of light in Switzerland, even in winter.
-            </p>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              Even on the Plateau with an average of 1,500 sunshine hours, a 10 kWp system produces around 9,000–10,000 kWh per year. Discover the{' '}
-              <Link href="/en/solar-panel-costs" className="text-[#fcb210] hover:underline font-medium">costs of a solar system</Link>{' '}
-              in Switzerland.
-            </p>
-          </div>
-          <div>
-            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
-                    <th className="text-left px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Kanton</th>
-                    <th className="text-right px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Sunshine hours/year</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {sunshine.map((row, i) => (
-                    <tr key={row.region} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-5 py-3.5 text-gray-700">{row.region}</td>
-                      <td className="px-5 py-3.5 text-right font-semibold text-gray-900">{row.hours}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
 
         {/* ── Snow and cold ── */}
         <section>
@@ -237,7 +187,7 @@ export default function SolarPanelsSwissClimatePage() {
                 'Electricity prices in Switzerland are high',
                 <>The federal subsidy (<Link href="/en/solar-subsidies" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">one-time payment OTS</Link>) applies throughout Switzerland</>,
                 'Modern modules produce efficiently even in diffuse light',
-                'The payback period is 8–10 years even on the Plateau',
+                `The payback period is ${formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en')} on the Plateau`,
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <CheckCircle className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
@@ -247,7 +197,7 @@ export default function SolarPanelsSwissClimatePage() {
             </ul>
             <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl p-5">
               <p className="text-orange-200 text-sm leading-relaxed">
-                In Ticino, a system pays for itself in just 4–6 years — the best figure in all of Switzerland. In the canton of Zurich, the payback period is 7–9 years.
+                 In Ticino and Valais, the indicative payback period is {formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'years', 'en')}. On the Plateau, it is {formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en')}.
               </p>
             </div>
           </div>

@@ -4,10 +4,11 @@ import { ChevronRight, CheckCircle, ArrowRight, Wrench, Clock, Sun } from 'lucid
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatChfForLocale, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar Panel Installation Switzerland 2026 – Providers & Costs | PvPro.ch',
-  description: 'Solar panel installation in Switzerland: find certified providers in your canton. Compare free quotes and save up to 30% with PvPro.ch.',
+  description: 'Solar panel installation in Switzerland: find certified providers in your canton and compare free quotes with PvPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-panel-installation-switzerland',
     languages: {
@@ -91,9 +92,9 @@ const durationRows = [
 ];
 
 const costRows = [
-  { size: '5 kWp', cost: "CHF 13,000 – 18,000" },
-  { size: '8 kWp', cost: "CHF 18,000 – 25,000" },
-  { size: '10 kWp', cost: "CHF 22,000 – 30,000" },
+  { size: '5 kWp', cost: formatRangeForLocale(getSystemCostRange(5), 'CHF', 'en') },
+  { size: '8 kWp', cost: formatRangeForLocale(getSystemCostRange(8), 'CHF', 'en') },
+  { size: '10 kWp', cost: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en') },
 ];
 
 const criteria = [
@@ -132,7 +133,7 @@ export default function SolarPanelInstallationSwitzerlandPage() {
             {[
               { val: '1–3 days', sub: 'to the first quote', note: 'fast and straightforward referral' },
               { val: '25+', sub: 'qualified companies', note: 'verified companies throughout Switzerland' },
-              { val: '25–30 years', sub: 'system lifespan', note: 'long-term return on your investment' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en'), sub: 'module lifespan', note: 'indicative range' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -141,6 +142,7 @@ export default function SolarPanelInstallationSwitzerlandPage() {
               </div>
             ))}
           </div>
+          <p className="max-w-2xl mx-auto text-xs text-gray-500 mb-8">{SYSTEM_PRICE_NOTES.en} {SOURCE_NOTES.en}</p>
         </div>
       </section>
 
@@ -260,7 +262,7 @@ export default function SolarPanelInstallationSwitzerlandPage() {
             <p className="text-orange-800 text-sm leading-relaxed">
               After deducting the federal subsidy (<Link href="/en/solar-subsidies" className="text-[#fcb210] hover:underline font-medium">one-time remuneration OUR</Link>), the{' '}
               <Link href="/en/solar-panel-costs" className="text-[#fcb210] hover:underline font-medium">costs</Link>{' '}
-              are reduced by CHF 300–400 per kWp. By{' '}
+               are reduced by {formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')} per kWp up to 30 kWp, plus the base contribution. By{' '}
               <Link href="/en/solar-comparison-portal-switzerland" className="text-[#fcb210] hover:underline font-medium">comparing multiple quotes</Link>{' '}
               you can save several thousand francs more.
             </p>

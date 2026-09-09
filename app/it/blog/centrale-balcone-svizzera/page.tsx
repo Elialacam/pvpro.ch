@@ -16,11 +16,11 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/it/blog/centrale-balcone-svizzera', locale: 'it', type: 'article' });
 
 const righeConfronto = [
-  { fattore: 'Costi', balkon: 'CHF 300–1.200', solar: 'CHF 20.000–35.000', winner: 'balkon' },
-  { fattore: 'Potenza', balkon: '300–800 Watt', solar: '8.000–12.000 Watt', winner: 'solar' },
-  { fattore: 'Produzione/anno', balkon: '200–600 kWh', solar: '8.000–12.000 kWh', winner: 'solar' },
-  { fattore: 'Risparmio/anno', balkon: 'CHF 50–150', solar: 'CHF 1.500–3.000', winner: 'solar' },
-  { fattore: 'Ammortamento', balkon: '3–6 anni', solar: '8–12 anni', winner: 'balkon' },
+  { fattore: 'Costi', balkon: 'secondo il modello', solar: 'secondo il preventivo', winner: 'balkon' },
+  { fattore: 'Potenza', balkon: '300–800 Watt', solar: "8'000–12'000 Watt", winner: 'solar' },
+  { fattore: 'Produzione/anno', balkon: 'ridotta', solar: 'nettamente superiore', winner: 'solar' },
+  { fattore: 'Risparmio/anno', balkon: 'ridotto', solar: 'nettamente superiore', winner: 'solar' },
+  { fattore: 'Ammortamento', balkon: 'secondo il progetto', solar: 'secondo il progetto', winner: null },
   { fattore: 'Plusvalore', balkon: 'Nessuno', solar: 'Sì (immobiliare)', winner: 'solar' },
   { fattore: 'Sussidi', balkon: 'Nessuno', solar: 'CRU + cantonale', winner: 'solar' },
   { fattore: 'Gruppo target', balkon: 'Inquilini', solar: 'Proprietari', winner: null },
@@ -108,8 +108,8 @@ export default function CentraleBalconeSvizzeraPage() {
                 {[
                   { label: 'Moduli', value: '1–2' },
                   { label: 'Potenza max.', value: '800 W' },
-                  { label: 'Produzione/anno', value: '200–600 kWh' },
-                  { label: 'Risparmio/anno', value: 'CHF 50–150' },
+                  { label: 'Produzione/anno', value: "secondo l'orientamento" },
+                  { label: 'Risparmio/anno', value: "secondo l'autoconsumo" },
                 ].map((s) => (
                   <div key={s.label} className="rounded-xl bg-gray-50 border border-gray-100 p-4 text-center">
                     <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">{s.label}</p>
@@ -148,14 +148,14 @@ export default function CentraleBalconeSvizzeraPage() {
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Quanta elettricità produce una centrale da balcone?</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Una centrale da balcone tipica produce circa <strong>200–600 kWh all&apos;anno</strong> — il che corrisponde al consumo base di alcuni apparecchi (frigorifero, standby). È lontano dal coprire la maggior parte del consumo elettrico del nucleo familiare.
+                Una centrale da balcone tipica copre solo una piccola parte del consumo elettrico domestico.
               </p>
               <div className="rounded-2xl bg-gray-50 border border-gray-100 p-6 space-y-5">
                 <p className="font-bold text-gray-900 text-sm mb-4">Confronto: produzione annuale</p>
                 <div>
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-gray-600">Centrale da balcone (800 W)</span>
-                    <span className="font-bold text-gray-800">fino a 600 kWh</span>
+                    <span className="font-bold text-gray-800">produzione ridotta</span>
                   </div>
                   <div className="h-4 rounded-full bg-gray-200">
                     <div className="h-4 rounded-full bg-gray-400" style={{ width: '5%' }} />
@@ -163,8 +163,8 @@ export default function CentraleBalconeSvizzeraPage() {
                 </div>
                 <div>
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="text-gray-600">Impianto solare (10 kWp)</span>
-                    <span className="font-bold text-[#fcb210]">9.000–11.000 kWh</span>
+                    <span className="text-gray-600">Impianto solare</span>
+                    <span className="font-bold text-[#fcb210]">produzione nettamente superiore</span>
                   </div>
                   <div className="h-4 rounded-full bg-gray-200">
                     <div className="h-4 rounded-full bg-[#fcb210]" style={{ width: '90%' }} />
@@ -240,7 +240,7 @@ export default function CentraleBalconeSvizzeraPage() {
                   Molti iniziano con l&apos;idea di una centrale da balcone e si rendono poi conto: <strong className="text-white">l&apos;effetto è troppo piccolo.</strong>
                 </p>
                 <p className="text-white/70 leading-relaxed mb-6">
-                  Un impianto solare completo ti fa risparmiare annualmente <strong className="text-white">CHF 1.500–3.000</strong> — ovvero 10–20× in più di una centrale da balcone. E con il contributo unico (CRU) e i sussidi cantonali, i costi di acquisto si riducono considerevolmente.
+                  Un impianto solare completo permette di risparmiare nettamente di più rispetto a una centrale da balcone. Il contributo unico e gli incentivi cantonali riducono i costi di acquisto.
                 </p>
                 <div className="grid grid-cols-3 gap-3 mb-6">
                   {[
@@ -299,9 +299,9 @@ export default function CentraleBalconeSvizzeraPage() {
                   {[
                     { label: 'Permessa in CH?', value: 'Sì, con notifica' },
                     { label: 'Potenza max.', value: '800 Watt (plug-and-play)' },
-                    { label: 'Costi', value: 'CHF 300–1.200' },
-                    { label: 'Produzione/anno', value: '200–600 kWh' },
-                    { label: 'Risparmio/anno', value: 'CHF 50–150' },
+                    { label: 'Costi', value: 'secondo il modello' },
+                    { label: 'Produzione/anno', value: "secondo l'orientamento" },
+                    { label: 'Risparmio/anno', value: "secondo l'autoconsumo" },
                     { label: 'Obbligo di notifica', value: 'Sì, al gestore di rete' },
                   ].map((item) => (
                     <div key={item.label} className="flex justify-between items-start gap-2 py-2 border-b border-gray-50 last:border-0">

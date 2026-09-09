@@ -3,12 +3,19 @@
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Calculator, Zap, TrendingUp, PiggyBank, Sun, Gift } from 'lucide-react';
+import {
+  ECONOMIC_FACTS,
+  SOURCE_NOTES,
+  SYSTEM_PRICE_NOTES,
+  calculateAnnualSolarValueRange,
+  calculatePronovoVariableContribution,
+  formatSwissNumber,
+  getSystemCostRange,
+} from '@/lib/facts';
 
-const M2_PER_KWP = 6.5;
-const KWH_PER_KWP = 950;
-const CHF_PER_KWP = 2200;
-const INCENTIVE_PER_KWP = 350;
-const CHF_PER_KWH = 0.32;
+// Functional control bounds, not economic content claims.
+const ROOF_MIN = 20;
+const ROOF_MAX = 200;
 
 const translations = {
   de: {
@@ -21,18 +28,18 @@ const translations = {
     systemSizeLabel: 'Anlagengrösse',
     annualProdLabel: 'Jährliche Produktion',
     costBeforeLabel: 'Kosten vor Förderung',
-    incentiveLabel: 'Bundesförderung (EIV)',
-    costAfterLabel: 'Endkosten nach Förderung',
+    incentiveLabel: 'EIV-Leistungsbeitrag',
+    costAfterLabel: 'Kosten nach Leistungsbeitrag',
     annualSavingsLabel: 'Jährliche Einsparung',
-    paybackLabel: 'Amortisationszeit',
+    paybackLabel: 'Richtwert Amortisation (Mittelland)',
     paybackUnit: 'Jahre',
-    disclaimer: "Schätzung auf Basis von Schweizer Durchschnittswerten (950 kWh/kWp, 2'200 CHF/kWp). Für eine genaue Berechnung empfehlen wir eine professionelle Beratung vor Ort.",
+    disclaimer: 'Die Berechnung verwendet die Richtwerte für das Schweizer Mittelland.',
     ctaBtn: 'Jetzt individuelle Offerte einholen',
     ctaUrl: '/anfrage',
-    roofMin: '20 m²',
-    roofMax: '200 m²',
-    consMin: '1.000 kWh',
-    consMax: '10.000 kWh',
+    roofMin: `${ROOF_MIN} m²`,
+    roofMax: `${ROOF_MAX} m²`,
+    consMin: "1'000 kWh",
+    consMax: "10'000 kWh",
   },
   fr: {
     title: 'Calculateur solaire',
@@ -44,16 +51,16 @@ const translations = {
     systemSizeLabel: "Taille de l'installation",
     annualProdLabel: 'Production annuelle',
     costBeforeLabel: 'Coûts avant subvention',
-    incentiveLabel: 'Subvention fédérale (RU)',
-    costAfterLabel: 'Coûts nets après subvention',
+    incentiveLabel: 'Contribution proportionnelle RU',
+    costAfterLabel: 'Coûts après contribution proportionnelle',
     annualSavingsLabel: 'Économies annuelles',
-    paybackLabel: "Durée d'amortissement",
+    paybackLabel: "Repère d'amortissement (Plateau)",
     paybackUnit: 'ans',
-    disclaimer: "Estimation basée sur des valeurs moyennes suisses (950 kWh/kWp, 2'200 CHF/kWp). Pour un calcul exact, nous recommandons une consultation professionnelle sur place.",
+    disclaimer: 'Le calcul utilise les valeurs indicatives du Plateau suisse.',
     ctaBtn: 'Obtenir un devis personnalisé',
     ctaUrl: '/fr/demande',
-    roofMin: '20 m²',
-    roofMax: '200 m²',
+    roofMin: `${ROOF_MIN} m²`,
+    roofMax: `${ROOF_MAX} m²`,
     consMin: "1'000 kWh",
     consMax: "10'000 kWh",
   },
@@ -67,18 +74,18 @@ const translations = {
     systemSizeLabel: 'System size',
     annualProdLabel: 'Annual production',
     costBeforeLabel: 'Costs before subsidy',
-    incentiveLabel: 'Federal subsidy (OTP)',
-    costAfterLabel: 'Net costs after subsidy',
+    incentiveLabel: 'Variable OTP contribution',
+    costAfterLabel: 'Costs after variable contribution',
     annualSavingsLabel: 'Annual savings',
-    paybackLabel: 'Payback period',
+    paybackLabel: 'Payback benchmark (Plateau)',
     paybackUnit: 'years',
-    disclaimer: 'Estimate based on Swiss average values (950 kWh/kWp, CHF 2,200/kWp). For an exact calculation, we recommend a professional on-site consultation.',
+    disclaimer: 'The calculation uses the indicative values for the Swiss Plateau.',
     ctaBtn: 'Get a personalised quote',
     ctaUrl: '/en/request',
-    roofMin: '20 m²',
-    roofMax: '200 m²',
-    consMin: '1,000 kWh',
-    consMax: '10,000 kWh',
+    roofMin: `${ROOF_MIN} m²`,
+    roofMax: `${ROOF_MAX} m²`,
+    consMin: "1'000 kWh",
+    consMax: "10'000 kWh",
   },
   it: {
     title: 'Calcolatore solare',
@@ -90,16 +97,16 @@ const translations = {
     systemSizeLabel: 'Dimensione impianto',
     annualProdLabel: 'Produzione annua',
     costBeforeLabel: "Costi prima dell'incentivo",
-    incentiveLabel: 'Incentivo federale (RU)',
-    costAfterLabel: 'Costi netti dopo incentivo',
+    incentiveLabel: 'Contributo proporzionale RU',
+    costAfterLabel: 'Costi dopo contributo proporzionale',
     annualSavingsLabel: 'Risparmio annuo',
-    paybackLabel: 'Periodo di ammortamento',
+    paybackLabel: 'Riferimento ammortamento (Altopiano)',
     paybackUnit: 'anni',
-    disclaimer: "Stima basata su valori medi svizzeri (950 kWh/kWp, 2'200 CHF/kWp). Per un calcolo esatto raccomandiamo una consulenza professionale in loco.",
+    disclaimer: "Il calcolo usa i valori indicativi per l'Altopiano svizzero.",
     ctaBtn: 'Richiedi un preventivo personalizzato',
     ctaUrl: '/it/richiesta',
-    roofMin: '20 m²',
-    roofMax: '200 m²',
+    roofMin: `${ROOF_MIN} m²`,
+    roofMax: `${ROOF_MAX} m²`,
     consMin: "1'000 kWh",
     consMax: "10'000 kWh",
   },
@@ -114,32 +121,51 @@ function getLocale(pathname: string): keyof typeof translations {
 
 export default function SolarCalculator() {
   const pathname = usePathname();
-  const tx = translations[getLocale(pathname)];
+  const locale = getLocale(pathname);
+  const tx = translations[locale];
 
   const [roofSize, setRoofSize] = useState<number>(50);
   const [consumption, setConsumption] = useState<number>(4500);
   const [results, setResults] = useState<{
     systemSize: number;
     annualProduction: number;
-    costBefore: number;
+    costBeforeMin: number;
+    costBeforeMax: number;
     incentive: number;
-    costAfter: number;
-    savings: number;
-    paybackYears: number;
+    costAfterMin: number;
+    costAfterMax: number;
+    savingsMin: number;
+    savingsMax: number;
+    paybackMin: number;
+    paybackMax: number;
   } | null>(null);
 
   const calculateResults = () => {
-    const systemSize = Math.round((roofSize / M2_PER_KWP) * 10) / 10;
-    const annualProduction = Math.round(systemSize * KWH_PER_KWP);
-    const costBefore = Math.round(systemSize * CHF_PER_KWP);
-    const incentive = Math.round(systemSize * INCENTIVE_PER_KWP);
-    const costAfter = costBefore - incentive;
-    const savings = Math.round(Math.min(annualProduction, consumption) * CHF_PER_KWH);
-    const paybackYears = Math.round((costAfter / savings) * 10) / 10;
-    setResults({ systemSize, annualProduction, costBefore, incentive, costAfter, savings, paybackYears });
+    const systemSize = Math.round((roofSize / ECONOMIC_FACTS.roofAreaM2PerKwp) * 10) / 10;
+    const annualProduction = Math.round(systemSize * ECONOMIC_FACTS.production.plateauKwhPerKwp.min);
+    const costs = getSystemCostRange(systemSize);
+    const incentive = calculatePronovoVariableContribution(systemSize);
+    const costAfterMin = Math.max(0, costs.min - incentive);
+    const costAfterMax = Math.max(0, costs.max - incentive);
+    const savings = calculateAnnualSolarValueRange(annualProduction, consumption);
+    const paybackMin = ECONOMIC_FACTS.systemPaybackYears.plateau.min;
+    const paybackMax = ECONOMIC_FACTS.systemPaybackYears.plateau.max;
+    setResults({
+      systemSize,
+      annualProduction,
+      costBeforeMin: costs.min,
+      costBeforeMax: costs.max,
+      incentive,
+      costAfterMin,
+      costAfterMax,
+      savingsMin: savings.min,
+      savingsMax: savings.max,
+      paybackMin,
+      paybackMax,
+    });
   };
 
-  const fmt = (n: number) => n.toLocaleString('de-CH');
+  const fmt = (n: number) => formatSwissNumber(n);
 
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 sm:p-8">
@@ -156,7 +182,7 @@ export default function SolarCalculator() {
         <div>
           <label className="label">{tx.roofLabel}</label>
           <input
-            type="range" min="20" max="200" step="5" value={roofSize}
+            type="range" min={ROOF_MIN} max={ROOF_MAX} step="5" value={roofSize}
             onChange={(e) => setRoofSize(Number(e.target.value))}
             className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
           />
@@ -208,7 +234,7 @@ export default function SolarCalculator() {
           <div className="bg-gray-50 rounded-xl p-6 space-y-4 mb-4">
             <div className="flex justify-between items-center">
               <span className="text-gray-700">{tx.costBeforeLabel}</span>
-              <span className="font-sans font-semibold tracking-tight text-gray-900">{fmt(results.costBefore)} CHF</span>
+              <span className="font-sans font-semibold tracking-tight text-gray-900">{fmt(results.costBeforeMin)}–{fmt(results.costBeforeMax)} CHF</span>
             </div>
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-1.5">
@@ -219,7 +245,7 @@ export default function SolarCalculator() {
             </div>
             <div className="flex justify-between items-center pt-2 border-t border-gray-200">
               <span className="font-sans font-semibold tracking-tight text-gray-900">{tx.costAfterLabel}</span>
-              <span className="font-sans font-semibold tracking-tight text-primary text-lg">{fmt(results.costAfter)} CHF</span>
+              <span className="font-sans font-semibold tracking-tight text-primary text-lg">{fmt(results.costAfterMin)}–{fmt(results.costAfterMax)} CHF</span>
             </div>
           </div>
 
@@ -229,7 +255,7 @@ export default function SolarCalculator() {
                 <PiggyBank className="w-4 h-4 text-primary" />
                 <span className="text-gray-700">{tx.annualSavingsLabel}</span>
               </div>
-              <span className="font-sans font-semibold tracking-tight text-primary">{fmt(results.savings)} CHF</span>
+              <span className="font-sans font-semibold tracking-tight text-primary">{fmt(results.savingsMin)}–{fmt(results.savingsMax)} CHF</span>
             </div>
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-1.5">
@@ -237,13 +263,15 @@ export default function SolarCalculator() {
                 <span className="text-gray-700">{tx.paybackLabel}</span>
               </div>
               <span className="font-sans font-semibold tracking-tight text-gray-900">
-                ca. {results.paybackYears} {tx.paybackUnit}
+                 {results.paybackMin}–{results.paybackMax} {tx.paybackUnit}
               </span>
             </div>
           </div>
 
           <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
             <p className="text-sm text-yellow-800">{tx.disclaimer}</p>
+            <p className="text-xs text-yellow-800 mt-2">{SOURCE_NOTES[locale]}</p>
+            <p className="text-xs text-yellow-800 mt-2">{SYSTEM_PRICE_NOTES[locale]}</p>
           </div>
 
           <button

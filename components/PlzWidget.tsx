@@ -19,7 +19,7 @@ const content = {
     body: 'Geben Sie Ihre Postleitzahl ein und erhalten Sie bis zu 3 geprüfte Offerten von lokalen Installateuren.',
     placeholder: 'z.B. 8001',
     cta: 'Jetzt vergleichen →',
-    badges: ['Keine Werbeanrufe', 'Geprüfte Installateure', '100% kostenlos'],
+    badges: ['Keine Werbeanrufe', 'Geprüfte Installateure', 'Kostenlos'],
   },
   fr: {
     heading: 'Devis solaires dans votre canton',
@@ -27,7 +27,7 @@ const content = {
     body: 'Entrez votre code postal et recevez jusqu\'à 3 devis certifiés d\'installateurs locaux.',
     placeholder: 'ex. 1201',
     cta: 'Comparer maintenant →',
-    badges: ["Pas d'appels commerciaux", 'Installateurs certifiés', '100% gratuit'],
+    badges: ["Pas d'appels commerciaux", 'Installateurs certifiés', 'Gratuit'],
   },
   en: {
     heading: 'Solar quotes in your canton',
@@ -35,7 +35,7 @@ const content = {
     body: 'Enter your postal code and receive up to 3 certified quotes from local installers.',
     placeholder: 'e.g. 8001',
     cta: 'Compare now →',
-    badges: ['No cold calls', 'Certified installers', '100% free'],
+    badges: ['No cold calls', 'Certified installers', 'Free'],
   },
   it: {
     heading: 'Preventivi solari nella tua zona',
@@ -43,7 +43,7 @@ const content = {
     body: 'Inserisci il tuo CAP e ricevi fino a 3 preventivi da installatori locali certificati.',
     placeholder: 'es. 6900',
     cta: 'Confronta ora →',
-    badges: ['Nessuna chiamata commerciale', 'Installatori certificati', '100% gratuito'],
+    badges: ['Nessuna chiamata commerciale', 'Installatori certificati', 'Gratuito'],
   },
 };
 

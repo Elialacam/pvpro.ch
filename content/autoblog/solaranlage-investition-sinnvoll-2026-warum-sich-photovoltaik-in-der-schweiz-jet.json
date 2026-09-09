@@ -11,7 +11,7 @@
       "date": "17. August 2026",
       "readMin": 15,
       "tag": "Ratgeber",
-      "intro": "Wussten Sie, dass Sie ab 2026 Ihren Solarstrom direkt an Ihre Nachbarn im gleichen Kanton verkaufen können und dabei bis zu 40% der Netznutzungsgebühren sparen? Angesichts der neuen Gesetzeslage und schwankender Strompreise stellen sich viele Schweizer Hauseigentümer die Frage, ob es sich lohnt, in eine Solaranlage zu investieren oder lieber zu warten. Die Antwort ist klar: Die Rahmenbedingungen in der Schweiz waren noch nie so günstig. Die Photovoltaik bleibt trotz Marktveränderungen eine der sichersten Säulen für Ihre persönliche Energiewende und finanzielle Unabhängigkeit.",
+      "intro": "Angesichts der neuen Gesetzeslage und schwankender Strompreise stellen sich viele Schweizer Hauseigentümer die Frage, ob es sich lohnt, in eine Solaranlage zu investieren oder lieber zu warten. Die Antwort ist klar: Die Rahmenbedingungen in der Schweiz waren noch nie so günstig. Die Photovoltaik bleibt trotz Marktveränderungen eine der sichersten Säulen für Ihre persönliche Energiewende und finanzielle Unabhängigkeit.",
       "sections": [
         {
           "heading": "Die Marktsituation 2026: Warum die Solaranlage-Investition sinnvoll bleibt",
@@ -24,26 +24,9 @@
           ]
         },
         {
-          "heading": "Kosten und Förderungen: Das finanzielle Fundament",
-          "content": [
-            "Wer heute in die eigene Stromproduktion investiert, muss das Budget genau planen. Die Kosten einer Solaranlage liegen 2026 bei schlüsselfertigen Systemen meist zwischen 1'500 und 2'500 Franken pro Kilowatt-Peak. Für ein typisches Einfamilienhaus mit einer 10 kWp-Anlage bedeutet das eine Anfangsinvestition von rund 25'000 Franken vor Abzug der Fördergelder. Damit die Solaranlage Investition sinnvoll bleibt, ist die Ausschöpfung aller Fördertöpfe zentral. Die Schweiz bietet hier ein stabiles System aus staatlichen Beiträgen und steuerlichen Anreizen, das die Nettokosten massiv senkt."
-          ],
-          "bullets": [
-            "Einmalvergütung deckt bis zu 30% der Investitionskosten.",
-            "Steuerliche Vorteile in fast allen Schweizer Kantonen."
-          ]
-        },
-        {
-          "heading": "Amortisation und Rendite: Wann sich die Anlage bezahlt macht",
-          "content": [
-            "Die Amortisationszeit beschreibt den Moment, in dem die kumulierten Ersparnisse die ursprünglichen Investitionskosten decken. In der Schweiz liegt dieser Zeitraum für Wohngebäude meist zwischen 10 und 15 Jahren. Wer jedoch eine hohe Eigenverbrauchsquote erreicht, kann diesen Wert auf etwa 8,3 Jahre drücken. Die Eigenversorgung ist der Schlüssel zu einer schnellen Amortisation. Jede selbst genutzte Einheit spart direkt die vollen Kosten des Netzbezugs."
-          ],
-          "highlight": "Eine gut geplante PV-Anlage erzielt oft eine jährliche Rendite zwischen 4 und 7 Prozent."
-        },
-        {
           "heading": "Qualitätscheck: Worauf Sie beim Solarteur-Vergleich achten müssen",
           "content": [
-            "Eine Photovoltaik-Anlage ist eine Entscheidung für die nächsten 25 bis 30 Jahre. Damit die Solaranlage Investition sinnvoll bleibt, ist die Wahl des richtigen Partners genauso wichtig wie die Hardware selbst. Ein fundierter Photovoltaik-Anbieter-Vergleich schützt vor bösen Überraschungen bei der Montage oder mangelhaften Garantieleistungen. Ein Label wie 'Solarprofi' von Swissolar bietet wichtige Orientierung."
+            "Damit die Solaranlage Investition sinnvoll bleibt, ist die Wahl des richtigen Partners genauso wichtig wie die Hardware selbst. Ein fundierter Photovoltaik-Anbieter-Vergleich schützt vor bösen Überraschungen bei der Montage oder mangelhaften Garantieleistungen. Ein Label wie 'Solarprofi' von Swissolar bietet wichtige Orientierung."
           ],
           "bullets": [
             "Zertifizierungen wie das Swissolar Label 'Solarprofi' sind ein Gütesiegel.",
@@ -62,10 +45,6 @@
           "answer": "Ja, eine Anlage ohne Speicher kann sich lohnen, wenn Ihr Stromverbrauch primär tagsüber stattfindet. Dank der neuen lokalen Elektrizitätsgemeinschaften können Sie Überschüsse zudem direkt in der Nachbarschaft verkaufen."
         },
         {
-          "question": "Wie hoch ist die Lebensdauer einer modernen Photovoltaik-Anlage?",
-          "answer": "Moderne Photovoltaik-Module sind auf eine Betriebsdauer von 25 bis 30 Jahren ausgelegt. Die Leistungsgarantie verspricht nach 25 Jahren oft noch über 80 Prozent der Nennleistung."
-        },
-        {
           "question": "Kann ich die Kosten für die Solaranlage komplett von den Steuern abziehen?",
           "answer": "In fast allen Schweizer Kantonen können Sie die Investitionskosten für eine Photovoltaik-Anlage vollumfänglich von Ihrem steuerbaren Einkommen abziehen. Prüfen Sie die genauen Abzugsmodalitäten pro Kanton, um den maximalen finanziellen Effekt zu erzielen."
         }
@@ -80,7 +59,7 @@
       "date": "17 août 2026",
       "readMin": 15,
       "tag": "Guide",
-      "intro": "Saviez-vous qu'à partir de 2026, vous pourriez vendre directement votre électricité solaire à vos voisins dans le même canton, économisant ainsi jusqu'à 40% sur les frais d'utilisation du réseau ? Avec les nouvelles dispositions légales et les fluctuations des prix de l'électricité, de nombreux propriétaires suisses se demandent s'il vaut mieux investir dans une installation solaire maintenant ou attendre. La réponse est claire : les conditions en Suisse n'ont jamais été aussi favorables. Malgré les changements de marché, le photovoltaïque reste l'un des piliers les plus sûrs pour votre transition énergétique personnelle et votre indépendance financière.",
+      "intro": "Avec les nouvelles dispositions légales et les fluctuations des prix de l'électricité, de nombreux propriétaires suisses se demandent s'il vaut mieux investir dans une installation solaire maintenant ou attendre. La réponse est claire : les conditions en Suisse n'ont jamais été aussi favorables. Malgré les changements de marché, le photovoltaïque reste l'un des piliers les plus sûrs pour votre transition énergétique personnelle et votre indépendance financière.",
       "sections": [
         {
           "heading": "La situation du marché en 2026 : Pourquoi l'investissement dans les installations solaires reste pertinent",
@@ -93,26 +72,9 @@
           ]
         },
         {
-          "heading": "Coûts et subventions : Les fondations financières",
-          "content": [
-            "Investir aujourd'hui dans sa propre production d'électricité nécessite une planification budgétaire précise. En 2026, les coûts d'une installation solaire clé en main se situent généralement entre 1'500 et 2'500 francs suisses par kilowatt-crête. Pour une maison individuelle typique avec une installation de 10 kWc, cela représente un investissement initial d'environ 25'000 francs avant déduction des subventions. Pour que l'investissement dans une installation solaire reste pertinent, il est central de maximiser toutes les subventions disponibles. La Suisse offre un système stable de contributions étatiques et d'avantages fiscaux qui réduisent considérablement les coûts nets."
-          ],
-          "bullets": [
-            "La rémunération unique couvre jusqu'à 30% des frais d'investissement.",
-            "Avantages fiscaux dans presque tous les cantons suisses."
-          ]
-        },
-        {
-          "heading": "Amortissement et rendement : Quand l'installation devient-elle rentable",
-          "content": [
-            "La période d'amortissement est le moment où les économies cumulées compensent les coûts d'investissement initiaux. En Suisse, cette période est généralement comprise entre 10 et 15 ans pour les bâtiments résidentiels. Cependant, ceux qui atteignent un taux d'autoconsommation élevé peuvent réduire ce chiffre à environ 8,3 ans. L'auto-approvisionnement est la clé d'un amortissement rapide. Chaque unité auto-consommée économise directement les coûts complets de l'achat sur le réseau."
-          ],
-          "highlight": "Une installation PV bien planifiée offre souvent un rendement annuel compris entre 4 et 7 pour cent."
-        },
-        {
           "heading": "Contrôle qualité : Ce qu'il faut vérifier lors du choix d'un installateur solaire",
           "content": [
-            "Une installation photovoltaïque est une décision pour les 25 à 30 prochaines années. Pour que l'investissement dans une installation solaire reste pertinent, le choix du bon partenaire est tout aussi important que le matériel lui-même. Une comparaison judicieuse des fournisseurs photovoltaïques protège contre les mauvaises surprises lors du montage ou des garanties insuffisantes. Un label comme 'Solarprofi' de Swissolar offre une orientation précieuse."
+            "Pour que l'investissement dans une installation solaire reste pertinent, le choix du bon partenaire est tout aussi important que le matériel lui-même. Une comparaison judicieuse des fournisseurs photovoltaïques protège contre les mauvaises surprises lors du montage ou des garanties insuffisantes. Un label comme 'Solarprofi' de Swissolar offre une orientation précieuse."
           ],
           "bullets": [
             "Les certifications comme le label 'Solarprofi' de Swissolar sont un gage de qualité.",
@@ -131,10 +93,6 @@
           "answer": "Oui, une installation sans stockage peut être rentable si votre consommation d'électricité a lieu principalement pendant la journée. Grâce aux nouvelles communautés électriques locales, vous pouvez également vendre les surplus directement dans le voisinage."
         },
         {
-          "question": "Quelle est la durée de vie d'une installation photovoltaïque moderne ?",
-          "answer": "Les modules photovoltaïques modernes sont conçus pour une durée de vie de 25 à 30 ans. La garantie de performance promet souvent plus de 80% de la puissance nominale après 25 ans."
-        },
-        {
           "question": "Puis-je déduire entièrement les coûts d'une installation solaire de mes impôts ?",
           "answer": "Dans presque tous les cantons suisses, vous pouvez déduire intégralement les coûts d'investissement pour une installation photovoltaïque de votre revenu imposable. Vérifiez les modalités de déduction exactes par canton pour maximiser l'effet financier."
         }
@@ -149,7 +107,7 @@
       "date": "August 17, 2026",
       "readMin": 15,
       "tag": "Guide",
-      "intro": "Did you know that starting in 2026 you can sell your solar power directly to your neighbors in the same canton and save up to 40% on grid usage fees? Given the new legislative conditions and fluctuating electricity prices, many Swiss homeowners are questioning whether it makes sense to invest in a solar system or wait. The answer is clear: The conditions in Switzerland have never been more favorable. Despite market changes, photovoltaics remain one of the most secure pillars for your personal energy transition and financial independence.",
+      "intro": "Given the new legislative conditions and fluctuating electricity prices, many Swiss homeowners are questioning whether it makes sense to invest in a solar system or wait. The answer is clear: The conditions in Switzerland have never been more favorable. Despite market changes, photovoltaics remain one of the most secure pillars for your personal energy transition and financial independence.",
       "sections": [
         {
           "heading": "The Market Situation in 2026: Why a Solar System Investment Remains Sensible",
@@ -162,26 +120,9 @@
           ]
         },
         {
-          "heading": "Costs and Incentives: The Financial Foundation",
-          "content": [
-            "Anyone investing in their own power production today must plan their budget precisely. In 2026, the costs of a solar system for turnkey systems usually range between 1,500 and 2,500 francs per kilowatt-peak. For a typical single-family house with a 10 kWp system, this means an initial investment of around 25,000 francs before applying subsidies. To keep the solar system investment worthwhile, tapping into all funding sources is crucial. Switzerland offers a stable system of government contributions and tax incentives, which significantly reduces net costs."
-          ],
-          "bullets": [
-            "One-time payments cover up to 30% of investment costs.",
-            "Tax advantages in almost all Swiss cantons."
-          ]
-        },
-        {
-          "heading": "Amortization and Returns: When the System Pays Off",
-          "content": [
-            "The amortization period describes the moment when the accumulated savings cover the original investment costs. In Switzerland, this period for residential buildings is usually between 10 and 15 years. However, those who achieve a high self-consumption rate can reduce this value to about 8.3 years. Self-sufficiency is the key to quick amortization. Every unit used directly saves the full cost of grid access."
-          ],
-          "highlight": "A well-planned PV system often achieves an annual return of between 4 and 7 percent."
-        },
-        {
           "heading": "Quality Check: What to Watch for When Comparing Solar Installers",
           "content": [
-            "A photovoltaic system is a decision for the next 25 to 30 years. To keep the solar system investment worthwhile, choosing the right partner is just as important as the hardware itself. A thorough comparison of photovoltaic providers protects against unpleasant surprises during installation or inadequate warranty services. A label like 'Solarprofi' from Swissolar provides essential guidance."
+            "To keep the solar system investment worthwhile, choosing the right partner is just as important as the hardware itself. A thorough comparison of photovoltaic providers protects against unpleasant surprises during installation or inadequate warranty services. A label like 'Solarprofi' from Swissolar provides essential guidance."
           ],
           "bullets": [
             "Certifications like the Swissolar 'Solarprofi' label are a mark of quality.",
@@ -200,10 +141,6 @@
           "answer": "Yes, a system without storage can be worthwhile if your electricity consumption is primarily during the day. Thanks to the new local electricity communities, you can also sell surpluses directly in the neighborhood."
         },
         {
-          "question": "What is the lifespan of a modern photovoltaic system?",
-          "answer": "Modern photovoltaic modules are designed for an operational life of 25 to 30 years. The performance guarantee often promises over 80 percent of the nominal output even after 25 years."
-        },
-        {
           "question": "Can I deduct the costs of the solar system completely from taxes?",
           "answer": "In almost all Swiss cantons, you can fully deduct the investment costs for a photovoltaic system from your taxable income. Check the exact deduction modalities per canton to achieve the maximum financial effect."
         }
@@ -218,7 +155,7 @@
       "date": "17 agosto 2026",
       "readMin": 15,
       "tag": "Guida",
-      "intro": "Sapevate che dal 2026 potrete vendere direttamente l'energia solare ai vostri vicini nello stesso Cantone e risparmiare fino al 40% sulle tariffe di rete? Data la nuova legislazione e i prezzi fluttuanti dell'energia, molti proprietari di case svizzeri si chiedono se valga la pena investire in un impianto solare o attendere. La risposta è chiara: le condizioni in Svizzera non sono mai state così favorevoli. Nonostante i cambiamenti del mercato, il fotovoltaico rimane uno dei pilastri più sicuri per la vostra transizione energetica personale e indipendenza finanziaria.",
+      "intro": "Data la nuova legislazione e i prezzi fluttuanti dell'energia, molti proprietari di case svizzeri si chiedono se valga la pena investire in un impianto solare o attendere. La risposta è chiara: le condizioni in Svizzera non sono mai state così favorevoli. Nonostante i cambiamenti del mercato, il fotovoltaico rimane uno dei pilastri più sicuri per la vostra transizione energetica personale e indipendenza finanziaria.",
       "sections": [
         {
           "heading": "La situazione di mercato nel 2026: Perché l'investimento in impianti solari rimane conveniente",
@@ -231,26 +168,9 @@
           ]
         },
         {
-          "heading": "Costi e incentivi: La base finanziaria",
-          "content": [
-            "Chi oggi investe nella propria produzione di energia deve pianificare il budget con precisione. Nel 2026, i costi di un impianto solare chiavi in mano vanno generalmente da 1'500 a 2'500 franchi per kilowatt-peak. Per una casa unifamiliare tipica con un impianto da 10 kWp, significa un investimento iniziale di circa 25'000 franchi prima della detrazione dei contributi. Perché l'investimento in impianti solari sia conveniente, è essenziale sfruttare appieno tutti i fondi disponibili. La Svizzera offre un sistema stabile di contributi statali e incentivi fiscali che riducono notevolmente i costi netti."
-          ],
-          "bullets": [
-            "La remunerazione unica copre fino al 30% dei costi d'investimento.",
-            "Vantaggi fiscali in quasi tutti i Cantoni svizzeri."
-          ]
-        },
-        {
-          "heading": "Ammortamento e rendimento: Quando l'impianto si ripaga",
-          "content": [
-            "Il tempo di ammortamento descrive il momento in cui i risparmi cumulati coprono i costi iniziali di investimento. In Svizzera, questo periodo per gli edifici residenziali è generalmente tra i 10 e i 15 anni. Tuttavia, chi raggiunge una quota elevata di autoconsumo può ridurre questo valore a circa 8,3 anni. L'approvvigionamento autonomo è la chiave per un rapido ammortamento. Ogni unità consumata autonomamente risparmia direttamente i costi completi dell'acquisto di rete."
-          ],
-          "highlight": "Un impianto fotovoltaico ben pianificato ottiene spesso un rendimento annuo tra il 4 e il 7 percento."
-        },
-        {
           "heading": "Verifica della qualità: Cosa considerare nel confronto tra installatori",
           "content": [
-            "Un impianto fotovoltaico è una decisione per i prossimi 25-30 anni. Perché l'investimento in impianti solari sia conveniente, la scelta del partner giusto è importante quanto l'hardware stesso. Un confronto ben informato tra gli installatori protegge da spiacevoli sorprese durante l'installazione o da garanzie insufficienti. Un'etichetta come 'Solarprofi' di Swissolar fornisce un'importante orientamento."
+            "Perché l'investimento in impianti solari sia conveniente, la scelta del partner giusto è importante quanto l'hardware stesso. Un confronto ben informato tra gli installatori protegge da spiacevoli sorprese durante l'installazione o da garanzie insufficienti. Un'etichetta come 'Solarprofi' di Swissolar fornisce un'importante orientamento."
           ],
           "bullets": [
             "Le certificazioni come l'etichetta 'Solarprofi' di Swissolar sono un sigillo di qualità.",
@@ -267,10 +187,6 @@
         {
           "question": "Conviene un impianto solare nel 2026 anche senza accumulo?",
           "answer": "Sì, un impianto senza accumulo può essere conveniente se il vostro consumo energetico avviene principalmente durante il giorno. Grazie alle nuove comunità elettriche locali, potete inoltre vendere i surplus direttamente nel vicinato."
-        },
-        {
-          "question": "Qual è la durata di vita di un moderno impianto fotovoltaico?",
-          "answer": "I moduli fotovoltaici moderni sono progettati per una durata di esercizio dai 25 ai 30 anni. La garanzia di prestazione promette spesso oltre l'80% della potenza nominale dopo 25 anni."
         },
         {
           "question": "Posso detrarre completamente dalle tasse i costi per l'impianto solare?",

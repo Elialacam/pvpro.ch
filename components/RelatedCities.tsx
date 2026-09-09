@@ -67,11 +67,6 @@ export default function RelatedCities({ currentCitySlug, currentCanton, lang = '
                     <p className="text-sm text-gray-600">
                       {t(lang, 'Kanton', 'Canton', 'Cantone')} {city.canton}
                     </p>
-                    {city.sunshineHours && (
-                      <p className="text-xs text-gray-500 mt-1">
-                        {city.sunshineHours} {t(lang, 'Sonnenstunden/Jahr', 'heures de soleil/an', 'ore di sole/anno')}
-                      </p>
-                    )}
                   </div>
                 </div>
               </Link>

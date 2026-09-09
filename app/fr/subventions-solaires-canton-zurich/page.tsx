@@ -3,6 +3,10 @@ import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText } from 'lucide-rea
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatChfForLocale, formatRangeForLocale } from '@/lib/facts';
+
+const facts = ECONOMIC_FACTS;
+const frRange = (range: { min: number; max: number }, unit: string) => formatRangeForLocale(range, unit, 'fr');
 
 const baseMetadata: Metadata = {
   title: 'Subventions solaires Canton de Zurich 2026 – RU, obligation solaire & contributions | PvPro.ch',
@@ -30,7 +34,7 @@ const baseMetadata: Metadata = {
 const faqs = [
   {
     question: "Quel est le montant de la subvention pour une installation solaire dans le Canton de Zurich ?",
-    answer: "La subvention fédérale (RU) est d'environ 300–400 CHF par kWc. Pour une installation de 10 kWc, cela représente environ 3 500 CHF. En plus, il existe des programmes cantonaux et des déductions fiscales.",
+    answer: `La RU est de ${formatChfForLocale(facts.incentives.pronovoPerKwpUpTo30, 'fr')} par kWp jusqu'à 30 kWp, plus une contribution de base. Pour 10 kWp, elle est d'environ ${formatChfForLocale(facts.incentives.tenKwpApprox, 'fr')}.`,
   },
   {
     question: "L'obligation solaire s'applique-t-elle aussi aux maisons existantes dans le Canton de Zurich ?",
@@ -87,9 +91,9 @@ export default function SubventionsSolairesCantonsZurichPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: '300–400 CHF/kWc', sub: 'Subvention fédérale RU', note: 'paiement unique après installation' },
+               { val: `${formatChfForLocale(facts.incentives.pronovoPerKwpUpTo30, 'fr')}/kWp`, sub: 'Subvention fédérale RU', note: 'jusqu’à 30 kWp, plus contribution de base' },
               { val: 'Obligation solaire', sub: 'depuis 2023 pour les nouvelles constructions', note: "s'applique dans tout le Canton de Zurich" },
-              { val: '7–9 ans', sub: 'Amortissement dans le Canton de ZH', note: 'grâce aux subventions et au bas prix de l\'électricité' },
+               { val: frRange(facts.systemPaybackYears.plateau, 'ans'), sub: 'Amortissement indicatif', note: 'valeur nationale du Plateau' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -118,7 +122,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
             </p>
             <ul className="space-y-3 mb-6">
               {[
-                "Montant : environ 300–400 CHF par kWc de puissance installée",
+                 `Montant : ${formatChfForLocale(facts.incentives.pronovoPerKwpUpTo30, 'fr')} par kWp jusqu'à 30 kWp, plus contribution de base`,
                 "Versée une seule fois après l'installation",
                 "Pas de demande annuelle nécessaire",
                 "L'installateur s'occupe généralement de l'inscription pour vous",
@@ -131,7 +135,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
             </ul>
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="text-orange-800 text-sm leading-relaxed">
-                Pour une installation typique de 10 kWc, cela représente une subvention d&apos;environ <strong>3 500 CHF</strong>.
+                 Pour une installation de 10 kWp, cela représente environ <strong>{formatChfForLocale(facts.incentives.tenKwpApprox, 'fr')}</strong>.
               </p>
             </div>
           </div>
@@ -140,10 +144,9 @@ export default function SubventionsSolairesCantonsZurichPage() {
               <p className="text-white/60 text-xs font-bold uppercase tracking-widest mb-5">RU — Exemple de calcul 10 kWc</p>
               <div className="space-y-4">
                 {[
-                  { label: "Coûts d'installation", value: "28'000 CHF" },
-                  { label: 'Subvention fédérale RU', value: "− 3'500 CHF" },
-                  { label: 'Déduction fiscale (env.)', value: "− 2'800 CHF" },
-                  { label: 'Coût effectif', value: "env. 21'700 CHF", highlight: true },
+                   { label: "Coût brut de l'installation", value: frRange(facts.systemCosts.bySize[10], 'CHF') },
+                   { label: 'Subvention fédérale RU', value: `− ${formatChfForLocale(facts.incentives.tenKwpApprox, 'fr')}` },
+                   { label: 'Coût net après RU', value: frRange({ min: facts.systemCosts.bySize[10].min - facts.incentives.tenKwpApprox, max: facts.systemCosts.bySize[10].max - facts.incentives.tenKwpApprox }, 'CHF'), highlight: true },
                 ].map(r => (
                   <div key={r.label} className={`flex justify-between items-center rounded-xl px-5 py-3 ${r.highlight ? 'bg-orange-500/20 border border-orange-500/30' : 'bg-white/5'}`}>
                     <span className={`text-sm font-medium ${r.highlight ? 'text-orange-300' : 'text-white/70'}`}>{r.label}</span>
@@ -151,6 +154,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
                   </div>
                 ))}
               </div>
+              <p className="text-xs text-white/50 mt-4">{SOURCE_NOTES.fr}</p>
             </div>
           </div>
         </section>
@@ -175,7 +179,7 @@ export default function SubventionsSolairesCantonsZurichPage() {
               },
               {
                 title: "Communautés d'électricité locales (CEL)",
-                text: "Dès 2026, vous pouvez vendre directement l'électricité solaire à votre quartier — cela réduit les taxes réseau jusqu'à 40%.",
+                 text: "Dès 2026, vous pouvez vendre directement l'électricité solaire à votre quartier selon les conditions applicables.",
                 badge: 'Dès 2026',
               },
               {

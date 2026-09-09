@@ -8,6 +8,18 @@ import {
   Sun, Home, Battery, ArrowRight, ChevronRight, AlertCircle,
 } from 'lucide-react';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, calculateAnnualSolarValueRange, formatChfForLocale, formatRangeForLocale, formatSwissNumber, getSystemCostRange } from '@/lib/facts';
+
+const annualValue10Kwp = {
+  min: calculateAnnualSolarValueRange(
+    10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min,
+    10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max,
+  ).min,
+  max: calculateAnnualSolarValueRange(
+    10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max,
+    10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max,
+  ).max,
+};
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar Calculator Switzerland 2026 – Calculate Costs & Yield | PvPro.ch',
@@ -35,35 +47,31 @@ export const metadata: Metadata = pageMetadata({
 const faqs = [
   {
     question: 'How accurate is the solar calculator?',
-    answer: 'Our solar calculator provides a solid first estimate. It is based on Swiss average values: 6.5 m² per kWp, 950 kWh of production per kWp and CHF 2,200 installation costs per kWp. For an exact calculation, we recommend a professional on-site consultation that considers roof orientation, shading and local conditions.',
+    answer: `Our solar calculator provides a first estimate. It uses ${ECONOMIC_FACTS.roofAreaM2PerKwp} m² per kWp, ${formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh per kWp', 'en')} and ${formatRangeForLocale(ECONOMIC_FACTS.systemCosts.perKwp, 'CHF per kWp', 'en')}.`,
   },
   {
     question: 'How much roof space do I need per kWp?',
-    answer: 'With modern modules, approximately 6.5 m² of roof area per kWp is required in Switzerland. For a typical 10 kWp installation, you need around 65 m² of usable roof space. Not all roof area is usable — skylights, chimneys and shading reduce the available surface.',
+    answer: `Allow approximately ${ECONOMIC_FACTS.roofAreaM2PerKwp} m² per kWp. A 10 kWp installation needs about ${ECONOMIC_FACTS.roofAreaM2PerKwp * 10} m² of usable roof space.`,
   },
   {
     question: 'What is the one-time payment (OTP) subsidy?',
-    answer: 'The federal one-time payment (OTP) is currently around CHF 350 per kWp installed. It is deducted directly from the installation price, noticeably reducing your actual costs. Additional cantonal subsidies may also be available. Together, subsidies can cover 20–30% of investment costs.',
+    answer: `Pronovo pays ${formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')} per kWp up to 30 kWp, plus a base contribution. The federal share is ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', 'en')} without storage.`,
   },
   {
     question: 'What is the typical payback period in Switzerland?',
-    answer: 'The average payback period in Switzerland is 8–12 years, depending on electricity prices, self-consumption rate and subsidies received. After the payback period, you produce largely free electricity for another 15–20 years. With rising electricity prices, the payback period shortens further.',
+    answer: `On the Swiss Plateau, the indicative payback period is ${formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en')}.`,
   },
   {
     question: 'Is a solar installation worthwhile with a north-facing roof?',
-    answer: 'A purely north-facing roof is not ideal. However, east and west-facing roofs still deliver 70–80% of a south-facing roof\'s yield and are usually worthwhile. For north-facing roofs, we recommend a professional case-by-case analysis. Modern bifacial solar modules can achieve convincing results even on less optimal roofs.',
+    answer: 'A purely north-facing roof is not ideal. East and west-facing roofs can still be worthwhile. A professional calculation should account for orientation and shading.',
   },
   {
     question: 'Should I add a battery storage system?',
-    answer: 'A battery storage system increases your self-consumption rate from around 30% to 60–80%. It costs an additional CHF 8,000–15,000, but pays for itself increasingly quickly with rising electricity prices. Storage is particularly useful if you are rarely at home during the day or if you own an electric vehicle.',
+    answer: `Without storage, self-consumption is ${formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'en')}; with storage it is ${formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'en')}. A 10 kWh battery costs ${formatRangeForLocale(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF', 'en')}.`,
   },
   {
     question: 'How does an electric vehicle affect my solar calculation?',
-    answer: 'An electric vehicle with around 15,000 km per year consumes approximately 2,500 kWh. With a solar installation around 3 kWp larger, you can largely cover this additional consumption. Charging the car during the day with solar power significantly increases self-consumption and improves overall profitability.',
-  },
-  {
-    question: 'Which canton has the most sunshine hours in Switzerland?',
-    answer: 'Ticino and Valais are among the sunniest cantons in Switzerland with over 2,000 sunshine hours per year. German-speaking Switzerland is between 1,600 and 1,900 hours. Even in less sunny areas, solar installations are worthwhile — the difference in annual yield between Ticino and Zurich is only about 15–20%.',
+    answer: 'Charging an electric vehicle during the day can increase direct use of solar electricity. Include the vehicle in the professional system sizing.',
   },
 ];
 
@@ -71,12 +79,12 @@ const systemSizes = [
   {
     label: 'Small',
     kwp: 6,
-    flaeche: '39 m²',
-    jahresertrag: '5,700 kWh',
-    kosten: 'CHF 13,200',
-    foerderung: 'CHF 2,100',
-    nettokosten: 'CHF 11,100',
-    amort: '9–12 years',
+    flaeche: `${formatSwissNumber(6 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`,
+    jahresertrag: formatRangeForLocale({ min: 6 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 6 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh', 'en'),
+    kosten: formatRangeForLocale(getSystemCostRange(6), 'CHF', 'en'),
+    foerderung: formatChfForLocale(6 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en'),
+    nettokosten: formatRangeForLocale({ min: getSystemCostRange(6).min - 6 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, max: getSystemCostRange(6).max - 6 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30 }, 'CHF', 'en'),
+    amort: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en'),
     haushalt: '2 people / apartment',
     color: 'border-blue-200 bg-blue-50',
     badge: 'bg-blue-100 text-blue-700',
@@ -84,12 +92,12 @@ const systemSizes = [
   {
     label: 'Medium',
     kwp: 10,
-    flaeche: '65 m²',
-    jahresertrag: '9,500 kWh',
-    kosten: 'CHF 22,000',
-    foerderung: 'CHF 3,500',
-    nettokosten: 'CHF 18,500',
-    amort: '8–11 years',
+    flaeche: `${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`,
+    jahresertrag: formatRangeForLocale({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh', 'en'),
+    kosten: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en'),
+    foerderung: formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en'),
+    nettokosten: formatRangeForLocale({ min: getSystemCostRange(10).min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: getSystemCostRange(10).max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF', 'en'),
+    amort: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en'),
     haushalt: '3–4 people / detached house',
     color: 'border-[#fcb210]/30 bg-orange-50',
     badge: 'bg-[#fcb210]/10 text-[#fcb210]',
@@ -98,12 +106,12 @@ const systemSizes = [
   {
     label: 'Large',
     kwp: 15,
-    flaeche: '98 m²',
-    jahresertrag: '14,250 kWh',
-    kosten: 'CHF 33,000',
-    foerderung: 'CHF 5,250',
-    nettokosten: 'CHF 27,750',
-    amort: '8–10 years',
+    flaeche: `${formatSwissNumber(15 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`,
+    jahresertrag: formatRangeForLocale({ min: 15 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 15 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh', 'en'),
+    kosten: formatRangeForLocale(getSystemCostRange(15), 'CHF', 'en'),
+    foerderung: formatChfForLocale(15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en'),
+    nettokosten: formatRangeForLocale({ min: getSystemCostRange(15).min - 15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, max: getSystemCostRange(15).max - 15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30 }, 'CHF', 'en'),
+    amort: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en'),
     haushalt: 'Large family / apartment building',
     color: 'border-green-200 bg-green-50',
     badge: 'bg-green-100 text-green-700',
@@ -114,7 +122,7 @@ const factors = [
   {
     icon: Sun,
     title: 'Roof orientation',
-    body: 'A south-facing roof achieves 100% yield. East/west deliver 70–80% each, north-facing roofs only 50–60%. The ideal angle is 25–35°.',
+    body: 'Orientation, pitch and shading all affect yield. A professional calculation accounts for the exact roof.',
     tip: 'South, east or west are ideal',
   },
   {
@@ -126,40 +134,39 @@ const factors = [
   {
     icon: AlertCircle,
     title: 'Shading',
-    body: 'Trees, chimneys or neighbouring buildings can reduce yield by 10–30%. Modern micro-inverters or optimisers minimise losses.',
+    body: 'Trees, chimneys or neighbouring buildings can reduce yield. Modern micro-inverters or optimisers can limit losses.',
     tip: 'Have shading checked',
   },
   {
     icon: Battery,
     title: 'Self-consumption',
-    body: 'Without storage, you self-consume approximately 25–35% of production. With storage, self-consumption rises to 60–80% — significantly improving profitability.',
+    body: `Without storage, self-consumption is ${formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'en')}. With storage, it rises to ${formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'en')}.`,
     tip: 'Storage increases self-consumption',
   },
   {
     icon: Zap,
     title: 'Electricity price',
-    body: 'The average Swiss household currently pays around 25–30 ct/kWh. Every self-produced kilowatt is a direct saving. With rising prices, the installation pays off faster.',
-    tip: '~25–30 ct/kWh in Switzerland',
+    body: `The Swiss median is ${ECONOMIC_FACTS.electricityMedianCtPerKwh} ct/kWh. Every self-produced kilowatt-hour is a direct saving.`,
+    tip: `${ECONOMIC_FACTS.electricityMedianCtPerKwh} ct/kWh Swiss median`,
   },
   {
     icon: TrendingUp,
     title: 'Grid feed-in',
-    body: 'Electricity you do not consume yourself is fed into the grid. The remuneration varies from 6 to 15 ct/kWh depending on the grid operator — well below the purchase price.',
-    tip: '6–15 ct/kWh feed-in rate',
+    body: `Feed-in remuneration is ${formatRangeForLocale(ECONOMIC_FACTS.feedInCtPerKwh, 'ct/kWh', 'en')}, depending on the operator.`,
+    tip: formatRangeForLocale(ECONOMIC_FACTS.feedInCtPerKwh, 'ct/kWh', 'en'),
   },
 ];
 
 const richtigValues = [
-  { label: 'Average sunshine hours/year (CH)', value: '1,600–2,100 h' },
-  { label: 'Annual yield per kWp (CH average)', value: '950–1,000 kWh' },
-  { label: 'Roof area per kWp (modern modules)', value: '6.5 m²' },
-  { label: 'Installation cost per kWp', value: 'CHF 2,000–2,500' },
-  { label: 'Federal OTP subsidy per kWp', value: '~CHF 350' },
-  { label: 'Average self-consumption without storage', value: '25–35%' },
-  { label: 'Average self-consumption with storage', value: '60–80%' },
-  { label: 'Solar module lifespan', value: '25–30 years' },
-  { label: 'Performance guarantee (typical)', value: '80% after 25 years' },
-  { label: 'Payback period (Switzerland)', value: '8–12 years' },
+  { label: 'Annual yield per kWp on the Plateau', value: formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh', 'en') },
+  { label: 'Roof area per kWp', value: `${ECONOMIC_FACTS.roofAreaM2PerKwp} m²` },
+  { label: 'Installation cost per kWp', value: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.perKwp, 'CHF', 'en') },
+  { label: 'Federal OTP subsidy per kWp', value: formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en') },
+  { label: 'Self-consumption without storage', value: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'en') },
+  { label: 'Self-consumption with storage', value: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'en') },
+  { label: 'Solar module lifespan', value: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en') },
+  { label: 'Performance warranty', value: `${ECONOMIC_FACTS.performanceWarranty.percent}% after ${ECONOMIC_FACTS.performanceWarranty.afterYears} years` },
+  { label: 'Payback period on the Plateau', value: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en') },
 ];
 
 export default function SolarCalculatorPage() {
@@ -206,7 +213,7 @@ export default function SolarCalculatorPage() {
               <div className="flex flex-wrap gap-3">
                 <div className="flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-2 rounded-full">
                   <CheckCircle className="w-4 h-4 text-[#fcb210]" />
-                  <span className="text-white/80 text-sm">100% free</span>
+              <span className="text-white/80 text-sm">Free</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-2 rounded-full">
                   <CheckCircle className="w-4 h-4 text-[#fcb210]" />
@@ -221,10 +228,10 @@ export default function SolarCalculatorPage() {
 
             <div className="grid grid-cols-2 gap-4 pb-12">
               {[
-                { val: '950–1,000', unit: 'kWh/kWp/year', label: 'Swiss average' },
-                { val: '8–12', unit: 'years', label: 'Typical payback' },
-                { val: '~350', unit: 'CHF/kWp', label: 'Federal OTP subsidy' },
-                { val: '25–30', unit: 'years', label: 'Module lifespan' },
+                { val: formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh/kWp/year', 'en'), unit: '', label: 'Swiss Plateau' },
+                { val: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en'), unit: '', label: 'Payback on the Plateau' },
+                { val: formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en'), unit: '/kWp', label: 'Federal OTP subsidy' },
+                { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en'), unit: '', label: 'Module lifespan' },
               ].map(s => (
                 <div key={s.label} className="bg-white/8 border border-white/10 rounded-2xl p-5">
                   <p className="text-2xl font-bold text-white">{s.val}</p>
@@ -250,7 +257,7 @@ export default function SolarCalculatorPage() {
             <SolarCalculator />
           </div>
           <p className="text-center text-xs text-gray-400 mt-6">
-            Reference values: 6.5 m²/kWp · 950 kWh/kWp/year · CHF 2,200/kWp · OTP ~CHF 350/kWp. No binding quote.
+             {SOURCE_NOTES.en} {SYSTEM_PRICE_NOTES.en}
           </p>
         </div>
       </section>
@@ -262,7 +269,7 @@ export default function SolarCalculatorPage() {
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Reference values</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Typical installation sizes in Switzerland</h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
-              Different system sizes are recommended depending on household size and available roof space. All prices before cantonal subsidies — these can reduce costs by a further 10–15%.
+               Different system sizes are recommended depending on household size and available roof space. Prices are shown before subsidies.
             </p>
           </div>
 
@@ -399,8 +406,8 @@ export default function SolarCalculatorPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
-              { step: '1', title: 'Enter roof area', desc: 'Estimate your usable roof area in m² (length × width). Typically: 40–100 m².' },
-              { step: '2', title: 'Enter electricity consumption', desc: 'Your annual consumption is on your electricity bill — typically 3,500–7,000 kWh for a house.' },
+              { step: '1', title: 'Enter roof area', desc: 'Estimate your usable roof area in m² (length × width).' },
+              { step: '2', title: 'Enter electricity consumption', desc: 'Your annual consumption is shown on your electricity bill.' },
               { step: '3', title: 'Understand your potential', desc: 'Immediately see: system size, annual yield, costs and estimated payback period.' },
               { step: '4', title: 'Compare quotes', desc: 'Request 3 free quotes from vetted installers — no commitment and quick.' },
             ].map(s => (
@@ -428,39 +435,9 @@ export default function SolarCalculatorPage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
                 Solar yield by canton in Switzerland
               </h2>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                Solar irradiation varies from canton to canton in Switzerland. Ticino and Valais are among the sunniest cantons with over 2,000 sunshine hours per year and an annual yield of up to 1,100 kWh/kWp.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                German-speaking Switzerland and the Plateau are at 1,600–1,900 hours — still excellent conditions for solar energy. The difference in annual yield between Geneva and Zurich is less than 15%. Solar installations are worthwhile throughout Switzerland.
-              </p>
               <Link href="/en/request" className="inline-flex items-center gap-2 text-sm font-bold text-[#fcb210] hover:underline">
                 Request quotes for my location <ArrowRight className="w-4 h-4" />
               </Link>
-            </div>
-            <div className="space-y-3">
-              {[
-                { region: 'Ticino (Lugano)', stunden: '2,080', ertrag: '1,080–1,100 kWh/kWp', bar: 100 },
-                { region: 'Valais (Sion)', stunden: '2,130', ertrag: '1,050–1,100 kWh/kWp', bar: 99 },
-                { region: 'Lake Geneva area', stunden: '1,870', ertrag: '970–1,000 kWh/kWp', bar: 87 },
-                { region: 'Berne / Plateau', stunden: '1,720', ertrag: '900–950 kWh/kWp', bar: 80 },
-                { region: 'Zurich', stunden: '1,700', ertrag: '880–920 kWh/kWp', bar: 78 },
-                { region: 'Basel / Northern Switzerland', stunden: '1,660', ertrag: '860–900 kWh/kWp', bar: 76 },
-              ].map(r => (
-                <div key={r.region} className="bg-white rounded-xl p-4 border border-gray-100">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-semibold text-gray-800 text-sm">{r.region}</span>
-                    <span className="text-xs text-gray-500">{r.stunden} h/year</span>
-                  </div>
-                  <div className="h-1.5 bg-gray-100 rounded-full mb-2">
-                    <div
-                      className="h-1.5 rounded-full"
-                      style={{ width: `${r.bar}%`, background: 'linear-gradient(90deg, #ffc812, #fcb210)' }}
-                    />
-                  </div>
-                  <p className="text-xs text-gray-400">{r.ertrag}</p>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -473,40 +450,40 @@ export default function SolarCalculatorPage() {
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Profitability</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">What does a solar installation concretely bring you?</h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-sm">
-              With a typical 10 kWp installation in Switzerland — calculated with 25 ct/kWh electricity price and 35% self-consumption without storage.
+              Values depend on system size, electricity tariff and self-consumption.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 icon: Zap,
-                label: 'Annual electricity savings',
-                value: 'CHF 950',
-                sub: '≈ 3,325 kWh self-consumed × 25 ct',
+                label: 'Annual solar value',
+                value: formatRangeForLocale(annualValue10Kwp, 'CHF/year', 'en'),
+                sub: 'Self-consumption and feed-in value for 10 kWp on the Plateau',
                 color: 'text-[#fcb210]',
                 bg: 'bg-orange-50',
               },
               {
                 icon: TrendingUp,
-                label: 'Feed-in remuneration / year',
-                value: 'CHF 617',
-                sub: '≈ 6,175 kWh fed in × 10 ct',
+                label: 'Feed-in tariff',
+                value: formatRangeForLocale(ECONOMIC_FACTS.feedInCtPerKwh, 'ct/kWh', 'en'),
+                sub: 'Depends on the grid operator',
                 color: 'text-green-600',
                 bg: 'bg-green-50',
               },
               {
                 icon: PiggyBank,
-                label: 'Total benefit / year',
-                value: 'CHF 1,567',
-                sub: 'Savings + feed-in remuneration',
+                label: 'Indicative payback',
+                value: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en'),
+                sub: 'Benchmark for the Plateau',
                 color: 'text-blue-600',
                 bg: 'bg-blue-50',
               },
               {
                 icon: Calculator,
-                label: 'Total benefit over 25 years',
-                value: 'CHF 39,000+',
-                sub: 'Electricity prices will continue to rise',
+                label: 'Module lifespan',
+                value: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en'),
+                sub: SOURCE_NOTES.en,
                 color: 'text-purple-600',
                 bg: 'bg-purple-50',
               },
@@ -523,7 +500,7 @@ export default function SolarCalculatorPage() {
           </div>
           <div className="mt-8 bg-gray-50 border border-gray-200 rounded-2xl p-5 max-w-3xl mx-auto text-center">
             <p className="text-gray-600 text-sm leading-relaxed">
-              <strong className="text-gray-800">Note:</strong> Figures are based on a 10 kWp installation with net costs of approximately CHF 18,500, 35% self-consumption, 25 ct/kWh purchase price and 10 ct/kWh feed-in tariff. With battery storage, an electric vehicle or rising electricity prices, profitability improves significantly.
+              <strong className="text-gray-800">Note:</strong> {SOURCE_NOTES.en} Actual results depend on the project and local tariff.
             </p>
           </div>
         </div>
@@ -553,7 +530,7 @@ export default function SolarCalculatorPage() {
               { icon: Calculator, title: 'Instant calculation', desc: 'Get a first estimate for your solar installation in seconds — no registration required.' },
               { icon: Zap, title: 'Calculate yield', desc: 'See how much electricity your roof can produce annually — based on your canton.' },
               { icon: PiggyBank, title: 'Understand costs', desc: 'Realistic cost estimate with OTP subsidy based on current Swiss market prices.' },
-              { icon: TrendingUp, title: 'Plan payback', desc: 'Find out when your investment pays off and how much you save over 25 years.' },
+              { icon: TrendingUp, title: 'Plan payback', desc: 'Find out when your investment pays off.' },
             ].map(b => (
               <div key={b.title} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                 <div className="w-11 h-11 rounded-xl bg-[#fcb210]/10 flex items-center justify-center mb-4">

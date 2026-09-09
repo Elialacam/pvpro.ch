@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
 import FaqSchema from '@/components/FaqSchema';
 
 const baseMetadata: Metadata = {
@@ -38,15 +39,11 @@ const faqs = [
   },
   {
     question: "Les panneaux produisent-ils de l'électricité en hiver ?",
-    answer: "Oui, mais moins qu'en été. En hiver, les heures d'ensoleillement sont plus courtes et l'angle est plus faible. Une installation bien dimensionnée produit tout de même une contribution utile.",
+    answer: "Oui, mais moins qu'en été. Une installation bien dimensionnée produit tout de même une contribution utile.",
   },
   {
     question: "Les modules solaires résistent-ils à l'hiver ?",
     answer: "Oui. Les modules de qualité sont conçus pour des températures jusqu'à -40°C et supportent des charges de neige de plusieurs centaines de kilogrammes par mètre carré.",
-  },
-  {
-    question: "Quels cantons sont les plus adaptés au photovoltaïque ?",
-    answer: "Le Tessin, avec plus de 2'100 heures d'ensoleillement, offre les meilleures conditions. Mais même dans le Plateau et en Suisse orientale, une installation solaire est rentable — le délai d'amortissement est un peu plus long, mais reste attractif.",
   },
 ];
 
@@ -66,14 +63,6 @@ const modules = [
     badge: 'Cantons d\'altitude',
     text: "Plus le coefficient de température est faible, meilleures sont les performances par temps froid. Particulièrement pertinent pour les zones d'altitude.",
   },
-];
-
-const ensoleillement = [
-  { region: 'Tessin (Lugano)', heures: "env. 2'157" },
-  { region: 'Valais (Sion)', heures: "env. 2'000" },
-  { region: 'Arc lémanique', heures: "env. 1'800" },
-  { region: 'Plateau (Zurich, Berne)', heures: "env. 1'500–1'600" },
-  { region: 'Suisse orientale (St-Gall)', heures: "env. 1'500" },
 ];
 
 export default function PhotovoltaiquClimatSuissePage() {
@@ -104,9 +93,7 @@ export default function PhotovoltaiquClimatSuissePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: "1'300–2'100", sub: "Heures de soleil selon le canton", note: "selon l'altitude et le canton" },
-              { val: '+5–10%', sub: 'Rendement supplémentaire par froid', note: "grâce à l'effet de température" },
-              { val: '25–30 ans', sub: 'Durée de vie en climat suisse', note: 'avec garantie fabricant' },
+               { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'ans', 'fr'), sub: 'Durée de vie en climat suisse', note: 'valeur indicative' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -114,6 +101,7 @@ export default function PhotovoltaiquClimatSuissePage() {
                 <p className="text-gray-500 text-xs mt-1">{s.note}</p>
               </div>
             ))}
+            <p className="text-xs text-white/50 sm:col-span-3">{SOURCE_NOTES.fr}</p>
           </div>
         </div>
       </section>
@@ -130,31 +118,6 @@ export default function PhotovoltaiquClimatSuissePage() {
             <p className="text-gray-600 leading-relaxed mb-6">
               La Suisse bénéficie d&apos;un climat très varié — du Plateau brumeux au Tessin ensoleillé. Ce que beaucoup ignorent : les modules photovoltaïques ont besoin de lumière, pas de chaleur. Et la lumière ne manque pas en Suisse, même en hiver.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              Même sur le Plateau, avec ses 1&apos;500 heures d&apos;ensoleillement en moyenne, une installation de 10 kWc produit environ 9&apos;000–10&apos;000 kWh par an. Découvrez les{' '}
-              <Link href="/fr/cout-installation-solaire" className="text-[#fcb210] hover:underline font-medium">coûts d&apos;une installation solaire</Link>{' '}
-              en Suisse.
-            </p>
-          </div>
-          <div>
-            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
-                    <th className="text-left px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Canton</th>
-                    <th className="text-right px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Heures/an</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {ensoleillement.map((row, i) => (
-                    <tr key={row.region} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-5 py-3.5 text-gray-700">{row.region}</td>
-                      <td className="px-5 py-3.5 text-right font-semibold text-gray-900">{row.heures}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
           </div>
         </section>
 
@@ -237,7 +200,7 @@ export default function PhotovoltaiquClimatSuissePage() {
                 'Les prix de l\'électricité en Suisse sont élevés',
                 <>La subvention fédérale (<Link href="/fr/subventions-solaires" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">rétribution unique RU</Link>) s&apos;applique dans toute la Suisse</>,
                 'Les modules modernes produisent efficacement même par lumière diffuse',
-                'Le délai d\'amortissement est de 8 à 10 ans même sur le Plateau',
+                 `Le délai d'amortissement indicatif est de ${formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'ans', 'fr')} sur le Plateau`,
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <CheckCircle className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
@@ -247,7 +210,7 @@ export default function PhotovoltaiquClimatSuissePage() {
             </ul>
             <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl p-5">
               <p className="text-orange-200 text-sm leading-relaxed">
-                Au Tessin, une installation s&apos;amortit en seulement 4 à 6 ans — le meilleur résultat de toute la Suisse. Dans le canton de Zurich, le délai est de 7 à 9 ans.
+                 Au Tessin et en Valais, l&apos;amortissement indicatif est de {formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'ans', 'fr')}. Sur le Plateau, il est de {formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'ans', 'fr')}.
               </p>
             </div>
           </div>

@@ -4,10 +4,14 @@ import { ChevronRight, CheckCircle, ArrowRight, Wrench, Clock, Sun } from 'lucid
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatRangeForLocale } from '@/lib/facts';
+
+const itRange = (range: { readonly min: number; readonly max: number }, unit: string) =>
+  formatRangeForLocale(range, unit, 'it');
 
 export const metadata: Metadata = pageMetadata({
   title: 'Installare impianto solare Svizzera 2026 – Fornitori & Costi | PvPro.ch',
-  description: 'Installare un impianto solare in Svizzera: trova installatori certificati nel tuo Cantone. Confronta preventivi gratuiti e risparmia fino al 30% con PvPro.ch.',
+  description: 'Installare un impianto solare in Svizzera: trova installatori certificati nel tuo Cantone e confronta preventivi gratuiti con PvPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/installare-impianto-solare-svizzera',
     languages: {
@@ -84,16 +88,16 @@ const steps = [
 ];
 
 const durationRows = [
-  { size: '5–8 kWp (casa piccola)', duration: '1–2 giorni' },
-  { size: '8–12 kWp (casa standard)', duration: '2–3 giorni' },
-  { size: '12–30 kWp (condominio)', duration: '3–5 giorni' },
+  { size: 'Casa piccola', duration: 'Da confermare nel preventivo' },
+  { size: 'Casa standard', duration: 'Da confermare nel preventivo' },
+  { size: 'Condominio', duration: 'Da confermare nel preventivo' },
   { size: '30+ kWp (commerciale)', duration: '1–2 settimane' },
 ];
 
 const costRows = [
-  { size: '5 kWp', cost: "CHF 13'000 – 18'000" },
-  { size: '8 kWp', cost: "CHF 18'000 – 25'000" },
-  { size: '10 kWp', cost: "CHF 22'000 – 30'000" },
+  { size: '5 kWp', cost: itRange(ECONOMIC_FACTS.systemCosts.bySize[5], 'CHF') },
+  { size: '8 kWp', cost: itRange(ECONOMIC_FACTS.systemCosts.bySize[8], 'CHF') },
+  { size: '10 kWp', cost: itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF') },
 ];
 
 const criteria = [
@@ -132,7 +136,7 @@ export default function InstallareImpiantoSolareSvizzeraPage() {
             {[
               { val: '1–3 giorni', sub: 'fino al primo preventivo', note: 'mediazione rapida e semplice' },
               { val: '25+', sub: 'aziende qualificate', note: 'aziende certificate in tutta la Svizzera' },
-              { val: '25–30 anni', sub: 'durata di vita di un impianto', note: 'rendimento a lungo termine per la vostra casa' },
+              { val: itRange(ECONOMIC_FACTS.moduleLifetimeYears, 'anni'), sub: 'durata dei moduli', note: SOURCE_NOTES.it },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -256,11 +260,12 @@ export default function InstallareImpiantoSolareSvizzeraPage() {
               </tbody>
             </table>
           </div>
+          <p className="max-w-2xl mx-auto text-xs text-gray-400 mb-4">{SYSTEM_PRICE_NOTES.it} {SOURCE_NOTES.it}</p>
           <div className="max-w-2xl mx-auto bg-orange-50 border border-orange-200 rounded-xl p-6">
             <p className="text-orange-800 text-sm leading-relaxed">
               Dopo la detrazione del sussidio federale (<Link href="/it/incentivi-solari" className="text-[#fcb210] hover:underline font-medium">rimunerazione unica RU</Link>), i{' '}
               <Link href="/it/costi-impianto-solare" className="text-[#fcb210] hover:underline font-medium">costi</Link>{' '}
-              si riducono di CHF 300–400 per kWp. Confrontando{' '}
+              si riducono di {ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30} CHF per kWp fino a 30 kWp, più il contributo base. Confrontando{' '}
               <Link href="/it/comparatore-fotovoltaico-svizzera" className="text-[#fcb210] hover:underline font-medium">più preventivi</Link>{' '}
               potete risparmiare ulteriormente migliaia di franchi.
             </p>

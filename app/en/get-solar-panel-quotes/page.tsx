@@ -109,7 +109,7 @@ export default function GetSolarPanelQuotesPage() {
             {[
               { val: 'Free', sub: 'no risk, no hidden fees', note: 'completely free for homeowners' },
               { val: '24–48 hours', sub: 'to the first quote', note: 'fast response from local installers' },
-              { val: 'Up to CHF 4,000', sub: 'savings possible by comparing', note: 'depending on system size' },
+              { val: 'Compare', sub: 'installer prices', note: 'for the same project' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -129,7 +129,7 @@ export default function GetSolarPanelQuotesPage() {
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">The decisive advantage</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">Why request multiple quotes?</h2>
             <p className="text-gray-600 leading-relaxed mb-5">
-              Many Swiss homeowners make the same mistake: they contact only one installer and accept the first offer. What most do not realise is that for exactly the same system — same modules, same inverter, same output — prices between different installers can vary by up to CHF 4,000.
+              Many Swiss homeowners contact only one installer and accept the first offer. Prices can differ even for the same modules, inverter and output.
             </p>
             <p className="text-gray-600 leading-relaxed">The reason is simple: installers calculate differently and have varying purchasing conditions and margins. Those who compare, win.</p>
           </div>
@@ -138,9 +138,9 @@ export default function GetSolarPanelQuotesPage() {
               <p className="text-white/60 text-xs font-bold uppercase tracking-widest mb-5">Example — 10 kWp system</p>
               <div className="space-y-4">
                 {[
-                  { label: 'Installer A', price: 'CHF 29,500', highlight: false },
-                  { label: 'Installer B', price: 'CHF 26,800', highlight: false },
-                  { label: 'Installer C (cheapest)', price: 'CHF 25,600', highlight: true },
+                  { label: 'Installer A', price: 'Quote A', highlight: false },
+                  { label: 'Installer B', price: 'Quote B', highlight: false },
+                  { label: 'Installer C', price: 'Quote C', highlight: true },
                 ].map(r => (
                   <div key={r.label} className={`flex justify-between items-center rounded-xl px-5 py-3 ${r.highlight ? 'bg-orange-500/20 border border-orange-500/30' : 'bg-white/5'}`}>
                     <span className={`text-sm font-medium ${r.highlight ? 'text-orange-300' : 'text-white/70'}`}>{r.label}</span>
@@ -149,7 +149,7 @@ export default function GetSolarPanelQuotesPage() {
                 ))}
                 <div className="border-t border-white/10 pt-4 flex justify-between items-center">
                   <span className="text-white/60 text-sm">Savings by comparing</span>
-                  <span className="text-green-400 font-bold">up to CHF 3,900</span>
+                  <span className="text-green-400 font-bold">depends on the quotes</span>
                 </div>
               </div>
             </div>

@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText } from 'lucide-rea
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Fotovoltaico e clima svizzero 2026 – Quale impianto scegliere? | PvPro.ch',
@@ -38,15 +39,11 @@ const faqs = [
   },
   {
     question: "I pannelli producono elettricità in inverno?",
-    answer: "Sì, ma meno che in estate. In inverno le ore di sole sono più brevi e l'angolo è più basso. Un impianto ben dimensionato contribuisce comunque in modo utile anche in inverno.",
+    answer: "Sì, ma meno che in estate. Un impianto ben dimensionato contribuisce comunque in modo utile anche in inverno.",
   },
   {
     question: "I moduli solari resistono all'inverno?",
     answer: "Sì. I moduli di qualità sono progettati per temperature fino a -40°C e reggono carichi di neve di centinaia di chilogrammi per metro quadrato.",
-  },
-  {
-    question: "Quali cantoni sono i più adatti al fotovoltaico?",
-    answer: "Il Ticino, con oltre 2'100 ore di sole, offre le condizioni migliori. Ma anche nell'Altopiano e nella Svizzera orientale un impianto solare è conveniente — il tempo di ammortamento è leggermente più lungo, ma comunque attrattivo.",
   },
 ];
 
@@ -66,14 +63,6 @@ const moduli = [
     badge: 'Zone di montagna',
     testo: "Più basso è il coefficiente di temperatura, migliori sono le prestazioni al freddo. Particolarmente rilevante per le zone ad alta quota in Svizzera.",
   },
-];
-
-const oreSole = [
-  { Cantone: 'Ticino (Lugano)', ore: "ca. 2'157" },
-  { Cantone: 'Vallese (Sion)', ore: "ca. 2'000" },
-  { Cantone: 'Lemano', ore: "ca. 1'800" },
-  { Cantone: 'Altopiano (Zurigo, Berna)', ore: "ca. 1'500–1'600" },
-  { Cantone: 'Svizzera orientale (San Gallo)', ore: "ca. 1'500" },
 ];
 
 export default function FotovoltaicoClimaPage() {
@@ -102,11 +91,9 @@ export default function FotovoltaicoClimaPage() {
               Molti proprietari di casa in Svizzera si chiedono: vale davvero la pena installare un impianto solare quando il tempo è spesso nuvoloso, freddo o nevoso? La risposta sorprende: i moderni impianti fotovoltaici funzionano in modo affidabile anche con neve, nebbia e temperature basse — e in alcuni casi sono addirittura più efficienti che nelle zone più calde.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+           <div className="grid grid-cols-1 gap-4 max-w-sm">
             {[
-              { val: "1'300–2'100", sub: 'Ore di sole per cantone', note: 'in base ad altitudine e Cantone' },
-              { val: '+5–10%', sub: 'Maggiore resa al freddo', note: "grazie all'effetto della temperatura" },
-              { val: '25–30 anni', sub: 'Durata di vita in clima svizzero', note: 'con garanzia del produttore' },
+               { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'anni', 'it'), sub: 'Durata dei moduli', note: SOURCE_NOTES.it },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -119,46 +106,6 @@ export default function FotovoltaicoClimaPage() {
       </section>
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 py-16 space-y-20">
-
-        {/* ── Ore di sole ── */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div>
-            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Produzione per Cantone</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
-              Come influisce il clima svizzero sulla produzione solare?
-            </h2>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              La Svizzera ha un clima molto variegato — dall&apos;Altopiano nebbioso al soleggiato{' '}
-              <Link href="/it/fotovoltaico-ticino" className="text-[#fcb210] hover:underline font-medium">Ticino</Link>.
-              Quello che molti ignorano: i moduli fotovoltaici hanno bisogno di luce, non di calore. E in Svizzera la luce non manca, nemmeno in inverno.
-            </p>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              Anche sull&apos;Altopiano, con una media di 1&apos;500 ore di sole, un impianto da 10 kWp produce circa 9&apos;000–10&apos;000 kWh all&apos;anno. Scopri i{' '}
-              <Link href="/it/costi-impianto-solare" className="text-[#fcb210] hover:underline font-medium">costi di un impianto solare</Link>{' '}
-              in Svizzera.
-            </p>
-          </div>
-          <div>
-            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
-                    <th className="text-left px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Kantone</th>
-                    <th className="text-right px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Ore di sole/anno</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {oreSole.map((row, i) => (
-                    <tr key={row.Cantone} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-5 py-3.5 text-gray-700">{row.Cantone}</td>
-                      <td className="px-5 py-3.5 text-right font-semibold text-gray-900">{row.ore}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
 
         {/* ── Neve e freddo ── */}
         <section>
@@ -239,7 +186,7 @@ export default function FotovoltaicoClimaPage() {
                 "I prezzi dell'elettricità in Svizzera sono elevati",
                 <>L&apos;incentivo federale (<Link href="/it/incentivi-solari" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">rimunerazione unica SRE</Link>) vale in tutta la Svizzera</>,
                 "I moduli moderni producono in modo efficiente anche con luce diffusa",
-                "Il tempo di ammortamento è di 8–10 anni anche sull'Altopiano",
+                 `Il tempo di ammortamento sull'Altopiano è ${formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'anni', 'it')}`,
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <CheckCircle className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
@@ -251,7 +198,7 @@ export default function FotovoltaicoClimaPage() {
               <p className="text-orange-200 text-sm leading-relaxed">
                 In{' '}
                 <Link href="/it/fotovoltaico-ticino" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">Ticino</Link>{' '}
-                un impianto si ammortizza in soli 4–6 anni — il miglior risultato di tutta la Svizzera. Nel cantone di Zurigo il tempo è di 7–9 anni.
+                 un impianto si ammortizza in {formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'anni', 'it')}. A Zurigo si usa il valore dell&apos;Altopiano: {formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'anni', 'it')}.
               </p>
             </div>
           </div>

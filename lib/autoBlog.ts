@@ -14,6 +14,7 @@ import type { BlogArticle } from './blogArticles';
 import type { BlogPost } from './blogPosts';
 import { autoBlogPath, getAutoBlogSlugRecord, type BlogLocale } from './autoBlogSlugs';
 import { articleMetaDescription } from './blogUtils';
+import { getSourceNote } from './facts';
 
 function autoSeoTitle(article: BlogArticle): string {
   // Generated-content slugs are localized, editorial route names. They remain
@@ -67,7 +68,11 @@ export function getAutoArticle(slug: string, locale: string): BlogArticle | unde
   return {
     ...article,
     seoTitle: autoSeoTitle(article),
-    metaDescription: articleMetaDescription(article.metaDescription, article.locale, article.slug),
+    metaDescription: articleMetaDescription(
+      article.metaDescription || getSourceNote(article.locale),
+      article.locale,
+      article.slug,
+    ),
     slug: file.localeSlugs?.[locale as BlogLocale] ?? canonical?.slugs[locale as BlogLocale] ?? article.slug,
     publishedAt: file.createdAt,
     modifiedAt: file.createdAt,
@@ -101,7 +106,11 @@ export function getAutoBlogCards(locale: 'de' | 'fr' | 'en' | 'it'): BlogPost[] 
       return {
         slug: f.localeSlugs?.[locale] ?? getAutoBlogSlugRecord(f.slug)?.slugs[locale] ?? f.slug,
         title: a.title,
-        excerpt: articleMetaDescription(a.metaDescription, a.locale, a.slug),
+        excerpt: articleMetaDescription(
+          a.metaDescription || getSourceNote(a.locale),
+          a.locale,
+          a.slug,
+        ),
         image: a.image,
         author: authors[locale],
         date: a.date,

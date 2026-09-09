@@ -139,7 +139,7 @@ export default function ChiSiamoPage() {
             </h2>
             <div className="flex flex-col gap-5">
               {[
-                { title: 'Servizio gratuito', text: "Il nostro servizio è 100% gratuito per i proprietari. Ci finanziamo esclusivamente con le commissioni degli installatori — senza costi aggiuntivi per te." },
+                { title: 'Servizio gratuito', text: "Il nostro servizio è completamente gratuito per i proprietari. Ci finanziamo esclusivamente con le commissioni degli installatori — senza costi aggiuntivi per te." },
                 { title: 'Nessun obbligo', text: "Decidi tu se e quale offerta accettare. Nessuna pressione, nessun ordine minimo, nessuna penale contrattuale." },
                 { title: 'Qualità verificata', text: "Verifichiamo ogni installatore prima di ammetterlo nella rete. Certificati, referenze, prova assicurativa e valutazioni dei clienti sono obbligatori." },
               ].map((item) => (

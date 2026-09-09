@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText } from 'lucide-rea
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, formatRangeForLocale, getSourceNote } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Photovoltaik Schweizer Klima 2026 – Welche Anlage passt? | PvPro.ch',
@@ -38,15 +39,11 @@ const faqs = [
   },
   {
     question: 'Produziert eine Solaranlage im Winter überhaupt Strom?',
-    answer: 'Ja, aber weniger als im Sommer. Im Winter sind die Sonnenstunden kürzer und der Winkel flacher. Eine gut dimensionierte Anlage produziert auch im Winter einen nützlichen Beitrag.',
+    answer: 'Ja, aber weniger als im Sommer. Eine gut dimensionierte Anlage produziert auch im Winter einen nützlichen Beitrag.',
   },
   {
     question: 'Sind Solarmodule winterfest?',
     answer: 'Ja. Hochwertige Module sind für Temperaturen bis -40°C ausgelegt und halten Schneelasten von mehreren hundert Kilogramm pro Quadratmeter stand.',
-  },
-  {
-    question: 'Welche Kantone eignen sich am besten für Photovoltaik?',
-    answer: "Das Tessin hat mit über 2'100 Sonnenstunden den besten Ausgangspunkt. Aber auch im Mittelland und in der Ostschweiz lohnt sich eine Solaranlage — die Amortisationszeit ist etwas länger, aber immer noch attraktiv.",
   },
 ];
 
@@ -66,14 +63,6 @@ const modules = [
     badge: 'Berglagen',
     text: 'Je kleiner der Temperaturkoeffizient, desto besser die Leistung bei Kälte. Besonders relevant für Höhenlagen in der Schweiz.',
   },
-];
-
-const sonnenstunden = [
-  { region: 'Tessin (Lugano)', stunden: "ca. 2'157" },
-  { region: 'Wallis (Sitten)', stunden: "ca. 2'000" },
-  { region: 'Genferseegebiet', stunden: "ca. 1'800" },
-  { region: 'Mittelland (Zürich, Bern)', stunden: "ca. 1'500–1'600" },
-  { region: 'Ostschweiz (St. Gallen)', stunden: "ca. 1'500" },
 ];
 
 export default function PhotovoltaikSchweizKlimaPage() {
@@ -104,9 +93,8 @@ export default function PhotovoltaikSchweizKlimaPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: "1'300–2'100", sub: 'Sonnenstunden je nach Kanton', note: 'je nach Höhenlage und Kanton' },
-              { val: '+5–10%', sub: 'Mehrertrag bei Kälte', note: 'dank physikalischem Temperatureffekt' },
-              { val: '25–30 Jahre', sub: 'Lebensdauer auch im Schweizer Klima', note: 'mit Herstellergarantie' },
+              { val: 'Gute Leistung', sub: 'bei Kälte', note: 'dank physikalischem Temperatureffekt' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre', 'de'), sub: 'Lebensdauer auch im Schweizer Klima', note: 'Richtwert für Module' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -119,46 +107,6 @@ export default function PhotovoltaikSchweizKlimaPage() {
       </section>
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 py-16 space-y-20">
-
-        {/* ── Sonnenstunden ── */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div>
-            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Solarertrag nach Kanton</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
-              Wie beeinflusst das Schweizer Klima die Solarproduktion?
-            </h2>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              Die Schweiz hat ein sehr vielfältiges Klima — vom nebligen Mittelland bis zum sonnigen{' '}
-              <Link href="/it/fotovoltaico-ticino" className="text-[#fcb210] hover:underline font-medium">Tessin</Link>.
-              Was viele nicht wissen: Photovoltaikmodule brauchen kein heisses Wetter, sondern Licht. Und Licht gibt es in der Schweiz reichlich, auch im Winter.
-            </p>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              Selbst im Mittelland mit durchschnittlich 1&apos;500 Sonnenstunden produziert eine 10-kWp-Anlage rund 9&apos;000–10&apos;000 kWh pro Jahr — genug für einen grossen Teil des Strombedarfs eines Einfamilienhauses. Erfahren Sie mehr über die{' '}
-              <Link href="/solaranlage-kosten" className="text-[#fcb210] hover:underline font-medium">Kosten einer Solaranlage</Link>{' '}
-              in der Schweiz.
-            </p>
-          </div>
-          <div>
-            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
-                    <th className="text-left px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Kanton</th>
-                    <th className="text-right px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Sonnenstunden/Jahr</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {sonnenstunden.map((row, i) => (
-                    <tr key={row.region} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-5 py-3.5 text-gray-700">{row.region}</td>
-                      <td className="px-5 py-3.5 text-right font-semibold text-gray-900">{row.stunden}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
 
         {/* ── Schnee und Kälte ── */}
         <section>
@@ -239,7 +187,7 @@ export default function PhotovoltaikSchweizKlimaPage() {
                 'Die Strompreise in der Schweiz sind hoch',
                 <>Die Bundesförderung (<Link href="/foerderungen" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">Einmalvergütung EIV</Link>) gilt in der ganzen Schweiz</>,
                 'Moderne Module auch bei diffusem Licht effizient produzieren',
-                <>Die Amortisationszeit liegt auch im Mittelland bei 8–10 Jahren</>,
+                <>Die Amortisationszeit liegt im Mittelland bei {formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahren', 'de')}</>,
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <CheckCircle className="w-4 h-4 text-[#fcb210] flex-shrink-0 mt-0.5" />
@@ -251,10 +199,9 @@ export default function PhotovoltaikSchweizKlimaPage() {
               <p className="text-orange-200 text-sm leading-relaxed">
                 Im{' '}
                 <Link href="/it/fotovoltaico-ticino" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">Tessin</Link>{' '}
-                amortisiert sich eine Anlage bereits in 4–6 Jahren — der beste Wert der ganzen Schweiz. Im{' '}
-                <Link href="/solaranlage-zurich" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">Kanton Zürich</Link>{' '}
-                liegt die Amortisationszeit bei 7–9 Jahren.
+                und im Wallis amortisiert sich eine Anlage typischerweise in {formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'Jahren', 'de')}.
               </p>
+              <p className="text-orange-200/70 text-xs mt-2">{getSourceNote('de')}</p>
             </div>
           </div>
         </section>

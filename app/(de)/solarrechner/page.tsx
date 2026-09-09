@@ -7,6 +7,27 @@ import {
   CheckCircle, Calculator, Zap, TrendingUp, PiggyBank,
   Sun, Home, Battery, ArrowRight, ChevronRight, AlertCircle,
 } from 'lucide-react';
+import {
+  ECONOMIC_FACTS,
+  formatChf,
+  formatRangeForLocale,
+  formatSwissNumber,
+  getSourceNote,
+  getSystemCostRange,
+} from '@/lib/facts';
+
+const exampleProduction = 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min;
+const exampleSelfUse = exampleProduction * ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage.min / 100;
+const exampleFeedIn = exampleProduction - exampleSelfUse;
+const exampleSelfUseValue = exampleSelfUse * ECONOMIC_FACTS.electricityMedianCtPerKwh / 100;
+const exampleFeedInValue = {
+  min: exampleFeedIn * ECONOMIC_FACTS.feedInCtPerKwh.min / 100,
+  max: exampleFeedIn * ECONOMIC_FACTS.feedInCtPerKwh.max / 100,
+};
+const exampleAnnualValue = {
+  min: exampleSelfUseValue + exampleFeedInValue.min,
+  max: exampleSelfUseValue + exampleFeedInValue.max,
+};
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solarrechner Schweiz 2026 – Kosten & Ertrag berechnen | PvPro.ch',
@@ -34,35 +55,31 @@ export const metadata: Metadata = pageMetadata({
 const faqs = [
   {
     question: 'Wie genau ist der Solarrechner?',
-    answer: "Unser Solarrechner gibt Ihnen eine gute erste Orientierung. Er basiert auf Schweizer Durchschnittswerten: 6,5 m² pro kWp, 950 kWh Produktion pro kWp und 2'200 CHF Installationskosten pro kWp. Für eine exakte Berechnung empfehlen wir eine professionelle Beratung vor Ort, die Faktoren wie Dachausrichtung, Verschattung und lokale Gegebenheiten berücksichtigt.",
+    answer: `Unser Solarrechner gibt Ihnen eine erste Orientierung. Er rechnet mit ${formatSwissNumber(ECONOMIC_FACTS.roofAreaM2PerKwp)} m² pro kWp, ${formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh Produktion pro kWp', 'de')} und ${formatRangeForLocale(ECONOMIC_FACTS.systemCosts.perKwp, 'CHF Installationskosten pro kWp', 'de')}.`,
   },
   {
     question: 'Wie viel m² Dachfläche brauche ich pro kWp?',
-    answer: 'Mit modernen Modulen rechnet man in der Schweiz mit ca. 6,5 m² Dachfläche pro kWp. Für eine typische 10 kWp Anlage benötigen Sie also rund 65 m² nutzbare Dachfläche. Nicht die gesamte Dachfläche ist nutzbar — Dachfenster, Kamine und Verschattung reduzieren die verfügbare Fläche.',
+    answer: `Mit modernen Modulen rechnet man mit ${formatSwissNumber(ECONOMIC_FACTS.roofAreaM2PerKwp)} m² Dachfläche pro kWp. Für eine 10-kWp-Anlage sind das ${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m² nutzbare Dachfläche.`,
   },
   {
     question: 'Was ist die Bundesförderung (EIV)?',
-    answer: 'Die Einmalvergütung (EIV) des Bundes beträgt aktuell rund 350 CHF pro kWp installierter Leistung. Diese wird direkt vom Installationspreis abgezogen und reduziert Ihre tatsächlichen Kosten spürbar. Zusätzliche kantonale Förderungen sind je nach Kanton möglich. Gesamthaft können Förderungen 20–30% der Investitionskosten abdecken.',
+    answer: `Die RU beträgt bis 30 kWp ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} pro kWp, zuzüglich Grundbeitrag. Bundes-, Kantons- und Gemeindebeiträge können zusammen bis ${ECONOMIC_FACTS.incentives.combinedMaxPercent}% erreichen.`,
   },
   {
     question: 'Was ist die typische Amortisationszeit in der Schweiz?',
-    answer: 'Die durchschnittliche Amortisationszeit liegt in der Schweiz bei 8–12 Jahren, abhängig von Strompreis, Eigenverbrauchsanteil und erhaltenen Förderungen. Nach der Amortisation produzieren Sie für weitere 15–20 Jahre weitgehend kostenlosen Strom. Bei steigenden Strompreisen verkürzt sich die Amortisationszeit weiter.',
+    answer: `Im Mittelland liegt die Amortisationszeit bei ${formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahren', 'de')}. Module halten typischerweise ${formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre', 'de')}.`,
   },
   {
     question: 'Lohnt sich eine Solaranlage auch mit einem Norddach?',
-    answer: 'Ein reines Norddach ist nicht ideal. Ost- und Westdächer liefern jedoch noch 70–80% des Ertrags eines Süddachs und lohnen sich meist. Für Norddächer empfehlen wir eine professionelle Einzelfallprüfung. Moderne bifaziale Solarmodule können auch auf weniger optimalen Dächern überzeugende Ergebnisse erzielen.',
+    answer: 'Ein reines Norddach ist nicht ideal. Für Ost-, West- und Norddächer empfehlen wir eine professionelle Einzelfallprüfung, da Ausrichtung, Neigung und Verschattung den Ertrag beeinflussen.',
   },
   {
     question: 'Soll ich einen Batteriespeicher hinzufügen?',
-    answer: "Ein Batteriespeicher erhöht Ihren Eigenverbrauchsanteil von ca. 30% auf 60–80%. Er kostet zusätzlich etwa 8'000–15'000 CHF, amortisiert sich jedoch bei steigenden Strompreisen zunehmend schneller. Besonders sinnvoll ist ein Speicher, wenn Sie tagsüber wenig zu Hause sind oder ein Elektroauto besitzen.",
+    answer: `Ein Batteriespeicher erhöht den Eigenverbrauch von ${formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'de')} auf ${formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'de')}. Ein installierter 10-kWh-Speicher kostet ${formatRangeForLocale(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF', 'de')}.`,
   },
   {
     question: 'Wie beeinflusst ein Elektroauto die Solarrechnung?',
-    answer: "Ein Elektroauto mit ca. 15'000 km/Jahr verbraucht rund 2'500 kWh. Mit einer um ca. 3 kWp grösseren Solaranlage können Sie diesen Mehrverbrauch weitgehend abdecken. Das Laden des Autos tagsüber mit Solarstrom steigert den Eigenverbrauch erheblich und verbessert die Wirtschaftlichkeit deutlich.",
-  },
-  {
-    question: 'Welcher Kanton hat die meisten Sonnenstunden in der Schweiz?',
-    answer: "Das Tessin und das Wallis gehören zu den sonnenreichsten Kantonen der Schweiz mit über 2'000 Sonnenstunden pro Jahr. Die Deutschschweiz liegt zwischen 1'600 und 1'900 Stunden. Selbst in weniger sonnigen Kantonen lohnen sich Solaranlagen — der Unterschied im Ertrag zwischen dem Tessin und Zürich beträgt nur etwa 15–20%.",
+    answer: 'Ein Elektroauto erhöht den Stromverbrauch. Das Laden tagsüber mit Solarstrom steigert den Eigenverbrauch. Die passende zusätzliche Anlagenleistung muss anhand des Fahrprofils berechnet werden.',
   },
 ];
 
@@ -70,12 +87,12 @@ const systemSizes = [
   {
     label: 'Klein',
     kwp: 6,
-    flaeche: '39 m²',
-    jahresertrag: "5'700 kWh",
-    kosten: "13'200 CHF",
-    foerderung: "2'100 CHF",
-    nettokosten: "11'100 CHF",
-    amort: '9–12 Jahre',
+    flaeche: `${formatSwissNumber(6 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`,
+    jahresertrag: `${formatSwissNumber(6 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(6 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh`,
+    kosten: formatRangeForLocale(getSystemCostRange(6), 'CHF', 'de'),
+    foerderung: formatChf(6 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30),
+    nettokosten: `${formatSwissNumber(getSystemCostRange(6).min - 6 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} bis ${formatSwissNumber(getSystemCostRange(6).max - 6 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} CHF`,
+    amort: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahre', 'de'),
     haushalt: '2 Personen / Wohnung',
     color: 'border-blue-200 bg-blue-50',
     badge: 'bg-blue-100 text-blue-700',
@@ -83,12 +100,12 @@ const systemSizes = [
   {
     label: 'Mittel',
     kwp: 10,
-    flaeche: '65 m²',
-    jahresertrag: "9'500 kWh",
-    kosten: "22'000 CHF",
-    foerderung: "3'500 CHF",
-    nettokosten: "18'500 CHF",
-    amort: '8–11 Jahre',
+    flaeche: `${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`,
+    jahresertrag: `${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh`,
+    kosten: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de'),
+    foerderung: formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox),
+    nettokosten: `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox)} CHF`,
+    amort: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahre', 'de'),
     haushalt: '3–4 Personen / EFH',
     color: 'border-[#fcb210]/30 bg-orange-50',
     badge: 'bg-[#fcb210]/10 text-[#fcb210]',
@@ -97,12 +114,12 @@ const systemSizes = [
   {
     label: 'Gross',
     kwp: 15,
-    flaeche: '98 m²',
-    jahresertrag: "14'250 kWh",
-    kosten: "33'000 CHF",
-    foerderung: "5'250 CHF",
-    nettokosten: "27'750 CHF",
-    amort: '8–10 Jahre',
+    flaeche: `${formatSwissNumber(15 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`,
+    jahresertrag: `${formatSwissNumber(15 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(15 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh`,
+    kosten: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[15], 'CHF', 'de'),
+    foerderung: formatChf(15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30),
+    nettokosten: `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[15].min - 15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[15].max - 15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} CHF`,
+    amort: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahre', 'de'),
     haushalt: 'Grossfamilie / MFH',
     color: 'border-green-200 bg-green-50',
     badge: 'bg-green-100 text-green-700',
@@ -113,7 +130,7 @@ const factors = [
   {
     icon: Sun,
     title: 'Dachausrichtung',
-    body: 'Ein Süddach erzielt 100% Ertrag. Ost/West liefern je 70–80%, Norddächer nur 50–60%. Die ideale Neigung liegt bei 25–35°.',
+    body: 'Ausrichtung und Neigung beeinflussen den Ertrag. Ein Fachbetrieb berechnet das Potenzial für Ihr konkretes Dach.',
     tip: 'Süd, Ost oder West sind ideal',
   },
   {
@@ -125,40 +142,39 @@ const factors = [
   {
     icon: AlertCircle,
     title: 'Verschattung',
-    body: 'Bäume, Kamine oder Nachbarhäuser können den Ertrag um 10–30% reduzieren. Moderne Mikrowechselrichter oder Optimierer minimieren Verluste.',
+    body: 'Bäume, Kamine oder Nachbarhäuser können den Ertrag reduzieren. Moderne Mikrowechselrichter oder Optimierer begrenzen Verluste.',
     tip: 'Verschattung prüfen lassen',
   },
   {
     icon: Battery,
     title: 'Eigenverbrauch',
-    body: 'Ohne Speicher verbrauchen Sie ca. 25–35% des produzierten Stroms selbst. Mit Speicher steigt der Eigenverbrauch auf 60–80% — das erhöht die Rentabilität massgeblich.',
+    body: `Ohne Speicher verbrauchen Sie ${formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'de')} des produzierten Stroms selbst. Mit Speicher steigt der Eigenverbrauch auf ${formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'de')}.`,
     tip: 'Speicher erhöht Eigenverbrauch',
   },
   {
     icon: Zap,
     title: 'Strompreis',
-    body: 'Der durchschnittliche Schweizer Haushalt zahlt aktuell rund 25–30 Rp/kWh. Jedes selbst produzierte Kilowatt ist direkt gespart. Bei steigenden Preisen amortisiert sich die Anlage schneller.',
-    tip: '~25–30 Rp/kWh in der Schweiz',
+    body: `Der Schweizer Medianpreis liegt bei ${formatSwissNumber(ECONOMIC_FACTS.electricityMedianCtPerKwh)} ct/kWh. Jede selbst verbrauchte Kilowattstunde spart den Strombezug.`,
+    tip: `${formatSwissNumber(ECONOMIC_FACTS.electricityMedianCtPerKwh)} ct/kWh Schweizer Median`,
   },
   {
     icon: TrendingUp,
     title: 'Einspeisung',
-    body: 'Strom, den Sie nicht selbst verbrauchen, speisen Sie ins Netz ein. Die Vergütung liegt je nach Netzbetreiber zwischen 6 und 15 Rp/kWh — deutlich unter dem Einkaufspreis.',
-    tip: '6–15 Rp/kWh Einspeisung',
+    body: `Strom, den Sie nicht selbst verbrauchen, speisen Sie ins Netz ein. Die Vergütung liegt je nach Betreiber bei ${formatRangeForLocale(ECONOMIC_FACTS.feedInCtPerKwh, 'ct/kWh', 'de')}.`,
+    tip: `${formatRangeForLocale(ECONOMIC_FACTS.feedInCtPerKwh, 'ct/kWh', 'de')} Einspeisung`,
   },
 ];
 
 const richtigValues = [
-  { label: 'Durchschn. Sonnenstunden/Jahr (CH)', value: "1'600–2'100 h" },
-  { label: 'Jahresertrag pro kWp (CH-Mittel)', value: '950–1\'000 kWh' },
-  { label: 'Dachfläche pro kWp (moderne Module)', value: '6,5 m²' },
-  { label: 'Installationskosten pro kWp', value: "2'000–2'500 CHF" },
-  { label: 'Bundesförderung EIV pro kWp', value: '~350 CHF' },
-  { label: 'Durchschn. Eigenverbrauch ohne Speicher', value: '25–35%' },
-  { label: 'Durchschn. Eigenverbrauch mit Speicher', value: '60–80%' },
-  { label: 'Lebensdauer Solarmodule', value: '25–30 Jahre' },
-  { label: 'Leistungsgarantie (typisch)', value: '80% nach 25 Jahren' },
-  { label: 'Amortisationszeit (Schweiz)', value: '8–12 Jahre' },
+  { label: 'Jahresertrag pro kWp im Mittelland', value: formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh', 'de') },
+  { label: 'Dachfläche pro kWp', value: `${formatSwissNumber(ECONOMIC_FACTS.roofAreaM2PerKwp)} m²` },
+  { label: 'Installationskosten pro kWp', value: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.perKwp, 'CHF', 'de') },
+  { label: 'Bundesförderung RU pro kWp bis 30 kWp', value: formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30) },
+  { label: 'Eigenverbrauch ohne Speicher', value: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'de') },
+  { label: 'Eigenverbrauch mit Speicher', value: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'de') },
+  { label: 'Lebensdauer Solarmodule', value: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre', 'de') },
+  { label: 'Leistungsgarantie', value: `${ECONOMIC_FACTS.performanceWarranty.percent}% nach ${ECONOMIC_FACTS.performanceWarranty.afterYears} Jahren` },
+  { label: 'Amortisationszeit Mittelland', value: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahre', 'de') },
 ];
 
 export default function SolarrechnerPage() {
@@ -220,7 +236,7 @@ export default function SolarrechnerPage() {
               <div className="flex flex-wrap gap-3">
                 <div className="flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-2 rounded-full">
                   <CheckCircle className="w-4 h-4 text-[#fcb210]" />
-                  <span className="text-white/80 text-sm">100% kostenlos</span>
+              <span className="text-white/80 text-sm">Kostenlos</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-2 rounded-full">
                   <CheckCircle className="w-4 h-4 text-[#fcb210]" />
@@ -236,10 +252,10 @@ export default function SolarrechnerPage() {
             {/* Stat strip */}
             <div className="grid grid-cols-2 gap-4 pb-12">
               {[
-                { val: '950–1\'000', unit: 'kWh/kWp/Jahr', label: 'Schweizer Durchschnitt' },
-                { val: '8–12', unit: 'Jahre', label: 'Typische Amortisation' },
-                { val: '~350', unit: 'CHF/kWp', label: 'Bundesförderung EIV' },
-                { val: '25–30', unit: 'Jahre', label: 'Lebensdauer Module' },
+                { val: formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh/kWp/Jahr', 'de'), unit: '', label: 'Mittelland' },
+                { val: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahre', 'de'), unit: '', label: 'Amortisation Mittelland' },
+                { val: formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30), unit: 'pro kWp', label: 'RU bis 30 kWp' },
+                { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre', 'de'), unit: '', label: 'Lebensdauer Module' },
               ].map(s => (
                 <div key={s.label} className="bg-white/8 border border-white/10 rounded-2xl p-5">
                   <p className="text-2xl font-bold text-white">{s.val}</p>
@@ -265,7 +281,7 @@ export default function SolarrechnerPage() {
             <SolarCalculator />
           </div>
           <p className="text-center text-xs text-gray-400 mt-6">
-            Richtwerte: 6,5 m²/kWp · 950 kWh/kWp/Jahr · 2'200 CHF/kWp · EIV ~350 CHF/kWp. Keine verbindliche Offerte.
+            {getSourceNote('de')} Keine verbindliche Offerte.
           </p>
         </div>
       </section>
@@ -277,7 +293,7 @@ export default function SolarrechnerPage() {
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Orientierungswerte</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Typische Anlagengrössen in der Schweiz</h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
-              Je nach Haushaltsgrösse und verfügbarer Dachfläche empfehlen sich unterschiedliche Anlagenleistungen. Alle Preise vor kantonalen Förderungen — diese können die Kosten um weitere 10–15% senken.
+              Je nach Haushaltsgrösse und verfügbarer Dachfläche empfehlen sich unterschiedliche Anlagenleistungen. Alle Preise verstehen sich vor kantonalen Förderungen.
             </p>
           </div>
 
@@ -408,7 +424,7 @@ export default function SolarrechnerPage() {
       <section className="py-16 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">So einfach geht's</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">So einfach geht&apos;s</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Von der Berechnung zur Offerte</h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-sm">
               Der Solarrechner ist der erste Schritt. In drei weiteren einfachen Schritten gelangen Sie zu verbindlichen Offerten von geprüften Schweizer Installateuren.
@@ -416,8 +432,8 @@ export default function SolarrechnerPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
-              { step: '1', title: 'Dachfläche eingeben', desc: "Schätzen Sie Ihre nutzbare Dachfläche in m² (Länge × Breite). Typisch: 40–100 m²." },
-              { step: '2', title: 'Stromverbrauch angeben', desc: 'Ihr Jahresverbrauch steht auf der Stromrechnung — typisch 3\'500–7\'000 kWh für ein EFH.' },
+              { step: '1', title: 'Dachfläche eingeben', desc: 'Schätzen Sie Ihre nutzbare Dachfläche anhand von Länge und Breite.' },
+              { step: '2', title: 'Stromverbrauch angeben', desc: 'Ihr Jahresverbrauch steht auf der Stromrechnung.' },
               { step: '3', title: 'Potenzial verstehen', desc: 'Sie sehen sofort: Anlagengrösse, Jahresertrag, Kosten und geschätzte Amortisationszeit.' },
               { step: '4', title: 'Offerten vergleichen', desc: 'Fordern Sie kostenlos 3 Offerten von geprüften Installateuren an — unverbindlich und schnell.' },
             ].map(s => (
@@ -443,39 +459,9 @@ export default function SolarrechnerPage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
                 Solarertrag nach Kanton in der Schweiz
               </h2>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                Die Sonneneinstrahlung variiert in der Schweiz kantonal. Das Tessin und das Wallis gehören zu den sonnenreichsten Gebieten mit über 2'000 Sonnenstunden pro Jahr und einem Jahresertrag von bis zu 1'100 kWh/kWp.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Die Deutschschweiz und das Mittelland liegen bei 1'600–1'900 Stunden — immer noch ausgezeichnete Bedingungen für Solarenergie. Der Unterschied im Jahresertrag zwischen Genf und Zürich beträgt weniger als 15%. Solaranlagen lohnen sich in der ganzen Schweiz.
-              </p>
               <Link href="/anfrage" className="inline-flex items-center gap-2 text-sm font-bold text-[#fcb210] hover:underline">
                 Jetzt für meinen Standort Offerten anfragen <ArrowRight className="w-4 h-4" />
               </Link>
-            </div>
-            <div className="space-y-3">
-              {[
-                { region: 'Tessin (Lugano)', stunden: "2'080", ertrag: '1\'080–1\'100 kWh/kWp', bar: 100 },
-                { region: 'Wallis (Sion)', stunden: "2'130", ertrag: "1'050–1'100 kWh/kWp", bar: 99 },
-                { region: 'Genferseegebiet', stunden: "1'870", ertrag: "970–1'000 kWh/kWp", bar: 87 },
-                { region: 'Bern / Mittelland', stunden: "1'720", ertrag: "900–950 kWh/kWp", bar: 80 },
-                { region: 'Zürich', stunden: "1'700", ertrag: "880–920 kWh/kWp", bar: 78 },
-                { region: 'Basel / Nordschweiz', stunden: "1'660", ertrag: "860–900 kWh/kWp", bar: 76 },
-              ].map(r => (
-                <div key={r.region} className="bg-white rounded-xl p-4 border border-gray-100">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-semibold text-gray-800 text-sm">{r.region}</span>
-                    <span className="text-xs text-gray-500">{r.stunden} h/Jahr</span>
-                  </div>
-                  <div className="h-1.5 bg-gray-100 rounded-full mb-2">
-                    <div
-                      className="h-1.5 rounded-full"
-                      style={{ width: `${r.bar}%`, background: 'linear-gradient(90deg, #ffc812, #fcb210)' }}
-                    />
-                  </div>
-                  <p className="text-xs text-gray-400">{r.ertrag}</p>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -488,7 +474,7 @@ export default function SolarrechnerPage() {
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Wirtschaftlichkeit</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Was bringt Ihnen eine Solaranlage konkret?</h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-sm">
-              Mit einer typischen 10-kWp-Anlage in der Schweiz — gerechnet mit 25 Rp/kWh Strompreis und 35% Eigenverbrauch ohne Speicher.
+              Beispiel mit 10 kWp im Mittelland, Schweizer Medianstrompreis und dem unteren Richtwert für Eigenverbrauch ohne Speicher.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -496,31 +482,31 @@ export default function SolarrechnerPage() {
               {
                 icon: Zap,
                 label: 'Jährliche Stromeinsparung',
-                value: "CHF 950",
-                sub: "≈ 3'325 kWh Eigenverbrauch × 25 Rp",
+                value: formatChf(Math.round(exampleSelfUseValue)),
+                sub: `${formatSwissNumber(exampleSelfUse)} kWh Eigenverbrauch × ${formatSwissNumber(ECONOMIC_FACTS.electricityMedianCtPerKwh)} ct`,
                 color: 'text-[#fcb210]',
                 bg: 'bg-orange-50',
               },
               {
                 icon: TrendingUp,
                 label: 'Einspeisevergütung / Jahr',
-                value: "CHF 617",
-                sub: "≈ 6'175 kWh eingespeist × 10 Rp",
+                value: formatRangeForLocale(exampleFeedInValue, 'CHF', 'de'),
+                sub: `${formatSwissNumber(exampleFeedIn)} kWh eingespeist × ${formatRangeForLocale(ECONOMIC_FACTS.feedInCtPerKwh, 'ct', 'de')}`,
                 color: 'text-green-600',
                 bg: 'bg-green-50',
               },
               {
                 icon: PiggyBank,
                 label: 'Gesamtnutzen / Jahr',
-                value: "CHF 1'567",
+                value: formatRangeForLocale(exampleAnnualValue, 'CHF', 'de'),
                 sub: 'Einsparung + Einspeisevergütung',
                 color: 'text-blue-600',
                 bg: 'bg-blue-50',
               },
               {
                 icon: Calculator,
-                label: 'Gesamtnutzen über 25 Jahre',
-                value: "CHF 39'000+",
+                label: `Gesamtnutzen über ${ECONOMIC_FACTS.moduleLifetimeYears.min} bis ${ECONOMIC_FACTS.moduleLifetimeYears.max} Jahre`,
+                value: `${formatSwissNumber(exampleAnnualValue.min * ECONOMIC_FACTS.moduleLifetimeYears.min)} bis ${formatSwissNumber(exampleAnnualValue.max * ECONOMIC_FACTS.moduleLifetimeYears.max)} CHF`,
                 sub: 'Strompreise werden weiter steigen',
                 color: 'text-purple-600',
                 bg: 'bg-purple-50',
@@ -538,7 +524,7 @@ export default function SolarrechnerPage() {
           </div>
           <div className="mt-8 bg-gray-50 border border-gray-200 rounded-2xl p-5 max-w-3xl mx-auto text-center">
             <p className="text-gray-600 text-sm leading-relaxed">
-              <strong className="text-gray-800">Hinweis:</strong> Die Zahlen basieren auf einer 10-kWp-Anlage mit Nettokosten von ~18'500 CHF, 35% Eigenverbrauch, 25 Rp/kWh Bezugspreis und 10 Rp/kWh Einspeisetarif. Mit Batteriespeicher, Elektroauto oder steigenden Strompreisen verbessert sich die Wirtschaftlichkeit deutlich.
+              <strong className="text-gray-800">Hinweis:</strong> {getSourceNote('de')} Die Rechnung ist eine Orientierung und keine verbindliche Offerte.
             </p>
           </div>
         </div>
@@ -568,7 +554,7 @@ export default function SolarrechnerPage() {
               { icon: Calculator, title: 'Sofortige Berechnung', desc: 'Erhalten Sie in Sekunden eine erste Einschätzung für Ihre Solaranlage — ohne Anmeldung.' },
               { icon: Zap, title: 'Ertrag ermitteln', desc: 'Sehen Sie, wie viel Strom Ihr Dach jährlich produzieren kann — basierend auf Ihrem Kanton.' },
               { icon: PiggyBank, title: 'Kosten verstehen', desc: 'Realistische Kostenschätzung mit EIV-Förderung basierend auf aktuellen Schweizer Marktpreisen.' },
-              { icon: TrendingUp, title: 'Amortisation planen', desc: 'Erfahren Sie, ab wann sich Ihre Investition amortisiert und wie viel Sie über 25 Jahre sparen.' },
+              { icon: TrendingUp, title: 'Amortisation planen', desc: `Richtwert im Mittelland: ${formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahre', 'de')}.` },
             ].map(b => (
               <div key={b.title} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                 <div className="w-11 h-11 rounded-xl bg-[#fcb210]/10 flex items-center justify-center mb-4">

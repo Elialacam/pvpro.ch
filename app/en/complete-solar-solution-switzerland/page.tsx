@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRight, Sun, CheckCircle, Zap, Battery, Thermometer, 
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, STORAGE_PRICE_NOTES, SYSTEM_PRICE_NOTES, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Complete Solar Solution Switzerland 2026 – All-in-One | PvPro.ch',
@@ -59,7 +60,7 @@ const components = [
   {
     icon: <Battery className="w-6 h-6 text-[#fcb210]" />,
     title: 'Battery storage',
-    text: 'Stores excess solar electricity for use in the evening and at night. Increases self-consumption from approximately 30% to up to 70%.',
+    text: `Stores excess solar electricity for use in the evening and at night. Self-consumption rises from ${formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'en')} to ${formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'en')}.`,
   },
   {
     icon: <Thermometer className="w-6 h-6 text-[#fcb210]" />,
@@ -79,12 +80,8 @@ const components = [
 ];
 
 const costs = [
-  { component: 'Solar panel system 10 kWp', cost: "CHF 22,000 – 30,000" },
-  { component: 'Battery storage 10 kWh', cost: "CHF 7,000 – 10,000" },
-  { component: 'Heat pump', cost: "CHF 15,000 – 25,000" },
-  { component: 'Charging station (Wallbox)', cost: "CHF 1,500 – 3,000" },
-  { component: 'Energy management system', cost: "CHF 1,000 – 3,000" },
-  { component: 'Total package', cost: "approx. CHF 40,000 – 70,000", highlight: true },
+  { component: 'Solar panel system 10 kWp', cost: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en'), highlight: false },
+  { component: 'Battery storage 10 kWh', cost: formatRangeForLocale(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF', 'en'), highlight: false },
 ];
 
 const benefits = [
@@ -131,7 +128,7 @@ export default function CompleteSolarSolutionSwitzerlandPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: 'Up to 80%', sub: 'Self-consumption with complete solution', note: 'thanks to optimised energy management' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'en'), sub: 'Self-consumption with storage', note: 'indicative range' },
               { val: '1 provider', sub: 'responsible for everything', note: 'from planning to commissioning' },
               { val: '25+', sub: 'qualified partners in Switzerland', note: 'certified installers on PvPro.ch' },
             ].map(s => (
@@ -182,7 +179,7 @@ export default function CompleteSolarSolutionSwitzerlandPage() {
               Costs depend on which components are included. After deducting all subsidies — one-time payment, cantonal contributions for the heat pump — costs are significantly reduced.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              Self-consumption can rise to up to 80%, which significantly shortens the payback period. Get{' '}
+              Self-consumption can rise to {formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'en')}. Get{' '}
               <Link href="/en/get-solar-panel-quotes" className="text-[#fcb210] hover:underline font-medium">free quotes</Link>{' '}
               now.
             </p>
@@ -207,7 +204,7 @@ export default function CompleteSolarSolutionSwitzerlandPage() {
               </table>
             </div>
             <p className="text-xs text-gray-400 mt-3 italic">
-              Before subsidies. Get an individual quote from a certified installer.
+              {SYSTEM_PRICE_NOTES.en} {STORAGE_PRICE_NOTES.en} {SOURCE_NOTES.en}
             </p>
           </div>
         </section>

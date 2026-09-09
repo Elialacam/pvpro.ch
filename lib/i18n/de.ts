@@ -25,10 +25,10 @@ export const de = {
   hero: {
     title: 'Solaranlagen in der Schweiz vergleichen',
     subtitle: 'Kostenlos Offerten von geprüften Installateuren erhalten',
-    description: 'Vergleichen Sie kostenlos Solaranlagen-Angebote von geprüften Installateuren in der Schweiz. Bis zu 30% sparen durch Angebotsvergleich.',
+    description: 'Vergleichen Sie kostenlos Solaranlagen-Angebote von geprüften Installateuren in der Schweiz.',
     cta: 'Jetzt kostenlose Offerte anfordern',
-    free: '100% kostenlos',
-    nonBinding: '100% unverbindlich',
+    free: 'Kostenlos',
+    nonBinding: 'Unverbindlich',
     certified: 'Geprüfte Solarteure',
   },
   form: {
@@ -52,15 +52,15 @@ export const de = {
       description: 'Erhalten Sie mehrere Angebote von geprüften Solarteure und wählen Sie das beste aus.',
     },
     save: {
-      title: 'Bis zu 30% sparen',
-      description: 'Durch den Vergleich mehrerer Angebote sparen Sie durchschnittlich 30% der Installationskosten.',
+      title: 'Offerten vergleichen',
+      description: 'Vergleichen Sie mehrere Angebote für Ihre Solaranlage.',
     },
     certified: {
       title: 'Nur geprüfte Solarteure',
       description: 'Alle Partner sind zertifiziert und haben nachgewiesene Erfahrung mit Schweizer Solaranlagen.',
     },
     free: {
-      title: '100% kostenlos & unverbindlich',
+      title: 'Kostenlos & unverbindlich',
       description: 'Unser Service ist komplett kostenlos. Sie zahlen nur den Solarteur Ihrer Wahl.',
     },
   },
@@ -76,7 +76,7 @@ export const de = {
     },
     step3: {
       title: 'Vergleichen & sparen',
-      description: 'Bestes Angebot auswählen und bis zu 30% sparen',
+      description: 'Bestes Angebot auswählen',
     },
   },
   faq: {
@@ -123,7 +123,6 @@ export const de = {
     solarPanel: 'Solarmodul',
     inverter: 'Wechselrichter',
     battery: 'Batteriespeicher',
-    sunHours: 'Sonnenstunden',
     subsidy: 'Förderung',
     quote: 'Offerte',
     installation: 'Installation',
@@ -131,7 +130,7 @@ export const de = {
   },
   meta: {
     homeTitle: 'PvPro.ch - Solaranlagen in der Schweiz vergleichen | Kostenlose Offerten',
-    homeDescription: 'Vergleichen Sie kostenlos Solaranlagen-Angebote von geprüften Installateuren in der Schweiz. Bis zu 30% sparen durch Angebotsvergleich. 100% unverbindlich.',
+    homeDescription: 'Vergleichen Sie kostenlos Solaranlagen-Angebote von geprüften Installateuren in der Schweiz. Unverbindlich.',
   },
 };
 

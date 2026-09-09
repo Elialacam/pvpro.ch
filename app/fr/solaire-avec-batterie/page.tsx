@@ -4,6 +4,10 @@ import { ChevronRight, Battery, Sun, Home, Zap, CheckCircle, ArrowRight, Trendin
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, STORAGE_PRICE_NOTES, formatRangeForLocale } from '@/lib/facts';
+
+const facts = ECONOMIC_FACTS;
+const frRange = (range: { min: number; max: number }, unit: string) => formatRangeForLocale(range, unit, 'fr');
 
 const baseMetadata: Metadata = {
   title: 'Installation solaire avec batterie : coûts, avantages et fonctionnement | PvPro.ch',
@@ -63,9 +67,9 @@ export default function SolaireAvecBatteriePage() {
               </p>
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: '70%',      label: 'Autoconsommation possible' },
-                  { value: '8–15 kWh', label: 'Taille typique du stockage' },
-                  { value: '25–40k',   label: 'CHF coût total' },
+                   { value: frRange(facts.selfConsumptionPercent.withStorage, '%'), label: 'Autoconsommation avec stockage' },
+                   { value: frRange(facts.storageCosts.byCapacity[10], 'CHF'), label: 'Stockage de 10 kWh' },
+                   { value: frRange(facts.systemCosts.bySize[10], 'CHF'), label: 'Installation de 10 kWp' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <p className="text-xl font-bold text-white">{s.value}</p>
@@ -79,8 +83,8 @@ export default function SolaireAvecBatteriePage() {
               <p className="text-white font-bold text-lg mb-6">Autoconsommation comparée</p>
               <div className="flex flex-col gap-6">
                 {[
-                  { label: 'Sans stockage', pct: 30, color: '#6b7280' },
-                  { label: 'Avec stockage',  pct: 70, color: '#fcb210' },
+                   { label: 'Sans stockage', pct: facts.selfConsumptionPercent.withoutStorage.max, color: '#6b7280' },
+                   { label: 'Avec stockage',  pct: facts.selfConsumptionPercent.withStorage.max, color: '#fcb210' },
                 ].map(item => (
                   <div key={item.label}>
                     <div className="flex justify-between items-center mb-2">
@@ -152,8 +156,8 @@ export default function SolaireAvecBatteriePage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
               Les avantages d'un stockage batterie
             </h2>
-            <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-              Sans stockage, seuls <strong className="text-gray-800">30%</strong> de l'électricité solaire produite sont utilisés directement. Avec un stockage, cette valeur passe à <strong className="text-gray-800">60–70%</strong>.
+               <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
+                 Sans stockage, l'autoconsommation atteint <strong className="text-gray-800">{frRange(facts.selfConsumptionPercent.withoutStorage, '%')}</strong>. Avec un stockage, elle passe à <strong className="text-gray-800">{frRange(facts.selfConsumptionPercent.withStorage, '%')}</strong>.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -188,9 +192,8 @@ export default function SolaireAvecBatteriePage() {
 
               <div className="flex flex-col gap-3">
                 {[
-                  { label: 'Installation photovoltaïque (env. 10 kWp)', range: "18'000 – 25'000 CHF", highlight: false },
-                  { label: 'Stockage batterie',                          range: "8'000 – 15'000 CHF",  highlight: false },
-                  { label: 'Installation complète',                      range: "25'000 – 40'000 CHF", highlight: true  },
+                   { label: 'Installation photovoltaïque de 10 kWp', range: frRange(facts.systemCosts.bySize[10], 'CHF'), highlight: false },
+                   { label: 'Stockage batterie de 10 kWh', range: frRange(facts.storageCosts.byCapacity[10], 'CHF'), highlight: true },
                 ].map(row => (
                   <div
                     key={row.label}
@@ -202,6 +205,9 @@ export default function SolaireAvecBatteriePage() {
                   </div>
                 ))}
               </div>
+              <p className="text-xs text-gray-400 mt-4">{SYSTEM_PRICE_NOTES.fr}</p>
+              <p className="text-xs text-gray-400 mt-1">{STORAGE_PRICE_NOTES.fr}</p>
+              <p className="text-xs text-gray-400 mt-1">{SOURCE_NOTES.fr}</p>
               <p className="text-xs text-gray-400 mt-4">
                 Grâce aux programmes de subventions et à l'autoconsommation accrue, l'installation peut être rentable économiquement sur plusieurs années.
               </p>
@@ -248,10 +254,10 @@ export default function SolaireAvecBatteriePage() {
                 Combien d'électricité produit une installation solaire ?
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                Une installation de 10 kWp typique produit en Suisse environ <strong>9'000 – 11'000 kWh par an</strong> — soit environ <strong>25–40 kWh</strong> par jour.
+                 Sur le Plateau, une installation de 10 kWp produit environ <strong>{frRange({ min: 10 * facts.production.plateauKwhPerKwp.min, max: 10 * facts.production.plateauKwhPerKwp.max }, 'kWh par an')}</strong>.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                La quantité exacte dépend de l'orientation du toit, de l'angle d'inclinaison et de l'ensoleillement cantonal.
+                 La quantité exacte dépend de l'orientation du toit et de l'angle d'inclinaison.
               </p>
 
               <p className="font-bold text-gray-900 mb-4">Un stockage est particulièrement utile si…</p>

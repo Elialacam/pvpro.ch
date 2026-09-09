@@ -3,6 +3,12 @@
 import { useState, useEffect } from 'react';
 import { City } from '@/lib/cities';
 import { CityContent } from '@/lib/city-content';
+import {
+  ECONOMIC_FACTS,
+  SYSTEM_PRICE_NOTES,
+  getSourceNote,
+  formatRangeForLocale,
+} from '@/lib/facts';
 import Link from 'next/link';
 import USPSection from '@/components/USPSection';
 import FAQ from '@/components/FAQ';
@@ -31,6 +37,12 @@ function getFormUrl(lang: string) {
 
 export default function UniqueCityPage({ city, content, accentColor = 'orange' }: UniqueCityPageProps) {
   const lang = city.language;
+  const factsLocale = lang === 'fr' || lang === 'it' || lang === 'en' ? lang : 'de';
+  const systemCost = ECONOMIC_FACTS.systemCosts.bySize[5];
+  const payback = city.canton === 'TI' || city.canton === 'VS'
+    ? ECONOMIC_FACTS.systemPaybackYears.ticinoValais
+    : ECONOMIC_FACTS.systemPaybackYears.plateau;
+  const paybackText = formatRangeForLocale(payback, '', factsLocale).trim();
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
 
@@ -96,13 +108,6 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
       <section className={`bg-gradient-to-br ${theme.gradient} section-padding`}>
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm mb-6">
-              <Sun className={`w-4 h-4 ${theme.badgeBg}`} />
-              <span className={`text-sm font-sans font-semibold tracking-tight ${theme.badge}`}>
-                {city.sunshineHours} {t(lang, 'Sonnenstunden', 'heures de soleil', 'Ore di sole')} — {content.heroSubheadline}
-              </span>
-            </div>
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-semibold tracking-tight text-gray-900 mb-6 leading-tight">
               {content.heroHeadline} –{' '}
               <span className={theme.heading}>{content.heroSubheadline}</span>
@@ -113,23 +118,19 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             </p>
 
             {/* City-specific Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto">
               <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className={`text-3xl font-sans font-semibold tracking-tight ${theme.stats} mb-2`}>{city.sunshineHours}</div>
-                <div className="text-sm text-gray-600">{t(lang, 'Sonnenstunden/Jahr', 'Heures de soleil/an', 'Ore di sole/anno')}</div>
-                <div className="text-xs text-gray-500 mt-1">{t(lang, 'Optimale Bedingungen', 'Conditions optimales', 'Condizioni ottimali')}</div>
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-3xl font-sans font-semibold tracking-tight text-green-600 mb-2">{content.pricing.roiYears}</div>
+                <div className="text-3xl font-sans font-semibold tracking-tight text-green-600 mb-2">{paybackText}</div>
                 <div className="text-sm text-gray-600">{t(lang, 'Jahre Amortisation', "Ans d'amortissement", 'Anni di ammortamento')}</div>
                 <div className="text-xs text-gray-500 mt-1">{t(lang, 'Schneller ROI', 'Retour rapide', 'ROI rapido')}</div>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-3xl font-sans font-semibold tracking-tight text-primary mb-2">{t(lang, 'bis 30%', "jusqu'à 30%", 'fino al 30%')}</div>
+                <div className="text-3xl font-sans font-semibold tracking-tight text-primary mb-2">{formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}</div>
                 <div className="text-sm text-gray-600">{t(lang, 'Bundesförderung möglich', 'Aide fédérale possible', 'Incentivo federale possibile')}</div>
                 <div className="text-xs text-gray-500 mt-1">{t(lang, 'Bund + Kanton', 'Confédération + Canton', 'Confederazione + Cantone')}</div>
               </div>
             </div>
+            <p className="mb-8 text-xs text-gray-500">{getSourceNote(factsLocale)}</p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <div className="flex items-center gap-2">
@@ -206,9 +207,9 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                   <li className="flex gap-2">
                     <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
                     <span>{t(lang,
-                      'Abdeckung von bis zu 30% der Investitionskosten',
-                      "Couverture jusqu'à 30% des coûts d'investissement",
-                      'Copertura fino al 30% dei costi di investimento'
+                      `Abdeckung von ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)} der Investitionskosten ohne Speicher`,
+                      `Couverture de ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)} des coûts d'investissement sans stockage`,
+                      `Copertura dal ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)} dei costi di investimento senza accumulo`
                     )}</span>
                   </li>
                   <li className="flex gap-2">
@@ -247,7 +248,11 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               </h3>
               <div className="space-y-4 relative">
                 <p className="text-lg text-gray-600 font-medium">
-                  {t(lang, 'Sparen Sie bis zu 30% sofort', "Économisez jusqu'à 30% immédiatement", 'Risparmia fino al 30% immediatamente')}
+                   {t(lang,
+                     `Die Bundesförderung deckt ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}`,
+                     `L’aide fédérale couvre ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}`,
+                     `L’incentivo federale copre dal ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}`
+                   )}
                 </p>
                 <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-sans font-semibold tracking-tight text-sm">
                   {t(lang, 'Pronovo-EIV verfügbar', 'Pronovo RU disponible', 'Pronovo EIV Disponibile')}
@@ -291,7 +296,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                       {t(lang, '5 kWp Anlage (typisch)', 'Installation 5 kWc (typique)', 'Impianto 5 kWp (tipico)')}
                     </span>
                     <span className="text-2xl font-sans font-semibold tracking-tight text-gray-900">
-                      {String(content.pricing.typical5kw.min).replace(/\B(?=(\d{3})+(?!\d))/g, "'")}–{String(content.pricing.typical5kw.max).replace(/\B(?=(\d{3})+(?!\d))/g, "'")} CHF
+                      {formatRangeForLocale(systemCost, 'CHF', factsLocale)}
                     </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
@@ -301,23 +306,24 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 <div>
                   <div className="flex justify-between items-baseline mb-2">
                     <span className="text-gray-600">
-                      {t(lang, 'Nach Förderung', 'Après subventions', 'Dopo i sussidi')}
+                      {t(lang, 'Richtwerte', 'Valeurs indicatives', 'Valori indicativi')}
                     </span>
-                    <span className="text-2xl font-sans font-semibold tracking-tight text-green-600">
-                      {String(content.pricing.afterSubsidy5kw.min).replace(/\B(?=(\d{3})+(?!\d))/g, "'")}–{String(content.pricing.afterSubsidy5kw.max).replace(/\B(?=(\d{3})+(?!\d))/g, "'")} CHF
+                    <span className="text-sm text-gray-600 text-right max-w-[18rem]">
+                      {getSourceNote(factsLocale)}
                     </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-green-500 h-2 rounded-full" style={{ width: '28%' }}></div>
+                    <div className="bg-green-500 h-2 rounded-full" style={{ width: '100%' }}></div>
                   </div>
                 </div>
+                <p className="text-xs text-gray-500 mt-4">{SYSTEM_PRICE_NOTES[factsLocale]}</p>
                 <div className="pt-4 border-t">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-700 font-sans font-bold">
                       {t(lang, 'Amortisation', 'Amortissement', 'Ammortamento')}
                     </span>
                     <span className="text-xl font-sans font-semibold tracking-tight text-primary">
-                      {content.pricing.roiYears} {t(lang, 'Jahre', 'ans', 'anni')}
+                       {paybackText} {t(lang, 'Jahre', 'ans', 'anni')}
                     </span>
                   </div>
                 </div>
@@ -336,7 +342,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                   <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-sans font-semibold tracking-tight text-gray-900">
-                      {t(lang, 'Bis 30% sparen', "Jusqu'à 30% d'économies", 'Risparmia fino al 30%')}
+                       {t(lang, 'Kosten vergleichen', 'Comparer les coûts', 'Confrontare i costi')}
                     </div>
                     <div className="text-sm text-gray-600">
                       {t(lang, 'Durch Offerten-Vergleich', 'En comparant les offres', 'Confrontando i preventivi')}
@@ -401,21 +407,15 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 `Installatori esperti a ${city.name} installano il tuo impianto su misura`
               )}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <div className="text-4xl font-sans font-semibold tracking-tight text-white mb-2 drop-shadow-lg">{city.sunshineHours}</div>
-                <div className="text-sm text-white/90 font-medium">
-                  {t(lang, 'Sonnenstunden', 'Heures de soleil', 'Ore di sole')}
-                </div>
-              </div>
-              <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <div className="text-4xl font-sans font-semibold tracking-tight text-white mb-2 drop-shadow-lg">{t(lang, 'bis 30%', "jusqu'à 30%", 'fino al 30%')}</div>
+                <div className="text-4xl font-sans font-semibold tracking-tight text-white mb-2 drop-shadow-lg">{formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}</div>
                 <div className="text-sm text-white/90 font-medium">
                   {t(lang, 'Bundesförderung', 'Aide fédérale', 'Incentivo federale')}
                 </div>
               </div>
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <div className="text-4xl font-sans font-semibold tracking-tight text-white mb-2 drop-shadow-lg">{content.pricing.roiYears}</div>
+                 <div className="text-4xl font-sans font-semibold tracking-tight text-white mb-2 drop-shadow-lg">{paybackText}</div>
                 <div className="text-sm text-white/90 font-medium">
                   {t(lang, 'Jahre ROI', 'Ans ROI', 'Anni ROI')}
                 </div>

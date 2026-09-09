@@ -5,10 +5,23 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, STORAGE_PRICE_NOTES, formatChfForLocale, formatRangeForLocale } from '@/lib/facts';
+
+const facts = ECONOMIC_FACTS;
+const frRange = (range: { min: number; max: number }, unit: string) => formatRangeForLocale(range, unit, 'fr');
+const annualProduction = (kwp: number) => ({
+  min: kwp * facts.production.plateauKwhPerKwp.min,
+  max: kwp * facts.production.plateauKwhPerKwp.max,
+});
+const roofArea = (kwp: number) => formatRangeForLocale(
+  { min: kwp * facts.roofAreaM2PerKwp, max: kwp * facts.roofAreaM2PerKwp },
+  'm²',
+  'fr',
+).replace(/^de (.+) à \1 /, '$1 ');
 
 const baseMetadata: Metadata = {
   title: 'Coût installation solaire Suisse 2026 – Combien coûte une installation ? | PvPro.ch',
-  description: 'Combien coûte une installation solaire en Suisse ? Prix 2026 : 15\'000 – 35\'000 CHF pour une maison individuelle. Coûts par kWp, subventions et stockage. Comparez des offres gratuitement.',
+  description: `Combien coûte une installation solaire en Suisse ? Prix 2026 : ${frRange(facts.systemCosts.bySize[10], 'CHF')} pour 10 kWp. Coûts par kWp, subventions et stockage.`,
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/cout-installation-solaire',
     languages: {
@@ -21,7 +34,7 @@ const baseMetadata: Metadata = {
   },
   openGraph: {
     title: 'Coût installation solaire Suisse 2026 – Prix actuels & subventions',
-    description: 'Prix actuels pour les installations solaires en Suisse. 15\'000 – 35\'000 CHF pour une maison individuelle après subvention. Toutes les infos sur les coûts, le prix kWp et le stockage.',
+    description: `Prix actuels pour les installations solaires en Suisse. ${frRange(facts.systemCosts.bySize[10], 'CHF')} pour 10 kWp, sans stockage.`,
     url: 'https://www.pvpro.ch/fr/cout-installation-solaire',
     type: 'article',
     locale: 'fr_CH',
@@ -30,14 +43,14 @@ const baseMetadata: Metadata = {
 };
 
 const costTable = [
-  { size: '5 kWp', production: "4'500 – 5'000 kWh", price: "13'000 – 18'000 CHF", area: 'env. 30 – 35 m²', ideal: 'Petite maison' },
-  { size: '8 kWp', production: "7'500 – 8'000 kWh", price: "18'000 – 25'000 CHF", area: 'env. 50 – 55 m²', ideal: 'Maison individuelle' },
-  { size: '10 kWp', production: "9'000 – 10'000 kWh", price: "22'000 – 30'000 CHF", area: 'env. 62 – 68 m²', ideal: 'Grande MI / immeuble' },
+  { size: '5 kWp', production: frRange(annualProduction(5), 'kWh'), price: frRange(facts.systemCosts.bySize[5], 'CHF'), area: roofArea(5), ideal: 'Petite maison' },
+  { size: '8 kWp', production: frRange(annualProduction(8), 'kWh'), price: frRange(facts.systemCosts.bySize[8], 'CHF'), area: roofArea(8), ideal: 'Maison individuelle' },
+  { size: '10 kWp', production: frRange(annualProduction(10), 'kWh'), price: frRange(facts.systemCosts.bySize[10], 'CHF'), area: roofArea(10), ideal: 'Grande MI / immeuble' },
 ];
 
 const storageTable = [
-  { size: '5 kWh', price: "4'000 – 6'000 CHF" },
-  { size: '10 kWh', price: "7'000 – 10'000 CHF" },
+  { size: '5 kWh', price: frRange(facts.storageCosts.byCapacity[5], 'CHF') },
+  { size: '10 kWh', price: frRange(facts.storageCosts.byCapacity[10], 'CHF') },
 ];
 
 const costFactors = [
@@ -66,19 +79,19 @@ const costFactors = [
 const faqs = [
   {
     question: "Quel est le coût d'une installation photovoltaïque pour une maison individuelle ?",
-    answer: "La plupart des installations solaires pour maisons individuelles coûtent en Suisse entre 18'000 et 30'000 CHF après déduction des subventions (RU). Pour une installation typique de 8 à 10 kWp, c'est la fourchette habituelle.",
+    answer: `Une installation de 8 kWp coûte ${frRange(facts.systemCosts.bySize[8], 'CHF')} et une installation de 10 kWp ${frRange(facts.systemCosts.bySize[10], 'CHF')}, avant subventions et sans stockage.`,
   },
   {
     question: "Combien coûte une installation solaire de 10 kW en Suisse ?",
-    answer: "Une installation photovoltaïque de 10 kWp coûte en Suisse typiquement entre 22'000 et 30'000 CHF. Après déduction de la rétribution unique (RU) de la Confédération, les coûts nets peuvent être nettement inférieurs. Une telle installation produit environ 9'000 – 10'000 kWh d'électricité par an.",
+    answer: `Une installation photovoltaïque de 10 kWp coûte ${frRange(facts.systemCosts.bySize[10], 'CHF')}. La RU est d'environ ${formatChfForLocale(facts.incentives.tenKwpApprox, 'fr')}. Sur le Plateau, elle produit ${frRange(annualProduction(10), 'kWh')} par an.`,
   },
   {
     question: "Quelle quantité d'électricité produit une installation solaire ?",
-    answer: "En Suisse, une installation solaire produit par kWp de puissance environ 900 – 1'000 kWh d'électricité par an. Une installation de 10 kWp produit donc environ 9'000 – 10'000 kWh annuellement.",
+    answer: `Sur le Plateau, une installation solaire produit ${frRange(facts.production.plateauKwhPerKwp, 'kWh par kWp')} par an.`,
   },
   {
     question: "L'énergie solaire est-elle rentable en Suisse ?",
-    answer: "Oui. Grâce à la hausse des prix de l'électricité et aux subventions disponibles, de nombreuses installations en Suisse s'amortissent en 10 à 15 ans. Pour une durée de vie de 25 à 30 ans, cela signifie des années d'électricité gratuite depuis son propre toit.",
+    answer: `Oui. Sur le Plateau, l'amortissement indicatif est de ${frRange(facts.systemPaybackYears.plateau, 'ans')}. La durée de vie des modules est de ${frRange(facts.moduleLifetimeYears, 'ans')}.`,
   },
   {
     question: "De combien de modules solaires a besoin une maison individuelle ?",
@@ -86,15 +99,15 @@ const faqs = [
   },
   {
     question: "Quelle doit être la taille de mon toit pour une installation solaire ?",
-    answer: "Pour 1 kWp de puissance, il faut environ 6 à 7 m² de surface de toit. Une installation de 10 kWp nécessite donc environ 60 – 70 m² de surface de toit adaptée.",
+    answer: `Il faut environ ${facts.roofAreaM2PerKwp.toLocaleString('fr-CH')} m² de surface de toit par kWp.`,
   },
   {
     question: "Quelles subventions existent pour les installations solaires en Suisse ?",
-    answer: "En Suisse, la Confédération propose la rétribution unique (RU). Les montants de subvention typiques sont d'environ 300 – 400 CHF par kWp. En plus, de nombreux cantons et communes proposent leurs propres programmes. L'investissement est également déductible fiscalement.",
+    answer: `La RU Pronovo est de ${formatChfForLocale(facts.incentives.pronovoPerKwpUpTo30, 'fr')} par kWp jusqu'à 30 kWp, plus une contribution de base.`,
   },
   {
     question: "Combien coûte une installation solaire avec stockage par batterie ?",
-    answer: "Un stockage par batterie augmente les coûts de l'installation solaire : un stockage de 5 kWh coûte environ 4'000 – 6'000 CHF, un stockage de 10 kWh environ 7'000 – 10'000 CHF. Avec un stockage, l'autoconsommation du courant autoproduit augmente nettement.",
+    answer: `Un stockage de 5 kWh coûte ${frRange(facts.storageCosts.byCapacity[5], 'CHF')}, un stockage de 10 kWh ${frRange(facts.storageCosts.byCapacity[10], 'CHF')}.`,
   },
 ];
 
@@ -146,8 +159,8 @@ export default function CoutInstallationSolairePage() {
                 Pour une maison individuelle typique, les prix se situent généralement entre :
               </p>
               <div className="inline-block bg-primary text-white rounded-2xl px-10 py-6 mb-8">
-                <div className="text-4xl sm:text-5xl font-bold mb-1">15'000 – 35'000 CHF</div>
-                <div className="text-primary-100 text-base">après déduction des subventions</div>
+                 <div className="text-4xl sm:text-5xl font-bold mb-1">{frRange(facts.systemCosts.bySize[10], 'CHF')}</div>
+                 <div className="text-primary-100 text-base">pour 10 kWp, avant subventions</div>
               </div>
               <p className="text-gray-600">
                 Une installation moyenne pour une maison individuelle a une puissance d'environ <strong>8 à 10 kWp</strong>.
@@ -227,6 +240,8 @@ export default function CoutInstallationSolairePage() {
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 max-w-3xl mx-auto text-sm text-gray-600 text-center">
             Ces prix incluent habituellement : <strong>modules solaires, onduleur, montage et installation.</strong> Le prix réel dépend du type de toit, de l'orientation et des composants choisis.
           </div>
+          <p className="text-xs text-gray-500 text-center mt-4">{SYSTEM_PRICE_NOTES.fr}</p>
+          <p className="text-xs text-gray-500 text-center mt-1">{SOURCE_NOTES.fr}</p>
         </div>
       </section>
 
@@ -242,7 +257,7 @@ export default function CoutInstallationSolairePage() {
               En Suisse, les coûts moyens se situent à :
             </p>
             <div className="bg-white rounded-2xl border-2 border-primary p-8 text-center mb-6">
-              <div className="text-4xl font-bold text-primary mb-2">1'800 – 2'800 CHF <span className="text-2xl">par kWp</span></div>
+               <div className="text-4xl font-bold text-primary mb-2">{frRange(facts.systemCosts.perKwp, 'CHF')} <span className="text-2xl">par kWp</span></div>
               <p className="text-gray-600 text-sm mt-2">
                 Le prix par kWp diminue pour les grandes installations, car les coûts d'installation peuvent être mieux répartis.
               </p>
@@ -262,22 +277,22 @@ export default function CoutInstallationSolairePage() {
               Une installation photovoltaïque de <strong>10 kWp</strong> coûte en Suisse typiquement :
             </p>
             <div className="bg-primary-50 rounded-2xl p-8 mb-6">
-              <div className="text-4xl font-bold text-primary mb-3">22'000 – 30'000 CHF</div>
-              <p className="text-gray-700 text-sm">après déduction des subventions</p>
+               <div className="text-4xl font-bold text-primary mb-3">{frRange(facts.systemCosts.bySize[10], 'CHF')}</div>
+               <p className="text-gray-700 text-sm">coût brut, sans stockage</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 mb-6">
               <div className="flex items-start gap-3">
                 <Sun className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-gray-900 mb-1">Production annuelle d'électricité</p>
-                  <p className="text-gray-600">Une installation de 10 kWp produit en Suisse environ <strong>9'000 – 10'000 kWh d'électricité par an</strong>. C'est souvent suffisant pour couvrir une grande partie de la consommation d'une maison individuelle.</p>
+                   <p className="text-gray-600">Sur le Plateau, une installation de 10 kWp produit environ <strong>{frRange(annualProduction(10), 'kWh d’électricité par an')}</strong>.</p>
                 </div>
               </div>
             </div>
             <div className="flex items-start gap-3 p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
               <CheckCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
               <p className="text-yellow-800 text-sm">
-                Pour une installation de 10 kWp, il vous faut environ <strong>62 – 68 m² de surface de toit</strong> et 20 à 25 modules solaires.
+                 Pour une installation de 10 kWp, il faut environ <strong>{roofArea(10)} de surface de toit</strong>.
               </p>
             </div>
           </div>
@@ -326,6 +341,8 @@ export default function CoutInstallationSolairePage() {
                 </div>
               ))}
             </div>
+            <p className="text-xs text-gray-500 mb-4">{STORAGE_PRICE_NOTES.fr}</p>
+            <p className="text-xs text-gray-500 mb-4">{SOURCE_NOTES.fr}</p>
 
             <p className="text-gray-600 mb-4">
               Un stockage peut augmenter considérablement l'autoconsommation du courant autoproduit.
@@ -376,7 +393,7 @@ export default function CoutInstallationSolairePage() {
               <div className="flex items-start gap-4">
                 <PiggyBank className="w-10 h-10 text-primary flex-shrink-0" />
                 <div>
-                  <p className="text-2xl font-bold text-primary mb-1">300 – 400 CHF par kWp</p>
+                   <p className="text-2xl font-bold text-primary mb-1">{formatChfForLocale(facts.incentives.pronovoPerKwpUpTo30, 'fr')} par kWp</p>
                   <p className="text-gray-700">Montants de subvention typiques de la Confédération (RU). Le montant dépend de la taille de l'installation.</p>
                 </div>
               </div>
@@ -390,19 +407,15 @@ export default function CoutInstallationSolairePage() {
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Coût brut</span>
-                  <span className="font-medium">CHF 26'000</span>
+                   <span className="font-medium">{frRange(facts.systemCosts.bySize[10], 'CHF')}</span>
                 </div>
                 <div className="flex justify-between text-primary">
-                  <span>– Rétribution unique RU (env. 350 CHF/kWp)</span>
-                  <span className="font-medium">– CHF 3'500</span>
-                </div>
-                <div className="flex justify-between text-primary">
-                  <span>– Subvention cantonale (exemple)</span>
-                  <span className="font-medium">– CHF 2'000</span>
+                   <span>– Rétribution unique RU</span>
+                   <span className="font-medium">– {formatChfForLocale(facts.incentives.tenKwpApprox, 'fr')}</span>
                 </div>
                 <div className="border-t border-gray-200 pt-3 flex justify-between">
                   <span className="font-semibold text-gray-900">Coût effectif (exemple)</span>
-                  <span className="font-bold text-xl text-primary">CHF 20'500</span>
+                   <span className="font-bold text-xl text-primary">{frRange({ min: facts.systemCosts.bySize[10].min - facts.incentives.tenKwpApprox, max: facts.systemCosts.bySize[10].max - facts.incentives.tenKwpApprox }, 'CHF')}</span>
                 </div>
               </div>
               <p className="text-xs text-gray-400 mt-3">Valeur indicative. Subventions réelles selon le canton et la taille de l'installation.</p>
@@ -466,8 +479,9 @@ export default function CoutInstallationSolairePage() {
           <div className="max-w-2xl mx-auto bg-white rounded-2xl border border-gray-200 p-8 text-center">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">En résumé</h2>
             <p className="text-gray-600 mb-4">Une installation solaire coûte en Suisse typiquement :</p>
-            <div className="text-4xl font-bold text-primary mb-3">15'000 – 35'000 CHF</div>
-            <p className="text-gray-600 text-sm mb-6">pour une maison individuelle</p>
+             <div className="text-4xl font-bold text-primary mb-3">{frRange(facts.systemCosts.bySize[10], 'CHF')}</div>
+             <p className="text-gray-600 text-sm mb-2">pour 10 kWp, sans stockage</p>
+             <p className="text-xs text-gray-500 mb-6">{SYSTEM_PRICE_NOTES.fr} {SOURCE_NOTES.fr}</p>
             <p className="text-gray-500 text-sm">
               Les coûts exacts dépendent de la surface de toit, de la taille de l'installation et des subventions disponibles.
               Demandez 3 offres sans engagement auprès d'installateurs certifiés.

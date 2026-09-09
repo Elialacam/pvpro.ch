@@ -30,7 +30,7 @@ export const metadata: Metadata = pageMetadata({
 const faqs = [
   {
     question: "Quanto dura il montaggio di un impianto solare su una casa unifamiliare?",
-    answer: "Il montaggio vero e proprio di una casa unifamiliare da 8-12 kWp dura tipicamente 1-3 giorni. La durata totale del progetto dall'ordine è di 4-12 settimane.",
+    answer: "La durata del montaggio e del progetto dipende dalla potenza, dal tetto, dalle autorizzazioni e dalla disponibilità dei componenti. L'installatore indica le tempistiche nel preventivo.",
   },
   {
     question: "Devo essere presente durante l'installazione?",
@@ -58,49 +58,49 @@ const fasi = [
   {
     n: '1',
     titolo: 'Pianificazione e preventivo',
-    durata: '1–2 settimane',
+    durata: 'Dipende dal progetto',
     testo: "Tutto inizia con un'analisi dei bisogni. Un installatore certificato visita il tuo edificio, analizza la superficie del tetto, l'orientamento, l'inclinazione e le ombre. Su questa base elabora un preventivo su misura con dimensione dell'impianto, componenti e costi.",
   },
   {
     n: '2',
     titolo: 'Autorizzazione e comunicazione',
-    durata: '1–4 settimane',
+    durata: 'Dipende dal progetto',
     testo: "Nella maggior parte dei casi un impianto solare sul tetto è esente da autorizzazione — è sufficiente una semplice comunicazione al comune. In casi eccezionali (edifici storici, impianti non integrati) è necessaria una richiesta di permesso edilizio. L'installatore gestisce questo passaggio per te.",
   },
   {
     n: '3',
     titolo: 'Approvvigionamento materiali',
-    durata: '2–6 settimane',
+    durata: 'Dipende dal progetto',
     testo: "Dopo l'ordine vengono ordinati moduli, inverter, sistema di montaggio ed eventualmente un sistema di accumulo a batteria. I tempi di consegna variano a seconda del produttore e della stagione.",
   },
   {
     n: '4',
     titolo: 'Montaggio',
-    durata: '1–3 giorni',
+    durata: 'Dipende dal progetto',
     testo: "Il team di montaggio installa la sottostruttura sul tetto, fissa i moduli, posa i cavi DC e installa l'inverter nell'edificio. Per impianti più grandi il montaggio dura più a lungo.",
   },
   {
     n: '5',
     titolo: 'Allacciamento elettrico e messa in servizio',
-    durata: '1 giorno',
+    durata: 'Dipende dal progetto',
     testo: "Un elettricista certificato allaccia l'impianto alla rete domestica e lo mette in servizio. L'impianto viene configurato e testato.",
   },
   {
     n: '6',
     titolo: 'Registrazione e incentivi',
-    durata: '2–4 settimane',
+    durata: 'Dipende dal progetto',
     testo: "L'installatore registra l'impianto presso il gestore di rete locale e presenta la domanda per la rimunerazione unica (SRE) a Pronovo. Il pagamento avviene alcuni mesi dopo.",
   },
 ];
 
 const durate = [
-  { fase: 'Pianificazione e preventivo', durata: '1–2 sett.' },
-  { fase: 'Autorizzazione / comunicazione', durata: '1–4 sett.' },
-  { fase: 'Approvvigionamento materiali', durata: '2–6 sett.' },
-  { fase: 'Montaggio', durata: '1–3 giorni' },
-  { fase: 'Allacciamento e messa in servizio', durata: '1 giorno' },
-  { fase: 'Registrazione SRE', durata: '2–4 sett.' },
-  { fase: "Durata totale dall'ordine", durata: '4–12 sett.', highlight: true },
+  { fase: 'Pianificazione e preventivo', durata: 'Dipende dal progetto' },
+  { fase: 'Autorizzazione / comunicazione', durata: 'Dipende dal progetto' },
+  { fase: 'Approvvigionamento materiali', durata: 'Dipende dal progetto' },
+  { fase: 'Montaggio', durata: 'Dipende dal progetto' },
+  { fase: 'Allacciamento e messa in servizio', durata: 'Dipende dal progetto' },
+  { fase: 'Registrazione SRE', durata: 'Dipende dal progetto' },
+  { fase: "Durata totale dall'ordine", durata: 'Da confermare nel preventivo', highlight: true },
 ];
 
 export default function ProcessoInstallazionePhotovoltaicoPage() {
@@ -131,7 +131,7 @@ export default function ProcessoInstallazionePhotovoltaicoPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: '1–3 giorni', sub: 'Durata montaggio casa unifamiliare', note: 'per una tipica casa unifamiliare' },
+              { val: 'Da confermare', sub: 'Durata del montaggio', note: 'indicata nel preventivo' },
               { val: '4–12 settimane', sub: "Tempo di attesa dall'ordine", note: 'incl. pianificazione e approvvigionamento' },
               { val: 'Chiavi in mano', sub: "L'installatore gestisce tutto", note: 'dalla pianificazione alla domanda SRE' },
             ].map(s => (

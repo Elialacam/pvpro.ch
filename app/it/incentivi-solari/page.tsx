@@ -4,6 +4,10 @@ import { ChevronRight, CheckCircle, Info, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FoerderRechner from '@/components/FoerderRechner';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatChf, formatRangeForLocale } from '@/lib/facts';
+
+const itRange = (range: { readonly min: number; readonly max: number }, unit: string) =>
+  formatRangeForLocale(range, unit, 'it');
 
 export const metadata: Metadata = pageMetadata({
   title: 'Incentivi solari in Svizzera 2026 | PvPro.ch',
@@ -21,9 +25,9 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/it/incentivi-solari', locale: 'it' });
 
 const tableRows = [
-  { size: '5 kWp',  incentivo: "ca. CHF 1'800", totale: "ca. CHF 13'000", netto: "ca. CHF 11'200" },
-  { size: '8 kWp',  incentivo: "ca. CHF 2'800", totale: "ca. CHF 20'800", netto: "ca. CHF 18'000", highlight: true },
-  { size: '10 kWp', incentivo: "ca. CHF 3'500", totale: "ca. CHF 25'000", netto: "ca. CHF 21'500" },
+  { size: '5 kWp', incentivo: formatChf(5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30), totale: itRange(ECONOMIC_FACTS.systemCosts.bySize[5], 'CHF'), netto: itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[5].min - 5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, max: ECONOMIC_FACTS.systemCosts.bySize[5].max - 5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30 }, 'CHF') },
+  { size: '8 kWp', incentivo: formatChf(8 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30), totale: itRange(ECONOMIC_FACTS.systemCosts.bySize[8], 'CHF'), netto: itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[8].min - 8 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, max: ECONOMIC_FACTS.systemCosts.bySize[8].max - 8 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30 }, 'CHF'), highlight: true },
+  { size: '10 kWp', incentivo: formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox), totale: itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF'), netto: itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF') },
 ];
 
 const processSteps = [
@@ -59,9 +63,9 @@ export default function IncentiviSolariPage() {
               </p>
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: '300–400', unit: 'CHF/kWp', label: 'Incentivo' },
-                  { value: '10–15',   unit: 'anni',    label: 'Ammortamento' },
-                  { value: '30%',     unit: 'sconto',  label: 'Investimento' },
+                  { value: String(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30), unit: 'CHF/kWp', label: 'RU fino a 30 kWp' },
+                  { value: itRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'anni'), unit: '', label: 'Ammortamento Altopiano' },
+                  { value: itRange(ECONOMIC_FACTS.incentives.federalSharePercent, '%'), unit: '', label: 'Quota federale' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <p className="text-2xl font-bold text-white">{s.value}</p>
@@ -120,7 +124,7 @@ export default function IncentiviSolariPage() {
             <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Panoramica incentivi</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">A quanto ammonta l'incentivo?</h2>
             <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-              L'incentivo è tipicamente di <strong className="text-gray-800">300–400 CHF per kWp</strong> installato. Più grande è l'impianto, più alto è l'importo.
+              La RU è di <strong className="text-gray-800">{formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} per kWp fino a 30 kWp</strong>, più il contributo base.
             </p>
           </div>
           <div className="max-w-3xl mx-auto">
@@ -144,7 +148,7 @@ export default function IncentiviSolariPage() {
               ))}
             </div>
             <p className="text-xs text-gray-400 text-center mt-4 flex items-center justify-center gap-1.5">
-              <Info className="w-3.5 h-3.5" />Valori indicativi. L'importo esatto dipende dalla struttura incentivante attuale e dalla dimensione dell'impianto.
+              <Info className="w-3.5 h-3.5" />{SOURCE_NOTES.it}
             </p>
           </div>
         </div>
@@ -201,16 +205,16 @@ export default function IncentiviSolariPage() {
               <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Esempio di calcolo</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">Esempio per una casa unifamiliare</h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                Molte case unifamiliari installano un impianto da <strong>8–10 kWp</strong>, producendo circa <strong>8'000–10'000 kWh</strong> di elettricità all'anno.
+                 L'esempio usa un impianto da <strong>{Object.keys(ECONOMIC_FACTS.systemCosts.bySize)[2]} kWp</strong>.
               </p>
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-gray-100">
                   <p className="text-gray-700 font-medium">Costo impianto solare (10 kWp)</p>
-                  <p className="font-bold text-gray-900">CHF 25'000</p>
+                  <p className="font-bold text-gray-900">{itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF')}</p>
                 </div>
                 <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-orange-100" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
                   <p className="text-orange-700 font-medium">Rimunerazione unica (RU)</p>
-                  <p className="font-bold text-[#fcb210]">− CHF 3'500</p>
+                  <p className="font-bold text-[#fcb210]">− {formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}</p>
                 </div>
                 <div className="h-px bg-gray-200" />
                 <div className="flex items-center justify-between rounded-2xl px-6 py-5 border-2 border-green-200" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
@@ -218,7 +222,7 @@ export default function IncentiviSolariPage() {
                     <p className="font-bold text-gray-900">Investimento effettivo</p>
                     <p className="text-xs text-green-600 mt-0.5">Dopo deduzione del contributo federale</p>
                   </div>
-                  <p className="font-bold text-green-700 text-2xl">CHF 21'500</p>
+                  <p className="font-bold text-green-700 text-2xl">{itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF')}</p>
                 </div>
               </div>
             </div>
@@ -234,7 +238,7 @@ export default function IncentiviSolariPage() {
               <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Redditività</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-5">Un impianto solare conviene nonostante i costi?</h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                Grazie agli incentivi statali e all'aumento dei prezzi dell'elettricità, un impianto solare è conveniente per molte famiglie svizzere. La maggior parte si ammortizza in <strong>10–15 anni</strong> con una durata di vita di 25–30 anni.
+                 Grazie agli incentivi statali e all'autoconsumo, un impianto solare è conveniente per molte famiglie svizzere. Sull'Altopiano si ammortizza in <strong>{itRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'anni')}</strong>, con moduli che durano <strong>{itRange(ECONOMIC_FACTS.moduleLifetimeYears, 'anni')}</strong>.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">La redditività effettiva dipende dai seguenti fattori:</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

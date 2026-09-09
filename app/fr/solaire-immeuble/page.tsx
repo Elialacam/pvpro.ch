@@ -4,6 +4,10 @@ import { ChevronRight, Sun, CheckCircle2, TrendingUp, Users, Building2, Zap, Arr
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import MehrfamilienhausRechner, { MehrfamilienhausFaq } from '@/components/MehrfamilienhausRechner';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatRangeForLocale } from '@/lib/facts';
+
+const facts = ECONOMIC_FACTS;
+const frRange = (range: { min: number; max: number }, unit: string) => formatRangeForLocale(range, unit, 'fr');
 
 const baseMetadata: Metadata = {
   title: 'Installation solaire immeuble Suisse : coûts, RCP et rentabilité | PvPro.ch',
@@ -21,23 +25,18 @@ const baseMetadata: Metadata = {
 };
 
 const costRows = [
-  { size: 'Petite installation (15–30 kWp)',   price: "env. 40'000 – 80'000 CHF", highlight: false },
-  { size: 'Installation moyenne (30–60 kWp)',  price: "env. 80'000 – 150'000 CHF", highlight: true },
-  { size: 'Grande installation (60+ kWp)',     price: "150'000 CHF +",              highlight: false },
+  { size: 'Installation de 15 kWp', price: frRange(facts.systemCosts.bySize[15], 'CHF'), highlight: true },
 ];
 
 const sizeGuide = [
-  { label: '5–10 logements',  kwp: "env. 20–40 kWp", m2: "env. 100–240 m²" },
-  { label: '10–20 logements', kwp: "env. 40–80 kWp", m2: "env. 200–480 m²" },
-  { label: 'Grands bâtiments', kwp: '80 kWp +',       m2: '480 m² +' },
+  { label: 'Exemple national', kwp: '15 kWp', m2: `${15 * facts.roofAreaM2PerKwp} m²` },
 ];
 
 const exampleRows = [
-  { label: 'Logements',                value: '10',              highlight: false },
-  { label: 'Puissance',                value: '50 kWp',          highlight: false },
-  { label: 'Coûts',                    value: "env. 100'000 CHF", highlight: false },
+  { label: 'Puissance', value: '15 kWp', highlight: false },
+  { label: 'Coûts', value: frRange(facts.systemCosts.bySize[15], 'CHF'), highlight: false },
   { label: "Modèle d'utilisation",     value: 'RCP',             highlight: false },
-  { label: "Taux d'autoconsommation",  value: '60–75 %',         highlight: true },
+  { label: "Autoconsommation sans stockage", value: frRange(facts.selfConsumptionPercent.withoutStorage, '%'), highlight: true },
 ];
 
 const benefits = [
@@ -90,16 +89,17 @@ export default function SolaireImmeubleePage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: '20–120 kWp',          label: "Taille typique de l'installation" },
-                { value: "40'000–150'000+",      label: 'CHF investissement' },
+                { value: '15 kWp', label: "Exemple d'installation" },
+                { value: frRange(facts.systemCosts.bySize[15], 'CHF'), label: 'Investissement brut' },
                 { value: 'RCP',                  label: "Modèle d'utilisation commun" },
-                { value: '60–75 %',              label: "Taux d'autoconsommation" },
+                { value: frRange(facts.selfConsumptionPercent.withoutStorage, '%'), label: "Autoconsommation sans stockage" },
               ].map((s) => (
                 <div key={s.label} className="rounded-2xl bg-white/5 border border-white/10 px-5 py-4">
                   <p className="text-xl sm:text-2xl font-bold text-white mb-1">{s.value}</p>
                   <p className="text-xs text-white/50 uppercase tracking-wide leading-tight">{s.label}</p>
                 </div>
               ))}
+              <p className="text-xs text-gray-400 mt-3 col-span-2">{SYSTEM_PRICE_NOTES.fr} {SOURCE_NOTES.fr}</p>
             </div>
           </div>
         </div>

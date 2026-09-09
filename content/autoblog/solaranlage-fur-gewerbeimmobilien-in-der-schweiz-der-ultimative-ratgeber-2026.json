@@ -21,7 +21,6 @@
           ],
           "bullets": [
             "Schutz vor Schwankungen des Strommarktes",
-            "Konstante Gestehungskosten für mindestens 25 Jahre",
             "Verbesserte ESG-Bilanz"
           ]
         },
@@ -29,7 +28,7 @@
           "heading": "Förderungen und kantonale Steuerabzüge für PV-Gewerbeanlagen",
           "content": [
             "Die Wirtschaftlichkeit von Solaranlagen in der Schweiz wird stark durch Fördermittel und steuerliche Vergünstigungen beeinflusst. Die Einmalvergütung, die über die Pronovo abgewickelt wird, spielt dabei eine zentrale Rolle. Anlagen erhalten Zuschüsse, die die Investitionskosten sofort senken und die Liquidität verbessern.",
-            "Gewerbebetriebe profitieren zudem von Einnahmen durch handelbare Herkunftsnachweise. Im Netzgebiet der EKZ lagen diese Vergütungen bei bis zu 3.0 Rappen pro Kilowattstunde im Jahr 2026."
+            "Gewerbebetriebe profitieren zudem von Einnahmen durch handelbare Herkunftsnachweise."
           ],
           "bullets": [
             "Einmalvergütung reduziert Investitionskosten",
@@ -51,8 +50,7 @@
         {
           "heading": "Planung und Wirtschaftlichkeit: Von der Dachprüfung bis zur Amortisation",
           "content": [
-            "Für Gewerbeanlagen ist die genaue Planung entscheidend. Eine präzise Dachprüfung klärt die statischen Voraussetzungen und den Anpassungsbedarf der elektrischen Infrastruktur. Hochwertige Glas-Glas-Module und sorgfältig dimensionierte Wechselrichter sind Standard.",
-            "Laufendes Monitoring und eine effiziente Eigenverbrauchsquote von bis zu 90 Prozent senken die Energiekosten signifikant."
+            "Für Gewerbeanlagen ist die genaue Planung entscheidend. Eine präzise Dachprüfung klärt die statischen Voraussetzungen und den Anpassungsbedarf der elektrischen Infrastruktur. Hochwertige Glas-Glas-Module und sorgfältig dimensionierte Wechselrichter sind Standard."
           ],
           "bullets": [
             "Sorgfältige Planung ist unerlässlich",
@@ -67,7 +65,7 @@
             "Vergleichen Sie mindestens drei Angebote, um Transparenz über Preis-Leistungs-Verhältnis und technische Lösungen zu erhalten."
           ],
           "bullets": [
-            "Seriöse Installateure sind oft ",
+            "Seriöse Installateure sind oft",
             "Vergleich von mindestens drei Offerten"
           ],
           "highlight": "Vergleich und Auswahl des richtigen Partners beeinflussen den Projekterfolg entscheidend."
@@ -79,26 +77,6 @@
       "formUrl": "/anfrage",
       "relatedSlugs": [],
       "faqs": [
-        {
-          "question": "Ab welcher Dachgrösse lohnt sich eine Solaranlage für Gewerbeimmobilien in der Schweiz?",
-          "answer": "Eine Solaranlage lohnt sich oft ab einer Dachfläche von rund 100 Quadratmetern, abhängig vom Lastprofil und Eigenverbrauch."
-        },
-        {
-          "question": "Wie hoch ist die Einmalvergütung (GREIV) für Gewerbeanlagen aktuell?",
-          "answer": "Die Grosse Einmalvergütung (GREIV) deckt bis zu 30 Prozent der Investitionskosten für Anlagen ab 100 kWp."
-        },
-        {
-          "question": "Muss ich den produzierten Strom selbst verbrauchen oder kann ich ihn komplett einspeisen?",
-          "answer": "Eigenverbrauch ist lukrativer, da für neue Anlagen eine Einspeisegrenze von 70 Prozent gilt. Optimierung des Eigenverbrauchs ist empfohlen."
-        },
-        {
-          "question": "Welche steuerlichen Vorteile haben Unternehmen bei der Installation einer PV-Anlage?",
-          "answer": "Die Investitionskosten können zu 100 Prozent von der Steuer abgesetzt werden, was die Steuerlast im Installationsjahr senkt."
-        },
-        {
-          "question": "Wie lange dauert die Amortisation einer Gewerbe-Solaranlage im Durchschnitt?",
-          "answer": "Die Amortisationszeit liegt in der Schweiz durchschnittlich zwischen 6 und 10 Jahren, abhängig von der Eigenverbrauchsquote."
-        }
       ]
     },
     "fr": {
@@ -120,7 +98,6 @@
           ],
           "bullets": [
             "Protection contre les fluctuations du marché électrique",
-            "Coûts de production constants pendant au moins 25 ans",
             "Amélioration du bilan ESG"
           ]
         },
@@ -128,7 +105,7 @@
           "heading": "Subventions et déductions fiscales cantonales pour les installations PV commerciales",
           "content": [
             "La rentabilité des installations solaires en Suisse est fortement affectée par les subventions et les avantages fiscaux. La rémunération unique, gérée par Pronovo, joue un rôle central. Les installations reçoivent des subventions qui réduisent immédiatement les coûts d'investissement et améliorent la liquidité.",
-            "Les entreprises bénéficient également de revenus grâce aux certificats d'origine négociables. Dans la zone de réseau de l'EKZ, ces paiements atteignaient jusqu'à 3,0 centimes par kilowattheure en 2026."
+            "Les entreprises bénéficient également de revenus grâce aux certificats d'origine négociables."
           ],
           "bullets": [
             "La rémunération unique réduit les coûts d'investissement",
@@ -150,8 +127,7 @@
         {
           "heading": "Planification et rentabilité : De l'analyse du toit à l'amortissement",
           "content": [
-            "Pour les installations commerciales, une planification précise est cruciale. Une vérification précise du toit clarifie les exigences statiques et les besoins d'adaptation de l'infrastructure électrique. Des modules à double vitrage de haute qualité et des onduleurs soigneusement dimensionnés sont la norme.",
-            "Un suivi continu et un taux d'autoconsommation efficace jusqu'à 90 % réduisent considérablement les coûts énergétiques."
+            "Pour les installations commerciales, une planification précise est cruciale. Une vérification précise du toit clarifie les exigences statiques et les besoins d'adaptation de l'infrastructure électrique. Des modules à double vitrage de haute qualité et des onduleurs soigneusement dimensionnés sont la norme."
           ],
           "bullets": [
             "Une planification soignée est essentielle",
@@ -178,26 +154,6 @@
       "formUrl": "/fr/demande",
       "relatedSlugs": [],
       "faqs": [
-        {
-          "question": "À partir de quelle taille de toit une installation solaire est-elle rentable pour les immeubles commerciaux en Suisse?",
-          "answer": "Une installation solaire est souvent rentable à partir d'une surface de toit d'environ 100 mètres carrés, en fonction du profil de charge et de l'autoconsommation."
-        },
-        {
-          "question": "Quel est actuellement le montant de la rémunération unique (GREIV) pour les installations commerciales?",
-          "answer": "La Grande Rémunération Unique (GREIV) couvre jusqu'à 30 % des coûts d'investissement pour les installations de 100 kWp et plus."
-        },
-        {
-          "question": "Dois-je consommer l'électricité produite moi-même ou puis-je l'injecter complètement dans le réseau?",
-          "answer": "L'autoconsommation est plus lucrative, car pour les nouvelles installations, une limite d'injection de 70 % s'applique. L'optimisation de l'autoconsommation est recommandée."
-        },
-        {
-          "question": "Quels avantages fiscaux les entreprises ont-elles lors de l'installation d'une installation PV?",
-          "answer": "Les coûts d'investissement peuvent être déduits à 100 % des impôts, ce qui réduit la charge fiscale l'année de l'installation."
-        },
-        {
-          "question": "Combien de temps dure en moyenne l'amortissement d'une installation solaire commerciale?",
-          "answer": "En Suisse, la période d'amortissement est en moyenne de 6 à 10 ans, selon le taux d'autoconsommation."
-        }
       ]
     },
     "en": {
@@ -219,7 +175,6 @@
           ],
           "bullets": [
             "Protection against energy market fluctuations",
-            "Constant production costs for at least 25 years",
             "Improved ESG balance"
           ]
         },
@@ -227,7 +182,7 @@
           "heading": "Subsidies and Cantonal Tax Deductions for PV Commercial Systems",
           "content": [
             "The profitability of solar systems in Switzerland is significantly influenced by funding and tax benefits. The one-time remuneration, processed by Pronovo, plays a central role. Systems receive grants that immediately reduce investment costs and improve liquidity.",
-            "Businesses further benefit from income through tradable certificates of origin. In the EKZ network area, these remunerations were up to 3.0 centimes per kilowatt-hour in 2026."
+            "Businesses further benefit from income through tradable certificates of origin."
           ],
           "bullets": [
             "One-time remuneration reduces investment costs",
@@ -249,8 +204,7 @@
         {
           "heading": "Planning and Profitability: From Roof Assessment to Amortization",
           "content": [
-            "For commercial systems, precise planning is crucial. An accurate roof assessment clarifies the static requirements and the need for adjustments to the electrical infrastructure. High-quality glass-glass modules and carefully dimensioned inverters are standard.",
-            "Ongoing monitoring and an efficient self-consumption rate of up to 90 percent significantly reduce energy costs."
+            "For commercial systems, precise planning is crucial. An accurate roof assessment clarifies the static requirements and the need for adjustments to the electrical infrastructure. High-quality glass-glass modules and carefully dimensioned inverters are standard."
           ],
           "bullets": [
             "Careful planning is essential",
@@ -265,7 +219,7 @@
             "Compare at least three quotes to gain transparency on price-performance ratios and technical solutions."
           ],
           "bullets": [
-            "Reputable installers are often ",
+            "Reputable installers are often",
             "Comparison of at least three quotes"
           ],
           "highlight": "Comparison and selection of the right partner critically affect project success."
@@ -277,26 +231,6 @@
       "formUrl": "/en/request",
       "relatedSlugs": [],
       "faqs": [
-        {
-          "question": "From what roof size is a solar system worthwhile for commercial properties in Switzerland?",
-          "answer": "A solar system is often worthwhile from a roof area of around 100 square meters, depending on the load profile and self-consumption."
-        },
-        {
-          "question": "What is the current one-time remuneration (GREIV) for commercial systems?",
-          "answer": "The Large One-Time Remuneration (GREIV) covers up to 30 percent of the investment costs for systems from 100 kWp."
-        },
-        {
-          "question": "Do I have to consume the produced power myself, or can I feed it all into the grid?",
-          "answer": "Self-consumption is more lucrative since new systems have a feed-in limit of 70 percent. Optimization of self-consumption is recommended."
-        },
-        {
-          "question": "What tax benefits do companies have when installing a PV system?",
-          "answer": "The investment costs can be 100 percent deducted from taxes, reducing the tax burden in the installation year."
-        },
-        {
-          "question": "What is the average amortization period for a commercial solar system?",
-          "answer": "The amortization period in Switzerland is on average between 6 and 10 years, depending on the self-consumption rate."
-        }
       ]
     },
     "it": {
@@ -318,15 +252,13 @@
           ],
           "bullets": [
             "Protezione dalle fluttuazioni del mercato elettrico",
-            "Costi di produzione costanti per almeno 25 anni",
             "Miglioramento del bilancio ESG"
           ]
         },
         {
           "heading": "Sussidi e detrazioni fiscali cantonali per impianti PV commerciali",
           "content": [
-            "La redditività degli impianti solari in Svizzera è fortemente influenzata dai fondi e dalle agevolazioni fiscali. Il contributo una tantum, gestito tramite Pronovo, svolge un ruolo centrale. Gli impianti ricevono sovvenzioni che riducono immediatamente i costi di investimento e migliorano la liquidità.",
-            "Le aziende commerciali beneficiano anche di entrate attraverso certificati di origine negoziabili. Nella zona di rete dell'EKZ, questi compensi erano fino a 3.0 centesimi di franco per chilowattora nel 2026."
+            "La redditività degli impianti solari in Svizzera è fortemente influenzata dai fondi e dalle agevolazioni fiscali. Il contributo una tantum, gestito tramite Pronovo, svolge un ruolo centrale. Gli impianti ricevono sovvenzioni che riducono immediatamente i costi di investimento e migliorano la liquidità."
           ],
           "bullets": [
             "Contributo una tantum riduce i costi di investimento",
@@ -348,8 +280,7 @@
         {
           "heading": "Pianificazione ed economicità: dall'analisi del tetto all'ammortamento",
           "content": [
-            "Per gli impianti commerciali, una pianificazione precisa è fondamentale. Un'accurata analisi del tetto chiarisce i requisiti strutturali e le necessità di adeguamento dell'infrastruttura elettrica. Moduli in vetro-vetro di alta qualità e inverter dimensionati con cura sono standard.",
-            "Il monitoraggio continuo e un'efficace quota di autoconsumo fino al 90% riducono significativamente i costi energetici."
+            "Per gli impianti commerciali, una pianificazione precisa è fondamentale. Un'accurata analisi del tetto chiarisce i requisiti strutturali e le necessità di adeguamento dell'infrastruttura elettrica. Moduli in vetro-vetro di alta qualità e inverter dimensionati con cura sono standard."
           ],
           "bullets": [
             "La pianificazione precisa è essenziale",
@@ -371,31 +302,11 @@
         }
       ],
       "ctaHeading": "Il tuo investimento in un futuro energetico sicuro",
-      "ctaText": "Un impianto solare per immobili commerciali è nel 2026 la leva decisiva per stabilizzare a lungo termine i tuoi costi operativi. Con sussidi attraenti e vantaggi fiscali, il tuo progetto si ammortizza spesso in meno di dieci anni.",
+      "ctaText": "Un impianto solare per immobili commerciali è nel 2026 la leva decisiva per stabilizzare a lungo termine i tuoi costi operativi.",
       "ctaButton": "Ottieni ora offerte solari gratuite per il tuo business",
       "formUrl": "/it/richiesta",
       "relatedSlugs": [],
       "faqs": [
-        {
-          "question": "Da quale dimensione del tetto conviene un impianto solare per immobili commerciali in Svizzera?",
-          "answer": "Un impianto solare conviene spesso a partire da una superficie del tetto di circa 100 metri quadrati, a seconda del profilo di carico e dell'autoconsumo."
-        },
-        {
-          "question": "A quanto ammonta attualmente il contributo una tantum (GREIV) per impianti commerciali?",
-          "answer": "Il Grande Contributo Una Tantum (GREIV) copre fino al 30% dei costi di investimento per impianti da 100 kWp in su."
-        },
-        {
-          "question": "Devo consumare l'energia prodotta o posso immetterla completamente in rete?",
-          "answer": "L'autoconsumo è più redditizio, poiché per i nuovi impianti esiste un limite di immissione del 70%. Si raccomanda di ottimizzare l'autoconsumo."
-        },
-        {
-          "question": "Quali vantaggi fiscali hanno le imprese con l'installazione di un impianto PV?",
-          "answer": "I costi di investimento possono essere dedotti al 100% dalle tasse, riducendo il carico fiscale nell'anno di installazione."
-        },
-        {
-          "question": "Quanto dura in media l'ammortamento di un impianto solare commerciale?",
-          "answer": "Il periodo di ammortamento in Svizzera varia mediamente tra i 6 e i 10 anni, a seconda della quota di autoconsumo."
-        }
       ]
     }
   },

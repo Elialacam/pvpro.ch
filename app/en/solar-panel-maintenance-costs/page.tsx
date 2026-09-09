@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRight, Shield, Wrench, CheckCircle, AlertCircle } fr
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar Panel Maintenance Costs Switzerland 2026 – What Does Maintenance Cost? | PvPro.ch',
@@ -34,11 +35,11 @@ const faqs = [
   },
   {
     question: 'How much does a maintenance contract for a solar system cost?',
-    answer: 'Many installers offer maintenance contracts for CHF 150–300 per year, which include an annual inspection and minor repairs.',
+    answer: 'Maintenance contract prices depend on the installer and the included work. Request a written quote.',
   },
   {
     question: 'How long does an inverter last?',
-    answer: 'Inverters typically last 10 to 15 years. A replacement costs between CHF 1,500 and 3,000 depending on the model.',
+    answer: 'Inverter lifespan and replacement cost depend on the model. Ask the installer for the applicable warranty and replacement quote.',
   },
   {
     question: 'Do I lose the warranty if I do the maintenance myself?',
@@ -64,26 +65,22 @@ const services = [
 ];
 
 const costs = [
-  { service: 'Annual inspection (without cleaning)', cost: 'CHF 100–200' },
-  { service: 'Module cleaning', cost: 'CHF 100–300 depending on size' },
-  { service: 'Inverter replacement (after 10–15 years)', cost: 'CHF 1,500–3,000' },
-  { service: 'Minor damage repair', cost: 'CHF 200–500' },
-  { service: 'Annual total costs (average)', cost: 'CHF 150–300/year', highlight: true },
+  { service: 'Inspection and cleaning', cost: 'Request a quote', highlight: true },
+  { service: 'Repairs and inverter replacement', cost: 'Project-specific' },
 ];
 
 const frequencies = [
-  { measure: 'Visual inspection', frequency: '2x per year (recommended)' },
-  { measure: 'Professional inspection', frequency: '1x per year' },
-  { measure: 'Module cleaning', frequency: 'As needed, min. 1x per year' },
-  { measure: 'Inverter check', frequency: '1x per year' },
-  { measure: 'Electrical check', frequency: 'Every 2–3 years' },
-  { measure: 'Inverter replacement', frequency: 'After 10–15 years' },
+  { measure: 'Visual inspection', frequency: 'As recommended by the installer' },
+  { measure: 'Professional inspection', frequency: 'According to the service plan' },
+  { measure: 'Module cleaning', frequency: 'As needed' },
+  { measure: 'Inverter check', frequency: 'According to the manufacturer' },
+  { measure: 'Electrical check', frequency: 'According to applicable rules' },
 ];
 
 const warranties = [
-  { component: 'Modules', text: '25–30 years performance warranty (min. 80% of rated output)' },
-  { component: 'Inverter', text: '5–12 years manufacturer warranty, extendable' },
-  { component: 'Installation', text: 'Depends on installer, typically 5–10 years' },
+  { component: 'Modules', text: `${ECONOMIC_FACTS.performanceWarranty.percent}% performance after ${ECONOMIC_FACTS.performanceWarranty.afterYears} years` },
+  { component: 'Module lifespan', text: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en') },
+  { component: 'Inverter and installation', text: 'Depends on manufacturer and installer' },
 ];
 
 export default function SolarPanelMaintenanceCostsPage() {
@@ -107,14 +104,13 @@ export default function SolarPanelMaintenanceCostsPage() {
               Solar Panel Maintenance in Switzerland — Costs and Process
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              A solar panel system requires little maintenance — but not none. Those who regularly check and maintain their system ensure full output over the entire lifespan of 25–30 years. This page explains what maintenance involves, what it costs and how often the system should be checked.
+               A solar panel system requires little maintenance, but not none. This page explains what maintenance involves, what it costs and how often the system should be checked.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: 'CHF 150–300', sub: 'typical maintenance costs per year', note: 'incl. inspection and minor cleaning' },
-              { val: '1x per year', sub: 'recommended inspection', note: 'professional by certified specialist' },
-              { val: '25–30 years', sub: 'lifespan with good maintenance', note: 'with manufacturer performance warranty' },
+               { val: 'Quote', sub: 'maintenance cost', note: 'depends on scope and installer' },
+               { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en'), sub: 'module lifespan', note: SOURCE_NOTES.en },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -136,18 +132,18 @@ export default function SolarPanelMaintenanceCostsPage() {
               Why is maintenance important?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              A neglected system produces less electricity — often without the owner noticing. Dirty modules, loose connections or an ageing inverter can reduce production by 10–20%.
+               A neglected system can produce less electricity without the owner noticing.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              Regular maintenance protects your investment and ensures the system always runs at the optimal level — over the entire lifespan of 25–30 years.
+               Regular maintenance protects your investment and helps the system run at the optimal level.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { icon: <AlertCircle className="w-5 h-5" />, label: 'Unmaintained system', val: '−10–20% output', color: 'bg-red-50 border-red-200 text-red-700' },
-              { icon: <CheckCircle className="w-5 h-5" />, label: 'Maintained system', val: '100% performance', color: 'bg-green-50 border-green-200 text-green-700' },
-              { icon: <Shield className="w-5 h-5" />, label: 'Warranty protection', val: '25–30 years', color: 'bg-blue-50 border-blue-200 text-blue-700' },
-              { icon: <Wrench className="w-5 h-5" />, label: 'Maintenance costs', val: 'from CHF 150/year', color: 'bg-orange-50 border-orange-200 text-orange-700' },
+               { icon: <AlertCircle className="w-5 h-5" />, label: 'Unmaintained system', val: 'Lower output', color: 'bg-red-50 border-red-200 text-red-700' },
+               { icon: <CheckCircle className="w-5 h-5" />, label: 'Maintained system', val: 'Checked output', color: 'bg-green-50 border-green-200 text-green-700' },
+               { icon: <Shield className="w-5 h-5" />, label: 'Module lifespan', val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en'), color: 'bg-blue-50 border-blue-200 text-blue-700' },
+               { icon: <Wrench className="w-5 h-5" />, label: 'Maintenance costs', val: 'Request a quote', color: 'bg-orange-50 border-orange-200 text-orange-700' },
             ].map(item => (
               <div key={item.label} className={`rounded-2xl p-5 border ${item.color} flex flex-col items-center text-center gap-2`}>
                 {item.icon}
@@ -183,7 +179,7 @@ export default function SolarPanelMaintenanceCostsPage() {
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Cost overview</p>
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-5">How much does maintenance cost in Switzerland?</h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-5">
-              Over the entire lifespan of 25 years, this amounts to maintenance costs of approximately CHF 4,000–7,500 — a small amount compared to the total investment.
+               Maintenance prices depend on the system, access and the work included.
             </p>
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
               <table className="w-full text-sm">

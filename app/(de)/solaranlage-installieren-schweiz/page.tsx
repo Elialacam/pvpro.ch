@@ -4,10 +4,11 @@ import { ChevronRight, CheckCircle, ArrowRight, Wrench, Clock, Sun } from 'lucid
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SYSTEM_PRICE_NOTES, formatChf, formatRangeForLocale, getSourceNote } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solaranlage installieren lassen Schweiz 2026 – Anbieter & Kosten | PvPro.ch',
-  description: 'Solaranlage installieren lassen in der Schweiz: Finden Sie zertifizierte Anbieter in Ihrem Kanton. Kostenlose Offerten vergleichen und bis zu 30% sparen mit PvPro.ch.',
+  description: 'Solaranlage installieren lassen in der Schweiz: Finden Sie zertifizierte Anbieter in Ihrem Kanton und vergleichen Sie kostenlose Offerten.',
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-installieren-schweiz',
     languages: {
@@ -31,7 +32,7 @@ export const metadata: Metadata = pageMetadata({
 const faqs = [
   {
     question: 'Wie lange dauert die Installation einer Solaranlage für ein Einfamilienhaus?',
-    answer: 'Die eigentliche Montage dauert bei einem Einfamilienhaus typischerweise 1 bis 3 Tage. Dazu kommt eine Vorlaufzeit von 4 bis 12 Wochen ab Auftragserteilung.',
+    answer: 'Die Dauer hängt von Dach, Anlagengrösse, Materialverfügbarkeit und Bewilligungsverfahren ab. Der Installateur nennt den Zeitplan in der Offerte.',
   },
   {
     question: 'Muss ich bei der Installation anwesend sein?',
@@ -74,7 +75,7 @@ const steps = [
   {
     n: '4',
     title: 'Montage',
-    text: 'Die eigentliche Installation dauert bei einem Einfamilienhaus typischerweise 1 bis 3 Tage. Das Montageteam befestigt die Module, verlegt die Kabel und installiert den Wechselrichter.',
+    text: 'Das Montageteam befestigt die Module, verlegt die Kabel und installiert den Wechselrichter. Die Dauer hängt von Dach und Anlagengrösse ab.',
   },
   {
     n: '5',
@@ -84,16 +85,16 @@ const steps = [
 ];
 
 const durationRows = [
-  { size: '5–8 kWp (kleines EFH)', duration: '1–2 Tage' },
-  { size: '8–12 kWp (Standard EFH)', duration: '2–3 Tage' },
-  { size: '12–30 kWp (Mehrfamilienhaus)', duration: '3–5 Tage' },
-  { size: '30+ kWp (Gewerbe)', duration: '1–2 Wochen' },
+  { size: 'Kleines Einfamilienhaus', duration: 'Abhängig von Dach und Anlage' },
+  { size: 'Standard-Einfamilienhaus', duration: 'Abhängig von Dach und Anlage' },
+  { size: 'Mehrfamilienhaus', duration: 'Individueller Projektplan' },
+  { size: 'Gewerbe', duration: 'Individueller Projektplan' },
 ];
 
 const costRows = [
-  { size: '5 kWp', cost: "13'000 – 18'000 CHF" },
-  { size: '8 kWp', cost: "18'000 – 25'000 CHF" },
-  { size: '10 kWp', cost: "22'000 – 30'000 CHF" },
+  { size: '5 kWp', cost: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[5], 'CHF', 'de') },
+  { size: '8 kWp', cost: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[8], 'CHF', 'de') },
+  { size: '10 kWp', cost: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de') },
 ];
 
 const criteria = [
@@ -128,11 +129,12 @@ export default function SolaranlageInstallierenPage() {
               Eine Solaranlage ist eine langfristige Investition. Wer sie installieren lässt, sollte den richtigen Fachbetrieb wählen — denn Qualität, Preis und Service variieren stark. PvPro.ch verbindet Sie kostenlos mit geprüften Schweizer Installateuren aus Ihrem Kanton.
             </p>
           </div>
+          <p className="max-w-2xl mx-auto text-xs text-gray-500 mb-5">{SYSTEM_PRICE_NOTES.de} {getSourceNote('de')}</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: '1–3 Tage', sub: 'bis zur ersten Offerte', note: 'schnelle und unkomplizierte Vermittlung' },
+              { val: 'Zeitnah', sub: 'bis zur ersten Offerte', note: 'unkomplizierte Vermittlung' },
               { val: '25+', sub: 'geprüfte Fachbetriebe', note: 'geprüfte Fachbetriebe in der ganzen Schweiz' },
-              { val: '25–30 Jahre', sub: 'Lebensdauer einer Anlage', note: 'langfristige Rendite für Ihr Zuhause' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre', 'de'), sub: 'Lebensdauer der Module', note: 'Richtwert' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -196,7 +198,7 @@ export default function SolaranlageInstallierenPage() {
               Wie lange dauert die Installation?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Die Dauer hängt von der Grösse der Anlage ab. Die Vorlaufzeit — von der Offerte bis zur Montage — beträgt in der Schweiz aktuell zwischen 4 und 12 Wochen, je nach Auslastung des Installateurs und Verfügbarkeit der Komponenten.
+              Die Dauer hängt von der Grösse der Anlage, der Auslastung des Installateurs und der Verfügbarkeit der Komponenten ab.
             </p>
             <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
               <table className="w-full text-sm">
@@ -260,9 +262,9 @@ export default function SolaranlageInstallierenPage() {
             <p className="text-orange-800 text-sm leading-relaxed">
               Nach Abzug der Bundesförderung (<Link href="/foerderungen" className="text-[#fcb210] hover:underline font-medium">Einmalvergütung EIV</Link>) reduzieren sich die{' '}
               <Link href="/solaranlage-kosten" className="text-[#fcb210] hover:underline font-medium">Kosten</Link>{' '}
-              um 300–400 CHF pro kWp. Durch den{' '}
+              um {formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} pro kWp bis 30 kWp, zuzüglich Grundbeitrag. Durch den{' '}
               <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#fcb210] hover:underline font-medium">Vergleich mehrerer Offerten</Link>{' '}
-              können Sie zusätzlich mehrere tausend Franken sparen.
+              können Sie Preise und Leistungen direkt prüfen.
             </p>
           </div>
         </section>

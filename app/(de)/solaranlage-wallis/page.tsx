@@ -8,8 +8,8 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 const citySlug = 'wallis';
 
 export const metadata: Metadata = pageMetadata({
-  title: "Solaranlage Kanton Wallis – Sonnenstunden-Rekord nutzen 2026 | PvPro.ch",
-  description: "Solaranlage im Wallis: Der sonnenreichste Kanton der Schweiz – 1'849 Stunden/Jahr. Bis zu 3 Offerten vergleichen, hohe Kantonsförderung sichern. Kostenlos.",
+  title: "Solaranlage Kanton Wallis – Solarstrom passend planen 2026 | PvPro.ch",
+  description: "Solaranlage im Wallis: Angebote unabhängiger Installateure vergleichen und die passende Lösung für Ihr Dach finden. Kostenlos.",
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-wallis',
     languages: {

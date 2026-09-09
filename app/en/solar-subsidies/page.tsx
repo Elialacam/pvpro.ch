@@ -4,6 +4,7 @@ import { ChevronRight, CheckCircle, Info, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FoerderRechner from '@/components/FoerderRechner';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatChfForLocale, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar Subsidies in Switzerland 2026 | PvPro.ch',
@@ -21,9 +22,9 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/en/solar-subsidies', locale: 'en' });
 
 const tableRows = [
-  { size: '5 kWp',  subsidy: "approx. CHF 1'800", total: "approx. CHF 13'000", net: "approx. CHF 11'200" },
-  { size: '8 kWp',  subsidy: "approx. CHF 2'800", total: "approx. CHF 20'800", net: "approx. CHF 18'000", highlight: true },
-  { size: '10 kWp', subsidy: "approx. CHF 3'500", total: "approx. CHF 25'000", net: "approx. CHF 21'500" },
+  { size: '5 kWp',  subsidy: formatChfForLocale(5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en'), total: formatRangeForLocale(getSystemCostRange(5), 'CHF', 'en') },
+  { size: '8 kWp',  subsidy: formatChfForLocale(8 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en'), total: formatRangeForLocale(getSystemCostRange(8), 'CHF', 'en'), highlight: true },
+  { size: '10 kWp', subsidy: formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en'), total: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en') },
 ];
 
 const processSteps = [
@@ -59,9 +60,9 @@ export default function SolarSubsidiesPage() {
               </p>
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: '300–400', unit: 'CHF/kWp', label: 'Subsidy' },
-                  { value: '10–15',   unit: 'years',   label: 'Payback' },
-                  { value: '30%',     unit: 'discount', label: 'Investment' },
+                  { value: String(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30), unit: 'CHF/kWp', label: 'Subsidy' },
+                  { value: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en'), unit: '', label: 'Payback on the Plateau' },
+                  { value: formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', 'en'), unit: '', label: 'Federal share' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <p className="text-2xl font-bold text-white">{s.value}</p>
@@ -120,18 +121,18 @@ export default function SolarSubsidiesPage() {
             <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Subsidy overview</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">How much is the subsidy?</h2>
             <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-              The subsidy is typically <strong className="text-gray-800">CHF 300–400 per kWp</strong> of installed capacity. The larger the installation, the higher the amount.
+              Pronovo pays <strong className="text-gray-800">{formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')} per kWp</strong> up to 30 kWp, plus a base contribution.
             </p>
           </div>
           <div className="max-w-3xl mx-auto">
             <div className="rounded-3xl overflow-hidden shadow-xl border border-gray-100">
               <div className="grid grid-cols-4 gap-0" style={{ background: 'linear-gradient(135deg, #1a2236, #0d1117)' }}>
-                {['System size', 'Subsidy (OTP)', 'Total cost', 'Net cost'].map(h => (
+                {['System size', 'Subsidy (OTP)', 'Gross cost'].map(h => (
                   <div key={h} className="px-5 py-4 text-xs font-bold text-gray-400 uppercase tracking-widest">{h}</div>
                 ))}
               </div>
               {tableRows.map((row) => (
-                <div key={row.size} className={`grid grid-cols-4 gap-0 border-t ${row.highlight ? 'border-orange-100' : 'border-gray-100'}`}
+                <div key={row.size} className={`grid grid-cols-3 gap-0 border-t ${row.highlight ? 'border-orange-100' : 'border-gray-100'}`}
                   style={row.highlight ? { background: 'linear-gradient(135deg, #fff7ed, #fff5eb)' } : { background: '#fff' }}>
                   <div className="px-5 py-5 font-bold text-gray-900 flex items-center gap-2">
                     {row.highlight && <span className="text-[10px] bg-orange-500 text-white font-bold px-1.5 py-0.5 rounded-full uppercase">Popular</span>}
@@ -139,12 +140,11 @@ export default function SolarSubsidiesPage() {
                   </div>
                   <div className="px-5 py-5 font-bold text-[#fcb210]">{row.subsidy}</div>
                   <div className="px-5 py-5 text-gray-600">{row.total}</div>
-                  <div className="px-5 py-5 font-bold text-green-600">{row.net}</div>
                 </div>
               ))}
             </div>
             <p className="text-xs text-gray-400 text-center mt-4 flex items-center justify-center gap-1.5">
-              <Info className="w-3.5 h-3.5" />Indicative values. The exact amount depends on the current subsidy structure and the system size.
+              <Info className="w-3.5 h-3.5" />{SOURCE_NOTES.en} {SYSTEM_PRICE_NOTES.en}
             </p>
           </div>
         </div>
@@ -201,16 +201,16 @@ export default function SolarSubsidiesPage() {
               <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Calculation example</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">Example for a detached house</h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                Many detached houses install a system of <strong>8–10 kWp</strong>, producing approximately <strong>8,000–10,000 kWh</strong> of electricity per year.
+                 A 10 kWp system on the Swiss Plateau produces approximately <strong>{formatRangeForLocale({ min: ECONOMIC_FACTS.production.plateauKwhPerKwp.min * 10, max: ECONOMIC_FACTS.production.plateauKwhPerKwp.max * 10 }, 'kWh per year', 'en')}</strong>.
               </p>
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-gray-100">
                   <p className="text-gray-700 font-medium">Solar installation cost (10 kWp)</p>
-                  <p className="font-bold text-gray-900">CHF 25,000</p>
+                   <p className="font-bold text-gray-900">{formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')}</p>
                 </div>
                 <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-orange-100" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
                   <p className="text-orange-700 font-medium">One-time payment (OTP)</p>
-                  <p className="font-bold text-[#fcb210]">− CHF 3,500</p>
+                   <p className="font-bold text-[#fcb210]">− {formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en')}</p>
                 </div>
                 <div className="h-px bg-gray-200" />
                 <div className="flex items-center justify-between rounded-2xl px-6 py-5 border-2 border-green-200" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
@@ -218,7 +218,7 @@ export default function SolarSubsidiesPage() {
                     <p className="font-bold text-gray-900">Effective investment</p>
                     <p className="text-xs text-green-600 mt-0.5">After deducting the federal subsidy</p>
                   </div>
-                  <p className="font-bold text-green-700 text-2xl">CHF 21,500</p>
+                   <p className="font-bold text-green-700 text-2xl">{formatRangeForLocale({ min: getSystemCostRange(10).min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: getSystemCostRange(10).max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF', 'en')}</p>
                 </div>
               </div>
             </div>
@@ -234,7 +234,7 @@ export default function SolarSubsidiesPage() {
               <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Profitability</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-5">Is a solar installation worth it despite the investment costs?</h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                Thanks to government subsidies and rising electricity prices, a solar installation is worthwhile for many Swiss households. Most systems pay for themselves within <strong>10–15 years</strong> with a lifespan of 25–30 years.
+                 Thanks to government subsidies and electricity savings, a solar installation is worthwhile for many Swiss households. On the Swiss Plateau, systems pay for themselves within <strong>{formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en')}</strong> and modules last <strong>{formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en')}</strong>.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">The actual profitability depends on the following factors:</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

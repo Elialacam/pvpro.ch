@@ -23,7 +23,7 @@ export default function USPSection({ lang = 'de' }: USPSectionProps) {
     },
     {
       icon: TrendingDown,
-      title: t(lang, 'Bis zu 30% sparen', "Jusqu'à 30% d'économies", 'Risparmia fino al 30%'),
+      title: t(lang, 'Offerten vergleichen', 'Comparer les offres', 'Confronta i preventivi'),
       description: t(lang,
         'Durch den Vergleich mehrerer Angebote erhalten Sie den besten Preis für Ihre Solaranlage.',
         "En comparant plusieurs offres, vous obtenez le meilleur prix pour votre installation solaire.",

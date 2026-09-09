@@ -4,6 +4,7 @@ import { ChevronRight, Battery, Sun, Home, Zap, CheckCircle, ArrowRight, Trendin
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
+import { ECONOMIC_FACTS, SOURCE_NOTES, STORAGE_PRICE_NOTES, SYSTEM_PRICE_NOTES, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar installation with battery storage: costs, benefits and how it works | PvPro.ch',
@@ -63,9 +64,8 @@ export default function SolarWithBatteryPage() {
               </p>
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: '70%',      label: 'Self-consumption possible' },
-                  { value: '8–15 kWh', label: 'Typical storage size' },
-                  { value: '25–40k',   label: 'CHF total cost' },
+                  { value: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'en'), label: 'Self-consumption with storage' },
+                  { value: formatRangeForLocale(ECONOMIC_FACTS.storageCosts.paybackYears, 'years', 'en'), label: 'Battery payback' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <p className="text-xl font-bold text-white">{s.value}</p>
@@ -79,8 +79,8 @@ export default function SolarWithBatteryPage() {
               <p className="text-white font-bold text-lg mb-6">Self-consumption compared</p>
               <div className="flex flex-col gap-6">
                 {[
-                  { label: 'Without storage', pct: 30, color: '#6b7280' },
-                  { label: 'With storage',     pct: 70, color: '#fcb210' },
+                  { label: 'Without storage', pct: ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage.max, color: '#6b7280' },
+                  { label: 'With storage', pct: ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max, color: '#fcb210' },
                 ].map(item => (
                   <div key={item.label}>
                     <div className="flex justify-between items-center mb-2">
@@ -153,7 +153,7 @@ export default function SolarWithBatteryPage() {
               The benefits of battery storage
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-              Without storage, only <strong className="text-gray-800">30%</strong> of the solar electricity produced is used directly. With storage, this figure rises to <strong className="text-gray-800">60–70%</strong>.
+               Without storage, self-consumption is <strong className="text-gray-800">{formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'en')}</strong>. With storage, it rises to <strong className="text-gray-800">{formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'en')}</strong>.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -188,9 +188,8 @@ export default function SolarWithBatteryPage() {
 
               <div className="flex flex-col gap-3">
                 {[
-                  { label: 'Photovoltaic installation (approx. 10 kWp)', range: "18,000 – 25,000 CHF", highlight: false },
-                  { label: 'Battery storage',                             range: "8,000 – 15,000 CHF",  highlight: false },
-                  { label: 'Complete system',                             range: "25,000 – 40,000 CHF", highlight: true  },
+                  { label: 'Photovoltaic installation (10 kWp)', range: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en'), highlight: false },
+                  { label: 'Battery storage (10 kWh)', range: formatRangeForLocale(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF', 'en'), highlight: false },
                 ].map(row => (
                   <div
                     key={row.label}
@@ -202,6 +201,9 @@ export default function SolarWithBatteryPage() {
                   </div>
                 ))}
               </div>
+              <p className="text-xs text-gray-400 mt-4">{SYSTEM_PRICE_NOTES.en}</p>
+              <p className="text-xs text-gray-400 mt-2">{STORAGE_PRICE_NOTES.en}</p>
+              <p className="text-xs text-gray-400 mt-2">{SOURCE_NOTES.en}</p>
               <p className="text-xs text-gray-400 mt-4">
                 Thanks to subsidy programmes and higher self-consumption, the system can pay for itself economically over several years.
               </p>
@@ -248,7 +250,7 @@ export default function SolarWithBatteryPage() {
                 How much electricity does a solar installation produce?
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                A typical 10 kWp installation in Switzerland produces around <strong>9,000–11,000 kWh per year</strong> — that's approximately <strong>25–40 kWh</strong> per day.
+                 A 10 kWp installation on the Swiss Plateau produces <strong>{formatRangeForLocale({ min: ECONOMIC_FACTS.production.plateauKwhPerKwp.min * 10, max: ECONOMIC_FACTS.production.plateauKwhPerKwp.max * 10 }, 'kWh per year', 'en')}</strong>.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
                 The exact amount depends on the roof orientation, tilt angle and local solar irradiation.

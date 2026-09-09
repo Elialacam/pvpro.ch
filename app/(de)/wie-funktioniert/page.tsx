@@ -3,13 +3,14 @@ import Image from 'next/image';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { ECONOMIC_FACTS, formatRangeForLocale, formatSwissNumber, getSourceNote } from '@/lib/facts';
 import WieFunktioniertInteractive from '@/components/WieFunktioniertInteractive';
 import FaqSchema from '@/components/FaqSchema';
 
 const wfFaqs = [
   { question: 'Wie funktioniert eine Solaranlage einfach erklärt?', answer: 'Solarmodule erzeugen aus Sonnenlicht Gleichstrom. Ein Wechselrichter wandelt diesen in nutzbaren Wechselstrom um, der direkt im Haushalt verwendet oder ins Netz eingespeist wird.' },
   { question: 'Was ist der Unterschied zwischen Photovoltaik und Solaranlage?', answer: 'Photovoltaik erzeugt Strom aus Licht. Solarthermie dagegen erzeugt Wärme (z.B. für Warmwasser). Im Alltag wird "Solaranlage" meist als Synonym für Photovoltaik verwendet.' },
-  { question: 'Was bringt ein 800 Watt Solarmodul am Tag?', answer: 'Ein 800-Watt-System produziert im Sommer etwa 2–4 kWh pro Tag. Im Winter ist die Produktion deutlich geringer, da die Tage kürzer und die Sonne tiefer steht.' },
+  { question: 'Wie verändert sich die Produktion im Jahresverlauf?', answer: 'Im Winter ist die Produktion geringer, da die Tage kürzer und die Sonne tiefer steht.' },
   { question: 'Kann ein Solarpanel einen Kühlschrank betreiben?', answer: 'Ja, ein Solarpanel kann einen Kühlschrank betreiben — aber meist nicht dauerhaft alleine. Dafür ist ein grösseres System oder ein Speicher notwendig.' },
   { question: 'Ist man mit Photovoltaik autark?', answer: 'Nicht vollständig. Ohne Speicher und im Winter bleibt man teilweise auf Strom aus dem Netz angewiesen. Mit einem grossen Batteriespeicher kann man jedoch sehr hohe Eigenversorgungsgrade erreichen.' },
   { question: 'Was bringt eine Solaranlage im Winter?', answer: 'Im Winter produziert eine Solaranlage deutlich weniger Strom — aber nicht nichts. Kürzere Tage und tiefere Sonnenwinkel reduzieren die Produktion, Strom wird aber weiterhin erzeugt.' },
@@ -86,10 +87,10 @@ export default function WieFunktioniertPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
-              { val: '25–30 J.', label: 'Lebensdauer Module' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre', 'de'), label: 'Lebensdauer Module' },
               { val: '22%', label: 'Max. Wirkungsgrad' },
-              { val: '9–11k', label: 'kWh/Jahr bei 10 kWp' },
-              { val: '0 CHF', label: 'Treibstoff nötig' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh/kWp/Jahr', 'de'), label: 'Produktion im Mittelland' },
+    { val: 'Kein', label: 'Treibstoff nötig' },
             ].map((s) => (
               <div key={s.label}>
                 <p className="text-2xl sm:text-3xl font-bold text-[#fcb210]">{s.val}</p>
@@ -97,6 +98,7 @@ export default function WieFunktioniertPage() {
               </div>
             ))}
           </div>
+          <p className="mt-4 text-xs text-white/50">{getSourceNote('de')}</p>
         </div>
       </section>
 
@@ -122,7 +124,7 @@ export default function WieFunktioniertPage() {
                   <span className="text-2xl">⚡</span>
                   <div>
                     <p className="font-bold text-gray-900 text-sm">Photovoltaik</p>
-                    <p className="text-gray-500 text-xs mt-0.5">Erzeugt <strong>Strom</strong> aus Sonnenlicht. Das meinen die meisten, wenn sie von "Solaranlage" sprechen.</p>
+                    <p className="text-gray-500 text-xs mt-0.5">Erzeugt <strong>Strom</strong> aus Sonnenlicht. Das meinen die meisten, wenn sie von &quot;Solaranlage&quot; sprechen.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-4 rounded-xl bg-white border border-gray-100">

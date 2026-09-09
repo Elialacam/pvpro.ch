@@ -10,6 +10,7 @@ import { getAutoBlogSlugRecord } from '@/lib/autoBlogSlugs';
 import ArticleAuthorBox from '@/components/ArticleAuthorBox';
 import ArticleStructuredData from '@/components/ArticleStructuredData';
 import { articleDates, articleReadingMinutes, sanitizeFaqs } from '@/lib/blogUtils';
+import { getSourceNote } from '@/lib/facts';
 
 interface Props {
   article: BlogArticle;
@@ -18,7 +19,8 @@ interface Props {
   canonicalPath: string;
 }
 
-export default function BlogArticlePage({ article, blogBase, homeHref, canonicalPath }: Props) {
+export default function BlogArticlePage({ article: inputArticle, blogBase, homeHref, canonicalPath }: Props) {
+  const article = inputArticle;
   const readingMinutes = articleReadingMinutes(article);
   const dates = articleDates(article);
   const faqs = sanitizeFaqs(article.faqs);
@@ -193,6 +195,7 @@ export default function BlogArticlePage({ article, blogBase, homeHref, canonical
             )}
 
             <ArticleAuthorBox locale={article.locale} />
+            <p className="text-xs text-gray-400">{getSourceNote(article.locale)}</p>
             <ArticleStructuredData article={article} canonicalPath={canonicalPath} faqs={faqs} />
 
             {/* ── CTA block ── */}

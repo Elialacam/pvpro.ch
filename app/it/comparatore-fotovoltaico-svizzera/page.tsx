@@ -159,7 +159,7 @@ export default function ComparatoreFotovoltaicoSvizzeraPage() {
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Lo sapevate?</p>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Chi confronta almeno 3 preventivi risparmia in media il 15–25% rispetto alla prima offerta — per un impianto tipico fino a 5.000 CHF.
+                Confrontare più preventivi permette di valutare prezzi, componenti e condizioni tra installatori.
               </p>
             </div>
           </div>

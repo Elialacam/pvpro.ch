@@ -159,7 +159,7 @@ export default function SolarComparisonPortalSwitzerlandPage() {
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Did you know?</p>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Those who compare at least 3 quotes save on average 15–25% compared to the first offer — that is up to CHF 5,000 for a typical installation.
+                Comparing several quotes makes price and scope differences visible before you choose an installer.
               </p>
             </div>
           </div>

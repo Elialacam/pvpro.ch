@@ -4,6 +4,7 @@ import { ChevronRight, Sun, CheckCircle2, Home, Ruler, Cpu, Wrench, ArrowRight }
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
+import { ECONOMIC_FACTS, SYSTEM_PRICE_NOTES, formatChf, formatRangeForLocale, formatSwissNumber, getSourceNote } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solaranlage Einfamilienhaus Schweiz: Kosten, Grösse und Vorteile | PvPro.ch',
@@ -21,17 +22,17 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/solaranlage-einfamilienhaus', locale: 'de' });
 
 const costRows = [
-  { size: 'Kleine Anlage (6–8 kWp)', price: "ca. 20'000 – 25'000 CHF", highlight: false },
-  { size: 'Standard (8–10 kWp)', price: "ca. 25'000 – 30'000 CHF", highlight: true },
-  { size: 'Grössere Anlage (10–15 kWp)', price: "ca. 30'000 – 35'000 CHF", highlight: false },
+  { size: 'Kleine Anlage (5 kWp)', price: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[5], 'CHF', 'de'), highlight: false },
+  { size: 'Standard (8 kWp)', price: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[8], 'CHF', 'de'), highlight: true },
+  { size: 'Grössere Anlage (10–15 kWp)', price: `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[15].max)} CHF`, highlight: false },
 ];
 
 const exampleRows = [
-  { label: 'Dachfläche', value: '60 m²' },
+  { label: 'Dachfläche', value: `${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²` },
   { label: 'Leistung', value: '10 kWp' },
-  { label: 'Kosten', value: "ca. 25'000 – 30'000 CHF" },
-  { label: 'Förderung EIV', value: "ca. 3'600 CHF" },
-  { label: 'Effektive Kosten', value: "ca. 20'000 – 26'000 CHF", highlight: true },
+  { label: 'Bruttokosten', value: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de') },
+  { label: 'Förderung RU', value: `ca. ${formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}` },
+  { label: 'Nettokosten nach ungefährer RU', value: `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox)} CHF`, highlight: true },
 ];
 
 const factors = [
@@ -71,7 +72,7 @@ export default function SolaranlageEinfamilienhausPage() {
                 Solaranlage für Einfamilienhaus: Kosten, Grösse und Vorteile
               </h1>
               <p className="text-white/70 text-lg leading-relaxed mb-8">
-                Eine Solaranlage senkt Ihre Stromkosten und macht Sie unabhängiger. Typischerweise wird ein Einfamilienhaus mit <strong className="text-white">8–12 kWp</strong> ausgestattet — das entspricht ca. <strong className="text-white">50–70 m²</strong> Dachfläche.
+                Eine Solaranlage senkt Ihre Stromkosten und macht Sie unabhängiger. Als Beispiel rechnen wir mit <strong className="text-white">10 kWp</strong> und rund <strong className="text-white">{formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²</strong> Dachfläche.
               </p>
               <Link
                 href="/anfrage"
@@ -83,10 +84,10 @@ export default function SolaranlageEinfamilienhausPage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: '8–12 kWp', label: 'Typische Anlagengrösse' },
-                { value: "25'000–30'000", label: 'CHF Investition' },
-                { value: "9'000–11'000", label: 'kWh Produktion/Jahr' },
-                { value: '25–30 Jahre', label: 'Lebensdauer' },
+                { value: '10 kWp', label: 'Beispiel-Anlagengrösse' },
+                { value: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de'), label: 'Investition 10 kWp' },
+                { value: `${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)}`, label: 'kWh Produktion/Jahr bei 10 kWp' },
+                { value: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre', 'de'), label: 'Lebensdauer' },
               ].map((s) => (
                 <div key={s.label} className="rounded-2xl bg-white/5 border border-white/10 px-5 py-4">
                   <p className="text-xl sm:text-2xl font-bold text-white mb-1">{s.value}</p>
@@ -110,7 +111,7 @@ export default function SolaranlageEinfamilienhausPage() {
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
                 Die optimale Grösse hängt vom Stromverbrauch ab. Als Faustregel gilt:{' '}
-                <strong className="text-gray-800">1'000 kWh Verbrauch → ca. 1–2 kWp Anlage.</strong>
+                Die passende Anlagengrösse wird anhand von Verbrauch und Dachfläche berechnet.
               </p>
               <p className="text-gray-500 leading-relaxed">
                 Wenn Sie eine Wärmepumpe oder ein Elektroauto haben, lohnt sich oft eine grössere Anlage. Nutzen Sie den Rechner rechts, um eine erste Empfehlung zu erhalten.
@@ -130,8 +131,8 @@ export default function SolaranlageEinfamilienhausPage() {
               Was kostet eine Solaranlage für ein Einfamilienhaus?
             </h2>
             <p className="text-gray-500 leading-relaxed mb-6">
-              Für eine typische 10-kWp-Anlage mit ca. 50 m² Dachfläche sind Investitionen von rund{' '}
-              <strong className="text-gray-800">25'000 bis 30'000 CHF</strong> realistisch.
+              Für eine typische 10-kWp-Anlage mit rund {formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m² Dachfläche sind Investitionen von{' '}
+              <strong className="text-gray-800">{formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de')}</strong> realistisch.
               Nach Förderungen und Steuerabzügen kann der effektive Preis deutlich tiefer liegen.
             </p>
             <div className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
@@ -145,6 +146,7 @@ export default function SolaranlageEinfamilienhausPage() {
                 </div>
               ))}
             </div>
+            <p className="text-xs text-gray-500 mt-3">{SYSTEM_PRICE_NOTES.de} {getSourceNote('de')}</p>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
             <Image src="/images/asset-installateur-dach-1.webp" alt="Solaranlage Einfamilienhaus Schweiz" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" loading="lazy"/>
@@ -163,12 +165,12 @@ export default function SolaranlageEinfamilienhausPage() {
               </h2>
               <p className="text-white/70 leading-relaxed mb-6">
                 Eine typische Anlage auf einem Einfamilienhaus produziert{' '}
-                <strong className="text-white">ca. 9'000 – 11'000 kWh pro Jahr</strong> — das entspricht dem Grossteil des Strombedarfs eines Haushalts.
+                <strong className="text-white">{formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis {formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh pro Jahr</strong>.
               </p>
               {[
-                { label: '8 kWp Anlage', value: "7'200 – 8'800 kWh/Jahr", pct: 65 },
-                { label: '10 kWp Anlage', value: "9'000 – 11'000 kWh/Jahr", pct: 80 },
-                { label: '12 kWp Anlage', value: "10'800 – 13'200 kWh/Jahr", pct: 95 },
+                { label: '8 kWp Anlage', value: `${formatSwissNumber(8 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(8 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh/Jahr`, pct: 65 },
+                { label: '10 kWp Anlage', value: `${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh/Jahr`, pct: 80 },
+                { label: '15 kWp Anlage', value: `${formatSwissNumber(15 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(15 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh/Jahr`, pct: 95 },
               ].map((row) => (
                 <div key={row.label} className="mb-4">
                   <div className="flex justify-between text-sm mb-1.5">
@@ -229,11 +231,11 @@ export default function SolaranlageEinfamilienhausPage() {
                 Förderungen für Solaranlagen in der Schweiz
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
-                Für eine 10-kWp-Anlage entspricht die Bundesförderung etwa <strong className="text-gray-800">3'600 CHF</strong>. Dazu kommen kantonale Förderungen und Steuerabzüge.
+                Für eine 10-kWp-Anlage entspricht die RU ungefähr <strong className="text-gray-800">{formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}</strong>. Dazu kommen kantonale Förderungen und Steuerabzüge.
               </p>
               <div className="space-y-3">
                 {[
-                  'Einmalvergütung (EIV) vom Bund: ca. 360 CHF pro kWp',
+                  `RU vom Bund bis 30 kWp: ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} pro kWp, zuzüglich Grundbeitrag`,
                   'Zusätzliche kantonale Förderprogramme',
                   'Steuerliche Abzüge auf Bundesebene',
                 ].map((item) => (
@@ -249,11 +251,11 @@ export default function SolaranlageEinfamilienhausPage() {
             </div>
             <div className="space-y-3">
               {[
-                { label: 'Investition (10 kWp)', value: "25'000 – 30'000 CHF", color: 'text-gray-800' },
-                { label: 'Bundesförderung EIV', value: '– 3\'600 CHF', color: 'text-green-600' },
+                { label: 'Bruttoinvestition (10 kWp)', value: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de'), color: 'text-gray-800' },
+                { label: 'Bundesförderung RU', value: `– ${formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}`, color: 'text-green-600' },
                 { label: 'Kantonale Förderung', value: 'variiert', color: 'text-green-600' },
                 { label: 'Steuerabzüge', value: 'variiert', color: 'text-green-600' },
-                { label: 'Effektive Kosten', value: "ca. 20'000 – 26'000 CHF", color: 'text-[#fcb210]', highlight: true },
+                { label: 'Nettokosten nach ungefährer RU', value: `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox)} CHF`, color: 'text-[#fcb210]', highlight: true },
               ].map((row, i) => (
                 <div key={row.label} className={`flex justify-between items-center px-5 py-3.5 rounded-xl ${row.highlight ? 'bg-orange-50 border border-orange-100' : 'bg-white border border-gray-100'}`}>
                   <span className={`text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>
@@ -275,14 +277,14 @@ export default function SolaranlageEinfamilienhausPage() {
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Günstigere Anschaffung</span></div>
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Schnellere Amortisation</span></div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Eigenverbrauch ca. 25–40 %</span></div>
+                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Eigenverbrauch {formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'de')}</span></div>
               </div>
             </div>
             <div className="rounded-2xl border border-[#fcb210]/30 p-6 shadow-sm bg-orange-50">
               <p className="font-bold text-gray-900 text-lg mb-1">Mit Batteriespeicher</p>
               <p className="text-sm text-[#fcb210] font-semibold mb-4">Empfohlen bei hohem Verbrauch</p>
               <div className="space-y-2 text-sm text-gray-600">
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Eigenverbrauch bis 50–65 %</span></div>
+                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Eigenverbrauch {formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'de')}</span></div>
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Strom auch am Abend nutzen</span></div>
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Höhere Unabhängigkeit</span></div>
               </div>

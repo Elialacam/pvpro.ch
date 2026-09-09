@@ -11,7 +11,7 @@
       "date": "30. August 2026",
       "readMin": 15,
       "tag": "Ratgeber",
-      "intro": "Wussten Sie, dass eine ungenaue Gewerbe Photovoltaik Planung Ihrem Unternehmen in den kommenden 25 Jahren hohe Renditeverluste verursachen kann? Viele schweizerische Unternehmer zögern aufgrund der ab 2026 geltenden neuen gesetzlichen Regelungen. Doch der Weg zur energetischen Unabhängigkeit muss nicht kompliziert sein. Dieser Ratgeber zeigt Ihnen, wie Sie effizient planen und sich gegen unvorhersehbare Strompreissteigerungen absichern.",
+      "intro": "Viele schweizerische Unternehmer zögern aufgrund der ab 2026 geltenden neuen gesetzlichen Regelungen. Doch der Weg zur energetischen Unabhängigkeit muss nicht kompliziert sein. Dieser Ratgeber zeigt Ihnen, wie Sie effizient planen und sich gegen unvorhersehbare Strompreissteigerungen absichern.",
       "sections": [
         {
           "heading": "Warum eine professionelle Gewerbe Photovoltaik Planung entscheidend ist",
@@ -36,8 +36,8 @@
         {
           "heading": "Rechtliche Hürden und Förderungen in der Schweiz souverän meistern",
           "content": [
-            "Rechtliche Absicherung ist entscheidend. Netzanschlussbegehren erfordert präzise EVU-Kommunikation. Die neue 70-Prozent-Einspeiseabregelung macht die Abstimmung zwischen Produktion und Verbrauch wichtiger denn je.",
-            "Förderungen sind essenziell, um bis zu 30% der Investitionskosten durch die Einmalvergütung abzudecken. Baubewilligungen im Industriebau erfolgen meist durch Meldeverfahren, jedoch kann ein reguläres Verfahren bei Denkmalschutz notwendig sein."
+            "Rechtliche Absicherung ist entscheidend. Netzanschlussbegehren erfordert präzise EVU-Kommunikation.",
+            "Baubewilligungen im Industriebau erfolgen meist durch Meldeverfahren, jedoch kann ein reguläres Verfahren bei Denkmalschutz notwendig sein."
           ],
           "highlight": "Die sorgfältige Vorbereitung auf rechtliche Anforderungen und Förderungsmöglichkeiten sichert das Gelingen des Projekts."
         },
@@ -75,10 +75,6 @@
         {
           "question": "Wie lange dauert die Planung und Installation einer Gewerbe-PV-Anlage?",
           "answer": "Der gesamte Prozess umfasst vier bis acht Monate, wobei die eigentliche Dachmontage oft nur zwei bis drei Wochen in Anspruch nimmt."
-        },
-        {
-          "question": "Welche Förderungen gibt es 2026 für Firmen-Solaranlagen?",
-          "answer": "Die Einmalvergütung von Pronovo reduziert die Investitionskosten um bis zu 30 Prozent. Weitere finanzielle Anreize bestehen je nach Anlagengrösse."
         }
       ]
     },
@@ -116,8 +112,8 @@
         {
           "heading": "Surmonter les obstacles juridiques et obtenir des subventions en Suisse",
           "content": [
-            "La sécurité juridique est cruciale. La demande de raccordement au réseau nécessite une communication précise avec les entreprises de distribution électrique locales. La nouvelle restriction de l'injection à 70% rend l'ajustement entre production et consommation plus important que jamais.",
-            "Les subventions sont essentielles pour couvrir jusqu'à 30 % des coûts d'investissement grâce à la rétribution unique. Les autorisations de construire dans le secteur industriel se font généralement par voie de notification, mais une procédure régulière peut être nécessaire en cas de protection du patrimoine."
+            "La sécurité juridique est cruciale. La demande de raccordement au réseau nécessite une communication précise avec les entreprises de distribution électrique locales.",
+            "Les autorisations de construire dans le secteur industriel se font généralement par voie de notification, mais une procédure régulière peut être nécessaire en cas de protection du patrimoine."
           ],
           "highlight": "Une préparation minutieuse aux exigences juridiques et aux possibilités de subvention assure la réussite du projet."
         },
@@ -155,10 +151,6 @@
         {
           "question": "Combien de temps dure la planification et l'installation d'une installation photovoltaïque pour entreprises ?",
           "answer": "Le processus complet dure de quatre à huit mois, la pose sur le toit prenant souvent seulement deux à trois semaines."
-        },
-        {
-          "question": "Quelles aides sont prévues en 2026 pour les installations solaires d'entreprises ?",
-          "answer": "La rétribution unique de Pronovo réduit les coûts d'investissement jusqu'à 30 %. D'autres incitations financières existent selon la taille de l'installation."
         }
       ]
     },
@@ -171,7 +163,7 @@
       "date": "August 30, 2026",
       "readMin": 15,
       "tag": "Guide",
-      "intro": "Did you know that inaccurate commercial photovoltaic planning can cause your company significant loss of return over the next 25 years? Many Swiss entrepreneurs hesitate due to new regulations coming into effect in 2026. However, the path to energy independence doesn't have to be complicated. This guide shows you how to plan efficiently and safeguard against unpredictable electricity price increases.",
+      "intro": "Many Swiss entrepreneurs hesitate due to new regulations coming into effect in 2026. However, the path to energy independence doesn't have to be complicated. This guide shows you how to plan efficiently and safeguard against unpredictable electricity price increases.",
       "sections": [
         {
           "heading": "Why Professional Commercial Photovoltaic Planning is Crucial",
@@ -196,8 +188,8 @@
         {
           "heading": "Successfully Navigating Legal Hurdles and Subsidies in Switzerland",
           "content": [
-            "Legal assurance is crucial. Grid connection requests require precise communication with electricity suppliers. The new 70-percent feed-in curtailment makes the coordination between production and consumption more important than ever.",
-            "Subsidies are essential to cover up to 30% of investment costs through a one-time payment. Building permits in industrial construction are mostly done through notification procedures, although a regular procedure may be necessary for landmarks."
+            "Legal assurance is crucial. Grid connection requests require precise communication with electricity suppliers.",
+            "Building permits in industrial construction are mostly done through notification procedures, although a regular procedure may be necessary for landmarks."
           ],
           "highlight": "Careful preparation for legal requirements and subsidy opportunities ensures project success."
         },
@@ -235,10 +227,6 @@
         {
           "question": "How long does the planning and installation of a commercial PV system take?",
           "answer": "The entire process takes four to eight months, with the actual rooftop installation often taking only two to three weeks."
-        },
-        {
-          "question": "What subsidies are available in 2026 for company solar systems?",
-          "answer": "The one-time payment from Pronovo reduces investment costs by up to 30 percent. Additional financial incentives exist depending on the system size."
         }
       ]
     },
@@ -251,7 +239,7 @@
       "date": "30 agosto 2026",
       "readMin": 15,
       "tag": "Guida",
-      "intro": "Sapevate che una pianificazione del fotovoltaico aziendale imprecisa può causare al vostro business perdite di rendimento elevate nei prossimi 25 anni? Molti imprenditori svizzeri esitano a causa delle nuove regolamentazioni legali in vigore dal 2026. Tuttavia, il percorso verso l'indipendenza energetica non deve essere complicato. Questa guida vi mostra come pianificare efficacemente e come proteggervi dagli aumenti imprevisti dei prezzi dell'energia.",
+      "intro": "Molti imprenditori svizzeri esitano a causa delle nuove regolamentazioni legali in vigore dal 2026. Tuttavia, il percorso verso l'indipendenza energetica non deve essere complicato. Questa guida vi mostra come pianificare efficacemente e come proteggervi dagli aumenti imprevisti dei prezzi dell'energia.",
       "sections": [
         {
           "heading": "Perché una pianificazione professionale del fotovoltaico aziendale è cruciale",
@@ -276,8 +264,8 @@
         {
           "heading": "Superare agilmente ostacoli legali e sovvenzioni in Svizzera",
           "content": [
-            "L'assicurazione legale è cruciale. La richiesta di connessione alla rete richiede una comunicazione precisa con l'azienda elettrica. La nuova regolamentazione del taglio del 70% dell'immissione rende la coordinazione tra produzione e consumo più importante che mai.",
-            "Le sovvenzioni sono essenziali per coprire fino al 30% dei costi di investimento tramite l'incentivo unico. Le autorizzazioni edilizie per l'industria avvengono solitamente tramite procedura di notifica, ma può essere necessario un procedimento regolare per la protezione dei monumenti."
+            "L'assicurazione legale è cruciale. La richiesta di connessione alla rete richiede una comunicazione precisa con l'azienda elettrica.",
+            "Le autorizzazioni edilizie per l'industria avvengono solitamente tramite procedura di notifica, ma può essere necessario un procedimento regolare per la protezione dei monumenti."
           ],
           "highlight": "La preparazione meticolosa per le richieste legali e le possibilità di sovvenzione garantisce il successo del progetto."
         },
@@ -315,10 +303,6 @@
         {
           "question": "Quanto tempo richiedono la pianificazione e l'installazione di un impianto fotovoltaico aziendale?",
           "answer": "L'intero processo dura dai quattro agli otto mesi, mentre il montaggio sul tetto richiede spesso solo dalle due alle tre settimane."
-        },
-        {
-          "question": "Quali sovvenzioni ci sono nel 2026 per impianti solari aziendali?",
-          "answer": "Il contributo unico di Pronovo riduce il costo d'investimento fino al 30%. Ulteriori incentivi finanziari dipendono dalla dimensione dell'impianto."
         }
       ]
     }

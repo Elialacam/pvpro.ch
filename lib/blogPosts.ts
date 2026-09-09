@@ -1,3 +1,5 @@
+import { ECONOMIC_FACTS, formatSwissNumber } from './facts';
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -76,7 +78,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'solaranlage-waermepumpe-kombinieren-schweiz',
     title: 'Solaranlage mit Wärmepumpe kombinieren in der Schweiz — lohnt es sich 2026?',
-    excerpt: 'Solaranlage mit Wärmepumpe kombinieren und bis zu 70% Heizkosten sparen. Kosten, Förderungen, Amortisation und Rechenbeispiel für Schweizer Einfamilienhäuser.',
+    excerpt: 'Solaranlage mit Wärmepumpe kombinieren. Kosten, Förderungen, Amortisation und Rechenbeispiel für Schweizer Einfamilienhäuser.',
     image: '/images/solaranlage-waermepumpe-chalet-winter.webp',
     author: 'PvPro.ch Redaktion',
     date: '3. Mai 2026',
@@ -86,7 +88,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'solaranlage-steuerabzug-schweiz-2026',
     title: 'Solaranlage von der Steuer abziehen Schweiz 2026 — Letzte Chance bis 2027',
-    excerpt: "Solaranlage von der Steuer abziehen in der Schweiz: Bis Ende 2027 können Sie CHF 4'000–10'000 sparen. Kantonalvergleich, Rechenbeispiele und warum jetzt handeln.",
+    excerpt: "Solaranlage von der Steuer abziehen in der Schweiz. Kantonalvergleich, Rechenbeispiele und warum jetzt handeln.",
     image: '/images/steuererklaerung-solaranlage-schweiz.webp',
     author: 'PvPro.ch Redaktion',
     date: '3. Mai 2026',
@@ -156,7 +158,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'eigenverbrauch-optimieren-solar',
     title: 'Eigenverbrauch maximieren: So nutzen Sie Ihre Solarenergie optimal',
-    excerpt: 'Mit cleveren Strategien können Sie bis zu 80% Ihrer Solarenergie selbst verbrauchen. Von der Verbrauchsplanung bis zur Wärmepumpe — diese Tipps helfen Ihnen, das Maximum herauszuholen.',
+    excerpt: `Mit cleveren Strategien können Sie bis zu ${formatSwissNumber(ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max)}% Ihrer Solarenergie selbst verbrauchen. Von der Verbrauchsplanung bis zur Wärmepumpe — diese Tipps helfen Ihnen, das Maximum herauszuholen.`,
     image: '/images/solar-energieertrag-tablet-chalet.webp',
     author: 'PvPro.ch Redaktion',
     date: '10. Februar 2026',

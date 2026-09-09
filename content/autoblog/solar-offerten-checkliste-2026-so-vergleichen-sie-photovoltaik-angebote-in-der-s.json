@@ -32,7 +32,7 @@
         {
           "heading": "Komponenten und Leistung: Qualität erkennen und Offerten bewerten",
           "content": [
-            "Ein bekannter Name allein garantiert nicht die beste Leistung über 25 Jahre. Jedes Bauteil sollte mit einer genauen Typenbezeichnung versehen sein. Vertrauen Sie auf Tier-1-Hersteller.",
+            "Jedes Bauteil sollte mit einer genauen Typenbezeichnung versehen sein. Vertrauen Sie auf Tier-1-Hersteller.",
             "Das Montagesystem muss robust sein und auf die spezifischen Anforderungen des Standorts angepasst sein. Fragen Sie nach der statischen Berechnung für Ihren Standort.",
             "Leistungsoptimierer sind sinnvoll bei teilweiser Dachbeschattung, erhöhen aber die Kosten bei schattenfreien Dächern ohne technischen Nutzen."
           ],
@@ -45,7 +45,7 @@
           "heading": "Garantien und Rechtliches: Worauf es beim Kleingedruckten ankommt",
           "content": [
             "Viele Hausbesitzer lassen sich von langen Garantielaufzeiten blenden. Prüfen Sie, ob im Garantiefall auch Ausbau- und Neuinstallation enthalten sind.",
-            "Achten Sie auf faire Zahlungsbedingungen. Eine Anzahlung von mehr als 30 bis 50 Prozent ist ein Risiko. Setzen Sie auf geprüfte Installateure mit Schweizer Qualität."
+            "Achten Sie auf faire Zahlungsbedingungen. Setzen Sie auf geprüfte Installateure mit Schweizer Qualität."
           ],
           "highlight": "Schweizer Rechtssicherheit durch das Solarprofi-Label und lokale Ansprechpartner."
         },
@@ -60,7 +60,6 @@
       ],
       "ctaHeading": "Starten Sie jetzt sicher in Ihre solare Zukunft",
       "ctaText": "Mit der Solar Offerten Checkliste stellen Sie sicher, dass Sie ein echtes schlüsselfertiges System erhalten. Vertrauen Sie auf Schweizer Präzision und langfristige Sicherheit.",
-      "ctaButton": "Jetzt Solar-Offerten kostenlos vergleichen und bis zu 30% sparen",
       "formUrl": "/anfrage",
       "relatedSlugs": [],
       "faqs": [
@@ -108,7 +107,7 @@
         {
           "heading": "Composants et performance : Reconnaitre la qualité et évaluer les offres",
           "content": [
-            "Un nom connu ne garantit pas à lui seul la meilleure performance sur 25 ans. Chaque composant doit être accompagné d'une désignation précise du type. Faites confiance aux fabricants de niveau 1.",
+            "Chaque composant doit être accompagné d'une désignation précise du type. Faites confiance aux fabricants de niveau 1.",
             "Le système de montage doit être robuste et adapté aux exigences spécifiques de l'emplacement. Demandez le calcul statique pour votre site.",
             "Les optimiseurs de performance sont utiles en cas de doute d'ombrage partiel du toit, mais augmentent les coûts sur les toits dégagés sans utilité technique."
           ],
@@ -121,7 +120,7 @@
           "heading": "Garanties et aspects juridiques : Ce qu'il faut examiner dans les petites lignes",
           "content": [
             "Beaucoup de propriétaires sont éblouis par de longues durées de garantie. Vérifiez si, en cas de garantie, le démontage et la réinstallation sont également inclus.",
-            "Veillez à des conditions de paiement équitables. Un acompte de plus de 30 à 50 pour cent représente un risque. Optez pour des installateurs éprouvés avec la qualité suisse."
+            "Veillez à des conditions de paiement équitables. Optez pour des installateurs éprouvés avec la qualité suisse."
           ],
           "highlight": "Sécurité juridique suisse grâce au label Solarprofi et aux interlocuteurs locaux."
         },
@@ -136,7 +135,6 @@
       ],
       "ctaHeading": "Lancez-vous maintenant en toute sécurité dans votre avenir solaire",
       "ctaText": "Grâce à la checkliste pour les offres solaires, vous vous assurez d'obtenir un véritable système clé en main. Faites confiance à la précision suisse et à la sécurité à long terme.",
-      "ctaButton": "Comparez dès maintenant les offres solaires gratuitement et économisez jusqu'à 30%",
       "formUrl": "/fr/demande",
       "relatedSlugs": [],
       "faqs": [
@@ -184,7 +182,7 @@
         {
           "heading": "Components and Performance: Recognizing Quality and Evaluating Offers",
           "content": [
-            "A well-known name alone does not guarantee the best performance over 25 years. Each component should be specified with an exact type designation. Trust Tier-1 manufacturers.",
+            "Each component should be specified with an exact type designation. Trust Tier-1 manufacturers.",
             "The mounting system must be robust and tailored to the specific requirements of the site. Ask for the static calculation for your location.",
             "Performance optimizers are useful for partial roof shading, but increase costs if there is no technical benefit for unshaded roofs."
           ],
@@ -197,7 +195,7 @@
           "heading": "Warranties and Legal Matters: What Counts in the Fine Print",
           "content": [
             "Many homeowners are blinded by long warranty periods. Check if dismantling and reinstallation are included in the event of a warranty claim.",
-            "Pay attention to fair payment terms. A down payment of more than 30 to 50 percent is a risk. Choose verified installers with Swiss quality."
+            "Pay attention to fair payment terms. Choose verified installers with Swiss quality."
           ],
           "highlight": "Swiss legal security through the Solarprofi label and local contacts."
         },
@@ -207,12 +205,11 @@
             "An independent mediation platform like PVPro.ch offers protection and structure. We act as gatekeepers for quality.",
             "Our service is free and non-binding. We ensure that the offers you receive are truly comparable."
           ],
-          "highlight": "Over 25 verified partner installers offer vetted offers. "
+          "highlight": "Over 25 verified partner installers offer vetted offers."
         }
       ],
       "ctaHeading": "Start Your Solar Future Securely Now",
       "ctaText": "With the Solar Offer Checklist, ensure you get a genuine turnkey system. Trust in Swiss precision and long-term security.",
-      "ctaButton": "Compare Solar Offers for Free Now and Save Up to 30%",
       "formUrl": "/en/request",
       "relatedSlugs": [],
       "faqs": [
@@ -260,7 +257,7 @@
         {
           "heading": "Componenti e prestazioni: Riconoscere la qualità e valutare le offerte",
           "content": [
-            "Un nome noto da solo non garantisce la migliore prestazione per 25 anni. Ogni componente dovrebbe avere una precisa denominazione di tipo. Affidati ai produttori Tier-1.",
+            "Ogni componente dovrebbe avere una precisa denominazione di tipo. Affidati ai produttori Tier-1.",
             "Il sistema di montaggio deve essere robusto e adattato alle specifiche esigenze del sito. Chiedi il calcolo statico per il tuo luogo.",
             "Gli ottimizzatori di prestazione sono utili in caso di parziale ombreggiamento del tetto, ma aumentano i costi su tetti senza ombre senza utilità tecnica."
           ],
@@ -273,7 +270,7 @@
           "heading": "Garanzie e aspetti legali: Cosa considerare nelle clausole",
           "content": [
             "Molti proprietari di casa sono ingannati da lunghe durate delle garanzie. Verifica se nel caso di garanzia sono inclusi anche lo smontaggio e la reinstallazione.",
-            "Fai attenzione a condizioni di pagamento eque. Un anticipo superiore al 30-50% rappresenta un rischio. Affidati a installatori certificati con qualità svizzera."
+            "Fai attenzione a condizioni di pagamento eque. Affidati a installatori certificati con qualità svizzera."
           ],
           "highlight": "Sicurezza giuridica svizzera grazie al label Solarprofi e a contatti locali."
         },
@@ -288,7 +285,6 @@
       ],
       "ctaHeading": "Inizia ora sicuro nel tuo futuro solare",
       "ctaText": "Con la Checklist Offerte Solari ti assicuri di ottenere un sistema realmente chiavi in mano. Affidati alla precisione svizzera e a una sicurezza a lungo termine.",
-      "ctaButton": "Ora confronta offerte solari gratuitamente e risparmia fino al 30%",
       "formUrl": "/it/richiesta",
       "relatedSlugs": [],
       "faqs": [

@@ -139,7 +139,7 @@ export default function AboutUsPage() {
             </h2>
             <div className="flex flex-col gap-5">
               {[
-                { title: 'Free service', text: 'Our service is 100% free for homeowners. We are funded solely by installer commissions — at no extra cost to you.' },
+    { title: 'Free service', text: 'Our service is free for homeowners. We are funded solely by installer commissions — at no extra cost to you.' },
                 { title: 'No obligations', text: 'You decide whether and which offer you accept. No pressure, no minimum order, no contractual penalty.' },
                 { title: 'Verified quality', text: 'We screen every installer before admitting them to the network. Certificates, references, proof of insurance and customer ratings are mandatory.' },
               ].map((item) => (

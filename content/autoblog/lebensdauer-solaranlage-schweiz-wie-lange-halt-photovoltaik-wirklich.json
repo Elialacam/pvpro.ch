@@ -11,27 +11,17 @@
       "date": "27. August 2026",
       "readMin": 15,
       "tag": "Ratgeber",
-      "intro": "Viele der ersten Photovoltaikanlagen in der Schweiz erbringen auch nach mehr als 30 Jahren noch 80% ihrer Leistung. Trotz extremen Wetterbedingungen und Ungewissheiten bezüglich Reparaturkosten können Solaranlagen länger halten als viele erwarten. Erfahren Sie, wie Sie die Haltbarkeit Ihrer Anlage durch gezielte Massnahmen optimieren und Ihre Investition sichern.",
+      "intro": "Trotz extremen Wetterbedingungen und Ungewissheiten bezüglich Reparaturkosten können Solaranlagen länger halten als viele erwarten. Erfahren Sie, wie Sie die Haltbarkeit Ihrer Anlage durch gezielte Massnahmen optimieren und Ihre Investition sichern.",
       "sections": [
-        {
-          "heading": "Grundlagen der Haltbarkeit von Solaranlagen in der Schweiz",
-          "content": [
-            "Häufig werden für Photovoltaikanlagen Leistungsgarantien von 25 Jahren gegeben. Tatsächlich übersteigen viele Anlagen diesen Zeitraum deutlich. Modernste Materialien und Technologien ermöglichen eine Lebensdauer von bis zu 40 Jahren, wobei viele Anlagen aufgrund ihrer Bauweise und Qualität selbst nach Jahrzehnten noch Strom liefern.",
-            "Der natürliche Alterungsprozess, auch als Degradation bekannt, führt bei modernen Modulen zu einem geringen jährlichen Leistungsverlust von 0.3% bis 0.5%. Besonders N-Type Zellen bieten eine hohe Stabilität und bleiben auch nach 30 Jahren effizient.",
-            "Während die finanzielle Amortisation oft innerhalb von 10 bis 15 Jahren erreicht wird, ermöglicht die lange technische Lebensdauer von über 30 Jahren eine zusätzliche Phase mit „Gratis-Strom“, die die Rendite erheblich steigert."
-          ],
-          "highlight": "Moderne Solaranlagen können weit über 30 Jahre Strom liefern, was zu einem langfristigen finanziellen Vorteil führt."
-        },
         {
           "heading": "Die Lebensdauer der Komponenten: Module, Wechselrichter und mehr",
           "content": [
             "Die Lebensdauer einer Solaranlage ist vom Zusammenspiel ihrer Komponenten abhängig. Solarmodule aus Glas-Glas beispielsweise bieten Schutz gegen Feuchtigkeit und Mechanik, was ihre Lebensdauer deutlich verlängert.",
-            "Wechselrichter, die den Strom umwandeln, haben eine kürzere Lebensdauer von etwa 12 bis 15 Jahren aufgrund thermischer Belastungen. Auch Batteriespeicher altern über die Jahre, sind aber entscheidend für ein effektives Management des Eigenverbrauchs.",
             "Regelmässige Software-Updates und die Verfügbarkeit von Ersatzteilen sind Faktoren, die die Lebensdauer entscheidend verlängern können."
           ],
           "bullets": [
             "Glas-Glas-Module bieten besseren Schutz und eine längere Haltbarkeit.",
-            "Wechselrichter sollten nach 12-15 Jahren ersetzt oder modernisiert werden.",
+            "Bei Wechselrichtern hängen Wartung und Ersatz vom Zustand, vom Modell und von der Ersatzteilverfügbarkeit ab.",
             "Ersatzteilverfügbarkeit ist entscheidend für die langfristige Funktionalität."
           ]
         },
@@ -74,12 +64,8 @@
       "relatedSlugs": [],
       "faqs": [
         {
-          "question": "Wie lange halten Solarmodule in der Schweiz wirklich?",
-          "answer": "Moderne Solarmodule sind in der Schweiz so konzipiert, dass sie 30 bis 40 Jahre lang Strom produzieren können. Selbst nach Ablauf der Leistungsgarantien bleibt ihre Funktion intakt, mit nur minimalem jährlichen Leistungsverlust."
-        },
-        {
-          "question": "Muss ich den Wechselrichter nach 15 Jahren zwingend ersetzen?",
-          "answer": "Der Wechselrichter ist oft nach 12 bis 15 Jahren wartungs- oder austauschbedürftig. Sollte er jedoch noch gut funktionieren, ist ein früher Austausch nicht zwingend, kann aber den Wirkungsgrad erhöhen und neue Funktionen bieten."
+          "question": "Wann muss ich den Wechselrichter ersetzen?",
+          "answer": "Ein Austausch ist nötig, wenn der Zustand, ein Defekt oder fehlende Ersatzteile dies erfordern. Ein funktionierendes Gerät muss nicht vorsorglich ersetzt werden."
         },
         {
           "question": "Haben Glas-Glas-Module eine längere Lebensdauer?",
@@ -96,27 +82,17 @@
       "date": "27 août 2026",
       "readMin": 15,
       "tag": "Guide",
-      "intro": "Beaucoup des premières installations photovoltaïques en Suisse fournissent encore 80 % de leur performance après plus de 30 ans. Malgré les conditions météorologiques extrêmes et les incertitudes concernant les coûts de réparation, les installations solaires peuvent durer plus longtemps que ce que beaucoup anticipent. Découvrez comment optimiser la durabilité de votre installation à travers des mesures ciblées et sécuriser votre investissement.",
+      "intro": "Malgré les conditions météorologiques extrêmes et les incertitudes concernant les coûts de réparation, les installations solaires peuvent durer plus longtemps que ce que beaucoup anticipent. Découvrez comment optimiser la durabilité de votre installation à travers des mesures ciblées et sécuriser votre investissement.",
       "sections": [
-        {
-          "heading": "Bases de la durabilité des installations solaires en Suisse",
-          "content": [
-            "Les garanties de performance pour les installations photovoltaïques sont souvent fixées à 25 ans. En réalité, de nombreuses installations dépassent largement cette période. Les matériaux et technologies de pointe permettent une durée de vie allant jusqu'à 40 ans, bien des installations continuant à produire de l'électricité même après des décennies grâce à leur construction et qualité.",
-            "Le processus naturel de vieillissement, également connu sous le nom de dégradation, entraîne une perte de performance annuelle faible de 0,3 % à 0,5 % dans les modules modernes. Les cellules de type N offrent particulièrement une grande stabilité et restent efficaces après 30 ans.",
-            "Bien que l'amortissement financier soit souvent atteint en 10 à 15 ans, la longue durabilité technique de plus de 30 ans permet une phase supplémentaire d'« électricité gratuite », ce qui augmente considérablement le rendement."
-          ],
-          "highlight": "Les installations solaires modernes peuvent fournir de l'électricité pendant plus de 30 ans, offrant ainsi un avantage financier à long terme."
-        },
         {
           "heading": "La durée de vie des composants : modules, onduleurs et plus",
           "content": [
             "La durée de vie d'une installation solaire dépend de l'interaction de ses composants. Par exemple, les modules solaires en verre-verre offrent une protection contre l'humidité et les contraintes mécaniques, ce qui prolonge considérablement leur durée de vie.",
-            "Les onduleurs, qui convertissent l'électricité, ont une durée de vie plus courte d'environ 12 à 15 ans en raison des charges thermiques. Les batteries vieillissent également au fil des ans, mais sont essentielles pour une gestion efficace de l'autoconsommation.",
             "Les mises à jour logicielles régulières et la disponibilité des pièces de rechange sont des facteurs cruciaux pour prolonger significativement la durée de vie."
           ],
           "bullets": [
             "Les modules verre-verre offrent une meilleure protection et une durabilité accrue.",
-            "Les onduleurs devraient être remplacés ou modernisés après 12-15 ans.",
+            "Pour les onduleurs, l'entretien et le remplacement dépendent de l'état, du modèle et de la disponibilité des pièces.",
             "La disponibilité des pièces détachées est essentielle pour une fonctionnalité à long terme."
           ]
         },
@@ -159,12 +135,8 @@
       "relatedSlugs": [],
       "faqs": [
         {
-          "question": "Quelle est la durée de vie réelle des modules solaires en Suisse ?",
-          "answer": "Les modules solaires modernes sont conçus en Suisse pour produire de l'électricité pendant 30 à 40 ans. Même après l'expiration des garanties de performance, leur fonction reste intacte, avec seulement une perte de performance annuelle minimale."
-        },
-        {
-          "question": "Dois-je absolument remplacer l'onduleur après 15 ans ?",
-          "answer": "L'onduleur nécessite souvent un entretien ou un remplacement après 12 à 15 ans. Cependant, s'il fonctionne encore bien, un remplacement anticipé n'est pas obligatoire mais peut améliorer l'efficacité et offrir de nouvelles fonctionnalités."
+          "question": "Quand faut-il remplacer l'onduleur ?",
+          "answer": "Un remplacement est nécessaire si l'état, une panne ou l'absence de pièces détachées l'exige. Un appareil fonctionnel ne doit pas être remplacé par précaution."
         },
         {
           "question": "Les modules verre-verre ont-ils une durée de vie plus longue ?",
@@ -181,27 +153,17 @@
       "date": "August 27, 2026",
       "readMin": 15,
       "tag": "Guide",
-      "intro": "Many early photovoltaic systems in Switzerland still deliver 80% of their performance even after more than 30 years. Despite extreme weather conditions and uncertainties regarding repair costs, solar systems can last longer than many expect. Learn how to optimize the durability of your system with targeted measures and secure your investment.",
+      "intro": "Despite extreme weather conditions and uncertainties regarding repair costs, solar systems can last longer than many expect. Learn how to optimize the durability of your system with targeted measures and secure your investment.",
       "sections": [
-        {
-          "heading": "Basics of Solar System Durability in Switzerland",
-          "content": [
-            "Photovoltaic systems often come with performance guarantees of 25 years. In reality, many exceed this period significantly. The latest materials and technologies allow for a lifespan of up to 40 years, with many systems continuing to generate electricity decades later due to their construction and quality.",
-            "The natural aging process, also known as degradation, results in a low annual performance loss of 0.3% to 0.5% for modern modules. N-Type cells, in particular, offer high stability and remain efficient even after 30 years.",
-            "While financial amortization is often achieved within 10 to 15 years, the long technical lifespan of over 30 years allows for an additional phase of 'free electricity', thereby significantly increasing the return on investment."
-          ],
-          "highlight": "Modern solar systems can supply electricity for well over 30 years, leading to a long-term financial advantage."
-        },
         {
           "heading": "The Lifespan of the Components: Modules, Inverters, and More",
           "content": [
             "The lifespan of a solar system depends on the interaction of its components. For example, glass-glass solar modules offer protection against moisture and mechanical impact, significantly extending their lifespan.",
-            "Inverters, which convert the electricity, have a shorter lifespan of about 12 to 15 years due to thermal stress. Batteries also age over time but are crucial for effective management of self-consumption.",
             "Regular software updates and the availability of spare parts are factors that can significantly prolong the lifespan."
           ],
           "bullets": [
             "Glass-glass modules offer better protection and longer durability.",
-            "Inverters should be replaced or upgraded after 12-15 years.",
+            "Inverter maintenance and replacement depend on condition, model and spare-part availability.",
             "Availability of spare parts is crucial for long-term functionality."
           ]
         },
@@ -244,12 +206,8 @@
       "relatedSlugs": [],
       "faqs": [
         {
-          "question": "How long do solar modules in Switzerland actually last?",
-          "answer": "Modern solar modules in Switzerland are designed to produce electricity for 30 to 40 years. Even after warranty periods end, they remain functional with minimal annual performance loss."
-        },
-        {
-          "question": "Do I have to replace the inverter after 15 years?",
-          "answer": "The inverter often requires maintenance or replacement after 12 to 15 years. However, if it is still functioning well, early replacement is not mandatory but can improve efficiency and offer new features."
+          "question": "When should I replace the inverter?",
+          "answer": "Replacement is needed when its condition, a fault or unavailable spare parts make it necessary. A working unit does not need precautionary replacement."
         },
         {
           "question": "Do glass-glass modules have a longer lifespan?",
@@ -266,27 +224,17 @@
       "date": "27 agosto 2026",
       "readMin": 15,
       "tag": "Guida",
-      "intro": "Molti dei primi impianti fotovoltaici in Svizzera generano ancora il 80% della loro potenza anche dopo oltre 30 anni. Nonostante condizioni meteorologiche estreme e incertezze sui costi di riparazione, gli impianti solari possono durare più a lungo di quanto molti si aspettino. Scoprite come ottimizzare la durata del vostro impianto attraverso misure mirate e proteggere il vostro investimento.",
+      "intro": "Nonostante condizioni meteorologiche estreme e incertezze sui costi di riparazione, gli impianti solari possono durare più a lungo di quanto molti si aspettino. Scoprite come ottimizzare la durata del vostro impianto attraverso misure mirate e proteggere il vostro investimento.",
       "sections": [
-        {
-          "heading": "Fondamenti della durata degli impianti solari in Svizzera",
-          "content": [
-            "Spesso vengono offerte garanzie di rendimento di 25 anni per gli impianti fotovoltaici. In realtà, molti impianti superano di gran lunga questo periodo. Materiali e tecnologie modernissime consentono una durata fino a 40 anni, con molti impianti che, grazie alla loro costruzione e qualità, producono elettricità anche dopo decenni.",
-            "Il naturale processo di invecchiamento, noto anche come degrado, comporta per i moduli moderni una piccola perdita di prestazioni annuale dello 0,3% fino allo 0,5%. Le celle di tipo N offrono particolare stabilità e rimangono efficienti anche dopo 30 anni.",
-            "Mentre l'ammortamento finanziario viene spesso raggiunto entro 10-15 anni, la lunga durata tecnica di oltre 30 anni consente una fase aggiuntiva di „elettricità gratuita“, che aumenta significativamente il rendimento."
-          ],
-          "highlight": "Gli impianti solari moderni possono fornire elettricità per oltre 30 anni, portando a un vantaggio finanziario a lungo termine."
-        },
         {
           "heading": "Durata delle componenti: Moduli, Inverter e altro",
           "content": [
             "La durata di un impianto solare dipende dall'interazione delle sue componenti. I moduli solari in vetro-vetro, ad esempio, offrono protezione contro umidità e urti, prolungandone significativamente la durata.",
-            "Gli inverter, che convertono l'elettricità, hanno una durata più breve di circa 12-15 anni a causa degli sforzi termici. Anche le batterie invecchiano nel tempo, ma sono fondamentali per una gestione efficace dell'auto-consumo.",
             "Aggiornamenti software regolari e la disponibilità di pezzi di ricambio sono fattori che possono prolungare notevolmente la durata."
           ],
           "bullets": [
             "I moduli in vetro-vetro offrono una migliore protezione e una maggiore durata.",
-            "Gli inverter dovrebbero essere sostituiti o aggiornati dopo 12-15 anni.",
+            "Per gli inverter, manutenzione e sostituzione dipendono dallo stato, dal modello e dalla disponibilità dei ricambi.",
             "La disponibilità di pezzi di ricambio è cruciale per la funzionalità a lungo termine."
           ]
         },
@@ -329,12 +277,8 @@
       "relatedSlugs": [],
       "faqs": [
         {
-          "question": "Quanto durano veramente i moduli solari in Svizzera?",
-          "answer": "I moduli solari moderni sono progettati in Svizzera per produrre elettricità per 30-40 anni. Anche dopo la scadenza delle garanzie di rendimento, la loro funzione rimane intatta, con solo una minima perdita di prestazioni annuale."
-        },
-        {
-          "question": "Devo necessariamente sostituire l'inverter dopo 15 anni?",
-          "answer": "L'inverter spesso necessita manutenzione o sostituzione dopo 12-15 anni. Tuttavia, se funziona ancora bene, una sostituzione precoce non è obbligatoria, ma può migliorare l'efficienza e offrire nuove funzionalità."
+          "question": "Quando devo sostituire l'inverter?",
+          "answer": "La sostituzione è necessaria se lo stato, un guasto o la mancanza di ricambi lo richiedono. Un apparecchio funzionante non va sostituito in via preventiva."
         },
         {
           "question": "I moduli in vetro-vetro hanno una durata maggiore?",

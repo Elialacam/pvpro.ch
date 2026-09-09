@@ -7,6 +7,7 @@ import LanguageSwitcher from './LanguageSwitcher';
 import { useLocale } from '@/lib/LocaleContext';
 import { usePathname } from 'next/navigation';
 import { getFormUrl } from '@/lib/i18n/formUrls';
+import { ECONOMIC_FACTS } from '@/lib/facts';
 import {
   ChevronDown, Sun, Zap, Star, ArrowRight,
   Home, BarChart2, Battery, Calculator, Layers,
@@ -71,7 +72,7 @@ function getNavItems(locale: string): NavItem[] {
         viewAllHref: '/foerderungen',
         viewAllLabel: 'Mehr erfahren',
         items: [
-          { icon: <Award className="w-5 h-5" />, title: 'Einmalvergütung (EIV)', subtitle: 'Bundesförderung bis 30%', href: '/foerderungen' },
+          { icon: <Award className="w-5 h-5" />, title: 'Einmalvergütung (EIV)', subtitle: `Bundesförderung ${ECONOMIC_FACTS.incentives.federalSharePercent.min} bis ${ECONOMIC_FACTS.incentives.federalSharePercent.max}%`, href: '/foerderungen' },
           { icon: <Percent className="w-5 h-5" />, title: 'Kantonale Förderung', subtitle: 'Ihr Kanton, Ihr Beitrag', href: '/foerderungen' },
           { icon: <FileText className="w-5 h-5" />, title: 'Steuerliche Abzüge', subtitle: 'Solar in der Steuererklärung', href: '/foerderungen' },
         ],
@@ -130,7 +131,7 @@ function getNavItems(locale: string): NavItem[] {
         viewAllHref: '/fr/subventions-solaires',
         viewAllLabel: 'En savoir plus',
         items: [
-          { icon: <Award className="w-5 h-5" />, title: 'Rétribution unique (RU)', subtitle: "Aide fédérale jusqu'à 30%", href: '/fr/subventions-solaires' },
+          { icon: <Award className="w-5 h-5" />, title: 'Rétribution unique (RU)', subtitle: `Aide fédérale de ${ECONOMIC_FACTS.incentives.federalSharePercent.min} à ${ECONOMIC_FACTS.incentives.federalSharePercent.max}%`, href: '/fr/subventions-solaires' },
           { icon: <Percent className="w-5 h-5" />, title: 'Subventions cantonales', subtitle: 'Votre canton, votre aide', href: '/fr/subventions-solaires' },
           { icon: <FileText className="w-5 h-5" />, title: 'Déductions fiscales', subtitle: 'Solaire dans vos impôts', href: '/fr/subventions-solaires' },
         ],
@@ -189,7 +190,7 @@ function getNavItems(locale: string): NavItem[] {
         viewAllHref: '/en/solar-subsidies',
         viewAllLabel: 'Learn more',
         items: [
-          { icon: <Award className="w-5 h-5" />, title: 'One-time payment (OTP)', subtitle: 'Federal subsidy up to 30%', href: '/en/solar-subsidies' },
+          { icon: <Award className="w-5 h-5" />, title: 'One-time payment (OTP)', subtitle: `Federal subsidy ${ECONOMIC_FACTS.incentives.federalSharePercent.min} to ${ECONOMIC_FACTS.incentives.federalSharePercent.max}%`, href: '/en/solar-subsidies' },
           { icon: <Percent className="w-5 h-5" />, title: 'Cantonal subsidies', subtitle: 'Your canton, your support', href: '/en/solar-subsidies' },
           { icon: <FileText className="w-5 h-5" />, title: 'Tax deductions', subtitle: 'Solar on your tax return', href: '/en/solar-subsidies' },
         ],
@@ -248,7 +249,7 @@ function getNavItems(locale: string): NavItem[] {
         viewAllHref: '/it/incentivi-solari',
         viewAllLabel: 'Scopri di più',
         items: [
-          { icon: <Award className="w-5 h-5" />, title: 'Remunerazione unica (RU)', subtitle: 'Sussidio federale fino al 30%', href: '/it/incentivi-solari' },
+          { icon: <Award className="w-5 h-5" />, title: 'Remunerazione unica (RU)', subtitle: `Incentivo federale dal ${ECONOMIC_FACTS.incentives.federalSharePercent.min} al ${ECONOMIC_FACTS.incentives.federalSharePercent.max}%`, href: '/it/incentivi-solari' },
           { icon: <Percent className="w-5 h-5" />, title: 'Contributi cantonali', subtitle: 'Il tuo cantone, il tuo aiuto', href: '/it/incentivi-solari' },
           { icon: <FileText className="w-5 h-5" />, title: 'Deduzioni fiscali', subtitle: 'Solare nella dichiarazione', href: '/it/incentivi-solari' },
         ],

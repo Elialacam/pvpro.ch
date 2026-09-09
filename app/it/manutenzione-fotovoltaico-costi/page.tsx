@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRight, Shield, Wrench, CheckCircle, AlertCircle } fr
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Manutenzione fotovoltaico costi Svizzera 2026 – Quanto costa la manutenzione? | PvPro.ch',
@@ -34,11 +35,11 @@ const faqs = [
   },
   {
     question: "Quanto costa un contratto di manutenzione per un impianto solare?",
-    answer: "Molti installatori offrono contratti di manutenzione per CHF 150–300 all'anno, che comprendono un'ispezione annuale e piccole riparazioni.",
+    answer: "Il prezzo dipende dall'impianto e dalle prestazioni incluse. Richiedi un preventivo che distingua ispezione, pulizia e riparazioni.",
   },
   {
     question: "Quanto dura un inverter?",
-    answer: "Gli inverter durano tipicamente 10–15 anni. Una sostituzione costa tra CHF 1'500 e 3'000 a seconda del modello.",
+    answer: "La durata e il costo di sostituzione dipendono dal modello, dalla potenza e dalla garanzia del produttore.",
   },
   {
     question: "Perdo la garanzia se faccio la manutenzione da solo?",
@@ -64,11 +65,10 @@ const prestazioni = [
 ];
 
 const costi = [
-  { prestazione: "Ispezione annuale (senza pulizia)", costo: "CHF 100–200" },
-  { prestazione: "Pulizia moduli", costo: "CHF 100–300 a seconda delle dimensioni" },
-  { prestazione: "Sostituzione inverter (dopo 10–15 anni)", costo: "CHF 1'500–3'000" },
-  { prestazione: "Riparazione piccoli danni", costo: "CHF 200–500" },
-  { prestazione: "Costi annuali totali (media)", costo: "CHF 150–300/anno", highlight: true },
+  { prestazione: "Ispezione", costo: "Su preventivo" },
+  { prestazione: "Pulizia moduli", costo: "Su preventivo" },
+  { prestazione: "Sostituzione inverter", costo: "Su preventivo" },
+  { prestazione: "Riparazione", costo: "Su preventivo", highlight: true },
 ];
 
 const frequenze = [
@@ -76,14 +76,14 @@ const frequenze = [
   { misura: "Ispezione professionale", frequenza: "1x all'anno" },
   { misura: "Pulizia moduli", frequenza: "Secondo necessità, min. 1x all'anno" },
   { misura: "Controllo inverter", frequenza: "1x all'anno" },
-  { misura: "Controllo elettrico", frequenza: "Ogni 2–3 anni" },
-  { misura: "Sostituzione inverter", frequenza: "Dopo 10–15 anni" },
+  { misura: "Controllo elettrico", frequenza: "Secondo le indicazioni dell'installatore" },
+  { misura: "Sostituzione inverter", frequenza: "Secondo stato e garanzia" },
 ];
 
 const garanzie = [
-  { comp: 'Moduli', testo: '25–30 anni di garanzia di prestazione (min. 80% della potenza nominale)' },
-  { comp: 'Inverter', testo: '5–12 anni di garanzia del produttore, prorogabile' },
-  { comp: 'Montaggio', testo: "Dipende dall'installatore, tipicamente 5–10 anni" },
+  { comp: 'Moduli', testo: `${formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'anni', 'it')}; garanzia di prestazione ${ECONOMIC_FACTS.performanceWarranty.percent}% dopo ${ECONOMIC_FACTS.performanceWarranty.afterYears} anni` },
+  { comp: 'Inverter', testo: 'Dipende dal produttore e dal modello' },
+  { comp: 'Montaggio', testo: "Dipende dall'installatore" },
 ];
 
 export default function ManutenzioneFotovoltaicoCostiPage() {
@@ -107,14 +107,13 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
               Manutenzione di un impianto fotovoltaico in Svizzera — Costi e processo
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Un impianto fotovoltaico richiede poca manutenzione — ma non nessuna. Chi controlla e mantiene regolarmente il proprio impianto garantisce la piena potenza per tutta la durata di vita di 25–30 anni. Questa pagina spiega cosa comporta la manutenzione, quanto costa e con quale frequenza l&apos;impianto deve essere controllato.
+               Un impianto fotovoltaico richiede poca manutenzione — ma non nessuna. Questa pagina spiega cosa comporta la manutenzione, quanto costa e con quale frequenza l&apos;impianto deve essere controllato.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: "CHF 150–300", sub: "costi di manutenzione tipici all'anno", note: "incl. ispezione e piccola pulizia" },
               { val: "1x all'anno", sub: "ispezione raccomandata", note: "professionale da azienda specializzata" },
-              { val: "25–30 anni", sub: "durata di vita con buona manutenzione", note: "con garanzia di prestazione dei produttori" },
+               { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'anni', 'it'), sub: "durata dei moduli", note: SOURCE_NOTES.it },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -136,18 +135,17 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
               Perché la manutenzione è importante?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Un impianto trascurato produce meno elettricità — spesso senza che il proprietario se ne accorga. Moduli sporchi, connessioni allentate o un inverter che invecchia possono ridurre la produzione del 10–20%.
+               Un impianto trascurato può produrre meno elettricità senza che il proprietario se ne accorga.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              Una manutenzione regolare protegge il tuo investimento e garantisce che l&apos;impianto funzioni sempre al livello ottimale — per tutta la durata di vita di 25–30 anni.
+               Una manutenzione regolare protegge il tuo investimento e aiuta a mantenere l&apos;impianto efficiente.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { icon: <AlertCircle className="w-5 h-5" />, label: 'Impianto non manutenuto', val: '−10–20% di resa', color: 'bg-red-50 border-red-200 text-red-700' },
-              { icon: <CheckCircle className="w-5 h-5" />, label: 'Impianto manutenuto', val: '100% di prestazione', color: 'bg-green-50 border-green-200 text-green-700' },
-              { icon: <Shield className="w-5 h-5" />, label: 'Protezione garanzia', val: '25–30 anni', color: 'bg-blue-50 border-blue-200 text-blue-700' },
-              { icon: <Wrench className="w-5 h-5" />, label: 'Costi di manutenzione', val: 'da CHF 150/anno', color: 'bg-orange-50 border-orange-200 text-orange-700' },
+               { icon: <CheckCircle className="w-5 h-5" />, label: 'Impianto manutenuto', val: 'Controllo regolare', color: 'bg-green-50 border-green-200 text-green-700' },
+               { icon: <Shield className="w-5 h-5" />, label: 'Protezione garanzia', val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'anni', 'it'), color: 'bg-blue-50 border-blue-200 text-blue-700' },
+               { icon: <Wrench className="w-5 h-5" />, label: 'Costi di manutenzione', val: 'Su preventivo', color: 'bg-orange-50 border-orange-200 text-orange-700' },
             ].map(item => (
               <div key={item.label} className={`rounded-2xl p-5 border ${item.color} flex flex-col items-center text-center gap-2`}>
                 {item.icon}
@@ -183,7 +181,7 @@ export default function ManutenzioneFotovoltaicoCostiPage() {
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Panoramica costi</p>
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-5">Quanto costa la manutenzione in Svizzera?</h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-5">
-              Nell&apos;arco della durata di vita di 25 anni, ciò corrisponde a costi di manutenzione di ca. CHF 4&apos;000–7&apos;500 — una piccola somma rispetto all&apos;investimento totale.
+               I costi dipendono dalle prestazioni incluse, dall&apos;accessibilità del tetto e dallo stato dell&apos;impianto.
             </p>
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
               <table className="w-full text-sm">

@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText } from 'lucide-rea
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, ELECTRICITY_TARIFF_NOTES, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatChfForLocale, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar Subsidies Canton Zurich 2026 – OUR, solar obligation & grants | PvPro.ch',
@@ -30,7 +31,7 @@ export const metadata: Metadata = pageMetadata({
 const faqs = [
   {
     question: 'How much is the subsidy for a solar system in Canton Zurich?',
-    answer: "The federal subsidy (OUR) is approximately CHF 300–400 per kWp. For a 10 kWp system that is around CHF 3,500. In addition there are cantonal programmes and tax deductions.",
+    answer: `Pronovo pays ${formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')} per kWp up to 30 kWp, plus a base contribution. For 10 kWp, the indicative amount is ${formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en')}.`,
   },
   {
     question: 'Does the solar obligation also apply to existing homes in Canton Zurich?',
@@ -87,9 +88,10 @@ export default function SolarSubsidiesCantonZurichPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: 'CHF 300–400/kWp', sub: 'Federal subsidy OUR', note: 'one-time payment after installation' },
+              { val: `${formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')}/kWp`, sub: 'Federal subsidy OUR', note: 'up to 30 kWp, plus base contribution' },
               { val: 'Solar obligation', sub: 'since 2023 for new builds', note: 'applies throughout Canton Zurich' },
-              { val: '7–9 years', sub: 'Payback in Canton ZH', note: 'thanks to subsidies and low electricity costs' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en'), sub: 'Payback in Canton Zurich', note: 'indicative range' },
+              { val: `${ECONOMIC_FACTS.cantonElectricityCtPerKwh.ZH} ct/kWh`, sub: 'Electricity tariff', note: ELECTRICITY_TARIFF_NOTES.en },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -118,7 +120,7 @@ export default function SolarSubsidiesCantonZurichPage() {
             </p>
             <ul className="space-y-3 mb-6">
               {[
-                "Amount: approximately CHF 300–400 per kWp of installed capacity",
+                `Amount: ${formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')} per kWp up to 30 kWp, plus a base contribution`,
                 "Paid out once after installation",
                 "No annual application required",
                 "The installer typically handles the registration for you",
@@ -131,7 +133,7 @@ export default function SolarSubsidiesCantonZurichPage() {
             </ul>
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="text-orange-800 text-sm leading-relaxed">
-                For a typical 10 kWp system this means a subsidy of approximately <strong>CHF 3,500</strong>.
+                 For a 10 kWp system, the indicative subsidy is <strong>{formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en')}</strong>.
               </p>
             </div>
           </div>
@@ -140,10 +142,9 @@ export default function SolarSubsidiesCantonZurichPage() {
               <p className="text-white/60 text-xs font-bold uppercase tracking-widest mb-5">OUR — Sample calculation 10 kWp</p>
               <div className="space-y-4">
                 {[
-                  { label: 'Installation costs', value: 'CHF 28,000' },
-                  { label: 'Federal subsidy OUR', value: '− CHF 3,500' },
-                  { label: 'Tax deduction (approx.)', value: '− CHF 2,800' },
-                  { label: 'Effective costs', value: 'approx. CHF 21,700', highlight: true },
+                  { label: 'Installation costs', value: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en') },
+                  { label: 'Federal subsidy OUR', value: `− ${formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en')}` },
+                  { label: 'Effective costs after OUR', value: formatRangeForLocale({ min: getSystemCostRange(10).min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: getSystemCostRange(10).max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF', 'en'), highlight: true },
                 ].map(r => (
                   <div key={r.label} className={`flex justify-between items-center rounded-xl px-5 py-3 ${r.highlight ? 'bg-orange-500/20 border border-orange-500/30' : 'bg-white/5'}`}>
                     <span className={`text-sm font-medium ${r.highlight ? 'text-orange-300' : 'text-white/70'}`}>{r.label}</span>
@@ -152,6 +153,7 @@ export default function SolarSubsidiesCantonZurichPage() {
                 ))}
               </div>
             </div>
+            <p className="text-xs text-gray-500 mt-3">{SYSTEM_PRICE_NOTES.en} {SOURCE_NOTES.en}</p>
           </div>
         </section>
 
@@ -169,7 +171,7 @@ export default function SolarSubsidiesCantonZurichPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { title: 'Energy promotion programme', text: 'Grants for photovoltaic systems in combination with heat pumps or building insulation.', badge: 'Canton Zurich' },
-              { title: 'Local electricity communities (LEC)', text: 'From 2026 you can sell solar electricity directly to your neighbourhood — reducing grid fees by up to 40%.', badge: 'From 2026' },
+              { title: 'Local electricity communities (LEC)', text: 'You can sell solar electricity directly to your neighbourhood.', badge: 'Local electricity' },
               { title: 'Tax deductions', text: 'Investments in solar systems can be deducted at federal level and in Canton Zurich.', badge: 'Federal & Canton' },
             ].map(c => (
               <div key={c.title} className="rounded-2xl p-8" style={{ background: 'linear-gradient(135deg, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>

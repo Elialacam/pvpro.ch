@@ -166,7 +166,7 @@ export default function VergleichsportalPage() {
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Wussten Sie?</p>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Wer mindestens 3 Offerten vergleicht, spart im Schnitt 15–25% gegenüber dem erstbesten Angebot — das sind bei einer typischen Anlage bis zu 5'000 CHF.
+                Wer mehrere Offerten vergleicht, erkennt Preisunterschiede und kann ein passendes Angebot auswählen.
               </p>
             </div>
           </div>
@@ -175,7 +175,7 @@ export default function VergleichsportalPage() {
         {/* ── Wie funktioniert PvPro.ch ── */}
         <section>
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">So einfach geht's</p>
+            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">So einfach geht&apos;s</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Wie funktioniert PvPro.ch als Vergleichsportal?
             </h2>

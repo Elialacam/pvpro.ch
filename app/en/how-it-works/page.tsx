@@ -29,7 +29,7 @@ const steps = [
       'Name, phone number and email',
       'Full address of your property',
       'No account or registration needed',
-      '100% free and no obligation',
+  'Free and no obligation',
     ],
   },
   {
@@ -63,7 +63,7 @@ const steps = [
 const benefits = [
   { Icon: Clock,       title: 'Time saving',      text: 'Instead of contacting multiple installers yourself, PvPro.ch handles the search for you — in less than 2 minutes.' },
   { Icon: ShieldCheck, title: 'Certified quality', text: 'Only installers with valid certifications, proof of insurance and positive references.' },
-  { Icon: Euro,        title: 'Free of charge',   text: 'Our service is 100% free for homeowners. We are funded by installer commissions — no extra cost for you.' },
+  { Icon: Euro,        title: 'Free of charge',   text: 'Our service is free for homeowners. We are funded by installer commissions — no extra cost for you.' },
   { Icon: Phone,       title: 'Personal support', text: 'If you have questions, our team is available by phone and email at any time.' },
 ];
 
@@ -156,7 +156,7 @@ export default function HowItWorksPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-6">Frequently asked questions</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
-              { q: 'Is the service really free?', a: 'Yes, 100%. We are funded by installer commissions — at no extra cost to you.' },
+              { q: 'Is the service really free?', a: 'Yes. We are funded by installer commissions — at no extra cost to you.' },
               { q: 'Am I obliged to choose an offer?', a: 'No. You can decline all quotes without any consequences.' },
               { q: 'How quickly will I receive quotes?', a: 'Usually within 24–48 hours of your request.' },
               { q: 'Which cantons is PvPro.ch active in?', a: 'We operate throughout Switzerland, in all 26 cantons.' },

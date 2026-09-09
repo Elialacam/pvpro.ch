@@ -50,7 +50,7 @@
         {
           "heading": "Praxisbeispiele und der Weg zur optimalen PV-Offerte",
           "content": [
-            "Ein Milchwirtschaftsbetrieb mit 200 kWp Dachanlage reduzierte seinen Netzstrombedarf erheblich. Ein Beerenbetrieb nutzt Agri-PV für Strom und als Hagelschutz.",
+            "Ein Beerenbetrieb nutzt Agri-PV für Strom und als Hagelschutz.",
             "Vergleichen Sie bei Grossprojekten mindestens drei Offerten, um langfristig höhere Kosten oder Ertragseinbussen zu vermeiden."
           ],
           "bullets": [
@@ -68,10 +68,6 @@
         {
           "question": "Benötigt eine PV-Anlage auf einem Scheunendach eine Baubewilligung?",
           "answer": "Ja, grundsätzlich reicht oft ein vereinfachtes Meldeverfahren, sofern die Anlage angepasst ist. In schützenswerten Landschaften kann ein ordentliches Verfahren nötig sein."
-        },
-        {
-          "question": "Wie viel Strom produziert eine PV-Anlage pro Quadratmeter Stalldach?",
-          "answer": "Ein modernes Solarmodul produziert etwa 200 bis 220 kWh Strom pro Quadratmeter jährlich, abhängig von Ausrichtung und Neigung."
         },
         {
           "question": "Lohnt sich Agri-PV auch für Ackerbau oder nur für Spezialkulturen?",
@@ -127,7 +123,7 @@
         {
           "heading": "Exemples pratiques et chemin vers la meilleure offre photovoltaïque",
           "content": [
-            "Une exploitation laitière avec une installation de 200 kWc sur toiture a considérablement réduit sa dépendance au réseau électrique. Une exploitation de fruits rouges utilise l'agri-PV pour l'électricité et comme protection contre la grêle.",
+            "Une exploitation de fruits rouges utilise l'agri-PV pour l'électricité et comme protection contre la grêle.",
             "Pour les grands projets, comparez au moins trois offres pour éviter des coûts élevés ou des pertes de rendement à long terme."
           ],
           "bullets": [
@@ -145,10 +141,6 @@
         {
           "question": "Faut-il un permis de construire pour une installation photovoltaïque sur le toit d'une grange?",
           "answer": "Oui, généralement une simple procédure de notification suffit si l'installation est adaptée. Dans les paysages protégés, une procédure formelle peut être nécessaire."
-        },
-        {
-          "question": "Combien d'électricité une installation photovoltaïque produit-elle par mètre carré de toit de grange?",
-          "answer": "Un panneau solaire moderne produit environ 200 à 220 kWh d'électricité par mètre carré annuellement, selon l'orientation et l'inclinaison."
         },
         {
           "question": "L'agri-PV est-elle rentable pour les grandes cultures ou seulement pour les cultures spécialisées?",
@@ -204,7 +196,7 @@
         {
           "heading": "Practical Examples and the Path to the Optimal Solar Offer",
           "content": [
-            "A dairy farm with a 200 kWp rooftop system significantly reduced its grid electricity demand. A berry farm uses agro-PV for electricity and as hail protection.",
+            "A berry farm uses agro-PV for electricity and as hail protection.",
             "For large projects, compare at least three offers to avoid higher costs or losses in yield in the long run."
           ],
           "bullets": [
@@ -222,10 +214,6 @@
         {
           "question": "Does a solar system on a barn roof require a building permit?",
           "answer": "Yes, generally, a simplified notification procedure is often sufficient, provided the system fits. In protected landscapes, a formal process may be necessary."
-        },
-        {
-          "question": "How much electricity does a solar system produce per square meter of barn roof?",
-          "answer": "A modern solar module produces about 200 to 220 kWh of electricity per square meter annually, depending on orientation and tilt."
         },
         {
           "question": "Is agro-PV also worth it for arable farming or just for special crops?",
@@ -281,7 +269,7 @@
         {
           "heading": "Esempi pratici e il percorso verso l'offerta fotovoltaica ottimale",
           "content": [
-            "Un'azienda lattiero-casearia con un impianto su tetto da 200 kWp ha ridotto significativamente il suo fabbisogno di elettricità dalla rete. Un'azienda di frutti di bosco utilizza l'Agri-FV per la produzione di energia e come protezione dalla grandine.",
+            "Un'azienda di frutti di bosco utilizza l'Agri-FV per la produzione di energia e come protezione dalla grandine.",
             "Confronta almeno tre offerte per grandi progetti, al fine di evitare costi elevati o cali di rendimento a lungo termine."
           ],
           "bullets": [
@@ -299,10 +287,6 @@
         {
           "question": "È necessaria un'autorizzazione edilizia per un impianto fotovoltaico su un tetto di stalla?",
           "answer": "Sì, in generale basta spesso una procedura di notifica semplificata, purché l'impianto sia conforme. In zone paesaggisticamente tutelate può essere necessaria una procedura ordinaria."
-        },
-        {
-          "question": "Quanta energia produce un impianto fotovoltaico per metro quadrato di tetto di stalla?",
-          "answer": "Un moderno modulo solare produce circa 200-220 kWh di elettricità per metro quadrato all'anno, a seconda dell'orientamento e dell'inclinazione."
         },
         {
           "question": "L'Agri-FV è conveniente anche per le coltivazioni estensive o solo per le colture speciali?",

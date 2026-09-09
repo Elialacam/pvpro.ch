@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: 'Compare solar systems in Switzerland | PvPro.ch',
     template: '%s | PvPro.ch',
   },
-  description: 'Compare solar system offers from certified installers in Switzerland for free. Save up to 30% by comparing. No obligation.',
+  description: 'Compare solar system offers from certified installers in Switzerland for free. No obligation.',
   authors: [{ name: 'PvPro.ch' }],
   robots: {
     index: true,

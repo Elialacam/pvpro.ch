@@ -3,11 +3,12 @@ import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, Wrench, Clock, Sun } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatChfForLocale, formatRangeForLocale } from '@/lib/facts';
 import FaqSchema from '@/components/FaqSchema';
 
 const baseMetadata: Metadata = {
   title: "Faire installer des panneaux solaires en Suisse 2026 – Fournisseurs & Coûts | PvPro.ch",
-  description: "Faire installer une installation solaire en Suisse : trouvez des installateurs certifiés dans votre canton. Comparez des offres gratuites et économisez jusqu'à 30% avec PvPro.ch.",
+  description: "Faire installer une installation solaire en Suisse : trouvez des installateurs certifiés dans votre canton et comparez des offres gratuites avec PvPro.ch.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/installer-panneau-solaire-suisse',
     languages: {
@@ -91,9 +92,9 @@ const durationRows = [
 ];
 
 const costRows = [
-  { size: '5 kWc', cost: "13'000 – 18'000 CHF" },
-  { size: '8 kWc', cost: "18'000 – 25'000 CHF" },
-  { size: '10 kWc', cost: "22'000 – 30'000 CHF" },
+  { size: '5 kWp', cost: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[5], 'CHF', 'fr') },
+  { size: '8 kWp', cost: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[8], 'CHF', 'fr') },
+  { size: '10 kWp', cost: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'fr') },
 ];
 
 const criteria = [
@@ -132,7 +133,7 @@ export default function InstallerPanneauSolaireSuissePage() {
             {[
               { val: '1–3 jours', sub: "jusqu'à la première offre", note: 'mise en relation rapide et simple' },
               { val: '25+', sub: 'entreprises qualifiées', note: 'entreprises certifiées dans toute la Suisse' },
-              { val: '25–30 ans', sub: "durée de vie d'une installation", note: 'rendement à long terme pour votre maison' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'ans', 'fr'), sub: "durée de vie des modules", note: SOURCE_NOTES.fr },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -260,7 +261,7 @@ export default function InstallerPanneauSolaireSuissePage() {
             <p className="text-orange-800 text-sm leading-relaxed">
               Après déduction de la subvention fédérale (<Link href="/fr/subventions-solaires" className="text-[#fcb210] hover:underline font-medium">rétribution unique RU</Link>), les{' '}
               <Link href="/fr/cout-installation-solaire" className="text-[#fcb210] hover:underline font-medium">coûts</Link>{' '}
-              se réduisent de 300–400 CHF par kWc. En{' '}
+              se réduisent de {formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'fr')} par kWp jusqu&apos;à 30 kWp, plus une contribution de base. En{' '}
               <Link href="/fr/comparateur-photovoltaique-suisse" className="text-[#fcb210] hover:underline font-medium">comparant plusieurs offres</Link>{' '}
               vous pouvez économiser en plus plusieurs milliers de francs.
             </p>

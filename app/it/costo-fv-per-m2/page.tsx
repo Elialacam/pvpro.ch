@@ -4,6 +4,18 @@ import { ChevronRight, Sun, Zap, TrendingDown, CheckCircle2, Home, Ruler, Award,
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import PhotovoltaikFaq from '@/components/PhotovoltaikFaq';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatRangeForLocale, formatSwissNumber } from '@/lib/facts';
+
+const itRange = (range: { readonly min: number; readonly max: number }, unit: string) =>
+  formatRangeForLocale(range, unit, 'it');
+const costPerM2 = {
+  min: Math.round(ECONOMIC_FACTS.systemCosts.perKwp.min / ECONOMIC_FACTS.roofAreaM2PerKwp),
+  max: Math.round(ECONOMIC_FACTS.systemCosts.perKwp.max / ECONOMIC_FACTS.roofAreaM2PerKwp),
+};
+const productionPerM2 = {
+  min: Math.round(ECONOMIC_FACTS.production.plateauKwhPerKwp.min / ECONOMIC_FACTS.roofAreaM2PerKwp),
+  max: Math.round(ECONOMIC_FACTS.production.plateauKwhPerKwp.max / ECONOMIC_FACTS.roofAreaM2PerKwp),
+};
 
 export const metadata: Metadata = pageMetadata({
   title: 'Costo fotovoltaico per m² Svizzera: prezzi, esempi e calcolo | PvPro.ch',
@@ -21,20 +33,17 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/it/costo-fv-per-m2', locale: 'it' });
 
 const priceRows = [
-  { label: 'Impianto base',    range: 'ca. 200 – 250 CHF',  color: '#6b7280', highlight: false },
-  { label: 'Impianto standard', range: 'ca. 250 – 350 CHF', color: '#fcb210', highlight: true },
-  { label: 'Impianto premium', range: 'ca. 350 – 400+ CHF', color: '#1e3a5f', highlight: false },
+  { label: 'Fascia nazionale indicativa', range: itRange(costPerM2, 'CHF'), color: '#fcb210', highlight: true },
 ];
 
 const comparisonRows = [
-  { unit: 'per m²',  price: "200 – 400 CHF",      note: 'Prima stima approssimativa' },
-  { unit: 'per kWp', price: "1'000 – 1'500 CHF",  note: 'Pianificazione precisa & offerta' },
+  { unit: 'per m²', price: itRange(costPerM2, 'CHF'), note: 'Valore derivato dal costo per kWp' },
+  { unit: 'per kWp', price: itRange(ECONOMIC_FACTS.systemCosts.perKwp, 'CHF'), note: 'Pianificazione precisa e offerta' },
 ];
 
 const exampleRows = [
-  { position: 'Superficie del tetto',               value: '60 m²',              last: false },
-  { position: 'Prezzo per m²',                      value: '250 CHF',            last: false },
-  { position: 'Prezzo totale (valore orientativo)',  value: "ca. 15'000 CHF",    last: true },
+  { position: 'Superficie del tetto per kWp', value: `${formatSwissNumber(ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`, last: false },
+  { position: 'Prezzo per m²', value: itRange(costPerM2, 'CHF'), last: true },
 ];
 
 const factors = [
@@ -67,13 +76,13 @@ export default function CostoFVPerM2Page() {
             </h1>
             <p className="text-white/70 text-lg leading-relaxed mb-10 max-w-2xl">
               Molti proprietari vogliono capire rapidamente quanto costa un impianto solare per il loro tetto — senza dettagli tecnici. In Svizzera, il costo medio del fotovoltaico è tra{' '}
-              <strong className="text-white">200 e 400 CHF per m²</strong>.
+               <strong className="text-white">{itRange(costPerM2, 'CHF')} per m²</strong>.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { value: '200 – 400 CHF', label: 'per m² (valore orientativo)' },
-                { value: '1 kWp ≈ 5–6 m²', label: 'superficie necessaria' },
-                { value: '150 – 200 kWh', label: 'energia per m²/anno' },
+                 { value: itRange(costPerM2, 'CHF'), label: 'per m², derivato dal costo per kWp' },
+                 { value: `1 kWp = ${formatSwissNumber(ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`, label: 'superficie necessaria' },
+                 { value: itRange(productionPerM2, 'kWh'), label: 'energia per m²/anno sull’Altopiano' },
               ].map((s) => (
                 <div key={s.label} className="rounded-2xl bg-white/5 border border-white/10 px-5 py-4">
                   <p className="text-2xl font-bold text-white mb-1">{s.value}</p>
@@ -118,9 +127,9 @@ export default function CostoFVPerM2Page() {
             </p>
             <div className="rounded-2xl bg-[#fcb210]/5 border border-[#fcb210]/20 p-6">
               <p className="text-sm font-bold text-[#fcb210] mb-3">Conversione approssimativa</p>
-              <p className="text-3xl font-bold text-gray-900 mb-4">1 kWp ≈ 5–6 m²</p>
+              <p className="text-3xl font-bold text-gray-900 mb-4">1 kWp = {formatSwissNumber(ECONOMIC_FACTS.roofAreaM2PerKwp)} m²</p>
               <div className="space-y-2 text-sm text-gray-600">
-                {["Impianto da 10 kWp → ca. 50–60 m² di superficie del tetto", "Impianto da 20 kWp → ca. 100–120 m² di superficie del tetto"].map((item) => (
+                {[`Impianto da 10 kWp → ${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`, `Impianto da 20 kWp → ${formatSwissNumber(20 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`].map((item) => (
                   <div key={item} className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
                     <span>{item}</span>
@@ -161,7 +170,7 @@ export default function CostoFVPerM2Page() {
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Esempio di calcolo</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Esempio: impianto solare per una casa unifamiliare</h2>
             <p className="text-gray-500 leading-relaxed mb-6">
-              Una tipica casa unifamiliare svizzera con 60 m² di superficie del tetto e ca. 10 kWp di potenza:
+              Il calcolo per superficie deriva dai valori nazionali per kWp:
             </p>
             <div className="rounded-2xl border border-gray-100 overflow-hidden mb-5 shadow-sm">
               {exampleRows.map((row, i) => (
@@ -172,7 +181,7 @@ export default function CostoFVPerM2Page() {
               ))}
             </div>
             <div className="rounded-2xl bg-amber-50 border border-amber-100 p-4 text-sm text-amber-800 leading-relaxed">
-              <strong>Nota:</strong> Nella realtà, i costi totali sono spesso più elevati (20'000–30'000 CHF), poiché l'inverter, l'installazione, la pianificazione e il montaggio si aggiungono.
+              <strong>Nota:</strong> {SYSTEM_PRICE_NOTES.it} {SOURCE_NOTES.it}
             </div>
           </div>
         </section>
@@ -209,20 +218,19 @@ export default function CostoFVPerM2Page() {
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Quanta elettricità produce 1 m² di fotovoltaico?</h2>
               <p className="text-white/70 leading-relaxed mb-6">
                 Un metro quadro di fotovoltaico produce in Svizzera circa{' '}
-                <strong className="text-white">150 – 200 kWh di elettricità all'anno</strong>. La produzione esatta dipende dall'orientamento, dall'inclinazione e dalla posizione.
+                 <strong className="text-white">{itRange(productionPerM2, 'kWh all’anno')}</strong> sull'Altopiano. La produzione esatta dipende dall'orientamento e dall'inclinazione.
               </p>
               <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-5 py-4">
                 <Zap className="w-6 h-6 text-[#fcb210] flex-shrink-0" />
                 <p className="text-sm text-white/80">
-                  <strong className="text-white">50 m²</strong> → ca. <strong className="text-white">7'500 – 10'000 kWh</strong> all'anno
+                   <strong className="text-white">{formatSwissNumber(ECONOMIC_FACTS.roofAreaM2PerKwp)} m²</strong> → <strong className="text-white">{itRange(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh')}</strong> all'anno
                 </p>
               </div>
             </div>
             <div className="space-y-4">
               {[
-                { label: '20 m²', kwh: "3'000 – 4'000 kWh/anno", pct: 30 },
-                { label: '40 m²', kwh: "6'000 – 8'000 kWh/anno", pct: 60 },
-                { label: '60 m²', kwh: "9'000 – 12'000 kWh/anno", pct: 90 },
+                 { label: `${formatSwissNumber(5 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`, kwh: itRange({ min: 5 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 5 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh/anno'), pct: 50 },
+                 { label: `${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`, kwh: itRange({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh/anno'), pct: 100 },
               ].map((row) => (
                 <div key={row.label}>
                   <div className="flex justify-between text-sm mb-1.5">

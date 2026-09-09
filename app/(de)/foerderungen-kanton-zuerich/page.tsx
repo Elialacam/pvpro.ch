@@ -3,6 +3,14 @@ import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText } from 'lucide-rea
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import {
+  ECONOMIC_FACTS,
+  SYSTEM_PRICE_NOTES,
+  formatChf,
+  formatRangeForLocale,
+  formatSwissNumber,
+  getSourceNote,
+} from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Förderung Solaranlage Kanton Zürich 2026 – EIV, Solarpflicht & Beiträge | PvPro.ch',
@@ -30,7 +38,7 @@ export const metadata: Metadata = pageMetadata({
 const faqs = [
   {
     question: 'Wie hoch ist die Förderung für eine Solaranlage im Kanton Zürich?',
-    answer: "Die Bundesförderung (EIV) beträgt ca. 300–400 CHF pro kWp. Für eine 10-kWp-Anlage sind das rund 3'500 CHF. Zusätzlich gibt es kantonale Programme und steuerliche Abzüge.",
+    answer: `Die RU beträgt bis 30 kWp ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} pro kWp, zuzüglich Grundbeitrag. Für eine 10-kWp-Anlage sind das ungefähr ${formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}. Zusätzlich gibt es kantonale Programme und steuerliche Abzüge.`,
   },
   {
     question: 'Gilt die Solarpflicht auch für bestehende Häuser im Kanton Zürich?',
@@ -104,9 +112,9 @@ export default function FoerderungenKantonZuerichPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: '300–400 CHF/kWp', sub: 'Bundesförderung EIV', note: 'einmalige Zahlung nach Installation' },
+              { val: `${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)}/kWp`, sub: 'Bundesförderung RU', note: 'bis 30 kWp, zuzüglich Grundbeitrag' },
               { val: 'Solarpflicht', sub: 'seit 2023 für Neubauten', note: 'gilt im ganzen Kanton Zürich' },
-              { val: '7–9 Jahre', sub: 'Amortisation im Kanton ZH', note: 'dank Förderung und tiefen Stromkosten' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahre', 'de'), sub: 'Amortisation im Kanton ZH', note: 'Richtwert Mittelland' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -115,6 +123,7 @@ export default function FoerderungenKantonZuerichPage() {
               </div>
             ))}
           </div>
+          <p className="mt-4 text-xs text-white/50">{getSourceNote('de')}</p>
         </div>
       </section>
 
@@ -135,7 +144,7 @@ export default function FoerderungenKantonZuerichPage() {
             </p>
             <ul className="space-y-3 mb-6">
               {[
-                "Betrag: ca. 300–400 CHF pro kWp installierter Leistung",
+                `Betrag bis 30 kWp: ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} pro kWp, zuzüglich Grundbeitrag`,
                 "Wird einmalig nach der Installation ausbezahlt",
                 "Kein jährlicher Antrag nötig",
                 "Der Installateur übernimmt die Anmeldung in der Regel für Sie",
@@ -148,7 +157,7 @@ export default function FoerderungenKantonZuerichPage() {
             </ul>
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="text-orange-800 text-sm leading-relaxed">
-                Für eine typische 10-kWp-Anlage entspricht das einer Förderung von ca. <strong>3'500 CHF</strong>.
+                Für eine typische 10-kWp-Anlage entspricht das einer RU von ungefähr <strong>{formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}</strong>.
               </p>
             </div>
           </div>
@@ -157,10 +166,9 @@ export default function FoerderungenKantonZuerichPage() {
               <p className="text-white/60 text-xs font-bold uppercase tracking-widest mb-5">EIV — Beispielrechnung 10 kWp</p>
               <div className="space-y-4">
                 {[
-                  { label: 'Installationskosten', value: "28'000 CHF" },
-                  { label: 'EIV Bundesförderung', value: "− 3'500 CHF" },
-                  { label: 'Steuerlicher Abzug (ca.)', value: "− 2'800 CHF" },
-                  { label: 'Effektive Kosten', value: "ca. 21'700 CHF", highlight: true },
+                  { label: 'Bruttokosten', value: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de') },
+                  { label: 'RU Bundesförderung', value: `− ${formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}` },
+                  { label: 'Nettokosten nach ungefährer RU', value: `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox)} CHF`, highlight: true },
                 ].map(r => (
                   <div key={r.label} className={`flex justify-between items-center rounded-xl px-5 py-3 ${r.highlight ? 'bg-orange-500/20 border border-orange-500/30' : 'bg-white/5'}`}>
                     <span className={`text-sm font-medium ${r.highlight ? 'text-orange-300' : 'text-white/70'}`}>{r.label}</span>
@@ -168,6 +176,7 @@ export default function FoerderungenKantonZuerichPage() {
                   </div>
                 ))}
               </div>
+              <p className="text-white/50 text-xs mt-5">{SYSTEM_PRICE_NOTES.de} {getSourceNote('de')}</p>
               <p className="text-white/50 text-xs mt-5">
                 <Link href="/blog/solaranlage-steuerabzug-schweiz-2026" className="text-orange-400 hover:underline">Steuerabzug im Kanton Zürich — alle Details</Link>
               </p>
@@ -195,7 +204,7 @@ export default function FoerderungenKantonZuerichPage() {
               },
               {
                 title: 'Lokale Elektrizitätsgemeinschaften (LEG)',
-                text: 'Ab 2026 können Sie Solarstrom direkt ans Quartier verkaufen — das senkt die Netzgebühren um bis zu 40%.',
+                text: 'Sie können Solarstrom direkt ans Quartier verkaufen und dadurch Netzgebühren senken.',
                 badge: 'Ab 2026',
               },
               {

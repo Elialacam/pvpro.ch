@@ -4,6 +4,7 @@ import { ChevronRight, Sun, CheckCircle2, TrendingUp, Users, Building2, Zap, Arr
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import MehrfamilienhausRechner, { MehrfamilienhausFaq } from '@/components/MehrfamilienhausRechner';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatRangeForLocale, formatSwissNumber, getSystemCostRange } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar installation for apartment buildings Switzerland: costs, ZEC and profitability | PvPro.ch',
@@ -21,23 +22,23 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/en/solar-apartment-building', locale: 'en' });
 
 const costRows = [
-  { size: 'Small installation (15–30 kWp)',   price: "approx. CHF 40,000 – 80,000", highlight: false },
-  { size: 'Medium installation (30–60 kWp)',  price: "approx. CHF 80,000 – 150,000", highlight: true },
-  { size: 'Large installation (60+ kWp)',     price: "CHF 150,000+",                 highlight: false },
+  { size: '15 kWp', price: formatRangeForLocale(getSystemCostRange(15), 'CHF', 'en'), highlight: false },
+  { size: '30 kWp', price: formatRangeForLocale(getSystemCostRange(30), 'CHF', 'en'), highlight: true },
+  { size: '60 kWp', price: formatRangeForLocale(getSystemCostRange(60), 'CHF', 'en'), highlight: false },
 ];
 
 const sizeGuide = [
-  { label: '5–10 units',      kwp: 'approx. 20–40 kWp', m2: 'approx. 100–240 m²' },
-  { label: '10–20 units',     kwp: 'approx. 40–80 kWp', m2: 'approx. 200–480 m²' },
-  { label: 'Larger buildings', kwp: '80 kWp +',           m2: '480 m² +' },
+  { label: '15 kWp system', kwp: '15 kWp', m2: `${formatSwissNumber(15 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²` },
+  { label: '30 kWp system', kwp: '30 kWp', m2: `${formatSwissNumber(30 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²` },
+  { label: '60 kWp system', kwp: '60 kWp', m2: `${formatSwissNumber(60 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²` },
 ];
 
 const exampleRows = [
   { label: 'Apartments',          value: '10',               highlight: false },
   { label: 'Output',              value: '50 kWp',           highlight: false },
-  { label: 'Costs',               value: "approx. CHF 100,000", highlight: false },
+  { label: 'Costs', value: formatRangeForLocale(getSystemCostRange(50), 'CHF', 'en'), highlight: false },
   { label: 'Usage model',         value: 'ZEC',              highlight: false },
-  { label: 'Self-consumption rate', value: '60–75%',         highlight: true },
+  { label: 'Self-consumption rate with storage', value: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'en'), highlight: true },
 ];
 
 const benefits = [
@@ -91,9 +92,9 @@ export default function SolarApartmentBuildingPage() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { value: '20–120 kWp',    label: 'Typical system size' },
-                { value: '40,000–150,000+', label: 'CHF investment' },
+                 { value: formatRangeForLocale(getSystemCostRange(30), 'CHF', 'en'), label: '30 kWp investment' },
                 { value: 'ZEC',           label: 'Joint usage model' },
-                { value: '60–75%',        label: 'Self-consumption rate' },
+                 { value: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'en'), label: 'Self-consumption with storage' },
               ].map((s) => (
                 <div key={s.label} className="rounded-2xl bg-white/5 border border-white/10 px-5 py-4">
                   <p className="text-xl sm:text-2xl font-bold text-white mb-1">{s.value}</p>
@@ -160,6 +161,7 @@ export default function SolarApartmentBuildingPage() {
                   </div>
                 ))}
               </div>
+              <p className="text-xs text-gray-500 mt-3">{SYSTEM_PRICE_NOTES.en} {SOURCE_NOTES.en}</p>
             </div>
             <div className="lg:col-span-3">
               <MehrfamilienhausRechner />

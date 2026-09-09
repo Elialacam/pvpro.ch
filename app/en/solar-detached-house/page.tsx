@@ -4,6 +4,7 @@ import { ChevronRight, Sun, CheckCircle2, Home, Ruler, Cpu, Wrench, ArrowRight }
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatChfForLocale, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar installation for detached houses Switzerland: costs, size and benefits | PvPro.ch',
@@ -21,17 +22,18 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/en/solar-detached-house', locale: 'en' });
 
 const costRows = [
-  { size: 'Small installation (6–8 kWp)',  price: "approx. CHF 20,000 – 25,000", highlight: false },
-  { size: 'Standard (8–10 kWp)',           price: "approx. CHF 25,000 – 30,000", highlight: true },
-  { size: 'Larger installation (10–15 kWp)', price: "approx. CHF 30,000 – 35,000", highlight: false },
+  { size: '5 kWp', price: formatRangeForLocale(getSystemCostRange(5), 'CHF', 'en'), highlight: false },
+  { size: '8 kWp', price: formatRangeForLocale(getSystemCostRange(8), 'CHF', 'en'), highlight: true },
+  { size: '10 kWp', price: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en'), highlight: false },
+  { size: '15 kWp', price: formatRangeForLocale(getSystemCostRange(15), 'CHF', 'en'), highlight: false },
 ];
 
 const exampleRows = [
-  { label: 'Roof area',       value: '60 m²',                     highlight: false },
+  { label: 'Roof area',       value: `${ECONOMIC_FACTS.roofAreaM2PerKwp * 10} m²`, highlight: false },
   { label: 'Output',          value: '10 kWp',                    highlight: false },
-  { label: 'Costs',           value: "approx. CHF 25,000 – 30,000", highlight: false },
-  { label: 'OTP subsidy',     value: "approx. CHF 3,600",         highlight: false },
-  { label: 'Net costs',       value: "approx. CHF 20,000 – 26,000", highlight: true },
+  { label: 'Gross costs', value: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en'), highlight: false },
+  { label: 'OTP subsidy', value: formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en'), highlight: false },
+  { label: 'Net costs after OTP', value: formatRangeForLocale({ min: getSystemCostRange(10).min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: getSystemCostRange(10).max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF', 'en'), highlight: true },
 ];
 
 const factors = [
@@ -71,7 +73,7 @@ export default function SolarDetachedHousePage() {
                 Solar installation for detached house: costs, size and benefits
               </h1>
               <p className="text-white/70 text-lg leading-relaxed mb-8">
-                A solar installation reduces your electricity costs and makes you more independent. A typical detached house is equipped with <strong className="text-white">8–12 kWp</strong> — that's approximately <strong className="text-white">50–70 m²</strong> of roof area.
+                 A solar installation reduces your electricity costs and makes you more independent. Allow <strong className="text-white">{ECONOMIC_FACTS.roofAreaM2PerKwp} m² of roof area per kWp</strong>.
               </p>
               <Link
                 href="/en/request"
@@ -84,9 +86,9 @@ export default function SolarDetachedHousePage() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { value: '8–12 kWp',     label: 'Typical system size' },
-                { value: '25,000–30,000', label: 'CHF investment' },
-                { value: '9,000–11,000',  label: 'kWh production/year' },
-                { value: '25–30 years',   label: 'Lifespan' },
+                 { value: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en'), label: '10 kWp gross investment' },
+                 { value: formatRangeForLocale({ min: ECONOMIC_FACTS.production.plateauKwhPerKwp.min * 10, max: ECONOMIC_FACTS.production.plateauKwhPerKwp.max * 10 }, 'kWh/year', 'en'), label: '10 kWp production on the Plateau' },
+                 { value: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en'), label: 'Module lifespan' },
               ].map((s) => (
                 <div key={s.label} className="rounded-2xl bg-white/5 border border-white/10 px-5 py-4">
                   <p className="text-xl sm:text-2xl font-bold text-white mb-1">{s.value}</p>
@@ -109,8 +111,7 @@ export default function SolarDetachedHousePage() {
                 How large should your solar installation be?
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
-                The optimal size depends on electricity consumption. As a rule of thumb:{' '}
-                <strong className="text-gray-800">1,000 kWh consumption → approx. 1–2 kWp system.</strong>
+                 The optimal size depends on electricity consumption, roof area and future demand.
               </p>
               <p className="text-gray-500 leading-relaxed">
                 If you have a heat pump or an electric car, a larger system is often worthwhile. Use the calculator to get a first recommendation.
@@ -130,8 +131,8 @@ export default function SolarDetachedHousePage() {
               What does a solar installation for a detached house cost?
             </h2>
             <p className="text-gray-500 leading-relaxed mb-6">
-              For a typical 10 kWp system with around 50 m² of roof area, investments of approximately{' '}
-              <strong className="text-gray-800">CHF 25,000 to 30,000</strong> are realistic.
+               A 10 kWp system needs about {ECONOMIC_FACTS.roofAreaM2PerKwp * 10} m² and costs{' '}
+               <strong className="text-gray-800">{formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')}</strong>.
               After subsidies and tax deductions, the effective price can be significantly lower.
             </p>
             <div className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
@@ -145,6 +146,7 @@ export default function SolarDetachedHousePage() {
                 </div>
               ))}
             </div>
+            <p className="text-xs text-gray-500 mt-3">{SYSTEM_PRICE_NOTES.en} {SOURCE_NOTES.en}</p>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
             <Image src="/images/asset-installateur-dach-1.webp" alt="Solar installation detached house Switzerland" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" loading="lazy"/>
@@ -162,13 +164,13 @@ export default function SolarDetachedHousePage() {
                 How much electricity does a solar installation produce?
               </h2>
               <p className="text-white/70 leading-relaxed mb-6">
-                A typical installation on a detached house produces{' '}
-                <strong className="text-white">approx. 9,000 – 11,000 kWh per year</strong> — covering the majority of a household's electricity needs.
+                 On the Swiss Plateau, a 10 kWp installation produces{' '}
+                 <strong className="text-white">{formatRangeForLocale({ min: ECONOMIC_FACTS.production.plateauKwhPerKwp.min * 10, max: ECONOMIC_FACTS.production.plateauKwhPerKwp.max * 10 }, 'kWh per year', 'en')}</strong>.
               </p>
               {[
-                { label: '8 kWp system',  value: "7,200 – 8,800 kWh/year",   pct: 65 },
-                { label: '10 kWp system', value: "9,000 – 11,000 kWh/year",  pct: 80 },
-                { label: '12 kWp system', value: "10,800 – 13,200 kWh/year", pct: 95 },
+                 { label: '8 kWp system', value: formatRangeForLocale({ min: ECONOMIC_FACTS.production.plateauKwhPerKwp.min * 8, max: ECONOMIC_FACTS.production.plateauKwhPerKwp.max * 8 }, 'kWh/year', 'en'), pct: 65 },
+                 { label: '10 kWp system', value: formatRangeForLocale({ min: ECONOMIC_FACTS.production.plateauKwhPerKwp.min * 10, max: ECONOMIC_FACTS.production.plateauKwhPerKwp.max * 10 }, 'kWh/year', 'en'), pct: 80 },
+                 { label: '15 kWp system', value: formatRangeForLocale({ min: ECONOMIC_FACTS.production.plateauKwhPerKwp.min * 15, max: ECONOMIC_FACTS.production.plateauKwhPerKwp.max * 15 }, 'kWh/year', 'en'), pct: 100 },
               ].map((row) => (
                 <div key={row.label} className="mb-4">
                   <div className="flex justify-between text-sm mb-1.5">
@@ -220,11 +222,11 @@ export default function SolarDetachedHousePage() {
                 Subsidies for solar installations in Switzerland
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
-                For a 10 kWp system, the federal subsidy amounts to approximately <strong className="text-gray-800">CHF 3,600</strong>. Additional cantonal subsidies and tax deductions also apply.
+                 For a 10 kWp system, the federal subsidy is approximately <strong className="text-gray-800">{formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en')}</strong>.
               </p>
               <div className="space-y-3">
                 {[
-                  "One-time payment (OTP) from the federal government: approx. CHF 360/kWp",
+                   `One-time payment (OTP): ${formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')}/kWp up to 30 kWp, plus a base contribution`,
                   "Additional cantonal subsidy programmes",
                   "Tax deductions at federal level",
                 ].map((item) => (
@@ -240,11 +242,11 @@ export default function SolarDetachedHousePage() {
             </div>
             <div className="space-y-3">
               {[
-                { label: 'Investment (10 kWp)',    value: "CHF 25,000 – 30,000",    color: 'text-gray-800',   highlight: false },
-                { label: 'Federal OTP subsidy',   value: '– CHF 3,600',            color: 'text-green-600',  highlight: false },
+                 { label: 'Investment (10 kWp)', value: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en'), color: 'text-gray-800', highlight: false },
+                 { label: 'Federal OTP subsidy', value: `– ${formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en')}`, color: 'text-green-600', highlight: false },
                 { label: 'Cantonal subsidy',      value: 'varies',                 color: 'text-green-600',  highlight: false },
                 { label: 'Tax deductions',        value: 'varies',                 color: 'text-green-600',  highlight: false },
-                { label: 'Net costs',             value: "approx. CHF 20,000 – 26,000", color: 'text-[#fcb210]', highlight: true },
+                 { label: 'Net costs after OTP', value: formatRangeForLocale({ min: getSystemCostRange(10).min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: getSystemCostRange(10).max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF', 'en'), color: 'text-[#fcb210]', highlight: true },
               ].map((row) => (
                 <div key={row.label} className={`flex justify-between items-center px-5 py-3.5 rounded-xl ${row.highlight ? 'bg-orange-50 border border-orange-100' : 'bg-white border border-gray-100'}`}>
                   <span className={`text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>
@@ -266,14 +268,14 @@ export default function SolarDetachedHousePage() {
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Lower upfront investment</span></div>
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Faster payback</span></div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Self-consumption approx. 25–40%</span></div>
+                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Self-consumption {formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'en')}</span></div>
               </div>
             </div>
             <div className="rounded-2xl border border-[#fcb210]/30 p-6 shadow-sm bg-orange-50">
               <p className="font-bold text-gray-900 text-lg mb-1">With battery storage</p>
               <p className="text-sm text-[#fcb210] font-semibold mb-4">Recommended for high consumption</p>
               <div className="space-y-2 text-sm text-gray-600">
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Self-consumption up to 50–65%</span></div>
+                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Self-consumption {formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'en')}</span></div>
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Use electricity in the evening too</span></div>
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Greater independence</span></div>
               </div>

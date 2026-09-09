@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, Zap, Battery, Thermometer, Car, Settings } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
 import FaqSchema from '@/components/FaqSchema';
 
 const baseMetadata: Metadata = {
@@ -59,7 +60,7 @@ const composants = [
   {
     icon: <Battery className="w-6 h-6 text-[#fcb210]" />,
     title: 'Stockage par batterie',
-    text: "Stocke l'excédent d'électricité solaire pour une utilisation le soir et la nuit. Augmente l'autoconsommation d'environ 30% à près de 70%.",
+    text: `Stocke l'excédent d'électricité solaire pour une utilisation le soir et la nuit. L'autoconsommation passe de ${formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'fr')} à ${formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'fr')}.`,
   },
   {
     icon: <Thermometer className="w-6 h-6 text-[#fcb210]" />,
@@ -79,12 +80,8 @@ const composants = [
 ];
 
 const couts = [
-  { composant: "Installation photovoltaïque 10 kWc", cout: "22'000 – 30'000 CHF" },
-  { composant: "Stockage par batterie 10 kWh", cout: "7'000 – 10'000 CHF" },
-  { composant: "Pompe à chaleur", cout: "15'000 – 25'000 CHF" },
-  { composant: "Borne de recharge (Wallbox)", cout: "1'500 – 3'000 CHF" },
-  { composant: "Système de gestion de l'énergie", cout: "1'000 – 3'000 CHF" },
-  { composant: "Forfait total", cout: "env. 40'000 – 70'000 CHF", highlight: true },
+  { composant: "Installation photovoltaïque 10 kWp", cout: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'fr') },
+  { composant: "Stockage par batterie 10 kWh", cout: formatRangeForLocale(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF', 'fr'), highlight: true },
 ];
 
 const avantages = [
@@ -131,7 +128,7 @@ export default function SolutionCompletePhotovoltaiqueSuissePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: "Jusqu'à 80%", sub: "Autoconsommation avec solution complète", note: "grâce à la gestion optimisée de l'énergie" },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'fr'), sub: "Autoconsommation avec stockage", note: SOURCE_NOTES.fr },
               { val: '1 prestataire', sub: "responsable de tout", note: "de la planification à la mise en service" },
               { val: '25+', sub: "partenaires qualifiés en Suisse", note: "installateurs certifiés sur PvPro.ch" },
             ].map(s => (
@@ -182,7 +179,7 @@ export default function SolutionCompletePhotovoltaiqueSuissePage() {
               Les coûts dépendent des composants inclus. Après déduction de toutes les subventions — rétribution unique, subventions cantonales pour la pompe à chaleur — les coûts se réduisent considérablement.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              L&apos;autoconsommation peut atteindre jusqu&apos;à 80%, ce qui raccourcit nettement la durée d&apos;amortissement. Obtenez maintenant des{' '}
+              L&apos;autoconsommation avec stockage atteint {formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'fr')}. Obtenez maintenant des{' '}
               <Link href="/fr/demander-offre-panneau-solaire" className="text-[#fcb210] hover:underline font-medium">offres gratuites</Link>.
             </p>
           </div>

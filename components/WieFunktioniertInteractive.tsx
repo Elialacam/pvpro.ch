@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Sun, Zap, ArrowRight, Battery, Home, Wifi, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { getFormUrl } from '@/lib/i18n/formUrls';
+import { ECONOMIC_FACTS, SOURCE_NOTES, calculateAnnualSolarValueRange, formatSwissNumber } from '@/lib/facts';
 
 function getLocale(pathname: string) {
   if (pathname.startsWith('/fr')) return 'fr';
@@ -37,84 +38,69 @@ const stepsFR = [
 ];
 
 const komponentenDE = [
-  { icon: '☀️', name: 'Solarmodule',     desc: 'Erzeugen Gleichstrom aus Sonnenlicht. Moderne Module erreichen Wirkungsgrade von bis zu 22%.', fact: 'Lebensdauer: 25–30 Jahre' },
+  { icon: '☀️', name: 'Solarmodule',     desc: 'Erzeugen Gleichstrom aus Sonnenlicht.', fact: `Lebensdauer: ${ECONOMIC_FACTS.moduleLifetimeYears.min}–${ECONOMIC_FACTS.moduleLifetimeYears.max} Jahre` },
   { icon: '⚡', name: 'Wechselrichter',   desc: 'Wandelt Gleichstrom (DC) in Wechselstrom (AC) um, den Ihre Geräte verwenden können.', fact: 'Herzstück der Anlage' },
   { icon: '📊', name: 'Stromzähler',      desc: 'Misst genau, wie viel Strom Sie verbrauchen und wie viel Sie ins Netz einspeisen.', fact: 'Zweirichtungszähler' },
-  { icon: '🔋', name: 'Batteriespeicher', desc: 'Optional, aber empfohlen: Speichert überschüssigen Solarstrom für die Nacht oder bewölkte Tage.', fact: 'Kapazität: 5–20 kWh' },
+  { icon: '🔋', name: 'Batteriespeicher', desc: 'Optional: Speichert überschüssigen Solarstrom für die Nacht oder bewölkte Tage.', fact: `Kapazität: ${Math.min(...Object.keys(ECONOMIC_FACTS.storageCosts.byCapacity).map(Number))}–${Math.max(...Object.keys(ECONOMIC_FACTS.storageCosts.byCapacity).map(Number))} kWh` },
 ];
 
 const komponentenIT = [
-  { icon: '☀️', name: 'Moduli fotovoltaici', desc: 'Generano corrente continua dalla luce solare. I moduli moderni raggiungono rendimenti fino al 22%.', fact: 'Durata: 25–30 anni' },
+  { icon: '☀️', name: 'Moduli fotovoltaici', desc: 'Generano corrente continua dalla luce solare.', fact: `Durata: ${ECONOMIC_FACTS.moduleLifetimeYears.min}–${ECONOMIC_FACTS.moduleLifetimeYears.max} anni` },
   { icon: '⚡', name: 'Inverter',             desc: 'Converte la corrente continua (DC) in corrente alternata (AC) utilizzabile dai tuoi apparecchi.', fact: 'Cuore dell\'impianto' },
   { icon: '📊', name: 'Contatore',            desc: 'Misura con precisione quanta energia consumi e quanta immetti in rete.', fact: 'Contatore bidirezionale' },
-  { icon: '🔋', name: 'Batteria di accumulo', desc: 'Opzionale ma consigliata: immagazzina l\'energia solare in eccesso per la notte o le giornate nuvolose.', fact: 'Capacità: 5–20 kWh' },
+  { icon: '🔋', name: 'Batteria di accumulo', desc: 'Opzionale: immagazzina l\'energia solare in eccesso per la notte o le giornate nuvolose.', fact: `Capacità: ${Math.min(...Object.keys(ECONOMIC_FACTS.storageCosts.byCapacity).map(Number))}–${Math.max(...Object.keys(ECONOMIC_FACTS.storageCosts.byCapacity).map(Number))} kWh` },
 ];
 
 const komponentenFR = [
-  { icon: '☀️', name: 'Modules solaires',    desc: 'Génèrent du courant continu à partir de la lumière solaire. Les modules modernes atteignent des rendements allant jusqu\'à 22%.', fact: 'Durée de vie: 25–30 ans' },
+  { icon: '☀️', name: 'Modules solaires',    desc: 'Génèrent du courant continu à partir de la lumière solaire.', fact: `Durée de vie: ${ECONOMIC_FACTS.moduleLifetimeYears.min}–${ECONOMIC_FACTS.moduleLifetimeYears.max} ans` },
   { icon: '⚡', name: 'Onduleur',             desc: 'Convertit le courant continu (DC) en courant alternatif (AC) utilisable par vos appareils.', fact: 'Cœur de l\'installation' },
   { icon: '📊', name: 'Compteur',             desc: 'Mesure précisément votre consommation et votre injection dans le réseau.', fact: 'Compteur bidirectionnel' },
-  { icon: '🔋', name: 'Batterie de stockage', desc: 'Optionnel mais recommandé: stocke l\'énergie solaire excédentaire pour la nuit ou les jours nuageux.', fact: 'Capacité: 5–20 kWh' },
+  { icon: '🔋', name: 'Batterie de stockage', desc: 'Optionnelle : stocke l\'énergie solaire excédentaire pour la nuit ou les jours nuageux.', fact: `Capacité: ${Math.min(...Object.keys(ECONOMIC_FACTS.storageCosts.byCapacity).map(Number))}–${Math.max(...Object.keys(ECONOMIC_FACTS.storageCosts.byCapacity).map(Number))} kWh` },
 ];
 
 const faqsDE = [
   { q: 'Wie funktioniert eine Solaranlage einfach erklärt?', a: 'Solarmodule erzeugen aus Sonnenlicht Gleichstrom. Ein Wechselrichter wandelt diesen in nutzbaren Wechselstrom um, der direkt im Haushalt verwendet oder ins Netz eingespeist wird.' },
   { q: 'Was ist der Unterschied zwischen Photovoltaik und Solaranlage?', a: 'Photovoltaik erzeugt Strom aus Licht. Solarthermie dagegen erzeugt Wärme (z.B. für Warmwasser). Im Alltag wird "Solaranlage" meist als Synonym für Photovoltaik verwendet.' },
-  { q: 'Was bringt ein 800 Watt Solarmodul am Tag?', a: 'Ein 800-Watt-System produziert im Sommer etwa 2–4 kWh pro Tag. Im Winter ist die Produktion deutlich geringer.' },
   { q: 'Kann ein Solarpanel einen Kühlschrank betreiben?', a: 'Ja, ein Solarpanel kann einen Kühlschrank betreiben — aber meist nicht dauerhaft alleine. Dafür ist ein grösseres System oder ein Speicher notwendig.' },
   { q: 'Ist man mit Photovoltaik autark?', a: 'Nicht vollständig. Ohne Speicher und im Winter bleibt man teilweise auf Strom aus dem Netz angewiesen. Mit einem grossen Batteriespeicher kann man jedoch sehr hohe Eigenversorgungsgrade erreichen.' },
-  { q: 'Wie gross muss eine Solaranlage sein, um ein Auto zu laden?', a: "Für ein Elektroauto benötigt man etwa 2–4 kWp zusätzliche Leistung." },
   { q: 'Was bringt eine Solaranlage im Winter?', a: 'Im Winter produziert eine Solaranlage deutlich weniger Strom — aber nicht nichts. Kürzere Tage und tiefere Sonnenwinkel reduzieren die Produktion, Strom wird aber weiterhin erzeugt.' },
-  { q: 'Wie lange reicht ein 10 kWh Speicher?', a: 'Ein 10-kWh-Speicher deckt je nach Haushalt den Abend und die Nacht ab. Bei hohem Verbrauch wird er schneller entladen.' },
 ];
 
 const faqsIT = [
   { q: 'Come funziona un impianto fotovoltaico in modo semplice?', a: 'I moduli solari generano corrente continua dalla luce solare. Un inverter la converte in corrente alternata utilizzabile direttamente in casa o immessa in rete.' },
   { q: 'Qual è la differenza tra fotovoltaico e impianto solare?', a: 'Il fotovoltaico produce elettricità dalla luce. Il solare termico produce calore (es. per l\'acqua calda). Nel linguaggio comune "impianto solare" è spesso sinonimo di fotovoltaico.' },
-  { q: 'Quanto produce un modulo da 800 Watt al giorno?', a: 'Un sistema da 800 Watt produce in estate circa 2–4 kWh al giorno. In inverno la produzione è sensibilmente inferiore.' },
   { q: 'Un pannello solare può alimentare un frigorifero?', a: 'Sì, un pannello solare può alimentare un frigorifero — ma di solito non in modo continuativo da solo. È necessario un sistema più grande o una batteria.' },
   { q: 'Con il fotovoltaico si è autosufficienti?', a: 'Non completamente. Senza batteria e in inverno si rimane parzialmente dipendenti dalla rete. Con una grande batteria si possono raggiungere gradi di autoapprovvigionamento molto elevati.' },
-  { q: 'Quanto deve essere grande un impianto per ricaricare un\'auto?', a: 'Per un\'auto elettrica servono circa 2–4 kWp di potenza aggiuntiva.' },
   { q: 'Produce ancora energia in inverno?', a: 'In inverno un impianto produce molto meno — ma non zero. Giornate più corte e angoli solari più bassi riducono la produzione, ma l\'energia viene comunque generata.' },
-  { q: 'Quanto dura una batteria da 10 kWh?', a: 'Una batteria da 10 kWh copre generalmente la sera e la notte. Con consumi elevati si scarica più rapidamente.' },
 ];
 
 const faqsFR = [
   { q: 'Comment fonctionne une installation solaire simplement expliqué ?', a: 'Les modules solaires génèrent du courant continu à partir de la lumière solaire. Un onduleur le convertit en courant alternatif utilisable directement à la maison ou injecté dans le réseau.' },
   { q: 'Quelle est la différence entre photovoltaïque et installation solaire ?', a: 'Le photovoltaïque produit de l\'électricité. Le solaire thermique produit de la chaleur. Dans le langage courant, les deux termes sont souvent utilisés comme synonymes.' },
-  { q: 'Que produit un module de 800 Watts par jour ?', a: 'Un système de 800 Watts produit en été environ 2–4 kWh par jour. En hiver, la production est nettement inférieure.' },
   { q: 'Un panneau solaire peut-il alimenter un réfrigérateur ?', a: 'Oui, mais généralement pas seul en continu. Un système plus grand ou une batterie est nécessaire.' },
   { q: 'Peut-on être autosuffisant avec le photovoltaïque ?', a: 'Pas complètement. Sans batterie et en hiver, on reste partiellement dépendant du réseau.' },
-  { q: 'Quelle taille d\'installation pour recharger une voiture ?', a: 'Pour une voiture électrique, il faut environ 2–4 kWc de puissance supplémentaire.' },
   { q: 'Produit-elle encore de l\'énergie en hiver ?', a: 'En hiver, une installation produit beaucoup moins — mais pas zéro.' },
-  { q: 'Combien de temps dure une batterie de 10 kWh ?', a: 'Une batterie de 10 kWh couvre généralement la soirée et la nuit selon la consommation.' },
 ];
 
 const quickFactsDE = [
   { q: 'Produziert sie auch im Winter?', a: 'Ja — deutlich weniger, aber weiterhin Strom. Moderne Anlagen erzeugen auch bei Bewölkung Energie.' },
-  { q: 'Kann ich ein E-Auto laden?', a: 'Ja. Mit ca. 2–4 kWp Zusatzleistung decken Sie den Grossteil des Ladbedarfs Ihres Elektroautos.' },
-  { q: 'Bin ich damit autark?', a: 'Nicht vollständig — aber mit einem Speicher können Sie bis zu 70–80% Eigenversorgung erreichen.' },
-  { q: 'Wie viel produziert 1 Modul täglich?', a: 'Ein 400-Watt-Modul erzeugt im Sommer ca. 1–2 kWh/Tag. Im Winter entsprechend weniger.' },
-  { q: 'Was kostet eine 10-kWp-Anlage?', a: "Zwischen 20'000 und 35'000 CHF vor Förderungen. Die EIV-Vergütung reduziert die Kosten deutlich." },
-  { q: 'Wann amortisiert sie sich?', a: 'Bei einem typischen Schweizer Haushalt in 8–12 Jahren — je nach Eigenverbrauch und Strompreis.' },
+  { q: 'Bin ich damit autark?', a: `Nicht vollständig. Mit einem Speicher liegt der Eigenverbrauch typischerweise bei ${ECONOMIC_FACTS.selfConsumptionPercent.withStorage.min}–${ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max}%.` },
+  { q: 'Was kostet eine 10-kWp-Anlage?', a: `Schlüsselfertig und ohne Speicher ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min, 0)}–${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max, 0)} CHF.` },
+  { q: 'Wann amortisiert sie sich?', a: `Im Schweizer Mittelland typischerweise in ${ECONOMIC_FACTS.systemPaybackYears.plateau.min}–${ECONOMIC_FACTS.systemPaybackYears.plateau.max} Jahren.` },
 ];
 
 const quickFactsIT = [
   { q: 'Produce anche in inverno?', a: 'Sì — molto meno, ma continua a produrre. I moderni impianti generano energia anche con il cielo nuvoloso.' },
-  { q: 'Posso ricaricare un\'auto elettrica?', a: 'Sì. Con circa 2–4 kWp di potenza aggiuntiva copri la maggior parte del fabbisogno di ricarica.' },
-  { q: 'Divento autosufficiente?', a: 'Non completamente — ma con una batteria puoi raggiungere il 70–80% di autoapprovvigionamento.' },
-  { q: 'Quanto produce 1 modulo al giorno?', a: 'Un modulo da 400 Watt produce in estate ca. 1–2 kWh/giorno. In inverno proporzionalmente meno.' },
-  { q: 'Quanto costa un impianto da 10 kWp?', a: "Tra 20'000 e 35'000 CHF prima degli incentivi. La RU riduce sensibilmente i costi." },
-  { q: 'Quando si ammortizza?', a: 'Per una tipica famiglia svizzera in 8–12 anni — a seconda dell\'autoconsumo e del prezzo dell\'energia.' },
+  { q: 'Divento autosufficiente?', a: `Non completamente. Con un accumulo l'autoconsumo tipico va dal ${ECONOMIC_FACTS.selfConsumptionPercent.withStorage.min} all'${ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max}%.` },
+  { q: 'Quanto costa un impianto da 10 kWp?', a: `Chiavi in mano e senza accumulo, da ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min, 0)} a ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max, 0)} CHF.` },
+  { q: 'Quando si ammortizza?', a: `Sull'Altopiano svizzero, in genere da ${ECONOMIC_FACTS.systemPaybackYears.plateau.min} a ${ECONOMIC_FACTS.systemPaybackYears.plateau.max} anni.` },
 ];
 
 const quickFactsFR = [
   { q: 'Produit-elle aussi en hiver ?', a: 'Oui — beaucoup moins, mais toujours. Les installations modernes génèrent de l\'énergie même par temps nuageux.' },
-  { q: 'Puis-je recharger une voiture électrique ?', a: 'Oui. Avec environ 2–4 kWc de puissance supplémentaire, vous couvrez la majeure partie du besoin de charge.' },
-  { q: 'Serai-je autosuffisant ?', a: 'Pas complètement — mais avec une batterie, vous pouvez atteindre 70–80% d\'autoapprovisionnement.' },
-  { q: 'Combien produit 1 module par jour ?', a: 'Un module de 400 Watts produit en été environ 1–2 kWh/jour. En hiver, proportionnellement moins.' },
-  { q: 'Combien coûte une installation de 10 kWc ?', a: "Entre 20'000 et 35'000 CHF avant subventions. La RU réduit significativement les coûts." },
-  { q: 'Quand est-elle amortie ?', a: 'Pour un ménage suisse typique en 8–12 ans — selon l\'autoconsommation et le prix de l\'électricité.' },
+  { q: 'Serai-je autosuffisant ?', a: `Pas complètement. Avec une batterie, l'autoconsommation se situe généralement entre ${ECONOMIC_FACTS.selfConsumptionPercent.withStorage.min} et ${ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max}%.` },
+  { q: 'Combien coûte une installation de 10 kWc ?', a: `Clés en main et sans stockage, entre ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min, 0)} et ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max, 0)} CHF.` },
+  { q: 'Quand est-elle amortie ?', a: `Sur le Plateau suisse, généralement en ${ECONOMIC_FACTS.systemPaybackYears.plateau.min} à ${ECONOMIC_FACTS.systemPaybackYears.plateau.max} ans.` },
 ];
 
 const textsDE = {
@@ -163,14 +149,10 @@ function ProductionCalc({ locale }: { locale: string }) {
   const pathname = usePathname();
   const formUrl = getFormUrl(pathname);
   const [kwp, setKwp] = useState(8);
-  const [hasEv, setHasEv] = useState(false);
-  const [hasHeatpump, setHasHeatpump] = useState(false);
 
-  const yearlyKwh = Math.round(kwp * 1000);
+  const yearlyKwh = Math.round(kwp * ECONOMIC_FACTS.production.plateauKwhPerKwp.min);
   const dailyKwh = (yearlyKwh / 365).toFixed(0);
-  const savedChf = Math.round(yearlyKwh * 0.22);
-  const evCoverage = hasEv ? Math.round((yearlyKwh / 2500) * 100) : null;
-  const heatCoverage = hasHeatpump ? Math.round((yearlyKwh / 3000) * 100) : null;
+  const savedChf = calculateAnnualSolarValueRange(yearlyKwh, yearlyKwh);
 
   const T = locale === 'it' ? textsIT : locale === 'fr' ? textsFR : textsDE;
 
@@ -195,21 +177,10 @@ function ProductionCalc({ locale }: { locale: string }) {
         </div>
       </div>
 
-      <div className="flex gap-3 mb-8 flex-wrap">
-        <button onClick={() => setHasEv(!hasEv)}
-          className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold border transition-all ${hasEv ? 'border-[#fcb210] bg-orange-50 text-[#fcb210]' : 'border-gray-200 text-gray-500'}`}>
-          {T.evLabel}
-        </button>
-        <button onClick={() => setHasHeatpump(!hasHeatpump)}
-          className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold border transition-all ${hasHeatpump ? 'border-[#fcb210] bg-orange-50 text-[#fcb210]' : 'border-gray-200 text-gray-500'}`}>
-          {T.waermeLabel}
-        </button>
-      </div>
-
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
         <div className="rounded-2xl bg-gray-50 p-4 text-center">
           <p className="text-xs text-gray-400 mb-1 uppercase tracking-wide">{T.proJahr}</p>
-          <p className="text-2xl font-bold text-gray-900">{yearlyKwh.toLocaleString('de-CH')}</p>
+          <p className="text-2xl font-bold text-gray-900">{formatSwissNumber(yearlyKwh, 0)}</p>
           <p className="text-xs text-gray-500">kWh</p>
         </div>
         <div className="rounded-2xl bg-gray-50 p-4 text-center">
@@ -219,37 +190,12 @@ function ProductionCalc({ locale }: { locale: string }) {
         </div>
         <div className="rounded-2xl bg-orange-50 border border-orange-100 p-4 text-center col-span-2 sm:col-span-1">
           <p className="text-xs text-[#fcb210] mb-1 uppercase tracking-wide font-bold">{T.ersparnis}</p>
-          <p className="text-2xl font-bold text-[#fcb210]">~{savedChf.toLocaleString('de-CH')}</p>
+          <p className="text-2xl font-bold text-[#fcb210]">{formatSwissNumber(savedChf.min, 0)}–{formatSwissNumber(savedChf.max, 0)}</p>
           <p className="text-xs text-gray-500">CHF</p>
         </div>
       </div>
 
-      {(hasEv || hasHeatpump) && (
-        <div className="rounded-xl bg-gray-50 border border-gray-100 p-4 space-y-3">
-          {hasEv && evCoverage !== null && (
-            <div>
-              <div className="flex justify-between text-xs mb-1">
-                <span className="text-gray-600">{T.evCoverage}</span>
-                <span className="font-bold text-gray-900">{Math.min(evCoverage, 100)}%</span>
-              </div>
-              <div className="h-2 bg-gray-200 rounded-full">
-                <div className="h-2 rounded-full bg-[#fcb210] transition-all duration-500" style={{ width: `${Math.min(evCoverage, 100)}%` }} />
-              </div>
-            </div>
-          )}
-          {hasHeatpump && heatCoverage !== null && (
-            <div>
-              <div className="flex justify-between text-xs mb-1">
-                <span className="text-gray-600">{T.waermeCoverage}</span>
-                <span className="font-bold text-gray-900">{Math.min(heatCoverage, 100)}%</span>
-              </div>
-              <div className="h-2 bg-gray-200 rounded-full">
-                <div className="h-2 rounded-full bg-blue-500 transition-all duration-500" style={{ width: `${Math.min(heatCoverage, 100)}%` }} />
-              </div>
-            </div>
-          )}
-        </div>
-      )}
+      <p className="text-xs text-gray-400">{SOURCE_NOTES[locale as 'de' | 'it' | 'fr'] || SOURCE_NOTES.de}</p>
 
       <div className="mt-6 pt-6 border-t border-gray-100 flex flex-col sm:flex-row gap-3">
         <Link href={formUrl} className="flex-1 text-center py-3.5 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity"

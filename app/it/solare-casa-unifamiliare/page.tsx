@@ -4,6 +4,10 @@ import { ChevronRight, Sun, CheckCircle2, Home, Ruler, Cpu, Wrench, ArrowRight }
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatChf, formatRangeForLocale, formatSwissNumber } from '@/lib/facts';
+
+const itRange = (range: { readonly min: number; readonly max: number }, unit: string) =>
+  formatRangeForLocale(range, unit, 'it');
 
 export const metadata: Metadata = pageMetadata({
   title: 'Impianto solare casa unifamiliare Svizzera: costi, dimensioni e vantaggi | PvPro.ch',
@@ -21,17 +25,17 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/it/solare-casa-unifamiliare', locale: 'it' });
 
 const costRows = [
-  { size: 'Impianto piccolo (6–8 kWp)',  price: "ca. 20'000 – 25'000 CHF", highlight: false },
-  { size: 'Standard (8–10 kWp)',         price: "ca. 25'000 – 30'000 CHF", highlight: true },
-  { size: 'Impianto grande (10–15 kWp)', price: "ca. 30'000 – 35'000 CHF", highlight: false },
+  { size: 'Impianto da 5 kWp', price: itRange(ECONOMIC_FACTS.systemCosts.bySize[5], 'CHF'), highlight: false },
+  { size: 'Impianto da 10 kWp', price: itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF'), highlight: true },
+  { size: 'Impianto da 15 kWp', price: itRange(ECONOMIC_FACTS.systemCosts.bySize[15], 'CHF'), highlight: false },
 ];
 
 const exampleRows = [
-  { label: 'Superficie tetto',   value: '60 m²',                       highlight: false },
-  { label: 'Potenza',            value: '10 kWp',                      highlight: false },
-  { label: 'Costi',              value: "ca. 25'000 – 30'000 CHF",    highlight: false },
-  { label: 'Incentivo RU',       value: "ca. 3'600 CHF",              highlight: false },
-  { label: 'Costi effettivi',    value: "ca. 20'000 – 26'000 CHF",    highlight: true },
+  { label: 'Superficie tetto', value: `${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`, highlight: false },
+  { label: 'Potenza', value: `${Object.keys(ECONOMIC_FACTS.systemCosts.bySize)[2]} kWp`, highlight: false },
+  { label: 'Costi lordi', value: itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF'), highlight: false },
+  { label: 'Incentivo RU', value: formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox), highlight: false },
+  { label: 'Costi netti dopo la RU', value: itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF'), highlight: true },
 ];
 
 const factors = [
@@ -71,7 +75,7 @@ export default function SolareCasaUnifamiliarePage() {
                 Impianto solare per casa unifamiliare: costi, dimensioni e vantaggi
               </h1>
               <p className="text-white/70 text-lg leading-relaxed mb-8">
-                Un impianto solare riduce i vostri costi energetici e vi rende più indipendenti. Tipicamente una casa unifamiliare viene equipaggiata con <strong className="text-white">8–12 kWp</strong> — ovvero circa <strong className="text-white">50–70 m²</strong> di superficie del tetto.
+                Un impianto solare riduce i vostri costi energetici e vi rende più indipendenti. Il dimensionamento dipende dal consumo e dalla superficie utilizzabile.
               </p>
               <Link
                 href="/it/richiesta"
@@ -83,10 +87,9 @@ export default function SolareCasaUnifamiliarePage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: '8–12 kWp',           label: "Dimensione tipica dell'impianto" },
-                { value: "25'000–30'000",       label: 'CHF investimento' },
-                { value: "9'000–11'000",        label: 'kWh produzione/anno' },
-                { value: '25–30 anni',          label: 'Durata di vita' },
+                { value: itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF'), label: 'Costo lordo 10 kWp' },
+                { value: itRange({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh/anno'), label: 'Produzione 10 kWp Altopiano' },
+                { value: itRange(ECONOMIC_FACTS.moduleLifetimeYears, 'anni'), label: 'Durata moduli' },
               ].map((s) => (
                 <div key={s.label} className="rounded-2xl bg-white/5 border border-white/10 px-5 py-4">
                   <p className="text-xl sm:text-2xl font-bold text-white mb-1">{s.value}</p>
@@ -94,6 +97,7 @@ export default function SolareCasaUnifamiliarePage() {
                 </div>
               ))}
             </div>
+             <p className="text-xs text-gray-400 mt-3">{SYSTEM_PRICE_NOTES.it} {SOURCE_NOTES.it}</p>
           </div>
         </div>
       </section>
@@ -109,8 +113,7 @@ export default function SolareCasaUnifamiliarePage() {
                 Quanto deve essere grande il vostro impianto solare?
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
-                La dimensione ottimale dipende dal consumo elettrico. Come regola generale:{' '}
-                <strong className="text-gray-800">1'000 kWh di consumo → ca. 1–2 kWp di impianto.</strong>
+                La dimensione ottimale dipende dal consumo elettrico e dalla superficie del tetto.
               </p>
               <p className="text-gray-500 leading-relaxed">
                 Se avete una pompa di calore o un'auto elettrica, un impianto più grande è spesso redditizio. Utilizzate il calcolatore per ottenere una prima raccomandazione.
@@ -130,9 +133,7 @@ export default function SolareCasaUnifamiliarePage() {
               Quanto costa un impianto solare per una casa unifamiliare?
             </h2>
             <p className="text-gray-500 leading-relaxed mb-6">
-              Per un impianto tipico da 10 kWp con circa 50 m² di superficie del tetto, sono realistici investimenti di circa{' '}
-              <strong className="text-gray-800">25'000 – 30'000 CHF</strong>.
-              Dopo gli incentivi e le deduzioni fiscali, il prezzo effettivo può essere notevolmente inferiore.
+              Per un impianto da 10 kWp il costo lordo nazionale è <strong className="text-gray-800">{itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF')}</strong>.
             </p>
             <div className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
               <div className="grid grid-cols-2 bg-gray-50 px-5 py-3 text-xs font-bold text-gray-400 uppercase tracking-wider">
@@ -162,13 +163,12 @@ export default function SolareCasaUnifamiliarePage() {
                 Quanta elettricità produce un impianto solare?
               </h2>
               <p className="text-white/70 leading-relaxed mb-6">
-                Un impianto tipico su una casa unifamiliare produce{' '}
-                <strong className="text-white">ca. 9'000 – 11'000 kWh all'anno</strong> — ovvero la maggior parte del fabbisogno elettrico di un nucleo familiare.
+                 Un impianto da 10 kWp produce <strong className="text-white">{itRange({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh all’anno')}</strong> sull'Altopiano.
               </p>
               {[
-                { label: 'Impianto 8 kWp',  value: "7'200 – 8'800 kWh/anno",   pct: 65 },
-                { label: 'Impianto 10 kWp', value: "9'000 – 11'000 kWh/anno",  pct: 80 },
-                { label: 'Impianto 12 kWp', value: "10'800 – 13'200 kWh/anno", pct: 95 },
+                { label: 'Impianto 5 kWp', value: itRange({ min: 5 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 5 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh/anno'), pct: 35 },
+                { label: 'Impianto 10 kWp', value: itRange({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh/anno'), pct: 70 },
+                { label: 'Impianto 15 kWp', value: itRange({ min: 15 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 15 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh/anno'), pct: 100 },
               ].map((row) => (
                 <div key={row.label} className="mb-4">
                   <div className="flex justify-between text-sm mb-1.5">
@@ -220,11 +220,11 @@ export default function SolareCasaUnifamiliarePage() {
                 Incentivi per impianti solari in Svizzera
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
-                Per un impianto da 10 kWp, il contributo federale corrisponde a circa <strong className="text-gray-800">3'600 CHF</strong>. Si aggiungono incentivi cantonali e deduzioni fiscali.
+                Per un impianto da 10 kWp, la RU è di circa <strong className="text-gray-800">{formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}</strong>.
               </p>
               <div className="space-y-3">
                 {[
-                  "Rimborso unico (RU) federale: ca. 360 CHF/kWp",
+                  `RU federale: ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)}/kWp fino a 30 kWp`,
                   "Ulteriori programmi di incentivi cantonali",
                   "Deduzioni fiscali a livello federale",
                 ].map((item) => (
@@ -240,11 +240,11 @@ export default function SolareCasaUnifamiliarePage() {
             </div>
             <div className="space-y-3">
               {[
-                { label: 'Investimento (10 kWp)',  value: "25'000 – 30'000 CHF",    color: 'text-gray-800',   highlight: false },
-                { label: 'Incentivo federale RU',  value: "– 3'600 CHF",            color: 'text-green-600',  highlight: false },
+                { label: 'Investimento lordo (10 kWp)', value: itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF'), color: 'text-gray-800', highlight: false },
+                { label: 'Incentivo federale RU', value: `– ${formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}`, color: 'text-green-600', highlight: false },
                 { label: 'Incentivo cantonale',    value: 'variabile',              color: 'text-green-600',  highlight: false },
                 { label: 'Deduzioni fiscali',      value: 'variabile',              color: 'text-green-600',  highlight: false },
-                { label: 'Costi effettivi',        value: "ca. 20'000 – 26'000 CHF", color: 'text-[#fcb210]', highlight: true },
+                { label: 'Costi netti dopo la RU', value: itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF'), color: 'text-[#fcb210]', highlight: true },
               ].map((row) => (
                 <div key={row.label} className={`flex justify-between items-center px-5 py-3.5 rounded-xl ${row.highlight ? 'bg-orange-50 border border-orange-100' : 'bg-white border border-gray-100'}`}>
                   <span className={`text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>
@@ -266,14 +266,14 @@ export default function SolareCasaUnifamiliarePage() {
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Investimento iniziale inferiore</span></div>
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Ammortamento più rapido</span></div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Autoconsumo ca. 25–40%</span></div>
+                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Autoconsumo {itRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%')}</span></div>
               </div>
             </div>
             <div className="rounded-2xl border border-[#fcb210]/30 p-6 shadow-sm bg-orange-50">
               <p className="font-bold text-gray-900 text-lg mb-1">Con accumulo a batteria</p>
               <p className="text-sm text-[#fcb210] font-semibold mb-4">Raccomandato per consumi elevati</p>
               <div className="space-y-2 text-sm text-gray-600">
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Autoconsumo fino al 50–65%</span></div>
+                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Autoconsumo {itRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%')}</span></div>
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Elettricità anche di sera</span></div>
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Maggiore indipendenza</span></div>
               </div>

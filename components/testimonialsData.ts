@@ -43,8 +43,8 @@ export const reviewTexts: Record<'de' | 'fr' | 'en' | 'it', ReviewText[]> = {
       location: 'Wohnhaus, Frauenfeld',
     },
     {
-      quote: "War skeptisch gegenüber Vergleichsportalen – am Ende über 4'000 Franken gespart.",
-      detail: "Von solchen Seiten halte ich normalerweise wenig. Aber die günstigste der drei Offerten lag deutlich unter dem, was mir eine Firma vorher direkt angeboten hatte. Rund 4'000 Franken Unterschied für praktisch dieselbe Anlage.",
+      quote: 'War skeptisch gegenüber Vergleichsportalen – am Ende hat mich der Vergleich überzeugt.',
+      detail: 'Von solchen Seiten halte ich normalerweise wenig. Aber die günstigste Offerte lag deutlich unter dem, was mir eine Firma vorher direkt angeboten hatte.',
       location: 'Flachdach, Olten',
     },
     {
@@ -75,8 +75,8 @@ export const reviewTexts: Record<'de' | 'fr' | 'en' | 'it', ReviewText[]> = {
       location: 'Maison d\'habitation, Frauenfeld',
     },
     {
-      quote: "J'étais sceptique envers les comparateurs – au final, plus de 4'000 francs économisés.",
-      detail: "D'habitude, je ne fais pas trop confiance à ce genre de sites. Mais le devis le moins cher des trois était nettement en dessous de ce qu'une entreprise m'avait proposé directement auparavant. Environ 4'000 francs de différence pour pratiquement la même installation.",
+      quote: "J'étais sceptique envers les comparateurs, mais la comparaison m'a convaincu.",
+      detail: "D'habitude, je ne fais pas trop confiance à ce genre de sites. Mais le devis le moins cher était nettement en dessous de ce qu'une entreprise m'avait proposé directement auparavant.",
       location: 'Toit plat, Olten',
     },
     {
@@ -107,8 +107,8 @@ export const reviewTexts: Record<'de' | 'fr' | 'en' | 'it', ReviewText[]> = {
       location: 'Residential house, Frauenfeld',
     },
     {
-      quote: "Was sceptical about comparison portals – ended up saving over 4,000 francs.",
-      detail: "I don't usually think much of sites like this. But the cheapest of the three quotes was well below what a company had offered me directly before. Around 4,000 francs difference for practically the same system.",
+      quote: 'Was sceptical about comparison portals, but the comparison convinced me.',
+      detail: "I don't usually think much of sites like this. But the cheapest quote was well below what a company had offered me directly before.",
       location: 'Flat roof, Olten',
     },
     {
@@ -139,8 +139,8 @@ export const reviewTexts: Record<'de' | 'fr' | 'en' | 'it', ReviewText[]> = {
       location: 'Casa d\'abitazione, Frauenfeld',
     },
     {
-      quote: "Ero scettico sui portali di confronto – alla fine ho risparmiato oltre 4'000 franchi.",
-      detail: "Di solito non mi fido molto di questi siti. Ma il più conveniente dei tre preventivi era nettamente sotto quello che un'azienda mi aveva proposto direttamente in precedenza. Circa 4'000 franchi di differenza per un impianto praticamente identico.",
+      quote: 'Ero scettico sui portali di confronto, ma il confronto mi ha convinto.',
+      detail: "Di solito non mi fido molto di questi siti. Ma il preventivo più conveniente era nettamente sotto quello che un'azienda mi aveva proposto direttamente in precedenza.",
       location: 'Tetto piano, Olten',
     },
     {

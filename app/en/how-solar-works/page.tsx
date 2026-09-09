@@ -3,13 +3,14 @@ import Image from 'next/image';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
 import WieFunktioniertInteractive from '@/components/WieFunktioniertInteractive';
 import FaqSchema from '@/components/FaqSchema';
 
 const wfFaqs = [
   { question: 'How does a solar installation work, simply explained?', answer: 'Solar modules generate direct current from sunlight. An inverter converts this into usable alternating current, which is used directly in the household or fed into the grid.' },
   { question: 'What is the difference between photovoltaics and a solar installation?', answer: "Photovoltaics generates electricity from light. Solar thermal, on the other hand, generates heat (e.g. for hot water). In everyday use, 'solar installation' is often used as a synonym for photovoltaics." },
-  { question: 'What does an 800 watt solar module produce per day?', answer: 'An 800-watt system produces around 2–4 kWh per day in summer. In winter, production is significantly lower as the days are shorter and the sun is lower.' },
+  { question: 'How much electricity does a solar installation produce?', answer: `On the Swiss Plateau, annual production is ${formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh per kWp', 'en')}.` },
   { question: 'Can a solar panel run a refrigerator?', answer: 'Yes, a solar panel can run a refrigerator — but usually not permanently on its own. For that, a larger system or storage is required.' },
   { question: 'Can you be self-sufficient with photovoltaics?', answer: 'Not completely. Without storage and in winter, you remain partially dependent on grid electricity. However, with a large battery storage system, you can achieve a very high degree of self-sufficiency.' },
   { question: 'What does a solar installation produce in winter?', answer: 'In winter, a solar installation produces significantly less electricity — but not nothing. Shorter days and lower sun angles reduce production, but electricity is still generated.' },
@@ -82,10 +83,10 @@ export default function HowSolarWorksPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
-              { val: '25–30 yrs', label: 'Module lifespan' },
-              { val: '22%', label: 'Max. efficiency' },
-              { val: '9–11k', label: 'kWh/year at 10 kWp' },
-              { val: '0 CHF', label: 'Fuel required' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en'), label: 'Module lifespan' },
+              { val: 'Modern', label: 'Module technology' },
+              { val: formatRangeForLocale({ min: ECONOMIC_FACTS.production.plateauKwhPerKwp.min * 10, max: ECONOMIC_FACTS.production.plateauKwhPerKwp.max * 10 }, 'kWh/year', 'en'), label: 'at 10 kWp on the Plateau' },
+              { val: SOURCE_NOTES.en, label: 'Data status' },
             ].map((s) => (
               <div key={s.label}>
                 <p className="text-2xl sm:text-3xl font-bold text-[#fcb210]">{s.val}</p>

@@ -8,6 +8,27 @@ import {
   Sun, Home, Battery, ArrowRight, ChevronRight, AlertCircle,
 } from 'lucide-react';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, ELECTRICITY_TARIFF_NOTES, SOURCE_NOTES, STORAGE_PRICE_NOTES, SYSTEM_PRICE_NOTES, calculateAnnualSolarValueRange, formatChfForLocale, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
+
+const facts = ECONOMIC_FACTS;
+const frRange = (range: { min: number; max: number }, unit: string) => formatRangeForLocale(range, unit, 'fr');
+const production10 = { min: 10 * facts.production.plateauKwhPerKwp.min, max: 10 * facts.production.plateauKwhPerKwp.max };
+const selfConsumed10 = {
+  min: Math.round(production10.min * facts.selfConsumptionPercent.withoutStorage.min / 100),
+  max: Math.round(production10.max * facts.selfConsumptionPercent.withoutStorage.max / 100),
+};
+const annualSavings = {
+  min: Math.round(selfConsumed10.min * facts.electricityMedianCtPerKwh / 100),
+  max: Math.round(selfConsumed10.max * facts.electricityMedianCtPerKwh / 100),
+};
+const annualFeedIn = {
+  min: Math.round((production10.min - selfConsumed10.min) * facts.feedInCtPerKwh.min / 100),
+  max: Math.round((production10.max - selfConsumed10.max) * facts.feedInCtPerKwh.max / 100),
+};
+const annualBenefit = {
+  min: calculateAnnualSolarValueRange(production10.min, production10.max).min,
+  max: calculateAnnualSolarValueRange(production10.max, production10.max).max,
+};
 
 const baseMetadata: Metadata = {
   title: 'Calculateur solaire Suisse 2026 – Calculer coûts et rendement | PvPro.ch',
@@ -35,35 +56,31 @@ const baseMetadata: Metadata = {
 const faqs = [
   {
     question: 'Quelle est la précision du calculateur solaire ?',
-    answer: "Notre calculateur vous donne une bonne première orientation. Il est basé sur des valeurs moyennes suisses : 6,5 m² par kWp, 950 kWh de production par kWp et 2'200 CHF de coûts d'installation par kWp. Pour un calcul exact, nous recommandons une consultation professionnelle sur place, qui tient compte de l'orientation du toit, des ombrages et des conditions locales.",
+    answer: `Notre calculateur donne une première orientation. Il utilise ${facts.roofAreaM2PerKwp.toLocaleString('fr-CH')} m² par kWp, ${frRange(facts.production.plateauKwhPerKwp, 'kWh par kWp')} et ${frRange(facts.systemCosts.perKwp, 'CHF par kWp')}.`,
   },
   {
     question: 'Quelle surface de toit faut-il par kWp ?',
-    answer: 'Avec des modules modernes, on compte environ 6,5 m² de surface de toit par kWp en Suisse. Pour une installation typique de 10 kWp, il vous faut environ 65 m² de surface utilisable. L\'ensemble du toit n\'est pas forcément exploitable — velux, cheminées et ombrages réduisent la surface disponible.',
+    answer: `On compte environ ${facts.roofAreaM2PerKwp.toLocaleString('fr-CH')} m² de surface de toit par kWp, soit ${10 * facts.roofAreaM2PerKwp} m² pour 10 kWp.`,
   },
   {
     question: 'Qu\'est-ce que la rétribution unique (RU) ?',
-    answer: 'La rétribution unique (RU) de la Confédération s\'élève actuellement à environ 350 CHF par kWp installé. Elle est directement déduite du prix d\'installation et réduit sensiblement vos coûts réels. Des subventions cantonales supplémentaires sont possibles selon le canton. Au total, les subventions peuvent couvrir 20–30% des coûts d\'investissement.',
+    answer: `La RU est de ${formatChfForLocale(facts.incentives.pronovoPerKwpUpTo30, 'fr')} par kWp jusqu'à 30 kWp, plus une contribution de base. Le total des aides fédérales, cantonales et communales peut atteindre ${facts.incentives.combinedMaxPercent}%.`,
   },
   {
     question: 'Quelle est la durée d\'amortissement typique en Suisse ?',
-    answer: "La durée d'amortissement moyenne en Suisse est de 8–12 ans, selon le prix de l'électricité, le taux d'autoconsommation et les subventions reçues. Après l'amortissement, vous produisez de l'électricité largement gratuite pendant encore 15–20 ans. Avec la hausse des prix de l'électricité, la durée d'amortissement se raccourcit.",
+    answer: `Sur le Plateau, la durée d'amortissement indicative est de ${frRange(facts.systemPaybackYears.plateau, 'ans')}.`,
   },
   {
     question: 'Une installation solaire est-elle rentable avec un toit orienté nord ?',
-    answer: 'Un toit orienté plein nord n\'est pas idéal. En revanche, les toits est et ouest fournissent encore 70–80% du rendement d\'un toit sud et sont généralement rentables. Pour les toits nord, nous recommandons une analyse professionnelle au cas par cas. Les modules solaires bifaciaux modernes peuvent donner de très bons résultats même sur des toits moins optimaux.',
+    answer: 'Un toit orienté plein nord n’est pas idéal. Les toits est et ouest peuvent rester adaptés. Pour les toits nord, nous recommandons une analyse professionnelle au cas par cas.',
   },
   {
     question: 'Dois-je ajouter un stockage par batterie ?',
-    answer: "Un stockage par batterie augmente votre taux d'autoconsommation de 30% à 60–80%. Il coûte environ 8'000–15'000 CHF supplémentaires, mais s'amortit de plus en plus vite avec la hausse des prix de l'électricité. Un stockage est particulièrement utile si vous êtes peu chez vous la journée ou si vous possédez une voiture électrique.",
+    answer: `Sans stockage, l'autoconsommation est de ${frRange(facts.selfConsumptionPercent.withoutStorage, '%')}. Avec stockage, elle atteint ${frRange(facts.selfConsumptionPercent.withStorage, '%')}. Un stockage de 10 kWh coûte ${frRange(facts.storageCosts.byCapacity[10], 'CHF')}. ${STORAGE_PRICE_NOTES.fr}`,
   },
   {
     question: 'Comment une voiture électrique influence-t-elle mon calcul solaire ?',
-    answer: "Une voiture électrique avec environ 15'000 km/an consomme environ 2'500 kWh. Avec une installation solaire d'environ 3 kWp plus grande, vous pouvez couvrir largement cette consommation supplémentaire. Charger la voiture le jour avec l'énergie solaire augmente considérablement l'autoconsommation.",
-  },
-  {
-    question: 'Quel canton a le plus d\'heures d\'ensoleillement en Suisse ?',
-    answer: "Le Tessin et le Valais comptent parmi les cantons les plus ensoleillés de Suisse, avec plus de 2'000 heures de soleil par an. La Suisse alémanique se situe entre 1'600 et 1'900 heures. Même dans les zones moins ensoleillées, les installations solaires sont rentables — la différence de rendement entre le Tessin et Zurich n'est que de 15–20%.",
+    answer: "La consommation dépend du véhicule et du kilométrage. Charger la voiture pendant la production solaire augmente l'autoconsommation.",
   },
 ];
 
@@ -71,12 +88,12 @@ const systemSizes = [
   {
     label: 'Petite',
     kwp: 6,
-    flaeche: '39 m²',
-    jahresertrag: "5'700 kWh",
-    kosten: "13'200 CHF",
-    foerderung: "2'100 CHF",
-    nettokosten: "11'100 CHF",
-    amort: '9–12 ans',
+    flaeche: `${6 * facts.roofAreaM2PerKwp} m²`,
+    jahresertrag: frRange({ min: 6 * facts.production.plateauKwhPerKwp.min, max: 6 * facts.production.plateauKwhPerKwp.max }, 'kWh'),
+    kosten: frRange(getSystemCostRange(6), 'CHF'),
+    foerderung: formatChfForLocale(6 * facts.incentives.pronovoPerKwpUpTo30, 'fr'),
+    nettokosten: frRange({ min: getSystemCostRange(6).min - 6 * facts.incentives.pronovoPerKwpUpTo30, max: getSystemCostRange(6).max - 6 * facts.incentives.pronovoPerKwpUpTo30 }, 'CHF'),
+    amort: frRange(facts.systemPaybackYears.plateau, 'ans'),
     haushalt: '2 personnes / appartement',
     color: 'border-blue-200 bg-blue-50',
     badge: 'bg-blue-100 text-blue-700',
@@ -84,12 +101,12 @@ const systemSizes = [
   {
     label: 'Moyenne',
     kwp: 10,
-    flaeche: '65 m²',
-    jahresertrag: "9'500 kWh",
-    kosten: "22'000 CHF",
-    foerderung: "3'500 CHF",
-    nettokosten: "18'500 CHF",
-    amort: '8–11 ans',
+    flaeche: `${10 * facts.roofAreaM2PerKwp} m²`,
+    jahresertrag: frRange({ min: 10 * facts.production.plateauKwhPerKwp.min, max: 10 * facts.production.plateauKwhPerKwp.max }, 'kWh'),
+    kosten: frRange(facts.systemCosts.bySize[10], 'CHF'),
+    foerderung: formatChfForLocale(facts.incentives.tenKwpApprox, 'fr'),
+    nettokosten: frRange({ min: facts.systemCosts.bySize[10].min - facts.incentives.tenKwpApprox, max: facts.systemCosts.bySize[10].max - facts.incentives.tenKwpApprox }, 'CHF'),
+    amort: frRange(facts.systemPaybackYears.plateau, 'ans'),
     haushalt: '3–4 personnes / maison individuelle',
     color: 'border-[#fcb210]/30 bg-orange-50',
     badge: 'bg-[#fcb210]/10 text-[#fcb210]',
@@ -98,12 +115,12 @@ const systemSizes = [
   {
     label: 'Grande',
     kwp: 15,
-    flaeche: '98 m²',
-    jahresertrag: "14'250 kWh",
-    kosten: "33'000 CHF",
-    foerderung: "5'250 CHF",
-    nettokosten: "27'750 CHF",
-    amort: '8–10 ans',
+    flaeche: `${15 * facts.roofAreaM2PerKwp} m²`,
+    jahresertrag: frRange({ min: 15 * facts.production.plateauKwhPerKwp.min, max: 15 * facts.production.plateauKwhPerKwp.max }, 'kWh'),
+    kosten: frRange(facts.systemCosts.bySize[15], 'CHF'),
+    foerderung: formatChfForLocale(15 * facts.incentives.pronovoPerKwpUpTo30, 'fr'),
+    nettokosten: frRange({ min: facts.systemCosts.bySize[15].min - 15 * facts.incentives.pronovoPerKwpUpTo30, max: facts.systemCosts.bySize[15].max - 15 * facts.incentives.pronovoPerKwpUpTo30 }, 'CHF'),
+    amort: frRange(facts.systemPaybackYears.plateau, 'ans'),
     haushalt: 'Grande famille / immeuble',
     color: 'border-green-200 bg-green-50',
     badge: 'bg-green-100 text-green-700',
@@ -114,7 +131,7 @@ const factors = [
   {
     icon: Sun,
     title: 'Orientation du toit',
-    body: 'Un toit orienté sud atteint 100% de rendement. Est/Ouest fournissent chacun 70–80%, les toits nord seulement 50–60%. L\'inclinaison idéale est de 25–35°.',
+    body: 'L’orientation et l’inclinaison du toit influencent la production. Une analyse sur place permet de les évaluer.',
     tip: 'Sud, Est ou Ouest sont idéaux',
   },
   {
@@ -126,40 +143,39 @@ const factors = [
   {
     icon: AlertCircle,
     title: 'Ombrage',
-    body: 'Arbres, cheminées ou maisons voisines peuvent réduire le rendement de 10–30%. Les micro-onduleurs ou optimiseurs modernes minimisent les pertes.',
+    body: 'Arbres, cheminées ou maisons voisines peuvent réduire le rendement. Une étude d’ombrage permet de mesurer cet effet.',
     tip: 'Faire vérifier les ombrages',
   },
   {
     icon: Battery,
     title: 'Autoconsommation',
-    body: 'Sans stockage, vous consommez environ 25–35% de l\'électricité produite. Avec un stockage, l\'autoconsommation monte à 60–80% — ce qui améliore considérablement la rentabilité.',
+    body: `Sans stockage, l'autoconsommation est de ${frRange(facts.selfConsumptionPercent.withoutStorage, '%')}. Avec stockage, elle monte à ${frRange(facts.selfConsumptionPercent.withStorage, '%')}.`,
     tip: 'Le stockage augmente l\'autoconsommation',
   },
   {
     icon: Zap,
     title: 'Prix de l\'électricité',
-    body: 'Le ménage suisse moyen paie actuellement environ 25–30 ct/kWh. Chaque kilowatt produit soi-même est directement économisé. Avec la hausse des prix, l\'installation s\'amortit plus vite.',
-    tip: '~25–30 ct/kWh en Suisse',
+    body: `La médiane suisse est de ${facts.electricityMedianCtPerKwh.toLocaleString('fr-CH')} ct/kWh. Chaque kilowattheure produit et consommé sur place évite un achat.`,
+    tip: ELECTRICITY_TARIFF_NOTES.fr,
   },
   {
     icon: TrendingUp,
     title: 'Injection réseau',
-    body: 'L\'électricité que vous ne consommez pas vous-même est injectée dans le réseau. La rémunération varie entre 6 et 15 ct/kWh selon le gestionnaire de réseau — nettement en dessous du prix d\'achat.',
-    tip: '6–15 ct/kWh d\'injection',
+    body: `La rémunération de l'injection varie de ${facts.feedInCtPerKwh.min} à ${facts.feedInCtPerKwh.max} ct/kWh selon le gestionnaire.`,
+    tip: `${frRange(facts.feedInCtPerKwh, 'ct/kWh')}. ${ELECTRICITY_TARIFF_NOTES.fr}`,
   },
 ];
 
 const richtigValues = [
-  { label: "Heures d'ensoleillement/an moyennes (CH)", value: "1'600–2'100 h" },
-  { label: 'Rendement annuel par kWp (moyenne CH)', value: "950–1'000 kWh" },
-  { label: 'Surface de toit par kWp (modules modernes)', value: '6,5 m²' },
-  { label: "Coûts d'installation par kWp", value: "2'000–2'500 CHF" },
-  { label: 'Subvention fédérale RU par kWp', value: '~350 CHF' },
-  { label: 'Autoconsommation moyenne sans stockage', value: '25–35%' },
-  { label: 'Autoconsommation moyenne avec stockage', value: '60–80%' },
-  { label: 'Durée de vie des modules solaires', value: '25–30 ans' },
-  { label: 'Garantie de performance (typique)', value: '80% après 25 ans' },
-  { label: "Durée d'amortissement (Suisse)", value: '8–12 ans' },
+  { label: 'Rendement annuel par kWp sur le Plateau', value: frRange(facts.production.plateauKwhPerKwp, 'kWh') },
+  { label: 'Surface de toit par kWp', value: `${facts.roofAreaM2PerKwp.toLocaleString('fr-CH')} m²` },
+  { label: "Coûts d'installation par kWp", value: frRange(facts.systemCosts.perKwp, 'CHF') },
+  { label: 'Subvention fédérale RU par kWp', value: formatChfForLocale(facts.incentives.pronovoPerKwpUpTo30, 'fr') },
+  { label: 'Autoconsommation sans stockage', value: frRange(facts.selfConsumptionPercent.withoutStorage, '%') },
+  { label: 'Autoconsommation avec stockage', value: frRange(facts.selfConsumptionPercent.withStorage, '%') },
+  { label: 'Durée de vie des modules solaires', value: frRange(facts.moduleLifetimeYears, 'ans') },
+  { label: 'Garantie de performance', value: `${facts.performanceWarranty.percent}% après ${facts.performanceWarranty.afterYears} ans` },
+  { label: "Durée d'amortissement sur le Plateau", value: frRange(facts.systemPaybackYears.plateau, 'ans') },
 ];
 
 export default function CalculateurSolairePage() {
@@ -206,7 +222,7 @@ export default function CalculateurSolairePage() {
               <div className="flex flex-wrap gap-3">
                 <div className="flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-2 rounded-full">
                   <CheckCircle className="w-4 h-4 text-[#fcb210]" />
-                  <span className="text-white/80 text-sm">100% gratuit</span>
+              <span className="text-white/80 text-sm">Gratuit</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-2 rounded-full">
                   <CheckCircle className="w-4 h-4 text-[#fcb210]" />
@@ -221,10 +237,10 @@ export default function CalculateurSolairePage() {
 
             <div className="grid grid-cols-2 gap-4 pb-12">
               {[
-                { val: "950–1'000", unit: 'kWh/kWp/an', label: 'Moyenne suisse' },
-                { val: '8–12', unit: 'ans', label: 'Amortissement typique' },
-                { val: '~350', unit: 'CHF/kWp', label: 'Subvention fédérale RU' },
-                { val: '25–30', unit: 'ans', label: 'Durée de vie modules' },
+                 { val: frRange(facts.production.plateauKwhPerKwp, ''), unit: 'kWh/kWp/an', label: 'Plateau' },
+                 { val: frRange(facts.systemPaybackYears.plateau, ''), unit: 'ans', label: 'Amortissement Plateau' },
+                 { val: String(facts.incentives.pronovoPerKwpUpTo30), unit: 'CHF/kWp', label: 'Subvention fédérale RU' },
+                 { val: frRange(facts.moduleLifetimeYears, ''), unit: 'ans', label: 'Durée de vie modules' },
               ].map(s => (
                 <div key={s.label} className="bg-white/8 border border-white/10 rounded-2xl p-5">
                   <p className="text-2xl font-bold text-white">{s.val}</p>
@@ -250,7 +266,7 @@ export default function CalculateurSolairePage() {
             <SolarCalculator />
           </div>
           <p className="text-center text-xs text-gray-400 mt-6">
-            Valeurs indicatives : 6,5 m²/kWp · 950 kWh/kWp/an · 2'200 CHF/kWp · RU ~350 CHF/kWp. Pas d'offre ferme.
+            {SOURCE_NOTES.fr} {SYSTEM_PRICE_NOTES.fr}
           </p>
         </div>
       </section>
@@ -262,7 +278,7 @@ export default function CalculateurSolairePage() {
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Valeurs de référence</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Tailles d'installations typiques en Suisse</h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
-              Selon la taille du ménage et la surface de toit disponible, différentes puissances sont recommandées. Tous les prix avant subventions cantonales — celles-ci peuvent réduire les coûts de 10–15% supplémentaires.
+              Selon la taille du ménage et la surface de toit disponible, différentes puissances sont possibles. Les prix affichés sont avant les aides cantonales.
             </p>
           </div>
 
@@ -399,8 +415,8 @@ export default function CalculateurSolairePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
-              { step: '1', title: 'Entrer la surface du toit', desc: "Estimez votre surface de toit utilisable en m² (longueur × largeur). Typiquement : 40–100 m²." },
-              { step: '2', title: 'Indiquer la consommation', desc: "Votre consommation annuelle figure sur votre facture d'électricité — typiquement 3'500–7'000 kWh pour une maison." },
+              { step: '1', title: 'Entrer la surface du toit', desc: "Estimez votre surface de toit utilisable en m², longueur multipliée par largeur." },
+              { step: '2', title: 'Indiquer la consommation', desc: "Votre consommation annuelle figure sur votre facture d'électricité." },
               { step: '3', title: 'Comprendre le potentiel', desc: "Vous voyez immédiatement : taille de l'installation, rendement annuel, coûts et durée d'amortissement estimée." },
               { step: '4', title: 'Comparer les devis', desc: 'Demandez gratuitement 3 devis d\'installateurs certifiés — sans engagement et rapidement.' },
             ].map(s => (
@@ -428,39 +444,9 @@ export default function CalculateurSolairePage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
                 Rendement solaire par canton en Suisse
               </h2>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                L'ensoleillement varie cantonalement en Suisse. Le Tessin et le Valais comptent parmi les zones les plus ensoleillées avec plus de 2'000 heures de soleil par an et un rendement annuel allant jusqu'à 1'100 kWh/kWp.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                La Suisse alémanique et le Plateau se situent à 1'600–1'900 heures — d'excellentes conditions pour l'énergie solaire. La différence de rendement annuel entre Genève et Zurich est inférieure à 15%. Les installations solaires sont rentables dans toute la Suisse.
-              </p>
               <Link href="/fr/demande" className="inline-flex items-center gap-2 text-sm font-bold text-[#fcb210] hover:underline">
                 Demander des devis pour mon emplacement <ArrowRight className="w-4 h-4" />
               </Link>
-            </div>
-            <div className="space-y-3">
-              {[
-                { region: 'Tessin (Lugano)', stunden: "2'080", ertrag: "1'080–1'100 kWh/kWp", bar: 100 },
-                { region: 'Valais (Sion)', stunden: "2'130", ertrag: "1'050–1'100 kWh/kWp", bar: 99 },
-                { region: 'Arc lémanique', stunden: "1'870", ertrag: "970–1'000 kWh/kWp", bar: 87 },
-                { region: 'Berne / Plateau', stunden: "1'720", ertrag: "900–950 kWh/kWp", bar: 80 },
-                { region: 'Zurich', stunden: "1'700", ertrag: "880–920 kWh/kWp", bar: 78 },
-                { region: 'Bâle / Suisse du Nord', stunden: "1'660", ertrag: "860–900 kWh/kWp", bar: 76 },
-              ].map(r => (
-                <div key={r.region} className="bg-white rounded-xl p-4 border border-gray-100">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-semibold text-gray-800 text-sm">{r.region}</span>
-                    <span className="text-xs text-gray-500">{r.stunden} h/an</span>
-                  </div>
-                  <div className="h-1.5 bg-gray-100 rounded-full mb-2">
-                    <div
-                      className="h-1.5 rounded-full"
-                      style={{ width: `${r.bar}%`, background: 'linear-gradient(90deg, #ffc812, #fcb210)' }}
-                    />
-                  </div>
-                  <p className="text-xs text-gray-400">{r.ertrag}</p>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -473,7 +459,7 @@ export default function CalculateurSolairePage() {
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Rentabilité</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Qu'est-ce qu'une installation solaire vous rapporte concrètement ?</h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-sm">
-              Avec une installation typique de 10 kWp en Suisse — calculé avec 25 ct/kWh de prix d'électricité et 35% d'autoconsommation sans stockage.
+              Exemple pour 10 kWp sur le Plateau, avec la médiane suisse de {facts.electricityMedianCtPerKwh.toLocaleString('fr-CH')} ct/kWh et {frRange(facts.selfConsumptionPercent.withoutStorage, '%')} d'autoconsommation.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -481,32 +467,32 @@ export default function CalculateurSolairePage() {
               {
                 icon: Zap,
                 label: "Économies d'électricité annuelles",
-                value: 'CHF 950',
-                sub: "≈ 3'325 kWh autoconsommés × 25 ct",
+                value: frRange(annualSavings, 'CHF'),
+                sub: `${frRange(selfConsumed10, 'kWh')} autoconsommés`,
                 color: 'text-[#fcb210]',
                 bg: 'bg-orange-50',
               },
               {
                 icon: TrendingUp,
                 label: 'Rémunération injection / an',
-                value: 'CHF 617',
-                sub: "≈ 6'175 kWh injectés × 10 ct",
+                value: frRange(annualFeedIn, 'CHF'),
+                sub: frRange(facts.feedInCtPerKwh, 'ct/kWh'),
                 color: 'text-green-600',
                 bg: 'bg-green-50',
               },
               {
                 icon: PiggyBank,
                 label: 'Bénéfice total / an',
-                value: "CHF 1'567",
+                value: frRange(annualBenefit, 'CHF'),
                 sub: 'Économies + rémunération injection',
                 color: 'text-blue-600',
                 bg: 'bg-blue-50',
               },
               {
                 icon: Calculator,
-                label: 'Bénéfice total sur 25 ans',
-                value: "CHF 39'000+",
-                sub: "Les prix de l'électricité continueront à augmenter",
+                label: `Bénéfice indicatif sur ${facts.moduleLifetimeYears.min} ans`,
+                value: frRange({ min: annualBenefit.min * facts.moduleLifetimeYears.min, max: annualBenefit.max * facts.moduleLifetimeYears.min }, 'CHF'),
+                sub: 'À prix constants',
                 color: 'text-purple-600',
                 bg: 'bg-purple-50',
               },
@@ -523,7 +509,7 @@ export default function CalculateurSolairePage() {
           </div>
           <div className="mt-8 bg-gray-50 border border-gray-200 rounded-2xl p-5 max-w-3xl mx-auto text-center">
             <p className="text-gray-600 text-sm leading-relaxed">
-              <strong className="text-gray-800">Remarque :</strong> Les chiffres sont basés sur une installation de 10 kWp avec des coûts nets d'environ 18'500 CHF, 35% d'autoconsommation, 25 ct/kWh de prix d'achat et 10 ct/kWh de tarif d'injection. Avec un stockage batterie, une voiture électrique ou la hausse des prix de l'électricité, la rentabilité s'améliore nettement.
+              {SOURCE_NOTES.fr}
             </p>
           </div>
         </div>
@@ -553,7 +539,7 @@ export default function CalculateurSolairePage() {
               { icon: Calculator, title: 'Calcul instantané', desc: "Obtenez en quelques secondes une première estimation pour votre installation solaire — sans inscription." },
               { icon: Zap, title: 'Calculer le rendement', desc: "Voyez combien d'électricité votre toit peut produire annuellement — selon votre canton." },
               { icon: PiggyBank, title: 'Comprendre les coûts', desc: 'Estimation réaliste avec subvention RU basée sur les prix actuels du marché suisse.' },
-              { icon: TrendingUp, title: "Planifier l'amortissement", desc: "Sachez quand votre investissement sera rentabilisé et combien vous économiserez sur 25 ans." },
+              { icon: TrendingUp, title: "Planifier l'amortissement", desc: `Situez votre projet par rapport à la durée indicative de ${frRange(facts.systemPaybackYears.plateau, 'ans')} sur le Plateau.` },
             ].map(b => (
               <div key={b.title} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                 <div className="w-11 h-11 rounded-xl bg-[#fcb210]/10 flex items-center justify-center mb-4">

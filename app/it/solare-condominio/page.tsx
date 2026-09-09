@@ -4,6 +4,11 @@ import { ChevronRight, Sun, CheckCircle2, TrendingUp, Users, Building2, Zap, Arr
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import MehrfamilienhausRechner, { MehrfamilienhausFaq } from '@/components/MehrfamilienhausRechner';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, getSystemCostRange, formatRangeForLocale, formatSwissNumber } from '@/lib/facts';
+
+const itRange = (range: { readonly min: number; readonly max: number }, unit: string) =>
+  formatRangeForLocale(range, unit, 'it');
+const condominiumExampleKwp = 50;
 
 export const metadata: Metadata = pageMetadata({
   title: 'Impianto solare condominio Svizzera: costi, CEL e redditività | PvPro.ch',
@@ -21,23 +26,23 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/it/solare-condominio', locale: 'it' });
 
 const costRows = [
-  { size: 'Impianto piccolo (15–30 kWp)', price: "ca. 40'000 – 80'000 CHF", highlight: false },
-  { size: 'Impianto medio (30–60 kWp)',   price: "ca. 80'000 – 150'000 CHF", highlight: true },
-  { size: 'Impianto grande (60+ kWp)',    price: "150'000 CHF +",             highlight: false },
+  { size: 'Impianto da 15 kWp', price: itRange(ECONOMIC_FACTS.systemCosts.bySize[15], 'CHF'), highlight: false },
+  { size: 'Impianto da 30 kWp', price: itRange(getSystemCostRange(30), 'CHF'), highlight: true },
+  { size: 'Impianto da 60 kWp', price: itRange(getSystemCostRange(60), 'CHF'), highlight: false },
 ];
 
 const sizeGuide = [
-  { label: '5–10 appartamenti',  kwp: 'ca. 20–40 kWp', m2: 'ca. 100–240 m²' },
-  { label: '10–20 appartamenti', kwp: 'ca. 40–80 kWp', m2: 'ca. 200–480 m²' },
-  { label: 'Edifici più grandi', kwp: '80 kWp +',       m2: '480 m² +' },
+  { label: 'Esempio piccolo', kwp: '15 kWp', m2: `${formatSwissNumber(15 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²` },
+  { label: 'Esempio medio', kwp: '30 kWp', m2: `${formatSwissNumber(30 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²` },
+  { label: 'Esempio grande', kwp: '60 kWp', m2: `${formatSwissNumber(60 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²` },
 ];
 
 const exampleRows = [
   { label: 'Appartamenti',         value: '10',              highlight: false },
-  { label: 'Potenza',              value: '50 kWp',          highlight: false },
-  { label: 'Costi',                value: "ca. 100'000 CHF", highlight: false },
+  { label: 'Potenza', value: `${condominiumExampleKwp} kWp`, highlight: false },
+  { label: 'Costi', value: itRange(getSystemCostRange(50), 'CHF'), highlight: false },
   { label: 'Modello di utilizzo',  value: 'CEL',             highlight: false },
-  { label: 'Quota di autoconsumo', value: '60–75 %',         highlight: true },
+  { label: 'Quota di autoconsumo con accumulo', value: itRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%'), highlight: true },
 ];
 
 const benefits = [
@@ -90,10 +95,10 @@ export default function SolareCondominioPage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: '20–120 kWp',          label: "Dimensione tipica dell'impianto" },
-                { value: "40'000–150'000+",      label: 'CHF investimento' },
+                { value: `${Object.keys(ECONOMIC_FACTS.systemCosts.bySize)[3]}–${2 * 30} kWp`, label: "Esempi di dimensione" },
+                { value: itRange(getSystemCostRange(30), 'CHF'), label: 'Costo lordo esempio 30 kWp' },
                 { value: 'CEL',                  label: 'Modello di utilizzo comune' },
-                { value: '60–75 %',              label: 'Quota di autoconsumo' },
+                { value: itRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%'), label: 'Autoconsumo con accumulo' },
               ].map((s) => (
                 <div key={s.label} className="rounded-2xl bg-white/5 border border-white/10 px-5 py-4">
                   <p className="text-xl sm:text-2xl font-bold text-white mb-1">{s.value}</p>
@@ -101,6 +106,7 @@ export default function SolareCondominioPage() {
                 </div>
               ))}
             </div>
+               <p className="text-xs text-gray-400 mt-3">{SYSTEM_PRICE_NOTES.it} {SOURCE_NOTES.it}</p>
           </div>
         </div>
       </section>

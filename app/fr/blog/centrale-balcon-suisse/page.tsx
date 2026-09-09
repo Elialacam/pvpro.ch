@@ -16,11 +16,10 @@ const baseMetadata: Metadata = {
 };
 
 const comparisonRows = [
-  { factor: 'Coûts', balkon: "300 – 1'200 CHF", solar: "20'000 – 35'000 CHF", winner: 'balkon' },
+  { factor: 'Coûts', balkon: 'selon le modèle', solar: "selon l'offre", winner: 'balkon' },
   { factor: 'Puissance', balkon: '300 – 800 Watt', solar: "8'000 – 12'000 Watt", winner: 'solar' },
-  { factor: 'Production/an', balkon: '200 – 600 kWh', solar: "8'000 – 12'000 kWh", winner: 'solar' },
-  { factor: 'Économie/an', balkon: '50 – 150 CHF', solar: "1'500 – 3'000 CHF", winner: 'solar' },
-  { factor: 'Amortissement', balkon: '3 – 6 ans', solar: '8 – 12 ans', winner: 'balkon' },
+  { factor: 'Production/an', balkon: 'faible', solar: 'nettement supérieure', winner: 'solar' },
+  { factor: 'Économie/an', balkon: 'faible', solar: 'nettement supérieure', winner: 'solar' },
   { factor: 'Plus-value', balkon: 'Aucune', solar: 'Oui (immobilier)', winner: 'solar' },
   { factor: 'Subventions', balkon: 'Aucune', solar: 'RU + cantonal', winner: 'solar' },
   { factor: 'Cible', balkon: 'Locataires', solar: 'Propriétaires', winner: null },
@@ -108,8 +107,8 @@ export default function CentraleBalconSuissePage() {
                 {[
                   { label: 'Modules', value: '1–2' },
                   { label: 'Puissance max.', value: '800 W' },
-                  { label: 'Production/an', value: '200–600 kWh' },
-                  { label: 'Économie/an', value: '50–150 CHF' },
+                  { label: 'Production/an', value: "selon l'orientation" },
+                  { label: 'Économie/an', value: "selon l'autoconsommation" },
                 ].map((s) => (
                   <div key={s.label} className="rounded-xl bg-gray-50 border border-gray-100 p-4 text-center">
                     <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">{s.label}</p>
@@ -148,7 +147,7 @@ export default function CentraleBalconSuissePage() {
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Combien d&apos;électricité produit une centrale de balcon ?</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Une centrale de balcon typique produit environ <strong>200–600 kWh par an</strong> — ce qui correspond à la consommation de base de quelques appareils (réfrigérateur, veille). Cela est loin de couvrir la majorité de la consommation électrique du foyer.
+                Une centrale de balcon typique ne couvre qu&apos;une petite partie de la consommation électrique du foyer.
               </p>
               {/* Barres de comparaison visuelles */}
               <div className="rounded-2xl bg-gray-50 border border-gray-100 p-6 space-y-5">
@@ -156,7 +155,7 @@ export default function CentraleBalconSuissePage() {
                 <div>
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-gray-600">Centrale de balcon (800 W)</span>
-                    <span className="font-bold text-gray-800">jusqu&apos;à 600 kWh</span>
+                    <span className="font-bold text-gray-800">faible production</span>
                   </div>
                   <div className="h-4 rounded-full bg-gray-200">
                     <div className="h-4 rounded-full bg-gray-400" style={{ width: '5%' }} />
@@ -164,8 +163,8 @@ export default function CentraleBalconSuissePage() {
                 </div>
                 <div>
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="text-gray-600">Installation solaire (10 kWc)</span>
-                    <span className="font-bold text-[#fcb210]">9&apos;000 – 11&apos;000 kWh</span>
+                    <span className="text-gray-600">Installation solaire</span>
+                    <span className="font-bold text-[#fcb210]">production nettement supérieure</span>
                   </div>
                   <div className="h-4 rounded-full bg-gray-200">
                     <div className="h-4 rounded-full bg-[#fcb210]" style={{ width: '90%' }} />
@@ -241,7 +240,7 @@ export default function CentraleBalconSuissePage() {
                   Beaucoup commencent avec l&apos;idée d&apos;une centrale de balcon et réalisent ensuite : <strong className="text-white">L&apos;effet est trop faible.</strong>
                 </p>
                 <p className="text-white/70 leading-relaxed mb-6">
-                  Une installation solaire complète vous économise annuellement <strong className="text-white">1&apos;500 – 3&apos;000 CHF</strong> — soit 10–20× plus qu&apos;une centrale de balcon. Et avec la rémunération unique (RU) et les subventions cantonales, les coûts d&apos;acquisition diminuent considérablement.
+                  Une installation solaire complète permet d&apos;économiser nettement plus qu&apos;une centrale de balcon. La rémunération unique et les subventions cantonales réduisent les coûts d&apos;acquisition.
                 </p>
                 <div className="grid grid-cols-3 gap-3 mb-6">
                   {[
@@ -300,9 +299,9 @@ export default function CentraleBalconSuissePage() {
                   {[
                     { label: 'Autorisée en CH ?', value: 'Oui, avec déclaration' },
                     { label: 'Puissance max.', value: '800 Watt (plug-and-play)' },
-                    { label: 'Coûts', value: "300 – 1'200 CHF" },
-                    { label: 'Production/an', value: '200 – 600 kWh' },
-                    { label: 'Économie/an', value: '50 – 150 CHF' },
+                    { label: 'Coûts', value: 'selon le modèle' },
+                    { label: 'Production/an', value: "selon l'orientation" },
+                    { label: 'Économie/an', value: "selon l'autoconsommation" },
                     { label: 'Obligation de déclaration', value: 'Oui, auprès du gestionnaire réseau' },
                   ].map((item) => (
                     <div key={item.label} className="flex justify-between items-start gap-2 py-2 border-b border-gray-50 last:border-0">

@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRight, Zap, CheckCircle, XCircle } from 'lucide-reac
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Confronto tipi impianti solari Svizzera 2026 – Quale fa per me? | PvPro.ch',
@@ -42,7 +43,7 @@ const faqs = [
   },
   {
     question: "Quali pannelli durano più a lungo?",
-    answer: "Tutti i pannelli cristallini di alta qualità hanno una garanzia di prestazione di 25–30 anni. La scelta del produttore è spesso più importante della tecnologia.",
+    answer: `I moduli durano in genere ${formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'anni', 'it')}. La garanzia di prestazione indicativa è ${ECONOMIC_FACTS.performanceWarranty.percent}% dopo ${ECONOMIC_FACTS.performanceWarranty.afterYears} anni.`,
   },
   {
     question: "Posso combinare diversi tipi di pannelli sullo stesso tetto?",
@@ -55,10 +56,10 @@ const faqs = [
 ];
 
 const tabella = [
-  { tipo: 'Monocristallino', rendimento: '18–22%', costi: 'Medio–Alto', ideale: 'Piccole superfici, alta efficienza' },
-  { tipo: 'Policristallino', rendimento: '15–17%', costi: 'Basso', ideale: 'Grandi superfici, opzione economica' },
-  { tipo: 'Film sottile', rendimento: '10–13%', costi: 'Basso', ideale: 'Tetti piani, applicazioni speciali' },
-  { tipo: 'Bifacciale', rendimento: '20–24%', costi: 'Alto', ideale: 'Zone nevose, tetti piani' },
+  { tipo: 'Monocristallino', rendimento: 'Alto', costi: 'Medio–Alto', ideale: 'Piccole superfici, alta efficienza' },
+  { tipo: 'Policristallino', rendimento: 'Medio', costi: 'Basso', ideale: 'Grandi superfici, opzione economica' },
+  { tipo: 'Film sottile', rendimento: 'Più basso', costi: 'Basso', ideale: 'Tetti piani, applicazioni speciali' },
+  { tipo: 'Bifacciale', rendimento: 'Alto', costi: 'Alto', ideale: 'Zone nevose, tetti piani' },
 ];
 
 const situazioniTabella = [
@@ -86,7 +87,7 @@ const tipiModulo: TipoModulo[] = [
     badgeColor: 'bg-orange-100 text-orange-700',
     intro: 'I moduli monocristallini sono oggi di gran lunga la scelta più frequente per le case unifamiliari svizzere. Sono composti da un singolo cristallo di silicio e hanno il rendimento più elevato tra tutte le tecnologie comuni.',
     vantaggi: [
-      'Rendimento più elevato (18–22%)',
+      'Rendimento più elevato',
       'Migliore prestazione con luce diffusa e cielo coperto',
       'Compatto — ideale per superfici di tetto più piccole',
       'Lunga durata di vita e alta affidabilità',
@@ -109,7 +110,7 @@ const tipiModulo: TipoModulo[] = [
       'Ben adatti a grandi superfici di tetto',
     ],
     svantaggi: [
-      'Rendimento più basso (15–17%)',
+      'Rendimento più basso',
       'Superficie maggiore necessaria per la stessa potenza',
       'Riconoscibili dall\'aspetto blu scintillante',
     ],
@@ -126,7 +127,7 @@ const tipiModulo: TipoModulo[] = [
       'Funzionano bene ad alte temperature',
     ],
     svantaggi: [
-      'Rendimento più basso (10–13%)',
+      'Rendimento più basso',
       'Richiedono notevolmente più superficie',
       'Durata di vita più breve dei moduli cristallini',
     ],
@@ -177,9 +178,8 @@ export default function ConfrontoTipiImpiantiSolariPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: '22%', sub: 'rendimento max. monocristallino', note: 'miglior valore in condizioni standard' },
               { val: '4 tipi', sub: 'in confronto diretto', note: 'mono, poli, film sottile, bifacciale' },
-              { val: '25–30 anni', sub: 'durata di vita di tutti i tipi', note: 'con garanzia di prestazione' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'anni', 'it'), sub: 'durata dei moduli', note: SOURCE_NOTES.it },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>

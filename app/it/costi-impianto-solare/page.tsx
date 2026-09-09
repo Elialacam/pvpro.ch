@@ -5,10 +5,24 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
 import FaqSchema from '@/components/FaqSchema';
+import {
+  ECONOMIC_FACTS,
+  SOURCE_NOTES,
+  SYSTEM_PRICE_NOTES,
+  STORAGE_PRICE_NOTES,
+  formatChf,
+  formatRangeForLocale,
+} from '@/lib/facts';
+
+const itRange = (range: { readonly min: number; readonly max: number }, unit: string) =>
+  formatRangeForLocale(range, unit, 'it');
+const cost10 = ECONOMIC_FACTS.systemCosts.bySize[10];
+const ru10 = ECONOMIC_FACTS.incentives.tenKwpApprox;
+const exampleKwp = 10;
 
 export const metadata: Metadata = pageMetadata({
   title: 'Costi impianto solare Svizzera 2026 – Quanto costa un impianto fotovoltaico? | PvPro.ch',
-  description: "Quanto costa un impianto solare in Svizzera? Prezzi 2026: 15'000 – 35'000 CHF per una casa unifamiliare. Costi per kWp, incentivi e accumulo. Confronta offerte gratuitamente.",
+  description: `Quanto costa un impianto solare in Svizzera? Prezzi 2026: ${itRange(cost10, 'CHF')} per 10 kWp, senza accumulo. Costi per kWp, incentivi e accumulo.`,
   alternates: {
     canonical: 'https://www.pvpro.ch/it/costi-impianto-solare',
     languages: {
@@ -21,7 +35,7 @@ export const metadata: Metadata = pageMetadata({
   },
   openGraph: {
     title: "Costi impianto solare Svizzera 2026 – Prezzi attuali & incentivi",
-    description: "Prezzi attuali per impianti solari in Svizzera. 15'000 – 35'000 CHF per casa unifamiliare dopo incentivi. Tutte le info su costi, prezzo kWp e accumulo.",
+    description: `Prezzi attuali per impianti solari in Svizzera. ${itRange(cost10, 'CHF')} per 10 kWp prima degli incentivi. Informazioni su costi, prezzo kWp e accumulo.`,
     url: 'https://www.pvpro.ch/it/costi-impianto-solare',
     type: 'article',
     locale: 'it_CH',
@@ -30,14 +44,14 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/it/costi-impianto-solare', locale: 'it' });
 
 const costTable = [
-  { size: '5 kWp', production: "4'500 – 5'000 kWh", price: "13'000 – 18'000 CHF", area: 'circa 30 – 35 m²', ideal: 'Casa piccola' },
-  { size: '8 kWp', production: "7'500 – 8'000 kWh", price: "18'000 – 25'000 CHF", area: 'circa 50 – 55 m²', ideal: 'Casa unifamiliare' },
-  { size: '10 kWp', production: "9'000 – 10'000 kWh", price: "22'000 – 30'000 CHF", area: 'circa 62 – 68 m²', ideal: 'Grande CU / condominio' },
+  { size: '5 kWp', production: itRange({ min: 5 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 5 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh'), price: itRange(ECONOMIC_FACTS.systemCosts.bySize[5], 'CHF'), area: `${5 * ECONOMIC_FACTS.roofAreaM2PerKwp} m²`, ideal: 'Casa piccola' },
+  { size: '8 kWp', production: itRange({ min: 8 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 8 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh'), price: itRange(ECONOMIC_FACTS.systemCosts.bySize[8], 'CHF'), area: `${8 * ECONOMIC_FACTS.roofAreaM2PerKwp} m²`, ideal: 'Casa unifamiliare' },
+  { size: '10 kWp', production: itRange({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh'), price: itRange(cost10, 'CHF'), area: `${10 * ECONOMIC_FACTS.roofAreaM2PerKwp} m²`, ideal: 'Grande CU / condominio' },
 ];
 
 const storageTable = [
-  { size: '5 kWh', price: "4'000 – 6'000 CHF" },
-  { size: '10 kWh', price: "7'000 – 10'000 CHF" },
+  { size: '5 kWh', price: itRange(ECONOMIC_FACTS.storageCosts.byCapacity[5], 'CHF') },
+  { size: '10 kWh', price: itRange(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF') },
 ];
 
 const costFactors = [
@@ -66,35 +80,35 @@ const costFactors = [
 const faqs = [
   {
     question: 'Quanto costa un impianto fotovoltaico per una casa unifamiliare?',
-    answer: "La maggior parte degli impianti solari per case unifamiliari in Svizzera costa tra 18'000 e 30'000 CHF dopo la deduzione degli incentivi (RU). Per un impianto tipico di 8-10 kWp, questa è la fascia di prezzo abituale.",
+    answer: `Un impianto da 8 kWp costa ${itRange(ECONOMIC_FACTS.systemCosts.bySize[8], 'CHF')}; uno da 10 kWp costa ${itRange(cost10, 'CHF')}. Sono costi lordi senza accumulo.`,
   },
   {
     question: 'Quanto costa un impianto solare da 10 kW in Svizzera?',
-    answer: "Un impianto fotovoltaico da 10 kWp costa in Svizzera tipicamente tra 22'000 e 30'000 CHF. Dopo la deduzione della rimunerazione unica (RU) della Confederazione, i costi netti possono essere notevolmente inferiori. Un tale impianto produce circa 9'000 – 10'000 kWh di elettricità all'anno.",
+    answer: `Un impianto fotovoltaico da 10 kWp costa ${itRange(cost10, 'CHF')}. La RU è di circa ${formatChf(ru10)}. Sull'Altopiano produce ${itRange({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh')} all'anno.`,
   },
   {
     question: 'Quanta elettricità produce un impianto solare?',
-    answer: "In Svizzera, un impianto solare produce per kWp di potenza circa 900 – 1'000 kWh di elettricità all'anno. Un impianto da 10 kWp produce quindi circa 9'000 – 10'000 kWh annui.",
+    answer: `Sull'Altopiano un impianto produce ${itRange(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh per kWp')} all'anno.`,
   },
   {
     question: 'Un impianto solare conviene in Svizzera?',
-    answer: "Sì. Grazie all'aumento dei prezzi dell'elettricità e agli incentivi disponibili, molti impianti in Svizzera si ammortizzano in 10-15 anni. Con una durata di vita di 25-30 anni, ciò significa anni di elettricità gratuita dal proprio tetto.",
+    answer: `Sì. Sull'Altopiano l'ammortamento indicativo è ${itRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'anni')}. La durata dei moduli è ${itRange(ECONOMIC_FACTS.moduleLifetimeYears, 'anni')}.`,
   },
   {
     question: 'Di quanti moduli solari ha bisogno una casa unifamiliare?',
-    answer: 'Per un impianto tipico di 8-10 kWp sono generalmente necessari 20-30 moduli solari, a seconda della potenza dei moduli (solitamente 400 – 450 Watt per modulo).',
+    answer: 'Il numero di moduli dipende dalla potenza dei moduli scelti e dalla superficie utilizzabile.',
   },
   {
     question: 'Quanto deve essere grande il mio tetto per un impianto solare?',
-    answer: 'Per 1 kWp di potenza sono necessari circa 6-7 m² di superficie del tetto. Un impianto da 10 kWp necessita quindi di circa 60 – 70 m² di superficie del tetto adatta.',
+    answer: `Per 1 kWp servono circa ${ECONOMIC_FACTS.roofAreaM2PerKwp} m². Per 10 kWp servono circa ${10 * ECONOMIC_FACTS.roofAreaM2PerKwp} m².`,
   },
   {
     question: 'Quali incentivi esistono per gli impianti solari in Svizzera?',
-    answer: "In Svizzera la Confederazione propone la rimunerazione unica (RU). Gli importi di incentivo tipici sono di circa 300 – 400 CHF per kWp. Inoltre molti cantoni e comuni offrono propri programmi di sostegno. L'investimento è anche deducibile fiscalmente.",
+    answer: `La RU Pronovo è di ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} per kWp fino a 30 kWp e ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpOver30)} oltre, più il contributo base.`,
   },
   {
     question: 'Quanto costa un impianto solare con accumulo a batteria?',
-    answer: "Un accumulo a batteria aumenta i costi dell'impianto solare: un accumulo da 5 kWh costa circa 4'000 – 6'000 CHF, uno da 10 kWh circa 7'000 – 10'000 CHF. Con l'accumulo, l'autoconsumo dell'elettricità autoprodotta aumenta notevolmente.",
+    answer: `Un accumulo da 5 kWh costa ${itRange(ECONOMIC_FACTS.storageCosts.byCapacity[5], 'CHF')}; uno da 10 kWh costa ${itRange(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF')}.`,
   },
 ];
 
@@ -108,7 +122,7 @@ export default function CostiImpiantoSolarePage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Quanto costa un impianto solare in Svizzera? Prezzi attuali 2026",
-            "description": "Costi attuali per impianti solari in Svizzera. Impianti 5–10 kWp, costi per kWp, incentivi e accumulo a batteria.",
+            "description": `Costi attuali per impianti solari in Svizzera. Esempio da ${exampleKwp} kWp, costi per kWp, incentivi e accumulo a batteria.`,
             "author": { "@type": "Organization", "name": "PvPro.ch" },
             "publisher": { "@type": "Organization", "name": "PvPro.ch", "url": "https://www.pvpro.ch" },
             "datePublished": "2025-01-01",
@@ -146,11 +160,11 @@ export default function CostiImpiantoSolarePage() {
                 Per una tipica casa unifamiliare, i prezzi si situano generalmente tra:
               </p>
               <div className="inline-block bg-primary text-white rounded-2xl px-10 py-6 mb-8">
-                <div className="text-4xl sm:text-5xl font-bold mb-1">15'000 – 35'000 CHF</div>
-                <div className="text-primary-100 text-base">dopo la deduzione degli incentivi</div>
+                <div className="text-4xl sm:text-5xl font-bold mb-1">{itRange(cost10, 'CHF')}</div>
+                <div className="text-primary-100 text-base">costo lordo per 10 kWp, senza accumulo</div>
               </div>
               <p className="text-gray-600">
-                Un impianto medio per una casa unifamiliare ha una potenza di circa <strong>8-10 kWp</strong>.
+                Il dimensionamento di un impianto per una casa unifamiliare dipende dal consumo e dal tetto.
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-xl">
@@ -165,6 +179,8 @@ export default function CostiImpiantoSolarePage() {
               />
             </div>
           </div>
+          <p className="text-xs text-gray-400 text-center mt-4">{SYSTEM_PRICE_NOTES.it}</p>
+          <p className="text-xs text-gray-400 text-center mt-1">{SOURCE_NOTES.it}</p>
         </div>
       </section>
 
@@ -242,11 +258,13 @@ export default function CostiImpiantoSolarePage() {
               In Svizzera i costi medi si situano a:
             </p>
             <div className="bg-white rounded-2xl border-2 border-primary p-8 text-center mb-6">
-              <div className="text-4xl font-bold text-primary mb-2">1'800 – 2'800 CHF <span className="text-2xl">per kWp</span></div>
+              <div className="text-4xl font-bold text-primary mb-2">{itRange(ECONOMIC_FACTS.systemCosts.perKwp, 'CHF')} <span className="text-2xl">per kWp</span></div>
               <p className="text-gray-600 text-sm mt-2">
                 Il prezzo per kWp diminuisce per gli impianti più grandi, poiché i costi di installazione possono essere meglio distribuiti.
               </p>
             </div>
+            <p className="text-xs text-gray-400">{SYSTEM_PRICE_NOTES.it}</p>
+            <p className="text-xs text-gray-400 mt-1">{SOURCE_NOTES.it}</p>
           </div>
         </div>
       </section>
@@ -259,27 +277,29 @@ export default function CostiImpiantoSolarePage() {
               Quanto costa un impianto solare da 10 kW in Svizzera?
             </h2>
             <p className="text-gray-600 mb-6">
-              Un impianto fotovoltaico da <strong>10 kWp</strong> costa in Svizzera tipicamente:
+              Un impianto fotovoltaico da <strong>{exampleKwp} kWp</strong> costa in Svizzera tipicamente:
             </p>
             <div className="bg-primary-50 rounded-2xl p-8 mb-6">
-              <div className="text-4xl font-bold text-primary mb-3">22'000 – 30'000 CHF</div>
-              <p className="text-gray-700 text-sm">dopo la deduzione degli incentivi</p>
+               <div className="text-4xl font-bold text-primary mb-3">{itRange(cost10, 'CHF')}</div>
+               <p className="text-gray-700 text-sm">costo lordo, senza accumulo</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 mb-6">
               <div className="flex items-start gap-3">
                 <Sun className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-gray-900 mb-1">Produzione annua di elettricità</p>
-                  <p className="text-gray-600">Un impianto da 10 kWp produce in Svizzera circa <strong>9'000 – 10'000 kWh di elettricità all'anno</strong>. Questo è spesso sufficiente per coprire una grande parte del consumo elettrico di una casa unifamiliare.</p>
+                   <p className="text-gray-600">Un impianto da 10 kWp produce sull'Altopiano <strong>{itRange({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh all’anno')}</strong>.</p>
                 </div>
               </div>
             </div>
             <div className="flex items-start gap-3 p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
               <CheckCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
               <p className="text-yellow-800 text-sm">
-                Per un impianto da 10 kWp occorrono circa <strong>62 – 68 m² di superficie del tetto</strong> e 20-25 moduli solari.
+                 Per un impianto da 10 kWp occorrono circa <strong>{10 * ECONOMIC_FACTS.roofAreaM2PerKwp} m² di superficie del tetto</strong>.
               </p>
             </div>
+            <p className="text-xs text-gray-400">{STORAGE_PRICE_NOTES.it}</p>
+            <p className="text-xs text-gray-400 mt-1">{SOURCE_NOTES.it}</p>
           </div>
         </div>
       </section>
@@ -376,7 +396,7 @@ export default function CostiImpiantoSolarePage() {
               <div className="flex items-start gap-4">
                 <PiggyBank className="w-10 h-10 text-primary flex-shrink-0" />
                 <div>
-                  <p className="text-2xl font-bold text-primary mb-1">300 – 400 CHF per kWp</p>
+                  <p className="text-2xl font-bold text-primary mb-1">{formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} per kWp fino a 30 kWp</p>
                   <p className="text-gray-700">Importi di incentivo tipici della Confederazione (RU). L'importo dipende dalla dimensione dell'impianto.</p>
                 </div>
               </div>
@@ -385,27 +405,23 @@ export default function CostiImpiantoSolarePage() {
             <div className="bg-white rounded-xl border border-gray-200 p-6">
               <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-primary" />
-                Esempio di calcolo: impianto da 10 kWp
+                Esempio di calcolo: impianto da {exampleKwp} kWp
               </h3>
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Costo lordo</span>
-                  <span className="font-medium">CHF 26'000</span>
+                  <span className="font-medium">{itRange(cost10, 'CHF')}</span>
                 </div>
                 <div className="flex justify-between text-primary">
-                  <span>– Rimunerazione unica RU (ca. 350 CHF/kWp)</span>
-                  <span className="font-medium">– CHF 3'500</span>
-                </div>
-                <div className="flex justify-between text-primary">
-                  <span>– Incentivo cantonale (esempio)</span>
-                  <span className="font-medium">– CHF 2'000</span>
+                  <span>– Rimunerazione unica RU</span>
+                  <span className="font-medium">– {formatChf(ru10)}</span>
                 </div>
                 <div className="border-t border-gray-200 pt-3 flex justify-between">
                   <span className="font-semibold text-gray-900">Costo effettivo (esempio)</span>
-                  <span className="font-bold text-xl text-primary">CHF 20'500</span>
+                  <span className="font-bold text-xl text-primary">{itRange({ min: cost10.min - ru10, max: cost10.max - ru10 }, 'CHF')}</span>
                 </div>
               </div>
-              <p className="text-xs text-gray-400 mt-3">Valore indicativo. Gli incentivi effettivi variano per cantone e dimensione dell'impianto.</p>
+              <p className="text-xs text-gray-400 mt-3">{SOURCE_NOTES.it}</p>
             </div>
           </div>
         </div>
@@ -466,8 +482,9 @@ export default function CostiImpiantoSolarePage() {
           <div className="max-w-2xl mx-auto bg-white rounded-2xl border border-gray-200 p-8 text-center">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">In sintesi</h2>
             <p className="text-gray-600 mb-4">Un impianto solare costa in Svizzera tipicamente:</p>
-            <div className="text-4xl font-bold text-primary mb-3">15'000 – 35'000 CHF</div>
-            <p className="text-gray-600 text-sm mb-6">per una casa unifamiliare</p>
+            <div className="text-4xl font-bold text-primary mb-3">{itRange(cost10, 'CHF')}</div>
+            <p className="text-gray-600 text-sm mb-2">per 10 kWp, lordo e senza accumulo</p>
+            <p className="text-xs text-gray-400 mb-6">{SYSTEM_PRICE_NOTES.it}</p>
             <p className="text-gray-500 text-sm">
               I costi esatti dipendono dalla superficie del tetto, dalla dimensione dell'impianto e dagli incentivi disponibili.
               Richiedete 3 preventivi senza impegno da installatori certificati.

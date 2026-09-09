@@ -3,9 +3,13 @@
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Zap } from 'lucide-react';
-
-const formatChf = (n: number) =>
-  n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+import {
+  SOURCE_NOTES,
+  SYSTEM_PRICE_NOTES,
+  calculatePronovoVariableContribution,
+  formatSwissNumber,
+  getSystemCostRange,
+} from '@/lib/facts';
 
 const translations = {
   de: {
@@ -18,7 +22,7 @@ const translations = {
     effectiveLabel: 'Effektiv',
     coveragePrefix: 'Förderung deckt',
     coverageSuffix: '% der Kosten',
-    disclaimer: "* Schätzwerte basierend auf ca. 350 CHF/kWp EIV und 2'600 CHF/kWp Installationskosten",
+    disclaimer: 'Die Einmalvergütung enthält zusätzlich einen Grundbeitrag.',
   },
   fr: {
     title: 'Calculateur de subvention',
@@ -30,7 +34,7 @@ const translations = {
     effectiveLabel: 'Net',
     coveragePrefix: 'La subvention couvre',
     coverageSuffix: '% des coûts',
-    disclaimer: "* Estimations basées sur env. 350 CHF/kWp RU et 2'600 CHF/kWp de coûts d'installation",
+    disclaimer: 'La rétribution unique comprend aussi une contribution de base.',
   },
   en: {
     title: 'Subsidy Calculator',
@@ -42,7 +46,7 @@ const translations = {
     effectiveLabel: 'Net',
     coveragePrefix: 'Subsidy covers',
     coverageSuffix: '% of costs',
-    disclaimer: '* Estimated values based on approx. CHF 350/kWp OTP and CHF 2,600/kWp installation costs',
+    disclaimer: 'The one-time payment also includes a basic contribution.',
   },
   it: {
     title: 'Calcolatore incentivi',
@@ -54,7 +58,7 @@ const translations = {
     effectiveLabel: 'Netto',
     coveragePrefix: "L'incentivo copre il",
     coverageSuffix: '% dei costi',
-    disclaimer: "* Stime basate su ca. 350 CHF/kWp RU e 2'600 CHF/kWp di costi di installazione",
+    disclaimer: 'La rimunerazione unica comprende anche un contributo di base.',
   },
 } as const;
 
@@ -67,14 +71,18 @@ function getLocale(pathname: string): keyof typeof translations {
 
 export default function FoerderRechner() {
   const pathname = usePathname();
-  const tx = translations[getLocale(pathname)];
+  const locale = getLocale(pathname);
+  const tx = translations[locale];
 
   const [kwp, setKwp] = useState(8);
 
-  const foerderung = Math.round(kwp * 350);
-  const gesamtkosten = Math.round(kwp * 2600);
-  const nachFoerderung = gesamtkosten - foerderung;
-  const prozent = Math.round((foerderung / gesamtkosten) * 100);
+  const foerderung = calculatePronovoVariableContribution(kwp);
+  const gesamtkosten = getSystemCostRange(kwp);
+  const nachFoerderung = {
+    min: Math.max(0, gesamtkosten.min - foerderung),
+    max: Math.max(0, gesamtkosten.max - foerderung),
+  };
+  const prozent = Math.round((foerderung / gesamtkosten.max) * 100);
 
   return (
     <div className="rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
@@ -96,7 +104,7 @@ export default function FoerderRechner() {
           </div>
           <div className="text-right">
             <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">{tx.estimatedLabel}</p>
-            <p className="text-3xl font-bold text-[#fcb210]">CHF {formatChf(foerderung)}</p>
+            <p className="text-3xl font-bold text-[#fcb210]">CHF {formatSwissNumber(foerderung, 0)}</p>
           </div>
         </div>
 
@@ -118,15 +126,15 @@ export default function FoerderRechner() {
         <div className="grid grid-cols-3 gap-4">
           <div className="rounded-2xl p-4 text-center" style={{ background: '#f9fafb' }}>
             <p className="text-xs text-gray-400 mb-1">{tx.totalCostsLabel}</p>
-            <p className="font-bold text-gray-800 text-lg">CHF {formatChf(gesamtkosten)}</p>
+            <p className="font-bold text-gray-800 text-lg">CHF {formatSwissNumber(gesamtkosten.min, 0)}–{formatSwissNumber(gesamtkosten.max, 0)}</p>
           </div>
           <div className="rounded-2xl p-4 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
             <p className="text-xs text-orange-400 font-semibold mb-1">{tx.subsidyLabel}</p>
-            <p className="font-bold text-[#fcb210] text-lg">− CHF {formatChf(foerderung)}</p>
+            <p className="font-bold text-[#fcb210] text-lg">− CHF {formatSwissNumber(foerderung, 0)}</p>
           </div>
           <div className="rounded-2xl p-4 text-center" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
             <p className="text-xs text-green-500 font-semibold mb-1">{tx.effectiveLabel}</p>
-            <p className="font-bold text-green-700 text-lg">CHF {formatChf(nachFoerderung)}</p>
+            <p className="font-bold text-green-700 text-lg">CHF {formatSwissNumber(nachFoerderung.min, 0)}–{formatSwissNumber(nachFoerderung.max, 0)}</p>
           </div>
         </div>
 
@@ -144,6 +152,8 @@ export default function FoerderRechner() {
         </div>
 
         <p className="text-xs text-gray-400 mt-4 text-center">{tx.disclaimer}</p>
+        <p className="text-xs text-gray-400 mt-2 text-center">{SOURCE_NOTES[locale]}</p>
+        <p className="text-xs text-gray-400 mt-2 text-center">{SYSTEM_PRICE_NOTES[locale]}</p>
       </div>
     </div>
   );

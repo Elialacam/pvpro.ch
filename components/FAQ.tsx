@@ -2,6 +2,7 @@
 
 import { useLocale } from '@/lib/LocaleContext';
 import { faqContent, FAQItem } from '@/lib/faqData';
+import { SOURCE_NOTES, SYSTEM_PRICE_NOTES } from '@/lib/facts';
 
 interface FAQProps {
   items?: FAQItem[];
@@ -41,6 +42,8 @@ export default function FAQ({ items }: FAQProps) {
             </details>
           ))}
         </div>
+        <p className="mt-4 text-xs text-gray-500">{SYSTEM_PRICE_NOTES[locale] || SYSTEM_PRICE_NOTES.de}</p>
+        <p className="mt-2 text-xs text-gray-500">{SOURCE_NOTES[locale] || SOURCE_NOTES.de}</p>
 
       </div>
     </section>

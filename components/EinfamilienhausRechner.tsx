@@ -4,6 +4,14 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Zap, Car, Thermometer, ChevronDown } from 'lucide-react';
 import { useLocale } from '@/lib/LocaleContext';
+import {
+  ECONOMIC_FACTS,
+  SOURCE_NOTES,
+  SYSTEM_PRICE_NOTES,
+  calculatePronovoVariableContribution,
+  formatSwissNumber,
+  getSystemCostRange,
+} from '@/lib/facts';
 
 const PRESETS_DE = [
   { label: "3'500 kWh", value: 3500, desc: 'Kleiner Haushalt (2 Personen)' },
@@ -25,48 +33,43 @@ const PRESETS_FR = [
 
 function calcResult(base: number, waerme: boolean, ev: boolean) {
   const total = base + (waerme ? 2500 : 0) + (ev ? 2000 : 0);
-  const kwp = Math.round((total / 1100) * 10) / 10;
+  const kwp = Math.round((total / ECONOMIC_FACTS.production.plateauKwhPerKwp.max) * 10) / 10;
   const kwpMin = Math.max(4, Math.round((kwp * 0.85) * 10) / 10);
   const kwpMax = Math.round((kwp * 1.15) * 10) / 10;
-  const m2Min = Math.round(kwpMin * 5);
-  const m2Max = Math.round(kwpMax * 6);
-  const priceMin = Math.round(kwpMin * 2200 / 500) * 500;
-  const priceMax = Math.round(kwpMax * 2800 / 500) * 500;
-  const prodMin = Math.round(kwpMin * 900);
-  const prodMax = Math.round(kwpMax * 1100);
-  const foerderung = Math.round(((kwpMin + kwpMax) / 2) * 360 / 100) * 100;
-  return { kwpMin, kwpMax, m2Min, m2Max, priceMin, priceMax, prodMin, prodMax, foerderung, total };
+  const m2Min = Math.round(kwpMin * ECONOMIC_FACTS.roofAreaM2PerKwp);
+  const m2Max = Math.round(kwpMax * ECONOMIC_FACTS.roofAreaM2PerKwp);
+  const priceMin = getSystemCostRange(kwpMin).min;
+  const priceMax = getSystemCostRange(kwpMax).max;
+  const foerderung = calculatePronovoVariableContribution((kwpMin + kwpMax) / 2);
+  return { kwpMin, kwpMax, m2Min, m2Max, priceMin, priceMax, foerderung, total };
 }
 
 function fmt(n: number) {
-  return n.toLocaleString('de-CH');
+  return formatSwissNumber(n, 0);
 }
 
 const faqsDE = [
-  { q: 'Was kostet eine Photovoltaikanlage für ein Einfamilienhaus?', a: "Die Kosten liegen in der Schweiz meist zwischen 20'000 und 35'000 CHF, abhängig von Grösse, Technik und Installation. Nach Förderungen und Steuerabzügen sinken die effektiven Kosten oft deutlich." },
-  { q: 'Wie gross sollte eine Solaranlage für ein Einfamilienhaus sein?', a: 'Für ein durchschnittliches Einfamilienhaus wird eine Anlage mit etwa 8 bis 10 kWp empfohlen. Diese Grösse deckt einen grossen Teil des Strombedarfs ab und ist wirtschaftlich sinnvoll.' },
-  { q: 'Wie viel Strom produziert eine Solaranlage auf einem Einfamilienhaus?', a: "Eine typische Anlage produziert etwa 9'000 bis 11'000 kWh pro Jahr. Das reicht oft aus, um den Grossteil des Stromverbrauchs eines Haushalts zu decken." },
+  { q: 'Was kostet eine Photovoltaikanlage für ein Einfamilienhaus?', a: `Eine schlüsselfertige Anlage mit 8 kWp kostet ohne Speicher ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[8].min, 0)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[8].max, 0)} CHF. Bei 10 kWp sind es ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min, 0)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max, 0)} CHF.` },
+  { q: 'Wie viel Strom produziert eine Solaranlage auf einem Einfamilienhaus?', a: `Im Schweizer Mittelland sind es ${formatSwissNumber(ECONOMIC_FACTS.production.plateauKwhPerKwp.min, 0)} bis ${formatSwissNumber(ECONOMIC_FACTS.production.plateauKwhPerKwp.max, 0)} kWh pro installiertem kWp und Jahr.` },
   { q: 'Lohnt sich eine Solaranlage für ein Einfamilienhaus?', a: 'Ja, besonders bei hohem Eigenverbrauch lohnt sich eine Solaranlage. Sie senkt langfristig die Stromkosten und macht unabhängiger vom Energieversorger.' },
   { q: 'Braucht man einen Batteriespeicher?', a: 'Ein Batteriespeicher ist nicht zwingend notwendig, kann aber sinnvoll sein. Er erhöht den Eigenverbrauch deutlich und ermöglicht die Nutzung von Solarstrom auch am Abend.' },
-  { q: 'Wie lange hält eine Solaranlage?', a: 'Moderne Photovoltaikanlagen haben eine Lebensdauer von 25 bis 30 Jahren. Viele Hersteller geben entsprechende Leistungsgarantien.' },
+  { q: 'Wie lange hält eine Solaranlage?', a: `Moderne Photovoltaikmodule haben eine Lebensdauer von ${ECONOMIC_FACTS.moduleLifetimeYears.min} bis ${ECONOMIC_FACTS.moduleLifetimeYears.max} Jahren.` },
 ];
 
 const faqsIT = [
-  { q: 'Quanto costa un impianto fotovoltaico per una casa unifamiliare?', a: "In Svizzera i costi si aggirano solitamente tra 20'000 e 35'000 CHF, a seconda delle dimensioni, della tecnologia e dell'installazione. Dopo incentivi e deduzioni fiscali i costi effettivi si riducono spesso sensibilmente." },
-  { q: 'Quanto deve essere grande un impianto solare per una casa unifamiliare?', a: 'Per una casa unifamiliare media è consigliato un impianto da circa 8–10 kWp. Questa dimensione copre gran parte del fabbisogno elettrico ed è economicamente conveniente.' },
-  { q: 'Quanta energia produce un impianto solare su una casa unifamiliare?', a: "Un impianto tipico produce circa 9'000–11'000 kWh all'anno. Spesso è sufficiente per coprire la maggior parte del consumo elettrico della famiglia." },
+  { q: 'Quanto costa un impianto fotovoltaico per una casa unifamiliare?', a: `Un impianto chiavi in mano da 8 kWp costa da ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[8].min, 0)} a ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[8].max, 0)} CHF senza accumulo. Per 10 kWp il costo va da ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min, 0)} a ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max, 0)} CHF.` },
+  { q: 'Quanta energia produce un impianto solare su una casa unifamiliare?', a: `Sull'Altopiano svizzero produce da ${formatSwissNumber(ECONOMIC_FACTS.production.plateauKwhPerKwp.min, 0)} a ${formatSwissNumber(ECONOMIC_FACTS.production.plateauKwhPerKwp.max, 0)} kWh per kWp installato all'anno.` },
   { q: 'Conviene un impianto solare per una casa unifamiliare?', a: 'Sì, soprattutto con un alto autoconsumo l\'impianto solare conviene. Riduce i costi dell\'energia nel lungo periodo e rende più indipendenti dal fornitore energetico.' },
   { q: 'Serve una batteria di accumulo?', a: 'La batteria di accumulo non è indispensabile ma può essere utile. Aumenta significativamente l\'autoconsumo e consente di utilizzare l\'energia solare anche la sera.' },
-  { q: 'Quanto dura un impianto solare?', a: 'I moderni impianti fotovoltaici hanno una durata di 25–30 anni. Molti produttori offrono garanzie di prestazione corrispondenti.' },
+  { q: 'Quanto dura un impianto solare?', a: `I moduli fotovoltaici moderni hanno una durata da ${ECONOMIC_FACTS.moduleLifetimeYears.min} a ${ECONOMIC_FACTS.moduleLifetimeYears.max} anni.` },
 ];
 
 const faqsFR = [
-  { q: 'Combien coûte une installation photovoltaïque pour une maison individuelle ?', a: "En Suisse, les coûts se situent généralement entre 20'000 et 35'000 CHF. Après subventions et déductions fiscales, les coûts effectifs diminuent souvent sensiblement." },
-  { q: 'Quelle taille pour une installation solaire dans une maison individuelle ?', a: 'Pour une maison individuelle moyenne, une installation d\'environ 8 à 10 kWc est recommandée.' },
-  { q: 'Combien d\'électricité produit une installation sur une maison individuelle ?', a: "Une installation typique produit environ 9'000 à 11'000 kWh par an." },
+  { q: 'Combien coûte une installation photovoltaïque pour une maison individuelle ?', a: `Une installation clés en main de 8 kWc coûte entre ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[8].min, 0)} et ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[8].max, 0)} CHF sans stockage. Pour 10 kWc, le prix va de ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min, 0)} à ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max, 0)} CHF.` },
+  { q: 'Combien d\'électricité produit une installation sur une maison individuelle ?', a: `Sur le Plateau suisse, elle produit entre ${formatSwissNumber(ECONOMIC_FACTS.production.plateauKwhPerKwp.min, 0)} et ${formatSwissNumber(ECONOMIC_FACTS.production.plateauKwhPerKwp.max, 0)} kWh par kWc installé et par an.` },
   { q: 'Est-ce rentable ?', a: 'Oui, surtout avec un taux d\'autoconsommation élevé. L\'installation réduit les coûts d\'énergie à long terme.' },
   { q: 'Faut-il une batterie de stockage ?', a: 'Ce n\'est pas indispensable, mais utile. Elle augmente significativement l\'autoconsommation.' },
-  { q: 'Quelle est la durée de vie d\'une installation solaire ?', a: 'Les installations photovoltaïques modernes ont une durée de vie de 25 à 30 ans.' },
+  { q: 'Quelle est la durée de vie d\'une installation solaire ?', a: `Les modules photovoltaïques modernes ont une durée de vie de ${ECONOMIC_FACTS.moduleLifetimeYears.min} à ${ECONOMIC_FACTS.moduleLifetimeYears.max} ans.` },
 ];
 
 function FaqItem({ q, a }: { q: string; a: string }) {
@@ -195,6 +198,8 @@ export default function EinfamilienhausRechner() {
             ))}
           </div>
           <p className="text-xs text-gray-400 mt-4">{L.richtwerte}</p>
+          <p className="text-xs text-gray-400 mt-2">{SOURCE_NOTES[locale as 'de' | 'it' | 'fr'] || SOURCE_NOTES.de}</p>
+          <p className="text-xs text-gray-400 mt-2">{SYSTEM_PRICE_NOTES[locale as 'de' | 'it' | 'fr'] || SYSTEM_PRICE_NOTES.de}</p>
         </div>
       </div>
     </div>

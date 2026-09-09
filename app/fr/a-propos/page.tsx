@@ -139,7 +139,7 @@ export default function AProposPage() {
             </h2>
             <div className="flex flex-col gap-5">
               {[
-                { title: 'Service gratuit', text: "Notre service est 100% gratuit pour les propriétaires. Nous nous finançons exclusivement par les commissions des installateurs — sans surcoût pour vous." },
+    { title: 'Service gratuit', text: "Notre service est gratuit pour les propriétaires. Nous nous finançons exclusivement par les commissions des installateurs — sans surcoût pour vous." },
                 { title: 'Aucun engagement', text: "Vous décidez si et quelle offre vous acceptez. Aucune pression, aucune quantité minimale de commande, aucune pénalité contractuelle." },
                 { title: 'Qualité vérifiée', text: "Nous vérifions chaque installateur avant son admission dans le réseau. Certificats, références, justificatif d'assurance et évaluations clients sont obligatoires." },
               ].map((item) => (

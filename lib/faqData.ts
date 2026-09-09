@@ -1,4 +1,5 @@
 import { Locale } from '@/lib/i18n';
+import { ECONOMIC_FACTS, formatSwissNumber } from '@/lib/facts';
 
 export interface FAQItem {
   question: string;
@@ -22,7 +23,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
     faqs: [
       {
         question: 'Was kostet eine Solaranlage in der Schweiz?',
-        answer: 'Eine typische Solaranlage für ein Einfamilienhaus kostet zwischen 9.500 und 25.000 CHF. Der genaue Preis hängt von der Grösse der Anlage, der Dachbeschaffenheit und den verwendeten Komponenten ab. Mit einem Batteriespeicher liegen die Kosten höher, zwischen 19.500 und 35.000 CHF.',
+        answer: `Eine schlüsselfertige Anlage mit 10 kWp kostet ohne Speicher ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min, 0)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max, 0)} CHF.`,
       },
       {
         question: 'Wie funktioniert die Vermittlung bei PvPro.ch?',
@@ -30,7 +31,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Gibt es Förderungen für Solaranlagen in der Schweiz?',
-        answer: 'Ja! Die Schweiz bietet verschiedene Förderungen: Die Einmalvergütung (EIV) vom Bund deckt bis zu 30% der Investitionskosten. Zusätzlich gibt es kantonale und kommunale Förderprogramme sowie steuerliche Abzüge. Unsere Partner-Installateure helfen Ihnen bei der Beantragung aller verfügbaren Förderungen.',
+        answer: `Die Einmalvergütung des Bundes entspricht ohne Speicher ungefähr ${ECONOMIC_FACTS.incentives.federalSharePercent.min} bis ${ECONOMIC_FACTS.incentives.federalSharePercent.max}% der Investition. Zusammen mit kantonalen und kommunalen Beiträgen sind bis zu ${ECONOMIC_FACTS.incentives.combinedMaxPercent}% möglich.`,
       },
       {
         question: 'Wie lange dauert die Installation einer Solaranlage?',
@@ -38,11 +39,11 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Lohnt sich eine Solaranlage auch bei wenig Sonnenschein?',
-        answer: 'Ja! Selbst in weniger sonnenreichen Kantonen der Schweiz produzieren Solaranlagen genug Strom, um sich zu amortisieren. Moderne Solarmodule arbeiten auch bei diffusem Licht effizient. Die durchschnittliche Amortisationszeit in der Schweiz liegt bei 10-15 Jahren, bei einer Lebensdauer von 25-30 Jahren.',
+        answer: `Solarmodule arbeiten auch bei diffusem Licht. Im Schweizer Mittelland liegt die Amortisationszeit typischerweise bei ${ECONOMIC_FACTS.systemPaybackYears.plateau.min} bis ${ECONOMIC_FACTS.systemPaybackYears.plateau.max} Jahren, die Lebensdauer bei ${ECONOMIC_FACTS.moduleLifetimeYears.min} bis ${ECONOMIC_FACTS.moduleLifetimeYears.max} Jahren.`,
       },
       {
         question: 'Ist der Service von PvPro.ch wirklich kostenlos?',
-        answer: 'Ja, unser Service ist zu 100% kostenlos und unverbindlich für Sie. Wir finanzieren uns durch Provisionen von unseren Partner-Installateuren. Sie zahlen für die Vermittlung nichts und erhalten dennoch die gleichen Preise wie bei direkter Anfrage beim Solarteur.',
+        answer: 'Ja, unser Service ist kostenlos und unverbindlich für Sie. Wir finanzieren uns durch Provisionen von unseren Partner-Installateuren. Sie zahlen für die Vermittlung nichts und erhalten dennoch die gleichen Preise wie bei direkter Anfrage beim Solarteur.',
       },
     ],
   },
@@ -54,7 +55,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
     faqs: [
       {
         question: 'Combien coûte une installation solaire en Suisse?',
-        answer: "Une installation solaire typique pour une maison individuelle coûte entre CHF 9.500 et CHF 25.000. Le prix exact dépend de la taille de l'installation, de l'état du toit et des composants utilisés. Avec une batterie de stockage, les coûts sont plus élevés, entre CHF 19.500 et CHF 35.000.",
+        answer: `Une installation clés en main de 10 kWc coûte entre ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min, 0)} et ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max, 0)} CHF sans stockage.`,
       },
       {
         question: "Comment fonctionne l'intermédiation de PvPro.ch?",
@@ -62,7 +63,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Existe-t-il des subventions pour les installations solaires en Suisse?',
-        answer: "Oui! La Suisse offre différentes subventions: la Rétribution Unique (RU) de la Confédération couvre jusqu'à 30% des coûts d'investissement. En plus, il existe des programmes de subventions cantonales et communales ainsi que des déductions fiscales. Nos installateurs partenaires vous aident à demander toutes les subventions disponibles.",
+        answer: `Sans stockage, la rétribution unique fédérale représente environ ${ECONOMIC_FACTS.incentives.federalSharePercent.min} à ${ECONOMIC_FACTS.incentives.federalSharePercent.max}% de l'investissement. Avec les aides cantonales et communales, le total peut atteindre ${ECONOMIC_FACTS.incentives.combinedMaxPercent}%.`,
       },
       {
         question: "Combien de temps faut-il pour installer une installation solaire?",
@@ -70,11 +71,11 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Une installation solaire est-elle rentable même avec peu de soleil?',
-        answer: "Oui! Même dans les zones moins ensoleillées de Suisse, les installations solaires produisent assez d'électricité pour s'amortir. Les modules solaires modernes fonctionnent efficacement même avec une lumière diffuse. La période d'amortissement moyenne en Suisse est de 10-15 ans, pour une durée de vie de 25-30 ans.",
+        answer: `Les modules solaires fonctionnent aussi avec une lumière diffuse. Sur le Plateau suisse, l'amortissement prend généralement ${ECONOMIC_FACTS.systemPaybackYears.plateau.min} à ${ECONOMIC_FACTS.systemPaybackYears.plateau.max} ans, pour une durée de vie de ${ECONOMIC_FACTS.moduleLifetimeYears.min} à ${ECONOMIC_FACTS.moduleLifetimeYears.max} ans.`,
       },
       {
         question: 'Le service de PvPro.ch est-il vraiment gratuit?',
-        answer: "Oui, notre service est à 100% gratuit et sans engagement pour vous. Nous nous finançons par des commissions de nos installateurs partenaires. Vous ne payez rien pour l'intermédiation et recevez néanmoins les mêmes prix qu'en cas de demande directe auprès de l'installateur.",
+        answer: "Oui, notre service est gratuit et sans engagement pour vous. Nous nous finançons par des commissions de nos installateurs partenaires. Vous ne payez rien pour l'intermédiation et recevez néanmoins les mêmes prix qu'en cas de demande directe auprès de l'installateur.",
       },
     ],
   },
@@ -86,7 +87,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
     faqs: [
       {
         question: 'How much does a solar system cost in Switzerland?',
-        answer: 'A typical solar system for a single-family home costs between CHF 9,500 and CHF 25,000. The exact price depends on the system size, roof characteristics, and components used. With a battery storage system, costs are higher, between CHF 19,500 and CHF 35,000.',
+        answer: `A turnkey 10 kWp system costs CHF ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min, 0)} to CHF ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max, 0)}, without storage.`,
       },
       {
         question: 'How does the PvPro.ch referral service work?',
@@ -94,19 +95,19 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Are there subsidies for solar systems in Switzerland?',
-        answer: 'Yes! Switzerland offers various subsidies: the One-Time Payment (EIV) from the federal government covers up to 30% of investment costs. Additionally, there are cantonal and municipal incentive programs, plus tax deductions. Our partner installers help you apply for all available subsidies.',
+        answer: `Without storage, the federal one-time payment represents about ${ECONOMIC_FACTS.incentives.federalSharePercent.min} to ${ECONOMIC_FACTS.incentives.federalSharePercent.max}% of the investment. Together with cantonal and municipal contributions, the total can reach ${ECONOMIC_FACTS.incentives.combinedMaxPercent}%.`,
       },
       {
         question: 'How long does a solar system installation take?',
         answer: 'From request to installation, it typically takes 2-4 months. The actual mounting on the roof usually takes only 1-3 days, depending on the system size. After installation, the commissioning and acceptance by the grid operator follows.',
       },
       {
-        question: 'Is a solar system worthwhile even with little sunshine?',
-        answer: 'Yes! Even in less sunny areas of Switzerland, solar systems produce enough electricity to pay for themselves. Modern solar modules work efficiently even with diffuse light. The average payback period in Switzerland is 10-15 years, with a lifespan of 25-30 years.',
+        question: 'Is a solar system worthwhile even with diffuse light?',
+        answer: `Solar modules also work with diffuse light. On the Swiss Plateau, payback typically takes ${ECONOMIC_FACTS.systemPaybackYears.plateau.min} to ${ECONOMIC_FACTS.systemPaybackYears.plateau.max} years, with a module lifetime of ${ECONOMIC_FACTS.moduleLifetimeYears.min} to ${ECONOMIC_FACTS.moduleLifetimeYears.max} years.`,
       },
       {
         question: 'Is PvPro.ch service really free?',
-        answer: 'Yes, our service is 100% free and non-binding for you. We are financed through commissions from our partner installers. You pay nothing for the referral and still receive the same prices as if you contacted the installer directly.',
+        answer: 'Yes, our service is free and non-binding for you. We are financed through commissions from our partner installers. You pay nothing for the referral and still receive the same prices as if you contacted the installer directly.',
       },
     ],
   },
@@ -118,7 +119,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
     faqs: [
       {
         question: 'Quanto costa un impianto solare in Ticino?',
-        answer: "Un tipico impianto solare per una casa unifamiliare costa tra CHF 9.500 e CHF 25.000. Il prezzo esatto dipende dalle dimensioni dell'impianto, dalle caratteristiche del tetto e dai componenti utilizzati. Con un sistema di accumulo a batteria, i costi sono più elevati, tra CHF 19.500 e CHF 35.000.",
+        answer: `Un impianto chiavi in mano da 10 kWp costa da ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min, 0)} a ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max, 0)} CHF, senza accumulo.`,
       },
       {
         question: 'Come funziona il servizio di PvPro.ch?',
@@ -126,7 +127,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Esistono sovvenzioni per gli impianti solari in Ticino?',
-        answer: "Sì! In Ticino puoi beneficiare di diverse sovvenzioni: la Rimunerazione Unica (RU) della Confederazione copre fino al 30% dei costi di investimento. A questa si aggiungono gli incentivi cantonali e comunali ticinesi, oltre alle deduzioni fiscali. I nostri installatori partner ti aiutano a richiedere tutte le sovvenzioni disponibili.",
+        answer: `Senza accumulo, la rimunerazione unica federale corrisponde a circa il ${ECONOMIC_FACTS.incentives.federalSharePercent.min}–${ECONOMIC_FACTS.incentives.federalSharePercent.max}% dell'investimento. Con i contributi cantonali e comunali, il totale può arrivare al ${ECONOMIC_FACTS.incentives.combinedMaxPercent}%.`,
       },
       {
         question: "Quanto tempo richiede l'installazione di un impianto solare?",
@@ -134,11 +135,11 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Un impianto solare vale la pena anche con poco sole?',
-        answer: "Sì! E in Ticino ancora di più: con oltre 2'000 ore di sole all'anno è tra le zone più soleggiate della Svizzera. I moderni moduli solari funzionano in modo efficiente anche con luce diffusa. Il periodo medio di ammortamento è di 10-15 anni, con una durata di vita di 25-30 anni.",
+        answer: `I moduli solari funzionano anche con luce diffusa. In Ticino l'ammortamento richiede in genere da ${ECONOMIC_FACTS.systemPaybackYears.ticinoValais.min} a ${ECONOMIC_FACTS.systemPaybackYears.ticinoValais.max} anni, con una durata dei moduli da ${ECONOMIC_FACTS.moduleLifetimeYears.min} a ${ECONOMIC_FACTS.moduleLifetimeYears.max} anni.`,
       },
       {
         question: 'Il servizio di PvPro.ch è davvero gratuito?',
-        answer: "Sì, il nostro servizio è al 100% gratuito e non vincolante per te. Ci finanziamo tramite commissioni dai nostri installatori partner. Non paghi nulla per l'intermediazione e ricevi comunque gli stessi prezzi come se contattassi direttamente l'installatore.",
+        answer: "Sì, il nostro servizio è gratuito e non vincolante per te. Ci finanziamo tramite commissioni dai nostri installatori partner. Non paghi nulla per l'intermediazione e ricevi comunque gli stessi prezzi come se contattassi direttamente l'installatore.",
       },
     ],
   },

@@ -3,13 +3,14 @@ import Image from 'next/image';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
 import WieFunktioniertInteractive from '@/components/WieFunktioniertInteractive';
 import FaqSchema from '@/components/FaqSchema';
 
 const wfFaqs = [
   { question: 'Comment fonctionne une installation solaire, simplement expliqué ?', answer: "Les modules solaires produisent du courant continu à partir de la lumière du soleil. Un onduleur le convertit en courant alternatif utilisable, qui est consommé directement dans le foyer ou injecté dans le réseau." },
   { question: 'Quelle est la différence entre le photovoltaïque et l\'installation solaire ?', answer: "Le photovoltaïque produit de l'électricité à partir de la lumière. La thermique solaire, en revanche, produit de la chaleur (par ex. pour l'eau chaude). Dans la vie courante, «installation solaire» est souvent utilisé comme synonyme de photovoltaïque." },
-  { question: 'Que produit un module solaire de 800 watts par jour ?', answer: "Un système de 800 watts produit environ 2 à 4 kWh par jour en été. En hiver, la production est nettement plus faible, car les jours sont plus courts et le soleil est plus bas." },
+  { question: 'Que produit une installation solaire ?', answer: `Sur le Plateau, la production annuelle est de ${formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh par kWp', 'fr')}.` },
   { question: 'Un panneau solaire peut-il faire fonctionner un réfrigérateur ?', answer: "Oui, un panneau solaire peut faire fonctionner un réfrigérateur — mais généralement pas en permanence tout seul. Il faut pour cela un système plus grand ou un stockage." },
   { question: 'Peut-on être autonome avec le photovoltaïque ?', answer: "Pas complètement. Sans stockage et en hiver, on reste partiellement dépendant de l'électricité du réseau. Avec un grand stockage par batterie, on peut cependant atteindre un très haut degré d'autoapprovisionnement." },
   { question: 'Que produit une installation solaire en hiver ?', answer: "En hiver, une installation solaire produit nettement moins d'électricité — mais pas rien. Les jours plus courts et les angles solaires plus bas réduisent la production, mais de l'électricité est quand même produite." },
@@ -82,16 +83,16 @@ export default function FonctionnementSolairePage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
-              { val: '25–30 ans', label: 'Durée de vie modules' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'ans', 'fr'), label: 'Durée de vie modules' },
               { val: '22%', label: 'Rend. max.' },
-              { val: '9–11k', label: 'kWh/an pour 10 kWp' },
-              { val: '0 CHF', label: 'Carburant nécessaire' },
+              { val: formatRangeForLocale({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh/an', 'fr'), label: 'Production de 10 kWp sur le Plateau' },
             ].map((s) => (
               <div key={s.label}>
                 <p className="text-2xl sm:text-3xl font-bold text-[#fcb210]">{s.val}</p>
                 <p className="text-xs text-gray-500 mt-1">{s.label}</p>
               </div>
             ))}
+            <p className="text-xs text-white/50 sm:col-span-2">{SOURCE_NOTES.fr}</p>
           </div>
         </div>
       </section>

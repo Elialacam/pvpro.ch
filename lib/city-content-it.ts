@@ -4,20 +4,34 @@
  */
 
 import { CityContent } from './city-content';
+import { ECONOMIC_FACTS, FactsLocale, NumericRange, formatSwissNumber } from './facts';
+
+function factRange(range: NumericRange, locale: FactsLocale): string {
+  const joiner = locale === 'de' ? ' bis ' : '–';
+  return `${formatSwissNumber(range.min)}${joiner}${formatSwissNumber(range.max)}`;
+}
+
+const afterFederalSubsidy5kw = {
+  min: ECONOMIC_FACTS.systemCosts.bySize[5].min - 5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30,
+  max: ECONOMIC_FACTS.systemCosts.bySize[5].max - 5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30,
+};
+
+
 
 export const cityContentsIT: Record<string, CityContent> = {
   lugano: {
     slug: 'lugano',
+    image: '/images/asset-haus-luftbild-2.webp',
     heroHeadline: 'Impianto Fotovoltaico Lugano Ticino',
-    heroSubheadline: 'Approfitta di 2.157 ore di sole all\'anno',
-    heroDescription: 'Lugano, nel soleggiato Ticino, offre le migliori condizioni per l\'energia solare in tutta la Svizzera. Confronta gratuitamente le offerte di installatori locali certificati e risparmia fino al 30%.',
+    heroSubheadline: 'Approfitta delle condizioni solari locali',
+    heroDescription: 'Costi, produzione e redditività in Lugano dipendono dall’edificio, dal dimensionamento e dall’autoconsumo.',
 
     whySolarTitle: 'Perché Lugano è ideale per l\'energia solare?',
-    whySolarIntro: 'Con 2.157 ore di sole all\'anno, Lugano è in cima alla classifica dei siti solari svizzeri. La posizione meridionale e il clima mite del Canton Ticino creano condizioni ottimali per massimi rendimenti del vostro impianto fotovoltaico.',
+    whySolarIntro: 'Lugano beneficia di un clima locale favorevole al fotovoltaico.',
     whySolarReasons: [
       {
-        title: 'Leader: 2.157 ore di sole',
-        description: 'Lugano riceve più sole di qualsiasi altra grande città svizzera - una media di 2.157 ore all\'anno. Ciò significa fino al 38% di rendimenti più elevati rispetto a Zurigo e rende ogni investimento nel solare particolarmente redditizio.'
+        title: 'Clima locale favorevole',
+        description: 'Lugano beneficia di un clima locale favorevole al fotovoltaico.'
       },
       {
         title: 'Programma Energia Ticino',
@@ -31,18 +45,18 @@ export const cityContentsIT: Record<string, CityContent> = {
 
     cityFactsTitle: 'Lugano: Il miglior sito solare della Svizzera',
     cityFactsParagraphs: [
-      'Lugano è la terza città più grande del Canton Ticino e gode di una posizione unica sulle sponde del Lago di Lugano. Con 2.157 ore di sole all\'anno, la città offre le condizioni più favorevoli per impianti fotovoltaici in tutta la Svizzera. Il clima mediterraneo mite garantisce rendimenti elevati durante tutto l\'anno.',
+      'Lugano beneficia di un clima locale favorevole al fotovoltaico.',
       'Il settore dell\'energia solare in Ticino è in forte espansione. Grazie al \"Programma Energia\" cantonale, i proprietari di case a Lugano ricevono consulenze complete e sovvenzioni attraenti per l\'installazione di impianti fotovoltaici. Le autorità locali promuovono attivamente la transizione verso energie rinnovabili.',
-      'Un impianto fotovoltaico medio da 5 kWp a Lugano produce circa 6.500 kWh di elettricità all\'anno - significativamente più che nelle zone del Mittelland svizzero. Con un\'alta quota di autoconsumo, questo consente risparmi annuali superiori a CHF 2.400 e un periodo di ammortamento di soli 4-5 anni.',
+      'Costi, produzione e redditività in Lugano dipendono dall’edificio, dal dimensionamento e dall’autoconsumo.',
       'I comuni ticinesi offrono ulteriori incentivi oltre alle sovvenzioni federali e cantonali. Molti proprietari di case a Lugano optano per sistemi con batterie di accumulo per massimizzare l\'autoconsumo e diventare ancora più indipendenti dalla rete. I nostri partner locali certificati accompagnano l\'intero processo - dalla pianificazione all\'installazione fino alla registrazione delle sovvenzioni.'
     ],
 
     pricing: {
-      min: 8800,
-      max: 23000,
-      typical5kw: { min: 9500, max: 14000 },
-      afterSubsidy5kw: { min: 6200, max: 9800 },
-      roiYears: '4-5'
+      min: ECONOMIC_FACTS.systemCosts.perKwp.min,
+      max: ECONOMIC_FACTS.systemCosts.perKwp.max,
+      typical5kw: ECONOMIC_FACTS.systemCosts.bySize[5],
+      afterSubsidy5kw: afterFederalSubsidy5kw,
+      roiYears: factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'it'),
     },
 
     incentives: {
@@ -51,8 +65,8 @@ export const cityContentsIT: Record<string, CityContent> = {
       programs: [
         {
           name: 'Rimunerazione Unica Federale (RU)',
-          amount: 'Fino a CHF 3.500',
-          description: 'La Confederazione promuove nuovi impianti fotovoltaici con una sovvenzione unica che copre fino al 30% dei costi di investimento. Per un impianto da 5 kWp a Lugano, questo corrisponde a circa CHF 2.600-3.500.'
+          amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF per kWp`,
+          description: 'Costi, produzione e redditività in Lugano dipendono dall’edificio, dal dimensionamento e dall’autoconsumo.'
         },
         {
           name: 'Contributo cantonale FER – Ticino',
@@ -61,7 +75,7 @@ export const cityContentsIT: Record<string, CityContent> = {
         },
         {
           name: 'Deduzioni fiscali Ticino',
-          amount: 'Fino a CHF 6.000/anno',
+          amount: 'Secondo il programma vigente',
           description: 'Le spese per impianti solari possono essere detratte dalle tasse in Ticino. Questo riduce ulteriormente i costi effettivi e migliora il periodo di ammortamento dell\'investimento solare.'
         },
         {
@@ -76,28 +90,28 @@ export const cityContentsIT: Record<string, CityContent> = {
       {
         name: 'Famiglia Bernasconi',
         location: 'Lugano-Besso',
-        systemSize: '6.2 kWp',
-        cost: '12.400 CHF (netto)',
-        savings: '2.600 CHF/anno',
-        payback: '4,8 anni',
+        systemSize: 'In base al progetto',
+        cost: 'In base al progetto',
+        savings: 'In base al progetto',
+        payback: 'In base al progetto',
         quote: 'Grazie agli elevati rendimenti qui a Lugano, il nostro impianto si è ammortizzato molto più velocemente del previsto. Siamo già quasi autosufficienti dal punto di vista energetico!'
       },
       {
         name: 'Casa Multifamiliare Maggi',
         location: 'Lugano-Molino Nuovo',
-        systemSize: '18.5 kWp',
-        cost: '34.800 CHF (netto)',
-        savings: '7.800 CHF/anno',
-        payback: '4,5 anni',
+        systemSize: 'In base al progetto',
+        cost: 'In base al progetto',
+        savings: 'In base al progetto',
+        payback: 'In base al progetto',
         quote: 'L\'installazione è stata professionale e veloce. I rendimenti solari a Lugano sono eccezionali - il miglior investimento per la nostra proprietà.'
       },
       {
         name: 'Ditta Rossini & Figli',
         location: 'Lugano-Viganello',
-        systemSize: '25 kWp con accumulo',
-        cost: '52.000 CHF (netto)',
-        savings: '11.200 CHF/anno',
-        payback: '4,6 anni',
+        systemSize: 'In base al progetto',
+        cost: 'In base al progetto',
+        savings: 'In base al progetto',
+        payback: 'In base al progetto',
         quote: 'La posizione soleggiata di Lugano è perfetta per il nostro impianto aziendale. Con la batteria di accumulo possiamo utilizzare quasi tutta l\'energia solare stessa.'
       }
     ],
@@ -105,19 +119,19 @@ export const cityContentsIT: Record<string, CityContent> = {
     faqs: [
       {
         question: 'Quanto costa un impianto fotovoltaico a Lugano?',
-        answer: 'Un impianto fotovoltaico tipico per una casa unifamiliare a Lugano costa tra CHF 9.500 e CHF 14.000 lordi per un sistema da 5 kWp. Dopo le sovvenzioni federali e cantonali, i costi netti si riducono a CHF 6.200-9.800. Con una batteria di accumulo, i costi sono più elevati, tra CHF 19.500 e CHF 28.000 lordi.'
+        answer: 'Costi, produzione e redditività in Lugano dipendono dall’edificio, dal dimensionamento e dall’autoconsumo.'
       },
       {
         question: 'Perché Lugano è il miglior sito solare della Svizzera?',
-        answer: 'Lugano riceve 2.157 ore di sole all\'anno - più di qualsiasi altra grande città svizzera. Il clima mediterraneo mite e la posizione meridionale garantiscono rendimenti elevati costanti. Un impianto da 5 kWp produce qui circa 6.500 kWh/anno, ovvero fino al 38% in più rispetto all\'altopiano svizzero.'
+        answer: 'Lugano beneficia di un clima locale favorevole al fotovoltaico.'
       },
       {
         question: 'Quali sovvenzioni sono disponibili a Lugano?',
-        answer: 'Potete cumulare: 1) La Rimunerazione Unica Federale (RU) tramite Pronovo, che può coprire fino al 30% dei costi di un impianto di riferimento. 2) Eventuali contributi cantonali ticinesi (FER), soggetti a requisiti di ammissibilità. 3) Deduzioni fiscali cantonali. 4) Possibili incentivi comunali variabili per località. Gli importi esatti dipendono dalle caratteristiche del vostro impianto — verificate sempre le condizioni aggiornate.'
+        answer: 'Costi, produzione e redditività in Lugano dipendono dall’edificio, dal dimensionamento e dall’autoconsumo.'
       },
       {
         question: 'Quanto velocemente si ammortizza un impianto fotovoltaico a Lugano?',
-        answer: 'Grazie agli elevati rendimenti solari e alle sovvenzioni attraenti, un impianto fotovoltaico a Lugano si ammortizza in 4-5 anni - significativamente più veloce rispetto ad altri Cantoni svizzeri. Con una durata di vita di 25-30 anni, beneficerete di 20-25 anni di elettricità gratuita.'
+        answer: 'Costi, produzione e redditività in Lugano dipendono dall’edificio, dal dimensionamento e dall’autoconsumo.'
       },
       {
         question: 'Come funziona il Programma Energia Ticino?',
@@ -125,15 +139,15 @@ export const cityContentsIT: Record<string, CityContent> = {
       },
       {
         question: 'Un impianto fotovoltaico è utile anche sul Lago di Lugano?',
-        answer: 'Assolutamente sì! Le zone intorno al Lago di Lugano beneficiano di un microclima particolarmente favorevole con ancora più ore di sole. Il riflesso dell\'acqua può addirittura aumentare i rendimenti. Anche nelle giornate nuvolose, gli impianti moderni producono elettricità in modo efficiente.'
+        answer: 'Lugano beneficia di un clima locale favorevole al fotovoltaico.'
       },
       {
         question: 'Quanto produce un impianto fotovoltaico a Lugano?',
-        answer: 'A Lugano, un impianto da 1 kWp produce circa 1.300 kWh all\'anno - molto più che nell\'altopiano svizzero (900-1.000 kWh/kWp). Un sistema tipico da 5 kWp genera quindi circa 6.500 kWh/anno, che copre il fabbisogno elettrico annuale di una famiglia di 4-5 persone.'
+        answer: 'Costi, produzione e redditività in Lugano dipendono dall’edificio, dal dimensionamento e dall’autoconsumo.'
       },
       {
         question: 'Vale la pena una batteria di accumulo a Lugano?',
-        answer: 'Con gli elevati rendimenti solari a Lugano, una batteria di accumulo è particolarmente utile. Potete aumentare l\'autoconsumo dal 30% fino al 70% e diventare così meno dipendenti dalla rete. Il Canton Ticino promuove sistemi con accumulo con sovvenzioni aggiuntive, il che migliora ulteriormente la redditività.'
+        answer: 'Costi, produzione e redditività in Lugano dipendono dall’edificio, dal dimensionamento e dall’autoconsumo.'
       }
     ],
 

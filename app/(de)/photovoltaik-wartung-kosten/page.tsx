@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRight, Shield, Wrench, CheckCircle, AlertCircle } fr
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, formatRangeForLocale, getSourceNote } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Photovoltaik Wartung Kosten Schweiz 2026 – Was kostet die Wartung? | PvPro.ch',
@@ -34,11 +35,11 @@ const faqs = [
   },
   {
     question: 'Was kostet ein Wartungsvertrag für eine Solaranlage?',
-    answer: 'Viele Installateure bieten Wartungsverträge für 150–300 CHF pro Jahr an, die eine jährliche Inspektion und kleinere Reparaturen umfassen.',
+    answer: 'Viele Installateure bieten Wartungsverträge an, die eine Inspektion und kleinere Reparaturen umfassen. Die Kosten werden individuell offeriert.',
   },
   {
     question: 'Wie lange hält ein Wechselrichter?',
-    answer: 'Wechselrichter halten typischerweise 10–15 Jahre. Ein Austausch kostet je nach Modell zwischen 1\'500 und 3\'000 CHF.',
+    answer: 'Die Lebensdauer und Austauschkosten eines Wechselrichters hängen vom Modell ab. Dafür ist eine individuelle Offerte nötig.',
   },
   {
     question: 'Verliere ich die Garantie, wenn ich die Wartung selbst mache?',
@@ -88,26 +89,25 @@ const wartungsLeistungen = [
 ];
 
 const kostenTabelle = [
-  { leistung: 'Jährliche Inspektion (ohne Reinigung)', kosten: '100–200 CHF' },
-  { leistung: 'Modulreinigung', kosten: '100–300 CHF je nach Grösse' },
-  { leistung: 'Wechselrichter-Austausch (nach 10–15 Jahren)', kosten: "1'500–3'000 CHF" },
-  { leistung: 'Reparatur Kleinschäden', kosten: '200–500 CHF' },
-  { leistung: 'Jährliche Gesamtkosten (Durchschnitt)', kosten: '150–300 CHF/Jahr', highlight: true },
+  { leistung: 'Inspektion', kosten: 'Individuelle Offerte', highlight: false },
+  { leistung: 'Modulreinigung', kosten: 'Individuelle Offerte', highlight: false },
+  { leistung: 'Wechselrichter-Austausch', kosten: 'Individuelle Offerte', highlight: false },
+  { leistung: 'Reparatur Kleinschäden', kosten: 'Individuelle Offerte', highlight: false },
 ];
 
 const haeufigkeitenTabelle = [
-  { massnahme: 'Visuelle Kontrolle', haeufigkeit: '2x pro Jahr (empfohlen)' },
-  { massnahme: 'Professionelle Inspektion', haeufigkeit: '1x pro Jahr' },
-  { massnahme: 'Modulreinigung', haeufigkeit: 'Nach Bedarf, mind. 1x pro Jahr' },
-  { massnahme: 'Wechselrichter prüfen', haeufigkeit: '1x pro Jahr' },
-  { massnahme: 'Elektrische Kontrolle', haeufigkeit: 'Alle 2–3 Jahre' },
-  { massnahme: 'Wechselrichter ersetzen', haeufigkeit: 'Nach 10–15 Jahren' },
+  { massnahme: 'Visuelle Kontrolle', haeufigkeit: 'Nach Empfehlung des Fachbetriebs' },
+  { massnahme: 'Professionelle Inspektion', haeufigkeit: 'Nach Empfehlung des Fachbetriebs' },
+  { massnahme: 'Modulreinigung', haeufigkeit: 'Nach Bedarf' },
+  { massnahme: 'Wechselrichter prüfen', haeufigkeit: 'Nach Empfehlung des Herstellers' },
+  { massnahme: 'Elektrische Kontrolle', haeufigkeit: 'Nach Vorgabe des Fachbetriebs' },
+  { massnahme: 'Wechselrichter ersetzen', haeufigkeit: 'Nach Zustand und Modell' },
 ];
 
 const garantien = [
-  { komp: 'Module', text: '25–30 Jahre Leistungsgarantie (mind. 80% der Nennleistung)' },
-  { komp: 'Wechselrichter', text: '5–12 Jahre Herstellergarantie, verlängerbar' },
-  { komp: 'Montage', text: 'Abhängig vom Installateur, typisch 5–10 Jahre' },
+  { komp: 'Module', text: `${formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre Lebensdauer', 'de')}; ${ECONOMIC_FACTS.performanceWarranty.percent}% Leistung nach ${ECONOMIC_FACTS.performanceWarranty.afterYears} Jahren` },
+  { komp: 'Wechselrichter', text: 'Herstellergarantie abhängig vom Modell' },
+  { komp: 'Montage', text: 'Abhängig vom Installateur' },
 ];
 
 export default function PhotovoltaikWartungKostenPage() {
@@ -133,14 +133,14 @@ export default function PhotovoltaikWartungKostenPage() {
               Wartung einer Photovoltaikanlage in der Schweiz — Kosten und Ablauf
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Eine Photovoltaikanlage ist wartungsarm — aber nicht wartungsfrei. Wer seine Anlage regelmässig kontrolliert und pflegt, sichert die volle Leistung über die gesamte Lebensdauer von 25–30 Jahren. Diese Seite erklärt, was bei der Wartung anfällt, was es kostet und wie oft man die Anlage kontrollieren sollte.
+              Eine Photovoltaikanlage ist wartungsarm — aber nicht wartungsfrei. Wer seine Anlage regelmässig kontrolliert und pflegt, unterstützt den zuverlässigen Betrieb über die Modullebensdauer von {formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahren', 'de')}.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: '150–300 CHF', sub: 'typische Wartungskosten pro Jahr', note: 'inkl. Inspektion und kleinere Reinigung' },
-              { val: '1x pro Jahr', sub: 'empfohlene Inspektion', note: 'professionell durch Fachbetrieb' },
-              { val: '25–30 Jahre', sub: 'Lebensdauer bei guter Pflege', note: 'mit Leistungsgarantie der Hersteller' },
+              { val: 'Individuell', sub: 'Wartungskosten', note: 'nach Anlage und Aufwand' },
+              { val: 'Regelmässig', sub: 'empfohlene Inspektion', note: 'durch einen Fachbetrieb' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre', 'de'), sub: 'Lebensdauer der Module', note: 'Richtwert' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -149,6 +149,7 @@ export default function PhotovoltaikWartungKostenPage() {
               </div>
             ))}
           </div>
+          <p className="text-xs text-gray-500 mt-4">{getSourceNote('de')}</p>
         </div>
       </section>
 
@@ -164,18 +165,18 @@ export default function PhotovoltaikWartungKostenPage() {
             <p className="text-gray-600 leading-relaxed mb-4">
               Eine vernachlässigte Anlage produziert weniger Strom — oft ohne dass der Besitzer es merkt. Verschmutzte Module, lockere Verbindungen oder ein alternder{' '}
               <Link href="/wie-funktioniert" className="text-[#fcb210] hover:underline font-medium">Wechselrichter</Link>{' '}
-              können die Produktion um 10–20% reduzieren.
+              können die Produktion reduzieren.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              Regelmässige Wartung schützt Ihre Investition und stellt sicher, dass die Anlage immer auf dem optimalen Niveau läuft — über die gesamte Lebensdauer von 25–30 Jahren.
+              Regelmässige Wartung schützt Ihre Investition und unterstützt einen zuverlässigen Betrieb über die Modullebensdauer von {formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahren', 'de')}.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { icon: <AlertCircle className="w-5 h-5" />, label: 'Ungewartete Anlage', val: '−10–20% Ertrag', color: 'bg-red-50 border-red-200 text-red-700' },
-              { icon: <CheckCircle className="w-5 h-5" />, label: 'Gewartete Anlage', val: '100% Leistung', color: 'bg-green-50 border-green-200 text-green-700' },
-              { icon: <Shield className="w-5 h-5" />, label: 'Garantieschutz', val: '25–30 Jahre', color: 'bg-blue-50 border-blue-200 text-blue-700' },
-              { icon: <Wrench className="w-5 h-5" />, label: 'Wartungskosten', val: 'ab 150 CHF/Jahr', color: 'bg-orange-50 border-orange-200 text-orange-700' },
+              { icon: <AlertCircle className="w-5 h-5" />, label: 'Ungewartete Anlage', val: 'Ertragsrisiko', color: 'bg-red-50 border-red-200 text-red-700' },
+              { icon: <CheckCircle className="w-5 h-5" />, label: 'Gewartete Anlage', val: 'Kontrolliert', color: 'bg-green-50 border-green-200 text-green-700' },
+              { icon: <Shield className="w-5 h-5" />, label: 'Modullebensdauer', val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre', 'de'), color: 'bg-blue-50 border-blue-200 text-blue-700' },
+              { icon: <Wrench className="w-5 h-5" />, label: 'Wartungskosten', val: 'individuell', color: 'bg-orange-50 border-orange-200 text-orange-700' },
             ].map(item => (
               <div key={item.label} className={`rounded-2xl p-5 border ${item.color} flex flex-col items-center text-center gap-2`}>
                 {item.icon}
@@ -215,7 +216,7 @@ export default function PhotovoltaikWartungKostenPage() {
               Was kostet die Wartung in der Schweiz?
             </h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-5">
-              Über die gesamte Lebensdauer von 25 Jahren entspricht das Wartungskosten von ca. 4'000–7'500 CHF — ein kleiner Betrag im Vergleich zur Gesamtinvestition. Mehr zu den{' '}
+              Die Wartungskosten über die gesamte Lebensdauer hängen von Anlage, Zustand und Serviceumfang ab. Mehr zu den{' '}
               <Link href="/solaranlage-kosten" className="text-[#fcb210] hover:underline font-medium">Gesamtkosten einer Solaranlage</Link>.
             </p>
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
@@ -309,6 +310,7 @@ export default function PhotovoltaikWartungKostenPage() {
               <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">Anbieter</Link>{' '}
               erklärt Ihnen alle Garantien transparent vor dem Kauf.
             </p>
+            <p className="text-gray-500 text-xs mt-3">{getSourceNote('de')}</p>
           </div>
         </section>
 

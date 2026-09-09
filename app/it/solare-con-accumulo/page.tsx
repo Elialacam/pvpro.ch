@@ -4,6 +4,10 @@ import { ChevronRight, Battery, Sun, Home, Zap, CheckCircle, ArrowRight, Trendin
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, STORAGE_PRICE_NOTES, formatRangeForLocale } from '@/lib/facts';
+
+const itRange = (range: { readonly min: number; readonly max: number }, unit: string) =>
+  formatRangeForLocale(range, unit, 'it');
 
 export const metadata: Metadata = pageMetadata({
   title: 'Impianto solare con accumulo: costi, vantaggi e funzionamento | PvPro.ch',
@@ -63,9 +67,8 @@ export default function SolareConAccumuloPage() {
               </p>
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: '70%',      label: 'Autoconsumo possibile' },
-                  { value: '8–15 kWh', label: 'Dimensione tipica accumulo' },
-                  { value: '25–40k',   label: 'CHF costo totale' },
+                  { value: itRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%'), label: 'Autoconsumo con accumulo' },
+                  { value: itRange(ECONOMIC_FACTS.storageCosts.paybackYears, 'anni'), label: 'Ammortamento batteria' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <p className="text-xl font-bold text-white">{s.value}</p>
@@ -79,8 +82,8 @@ export default function SolareConAccumuloPage() {
               <p className="text-white font-bold text-lg mb-6">Confronto autoconsumo</p>
               <div className="flex flex-col gap-6">
                 {[
-                  { label: 'Senza accumulo', pct: 30, color: '#6b7280' },
-                  { label: 'Con accumulo',   pct: 70, color: '#fcb210' },
+                   { label: 'Senza accumulo', pct: ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage.min, color: '#6b7280' },
+                   { label: 'Con accumulo', pct: ECONOMIC_FACTS.selfConsumptionPercent.withStorage.min, color: '#fcb210' },
                 ].map(item => (
                   <div key={item.label}>
                     <div className="flex justify-between items-center mb-2">
@@ -153,7 +156,7 @@ export default function SolareConAccumuloPage() {
               I vantaggi di un accumulo a batteria
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-              Senza accumulo, solo il <strong className="text-gray-800">30%</strong> dell'elettricità solare prodotta viene utilizzata direttamente. Con l'accumulo, questo valore sale al <strong className="text-gray-800">60–70%</strong>.
+               Senza accumulo si autoconsuma <strong className="text-gray-800">{itRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%')}</strong>. Con accumulo si arriva a <strong className="text-gray-800">{itRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%')}</strong>.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -188,9 +191,8 @@ export default function SolareConAccumuloPage() {
 
               <div className="flex flex-col gap-3">
                 {[
-                  { label: 'Impianto fotovoltaico (ca. 10 kWp)', range: "18'000 – 25'000 CHF", highlight: false },
-                  { label: 'Accumulo a batteria',                  range: "8'000 – 15'000 CHF",  highlight: false },
-                  { label: 'Impianto completo',                    range: "25'000 – 40'000 CHF", highlight: true  },
+                   { label: 'Impianto fotovoltaico (10 kWp)', range: itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF'), highlight: false },
+                   { label: 'Accumulo a batteria (10 kWh)', range: itRange(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF'), highlight: true },
                 ].map(row => (
                   <div
                     key={row.label}
@@ -203,7 +205,7 @@ export default function SolareConAccumuloPage() {
                 ))}
               </div>
               <p className="text-xs text-gray-400 mt-4">
-                Grazie ai programmi di sovvenzioni e al maggiore autoconsumo, l'impianto può essere economicamente vantaggioso nel corso degli anni.
+                 {SYSTEM_PRICE_NOTES.it} {STORAGE_PRICE_NOTES.it} {SOURCE_NOTES.it}
               </p>
             </div>
 
@@ -248,7 +250,7 @@ export default function SolareConAccumuloPage() {
                 Quanta elettricità produce un impianto solare?
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                Un impianto tipico da 10 kWp in Svizzera produce annualmente circa <strong>9'000 – 11'000 kWh</strong> — ovvero circa <strong>25–40 kWh</strong> al giorno.
+                 Un impianto da 10 kWp produce sull'Altopiano <strong>{itRange({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh all’anno')}</strong>.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
                 La quantità esatta dipende dall'orientamento del tetto, dall'angolo di inclinazione e dall'irraggiamento solare cantonale.

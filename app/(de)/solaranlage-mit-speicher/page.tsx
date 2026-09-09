@@ -4,6 +4,7 @@ import { ChevronRight, Battery, Sun, Home, Zap, CheckCircle, ArrowRight, Trendin
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
+import { ECONOMIC_FACTS, STORAGE_PRICE_NOTES, SYSTEM_PRICE_NOTES, formatRangeForLocale, formatSwissNumber, getSourceNote } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solaranlage mit Speicher: Kosten, Vorteile und Speichergröße in der Schweiz | PvPro.ch',
@@ -63,9 +64,9 @@ export default function SolaranlageMitSpeicherPage() {
               </p>
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: '70%',      label: 'Eigenverbrauch möglich' },
-                  { value: '8–15 kWh', label: 'Typische Speichergrösse' },
-                  { value: '25–40k',   label: 'CHF Gesamtkosten' },
+                  { value: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'de'), label: 'Eigenverbrauch mit Speicher' },
+                  { value: '10 kWh', label: 'Beispiel-Speichergrösse' },
+                  { value: formatRangeForLocale(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF', 'de'), label: 'Speicherkosten installiert' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <p className="text-xl font-bold text-white">{s.value}</p>
@@ -79,8 +80,8 @@ export default function SolaranlageMitSpeicherPage() {
               <p className="text-white font-bold text-lg mb-6">Eigenverbrauch im Vergleich</p>
               <div className="flex flex-col gap-6">
                 {[
-                  { label: 'Ohne Speicher', pct: 30, color: '#6b7280' },
-                  { label: 'Mit Speicher',  pct: 70, color: '#fcb210' },
+                  { label: 'Ohne Speicher', pct: ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage.max, color: '#6b7280' },
+                  { label: 'Mit Speicher',  pct: ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max, color: '#fcb210' },
                 ].map(item => (
                   <div key={item.label}>
                     <div className="flex justify-between items-center mb-2">
@@ -153,7 +154,7 @@ export default function SolaranlageMitSpeicherPage() {
               Die Vorteile eines Batteriespeichers
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-              Ohne Speicher werden oft nur <strong className="text-gray-800">30%</strong> des erzeugten Solarstroms direkt genutzt. Mit Speicher steigt dieser Wert auf <strong className="text-gray-800">60–70%</strong>.
+              Ohne Speicher werden <strong className="text-gray-800">{formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'de')}</strong> des erzeugten Solarstroms direkt genutzt. Mit Speicher steigt dieser Wert auf <strong className="text-gray-800">{formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'de')}</strong>.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -188,9 +189,9 @@ export default function SolaranlageMitSpeicherPage() {
 
               <div className="flex flex-col gap-3">
                 {[
-                  { label: 'Photovoltaikanlage (ca. 10 kWp)', range: "18'000 – 25'000 CHF", highlight: false },
-                  { label: 'Batteriespeicher',                 range: "8'000 – 15'000 CHF",  highlight: false },
-                  { label: 'Gesamtanlage',                     range: "25'000 – 40'000 CHF", highlight: true  },
+                  { label: 'Photovoltaikanlage (10 kWp)', range: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de'), highlight: false },
+                  { label: 'Batteriespeicher (10 kWh)', range: formatRangeForLocale(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF', 'de'), highlight: false },
+                  { label: 'Gesamtanlage', range: `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min + ECONOMIC_FACTS.storageCosts.byCapacity[10].min)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max + ECONOMIC_FACTS.storageCosts.byCapacity[10].max)} CHF`, highlight: true },
                 ].map(row => (
                   <div
                     key={row.label}
@@ -203,7 +204,7 @@ export default function SolaranlageMitSpeicherPage() {
                 ))}
               </div>
               <p className="text-xs text-gray-400 mt-4">
-                Durch Förderprogramme und höheren Eigenverbrauch kann sich die Anlage über mehrere Jahre wirtschaftlich auszahlen.
+                {SYSTEM_PRICE_NOTES.de} {STORAGE_PRICE_NOTES.de} {getSourceNote('de')}
               </p>
             </div>
 
@@ -248,7 +249,7 @@ export default function SolaranlageMitSpeicherPage() {
                 Wie viel Strom produziert eine Solaranlage?
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                Eine typische 10-kWp-Anlage produziert in der Schweiz jährlich rund <strong>9'000 – 11'000 kWh</strong> — das entspricht täglich ca. <strong>25–40 kWh</strong>.
+                Eine typische 10-kWp-Anlage produziert im Mittelland jährlich rund <strong>{formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis {formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh</strong>.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
                 Die genaue Menge hängt von Dachausrichtung, Neigungswinkel und der lokalen Sonneneinstrahlung ab.

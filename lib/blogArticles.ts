@@ -1,3 +1,22 @@
+import { ECONOMIC_FACTS, STORAGE_PRICE_NOTES, formatRangeForLocale, formatSwissNumber, type FactsLocale, type NumericRange } from './facts';
+
+const factRange = (range: NumericRange, locale: FactsLocale): string =>
+  formatRangeForLocale(range, '', locale).trim();
+const factNumber = (value: number): string => formatSwissNumber(value);
+const removedClaimPlaceholders = new Set([
+  'Die konkrete Angabe hängt vom Projekt ab.',
+  'La valeur concrète dépend du projet.',
+  'The specific value depends on the project.',
+  'Il valore concreto dipende dal progetto.',
+]);
+const storagePrice = (
+  capacity: keyof typeof ECONOMIC_FACTS.storageCosts.byCapacity,
+  locale: FactsLocale,
+): string => {
+  const range = factRange(ECONOMIC_FACTS.storageCosts.byCapacity[capacity], locale);
+  return locale === 'en' ? `CHF ${range}` : `${range} CHF`;
+};
+
 /**
  * Full blog article content for all 7 posts × 4 locales (DE / FR / EN / IT).
  * Used by the dynamic /blog/[slug] route in each locale.
@@ -53,7 +72,7 @@ const articles: BlogArticle[] = [
       {
         heading: 'Was ist ein Balkonkraftwerk?',
         content: ['Ein Balkonkraftwerk ist eine Mini-Solaranlage für den Eigengebrauch: typischerweise 1–2 Solarmodule mit 300–800 Watt, angeschlossen über eine normale Steckdose. Der produzierte Strom wird direkt im Haushalt verbraucht.', 'In der Schweiz werden Balkonkraftwerke immer beliebter – besonders bei Mietern oder Personen ohne eigenes Dach. Doch wer ein Eigenheim besitzt, sollte die Entscheidung gut abwägen.'],
-        stats: [{ label: 'Module', value: '1–2' }, { label: 'Max. Leistung', value: '800 W' }, { label: 'Produktion/Jahr', value: '200–600 kWh' }, { label: 'Einsparung/Jahr', value: '50–150 CHF' }],
+        stats: [{ label: 'Module', value: '1–2' }, { label: 'Max. Leistung', value: '800 W' }, { label: 'Produktion/Jahr', value: 'Die konkrete Angabe hängt vom Projekt ab.' }, { label: 'Einsparung/Jahr', value: 'Die konkrete Angabe hängt vom Projekt ab.' }],
       },
       {
         heading: 'Sind Balkonkraftwerke in der Schweiz erlaubt?',
@@ -62,25 +81,25 @@ const articles: BlogArticle[] = [
       },
       {
         heading: 'Wie viel Strom produziert ein Balkonkraftwerk?',
-        content: ['Ein typisches Balkonkraftwerk produziert ca. 200–600 kWh pro Jahr – das entspricht dem Grundverbrauch weniger Geräte. Für den Grossteil des Haushaltsstroms reicht das bei weitem nicht.', 'Eine vollwertige 10-kWp-Solaranlage produziert dagegen 9\'000–11\'000 kWh pro Jahr – das ist 15–20× mehr.'],
-        highlight: 'Eine vollwertige Solaranlage produziert 15–20× mehr Strom als ein Balkonkraftwerk.',
+        content: ['Für den Grossteil des Haushaltsstroms reicht das bei weitem nicht.', 'Die konkrete Angabe hängt vom Projekt ab.'],
+        highlight: 'Die konkrete Angabe hängt vom Projekt ab.',
       },
       {
         heading: 'Wann ist eine Solaranlage die bessere Wahl?',
-        content: ['Als Eigentümer eines Hauses mit geeignetem Dach ist eine vollwertige Solaranlage fast immer die rentablere Lösung. Sie sparen jährlich 1\'500–3\'000 CHF und profitieren von der Einmalvergütung (EIV) und kantonalen Förderungen.'],
+        content: ['Als Eigentümer eines Hauses mit geeignetem Dach ist eine vollwertige Solaranlage fast immer die rentablere Lösung.'],
         bullets: ['Eigentümer eines Hauses: Solaranlage klar besser', 'Mieter oder ohne geeignetes Dach: Balkonkraftwerk sinnvoll', 'Solaranlage steigert den Immobilienwert', 'EIV-Förderung nur für vollwertige Anlagen'],
       },
     ],
     ctaHeading: 'Als Hauseigentümer: Jetzt Offerte vergleichen',
-    ctaText: 'Eine vollwertige Solaranlage spart Ihnen jährlich 10–20× mehr als ein Balkonkraftwerk. Vergleichen Sie kostenlos bis zu 3 Offerten.',
+    ctaText: 'Eine vollwertige Solaranlage produziert deutlich mehr Strom als ein Balkonkraftwerk. Vergleichen Sie kostenlos bis zu 3 Offerten.',
     ctaButton: 'Kostenlose Offerte anfordern',
     formUrl: '/anfrage',
     relatedSlugs: ['roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026', 'batteriespeicher-solaranlage-lohnt-sich'],
     faqs: [
       { question: 'Brauche ich in der Schweiz eine Bewilligung für ein Balkonkraftwerk?', answer: 'Keine formelle Baubewilligung, aber eine Anmeldung beim Netzbetreiber ist Pflicht. Dieser muss die Anlage in sein System aufnehmen. Nicht angemeldete Anlagen können abgeschaltet werden.' },
-      { question: 'Wie hoch ist die Einsparung mit einem Balkonkraftwerk?', answer: 'Realistisch 50–150 CHF pro Jahr, je nach Sonnenstunden, Ausrichtung und Eigenverbrauchsquote. Eine vollwertige 5-kWp-Solaranlage spart dagegen 1\'200–1\'800 CHF pro Jahr.' },
+      { question: 'Wie hoch ist die Einsparung mit einem Balkonkraftwerk?', answer: 'Die Einsparung hängt von Ausrichtung und Eigenverbrauch ab. Eine vollwertige Solaranlage kann deutlich mehr beitragen.' },
       { question: 'Kann ich als Mieter ein Balkonkraftwerk installieren?', answer: 'Grundsätzlich ja, aber Sie benötigen die Zustimmung Ihres Vermieters. Das Gerät muss sicher befestigt sein und die Anmeldung beim Netzbetreiber erfolgen.' },
-      { question: 'Lohnt sich ein Balkonkraftwerk für Hauseigentümer?', answer: 'Für Hauseigentümer mit einem geeigneten Dach ist eine vollwertige Solaranlage fast immer die viel rentablere Option. Mit EIV-Förderung und kantonalen Beiträgen amortisiert sie sich in 7–10 Jahren.' },
+      { question: 'Lohnt sich ein Balkonkraftwerk für Hauseigentümer?', answer: 'Für Hauseigentümer mit einem geeigneten Dach ist eine vollwertige Solaranlage fast immer die viel rentablere Option.' },
     ],
   },
 
@@ -99,7 +118,7 @@ const articles: BlogArticle[] = [
       {
         heading: "Qu'est-ce qu'une mini-centrale solaire de balcon?",
         content: ["Une mini-centrale de balcon est une installation solaire miniature pour l'autoproduction: typiquement 1–2 panneaux solaires avec 300–800 W, branché sur une prise normale. Le courant produit est consommé directement dans le logement.", "En Suisse, ces appareils gagnent en popularité – surtout chez les locataires. Mais les propriétaires doivent bien peser leur décision."],
-        stats: [{ label: 'Panneaux', value: '1–2' }, { label: 'Puissance max.', value: '800 W' }, { label: 'Production/an', value: '200–600 kWh' }, { label: 'Économie/an', value: '50–150 CHF' }],
+        stats: [{ label: 'Panneaux', value: '1–2' }, { label: 'Puissance max.', value: '800 W' }, { label: 'Production/an', value: 'La valeur concrète dépend du projet.' }, { label: 'Économie/an', value: 'La valeur concrète dépend du projet.' }],
       },
       {
         heading: 'Les mini-centrales de balcon sont-elles autorisées en Suisse?',
@@ -108,25 +127,25 @@ const articles: BlogArticle[] = [
       },
       {
         heading: 'Quelle électricité produit une mini-centrale de balcon?',
-        content: ["Une mini-centrale typique produit environ 200–600 kWh par an – à peine de quoi couvrir quelques appareils. Pour la majeure partie de la consommation du ménage, c'est insuffisant.", "Une installation solaire complète de 10 kWc produit en revanche 9'000–11'000 kWh par an – soit 15 à 20 fois plus."],
-        highlight: "Une installation solaire complète produit 15–20 fois plus d'électricité qu'une mini-centrale de balcon.",
+        content: ["Pour la majeure partie de la consommation du ménage, c'est insuffisant.", "La valeur concrète dépend du projet."],
+        highlight: "La valeur concrète dépend du projet.",
       },
       {
         heading: "Quand l'installation solaire complète est-elle plus avantageuse?",
-        content: ["Pour les propriétaires d'une maison avec un toit adapté, une installation complète est presque toujours plus rentable. Vous économisez 1'500–3'000 CHF par an et bénéficiez de la rétribution unique (RU) et des subventions cantonales."],
+        content: ["Pour les propriétaires d'une maison avec un toit adapté, une installation complète est presque toujours plus rentable."],
         bullets: ["Propriétaire avec toit adapté: installation solaire clairement plus avantageuse", "Locataire ou sans toit: mini-centrale de balcon utile", "L'installation solaire valorise le bien immobilier", "La RU fédérale ne s'applique qu'aux installations complètes"],
       },
     ],
     ctaHeading: "Propriétaire? Comparez jusqu'à 3 offres gratuitement",
-    ctaText: "Une installation solaire complète vous fait économiser 10 à 20 fois plus par an qu'une mini-centrale de balcon. Comparez gratuitement jusqu'à 3 offres.",
+    ctaText: "Une installation solaire complète produit nettement plus d'électricité qu'une centrale de balcon. Comparez gratuitement jusqu'à 3 offres.",
     ctaButton: 'Demander une offre gratuite',
     formUrl: '/fr/demande',
     relatedSlugs: ['roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026', 'batteriespeicher-solaranlage-lohnt-sich'],
     faqs: [
       { question: "Ai-je besoin d'une autorisation pour une mini-centrale de balcon en Suisse?", answer: "Pas de permis de construire formel, mais une annonce au gestionnaire de réseau est obligatoire. Les installations non déclarées peuvent être déconnectées." },
-      { question: "Quelle est l'économie réelle avec une mini-centrale de balcon?", answer: "Réalistement 50–150 CHF par an selon l'ensoleillement et le taux d'autoconsommation. Une installation solaire complète de 5 kWc économise en revanche 1'200–1'800 CHF par an." },
+      { question: "Quelle est l'économie réelle avec une mini-centrale de balcon?", answer: "L'économie dépend de l'orientation et du taux d'autoconsommation. Une installation solaire complète peut apporter une contribution nettement plus importante." },
       { question: "Un locataire peut-il installer une mini-centrale de balcon?", answer: "Oui, en principe, mais l'accord du propriétaire est nécessaire. L'appareil doit être fixé de manière sécurisée et déclaré au gestionnaire de réseau." },
-      { question: "Est-ce rentable pour un propriétaire?", answer: "Pour un propriétaire avec un toit adapté, une installation solaire complète est presque toujours bien plus rentable. Avec la RU fédérale et les aides cantonales, elle s'amortit en 7–10 ans." },
+      { question: "Est-ce rentable pour un propriétaire?", answer: "Pour un propriétaire avec un toit adapté, une installation solaire complète est presque toujours bien plus rentable." },
     ],
   },
 
@@ -145,7 +164,7 @@ const articles: BlogArticle[] = [
       {
         heading: 'What is a balcony power station?',
         content: ['A balcony power station is a mini solar system for self-generation: typically 1–2 solar panels with 300–800 W output, connected via a standard socket. The electricity is consumed directly in the home.', 'In Switzerland, these devices are growing in popularity – especially among renters. But homeowners should think carefully before choosing one over a full system.'],
-        stats: [{ label: 'Panels', value: '1–2' }, { label: 'Max. output', value: '800 W' }, { label: 'Production/year', value: '200–600 kWh' }, { label: 'Savings/year', value: 'CHF 50–150' }],
+        stats: [{ label: 'Panels', value: '1–2' }, { label: 'Max. output', value: '800 W' }, { label: 'Production/year', value: 'The specific value depends on the project.' }, { label: 'Savings/year', value: 'The specific value depends on the project.' }],
       },
       {
         heading: 'Are balcony power stations legal in Switzerland?',
@@ -154,25 +173,25 @@ const articles: BlogArticle[] = [
       },
       {
         heading: 'How much electricity does a balcony power station produce?',
-        content: ['A typical balcony power station produces about 200–600 kWh per year – barely enough to cover a few household appliances.', 'A full 10 kWp solar system, by contrast, produces 9,000–11,000 kWh per year – that is 15–20 times more.'],
-        highlight: 'A full solar system produces 15–20 times more electricity than a balcony power station.',
+        content: ['The specific value depends on the project.', 'The specific value depends on the project.'],
+        highlight: 'The specific value depends on the project.',
       },
       {
         heading: 'When is a full solar system the better choice?',
-        content: ['For homeowners with a suitable roof, a full solar system is almost always the more profitable choice. You save CHF 1,500–3,000 per year and benefit from the federal one-time payment (EIV) and cantonal subsidies.'],
+        content: ['For homeowners with a suitable roof, a full solar system is almost always the more profitable choice.'],
         bullets: ['Homeowner with suitable roof: full solar system clearly better', 'Renter or without a roof: balcony power station useful', 'Solar system increases property value', 'EIV subsidy only applies to full systems'],
       },
     ],
     ctaHeading: 'Homeowner? Compare up to 3 free quotes now',
-    ctaText: 'A full solar system saves you 10–20 times more per year than a balcony power station. Compare up to 3 quotes for free.',
+    ctaText: 'A full solar system produces substantially more electricity than a balcony power station. Compare up to 3 quotes for free.',
     ctaButton: 'Request a free quote',
     formUrl: '/en/request',
     relatedSlugs: ['roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026', 'batteriespeicher-solaranlage-lohnt-sich'],
     faqs: [
       { question: 'Do I need a permit for a balcony power station in Switzerland?', answer: 'No formal building permit, but registration with your grid operator is mandatory. Unregistered systems can be disconnected.' },
-      { question: 'How much can I save with a balcony power station?', answer: 'Realistically CHF 50–150 per year, depending on sunshine hours and self-consumption rate. A full 5 kWp solar system saves CHF 1,200–1,800 per year.' },
+      { question: 'How much can I save with a balcony power station?', answer: 'Savings depend on orientation and self-consumption. A full solar system can make a substantially larger contribution.' },
       { question: 'Can a renter install a balcony power station?', answer: "Yes in principle, but you need your landlord's consent. The device must be securely fixed and registered with the grid operator." },
-      { question: 'Is it worth it for homeowners?', answer: 'For homeowners with a suitable roof, a full solar system is almost always far more profitable. With federal and cantonal subsidies, it typically pays off in 7–10 years.' },
+      { question: 'Is it worth it for homeowners?', answer: 'For homeowners with a suitable roof, a full solar system is almost always far more profitable.' },
     ],
   },
 
@@ -191,7 +210,7 @@ const articles: BlogArticle[] = [
       {
         heading: "Cos'è un mini impianto solare da balcone?",
         content: ["Un mini impianto da balcone è una piccola installazione solare per l'autoproduzione: tipicamente 1–2 pannelli solari con 300–800 W, collegati a una presa normale. L'energia prodotta viene consumata direttamente nell'abitazione.", "In Svizzera questi dispositivi stanno diventando sempre più popolari – soprattutto tra gli affittuari. Ma i proprietari dovrebbero valutare attentamente prima di sceglierli rispetto a un impianto completo."],
-        stats: [{ label: 'Pannelli', value: '1–2' }, { label: 'Potenza max.', value: '800 W' }, { label: 'Produzione/anno', value: '200–600 kWh' }, { label: 'Risparmio/anno', value: 'CHF 50–150' }],
+        stats: [{ label: 'Pannelli', value: '1–2' }, { label: 'Potenza max.', value: '800 W' }, { label: 'Produzione/anno', value: 'Il valore concreto dipende dal progetto.' }, { label: 'Risparmio/anno', value: 'Il valore concreto dipende dal progetto.' }],
       },
       {
         heading: 'I mini impianti da balcone sono permessi in Svizzera?',
@@ -200,25 +219,24 @@ const articles: BlogArticle[] = [
       },
       {
         heading: 'Quanta energia produce un mini impianto da balcone?',
-        content: ["Un mini impianto tipico produce circa 200–600 kWh all'anno – appena sufficiente per qualche apparecchio domestico. Per la maggior parte del consumo familiare non è sufficiente.", "Un impianto fotovoltaico completo da 10 kWp produce invece 9.000–11.000 kWh all'anno – 15–20 volte di più."],
-        highlight: "Un impianto fotovoltaico completo produce 15–20 volte più energia di un mini impianto da balcone.",
+        content: ["Per la maggior parte del consumo familiare non è sufficiente."],
       },
       {
         heading: "Quando l'impianto fotovoltaico completo è la scelta migliore?",
-        content: ["Per i proprietari con un tetto adatto, un impianto completo è quasi sempre l'opzione più redditizia. Si risparmiano 1.500–3.000 CHF l'anno e si beneficia della Remunerazione Unica (RU) e degli incentivi cantonali."],
+        content: ["Per i proprietari con un tetto adatto, un impianto completo è quasi sempre l'opzione più redditizia."],
         bullets: ["Proprietario con tetto adatto: impianto completo molto più conveniente", "Affittuario o senza tetto: mini impianto da balcone utile", "L'impianto solare aumenta il valore dell'immobile", "La RU federale si applica solo agli impianti completi"],
       },
     ],
     ctaHeading: "Proprietario? Confronta fino a 3 preventivi gratis",
-    ctaText: "Un impianto fotovoltaico completo ti fa risparmiare 10–20 volte di più all'anno rispetto a un mini impianto da balcone. Confronta gratuitamente fino a 3 preventivi.",
+    ctaText: "Un impianto fotovoltaico completo può contribuire molto più di un mini impianto da balcone. Confronta gratuitamente fino a 3 preventivi.",
     ctaButton: 'Richiedi preventivo gratuito',
     formUrl: '/it/richiesta',
     relatedSlugs: ['roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026', 'batteriespeicher-solaranlage-lohnt-sich'],
     faqs: [
       { question: "Ho bisogno di un permesso per un mini impianto da balcone in Svizzera?", answer: "Non è richiesto un permesso edilizio formale, ma la registrazione presso il gestore di rete è obbligatoria. Gli impianti non registrati possono essere disconnessi." },
-      { question: "Quanto risparmio con un mini impianto da balcone?", answer: "Realisticamente 50–150 CHF all'anno, a seconda dell'irraggiamento e del tasso di autoconsumo. Un impianto fotovoltaico completo da 5 kWp risparmia invece 1.200–1.800 CHF all'anno." },
+      { question: "Quanto risparmio con un mini impianto da balcone?", answer: "Il risparmio varia in base all'orientamento e all'autoconsumo. Un impianto fotovoltaico completo può fornire un contributo nettamente maggiore." },
       { question: "Un affittuario può installare un mini impianto da balcone?", answer: "Sì in linea di principio, ma è necessario il consenso del proprietario. Il dispositivo deve essere fissato in modo sicuro e registrato presso il gestore di rete." },
-      { question: "Conviene per i proprietari di casa?", answer: "Per i proprietari con un tetto adatto, un impianto fotovoltaico completo è quasi sempre molto più redditizio. Con la RU federale e gli incentivi cantonali, si ammortizza in 7–10 anni." },
+      { question: "Conviene per i proprietari di casa?", answer: "Per i proprietari con un tetto adatto, un impianto fotovoltaico completo è quasi sempre molto più redditizio." },
     ],
   },
 
@@ -236,23 +254,17 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: 'Solaranlagen im Winter: Was wirklich zählt',
-        content: ['Viele denken, Solaranlagen seien im Winter nutzlos. Das Gegenteil ist wahr: Kalte Temperaturen verbessern die Effizienz von Solarmodulen. Photovoltaikzellen arbeiten bei niedrigen Temperaturen physikalisch effizienter als bei Hitze – der sogenannte Temperaturkoeffizient wirkt positiv.', 'Im Schweizer Winter produziert eine gut ausgerichtete Anlage typischerweise 10–20% ihrer Jahresproduktion. Bei einem 8-kWp-System sind das noch immer 800–1\'600 kWh im Winter.'],
-        stats: [{ label: 'Winteranteil', value: '10–20%' }, { label: 'Effizienz bei Kälte', value: '+5%' }, { label: 'Dezember/Januar', value: '200–400 kWh' }, { label: 'Schneeabrutschen', value: 'ab 35°' }],
+        content: ['Viele denken, Solaranlagen seien im Winter nutzlos. Das Gegenteil ist wahr: Kalte Temperaturen verbessern die Effizienz von Solarmodulen. Photovoltaikzellen arbeiten bei niedrigen Temperaturen physikalisch effizienter als bei Hitze – der sogenannte Temperaturkoeffizient wirkt positiv.'],
+        stats: [{ label: 'Schneeabrutschen', value: 'ab 35°' }],
       },
       {
         heading: 'Schnee auf den Modulen: Problem oder Kleinigkeit?',
-        content: ['Schnee auf den Modulen reduziert kurzfristig die Produktion. Doch die Praxis zeigt: Bei einer Neigung von mehr als 35° rutscht Schnee in der Regel innerhalb von 1–3 Sonnentagen von selbst ab. Zudem heizt die schwarze Moduloberfläche auf und schmilzt die Schneedecke.', 'Für Flachdächer empfehlen wir eine Aufständerung mit mindestens 15–20° Neigung, um Schneeakkumulation zu minimieren und gleichzeitig die Winterproduktion zu maximieren.'],
+        content: ['Schnee auf den Modulen reduziert kurzfristig die Produktion. Zudem heizt die schwarze Moduloberfläche auf und schmilzt die Schneedecke.', 'Für Flachdächer empfehlen wir eine Aufständerung mit mindestens 15–20° Neigung, um Schneeakkumulation zu minimieren und gleichzeitig die Winterproduktion zu maximieren.'],
         bullets: ['Neigung ab 35°: Schnee rutscht selbst ab', 'Schwarze Oberfläche schmilzt Schnee aktiv', 'Flachdächer: Aufständerung mit 15–20° empfohlen', 'Neue bifaziale Module nutzen Schnee-Reflexion'],
       },
       {
         heading: 'Der Winterstrombonus 2026: Neue Förderung für steile Anlagen',
-        content: ['Ab 2026 belohnt der Bund Solaranlagen mit steilerer Neigung (ab 60°) und guter Winterproduktion mit einem Winterstrombonus. Anlagen an Südfassaden oder steilen Dächern erhalten bis zu 20% mehr Förderung, weil sie im Winter proportional mehr produzieren.', 'Dieser Bonus ist besonders relevant für Berggebiete in der Schweiz, wo der Winter länger dauert und die Schneereflexion die Produktion zusätzlich steigert.'],
-        highlight: 'Steile Anlagen ab 60° Neigung erhalten 2026 einen Winterstrombonus von bis zu 20% mehr EIV.',
-      },
-      {
-        heading: 'Jahresproduktion in der Schweiz: Sommer vs. Winter',
-        content: ['Ein typisches 8-kWp-System in Zürich produziert im Juni ca. 900 kWh, im Dezember ca. 180 kWh. Das Verhältnis ist 5:1, aber auch der Dezember-Beitrag macht einen Unterschied – jede eingesparte kWh bedeutet weniger Strom vom Netz zu 28–34 Rp./kWh.'],
-        bullets: ['Juni (Zürich): ~900 kWh', 'Dezember (Zürich): ~180 kWh', 'Tessin Dezember: bis 280 kWh', 'Graubünden (Höhe): bis 320 kWh dank Schneereflexion'],
+        content: ['Ab 2026 belohnt der Bund Solaranlagen mit steilerer Neigung (ab 60°) und guter Winterproduktion mit einem Winterstrombonus.', 'Dieser Bonus ist besonders relevant für Berggebiete in der Schweiz, wo der Winter länger dauert und die Schneereflexion die Produktion zusätzlich steigert.'],
       },
     ],
     ctaHeading: 'Solaranlage das ganze Jahr nutzen – jetzt Offerte holen',
@@ -262,9 +274,9 @@ const articles: BlogArticle[] = [
     relatedSlugs: ['roi-photovoltaik-schweiz', 'eigenverbrauch-optimieren-solar', 'batteriespeicher-solaranlage-lohnt-sich'],
     relatedPageLinks: [{ label: 'Photovoltaik im Schweizer Klima', href: '/photovoltaik-schweizer-klima' }],
     faqs: [
-      { question: 'Produziert meine Solaranlage im Winter überhaupt Strom?', answer: 'Ja, definitiv. Auch im Schweizer Winter produziert eine gut ausgerichtete Anlage 10–20% ihrer Jahresproduktion. Kalte Temperaturen verbessern sogar die Effizienz der Zellen.' },
+      { question: 'Produziert meine Solaranlage im Winter überhaupt Strom?', answer: 'Ja, definitiv. Kalte Temperaturen verbessern sogar die Effizienz der Zellen.' },
       { question: 'Muss ich Schnee von meinen Solarmodulen entfernen?', answer: 'In der Regel nicht. Bei einer Neigung über 35° rutscht Schnee selbst innerhalb von 1–3 sonnigen Tagen ab. Die schwarze Moduloberfläche hilft dabei, Schnee aktiv zu schmelzen.' },
-      { question: 'Was ist der Winterstrombonus 2026?', answer: 'Der Bund belohnt ab 2026 Anlagen mit steiler Neigung (ab 60°) mit einem Zusatzbonus auf die EIV. Diese Anlagen produzieren im Winter proportional mehr Strom und erhalten bis zu 20% mehr Förderung.' },
+      { question: 'Was ist der Winterstrombonus 2026?', answer: 'Der Bund belohnt ab 2026 Anlagen mit steiler Neigung (ab 60°) mit einem Zusatzbonus auf die EIV.' },
       { question: 'Lohnt sich Solar auch in einem schneereich Kanton wie Graubünden?', answer: 'Ja, sogar besonders gut. Schnee reflektiert Sonnenlicht auf die Module (Albedo-Effekt) und steigert den Ertrag. Graubündner Anlagen produzieren im Winter oft mehr als Mittellandsanlagen.' },
     ],
   },
@@ -283,23 +295,17 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: 'Installations solaires en hiver: ce qui compte vraiment',
-        content: ["Beaucoup pensent que les panneaux solaires sont inutiles en hiver. C'est faux: les températures froides améliorent l'efficacité des modules solaires. Les cellules photovoltaïques fonctionnent mieux physiquement par temps froid que par chaleur.", "En hiver suisse, une installation bien orientée produit typiquement 10–20% de sa production annuelle. Pour un système de 8 kWc, c'est encore 800–1'600 kWh en hiver."],
-        stats: [{ label: 'Part hivernale', value: '10–20%' }, { label: 'Efficacité par froid', value: '+5%' }, { label: 'Décembre/Janvier', value: '200–400 kWh' }, { label: 'Glissement de neige', value: 'dès 35°' }],
+        content: ["Beaucoup pensent que les panneaux solaires sont inutiles en hiver. C'est faux: les températures froides améliorent l'efficacité des modules solaires. Les cellules photovoltaïques fonctionnent mieux physiquement par temps froid que par chaleur."],
+        stats: [{ label: 'Glissement de neige', value: 'dès 35°' }],
       },
       {
         heading: 'La neige sur les panneaux: un problème ou une bagatelle?',
-        content: ["La neige sur les panneaux réduit temporairement la production. Mais la pratique montre: avec une inclinaison de plus de 35°, la neige glisse généralement d'elle-même en 1–3 jours de soleil. De plus, la surface noire des modules chauffe et fait fondre la neige.", "Pour les toits plats, nous recommandons une inclinaison de 15–20° minimum pour minimiser l'accumulation de neige."],
+        content: ["La neige sur les panneaux réduit temporairement la production. De plus, la surface noire des modules chauffe et fait fondre la neige.", "Pour les toits plats, nous recommandons une inclinaison de 15–20° minimum pour minimiser l'accumulation de neige."],
         bullets: ["Inclinaison dès 35°: la neige glisse d'elle-même", "La surface noire fait fondre la neige activement", "Toits plats: inclinaison de 15–20° recommandée", "Les nouveaux modules bifaciaux utilisent la réflexion de la neige"],
       },
       {
         heading: "Le bonus d'hiver 2026: nouvelle aide pour les installations inclinées",
-        content: ["Dès 2026, la Confédération récompense les installations solaires très inclinées (dès 60°) avec un bonus d'hiver. Les installations sur façades sud ou toits très pentus reçoivent jusqu'à 20% de subvention supplémentaire.", "Ce bonus est particulièrement pertinent pour les zones alpines suisses, où l'hiver dure plus longtemps et où la réflexion de la neige augmente la production."],
-        highlight: "Les installations très inclinées (dès 60°) reçoivent un bonus d'hiver pouvant atteindre 20% de RU supplémentaire en 2026.",
-      },
-      {
-        heading: 'Production annuelle en Suisse: été vs hiver',
-        content: ["Un système typique de 8 kWc à Genève produit environ 950 kWh en juin et environ 200 kWh en décembre. Le ratio est de 5:1, mais la contribution de décembre est aussi précieuse – chaque kWh économisé représente moins d'achat sur le réseau à 30–35 ct./kWh."],
-        bullets: ["Juin (Genève): ~950 kWh", "Décembre (Genève): ~200 kWh", "Valais décembre: jusqu'à 350 kWh", "Grisons (altitude): jusqu'à 320 kWh grâce à la réflexion de la neige"],
+        content: ["Dès 2026, la Confédération récompense les installations solaires très inclinées (dès 60°) avec un bonus d'hiver.", "Ce bonus est particulièrement pertinent pour les zones alpines suisses, où l'hiver dure plus longtemps et où la réflexion de la neige augmente la production."],
       },
     ],
     ctaHeading: "Profitez du solaire toute l'année – demandez une offre",
@@ -308,9 +314,9 @@ const articles: BlogArticle[] = [
     formUrl: '/fr/demande',
     relatedSlugs: ['roi-photovoltaik-schweiz', 'eigenverbrauch-optimieren-solar', 'batteriespeicher-solaranlage-lohnt-sich'],
     faqs: [
-      { question: "Mon installation solaire produit-elle de l'électricité en hiver?", answer: "Oui, certainement. Même en hiver suisse, une installation bien orientée produit 10–20% de sa production annuelle. Les températures froides améliorent même l'efficacité des cellules." },
-      { question: "Dois-je enlever la neige de mes panneaux solaires?", answer: "En général non. Avec une inclinaison de plus de 35°, la neige glisse d'elle-même en 1–3 jours de soleil. La surface noire des modules aide à faire fondre la neige activement." },
-      { question: "Qu'est-ce que le bonus d'hiver 2026?", answer: "La Confédération récompense dès 2026 les installations très inclinées (dès 60°) avec un bonus sur la RU. Ces installations produisent proportionnellement plus en hiver et reçoivent jusqu'à 20% de subvention supplémentaire." },
+      { question: "Mon installation solaire produit-elle de l'électricité en hiver?", answer: "Oui, certainement. Les températures froides améliorent même l'efficacité des cellules." },
+      { question: "Dois-je enlever la neige de mes panneaux solaires?", answer: "En général non. La surface noire des modules aide à faire fondre la neige activement." },
+      { question: "Qu'est-ce que le bonus d'hiver 2026?", answer: "La Confédération récompense dès 2026 les installations très inclinées (dès 60°) avec un bonus sur la RU." },
       { question: "Le solaire est-il rentable dans un canton enneigé comme le Valais?", answer: "Oui, encore plus. La neige réfléchit le rayonnement solaire sur les panneaux (effet albédo) et augmente le rendement. Les installations valaisannes produisent souvent plus en hiver que celles du Plateau." },
     ],
   },
@@ -329,23 +335,17 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: 'Solar panels in winter: what really matters',
-        content: ['Many people assume solar panels are useless in winter. The opposite is true: cold temperatures actually improve the efficiency of solar modules. PV cells work better physically at low temperatures than in heat.', 'In a Swiss winter, a well-oriented system typically produces 10–20% of its annual output. For an 8 kWp system, that is still 800–1,600 kWh over winter.'],
-        stats: [{ label: 'Winter share', value: '10–20%' }, { label: 'Efficiency in cold', value: '+5%' }, { label: 'December/January', value: '200–400 kWh' }, { label: 'Snow slides off', value: 'from 35°' }],
+        content: ['Many people assume solar panels are useless in winter. The opposite is true: cold temperatures actually improve the efficiency of solar modules. PV cells work better physically at low temperatures than in heat.'],
+        stats: [{ label: 'Snow slides off', value: 'from 35°' }],
       },
       {
         heading: 'Snow on the panels: a problem or a minor issue?',
-        content: ['Snow on panels temporarily reduces output. But in practice: with a tilt angle of more than 35°, snow typically slides off by itself within 1–3 sunny days. The black module surface also heats up and melts the snow cover.', 'For flat roofs, we recommend mounting at 15–20° tilt to minimise snow accumulation and maximise winter production.'],
+        content: ['Snow on panels temporarily reduces output. The black module surface also heats up and melts the snow cover.', 'For flat roofs, we recommend mounting at 15–20° tilt to minimise snow accumulation and maximise winter production.'],
         bullets: ['Tilt from 35°: snow slides off naturally', 'Black surface actively melts snow', 'Flat roofs: 15–20° tilt recommended', 'New bifacial modules use snow reflection'],
       },
       {
         heading: 'The 2026 winter power bonus: new subsidy for steep installations',
-        content: ['From 2026, the Swiss federal government rewards solar installations with steep tilt angles (from 60°) and good winter production with a winter power bonus. South-facing walls and steep roof installations receive up to 20% more subsidy.', 'This bonus is especially relevant for alpine cantons, where winter lasts longer and snow reflection boosts production further.'],
-        highlight: 'Steep installations from 60° tilt receive a 2026 winter power bonus of up to 20% additional EIV.',
-      },
-      {
-        heading: 'Annual production in Switzerland: summer vs winter',
-        content: ['A typical 8 kWp system in Zurich produces around 900 kWh in June and around 180 kWh in December. The ratio is 5:1, but even the December contribution matters – every kWh saved avoids grid electricity at CHF 0.28–0.34/kWh.'],
-        bullets: ['June (Zurich): ~900 kWh', 'December (Zurich): ~180 kWh', 'Ticino December: up to 280 kWh', 'Grisons (altitude): up to 320 kWh thanks to snow reflection'],
+        content: ['From 2026, the Swiss federal government rewards solar installations with steep tilt angles (from 60°) and good winter production with a winter power bonus.', 'This bonus is especially relevant for alpine cantons, where winter lasts longer and snow reflection boosts production further.'],
       },
     ],
     ctaHeading: 'Get solar working year-round – request a quote now',
@@ -354,9 +354,9 @@ const articles: BlogArticle[] = [
     formUrl: '/en/request',
     relatedSlugs: ['roi-photovoltaik-schweiz', 'eigenverbrauch-optimieren-solar', 'batteriespeicher-solaranlage-lohnt-sich'],
     faqs: [
-      { question: 'Does my solar system produce electricity in winter?', answer: 'Yes, definitely. Even in a Swiss winter, a well-oriented system produces 10–20% of its annual output. Cold temperatures actually improve cell efficiency.' },
-      { question: 'Do I need to remove snow from my solar panels?', answer: 'Generally no. With a tilt angle over 35°, snow slides off by itself within 1–3 sunny days. The black module surface helps melt snow actively.' },
-      { question: 'What is the 2026 winter power bonus?', answer: 'The Swiss government rewards steep installations (from 60° tilt) with a bonus on the EIV subsidy from 2026. These systems produce proportionally more in winter and receive up to 20% extra subsidy.' },
+      { question: 'Does my solar system produce electricity in winter?', answer: 'Yes, definitely. Cold temperatures actually improve cell efficiency.' },
+      { question: 'Do I need to remove snow from my solar panels?', answer: 'Generally no. The black module surface helps melt snow actively.' },
+      { question: 'What is the 2026 winter power bonus?', answer: 'The Swiss government rewards steep installations (from 60° tilt) with a bonus on the EIV subsidy from 2026.' },
       { question: 'Is solar worth it in a snowy canton like Grisons?', answer: 'Yes, even more so. Snow reflects sunlight onto the panels (albedo effect) and increases yields. Grisons installations often produce more in winter than those on the Swiss Plateau.' },
     ],
   },
@@ -375,23 +375,17 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: "Impianti solari d'inverno: cosa conta davvero",
-        content: ["In molti pensano che i pannelli solari siano inutili d'inverno. È falso: le temperature fredde migliorano l'efficienza dei moduli solari. Le celle fotovoltaiche funzionano fisicamente meglio a basse temperature che al caldo.", "Nell'inverno svizzero, un impianto ben orientato produce tipicamente il 10–20% della sua produzione annuale. Per un sistema da 8 kWp, sono ancora 800–1.600 kWh in inverno."],
-        stats: [{ label: 'Quota invernale', value: '10–20%' }, { label: 'Efficienza al freddo', value: '+5%' }, { label: 'Dicembre/Gennaio', value: '200–400 kWh' }, { label: 'Neve scivolante', value: 'da 35°' }],
+        content: ["In molti pensano che i pannelli solari siano inutili d'inverno. È falso: le temperature fredde migliorano l'efficienza dei moduli solari. Le celle fotovoltaiche funzionano fisicamente meglio a basse temperature che al caldo."],
+        stats: [{ label: 'Neve scivolante', value: 'da 35°' }],
       },
       {
         heading: 'Neve sui pannelli: un problema o una piccola cosa?',
-        content: ["La neve sui pannelli riduce temporaneamente la produzione. Ma la pratica dimostra: con un'inclinazione superiore a 35°, la neve di solito scivola via da sola in 1–3 giorni di sole. Inoltre la superficie nera dei moduli si scalda e scioglie lo strato di neve.", "Per i tetti piani raccomandiamo un'inclinazione di almeno 15–20° per minimizzare l'accumulo di neve."],
+        content: ["La neve sui pannelli riduce temporaneamente la produzione. Inoltre la superficie nera dei moduli si scalda e scioglie lo strato di neve.", "Per i tetti piani raccomandiamo un'inclinazione di almeno 15–20° per minimizzare l'accumulo di neve."],
         bullets: ["Inclinazione da 35°: la neve scivola via da sola", "La superficie nera scioglie la neve attivamente", "Tetti piani: inclinazione di 15–20° raccomandata", "I nuovi moduli bifacciali sfruttano la riflessione della neve"],
       },
       {
         heading: "Il bonus energia invernale 2026: nuovo incentivo per impianti inclinati",
-        content: ["Dal 2026, la Confederazione premia gli impianti solari con forte inclinazione (da 60°) con un bonus energia invernale. Gli impianti su facciate sud o tetti molto inclinati ricevono fino al 20% di sussidio in più.", "Questo bonus è particolarmente rilevante per le zone alpine svizzere, dove l'inverno dura più a lungo e la riflessione della neve aumenta ulteriormente la produzione."],
-        highlight: "Gli impianti molto inclinati (da 60°) ricevono nel 2026 un bonus invernale fino al 20% di RU aggiuntivo.",
-      },
-      {
-        heading: 'Produzione annuale in Svizzera: estate vs inverno',
-        content: ["Un tipico sistema da 8 kWp a Lugano produce circa 1.000 kWh a giugno e circa 250 kWh a dicembre. Il rapporto è di 4:1, ma anche il contributo di dicembre è prezioso – ogni kWh risparmiato evita acquisti dalla rete a 28–32 ct./kWh."],
-        bullets: ["Giugno (Lugano): ~1.000 kWh", "Dicembre (Lugano): ~250 kWh", "Ticino: migliore produzione invernale in Svizzera", "Grigioni (quota): fino a 320 kWh grazie alla riflessione della neve"],
+        content: ["Dal 2026, la Confederazione premia gli impianti solari con forte inclinazione (da 60°) con un bonus energia invernale.", "Questo bonus è particolarmente rilevante per le zone alpine svizzere, dove l'inverno dura più a lungo e la riflessione della neve aumenta ulteriormente la produzione."],
       },
     ],
     ctaHeading: "Sfrutta il solare tutto l'anno – richiedi un preventivo",
@@ -400,9 +394,9 @@ const articles: BlogArticle[] = [
     formUrl: '/it/richiesta',
     relatedSlugs: ['roi-photovoltaik-schweiz', 'eigenverbrauch-optimieren-solar', 'batteriespeicher-solaranlage-lohnt-sich'],
     faqs: [
-      { question: "Il mio impianto solare produce energia d'inverno?", answer: "Sì, assolutamente. Anche nell'inverno svizzero, un impianto ben orientato produce il 10–20% della sua produzione annuale. Le temperature fredde migliorano addirittura l'efficienza delle celle." },
-      { question: "Devo togliere la neve dai miei pannelli solari?", answer: "In generale no. Con un'inclinazione superiore a 35°, la neve scivola via da sola in 1–3 giorni di sole. La superficie nera dei moduli aiuta a sciogliere attivamente la neve." },
-      { question: "Cos'è il bonus energia invernale 2026?", answer: "La Confederazione premia dal 2026 gli impianti molto inclinati (da 60°) con un bonus sulla RU. Questi impianti producono proporzionalmente di più d'inverno e ricevono fino al 20% di sussidio aggiuntivo." },
+      { question: "Il mio impianto solare produce energia d'inverno?", answer: "Sì, assolutamente. Le temperature fredde migliorano addirittura l'efficienza delle celle." },
+      { question: "Devo togliere la neve dai miei pannelli solari?", answer: "In generale no. La superficie nera dei moduli aiuta a sciogliere attivamente la neve." },
+      { question: "Cos'è il bonus energia invernale 2026?", answer: "La Confederazione premia dal 2026 gli impianti molto inclinati (da 60°) con un bonus sulla RU." },
       { question: "Il solare conviene in un cantone nevoso come i Grigioni?", answer: "Sì, ancora di più. La neve riflette la luce solare sui pannelli (effetto albedo) e aumenta la resa. Gli impianti grigionesi producono spesso d'inverno più di quelli dell'Altopiano svizzero." },
     ],
   },
@@ -421,24 +415,23 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: 'Die Einmalvergütung (EIV): Bundesförderung für alle',
-        content: ['Die Einmalvergütung (EIV) ist die wichtigste Bundesförderung für neue Solaranlagen. Sie wird via Pronovo (bundeseigene Fördergesellschaft) ausbezahlt und deckt je nach Anlagegrösse bis zu 30% der Investitionskosten.', 'Für eine typische 5-kWp-Anlage erhalten Sie 2026 eine EIV von ca. CHF 2\'800–3\'600. Die EIV wird einmalig nach erfolgreicher Inbetriebnahme überwiesen – kein laufender Beitrag, keine Rückzahlung.'],
-        stats: [{ label: '5 kWp EIV', value: 'ca. CHF 3\'200' }, { label: '10 kWp EIV', value: 'ca. CHF 5\'800' }, { label: 'Wartezeit', value: '2–6 Monate' }, { label: 'Auszahlung', value: 'Einmalig' }],
+        content: ['Die Einmalvergütung (EIV) ist die wichtigste Bundesförderung für neue Solaranlagen.', 'Die EIV wird einmalig nach erfolgreicher Inbetriebnahme überwiesen – kein laufender Beitrag, keine Rückzahlung.'],
+        stats: [{ label: 'Auszahlung', value: 'Einmalig' }],
       },
       {
-        heading: 'Kantonale Förderprogramme: Bis zu 45% Gesamtförderung',
-        content: ['Viele Kantone ergänzen die EIV mit eigenen Programmen. Besonders grosszügig sind: Genf (SIG Prime Énergie +25%), Zürich (vollständiger Steuerabzug), Bern (Gebäudeprogramm +CHF 1\'500), Wallis (+CHF 2\'000 kantonal).', 'In den meisten Kantonen ist die Anlage zudem vollständig als Liegenschaftsunterhalt absetzbar – das reduziert die Steuerlast je nach Kanton um weitere 5–15% der Anlagekosten.'],
-        bullets: ['Genf: SIG-Bonus +25% auf Installationskosten', 'Bern: Gebäudeprogramm bis CHF 1\'500', 'Wallis: kantonaler Beitrag bis CHF 2\'000', 'Alle Kantone: 100% Steuerabzug als Unterhalt'],
+        heading: 'Kantonale Programme und Steuerabzug',
+        content: ['Viele Kantone ergänzen die EIV mit eigenen Programmen.'],
       },
       {
         heading: 'Schritt-für-Schritt: So beantragen Sie Ihre Förderung',
         content: ['Die gute Nachricht: Ihr Installateur übernimmt in der Regel die komplette Förderanmeldung. Trotzdem ist es wichtig, den Prozess zu verstehen, damit nichts vergessen geht.'],
-        bullets: ['1. Anlage installieren lassen (Installateur meldet an)', '2. Pronovo-Antrag stellen (meist durch Installateur)', '3. Abnahme durch Netzbetreiber', '4. EIV-Zahlung nach 2–6 Monaten', '5. Kantonalen Beitrag separat beantragen (falls nötig)', '6. Steuerabzug in nächste Steuererklärung'],
+        bullets: ['1. Anlage installieren lassen (Installateur meldet an)', '2. Pronovo-Antrag stellen (meist durch Installateur)', '3. Abnahme durch Netzbetreiber', '4. EIV-Zahlung nach Prüfung', '5. Kantonalen Beitrag separat beantragen (falls nötig)', '6. Steuerabzug in nächste Steuererklärung'],
         highlight: 'PvPro.ch-Partnerinstallateure erledigen die komplette Förderung – Sie müssen nichts selbst ausfüllen.',
       },
       {
         heading: 'Neue Förderungen 2026: Was ist neu?',
         content: ['Das Jahr 2026 bringt wichtige Neuerungen: Winterstrombonus für steile Anlagen, LEG-Förderung (Lokale Elektrizitätsgemeinschaften) und in mehreren Kantonen neue Solarpflicht-Regelungen, die gleichzeitig mit erhöhten Fördergeldern verknüpft sind.'],
-        bullets: ['Winterstrombonus: +20% EIV für Anlagen ab 60°', 'LEG-Förderung: Bonus für Gemeinschaftsanlagen', 'Solarpflicht ZH/BE: Pflicht + volle Förderung kombiniert', 'Batteriespeicher: separate kantonale Beiträge'],
+        bullets: ['LEG-Förderung: Bonus für Gemeinschaftsanlagen', 'Solarpflicht ZH/BE: Pflicht + volle Förderung kombiniert', 'Batteriespeicher: separate kantonale Beiträge'],
       },
     ],
     ctaHeading: 'Förderung sichern – jetzt Offerte anfordern',
@@ -447,9 +440,9 @@ const articles: BlogArticle[] = [
     formUrl: '/anfrage',
     relatedSlugs: ['roi-photovoltaik-schweiz', 'batteriespeicher-solaranlage-lohnt-sich', 'richtigen-solarinstallateur-schweiz-waehlen'],
     faqs: [
-      { question: 'Wie hoch ist die EIV für eine 8-kWp-Anlage in der Schweiz 2026?', answer: 'Die EIV berechnet sich nach einer Formel: Grundbetrag + kWp-Beitrag. Für 8 kWp ergibt sich 2026 ein Betrag von ca. CHF 4\'800–5\'400 je nach Anlagetype und Kanton.' },
+      { question: 'Wie wird die EIV berechnet?', answer: 'Die EIV berechnet sich nach einer Formel: Grundbetrag + kWp-Beitrag.' },
       { question: 'Kann ich EIV und kantonale Förderung gleichzeitig beantragen?', answer: 'Ja, beide Förderungen sind kumulierbar. Die EIV läuft via Pronovo (Bund), die kantonale Förderung separat über die kantonale Stelle. Ihr Installateur koordiniert beide Anträge.' },
-      { question: 'Wann wird die EIV ausbezahlt?', answer: 'Die EIV wird nach erfolgreicher Inbetriebnahme und Prüfung durch Pronovo ausgezahlt. Das dauert typisch 2–6 Monate. Die meisten Installateure finanzieren diese Zeit überbrückend.' },
+      { question: 'Wann wird die EIV ausbezahlt?', answer: 'Die EIV wird nach erfolgreicher Inbetriebnahme und Prüfung durch Pronovo ausgezahlt.' },
       { question: 'Gilt der Steuerabzug in allen Schweizer Kantonen?', answer: 'Ja. In allen 26 Kantonen können Solaranlagen als Liegenschaftsunterhalt von den Steuern abgezogen werden. Die Höhe des effektiven Vorteils variiert je nach kantonalem Steuertarif.' },
     ],
   },
@@ -468,24 +461,24 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: 'La rétribution unique (RU): aide fédérale pour tous',
-        content: ["La rétribution unique (RU) est la principale aide fédérale pour les nouvelles installations solaires. Elle est versée via Pronovo et couvre jusqu'à 30% des coûts d'investissement selon la taille de l'installation.", "Pour une installation typique de 5 kWc, vous recevez en 2026 une RU d'environ CHF 2'800–3'600. La RU est versée en une seule fois après la mise en service – pas de contribution continue, pas de remboursement."],
-        stats: [{ label: 'RU 5 kWc', value: 'env. CHF 3\'200' }, { label: 'RU 10 kWc', value: 'env. CHF 5\'800' }, { label: "Délai d'attente", value: '2–6 mois' }, { label: 'Versement', value: 'Unique' }],
+        content: ["La rétribution unique (RU) est la principale aide fédérale pour les nouvelles installations solaires.", "La RU est versée en une seule fois après la mise en service – pas de contribution continue, pas de remboursement."],
+        stats: [{ label: 'Versement', value: 'Unique' }],
       },
       {
-        heading: "Programmes cantonaux: jusqu'à 45% d'aide totale",
-        content: ["De nombreux cantons complètent la RU avec leurs propres programmes. Les plus généreux: Genève (SIG Prime Énergie +25%), Vaud (programme cantonal +CHF 1'500), Valais (contribution cantonale +CHF 2'000).", "Dans la plupart des cantons, l'installation est également entièrement déductible comme entretien immobilier – ce qui réduit la charge fiscale de 5 à 15% supplémentaires."],
-        bullets: ["Genève: bonus SIG +25% sur les coûts d'installation", "Vaud: programme cantonal jusqu'à CHF 1'500", "Valais: contribution cantonale jusqu'à CHF 2'000", "Tous les cantons: déduction fiscale 100% en entretien"],
+        heading: "Programmes cantonaux et déduction fiscale",
+        content: ["De nombreux cantons complètent la RU avec leurs propres programmes.", "Dans la plupart des cantons, l'installation est également déductible comme entretien immobilier."],
+        bullets: ["Tous les cantons: déduction fiscale comme entretien"],
       },
       {
         heading: 'Étape par étape: comment obtenir vos subventions',
         content: ["Bonne nouvelle: votre installateur prend généralement en charge toute la procédure de subvention. Il est néanmoins important de comprendre le processus."],
-        bullets: ["1. Faire installer l'installation (l'installateur déclare)", "2. Déposer la demande Pronovo (généralement par l'installateur)", "3. Réception par le gestionnaire de réseau", "4. Versement RU après 2–6 mois", "5. Demander séparément la contribution cantonale (si nécessaire)", "6. Déduction fiscale dans la prochaine déclaration"],
+        bullets: ["1. Faire installer l'installation (l'installateur déclare)", "2. Déposer la demande Pronovo (généralement par l'installateur)", "3. Réception par le gestionnaire de réseau", "4. Versement RU après contrôle", "5. Demander séparément la contribution cantonale (si nécessaire)", "6. Déduction fiscale dans la prochaine déclaration"],
         highlight: "Les installateurs partenaires de PvPro.ch s'occupent de toutes les démarches – vous n'avez rien à remplir.",
       },
       {
         heading: 'Nouvelles aides 2026: quoi de neuf?',
         content: ["L'année 2026 apporte des nouveautés importantes: bonus d'hiver pour les installations inclinées, aide pour les Communautés Locales d'Énergie (CLE) et dans plusieurs cantons, de nouvelles règles d'obligation solaire liées à des aides accrues."],
-        bullets: ["Bonus d'hiver: +20% RU pour les installations dès 60°", "Aide CLE: bonus pour les installations communautaires", "Obligation solaire ZH/BE: obligation + pleine aide combinée", "Batteries: contributions cantonales séparées"],
+        bullets: ["Aide CLE: bonus pour les installations communautaires", "Obligation solaire ZH/BE: obligation + pleine aide combinée", "Batteries: contributions cantonales séparées"],
       },
     ],
     ctaHeading: "Obtenez vos subventions – demandez une offre maintenant",
@@ -494,9 +487,9 @@ const articles: BlogArticle[] = [
     formUrl: '/fr/demande',
     relatedSlugs: ['roi-photovoltaik-schweiz', 'batteriespeicher-solaranlage-lohnt-sich', 'richtigen-solarinstallateur-schweiz-waehlen'],
     faqs: [
-      { question: "Quelle est la RU pour une installation de 8 kWc en Suisse en 2026?", answer: "La RU est calculée selon une formule: montant de base + contribution par kWc. Pour 8 kWc, cela donne en 2026 environ CHF 4'800–5'400 selon le type d'installation et le canton." },
+      { question: "Comment la RU est-elle calculée?", answer: "La RU est calculée selon une formule: montant de base + contribution par kWc." },
       { question: "Puis-je demander la RU et les aides cantonales simultanément?", answer: "Oui, les deux aides sont cumulables. La RU passe par Pronovo (Confédération), l'aide cantonale séparément par le service cantonal. Votre installateur coordonne les deux demandes." },
-      { question: "Quand la RU est-elle versée?", answer: "La RU est versée après la mise en service réussie et le contrôle par Pronovo. Cela prend typiquement 2–6 mois. La plupart des installateurs financent cette période en avance." },
+      { question: "Quand la RU est-elle versée?", answer: "La RU est versée après la mise en service réussie et le contrôle par Pronovo." },
       { question: "La déduction fiscale s'applique-t-elle dans tous les cantons suisses?", answer: "Oui. Dans les 26 cantons, les installations solaires peuvent être déduites comme entretien immobilier. L'avantage effectif varie selon le taux d'imposition cantonal." },
     ],
   },
@@ -515,24 +508,24 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: 'The one-time payment (EIV): federal subsidy for everyone',
-        content: ['The one-time payment (EIV) is the main federal subsidy for new solar installations. It is paid out via Pronovo and covers up to 30% of investment costs depending on system size.', "For a typical 5 kWp system, you receive an EIV of approximately CHF 2,800–3,600 in 2026. It is paid once after successful commissioning – no ongoing contribution, no repayment."],
-        stats: [{ label: 'EIV 5 kWp', value: 'approx. CHF 3,200' }, { label: 'EIV 10 kWp', value: 'approx. CHF 5,800' }, { label: 'Waiting time', value: '2–6 months' }, { label: 'Payment', value: 'One-time' }],
+        content: ['The one-time payment (EIV) is the main federal subsidy for new solar installations.', "It is paid once after successful commissioning – no ongoing contribution, no repayment."],
+        stats: [{ label: 'Payment', value: 'One-time' }],
       },
       {
-        heading: 'Cantonal programmes: up to 45% total subsidy',
-        content: ['Many cantons supplement the EIV with their own programmes. The most generous: Geneva (SIG Prime Énergie +25%), Vaud (cantonal programme +CHF 1,500), Valais (cantonal contribution +CHF 2,000).', 'In most cantons, the installation is also fully deductible as property maintenance – reducing the tax burden by a further 5–15% of installation costs.'],
-        bullets: ['Geneva: SIG bonus +25% on installation costs', 'Vaud: cantonal programme up to CHF 1,500', 'Valais: cantonal contribution up to CHF 2,000', 'All cantons: 100% tax deduction as property maintenance'],
+        heading: 'Cantonal programmes and tax deductions',
+        content: ['Many cantons supplement the EIV with their own programmes.'],
+        bullets: ['All cantons: tax deduction as property maintenance'],
       },
       {
         heading: 'Step by step: how to claim your subsidies',
         content: ['Good news: your installer typically handles the complete subsidy process. Still, it is worth understanding the steps.'],
-        bullets: ['1. Have installation completed (installer registers)', '2. File Pronovo application (usually by installer)', '3. Acceptance by grid operator', '4. EIV payment after 2–6 months', '5. Apply separately for cantonal contribution (if applicable)', '6. Tax deduction in next tax return'],
+        bullets: ['1. Have installation completed (installer registers)', '2. File Pronovo application (usually by installer)', '3. Acceptance by grid operator', '4. EIV payment after review', '5. Apply separately for cantonal contribution (if applicable)', '6. Tax deduction in next tax return'],
         highlight: 'PvPro.ch partner installers handle all paperwork – you do not need to fill in anything.',
       },
       {
         heading: 'New subsidies 2026: what is new?',
         content: ['2026 brings important changes: winter power bonus for steep installations, Local Energy Community (LEC) subsidies and in several cantons new solar obligation rules linked to increased funding.'],
-        bullets: ['Winter power bonus: +20% EIV for installations from 60°', 'LEC subsidy: bonus for community installations', 'Solar obligation ZH/BE: obligation + full subsidy combined', 'Batteries: separate cantonal contributions'],
+        bullets: ['LEC subsidy: bonus for community installations', 'Solar obligation ZH/BE: obligation + full subsidy combined', 'Batteries: separate cantonal contributions'],
       },
     ],
     ctaHeading: 'Secure your subsidies – request a quote now',
@@ -541,9 +534,9 @@ const articles: BlogArticle[] = [
     formUrl: '/en/request',
     relatedSlugs: ['roi-photovoltaik-schweiz', 'batteriespeicher-solaranlage-lohnt-sich', 'richtigen-solarinstallateur-schweiz-waehlen'],
     faqs: [
-      { question: 'How much is the EIV for an 8 kWp system in Switzerland in 2026?', answer: 'The EIV is calculated using a formula: base amount + per-kWp contribution. For 8 kWp, this gives approximately CHF 4,800–5,400 in 2026 depending on system type and canton.' },
+      { question: 'How is the EIV calculated?', answer: 'The EIV is calculated using a formula: base amount + per-kWp contribution.' },
       { question: 'Can I claim the EIV and cantonal subsidy at the same time?', answer: 'Yes, both subsidies can be combined. The EIV goes through Pronovo (federal), the cantonal subsidy separately through the cantonal office. Your installer coordinates both applications.' },
-      { question: 'When is the EIV paid?', answer: 'The EIV is paid after successful commissioning and review by Pronovo. This typically takes 2–6 months. Most installers bridge this waiting period.' },
+      { question: 'When is the EIV paid?', answer: 'The EIV is paid after successful commissioning and review by Pronovo.' },
       { question: 'Does the tax deduction apply in all Swiss cantons?', answer: 'Yes. In all 26 cantons, solar installations can be deducted as property maintenance. The effective benefit varies by cantonal tax rate.' },
     ],
   },
@@ -562,24 +555,24 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: 'La Remunerazione Unica (RU): incentivo federale per tutti',
-        content: ["La Remunerazione Unica (RU) è il principale incentivo federale per i nuovi impianti solari. Viene pagata tramite Pronovo e copre fino al 30% dei costi di investimento a seconda delle dimensioni dell'impianto.", "Per un tipico impianto da 5 kWp, nel 2026 si riceve una RU di circa CHF 2.800–3.600. La RU viene versata una sola volta dopo la messa in servizio – nessun contributo continuativo, nessun rimborso."],
-        stats: [{ label: 'RU 5 kWp', value: 'circa CHF 3.200' }, { label: 'RU 10 kWp', value: 'circa CHF 5.800' }, { label: 'Tempo di attesa', value: '2–6 mesi' }, { label: 'Versamento', value: 'Unico' }],
+        content: ["La Remunerazione Unica (RU) è il principale incentivo federale per i nuovi impianti solari.", "La RU viene versata una sola volta dopo la messa in servizio – nessun contributo continuativo, nessun rimborso."],
+        stats: [{ label: 'Versamento', value: 'Unico' }],
       },
       {
-        heading: 'Programmi cantonali: fino al 45% di incentivo totale',
-        content: ["Molti cantoni integrano la RU con programmi propri. I più generosi: Ginevra (bonus SIG +25%), Vaud (programma cantonale +CHF 1.500), Vallese (contributo cantonale +CHF 2.000), Ticino (DFE +CHF 1.800).", "Nella maggior parte dei cantoni, l'impianto è anche integralmente deducibile come manutenzione immobiliare – riducendo il carico fiscale di ulteriori 5–15% dei costi di installazione."],
-        bullets: ["Ginevra: bonus SIG +25% sui costi di installazione", "Vaud: programma cantonale fino a CHF 1.500", "Vallese: contributo cantonale fino a CHF 2.000", "Ticino DFE: contributo cantonale fino a CHF 1.800", "Tutti i cantoni: deduzione fiscale 100% come manutenzione"],
+        heading: 'Programmi cantonali e deduzione fiscale',
+        content: ["Molti cantoni integrano la RU con programmi propri."],
+        bullets: ["Tutti i cantoni: deduzione fiscale come manutenzione"],
       },
       {
         heading: 'Passo per passo: come ottenere gli incentivi',
         content: ["Buona notizia: il tuo installatore si occupa generalmente di tutta la procedura di incentivazione. Vale comunque la pena capire il processo."],
-        bullets: ["1. Fare installare l'impianto (l'installatore registra)", "2. Presentare la domanda Pronovo (di solito dall'installatore)", "3. Collaudo da parte del gestore di rete", "4. Pagamento RU dopo 2–6 mesi", "5. Richiedere separatamente il contributo cantonale (se necessario)", "6. Deduzione fiscale nella prossima dichiarazione dei redditi"],
+        bullets: ["1. Fare installare l'impianto (l'installatore registra)", "2. Presentare la domanda Pronovo (di solito dall'installatore)", "3. Collaudo da parte del gestore di rete", "4. Pagamento RU dopo la verifica", "5. Richiedere separatamente il contributo cantonale (se necessario)", "6. Deduzione fiscale nella prossima dichiarazione dei redditi"],
         highlight: "Gli installatori partner di PvPro.ch si occupano di tutte le pratiche – non devi compilare nulla tu stesso.",
       },
       {
         heading: 'Nuovi incentivi 2026: cosa c\'è di nuovo?',
         content: ["Il 2026 porta novità importanti: bonus energia invernale per impianti inclinati, incentivi per le Comunità Elettriche Locali (CEL) e in diversi cantoni nuove regole sull'obbligo solare collegate a maggiori fondi."],
-        bullets: ["Bonus invernale: +20% RU per impianti da 60°", "Incentivi CEL: bonus per impianti comunitari", "Obbligo solare TI/ZH: obbligo + piena agevolazione combinata", "Batterie: contributi cantonali separati"],
+        bullets: ["Incentivi CEL: bonus per impianti comunitari", "Obbligo solare TI/ZH: obbligo + piena agevolazione combinata", "Batterie: contributi cantonali separati"],
       },
     ],
     ctaHeading: "Assicurati gli incentivi – richiedi un preventivo ora",
@@ -588,9 +581,9 @@ const articles: BlogArticle[] = [
     formUrl: '/it/richiesta',
     relatedSlugs: ['roi-photovoltaik-schweiz', 'batteriespeicher-solaranlage-lohnt-sich', 'richtigen-solarinstallateur-schweiz-waehlen'],
     faqs: [
-      { question: "Quanto è la RU per un impianto da 8 kWp in Svizzera nel 2026?", answer: "La RU viene calcolata con una formula: importo base + contributo per kWp. Per 8 kWp, nel 2026 si ottiene circa CHF 4.800–5.400 a seconda del tipo di impianto e del cantone." },
+      { question: "Come viene calcolata la RU?", answer: "La RU viene calcolata con una formula: importo base + contributo per kWp." },
       { question: "Posso richiedere la RU e il contributo cantonale contemporaneamente?", answer: "Sì, i due incentivi sono cumulabili. La RU passa attraverso Pronovo (federale), il contributo cantonale separatamente tramite l'ufficio cantonale. Il tuo installatore coordina entrambe le domande." },
-      { question: "Quando viene pagata la RU?", answer: "La RU viene pagata dopo la messa in servizio riuscita e la verifica da parte di Pronovo. Questo richiede tipicamente 2–6 mesi. La maggior parte degli installatori copre questo periodo in anticipo." },
+      { question: "Quando viene pagata la RU?", answer: "La RU viene pagata dopo la messa in servizio riuscita e la verifica da parte di Pronovo." },
       { question: "La deduzione fiscale si applica in tutti i cantoni svizzeri?", answer: "Sì. In tutti i 26 cantoni, gli impianti solari possono essere dedotti come manutenzione immobiliare. Il vantaggio effettivo varia in base all'aliquota fiscale cantonale." },
     ],
   },
@@ -609,24 +602,23 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: 'Wie funktioniert ein Heimspeicher?',
-        content: ['Ein Heimspeicher speichert überschüssigen Solarstrom, der tagsüber produziert, aber nicht sofort verbraucht wird. Nachts oder an bewölkten Tagen wird dieser gespeicherte Strom genutzt, anstatt teuren Netzstrom zu beziehen.', 'Ohne Speicher wird überschüssiger Strom ins Netz eingespeist (Vergütung: ca. 8–14 Rp./kWh). Mit Speicher nutzen Sie diesen Strom selbst (Wert: 28–34 Rp./kWh) – der Unterschied ist enorm.'],
-        stats: [{ label: 'Eigenverbrauch ohne Speicher', value: '25–35%' }, { label: 'Eigenverbrauch mit Speicher', value: '60–80%' }, { label: 'Kosten Speicher', value: 'CHF 5\'000–12\'000' }, { label: 'Amortisation', value: '9–12 Jahre' }],
+        content: ['Ein Heimspeicher speichert überschüssigen Solarstrom, der tagsüber produziert, aber nicht sofort verbraucht wird. Nachts oder an bewölkten Tagen wird dieser gespeicherte Strom genutzt, anstatt teuren Netzstrom zu beziehen.'],
+        stats: [{ label: 'Eigenverbrauch ohne Speicher', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'de')}%` }, { label: 'Eigenverbrauch mit Speicher', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'de')}%` }, { label: 'Amortisation der Batterie', value: `${factRange(ECONOMIC_FACTS.storageCosts.paybackYears, 'de')} Jahre` }],
       },
       {
         heading: 'Kosten und Kapazitäten 2026',
-        content: ['Die Preise für Heimspeicher sind in den letzten Jahren deutlich gesunken. Ein guter 10-kWh-Speicher kostet 2026 noch CHF 6\'000–9\'000, ein 15-kWh-System CHF 9\'000–14\'000.', 'Die ideale Speichergrösse hängt von Ihrer Anlage und Ihrem Verbrauch ab. Faustregel: 1 kWh Speicher pro 1 kWp Anlagenleistung ist ein guter Startpunkt.'],
-        bullets: ['5 kWh Speicher: ca. CHF 4\'000–6\'000', '10 kWh Speicher: ca. CHF 6\'000–9\'000', '15 kWh Speicher: ca. CHF 9\'000–14\'000', 'Lebensdauer: 10–15 Jahre, 3\'000–6\'000 Ladezyklen'],
+        content: ['Die Preise für Heimspeicher sind in den letzten Jahren deutlich gesunken.', 'Die ideale Speichergrösse hängt von Ihrer Anlage und Ihrem Verbrauch ab.', STORAGE_PRICE_NOTES.de],
+        bullets: [`5 kWh: ${storagePrice(5, 'de')}`, `10 kWh: ${storagePrice(10, 'de')}`, `15 kWh: ${storagePrice(15, 'de')}`, `20 kWh: ${storagePrice(20, 'de')}`],
       },
       {
         heading: 'Für wen lohnt sich ein Batteriespeicher besonders?',
-        content: ['Ein Heimspeicher lohnt sich besonders für Haushalte mit hohem Abendverbrauch, Wärmepumpe oder Elektroauto. In diesen Fällen kann der Eigenverbrauch auf 70–85% steigen – und die Amortisationszeit auf 7–9 Jahre sinken.'],
+        content: ['Ein Heimspeicher lohnt sich besonders für Haushalte mit hohem Abendverbrauch, Wärmepumpe oder Elektroauto.'],
         bullets: ['Haushalt mit Wärmepumpe: sehr rentabel', 'Elektroauto-Besitzer: Nacht-Ladung mit eigenem Solarstrom', 'Hoher Abendverbrauch: Speicher optimal', 'Gewerbe mit Verbrauch auch ausserhalb der Solarzeiten'],
-        highlight: 'Mit Elektroauto und Wärmepumpe sinkt die Amortisationszeit des Speichers auf 7–9 Jahre.',
       },
       {
         heading: 'Steuerliche Behandlung und Förderung von Speichern',
         content: ['Gute Nachricht: In allen Schweizer Kantonen ist auch der Batteriespeicher als Teil der Solaranlage steuerlich absetzbar. Einige Kantone wie Bern, Luzern und Aargau fördern Speicher zusätzlich mit eigenen Kantonsbeiträgen.'],
-        bullets: ['Alle Kantone: Speicher als Unterhalt absetzbar', 'Bern: separater Speicherbonus bis CHF 800', 'Luzern: Förderbeitrag für Speicher bis CHF 600', 'Kombination mit Wärmepumpe oft zusätzlich gefördert'],
+        bullets: ['Alle Kantone: Speicher als Unterhalt absetzbar', 'Separate kantonale Speicherförderungen sind je nach Standort möglich', 'Kombination mit Wärmepumpe oft zusätzlich gefördert'],
       },
     ],
     ctaHeading: 'Solaranlage mit Speicher – jetzt Offerte holen',
@@ -636,9 +628,9 @@ const articles: BlogArticle[] = [
     relatedSlugs: ['eigenverbrauch-optimieren-solar', 'roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026'],
     relatedPageLinks: [{ label: 'Wartungskosten Solaranlage', href: '/photovoltaik-wartung-kosten' }],
     faqs: [
-      { question: 'Wie gross sollte mein Heimspeicher sein?', answer: 'Als Faustregel gilt: 1 kWh Speicher pro 1 kWp Anlagenleistung. Für eine 8-kWp-Anlage sind 8–10 kWh Speicherkapazität ideal. Mit Elektroauto oder Wärmepumpe darf es gerne mehr sein.' },
-      { question: 'Wie lange hält ein Batteriespeicher?', answer: 'Moderne Lithium-Ionen-Speicher halten 10–15 Jahre oder 3\'000–6\'000 Ladezyklen. Die Hersteller geben meist 10 Jahre Garantie. Nach der Lebensdauer kann der Speicher oft günstig ersetzt werden.' },
-      { question: 'Gibt es Förderung für Batteriespeicher in der Schweiz?', answer: 'Ja. Speicher sind in allen Kantonen steuerlich absetzbar. Einige Kantone wie Bern, Luzern und Aargau zahlen zusätzliche Kantonsbeiträge. Die EIV umfasst oft auch den Speicher.' },
+      { question: 'Wie gross sollte mein Heimspeicher sein?', answer: 'Mit Elektroauto oder Wärmepumpe darf es gerne mehr sein.' },
+      { question: 'Wie lange hält ein Batteriespeicher?', answer: 'Die Lebensdauer hängt von Hersteller, Zellchemie, Nutzung und Garantiebedingungen ab.' },
+      { question: 'Gibt es Förderung für Batteriespeicher in der Schweiz?', answer: 'Das Hinzufügen eines Batteriespeichers erhöht die Einmalvergütung (EIV) des Bundes nicht. Separate kantonale Speicherförderungen können je nach Standort verfügbar sein.' },
       { question: 'Kann ich einen Speicher nachträglich installieren?', answer: 'Ja, in den meisten Fällen ist eine nachträgliche Installation möglich. Moderne Wechselrichter haben oft bereits eine Speicher-Schnittstelle. Der Aufwand ist etwas höher, aber es ist technisch problemlos möglich.' },
     ],
   },
@@ -657,24 +649,24 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: "Comment fonctionne un système de stockage domestique?",
-        content: ["Un système de stockage domestique accumule le surplus d'énergie solaire produit pendant la journée mais non consommé immédiatement. La nuit ou par temps couvert, cette énergie stockée est utilisée plutôt que d'acheter de l'électricité au réseau.", "Sans stockage, le surplus est injecté dans le réseau (rémunération: env. 8–14 ct./kWh). Avec stockage, vous l'utilisez vous-même (valeur: 30–35 ct./kWh) – la différence est énorme."],
-        stats: [{ label: 'Autoconso. sans batterie', value: '25–35%' }, { label: 'Autoconso. avec batterie', value: '60–80%' }, { label: 'Coût batterie', value: 'CHF 5\'000–12\'000' }, { label: 'Amortissement', value: '9–12 ans' }],
+        content: ["Un système de stockage domestique accumule le surplus d'énergie solaire produit pendant la journée mais non consommé immédiatement. La nuit ou par temps couvert, cette énergie stockée est utilisée plutôt que d'acheter de l'électricité au réseau."],
+        stats: [{ label: 'Autoconso. sans batterie', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'fr')}%` }, { label: 'Autoconso. avec batterie', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'fr')}%` }, { label: 'Amortissement de la batterie', value: `${factRange(ECONOMIC_FACTS.storageCosts.paybackYears, 'fr')} ans` }],
       },
       {
         heading: 'Coûts et capacités en 2026',
-        content: ["Les prix des batteries domestiques ont considérablement baissé ces dernières années. Une bonne batterie de 10 kWh coûte en 2026 environ CHF 6'000–9'000, un système de 15 kWh CHF 9'000–14'000.", "La taille idéale dépend de votre installation et de votre consommation. Règle de base: 1 kWh de stockage par 1 kWc de puissance installée est un bon point de départ."],
-        bullets: ["Batterie 5 kWh: env. CHF 4'000–6'000", "Batterie 10 kWh: env. CHF 6'000–9'000", "Batterie 15 kWh: env. CHF 9'000–14'000", "Durée de vie: 10–15 ans, 3'000–6'000 cycles"],
+        content: ["Les prix des batteries domestiques dépendent de leur capacité et de l'installation. Pour comparer les offres, vérifiez que la pose et la mise en service sont comprises.", "La taille idéale dépend de votre installation et de votre consommation.", STORAGE_PRICE_NOTES.fr],
+        bullets: [`5 kWh: ${storagePrice(5, 'fr')}`, `10 kWh: ${storagePrice(10, 'fr')}`, `15 kWh: ${storagePrice(15, 'fr')}`, `20 kWh: ${storagePrice(20, 'fr')}`],
       },
       {
         heading: 'Pour qui une batterie est-elle particulièrement rentable?',
-        content: ["Une batterie est particulièrement rentable pour les ménages avec une consommation élevée en soirée, une pompe à chaleur ou une voiture électrique. L'autoconsommation peut alors atteindre 70–85% et le délai d'amortissement tomber à 7–9 ans."],
+        content: [`Une batterie est particulièrement utile pour les ménages avec une consommation élevée en soirée, une pompe à chaleur ou une voiture électrique. L'autoconsommation peut alors atteindre ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'fr')}%.`],
         bullets: ["Ménage avec pompe à chaleur: très rentable", "Propriétaire de VE: charge nocturne avec son propre solaire", "Forte consommation en soirée: batterie optimale", "PME avec consommation aussi hors des heures solaires"],
-        highlight: "Avec une voiture électrique et une pompe à chaleur, l'amortissement de la batterie tombe à 7–9 ans.",
+        highlight: "Avec une voiture électrique et une pompe à chaleur, une batterie peut augmenter l'autoconsommation.",
       },
       {
         heading: 'Déductions fiscales et subventions pour les batteries',
         content: ["Bonne nouvelle: dans tous les cantons suisses, la batterie est aussi déductible fiscalement en tant que partie de l'installation solaire. Certains cantons comme Berne, Lucerne et Argovie subventionnent les batteries avec des contributions cantonales supplémentaires."],
-        bullets: ["Tous les cantons: batterie déductible en entretien", "Berne: bonus batterie séparé jusqu'à CHF 800", "Lucerne: contribution batterie jusqu'à CHF 600", "Combinaison avec pompe à chaleur souvent subventionnée en plus"],
+        bullets: ["Tous les cantons: batterie déductible en entretien", "Des aides cantonales séparées pour le stockage peuvent s'appliquer selon le lieu", "Combinaison avec pompe à chaleur souvent subventionnée en plus"],
       },
     ],
     ctaHeading: "Installation solaire avec batterie – demandez une offre",
@@ -683,9 +675,9 @@ const articles: BlogArticle[] = [
     formUrl: '/fr/demande',
     relatedSlugs: ['eigenverbrauch-optimieren-solar', 'roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026'],
     faqs: [
-      { question: "Quelle taille de batterie pour mon installation?", answer: "La règle de base: 1 kWh de stockage par 1 kWc de puissance. Pour une installation de 8 kWc, 8–10 kWh sont idéaux. Avec une voiture électrique ou une pompe à chaleur, on peut aller plus haut." },
-      { question: "Quelle est la durée de vie d'une batterie?", answer: "Les batteries lithium-ion modernes durent 10–15 ans ou 3'000–6'000 cycles. Les fabricants donnent généralement 10 ans de garantie. Après la durée de vie, la batterie peut souvent être remplacée à moindre coût." },
-      { question: "Y a-t-il des subventions pour les batteries en Suisse?", answer: "Oui. Les batteries sont déductibles fiscalement dans tous les cantons. Certains cantons comme Berne, Lucerne et Argovie paient des contributions cantonales supplémentaires. La RU inclut souvent aussi la batterie." },
+      { question: "Quelle taille de batterie pour mon installation?", answer: "Avec une voiture électrique ou une pompe à chaleur, on peut aller plus haut." },
+      { question: "Quelle est la durée de vie d'une batterie?", answer: "La durée de vie dépend du fabricant, de la technologie des cellules, de l'utilisation et des conditions de garantie." },
+      { question: "Y a-t-il des subventions pour les batteries en Suisse?", answer: "L'ajout d'une batterie n'augmente pas la rétribution unique (RU) fédérale. Des aides cantonales séparées pour le stockage peuvent s'appliquer selon le lieu." },
       { question: "Peut-on ajouter une batterie après coup?", answer: "Oui, dans la plupart des cas, une installation ultérieure est possible. Les onduleurs modernes ont souvent déjà une interface de stockage. L'effort est un peu plus élevé, mais techniquement sans problème." },
     ],
   },
@@ -704,24 +696,23 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: 'How does a home battery work?',
-        content: ['A home battery stores surplus solar electricity produced during the day that is not immediately consumed. At night or on cloudy days, this stored electricity is used instead of buying expensive grid power.', 'Without storage, surplus is fed into the grid (payment: approx. CHF 0.08–0.14/kWh). With storage, you use it yourself (value: CHF 0.28–0.34/kWh) – the difference is enormous.'],
-        stats: [{ label: 'Self-consumption without battery', value: '25–35%' }, { label: 'Self-consumption with battery', value: '60–80%' }, { label: 'Battery cost', value: 'CHF 5,000–12,000' }, { label: 'Payback', value: '9–12 years' }],
+        content: ['A home battery stores surplus solar electricity produced during the day that is not immediately consumed. At night or on cloudy days, this stored electricity is used instead of buying expensive grid power.'],
+        stats: [{ label: 'Self-consumption without battery', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'en')}%` }, { label: 'Self-consumption with battery', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'en')}%` }, { label: 'Battery payback', value: `${factRange(ECONOMIC_FACTS.storageCosts.paybackYears, 'en')} years` }],
       },
       {
         heading: 'Costs and capacities in 2026',
-        content: ['Battery prices have fallen significantly in recent years. A good 10 kWh battery costs CHF 6,000–9,000 in 2026; a 15 kWh system CHF 9,000–14,000.', 'The ideal battery size depends on your system and consumption. Rule of thumb: 1 kWh of storage per 1 kWp of installed capacity is a good starting point.'],
-        bullets: ['5 kWh battery: approx. CHF 4,000–6,000', '10 kWh battery: approx. CHF 6,000–9,000', '15 kWh battery: approx. CHF 9,000–14,000', 'Lifespan: 10–15 years, 3,000–6,000 charge cycles'],
+        content: ['Battery prices have fallen significantly in recent years.', 'The ideal battery size depends on your system and consumption.', STORAGE_PRICE_NOTES.en],
+        bullets: [`5 kWh: ${storagePrice(5, 'en')}`, `10 kWh: ${storagePrice(10, 'en')}`, `15 kWh: ${storagePrice(15, 'en')}`, `20 kWh: ${storagePrice(20, 'en')}`],
       },
       {
         heading: 'Who benefits most from a home battery?',
-        content: ['A home battery is especially profitable for households with high evening consumption, a heat pump or an electric vehicle. Self-consumption can rise to 70–85% and the payback period can fall to 7–9 years.'],
+        content: ['A home battery is especially profitable for households with high evening consumption, a heat pump or an electric vehicle.'],
         bullets: ['Household with heat pump: very profitable', 'EV owner: night-time charging with own solar', 'High evening consumption: battery optimal', 'Businesses with consumption outside solar hours'],
-        highlight: 'With an electric vehicle and a heat pump, the battery payback period drops to 7–9 years.',
       },
       {
         heading: 'Tax treatment and subsidies for batteries',
         content: ['Good news: in all Swiss cantons, the battery is also tax-deductible as part of the solar installation. Some cantons such as Bern, Lucerne and Aargau pay additional cantonal contributions specifically for storage.'],
-        bullets: ['All cantons: battery deductible as property maintenance', 'Bern: separate battery bonus up to CHF 800', 'Lucerne: battery contribution up to CHF 600', 'Combination with heat pump often additionally subsidised'],
+        bullets: ['All cantons: battery deductible as property maintenance', 'Separate cantonal storage incentives may apply depending on location', 'Combination with heat pump often additionally subsidised'],
       },
     ],
     ctaHeading: 'Solar system with battery – get a quote now',
@@ -730,9 +721,9 @@ const articles: BlogArticle[] = [
     formUrl: '/en/request',
     relatedSlugs: ['eigenverbrauch-optimieren-solar', 'roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026'],
     faqs: [
-      { question: 'How large should my home battery be?', answer: 'Rule of thumb: 1 kWh of storage per 1 kWp of system capacity. For an 8 kWp system, 8–10 kWh is ideal. With an EV or heat pump, you can go higher.' },
-      { question: 'How long does a home battery last?', answer: 'Modern lithium-ion batteries last 10–15 years or 3,000–6,000 charge cycles. Manufacturers typically provide 10-year guarantees. After its lifespan, the battery can often be replaced at lower cost.' },
-      { question: 'Are there subsidies for batteries in Switzerland?', answer: 'Yes. Batteries are tax-deductible in all cantons. Some cantons like Bern, Lucerne and Aargau pay additional cantonal contributions. The EIV often includes the battery too.' },
+      { question: 'How large should my home battery be?', answer: 'With an EV or heat pump, you can go higher.' },
+      { question: 'How long does a home battery last?', answer: 'Lifetime depends on the manufacturer, cell chemistry, usage and warranty terms.' },
+      { question: 'Are there subsidies for batteries in Switzerland?', answer: 'Adding a battery does not increase the federal one-time payment (EIV). Separate cantonal storage incentives may apply depending on location.' },
       { question: 'Can I add a battery retrospectively?', answer: 'Yes, in most cases a retrofit is possible. Modern inverters often already have a storage interface. The effort is slightly higher, but technically straightforward.' },
     ],
   },
@@ -751,24 +742,23 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: "Come funziona un sistema di accumulo domestico?",
-        content: ["Un sistema di accumulo domestico immagazzina l'energia solare in eccesso prodotta durante il giorno ma non consumata immediatamente. Di notte o nei giorni nuvolosi, questa energia accumulata viene utilizzata invece di acquistare energia costosa dalla rete.", "Senza accumulo, l'eccedenza viene immessa in rete (remunerazione: circa 8–14 ct./kWh). Con l'accumulo la usi tu stesso (valore: 28–32 ct./kWh) – la differenza è enorme."],
-        stats: [{ label: 'Autoconsumo senza batteria', value: '25–35%' }, { label: 'Autoconsumo con batteria', value: '60–80%' }, { label: 'Costo batteria', value: 'CHF 5.000–12.000' }, { label: 'Ammortamento', value: '9–12 anni' }],
+        content: ["Un sistema di accumulo domestico immagazzina l'energia solare in eccesso prodotta durante il giorno ma non consumata immediatamente. Di notte o nei giorni nuvolosi, questa energia accumulata viene utilizzata invece di acquistare energia costosa dalla rete."],
+        stats: [{ label: 'Autoconsumo senza batteria', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'it')}%` }, { label: 'Autoconsumo con batteria', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'it')}%` }, { label: 'Ammortamento della batteria', value: `${factRange(ECONOMIC_FACTS.storageCosts.paybackYears, 'it')} anni` }],
       },
       {
         heading: 'Costi e capacità nel 2026',
-        content: ["I prezzi delle batterie domestiche sono calati significativamente negli ultimi anni. Una buona batteria da 10 kWh costa nel 2026 circa CHF 6.000–9.000, un sistema da 15 kWh CHF 9.000–14.000.", "La dimensione ideale dipende dal tuo impianto e dal tuo consumo. Regola empirica: 1 kWh di accumulo per 1 kWp di potenza installata è un buon punto di partenza."],
-        bullets: ["Batteria 5 kWh: circa CHF 4.000–6.000", "Batteria 10 kWh: circa CHF 6.000–9.000", "Batteria 15 kWh: circa CHF 9.000–14.000", "Durata: 10–15 anni, 3.000–6.000 cicli di carica"],
+        content: ["I prezzi delle batterie domestiche sono calati significativamente negli ultimi anni.", "La dimensione ideale dipende dal tuo impianto e dal tuo consumo.", STORAGE_PRICE_NOTES.it],
+        bullets: [`5 kWh: ${storagePrice(5, 'it')}`, `10 kWh: ${storagePrice(10, 'it')}`, `15 kWh: ${storagePrice(15, 'it')}`, `20 kWh: ${storagePrice(20, 'it')}`],
       },
       {
         heading: 'Per chi conviene particolarmente una batteria?',
-        content: ["Una batteria è particolarmente redditizia per le famiglie con alto consumo serale, una pompa di calore o un'auto elettrica. L'autoconsumo può salire al 70–85% e il periodo di ammortamento scendere a 7–9 anni."],
+        content: ["Una batteria è particolarmente utile per le famiglie con un consumo elevato la sera, una pompa di calore o un'auto elettrica."],
         bullets: ["Famiglia con pompa di calore: molto redditizio", "Proprietario di auto elettrica: ricarica notturna con il proprio solare", "Alto consumo serale: batteria ottimale", "Aziende con consumo anche fuori dalle ore solari"],
-        highlight: "Con un'auto elettrica e una pompa di calore, l'ammortamento della batteria scende a 7–9 anni.",
       },
       {
         heading: 'Trattamento fiscale e incentivi per le batterie',
         content: ["Buona notizia: in tutti i cantoni svizzeri, anche la batteria è deducibile fiscalmente come parte dell'impianto solare. Alcuni cantoni come Berna, Lucerna e Argovia pagano contributi cantonali aggiuntivi specifici per l'accumulo."],
-        bullets: ["Tutti i cantoni: batteria deducibile come manutenzione", "Berna: bonus batteria separato fino a CHF 800", "Lucerna: contributo batteria fino a CHF 600", "Combinazione con pompa di calore spesso incentivata in aggiunta"],
+        bullets: ["Tutti i cantoni: batteria deducibile come manutenzione", "Possono essere disponibili incentivi cantonali separati per l'accumulo", "Combinazione con pompa di calore spesso incentivata in aggiunta"],
       },
     ],
     ctaHeading: "Impianto solare con batteria – richiedi un preventivo",
@@ -777,9 +767,9 @@ const articles: BlogArticle[] = [
     formUrl: '/it/richiesta',
     relatedSlugs: ['eigenverbrauch-optimieren-solar', 'roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026'],
     faqs: [
-      { question: "Quanto grande deve essere la mia batteria?", answer: "Regola empirica: 1 kWh di accumulo per 1 kWp di potenza. Per un impianto da 8 kWp, 8–10 kWh sono ideali. Con un'auto elettrica o una pompa di calore puoi andare oltre." },
-      { question: "Quanto dura una batteria domestica?", answer: "Le moderne batterie agli ioni di litio durano 10–15 anni o 3.000–6.000 cicli di carica. I produttori forniscono generalmente 10 anni di garanzia. Dopo la vita utile, la batteria può spesso essere sostituita a costo inferiore." },
-      { question: "Ci sono incentivi per le batterie in Svizzera?", answer: "Sì. Le batterie sono deducibili fiscalmente in tutti i cantoni. Alcuni cantoni come Berna, Lucerna e Argovia pagano contributi cantonali aggiuntivi. La RU include spesso anche la batteria." },
+      { question: "Quanto grande deve essere la mia batteria?", answer: "Con un'auto elettrica o una pompa di calore puoi andare oltre." },
+      { question: "Quanto dura una batteria domestica?", answer: 'La durata dipende dal produttore, dalla chimica delle celle, dall’uso e dalle condizioni di garanzia.' },
+      { question: "Ci sono incentivi per le batterie in Svizzera?", answer: "L'aggiunta di una batteria non aumenta la Remunerazione Unica (RU) federale. Possono essere disponibili incentivi cantonali separati per l'accumulo." },
       { question: "Posso aggiungere una batteria in un secondo momento?", answer: "Sì, nella maggior parte dei casi un retrofit è possibile. I moderni inverter hanno spesso già un'interfaccia per l'accumulo. Lo sforzo è leggermente maggiore, ma tecnicamente non ci sono problemi." },
     ],
   },
@@ -804,8 +794,8 @@ const articles: BlogArticle[] = [
       },
       {
         heading: '4–5: Offerte, Planung und Garantien',
-        content: ['Eine gute Offerte enthält immer: Detaillierter Systemplan, Ertragsprognose, Komponentenliste mit Herstellern, Installations- und Materialgarantien getrennt.', 'Verlangen Sie eine 10-jährige Workmanship Guarantee (Installationsgarantie) und achten Sie auf die Herstellergarantien der Module (meist 25 Jahre) und des Wechselrichters (5–10 Jahre).'],
-        bullets: ['Ertragsprognose mit/ohne Speicher', 'Herstellergarantien Module: 25 Jahre', 'Wechselrichter-Garantie: 5–10 Jahre', 'Installationsgarantie: mindestens 5–10 Jahre'],
+        content: ['Eine gute Offerte enthält immer: Detaillierter Systemplan, Ertragsprognose, Komponentenliste mit Herstellern, Installations- und Materialgarantien getrennt.'],
+        bullets: ['Ertragsprognose mit/ohne Speicher'],
       },
       {
         heading: '6–7: Lokale Präsenz und After-Sales-Service',
@@ -820,7 +810,7 @@ const articles: BlogArticle[] = [
     relatedSlugs: ['foerderungen-photovoltaik-2026', 'roi-photovoltaik-schweiz', 'solaranlage-winter-schweiz'],
     faqs: [
       { question: 'Welche Zertifizierungen sind für Solarinstallateure in der Schweiz Pflicht?', answer: 'Der Installateur muss im STROM-Register des NIV (Niederspannungs-Installationsverordnung) eingetragen sein. Für die EIV-Beantragung ist zusätzlich eine Pronovo-Registrierung nötig.' },
-      { question: 'Wie viele Offerten sollte ich einholen?', answer: 'Mindestens 3 Offerten von verschiedenen Betrieben. Die Preisunterschiede können 20–35% betragen – bei gleichwertiger Qualität. PvPro.ch liefert Ihnen bis zu 3 geprüfte Offerten in wenigen Tagen.' },
+      { question: 'Wie viele Offerten sollte ich einholen?', answer: 'Mindestens 3 Offerten von verschiedenen Betrieben. PvPro.ch liefert Ihnen bis zu 3 geprüfte Offerten in wenigen Tagen.' },
       { question: 'Was tun, wenn der Installateur nach der Installation nicht mehr erreichbar ist?', answer: 'Dokumentieren Sie alles schriftlich und wählen Sie einen etablierten Betrieb mit Referenzen. PvPro.ch-Partner haben alle mindestens 3 Jahre Betriebsgeschichte und lokale Präsenz.' },
       { question: 'Gibt es schwarze Schafe in der Solarbranche?', answer: 'Leider ja. Häufige Warnsignale: Kein lokaler Betrieb, keine schriftliche Offerte, Druck für sofortige Unterschrift, fehlende Zertifizierungsnachweise. Über PvPro.ch erhalten Sie ausschliesslich geprüfte Betriebe.' },
     ],
@@ -846,8 +836,8 @@ const articles: BlogArticle[] = [
       },
       {
         heading: '4–5: Offre, planification et garanties',
-        content: ["Une bonne offre contient toujours: plan système détaillé, prévision de production, liste des composants avec fabricants, garanties d'installation et de matériel séparées.", "Exigez une garantie de travaux de 10 ans et vérifiez les garanties fabricants des modules (généralement 25 ans) et de l'onduleur (5–10 ans)."],
-        bullets: ["Prévision de production avec et sans batterie", "Garantie modules: 25 ans", "Garantie onduleur: 5–10 ans", "Garantie d'installation: au moins 5–10 ans"],
+        content: ["Une bonne offre contient toujours: plan système détaillé, prévision de production, liste des composants avec fabricants, garanties d'installation et de matériel séparées."],
+        bullets: ["Prévision de production avec et sans batterie"],
       },
       {
         heading: '6–7: Présence locale et service après-vente',
@@ -862,7 +852,7 @@ const articles: BlogArticle[] = [
     relatedSlugs: ['foerderungen-photovoltaik-2026', 'roi-photovoltaik-schweiz', 'solaranlage-winter-schweiz'],
     faqs: [
       { question: "Quelles certifications sont obligatoires pour les installateurs solaires en Suisse?", answer: "L'installateur doit être inscrit dans le registre compétent selon l'OIBT. Pour la demande de RU, une inscription auprès de Pronovo est également nécessaire." },
-      { question: "Combien d'offres devrait-on obtenir?", answer: "Au moins 3 offres de différentes entreprises. Les différences de prix peuvent atteindre 20–35% pour une qualité équivalente. PvPro.ch vous livre jusqu'à 3 offres vérifiées en quelques jours." },
+      { question: "Combien d'offres devrait-on obtenir?", answer: "Au moins 3 offres de différentes entreprises. PvPro.ch vous livre jusqu'à 3 offres vérifiées en quelques jours." },
       { question: "Que faire si l'installateur n'est plus joignable après l'installation?", answer: "Documentez tout par écrit et choisissez une entreprise établie avec références. Les partenaires PvPro.ch ont tous au moins 3 ans d'activité et une présence locale." },
       { question: "Y a-t-il de mauvais acteurs dans le secteur solaire?", answer: "Malheureusement oui. Signaux d'alarme fréquents: pas d'entreprise locale, pas d'offre écrite, pression pour signature immédiate, absence de preuves de certification. Via PvPro.ch, vous ne recevez que des entreprises vérifiées." },
     ],
@@ -888,8 +878,8 @@ const articles: BlogArticle[] = [
       },
       {
         heading: '4–5: Quote, planning and guarantees',
-        content: ['A good quote always includes: detailed system plan, yield forecast, component list with manufacturers, separate installation and material guarantees.', 'Require a 10-year workmanship guarantee and check manufacturer guarantees for modules (usually 25 years) and inverter (5–10 years).'],
-        bullets: ['Yield forecast with and without battery', 'Module manufacturer guarantee: 25 years', 'Inverter guarantee: 5–10 years', 'Installation guarantee: at least 5–10 years'],
+        content: ['A good quote always includes: detailed system plan, yield forecast, component list with manufacturers, separate installation and material guarantees.'],
+        bullets: ['Yield forecast with and without battery'],
       },
       {
         heading: '6–7: Local presence and after-sales service',
@@ -904,7 +894,7 @@ const articles: BlogArticle[] = [
     relatedSlugs: ['foerderungen-photovoltaik-2026', 'roi-photovoltaik-schweiz', 'solaranlage-winter-schweiz'],
     faqs: [
       { question: 'What certifications are required for solar installers in Switzerland?', answer: 'The installer must be registered in the relevant electrical register under NIV. For the EIV application, an additional Pronovo registration is needed.' },
-      { question: 'How many quotes should I obtain?', answer: 'At least 3 quotes from different companies. Price differences of 20–35% for equivalent quality are common. PvPro.ch delivers up to 3 vetted quotes within a few days.' },
+      { question: 'How many quotes should I obtain?', answer: 'At least 3 quotes from different companies. PvPro.ch delivers up to 3 vetted quotes within a few days.' },
       { question: 'What to do if the installer is unreachable after installation?', answer: 'Document everything in writing and choose an established company with references. PvPro.ch partners all have at least 3 years of trading history and local presence.' },
       { question: 'Are there bad actors in the solar industry?', answer: 'Unfortunately yes. Common warning signs: no local company, no written quote, pressure for immediate signature, missing certification proof. Via PvPro.ch you only receive vetted companies.' },
     ],
@@ -930,8 +920,8 @@ const articles: BlogArticle[] = [
       },
       {
         heading: '4–5: Offerta, pianificazione e garanzie',
-        content: ["Un buon preventivo contiene sempre: piano sistema dettagliato, previsione di produzione, lista dei componenti con produttori, garanzie di installazione e materiale separate.", "Richiedi una garanzia di esecuzione di 10 anni e verifica le garanzie del produttore per i moduli (di solito 25 anni) e l'inverter (5–10 anni)."],
-        bullets: ["Previsione di produzione con e senza batteria", "Garanzia moduli: 25 anni", "Garanzia inverter: 5–10 anni", "Garanzia di installazione: almeno 5–10 anni"],
+        content: ["Un buon preventivo contiene sempre: piano sistema dettagliato, previsione di produzione, lista dei componenti con produttori, garanzie di installazione e materiale separate."],
+        bullets: ["Previsione di produzione con e senza batteria"],
       },
       {
         heading: '6–7: Presenza locale e servizio post-vendita',
@@ -946,7 +936,7 @@ const articles: BlogArticle[] = [
     relatedSlugs: ['foerderungen-photovoltaik-2026', 'roi-photovoltaik-schweiz', 'solaranlage-winter-schweiz'],
     faqs: [
       { question: "Quali certificazioni sono obbligatorie per gli installatori solari in Svizzera?", answer: "L'installatore deve essere iscritto nel registro elettrico competente secondo l'OIBT. Per la richiesta della RU è necessaria anche un'iscrizione presso Pronovo." },
-      { question: "Quanti preventivi dovrei richiedere?", answer: "Almeno 3 preventivi da aziende diverse. Le differenze di prezzo possono arrivare al 20–35% per qualità equivalente. PvPro.ch ti fornisce fino a 3 preventivi verificati in pochi giorni." },
+      { question: "Quanti preventivi dovrei richiedere?", answer: "Almeno 3 preventivi da aziende diverse. PvPro.ch ti fornisce fino a 3 preventivi verificati in pochi giorni." },
       { question: "Cosa fare se l'installatore non è più raggiungibile dopo l'installazione?", answer: "Documenta tutto per iscritto e scegli un'azienda affermata con referenze. I partner PvPro.ch hanno tutti almeno 3 anni di attività e presenza locale." },
       { question: "Ci sono operatori scorretti nel settore solare?", answer: "Purtroppo sì. Segnali di allarme comuni: nessuna azienda locale, nessun preventivo scritto, pressione per firma immediata, mancanza di prove di certificazione. Tramite PvPro.ch ricevi solo aziende verificate." },
     ],
@@ -957,17 +947,17 @@ const articles: BlogArticle[] = [
     slug: 'eigenverbrauch-optimieren-solar',
     locale: 'de',
     title: 'Eigenverbrauch maximieren: So nutzen Sie Ihre Solarenergie optimal',
-    metaDescription: "Strategien zur Maximierung des Eigenverbrauchs einer Solaranlage in der Schweiz. Von Zeitsteuerung bis LEG – so nutzen Sie bis zu 80% selbst.",
+    metaDescription: "Strategien zur Maximierung des Eigenverbrauchs einer Solaranlage in der Schweiz.",
     image: '/images/solar-energieertrag-tablet-chalet.webp',
     date: '10. Februar 2026',
     readMin: 5,
     tag: 'Tipps',
-    intro: 'Der Eigenverbrauch ist der Schlüssel zur Rentabilität Ihrer Solaranlage. Jede selbst verbrauchte kWh ist das 2–3-fache wert verglichen mit eingespeistem Strom. Mit cleveren Strategien können Sie 70–80% Ihrer Solarenergie selbst nutzen.',
+    intro: `Der Eigenverbrauch ist der Schlüssel zur Rentabilität Ihrer Solaranlage. Mit cleveren Strategien können Sie ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'de')}% Ihrer Solarenergie selbst nutzen.`,
     sections: [
       {
         heading: 'Warum Eigenverbrauch so wichtig ist',
-        content: ['Überschüssiger Solarstrom wird ins Netz eingespeist und mit ca. 8–14 Rp./kWh vergütet. Selbst verbrauchter Strom spart dagegen 28–34 Rp./kWh Netzstromkosten – der 3-fache Wert. Jeder Prozentpunkt mehr Eigenverbrauch verbessert Ihren ROI deutlich.'],
-        stats: [{ label: 'Einspeisung', value: '8–14 Rp./kWh' }, { label: 'Eigenverbrauch', value: '28–34 Rp./kWh' }, { label: 'Wert-Differenz', value: '3×' }, { label: 'Ziel', value: '70–80%' }],
+        content: ['Jeder Prozentpunkt mehr Eigenverbrauch verbessert Ihren ROI deutlich.'],
+        stats: [{ label: 'Eigenverbrauch ohne Speicher', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'de')}%` }, { label: 'Eigenverbrauch mit Speicher', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'de')}%` }],
       },
       {
         heading: 'Strategie 1: Zeitgesteuerte Geräte verschieben',
@@ -976,14 +966,13 @@ const articles: BlogArticle[] = [
       },
       {
         heading: 'Strategie 2: Wärmepumpe und E-Auto integrieren',
-        content: ['Eine Wärmepumpe und ein Elektroauto sind die grössten Eigenverbrauchs-Booster. Beide lassen sich tagsüber mit Solarstrom betreiben und erhöhen den Eigenverbrauch auf 60–80% – ohne Speicher.', 'Smarte Ladesteuerungen (z.B. myEnergi zappi) laden das Auto nur dann, wenn genug Solarstrom vorhanden ist. Wärmepumpen mit Solar-Integration heizen den Speicher tagsüber auf.'],
-        bullets: ['E-Auto mit Solar laden: ca. 40 Rp./km Ersparnis vs. Netz', 'Wärmepumpe tagsüber auf Maximum: bis 5 kWh Eigenverbrauch/Tag', 'Smart-Ladestation: nur laden wenn Sonne scheint', 'Luft-Wasser-WP kompatibel mit allen Solaranlagen'],
-        highlight: 'Wärmepumpe + Elektroauto + Solar: Eigenverbrauch 65–80%, Gesamtkosten drastisch reduziert.',
+        content: [`Eine Wärmepumpe und ein Elektroauto können den Eigenverbrauch ohne Speicher in den typischen Bereich von ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'de')}% bringen, wenn sie gezielt während der Solarproduktion betrieben werden.`, 'Smarte Ladesteuerungen (z.B. myEnergi zappi) laden das Auto nur dann, wenn genug Solarstrom vorhanden ist. Wärmepumpen mit Solar-Integration heizen den Speicher tagsüber auf.'],
+        bullets: ['Smart-Ladestation: nur laden wenn Sonne scheint', 'Luft-Wasser-WP kompatibel mit allen Solaranlagen'],
       },
       {
         heading: 'Strategie 3: Lokale Elektrizitätsgemeinschaft (LEG)',
         content: ['Ab 2026 können Sie Ihren Überschussstrom direkt an Nachbarn im selben Gebiet verkaufen. In einer LEG erhalten Sie mehr als den Einspeisetarif und Ihre Nachbarn zahlen weniger als den Netzpreis – eine Win-Win-Situation.'],
-        bullets: ['LEG-Vergütung: ca. 15–20 Rp./kWh (vs. 8–14 Netz)', 'Nachbar zahlt: ca. 20–25 Rp./kWh (vs. 28–34 Netz)', 'Gründung unkompliziert über lokalen Netzbetreiber', 'Besonders attraktiv in Mehrfamilienhäusern und Siedlungen'],
+        bullets: ['Gründung über den lokalen Netzbetreiber', 'Besonders attraktiv in Mehrfamilienhäusern und Siedlungen'],
       },
     ],
     ctaHeading: 'Maximale Eigenverbrauchsoptimierung – jetzt Offerte holen',
@@ -992,9 +981,9 @@ const articles: BlogArticle[] = [
     formUrl: '/anfrage',
     relatedSlugs: ['batteriespeicher-solaranlage-lohnt-sich', 'roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026'],
     faqs: [
-      { question: 'Was ist ein realistischer Eigenverbrauch ohne Speicher?', answer: 'Typischerweise 25–35% für einen normalen Haushalt. Mit zeitgesteuerter Nutzung grosser Verbraucher steigt er auf 35–45%. Mit Wärmepumpe oder E-Auto auf 50–65%.' },
+      { question: 'Was ist ein realistischer Eigenverbrauch ohne Speicher?', answer: `Typischerweise ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'de')}% für einen normalen Haushalt.` },
       { question: 'Lohnt sich ein Heimspeicher nur wegen des Eigenverbrauchs?', answer: 'In den meisten Fällen ja, wenn Sie einen hohen Abend- und Nachtverbrauch haben. Wenn Sie ein E-Auto oder eine Wärmepumpe haben, kann der Eigenverbrauch ohne Speicher bereits sehr hoch sein.' },
-      { question: 'Wie funktioniert eine Lokale Elektrizitätsgemeinschaft (LEG)?', answer: 'Nachbarn schliessen sich zusammen und teilen Solarstrom untereinander. Der Strom fliesst über das lokale Netz, wobei die Netzgebühren um bis zu 40% reduziert werden. Gründung über den lokalen Netzbetreiber.' },
+      { question: 'Wie funktioniert eine Lokale Elektrizitätsgemeinschaft (LEG)?', answer: 'Nachbarn schliessen sich zusammen und teilen Solarstrom untereinander. Die Gründung erfolgt über den lokalen Netzbetreiber.' },
       { question: 'Können Smart-Home-Systeme den Eigenverbrauch automatisch optimieren?', answer: 'Ja. Systeme wie Fronius Solar.web, SMA Sunny Home Manager oder Loxone können Geräte automatisch steuern und den Eigenverbrauch ohne manuellen Aufwand maximieren.' },
     ],
   },
@@ -1004,17 +993,17 @@ const articles: BlogArticle[] = [
     slug: 'eigenverbrauch-optimieren-solar',
     locale: 'fr',
     title: "Maximiser l'autoconsommation: comment utiliser au mieux votre énergie solaire",
-    metaDescription: "Stratégies pour maximiser l'autoconsommation d'une installation solaire en Suisse. De la programmation temporelle aux CLE – comment utiliser jusqu'à 80% soi-même.",
+    metaDescription: `Stratégies pour maximiser l'autoconsommation d'une installation solaire en Suisse. De la programmation temporelle aux CLE – comment utiliser jusqu'à ${factNumber(ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max)}% soi-même.`,
     image: '/images/solar-energieertrag-tablet-chalet.webp',
     date: '10 février 2026',
     readMin: 5,
     tag: 'Conseils',
-    intro: "L'autoconsommation est la clé de la rentabilité de votre installation solaire. Chaque kWh autoconsommé vaut 2 à 3 fois plus que l'électricité injectée dans le réseau. Avec les bonnes stratégies, vous pouvez utiliser vous-même 70–80% de votre énergie solaire.",
+    intro: `L'autoconsommation est la clé de la rentabilité de votre installation solaire. Avec les bonnes stratégies, vous pouvez utiliser vous-même ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'fr')}% de votre énergie solaire.`,
     sections: [
       {
         heading: "Pourquoi l'autoconsommation est si importante",
-        content: ["Le surplus solaire injecté dans le réseau est rémunéré env. 8–14 ct./kWh. L'électricité autoconsommée économise en revanche 30–35 ct./kWh d'achat sur le réseau – soit 3 fois plus de valeur. Chaque point de pourcentage d'autoconsommation supplémentaire améliore votre ROI."],
-        stats: [{ label: 'Injection réseau', value: '8–14 ct./kWh' }, { label: 'Autoconsommation', value: '30–35 ct./kWh' }, { label: 'Différence', value: '3×' }, { label: 'Objectif', value: '70–80%' }],
+        content: ["Chaque point de pourcentage d'autoconsommation supplémentaire améliore votre ROI."],
+        stats: [{ label: 'Autoconsommation sans batterie', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'fr')}%` }, { label: 'Autoconsommation avec batterie', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'fr')}%` }],
       },
       {
         heading: 'Stratégie 1: Décaler les appareils programmables',
@@ -1023,14 +1012,13 @@ const articles: BlogArticle[] = [
       },
       {
         heading: 'Stratégie 2: Intégrer pompe à chaleur et voiture électrique',
-        content: ["Une pompe à chaleur et une voiture électrique sont les meilleurs boosters d'autoconsommation. Les deux peuvent être alimentés pendant la journée avec de l'énergie solaire et portent l'autoconsommation à 60–80% – sans batterie.", "Les bornes de recharge intelligentes (ex. myEnergi zappi) ne chargent que lorsqu'il y a suffisamment d'énergie solaire disponible."],
-        bullets: ["VE chargé au solaire: env. 40 ct./km d'économie vs réseau", "PAC en journée sur maximum: jusqu'à 5 kWh autoconsommés/jour", "Borne de recharge intelligente: charge uniquement au soleil", "PAC air-eau compatible avec toutes les installations solaires"],
-        highlight: "PAC + voiture électrique + solaire: autoconsommation 65–80%, coûts totaux drastiquement réduits.",
+        content: [`Une pompe à chaleur et une voiture électrique peuvent porter l'autoconsommation sans batterie dans la plage typique de ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'fr')}% lorsqu'elles fonctionnent pendant la production solaire.`, "Les bornes de recharge intelligentes (ex. myEnergi zappi) ne chargent que lorsqu'il y a suffisamment d'énergie solaire disponible."],
+        bullets: ["Borne de recharge intelligente: charge uniquement au soleil", "PAC air-eau compatible avec toutes les installations solaires"],
       },
       {
         heading: 'Stratégie 3: Communauté Locale d\'Énergie (CLE)',
         content: ["Dès 2026, vous pouvez vendre votre surplus d'électricité directement à des voisins dans la même zone. Dans une CLE, vous recevez plus que le tarif d'injection et vos voisins paient moins que le prix du réseau – une situation gagnant-gagnant."],
-        bullets: ["Rémunération CLE: env. 15–20 ct./kWh (vs 8–14 réseau)", "Voisin paie: env. 20–25 ct./kWh (vs 30–35 réseau)", "Création simplifiée via le gestionnaire de réseau local", "Particulièrement attractif dans les immeubles et les quartiers"],
+        bullets: ["Création via le gestionnaire de réseau local", "Particulièrement attractif dans les immeubles et les quartiers"],
       },
     ],
     ctaHeading: "Autoconsommation maximale – demandez une offre",
@@ -1039,9 +1027,9 @@ const articles: BlogArticle[] = [
     formUrl: '/fr/demande',
     relatedSlugs: ['batteriespeicher-solaranlage-lohnt-sich', 'roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026'],
     faqs: [
-      { question: "Quel est le taux d'autoconsommation réaliste sans batterie?", answer: "Typiquement 25–35% pour un ménage normal. Avec une utilisation programmée des gros appareils, il monte à 35–45%. Avec une pompe à chaleur ou un VE, à 50–65%." },
+      { question: "Quel est le taux d'autoconsommation réaliste sans batterie?", answer: `Typiquement ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'fr')}% pour un ménage normal.` },
       { question: "Une batterie est-elle rentable uniquement pour l'autoconsommation?", answer: "Dans la plupart des cas oui, si vous avez une consommation élevée le soir et la nuit. Si vous avez un VE ou une PAC, l'autoconsommation peut déjà être très élevée sans batterie." },
-      { question: "Comment fonctionne une Communauté Locale d'Énergie (CLE)?", answer: "Des voisins se regroupent et partagent l'énergie solaire entre eux. L'électricité circule via le réseau local, avec des frais de réseau réduits jusqu'à 40%. Création via le gestionnaire de réseau local." },
+      { question: "Comment fonctionne une Communauté Locale d'Énergie (CLE)?", answer: "Des voisins se regroupent et partagent l'énergie solaire entre eux. La création passe par le gestionnaire de réseau local." },
       { question: "Les systèmes domotiques peuvent-ils optimiser automatiquement l'autoconsommation?", answer: "Oui. Des systèmes comme Fronius Solar.web, SMA Sunny Home Manager ou Loxone peuvent contrôler automatiquement les appareils et maximiser l'autoconsommation sans effort manuel." },
     ],
   },
@@ -1051,17 +1039,17 @@ const articles: BlogArticle[] = [
     slug: 'eigenverbrauch-optimieren-solar',
     locale: 'en',
     title: 'Maximising self-consumption: how to get the most from your solar energy',
-    metaDescription: "Strategies to maximise solar self-consumption in Switzerland. From timer-controlled appliances to Local Energy Communities – how to use up to 80% yourself.",
+    metaDescription: `Strategies to maximise solar self-consumption in Switzerland. From timer-controlled appliances to Local Energy Communities – how to use up to ${factNumber(ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max)}% yourself.`,
     image: '/images/solar-energieertrag-tablet-chalet.webp',
     date: 'February 10, 2026',
     readMin: 5,
     tag: 'Tips',
-    intro: 'Self-consumption is the key to solar profitability. Every kWh consumed yourself is worth 2–3 times more than electricity fed into the grid. With smart strategies, you can use 70–80% of your solar energy yourself.',
+    intro: `Self-consumption is the key to solar profitability. With smart strategies, you can use ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'en')}% of your solar energy yourself.`,
     sections: [
       {
         heading: 'Why self-consumption matters so much',
-        content: ['Surplus solar electricity fed into the grid is paid at approx. CHF 0.08–0.14/kWh. Self-consumed electricity saves CHF 0.28–0.34/kWh in grid costs – three times the value. Every additional percentage point of self-consumption significantly improves your ROI.'],
-        stats: [{ label: 'Grid feed-in', value: 'CHF 0.08–0.14/kWh' }, { label: 'Self-consumption', value: 'CHF 0.28–0.34/kWh' }, { label: 'Value difference', value: '3×' }, { label: 'Target', value: '70–80%' }],
+        content: ['Every additional percentage point of self-consumption improves the economics of the system.'],
+        stats: [{ label: 'Self-consumption without storage', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'en')}%` }, { label: 'Self-consumption with storage', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'en')}%` }],
       },
       {
         heading: 'Strategy 1: Shift programmable appliances',
@@ -1070,14 +1058,13 @@ const articles: BlogArticle[] = [
       },
       {
         heading: 'Strategy 2: Integrate heat pump and EV',
-        content: ['A heat pump and an electric vehicle are the biggest self-consumption boosters. Both can run on solar electricity during the day, pushing self-consumption to 60–80% without a battery.', 'Smart chargers (e.g. myEnergi zappi) only charge when sufficient solar electricity is available.'],
-        bullets: ['EV charged on solar: approx. CHF 0.40/km saving vs grid', 'Heat pump at maximum during day: up to 5 kWh self-consumed/day', 'Smart charger: charges only in sunshine', 'Air-source heat pump compatible with all solar systems'],
-        highlight: 'Heat pump + EV + solar: self-consumption 65–80%, total costs drastically reduced.',
+        content: [`A heat pump and an electric vehicle can move self-consumption without storage into the typical ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'en')}% range when operated during solar production.`, 'Smart chargers (e.g. myEnergi zappi) only charge when sufficient solar electricity is available.'],
+        bullets: ['EV charged on solar: savings compared with grid electricity', 'Heat pump at maximum during day: use more of the solar production', 'Smart charger: charges when solar production is available', 'Air-source heat pump compatible with all solar systems'],
       },
       {
         heading: 'Strategy 3: Local Energy Community (LEC)',
         content: ['From 2026, you can sell your surplus electricity directly to neighbours in the same area. In an LEC, you receive more than the feed-in tariff and your neighbours pay less than the grid price – a win-win.'],
-        bullets: ['LEC payment: approx. CHF 0.15–0.20/kWh (vs 0.08–0.14 grid)', 'Neighbour pays: approx. CHF 0.20–0.25/kWh (vs 0.28–0.34 grid)', 'Simple setup through local grid operator', 'Especially attractive in apartment buildings and housing estates'],
+        bullets: ['Setup through the local grid operator', 'Especially attractive in apartment buildings and housing estates'],
       },
     ],
     ctaHeading: 'Maximum self-consumption optimisation – request a quote',
@@ -1086,9 +1073,9 @@ const articles: BlogArticle[] = [
     formUrl: '/en/request',
     relatedSlugs: ['batteriespeicher-solaranlage-lohnt-sich', 'roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026'],
     faqs: [
-      { question: 'What is a realistic self-consumption rate without a battery?', answer: 'Typically 25–35% for a normal household. With timer-controlled use of large appliances, it rises to 35–45%. With a heat pump or EV, to 50–65%.' },
+      { question: 'What is a realistic self-consumption rate without a battery?', answer: `Typically ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'en')}% for a normal household.` },
       { question: 'Is a home battery worth it purely for self-consumption?', answer: 'In most cases yes, if you have high evening and night consumption. If you have an EV or heat pump, self-consumption can already be very high without a battery.' },
-      { question: 'How does a Local Energy Community (LEC) work?', answer: 'Neighbours group together and share solar electricity between them. The electricity flows via the local grid, with grid fees reduced by up to 40%. Set up through your local grid operator.' },
+      { question: 'How does a Local Energy Community (LEC) work?', answer: 'Neighbours group together and share solar electricity between them. Setup is handled through the local grid operator.' },
       { question: 'Can smart home systems automatically optimise self-consumption?', answer: 'Yes. Systems like Fronius Solar.web, SMA Sunny Home Manager or Loxone can automatically control appliances and maximise self-consumption without manual effort.' },
     ],
   },
@@ -1098,17 +1085,17 @@ const articles: BlogArticle[] = [
     slug: 'eigenverbrauch-optimieren-solar',
     locale: 'it',
     title: "Massimizzare l'autoconsumo: come sfruttare al meglio la tua energia solare",
-    metaDescription: "Strategie per massimizzare l'autoconsumo di un impianto solare in Svizzera. Dalla programmazione temporale alle CEL – come consumare fino all'80% da soli.",
+    metaDescription: `Strategie per massimizzare l'autoconsumo di un impianto solare in Svizzera. Dalla programmazione temporale alle CEL – come consumare fino all'${factNumber(ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max)}% da soli.`,
     image: '/images/solar-energieertrag-tablet-chalet.webp',
     date: '10 febbraio 2026',
     readMin: 5,
     tag: 'Consigli',
-    intro: "L'autoconsumo è la chiave della redditività del tuo impianto solare. Ogni kWh autoconsumato vale 2–3 volte di più rispetto all'energia immessa in rete. Con le giuste strategie puoi utilizzare da solo il 70–80% della tua energia solare.",
+    intro: `L'autoconsumo è la chiave della redditività del tuo impianto solare. Con le giuste strategie puoi utilizzare da solo il ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'it')}% della tua energia solare.`,
     sections: [
       {
         heading: "Perché l'autoconsumo è così importante",
-        content: ["L'eccedenza solare immessa in rete viene remunerata a circa 8–14 ct./kWh. L'energia autoconsumata risparmia invece 28–32 ct./kWh di costi dalla rete – il triplo del valore. Ogni punto percentuale aggiuntivo di autoconsumo migliora significativamente il tuo ROI."],
-        stats: [{ label: 'Immissione in rete', value: '8–14 ct./kWh' }, { label: 'Autoconsumo', value: '28–32 ct./kWh' }, { label: 'Differenza', value: '3×' }, { label: 'Obiettivo', value: '70–80%' }],
+        content: ["Ogni punto percentuale aggiuntivo di autoconsumo migliora significativamente il tuo ROI."],
+        stats: [{ label: 'Autoconsumo senza accumulo', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'it')}%` }, { label: 'Autoconsumo con accumulo', value: `${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'it')}%` }],
       },
       {
         heading: 'Strategia 1: Spostare gli apparecchi programmabili',
@@ -1117,14 +1104,13 @@ const articles: BlogArticle[] = [
       },
       {
         heading: "Strategia 2: Integrare pompa di calore e auto elettrica",
-        content: ["Una pompa di calore e un'auto elettrica sono i migliori potenziatori dell'autoconsumo. Entrambi possono funzionare con energia solare durante il giorno, portando l'autoconsumo al 60–80% – senza batteria.", "Le wallbox intelligenti (es. myEnergi zappi) caricano solo quando è disponibile sufficiente energia solare."],
-        bullets: ["Auto elettrica caricata col solare: circa 40 ct./km di risparmio vs rete", "Pompa di calore al massimo di giorno: fino a 5 kWh autoconsumati/giorno", "Wallbox intelligente: carica solo quando c'è il sole", "Pompa di calore aria-acqua compatibile con tutti gli impianti solari"],
-        highlight: "Pompa di calore + auto elettrica + solare: autoconsumo 65–80%, costi totali drasticamente ridotti.",
+        content: [`Una pompa di calore e un'auto elettrica possono portare l'autoconsumo senza accumulo nella fascia tipica del ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'it')}% se funzionano durante la produzione solare.`, "Le wallbox intelligenti (es. myEnergi zappi) caricano solo quando è disponibile sufficiente energia solare."],
+        bullets: ["Wallbox intelligente: carica solo quando c'è il sole", "Pompa di calore aria-acqua compatibile con tutti gli impianti solari"],
       },
       {
         heading: "Strategia 3: Comunità Elettrica Locale (CEL)",
         content: ["Dal 2026 puoi vendere la tua eccedenza di energia direttamente ai vicini nella stessa zona. In una CEL ricevi di più rispetto alla tariffa di immissione e i tuoi vicini pagano meno del prezzo di rete – una situazione win-win."],
-        bullets: ["Remunerazione CEL: circa 15–20 ct./kWh (vs 8–14 rete)", "Il vicino paga: circa 20–25 ct./kWh (vs 28–32 rete)", "Istituzione semplice tramite il gestore di rete locale", "Particolarmente attrattivo nei condomini e nei quartieri"],
+        bullets: ["Istituzione tramite il gestore di rete locale", "Particolarmente attrattivo nei condomini e nei quartieri"],
       },
     ],
     ctaHeading: "Massimizzazione autoconsumo – richiedi un preventivo",
@@ -1133,9 +1119,9 @@ const articles: BlogArticle[] = [
     formUrl: '/it/richiesta',
     relatedSlugs: ['batteriespeicher-solaranlage-lohnt-sich', 'roi-photovoltaik-schweiz', 'foerderungen-photovoltaik-2026'],
     faqs: [
-      { question: "Qual è un tasso di autoconsumo realistico senza batteria?", answer: "Tipicamente 25–35% per una famiglia normale. Con l'uso programmato dei grandi elettrodomestici, sale al 35–45%. Con una pompa di calore o un'auto elettrica, al 50–65%." },
+      { question: "Qual è un tasso di autoconsumo realistico senza batteria?", answer: `Tipicamente il ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'it')}% per una famiglia normale.` },
       { question: "Una batteria domestica conviene solo per l'autoconsumo?", answer: "Nella maggior parte dei casi sì, se hai un alto consumo serale e notturno. Se hai un'auto elettrica o una pompa di calore, l'autoconsumo può già essere molto alto senza batteria." },
-      { question: "Come funziona una Comunità Elettrica Locale (CEL)?", answer: "I vicini si raggruppano e condividono l'energia solare tra loro. L'energia scorre attraverso la rete locale, con costi di rete ridotti fino al 40%. Istituzione tramite il gestore di rete locale." },
+      { question: "Come funziona una Comunità Elettrica Locale (CEL)?", answer: "I vicini si raggruppano e condividono l'energia solare tra loro. Istituzione tramite il gestore di rete locale." },
       { question: "I sistemi domotici possono ottimizzare automaticamente l'autoconsumo?", answer: "Sì. Sistemi come Fronius Solar.web, SMA Sunny Home Manager o Loxone possono controllare automaticamente gli apparecchi e massimizzare l'autoconsumo senza sforzo manuale." },
     ],
   },
@@ -1154,24 +1140,23 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: 'Wie berechnet sich der ROI einer Solaranlage?',
-        content: ['Der Return on Investment (ROI) einer Solaranlage ergibt sich aus: (Jährliche Einsparungen + Einspeisevergütung) ÷ (Investitionskosten – Förderungen). Die Amortisationszeit in Jahren ist der Kehrwert des jährlichen ROI.', 'Beispielrechnung: 5-kWp-Anlage in Zürich, Kosten CHF 12\'000, EIV CHF 3\'200 → Nettoinvestition CHF 8\'800. Jährliche Einsparung: CHF 1\'400 → Amortisation: 8\'800 ÷ 1\'400 = 6.3 Jahre.'],
-        stats: [{ label: 'Ø Amortisation CH', value: '7–10 Jahre' }, { label: 'Bestes Kanton', value: 'Tessin (4–6 J)' }, { label: 'Teuerstes Kanton', value: 'St. Gallen (9–12 J)' }, { label: 'Nach Amortis.', value: '100% Gewinn' }],
+        content: ['Der Return on Investment (ROI) einer Solaranlage ergibt sich aus: (Jährliche Einsparungen + Einspeisevergütung) ÷ (Investitionskosten – Förderungen). Die Amortisationszeit in Jahren ist der Kehrwert des jährlichen ROI.'],
+        stats: [{ label: 'Amortisation Mittelland', value: `${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'de')} Jahre` }, { label: 'Amortisation Tessin und Wallis', value: `${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'de')} Jahre` }],
       },
       {
         heading: 'Einflussfaktoren: Was den ROI am meisten bestimmt',
-        content: ['Die drei wichtigsten Faktoren sind: (1) Lokale Sonnenstunden, (2) Eigenverbrauchsquote und (3) lokaler Strompreis. Ein Haushalt in Lugano mit Wärmepumpe hat einen völlig anderen ROI als ein Haushalt in St. Gallen ohne Speicher.'],
-        bullets: ['Sonnenstunden: Tessin 2\'157 h vs. St. Gallen 1\'522 h', 'Strompreis: Einfluss bis ±2 Jahre Amortisation', 'Eigenverbrauch: von 25% bis 80% möglich', 'Förderung: bis zu 35% der Kosten gedeckt'],
+        content: ['Die drei wichtigsten Faktoren sind: Produktion am Standort, Eigenverbrauchsquote und lokaler Strompreis. Ein Haushalt in Lugano mit Wärmepumpe hat einen völlig anderen ROI als ein Haushalt in St. Gallen ohne Speicher.'],
+        bullets: ['Produktion am Standort', `Eigenverbrauch ohne Speicher: ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'de')}%`, `Eigenverbrauch mit Speicher: ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'de')}%`, `Medianstrompreis: ${factNumber(ECONOMIC_FACTS.electricityMedianCtPerKwh)} Rp./kWh`, 'Förderung gemäss den geltenden Programmen'],
       },
       {
         heading: 'ROI-Vergleich nach Kantonen 2026',
-        content: ['Es gibt grosse Unterschiede zwischen den Kantonen. Die beste Amortisation erreichen Anlagen im Tessin und im Wallis, die schlechteste in östlichen Kantonen mit wenig Sonne und tiefen Strompreisen.'],
-        bullets: ['Tessin: 4–6 Jahre (2\'157 Sonnenstunden)', 'Wallis: 6–8 Jahre (Alpenbonus)', 'Genf: 7–9 Jahre (SIG-Bonus)', 'Zürich/Bern: 7–9 Jahre', 'Graubünden: 6–9 Jahre (Höhenbonus)', 'St. Gallen: 9–12 Jahre'],
-        highlight: 'Im Tessin amortisiert sich eine Solaranlage in nur 4–6 Jahren – die beste Quote der Schweiz.',
+        content: [`Die Amortisationszeit hängt vom Standort, der Produktion, dem Eigenverbrauch und dem Strompreis ab. Für das Mittelland gelten ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'de')} Jahre, für das Tessin und Wallis ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'de')} Jahre.`],
+        bullets: [`Mittelland: ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'de')} Jahre`, `Tessin und Wallis: ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'de')} Jahre`],
+        highlight: 'Der Standort und der Eigenverbrauch bestimmen die Amortisationszeit.',
       },
       {
         heading: 'Was passiert nach der Amortisation?',
-        content: ['Nach der Amortisation produziert die Anlage noch 15–20 weitere Jahre Strom – komplett kostenfrei. Der gesamte "Gewinn" einer 5-kWp-Anlage über 25 Jahre beträgt typisch CHF 25\'000–40\'000 Netto-Ersparnis.', 'Solaranlagen haben eine garantierte Lebensdauer von 25–30 Jahren. Module verlieren ca. 0.5% Leistung pro Jahr – nach 25 Jahren produzieren sie noch 87–88% ihrer Ursprungsleistung.'],
-        bullets: ['Lebensdauer Module: 25–30 Jahre', 'Leistungsdegradation: ca. 0.5%/Jahr', 'Gesamtersparnis über 25 Jahre: CHF 25\'000–40\'000', 'Immobilienwert: Steigerung um 3–5% dokumentiert'],
+        content: [`Solaranlagen haben eine Lebensdauer von ${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'de')} Jahren.`],
       },
     ],
     ctaHeading: 'ROI Ihrer Anlage berechnen – kostenlose Analyse',
@@ -1180,10 +1165,10 @@ const articles: BlogArticle[] = [
     formUrl: '/anfrage',
     relatedSlugs: ['foerderungen-photovoltaik-2026', 'eigenverbrauch-optimieren-solar', 'batteriespeicher-solaranlage-lohnt-sich'],
     faqs: [
-      { question: 'Wie lange dauert die Amortisation einer Solaranlage in der Schweiz?', answer: 'Durchschnittlich 7–10 Jahre, je nach Kanton, Systemgrösse und Nutzungsweise. Im Tessin sind es nur 4–6 Jahre, in St. Gallen bis zu 12 Jahre. Nach der Amortisation produziert die Anlage noch 15–20 Jahre Gewinn.' },
-      { question: 'Welchen Einfluss hat der Strompreis auf den ROI?', answer: 'Sehr grossen. Ein Haushalt mit 32 Rp./kWh hat einen um 2–3 Jahre besseren ROI als einer mit 25 Rp./kWh. Steigende Strompreise verbessern den ROI von bestehenden Anlagen automatisch.' },
-      { question: 'Verbessert sich der ROI mit einem Batteriespeicher?', answer: 'Oft ja, wenn Sie einen hohen Abend-/Nachtverbrauch haben. Mit E-Auto oder Wärmepumpe verbessert sich der ROI der Kombination um 1–2 Jahre, da der Eigenverbrauch auf 70–80% steigt.' },
-      { question: 'Steigert eine Solaranlage den Immobilienwert?', answer: 'Ja. Studien zeigen eine Wertsteigerung von 3–5% für Liegenschaften mit Solaranlage. Besonders in energiebewussten Kantonen wie Zürich oder Genf ist der Effekt messbar.' },
+      { question: 'Wie lange dauert die Amortisation einer Solaranlage in der Schweiz?', answer: `Im Mittelland dauert sie typischerweise ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'de')} Jahre, im Tessin und Wallis ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'de')} Jahre. Die konkrete Zeit hängt von Systemgrösse, Standort und Nutzung ab.` },
+      { question: 'Welchen Einfluss hat der Strompreis auf den ROI?', answer: `Einen grossen. Die Schweizer Medianstromkosten liegen bei ${factNumber(ECONOMIC_FACTS.electricityMedianCtPerKwh)} Rp./kWh. Die kantonalen Tarife unterscheiden sich; die Quelle ist ElCom 2026.` },
+      { question: 'Verbessert sich der ROI mit einem Batteriespeicher?', answer: 'Oft ja, wenn Sie einen hohen Abend-/Nachtverbrauch haben.' },
+      { question: 'Steigert eine Solaranlage den Immobilienwert?', answer: 'Ja. Besonders in energiebewussten Kantonen wie Zürich oder Genf ist der Effekt messbar.' },
     ],
   },
 
@@ -1201,24 +1186,23 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: "Comment se calcule le ROI d'une installation solaire?",
-        content: ["Le retour sur investissement (ROI) d'une installation solaire résulte de: (Économies annuelles + rémunération injection) ÷ (Coûts d'investissement – subventions). La durée d'amortissement est l'inverse du ROI annuel.", "Exemple de calcul: installation de 5 kWc à Genève, coûts CHF 14'000, RU CHF 3'200, bonus SIG CHF 3'000 → investissement net CHF 7'800. Économies annuelles: CHF 1'600 → amortissement: 7'800 ÷ 1'600 = 4.9 ans."],
-        stats: [{ label: 'Amortissement moyen CH', value: '7–10 ans' }, { label: 'Meilleur canton', value: 'Tessin (4–6 ans)' }, { label: 'Genève (avec SIG)', value: '7–9 ans' }, { label: "Après amortissement", value: '100% profit' }],
+        content: ["Le retour sur investissement (ROI) d'une installation solaire résulte de: (Économies annuelles + rémunération injection) ÷ (Coûts d'investissement – subventions). La durée d'amortissement est l'inverse du ROI annuel."],
+        stats: [{ label: 'Amortissement Plateau', value: `${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'fr')} ans` }, { label: 'Amortissement Tessin et Valais', value: `${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'fr')} ans` }],
       },
       {
         heading: "Facteurs d'influence: ce qui détermine le plus le ROI",
-        content: ["Les trois facteurs les plus importants sont: (1) les heures d'ensoleillement local, (2) le taux d'autoconsommation et (3) le prix local de l'électricité. Un ménage à Lugano avec une pompe à chaleur a un ROI complètement différent d'un ménage à St-Gall sans stockage."],
-        bullets: ["Ensoleillement: Tessin 2'157 h vs St-Gall 1'522 h", "Prix électricité: impact jusqu'à ±2 ans sur l'amortissement", "Autoconsommation: de 25% à 80% possible", "Subventions: jusqu'à 35% des coûts couverts"],
+        content: ["Les trois facteurs les plus importants sont: (1) la production sur place, (2) le taux d'autoconsommation et (3) le prix local de l'électricité. Un ménage à Lugano avec une pompe à chaleur a un ROI complètement différent d'un ménage à St-Gall sans stockage."],
+        bullets: ["Production sur place", `Autoconsommation sans batterie: ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'fr')}%`, `Autoconsommation avec batterie: ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'fr')}%`, `Prix médian de l'électricité: ${factNumber(ECONOMIC_FACTS.electricityMedianCtPerKwh)} ct./kWh`, "Subventions selon les programmes applicables"],
       },
       {
         heading: 'Comparaison ROI par canton en 2026',
-        content: ["Il y a de grandes différences entre les cantons. Le meilleur amortissement est atteint au Tessin et en Valais, le moins bon dans les cantons de l'est avec peu de soleil et des prix bas."],
-        bullets: ["Tessin: 4–6 ans (2'157 heures de soleil)", "Valais: 6–8 ans (bonus alpin)", "Genève: 7–9 ans (bonus SIG)", "Vaud: 7–9 ans", "Grisons: 6–9 ans (bonus altitude)", "St-Gall: 9–12 ans"],
-        highlight: "Au Tessin, une installation solaire s'amortit en seulement 4–6 ans – le meilleur ratio de Suisse.",
+        content: [`L'amortissement dépend du lieu, de la production, de l'autoconsommation et du prix de l'électricité. Sur le Plateau, il faut généralement compter ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'fr')} ans, et au Tessin et en Valais ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'fr')} ans.`],
+        bullets: [`Plateau: ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'fr')} ans`, `Tessin et Valais: ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'fr')} ans`],
+        highlight: "Le lieu et l'autoconsommation déterminent la durée d'amortissement.",
       },
       {
         heading: "Que se passe-t-il après l'amortissement?",
-        content: ["Après l'amortissement, l'installation produit encore 15–20 ans d'électricité – complètement gratuitement. L'économie nette totale d'une installation de 5 kWc sur 25 ans est typiquement de CHF 25'000–40'000.", "Les modules solaires ont une durée de vie garantie de 25–30 ans. Leur puissance baisse d'environ 0.5% par an – après 25 ans, ils produisent encore 87–88% de leur puissance initiale."],
-        bullets: ["Durée de vie modules: 25–30 ans", "Dégradation: env. 0.5%/an", "Économie totale sur 25 ans: CHF 25'000–40'000", "Valeur immobilière: augmentation de 3–5% documentée"],
+        content: [`Les modules solaires ont une durée de vie de ${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'fr')} ans.`],
       },
     ],
     ctaHeading: "Calculez le ROI de votre installation – analyse gratuite",
@@ -1227,10 +1211,10 @@ const articles: BlogArticle[] = [
     formUrl: '/fr/demande',
     relatedSlugs: ['foerderungen-photovoltaik-2026', 'eigenverbrauch-optimieren-solar', 'batteriespeicher-solaranlage-lohnt-sich'],
     faqs: [
-      { question: "Quelle est la durée d'amortissement d'une installation solaire en Suisse?", answer: "En moyenne 7–10 ans, selon le canton, la taille du système et le mode d'utilisation. Au Tessin, seulement 4–6 ans; à St-Gall, jusqu'à 12 ans. Après l'amortissement, l'installation produit encore 15–20 ans de bénéfices." },
-      { question: "Quelle est l'influence du prix de l'électricité sur le ROI?", answer: "Très grande. Un ménage à 35 ct./kWh a un ROI de 2–3 ans meilleur qu'un ménage à 25 ct./kWh. La hausse des prix de l'électricité améliore automatiquement le ROI des installations existantes." },
-      { question: "Le ROI s'améliore-t-il avec une batterie?", answer: "Souvent oui, si vous avez une consommation élevée le soir et la nuit. Avec un VE ou une PAC, le ROI de la combinaison s'améliore de 1–2 ans, car l'autoconsommation monte à 70–80%." },
-      { question: "Une installation solaire valorise-t-elle le bien immobilier?", answer: "Oui. Des études montrent une valorisation de 3–5% pour les propriétés avec installation solaire. L'effet est particulièrement mesurable dans des zones soucieuses de l'énergie comme Genève ou Lausanne." },
+      { question: "Quelle est la durée d'amortissement d'une installation solaire en Suisse?", answer: `Sur le Plateau, il faut généralement compter ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'fr')} ans, et au Tessin et en Valais ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'fr')} ans.` },
+      { question: "Quelle est l'influence du prix de l'électricité sur le ROI?", answer: "Très grande. La hausse des prix de l'électricité améliore automatiquement le ROI des installations existantes." },
+      { question: "Le ROI s'améliore-t-il avec une batterie?", answer: "Souvent oui, si vous avez une consommation élevée le soir et la nuit." },
+      { question: "Une installation solaire valorise-t-elle le bien immobilier?", answer: "Oui. L'effet est particulièrement mesurable dans des zones soucieuses de l'énergie comme Genève ou Lausanne." },
     ],
   },
 
@@ -1248,24 +1232,23 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: 'How is the ROI of a solar system calculated?',
-        content: ['The return on investment (ROI) of a solar system is: (Annual savings + feed-in income) ÷ (Investment costs – subsidies). The payback period in years is the reciprocal of the annual ROI.', 'Example: 5 kWp system in Zurich, cost CHF 12,000, EIV CHF 3,200 → net investment CHF 8,800. Annual savings: CHF 1,400 → payback: 8,800 ÷ 1,400 = 6.3 years.'],
-        stats: [{ label: 'Average payback CH', value: '7–10 years' }, { label: 'Best canton', value: 'Ticino (4–6 yrs)' }, { label: 'Geneva (with SIG)', value: '7–9 years' }, { label: 'After payback', value: '100% profit' }],
+        content: ['The return on investment (ROI) of a solar system is: (Annual savings + feed-in income) ÷ (Investment costs – subsidies). The payback period in years is the reciprocal of the annual ROI.'],
+        stats: [{ label: 'Swiss Plateau payback', value: `${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'en')} years` }, { label: 'Ticino and Valais payback', value: `${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'en')} years` }],
       },
       {
         heading: 'Key factors: what determines ROI most',
-        content: ['The three most important factors are: (1) local sunshine hours, (2) self-consumption rate and (3) local electricity price. A household in Lugano with a heat pump has a completely different ROI than one in St. Gallen without storage.'],
-        bullets: ['Sunshine: Ticino 2,157 h vs St. Gallen 1,522 h', 'Electricity price: impact up to ±2 years on payback', 'Self-consumption: from 25% to 80% possible', 'Subsidies: up to 35% of costs covered'],
+        content: ['The three most important factors are: (1) production at the site, (2) self-consumption rate and (3) local electricity price. A household in Lugano with a heat pump has a completely different ROI than one in St. Gallen without storage.'],
+        bullets: ['Production at the site', `Self-consumption without storage: ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'en')}%`, `Self-consumption with storage: ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'en')}%`, `Median electricity price: ${factNumber(ECONOMIC_FACTS.electricityMedianCtPerKwh)} ct/kWh`, 'Subsidies according to the applicable programmes'],
       },
       {
         heading: 'ROI comparison by canton in 2026',
-        content: ['There are large differences between cantons. The best payback is achieved in Ticino and Valais; the worst in eastern cantons with little sunshine and low electricity prices.'],
-        bullets: ['Ticino: 4–6 years (2,157 sunshine hours)', 'Valais: 6–8 years (alpine bonus)', 'Geneva: 7–9 years (SIG bonus)', 'Zurich/Bern: 7–9 years', 'Grisons: 6–9 years (altitude bonus)', 'St. Gallen: 9–12 years'],
-        highlight: 'In Ticino, a solar system pays off in just 4–6 years – the best ratio in Switzerland.',
+        content: [`Payback depends on the site, production, self-consumption and electricity price. In the Swiss Plateau it typically takes ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'en')} years, and in Ticino and Valais ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'en')} years.`],
+        bullets: [`Swiss Plateau: ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'en')} years`, `Ticino and Valais: ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'en')} years`],
+        highlight: 'The site and self-consumption determine the payback period.',
       },
       {
         heading: 'What happens after payback?',
-        content: ['After payback, the system produces another 15–20 years of electricity – completely free. The total net savings of a 5 kWp system over 25 years is typically CHF 25,000–40,000.', 'Solar modules have a guaranteed lifespan of 25–30 years. They lose about 0.5% of output per year – after 25 years they still produce 87–88% of original output.'],
-        bullets: ['Module lifespan: 25–30 years', 'Performance degradation: approx. 0.5%/year', 'Total savings over 25 years: CHF 25,000–40,000', 'Property value increase: 3–5% documented'],
+        content: [`Solar modules have a lifetime of ${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'en')} years.`],
       },
     ],
     ctaHeading: 'Calculate your system ROI – free analysis',
@@ -1274,10 +1257,10 @@ const articles: BlogArticle[] = [
     formUrl: '/en/request',
     relatedSlugs: ['foerderungen-photovoltaik-2026', 'eigenverbrauch-optimieren-solar', 'batteriespeicher-solaranlage-lohnt-sich'],
     faqs: [
-      { question: 'How long does a solar system take to pay off in Switzerland?', answer: 'On average 7–10 years, depending on canton, system size and usage pattern. In Ticino, only 4–6 years; in St. Gallen, up to 12 years. After payback, the system still produces 15–20 years of profit.' },
-      { question: 'How much does electricity price affect ROI?', answer: 'Very significantly. A household at CHF 0.32/kWh has a 2–3 year better ROI than one at CHF 0.25/kWh. Rising electricity prices automatically improve the ROI of existing systems.' },
-      { question: 'Does ROI improve with a battery?', answer: 'Often yes, if you have high evening and night consumption. With an EV or heat pump, the ROI of the combination improves by 1–2 years as self-consumption rises to 70–80%.' },
-      { question: 'Does a solar system increase property value?', answer: 'Yes. Studies show a 3–5% increase in value for properties with solar systems. The effect is particularly measurable in energy-conscious cantons like Zurich or Geneva.' },
+      { question: 'How long does a solar system take to pay off in Switzerland?', answer: `In the Swiss Plateau it typically takes ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'en')} years, and in Ticino and Valais ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'en')} years. The exact period depends on system size, site and usage.` },
+      { question: 'How much does electricity price affect ROI?', answer: `Significantly. The Swiss median electricity price is ${factNumber(ECONOMIC_FACTS.electricityMedianCtPerKwh)} ct/kWh. Cantonal tariffs differ; the source is ElCom 2026.` },
+      { question: 'Does ROI improve with a battery?', answer: 'Often yes, if you have high evening and night consumption.' },
+      { question: 'Does a solar system increase property value?', answer: 'Yes. The effect is particularly measurable in energy-conscious cantons like Zurich or Geneva.' },
     ],
   },
 
@@ -1295,24 +1278,23 @@ const articles: BlogArticle[] = [
     sections: [
       {
         heading: "Come si calcola il ROI di un impianto solare?",
-        content: ["Il ritorno sull'investimento (ROI) di un impianto solare è: (Risparmio annuale + proventi da immissione) ÷ (Costi di investimento – incentivi). Il periodo di ammortamento in anni è il reciproco del ROI annuale.", "Esempio: impianto da 5 kWp a Lugano, costo CHF 12.000, RU CHF 3.200, contributo cantonale TI CHF 1.800 → investimento netto CHF 7.000. Risparmio annuale: CHF 1.700 → ammortamento: 7.000 ÷ 1.700 = 4.1 anni."],
-        stats: [{ label: 'Ammortamento medio CH', value: '7–10 anni' }, { label: 'Cantone migliore', value: 'Ticino (4–6 anni)' }, { label: 'Dopo ammortamento', value: '100% guadagno' }, { label: 'Durata impianto', value: '25–30 anni' }],
+        content: ["Il ritorno sull'investimento (ROI) di un impianto solare è: (Risparmio annuale + proventi da immissione) ÷ (Costi di investimento – incentivi). Il periodo di ammortamento in anni è il reciproco del ROI annuale."],
+        stats: [{ label: 'Ammortamento Altopiano', value: `${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'it')} anni` }, { label: 'Ammortamento Ticino e Vallese', value: `${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'it')} anni` }, { label: 'Durata impianto', value: `${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'it')} anni` }],
       },
       {
         heading: "Fattori chiave: cosa determina di più il ROI",
-        content: ["I tre fattori più importanti sono: (1) ore di sole locali, (2) tasso di autoconsumo e (3) prezzo locale dell'energia. Una famiglia a Lugano con una pompa di calore ha un ROI completamente diverso da una a San Gallo senza accumulo."],
-        bullets: ["Ore di sole: Ticino 2.157 h vs San Gallo 1.522 h", "Prezzo energia: impatto fino a ±2 anni sull'ammortamento", "Autoconsumo: dal 25% all'80% possibile", "Incentivi: fino al 35% dei costi coperti"],
+        content: ["I tre fattori più importanti sono: (1) produzione sul posto, (2) tasso di autoconsumo e (3) prezzo locale dell'energia. Una famiglia a Lugano con una pompa di calore ha un ROI completamente diverso da una a San Gallo senza accumulo."],
+        bullets: ["Produzione sul posto", `Autoconsumo senza accumulo: ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'it')}%`, `Autoconsumo con accumulo: ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'it')}%`, `Prezzo mediano dell'energia: ${factNumber(ECONOMIC_FACTS.electricityMedianCtPerKwh)} ct./kWh`, "Incentivi secondo i programmi applicabili"],
       },
       {
         heading: 'Confronto ROI per cantone nel 2026',
-        content: ["Ci sono grandi differenze tra i cantoni. Il miglior ammortamento si raggiunge in Ticino e in Vallese; il peggiore nei cantoni orientali con poco sole e prezzi dell'energia bassi."],
-        bullets: ["Ticino: 4–6 anni (2.157 ore di sole)", "Vallese: 6–8 anni (bonus alpino)", "Ginevra: 7–9 anni (bonus SIG)", "Zurigo/Berna: 7–9 anni", "Grigioni: 6–9 anni (bonus altitudine)", "San Gallo: 9–12 anni"],
-        highlight: "In Ticino un impianto solare si ammortizza in soli 4–6 anni – il miglior rapporto della Svizzera.",
+        content: [`L'ammortamento dipende dal luogo, dalla produzione, dall'autoconsumo e dal prezzo dell'energia. Sull'Altopiano richiede in genere ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'it')} anni, in Ticino e Vallese ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'it')} anni.`],
+        bullets: [`Altopiano: ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'it')} anni`, `Ticino e Vallese: ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'it')} anni`],
+        highlight: "Il luogo e l'autoconsumo determinano il periodo di ammortamento.",
       },
       {
         heading: "Cosa succede dopo l'ammortamento?",
-        content: ["Dopo l'ammortamento, l'impianto produce altri 15–20 anni di energia – completamente gratis. Il risparmio netto totale di un impianto da 5 kWp su 25 anni è tipicamente CHF 25.000–40.000.", "I moduli solari hanno una durata garantita di 25–30 anni. Perdono circa lo 0,5% di potenza all'anno – dopo 25 anni producono ancora l'87–88% della loro potenza originale."],
-        bullets: ["Durata moduli: 25–30 anni", "Degradazione: circa 0,5%/anno", "Risparmio totale su 25 anni: CHF 25.000–40.000", "Valore immobiliare: aumento del 3–5% documentato"],
+        content: [`I moduli solari hanno una durata di ${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'it')} anni.`],
       },
     ],
     ctaHeading: "Calcola il ROI del tuo impianto – analisi gratuita",
@@ -1321,10 +1303,10 @@ const articles: BlogArticle[] = [
     formUrl: '/it/richiesta',
     relatedSlugs: ['foerderungen-photovoltaik-2026', 'eigenverbrauch-optimieren-solar', 'batteriespeicher-solaranlage-lohnt-sich'],
     faqs: [
-      { question: "Quanto tempo ci vuole perché un impianto solare si ammortizzi in Svizzera?", answer: "In media 7–10 anni, a seconda del cantone, delle dimensioni del sistema e delle modalità di utilizzo. In Ticino solo 4–6 anni; a San Gallo fino a 12 anni. Dopo l'ammortamento, l'impianto produce ancora 15–20 anni di guadagno." },
-      { question: "Quanto influisce il prezzo dell'energia sul ROI?", answer: "Moltissimo. Una famiglia a 32 ct./kWh ha un ROI di 2–3 anni migliore rispetto a una a 25 ct./kWh. L'aumento dei prezzi dell'energia migliora automaticamente il ROI degli impianti esistenti." },
-      { question: "Il ROI migliora con una batteria?", answer: "Spesso sì, se hai un alto consumo serale e notturno. Con un'auto elettrica o una pompa di calore, il ROI della combinazione migliora di 1–2 anni poiché l'autoconsumo sale al 70–80%." },
-      { question: "Un impianto solare aumenta il valore dell'immobile?", answer: "Sì. Studi mostrano un aumento di valore del 3–5% per gli immobili con impianto solare. L'effetto è particolarmente misurabile in zone attente all'energia come Zurigo o Ginevra." },
+      { question: "Quanto tempo ci vuole perché un impianto solare si ammortizzi in Svizzera?", answer: `Sull'Altopiano richiede in genere ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'it')} anni, in Ticino e Vallese ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'it')} anni.` },
+      { question: "Quanto influisce il prezzo dell'energia sul ROI?", answer: "Moltissimo. L'aumento dei prezzi dell'energia migliora automaticamente il ROI degli impianti esistenti." },
+      { question: "Il ROI migliora con una batteria?", answer: "Spesso sì, se hai un alto consumo serale e notturno." },
+      { question: "Un impianto solare aumenta il valore dell'immobile?", answer: "Sì. L'effetto è particolarmente misurabile in zone attente all'energia come Zurigo o Ginevra." },
     ],
   },
 
@@ -1345,56 +1327,32 @@ const articles: BlogArticle[] = [
         heading: 'Lohnt sich eine Solaranlage 2026 — die kurze Antwort',
         content: [
           "Lohnt sich eine Solaranlage in der Schweiz 2026? Ja, und zwar mehr als je zuvor. Drei Entwicklungen machen 2026 zum besten Jahr, um in eine Solaranlage zu investieren:",
-          "Erstens sind die Modulpreise in den letzten fünf Jahren um rund 30% gesunken. Eine typische 10-kWp-Anlage für ein Einfamilienhaus kostet heute CHF 16'000–28'000 — deutlich weniger als noch 2019.",
-          "Zweitens sind die Strompreise in der Schweiz gestiegen. Wer heute 30 Rappen pro kWh zahlt, spart mit einer Solaranlage jedes Jahr mehr als früher.",
-          "Drittens läuft die steuerliche Absetzbarkeit Ende 2027 aus. Wer jetzt investiert, kann die gesamte Investition noch von der Einkommenssteuer abziehen — eine Ersparnis von 20–35% je nach Grenzsteuersatz. Wer wartet, verliert diesen Vorteil.",
+          "Zweitens sind die Strompreise in der Schweiz gestiegen.",
+          "Drittens läuft die steuerliche Absetzbarkeit Ende 2027 aus. Wer wartet, verliert diesen Vorteil.",
         ],
         stats: [
-          { label: 'Typische Amortisation 2026', value: '8–12 Jahre' },
-          { label: 'Ersparnis über 25 Jahre (10 kWp)', value: "CHF 75'000" },
-          { label: 'Steuerersparnis auf Investition', value: 'Bis 35%' },
+          { label: 'Typische Amortisation 2026', value: `${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'de')} Jahre` },
         ],
-      },
-      {
-        heading: 'Was kostet eine Solaranlage 2026 in der Schweiz?',
-        content: [
-          "Bevor wir beantworten, ob sich eine Solaranlage in der Schweiz 2026 lohnt, müssen wir wissen, was sie kostet. Die Preise sind 2026 so tief wie nie. Hier die aktuellen Richtwerte inklusive Installation:",
-        ],
-        bullets: [
-          "5 kWp (kleines EFH): brutto CHF 9'000–11'000 → nach EIV CHF 7'100–9'100 → nach Steuerabzug (25%) CHF 5'300–6'800",
-          "8 kWp (Standard EFH): brutto CHF 13'000–16'000 → nach EIV CHF 10'300–13'000 → nach Steuerabzug CHF 7'700–9'700",
-          "10 kWp (grosses EFH): brutto CHF 16'000–20'000 → nach EIV CHF 12'450–16'450 → nach Steuerabzug CHF 9'300–12'300",
-          "15 kWp (MFH / gross): brutto CHF 22'000–28'000 → nach EIV CHF 17'200–23'200 → nach Steuerabzug CHF 12'900–17'400",
-        ],
-        highlight: "EIV = Einmalvergütung des Bundes (ca. CHF 380/kWp + CHF 700 Grundbeitrag). Steuerabzug je nach Kanton und Einkommen. Wir empfehlen immer mindestens 3 Offerten zu vergleichen — für die gleiche Anlage variieren die Preise um mehrere tausend Franken.",
       },
       {
         heading: 'Wie viel kann ich tatsächlich sparen?',
         content: [
-          "Eine 10-kWp-Anlage produziert in der Schweiz jährlich ca. 9'000–10'000 kWh Strom. So sieht die Rechnung für ein typisches Einfamilienhaus aus:",
-          "Eigenverbrauch (ca. 30–40% ohne Speicher): 3'000 kWh × CHF 0.30/kWh = CHF 900/Jahr gespart. Rückliefervergütung (überschüssiger Strom): 6'000 kWh × CHF 0.10/kWh = CHF 600/Jahr Einnahmen. Gesamtnutzen pro Jahr: ca. CHF 1'500.",
-          "Bei einer Nettoinvestition von CHF 12'000 (nach EIV und Steuerabzug) ergibt das eine Amortisation von ca. 8 Jahren. Danach produzieren Sie über 15 Jahre praktisch kostenlosen Strom.",
-          "Mit einem Batteriespeicher steigt der Eigenverbrauch auf 60–70%, was die jährliche Ersparnis auf CHF 2'000–2'500 erhöht — bei allerdings höheren Anfangskosten.",
+          "So sieht die Rechnung für ein typisches Einfamilienhaus aus:",
+          "Nach der Amortisation produziert die Anlage weiterhin Strom und senkt den Netzbezug.",
         ],
-        highlight: "Über 25 Jahre beträgt der kumulierte Ertrag einer 10-kWp-Anlage CHF 45'000–75'000 — abzüglich aller Kosten bleibt ein Reingewinn von CHF 25'000–35'000. Das entspricht einer jährlichen Rendite von 6–10% auf das investierte Kapital. Keine Schweizer Bank bietet das.",
+        highlight: "Die tatsächliche Rendite hängt von Produktion, Eigenverbrauch, Strompreis und Investitionskosten ab.",
       },
       {
         heading: 'Lohnt sich eine Solaranlage in der Schweiz 2026 je nach Kanton?',
         content: [
-          "Die Schweiz ist kein homogenes Land — die Sonnenstunden, Strompreise und Förderungen variieren stark zwischen den Kantonen. Die Frage, ob sich eine Solaranlage lohnt, hat je nach Wohnort eine andere Antwort.",
+          "Die Schweiz ist kein homogenes Land — Produktion, Strompreise und Förderungen variieren stark zwischen den Kantonen. Die Frage, ob sich eine Solaranlage lohnt, hat je nach Wohnort eine andere Antwort.",
         ],
         bullets: [
-          "Tessin: ~2'100 Sonnenstunden/Jahr → 4–6 Jahre Amortisation → Bester Wert in der Schweiz",
-          "Wallis: ~2'000 Sonnenstunden/Jahr → 5–7 Jahre → Sehr hohe Sonneneinstrahlung, Rhonetal optimal",
-          "Waadt / Genf: ~1'800 Sonnenstunden/Jahr → 7–9 Jahre → Zusätzliche kantonale Förderungen",
-          "Bern: ~1'800 Sonnenstunden/Jahr → 8–10 Jahre → Gute Einstrahlung, solide Wirtschaftlichkeit",
-          "Basel: ~1'550 Sonnenstunden/Jahr → 9–11 Jahre → Basel-Stadt bietet zusätzliche Förderung",
-          "Zürich: ~1'500 Sonnenstunden/Jahr → 10–13 Jahre → Solarpflicht für Neubauten, Stadtförderung",
-          "Luzern / Aargau: ~1'500 Sonnenstunden/Jahr → 10–12 Jahre → Solide Wirtschaftlichkeit",
-          "St. Gallen: ~1'450 Sonnenstunden/Jahr → 11–13 Jahre → Kantonale Energieförderung verfügbar",
-          "Graubünden: ~1'700 Sonnenstunden/Jahr → 8–10 Jahre → BergCantonen mit hoher Einstrahlung",
+          `Mittelland: ${factRange(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'de')} kWh pro kWp und Jahr`,
+          `Tessin und Wallis: ${factRange(ECONOMIC_FACTS.production.ticinoValaisKwhPerKwp, 'de')} kWh pro kWp und Jahr`,
+          "Strompreise: kantonal unterschiedlich → Quelle: ElCom 2026",
         ],
-        highlight: "Lohnt sich eine Solaranlage in der Schweiz 2026 auch im Mittelland mit nur 1'500 Sonnenstunden? Ja — die Amortisation dauert etwas länger, aber über 25 Jahre bleibt sie klar rentabel. Selbst im sonnenärmsten Kanton produziert eine gut ausgerichtete Anlage genug Strom, um sich zu lohnen.",
+        highlight: "Auch im Mittelland kann sich eine Solaranlage lohnen. Die Amortisation hängt von Produktion, Eigenverbrauch und Strompreis ab.",
       },
       {
         heading: 'Für wen lohnt sich eine Solaranlage besonders?',
@@ -1402,11 +1360,11 @@ const articles: BlogArticle[] = [
           "Aus unserer Erfahrung mit über 1'000 Anlagen in der Schweiz lohnt sich eine Solaranlage am meisten für diese Situationen:",
         ],
         bullets: [
-          "Hausbesitzer mit hohem Tagesverbrauch: Wer tagsüber zu Hause ist — Homeoffice, Kinder, Pensionierte — verbraucht den Solarstrom direkt. Diese Haushalte amortisieren die Anlage oft 2–3 Jahre früher als im Durchschnitt.",
-          "Besitzer einer Wärmepumpe oder eines Elektroautos: Die Kombination Solaranlage + Wärmepumpe reduziert die Heizkosten um 40–60%. Wer das Auto tagsüber lädt, spart CHF 0.20–0.25 pro kWh gegenüber dem Netzstrom.",
-          "Hausbesitzer, die bald renovieren oder neu bauen: Bei einer Dachsanierung sind die Mehrkosten für die Solaranlage 20–30% tiefer — Gerüst und Handwerker sind ohnehin vor Ort.",
+          "Hausbesitzer mit hohem Tagesverbrauch: Wer tagsüber zu Hause ist — Homeoffice, Kinder, Pensionierte — verbraucht den Solarstrom direkt.",
+          "Haushalte mit Wärmepumpe können Solarstrom gezielt für Heizung und Warmwasser nutzen.",
+          "Haushalte mit Elektroauto können den Eigenverbrauch durch Laden während der Solarproduktion erhöhen.",
           "Mehrfamilienhausbesitzer mit ZEV: Ein Zusammenschluss zum Eigenverbrauch erlaubt den direkten Verkauf des Solarstroms an Mieter — das erhöht die Rendite erheblich.",
-          "Wer die steuerliche Absetzbarkeit noch nutzen will: Die Möglichkeit läuft Ende 2027 aus. Bei 25–35% Grenzsteuersatz bedeutet das eine reale Ersparnis von CHF 4'000–8'000.",
+          "Wer die steuerliche Absetzbarkeit noch nutzen will: Die Möglichkeit läuft Ende 2027 aus.",
         ],
       },
       {
@@ -1415,17 +1373,17 @@ const articles: BlogArticle[] = [
           "Ehrlichkeit ist uns wichtig. Lohnt sich eine Solaranlage in der Schweiz 2026 für jeden? Nicht immer gleich stark. Es gibt Situationen, in denen die Wirtschaftlichkeit eingeschränkt ist:",
         ],
         bullets: [
-          "Ungünstige Dachorientierung: Ein nach Norden ausgerichtetes Dach produziert bis zu 40% weniger als ein Süddach. Die Amortisationszeit verlängert sich spürbar — eine professionelle Analyse ist besonders wichtig.",
-          "Starke Verschattung: Bäume, Nachbargebäude oder Dachaufbauten können die Produktion um 10–20% senken. Moderne Optimierer und Mikroinverter können helfen, erhöhen aber die Kosten.",
-          "Geplanter Hausverkauf in wenigen Jahren: Eine Solaranlage steigert den Liegenschaftswert um 3–5%, aber die volle Amortisation dauert 8–12 Jahre. Wer in 2–3 Jahren verkauft, profitiert finanziell weniger.",
+          "Die Amortisationszeit verlängert sich spürbar — eine professionelle Analyse ist besonders wichtig.",
+          "Moderne Optimierer und Mikroinverter können helfen, erhöhen aber die Kosten.",
+          "Wer in 2–3 Jahren verkauft, profitiert finanziell weniger.",
           "Sehr altes Dach: Wenn das Dach in den nächsten 5–10 Jahren saniert werden muss, sollte man Sanierung und Solaranlage kombinieren. Eine Anlage auf einem maroden Dach ist nicht sinnvoll.",
         ],
       },
       {
         heading: 'Was ändert sich 2026 bei der Förderung?',
         content: [
-          "Neue Rückliefervergütung ab Marktpreis: Ab 2026 orientiert sich die Rückliefervergütung am Börsenpreis des Stroms. Im Sommer kann die Vergütung sinken, wenn viele Anlagen gleichzeitig einspeisen. Für kleine Anlagen unter 150 kWp gibt es eine Mindestvergütung als Schutz.",
-          "Steuerliche Absetzbarkeit läuft 2027 aus: Die Möglichkeit, die gesamte Investition als Liegenschaftsunterhalt von der Steuer abzuziehen, gilt nur noch bis Ende 2027. Bei 25–35% Grenzsteuersatz: CHF 4'000–8'000 reale Ersparnis auf eine typische Anlage. Die Planung und Installation dauert 4–12 Wochen — wer diesen Vorteil nutzen möchte, sollte jetzt handeln.",
+          "Neue Rückliefervergütung ab Marktpreis: Ab 2026 orientiert sich die Rückliefervergütung am Börsenpreis des Stroms. Im Sommer kann die Vergütung sinken, wenn viele Anlagen gleichzeitig einspeisen.",
+          "Steuerliche Absetzbarkeit läuft 2027 aus: Die Möglichkeit, die gesamte Investition als Liegenschaftsunterhalt von der Steuer abzuziehen, gilt nur noch bis Ende 2027. Die Planung und Installation dauert 4–12 Wochen — wer diesen Vorteil nutzen möchte, sollte jetzt handeln.",
           "Neue Lokale Elektrizitätsgemeinschaften (LEG) ab 2026: Hausbesitzer können ihren überschüssigen Solarstrom direkt an Nachbarn verkaufen — ohne gemeinsames Dach. Das eröffnet neue Möglichkeiten für Quartierslösungen und erhöht die Wirtschaftlichkeit für alle Beteiligten.",
         ],
       },
@@ -1435,8 +1393,8 @@ const articles: BlogArticle[] = [
           "Eine der häufigsten Fragen, die wir von Schweizer Hausbesitzern erhalten: Lohnt sich eine Solaranlage mit oder ohne Batteriespeicher besser?",
         ],
         bullets: [
-          "Ohne Speicher: Eigenverbrauch ca. 30–40%, Amortisation ca. 8–12 Jahre, tiefere Anfangsinvestition, sofort rentabel",
-          "Mit Speicher: Eigenverbrauch ca. 60–80%, Amortisation ca. 10–14 Jahre (Gesamtsystem), höhere Anfangsinvestition (+CHF 7'000–12'000), besonders rentabel mit E-Auto oder Wärmepumpe",
+          `Ohne Speicher: typischer Eigenverbrauch ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'de')}%`,
+          `Mit Speicher: typischer Eigenverbrauch ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'de')}%`,
         ],
         highlight: "Fazit: Eine Solaranlage ohne Speicher lohnt sich sofort. Ein Speicher lohnt sich dann, wenn der Abendverbrauch hoch ist oder ein E-Auto und eine Wärmepumpe vorhanden sind. Wer eine Anlage plant, sollte den Wechselrichter so wählen, dass ein Speicher später problemlos nachgerüstet werden kann.",
       },
@@ -1444,7 +1402,7 @@ const articles: BlogArticle[] = [
         heading: "Unsere Empfehlung nach 1'000+ vermittelten Anlagen",
         content: [
           "Lohnt sich eine Solaranlage in der Schweiz 2026? Nach drei Jahren Erfahrung und über 1'000 vermittelten Anlagen können wir eines sagen: Der häufigste Fehler ist nicht zu früh zu investieren — sondern zu lange zu warten und dabei Steuervorteil, Förderung und Stromkostenersparnis zu verlieren.",
-          "Der zweitgrösste Fehler ist, nur eine einzige Offerte einzuholen. Für die gleiche Anlage variieren die Preise zwischen verschiedenen Installateuren um mehrere tausend Franken. Wer drei Offerten vergleicht, spart im Schnitt CHF 2'000–4'000 — ohne auf Qualität zu verzichten.",
+          "Der zweitgrösste Fehler ist, nur eine einzige Offerte einzuholen. Für die gleiche Anlage variieren die Preise zwischen verschiedenen Installateuren um mehrere tausend Franken.",
           "PvPro.ch vermittelt kostenlos bis zu 3 zertifizierte Installateure aus Ihrem Kanton. In 2 Minuten Formular ausfüllen — und innerhalb von 48 Stunden haben Sie konkrete Angebote zum Vergleichen.",
         ],
       },
@@ -1464,12 +1422,11 @@ const articles: BlogArticle[] = [
       { label: 'Offerten vergleichen', href: '/solaranlage-offerte-einholen' },
     ],
     faqs: [
-      { question: 'Lohnt sich eine Solaranlage in der Schweiz 2026 wirklich?', answer: "Ja. Dank gesunkener Modulpreise, gestiegener Strompreise und attraktiver Förderung lohnt sich eine Solaranlage in der Schweiz 2026 mehr als je zuvor. Die Amortisation liegt je nach Kanton bei 4–13 Jahren, bei einer Lebensdauer von 25–30 Jahren." },
-      { question: 'Lohnt sich eine Solaranlage in der Schweiz auch ohne viel Sonne?', answer: "Ja. Moderne Module produzieren auch bei bewölktem Himmel Strom. Selbst im Kanton Zürich mit ca. 1'500 Sonnenstunden pro Jahr amortisiert sich eine Anlage in 10–13 Jahren — bei einer Lebensdauer von 25–30 Jahren ist das klar rentabel." },
-      { question: 'Wie viel spart man mit einer Solaranlage pro Jahr?', answer: "Eine typische 10-kWp-Anlage spart ohne Speicher ca. CHF 1'500 pro Jahr. Mit Speicher, Wärmepumpe oder E-Auto steigt die jährliche Ersparnis auf CHF 2'000–3'000." },
-      { question: 'Wann amortisiert sich eine Solaranlage in der Schweiz?', answer: "Im Durchschnitt in 8–12 Jahren — je nach Kanton, Eigenverbrauch und Förderung. Im Tessin bereits in 4–6 Jahren, im Mittelland eher in 10–13 Jahren. Nach der Amortisation produzieren Sie über 15 Jahre praktisch kostenlosen Strom." },
-      { question: 'Lohnt sich eine Solaranlage ohne Batteriespeicher?', answer: "Ja. Eine Solaranlage ohne Speicher ist bereits rentabel. Der Speicher erhöht die Ersparnis, verlängert aber die Amortisationszeit des Gesamtsystems um 1–2 Jahre. Ob er sich lohnt, hängt vom Verbrauchsprofil ab." },
-      { question: 'Welcher Kanton in der Schweiz eignet sich am besten für Solarenergie?', answer: "Das Tessin mit über 2'100 Sonnenstunden pro Jahr hat den besten Ausgangspunkt für eine schnelle Amortisation. Aber auch im Wallis, in Graubünden und am Genfersee sind die Bedingungen ausgezeichnet. Selbst im Mittelland lohnt sich eine Solaranlage klar." },
+      { question: 'Lohnt sich eine Solaranlage in der Schweiz 2026 wirklich?', answer: "Ja. Dank gesunkener Modulpreise, gestiegener Strompreise und attraktiver Förderung lohnt sich eine Solaranlage in der Schweiz 2026 mehr als je zuvor." },
+      { question: 'Lohnt sich eine Solaranlage in der Schweiz auch bei weniger Sonneneinstrahlung?', answer: `Ja. Im Mittelland liegt die typische Produktion bei ${factRange(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'de')} kWh pro kWp und Jahr. Die Amortisation beträgt dort ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'de')} Jahre.` },
+      { question: 'Wann amortisiert sich eine Solaranlage in der Schweiz?', answer: `Im Mittelland dauert die Amortisation ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'de')} Jahre, im Tessin und Wallis ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'de')} Jahre.` },
+      { question: 'Lohnt sich eine Solaranlage ohne Batteriespeicher?', answer: "Ja. Eine Solaranlage ohne Speicher ist bereits rentabel. Ob er sich lohnt, hängt vom Verbrauchsprofil ab." },
+      { question: 'Welcher Kanton in der Schweiz eignet sich am besten für Solarenergie?', answer: `Im Tessin und Wallis liegt die typische Produktion bei ${factRange(ECONOMIC_FACTS.production.ticinoValaisKwhPerKwp, 'de')} kWh pro kWp und Jahr. Im Mittelland sind es ${factRange(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'de')} kWh pro kWp und Jahr.` },
       { question: 'Lohnt sich eine Solaranlage für ein Mehrfamilienhaus?', answer: "Ja, oft sogar besser als für ein Einfamilienhaus. Die grössere Dachfläche ermöglicht eine leistungsstärkere Anlage. Mit einem ZEV (Zusammenschluss zum Eigenverbrauch) kann der Strom direkt an die Mieter verkauft werden — das erhöht die Rendite erheblich." },
       { question: 'Was passiert mit der Steuerabzugsmöglichkeit nach 2027?', answer: "Die Möglichkeit, die Investition als Liegenschaftsunterhalt steuerlich abzuziehen, läuft Ende 2027 aus. Wer noch davon profitieren möchte, sollte die Installation zeitnah planen — denn von der Offerte bis zur Inbetriebnahme vergehen 4–12 Wochen." },
       { question: 'Wie finde ich den günstigsten Installateur in meinem Kanton?', answer: "Indem Sie mindestens 3 Offerten vergleichen. PvPro.ch vermittelt kostenlos bis zu 3 zertifizierte Installateure aus Ihrem Kanton — ohne Werbeanrufe und ohne Verpflichtung." },
@@ -1486,62 +1443,38 @@ const articles: BlogArticle[] = [
     date: '3 mai 2026',
     readMin: 10,
     tag: 'Guide',
-    intro: "Vaut-il vraiment la peine d'investir dans une installation solaire en Suisse en 2026? Oui — mais pas de la même manière pour tout le monde. La rentabilité dépend de votre canton, de votre consommation, de l'orientation de votre toit et de la manière dont vous exploitez les subventions disponibles. Après trois ans d'expérience avec plus de 1'000 installations réalisées dans toute la Suisse, nous avons une réponse claire — avec de vrais chiffres, sans embellissement.",
+    intro: "Vaut-il vraiment la peine d'investir dans une installation solaire en Suisse en 2026? Oui — mais pas de la même manière pour tout le monde. La rentabilité dépend de votre canton, de votre consommation, de l'orientation de votre toit et de la manière dont vous exploitez les subventions disponibles.",
     sections: [
       {
         heading: "Installation solaire 2026 — la réponse courte",
         content: [
           "Vaut-il la peine d'investir dans une installation solaire en Suisse en 2026? Oui, plus que jamais. Trois évolutions font de 2026 la meilleure année pour investir:",
-          "Premièrement, les prix des modules ont baissé d'environ 30% au cours des cinq dernières années. Une installation typique de 10 kWc pour une maison individuelle coûte aujourd'hui CHF 16'000–28'000 — nettement moins qu'en 2019.",
-          "Deuxièmement, les prix de l'électricité en Suisse ont augmenté. Celui qui paie aujourd'hui 30 centimes par kWh économise chaque année davantage grâce à une installation solaire.",
-          "Troisièmement, la déductibilité fiscale expire fin 2027. Celui qui investit maintenant peut encore déduire l'intégralité de l'investissement de son impôt sur le revenu — une économie de 20–35% selon le taux marginal d'imposition. Attendre, c'est perdre cet avantage.",
+          "Deuxièmement, les prix de l'électricité en Suisse ont augmenté.",
+          "Troisièmement, la déductibilité fiscale expire fin 2027. Celui qui investit maintenant peut encore déduire l'intégralité de l'investissement de son impôt sur le revenu. Attendre, c'est perdre cet avantage.",
         ],
         stats: [
-          { label: 'Amortissement typique 2026', value: '8–12 ans' },
-          { label: 'Économies sur 25 ans (10 kWc)', value: "CHF 75'000" },
-          { label: 'Économie fiscale sur investissement', value: "Jusqu'à 35%" },
+          { label: 'Amortissement typique 2026', value: `${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'fr')} ans` },
         ],
-      },
-      {
-        heading: "Combien coûte une installation solaire en 2026 en Suisse?",
-        content: [
-          "Avant de répondre si une installation solaire vaut la peine en Suisse en 2026, nous devons savoir ce qu'elle coûte. Les prix sont au plus bas en 2026. Voici les valeurs indicatives actuelles, installation incluse:",
-        ],
-        bullets: [
-          "5 kWc (petite maison): brut CHF 9'000–11'000 → après RU CHF 7'100–9'100 → après déduction fiscale (25%) CHF 5'300–6'800",
-          "8 kWc (maison standard): brut CHF 13'000–16'000 → après RU CHF 10'300–13'000 → après déduction fiscale CHF 7'700–9'700",
-          "10 kWc (grande maison): brut CHF 16'000–20'000 → après RU CHF 12'450–16'450 → après déduction fiscale CHF 9'300–12'300",
-          "15 kWc (immeuble / grand): brut CHF 22'000–28'000 → après RU CHF 17'200–23'200 → après déduction fiscale CHF 12'900–17'400",
-        ],
-        highlight: "RU = Rétribution unique fédérale (env. CHF 380/kWc + CHF 700 de contribution de base). Déduction fiscale selon canton et revenu. Nous recommandons toujours de comparer au moins 3 offres — pour la même installation, les prix peuvent varier de plusieurs milliers de francs.",
       },
       {
         heading: "Combien puis-je réellement économiser?",
         content: [
-          "Une installation de 10 kWc produit en Suisse environ 9'000–10'000 kWh par an. Voici le calcul pour une maison individuelle typique:",
-          "Autoconsommation (env. 30–40% sans batterie): 3'000 kWh × CHF 0.30/kWh = CHF 900/an économisés. Rétribution pour l'injection (surplus): 6'000 kWh × CHF 0.10/kWh = CHF 600/an de revenus. Bénéfice total par an: env. CHF 1'500.",
-          "Pour un investissement net de CHF 12'000 (après RU et déduction fiscale), cela donne un amortissement d'environ 8 ans. Ensuite, vous produisez de l'électricité pratiquement gratuite pendant encore 15 ans.",
-          "Avec une batterie, l'autoconsommation monte à 60–70%, ce qui porte l'économie annuelle à CHF 2'000–2'500 — mais avec des coûts initiaux plus élevés.",
+          "Voici le calcul pour une maison individuelle typique:",
+          "Après l'amortissement, l'installation continue à produire et réduit les achats d'électricité au réseau.",
         ],
-        highlight: "Sur 25 ans, le rendement cumulé d'une installation de 10 kWc atteint CHF 45'000–75'000 — déduction faite de tous les coûts, il reste un bénéfice net de CHF 25'000–35'000. Soit un rendement annuel de 6–10% sur le capital investi. Aucune banque suisse n'offre cela.",
+        highlight: "Le rendement réel dépend de la production, de l'autoconsommation, du prix de l'électricité et de l'investissement.",
       },
       {
         heading: "Vaut-il la peine selon le canton?",
         content: [
-          "La Suisse n'est pas un pays homogène — les heures d'ensoleillement, les prix de l'électricité et les subventions varient fortement d'un canton à l'autre.",
+          "La Suisse n'est pas un pays homogène — la production, les prix de l'électricité et les subventions varient fortement d'un canton à l'autre.",
         ],
         bullets: [
-          "Tessin: ~2'100 heures d'ensoleillement/an → 4–6 ans d'amortissement → Meilleure rentabilité de Suisse",
-          "Valais: ~2'000 heures/an → 5–7 ans → Très fort ensoleillement, vallée du Rhône optimale",
-          "Vaud / Genève: ~1'800 heures/an → 7–9 ans → Subventions cantonales supplémentaires",
-          "Berne: ~1'800 heures/an → 8–10 ans → Bon ensoleillement, rentabilité solide",
-          "Bâle: ~1'550 heures/an → 9–11 ans → Bâle-Ville offre des subventions supplémentaires",
-          "Zurich: ~1'500 heures/an → 10–13 ans → Obligation solaire pour les nouvelles constructions",
-          "Lucerne / Argovie: ~1'500 heures/an → 10–12 ans → Rentabilité solide",
-          "Saint-Gall: ~1'450 heures/an → 11–13 ans → Subventions énergétiques cantonales disponibles",
-          "Grisons: ~1'700 heures/an → 8–10 ans → Cantons alpines avec fort ensoleillement",
+          `Plateau: ${factRange(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'fr')} kWh par kWc et par an`,
+          `Tessin et Valais: ${factRange(ECONOMIC_FACTS.production.ticinoValaisKwhPerKwp, 'fr')} kWh par kWc et par an`,
+          "Prix de l'électricité: différents selon le canton → source: ElCom 2026",
         ],
-        highlight: "Une installation solaire vaut-elle la peine dans le Plateau avec seulement 1'500 heures d'ensoleillement? Oui — l'amortissement prend un peu plus de temps, mais sur 25 ans, la rentabilité est clairement positive.",
+        highlight: "Une installation solaire peut aussi être rentable sur le Plateau. L'amortissement dépend de la production, de l'autoconsommation et du prix de l'électricité.",
       },
       {
         heading: "Pour qui une installation solaire est-elle particulièrement rentable?",
@@ -1549,11 +1482,11 @@ const articles: BlogArticle[] = [
           "D'après notre expérience avec plus de 1'000 installations en Suisse, une installation solaire est la plus rentable dans ces situations:",
         ],
         bullets: [
-          "Propriétaires avec une consommation élevée en journée: Ceux qui sont à la maison en journée — télétravail, enfants, retraités — consomment directement l'énergie solaire. Ces ménages amortissent leur installation 2–3 ans plus tôt que la moyenne.",
-          "Propriétaires d'une pompe à chaleur ou d'une voiture électrique: La combinaison solaire + pompe à chaleur réduit les coûts de chauffage de 40–60%. Recharger la voiture en journée permet d'économiser CHF 0.20–0.25 par kWh.",
-          "Propriétaires qui vont bientôt rénover ou construire: Lors d'une rénovation de toiture, le surcoût pour l'installation solaire est 20–30% inférieur — l'échafaudage et les artisans sont déjà sur place.",
+          "Propriétaires avec une consommation élevée en journée: Ceux qui sont à la maison en journée — télétravail, enfants, retraités — consomment directement l'énergie solaire.",
+          "Les ménages équipés d'une pompe à chaleur peuvent utiliser le solaire pour le chauffage et l'eau chaude.",
+          "Les ménages avec une voiture électrique peuvent augmenter l'autoconsommation en rechargeant pendant la production solaire.",
           "Propriétaires d'immeubles avec RCP: Un regroupement dans le cadre de la consommation propre permet de vendre l'énergie directement aux locataires — ce qui augmente considérablement le rendement.",
-          "Ceux qui veulent encore profiter de la déductibilité fiscale: La possibilité expire fin 2027. Avec un taux marginal de 25–35%: économie réelle de CHF 4'000–8'000.",
+          "Ceux qui veulent encore profiter de la déductibilité fiscale: La possibilité expire fin 2027.",
         ],
       },
       {
@@ -1562,17 +1495,17 @@ const articles: BlogArticle[] = [
           "La transparence est importante pour nous. Une installation solaire vaut-elle la peine pour tout le monde en 2026? Pas toujours de la même manière. Il existe des situations où la rentabilité est réduite:",
         ],
         bullets: [
-          "Orientation défavorable du toit: Un toit orienté au nord produit jusqu'à 40% d'électricité en moins. L'amortissement se prolonge sensiblement — une analyse professionnelle est particulièrement importante.",
-          "Ombrage important: Arbres, bâtiments voisins ou éléments de toiture peuvent réduire la production de 10–20%. Des optimiseurs modernes peuvent atténuer le problème, mais augmentent les coûts.",
-          "Vente prévue de la maison dans quelques années: Une installation solaire augmente la valeur du bien de 3–5%, mais l'amortissement complet prend 8–12 ans. Celui qui vend dans 2–3 ans en profite moins financièrement.",
+          "L'amortissement se prolonge sensiblement — une analyse professionnelle est particulièrement importante.",
+          "Des optimiseurs modernes peuvent atténuer le problème, mais augmentent les coûts.",
+          "Celui qui vend dans 2–3 ans en profite moins financièrement.",
           "Toit très ancien: Si le toit doit être rénové dans les 5–10 prochaines années, il vaut mieux combiner rénovation et installation solaire. Installer des panneaux sur un toit délabré n'est pas judicieux.",
         ],
       },
       {
         heading: "Qu'est-ce qui change en 2026 pour les subventions?",
         content: [
-          "Nouvelle rétribution pour l'injection au prix du marché: Depuis 2026, la rétribution est basée sur le prix de bourse de l'électricité. En été, quand de nombreuses installations injectent simultanément, la rétribution peut baisser. Pour les petites installations inférieures à 150 kWc, une rétribution minimale garantie protège les propriétaires.",
-          "La déductibilité fiscale expire en 2027: La possibilité de déduire l'investissement comme entretien immobilier ne vaut que jusqu'à fin 2027. Avec un taux marginal de 25–35%: CHF 4'000–8'000 d'économie réelle. La planification et l'installation durent 4–12 semaines — il faut agir maintenant.",
+          "Nouvelle rétribution pour l'injection au prix du marché: Depuis 2026, la rétribution est basée sur le prix de bourse de l'électricité. En été, quand de nombreuses installations injectent simultanément, la rétribution peut baisser.",
+          "La déductibilité fiscale expire en 2027: La possibilité de déduire l'investissement comme entretien immobilier ne vaut que jusqu'à fin 2027. La planification et l'installation durent 4–12 semaines — il faut agir maintenant.",
           "Nouvelles communautés locales d'électricité (CLE) depuis 2026: Les propriétaires peuvent vendre leur surplus d'énergie solaire directement aux voisins — sans toit commun. Cela crée de nouvelles opportunités et augmente la rentabilité pour tous.",
         ],
       },
@@ -1582,8 +1515,8 @@ const articles: BlogArticle[] = [
           "L'une des questions les plus fréquentes que nous recevons de propriétaires suisses: une installation solaire avec ou sans batterie est-elle plus rentable?",
         ],
         bullets: [
-          "Sans batterie: autoconsommation env. 30–40%, amortissement env. 8–12 ans, investissement initial plus faible, rentable immédiatement",
-          "Avec batterie: autoconsommation env. 60–80%, amortissement env. 10–14 ans (système complet), investissement initial plus élevé (+CHF 7'000–12'000), particulièrement rentable avec voiture électrique ou pompe à chaleur",
+          `Sans batterie: autoconsommation typique de ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'fr')}%`,
+          `Avec batterie: autoconsommation typique de ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'fr')}%`,
         ],
         highlight: "Conclusion: Une installation solaire sans batterie est rentable immédiatement. Une batterie est intéressante si la consommation en soirée est élevée ou si vous possédez une voiture électrique ou une pompe à chaleur. Lors de la planification, choisissez un onduleur compatible avec l'ajout futur d'une batterie.",
       },
@@ -1591,7 +1524,7 @@ const articles: BlogArticle[] = [
         heading: "Notre recommandation après plus de 1'000 installations",
         content: [
           "Une installation solaire vaut-elle la peine en Suisse en 2026? Après trois ans d'expérience et plus de 1'000 installations, nous pouvons affirmer: l'erreur la plus fréquente n'est pas d'investir trop tôt — c'est d'attendre trop longtemps et de perdre l'avantage fiscal, les subventions et les économies sur l'électricité.",
-          "La deuxième erreur la plus fréquente est de ne demander qu'une seule offre. Pour la même installation, les prix entre installateurs peuvent varier de plusieurs milliers de francs. Comparer trois offres permet d'économiser en moyenne CHF 2'000–4'000 — sans sacrifier la qualité.",
+          "La deuxième erreur la plus fréquente est de ne demander qu'une seule offre. Pour la même installation, les prix entre installateurs peuvent varier de plusieurs milliers de francs.",
           "PvPro.ch met gratuitement en relation jusqu'à 3 installateurs certifiés de votre canton. Remplissez le formulaire en 2 minutes — et recevez des offres concrètes dans les 48 heures.",
         ],
       },
@@ -1611,12 +1544,11 @@ const articles: BlogArticle[] = [
       { label: 'Demander des offres solaires', href: '/fr/demander-offre-panneau-solaire' },
     ],
     faqs: [
-      { question: "Une installation solaire vaut-elle vraiment la peine en Suisse en 2026?", answer: "Oui. Grâce à la baisse des prix des modules, à la hausse des prix de l'électricité et à des subventions attractives, une installation solaire vaut plus la peine que jamais en Suisse en 2026. L'amortissement se situe entre 4 et 13 ans selon le canton, pour une durée de vie de 25–30 ans." },
-      { question: "Une installation solaire vaut-elle la peine en Suisse sans beaucoup de soleil?", answer: "Oui. Les modules modernes produisent de l'électricité même par temps couvert. Dans le canton de Zurich, avec environ 1'500 heures d'ensoleillement par an, une installation s'amortit en 10–13 ans — pour une durée de vie de 25–30 ans, c'est clairement rentable." },
-      { question: "Combien économise-t-on avec une installation solaire par an?", answer: "Une installation typique de 10 kWc économise environ CHF 1'500 par an sans batterie. Avec une batterie, une pompe à chaleur ou une voiture électrique, l'économie annuelle monte à CHF 2'000–3'000." },
-      { question: "Quand une installation solaire s'amortit-elle en Suisse?", answer: "En moyenne en 8–12 ans — selon le canton, l'autoconsommation et les subventions. Au Tessin déjà en 4–6 ans, dans le Plateau plutôt en 10–13 ans. Après l'amortissement, vous produisez de l'électricité pratiquement gratuite pendant encore 15 ans." },
-      { question: "Une installation solaire sans batterie vaut-elle la peine?", answer: "Oui. Une installation sans batterie est déjà rentable. La batterie augmente les économies, mais prolonge l'amortissement du système complet de 1–2 ans. Sa rentabilité dépend du profil de consommation." },
-      { question: "Quel canton suisse est le plus adapté à l'énergie solaire?", answer: "Le Tessin, avec plus de 2'100 heures d'ensoleillement par an, offre les meilleures conditions pour un amortissement rapide. Mais le Valais, les Grisons et le lac Léman offrent également d'excellentes conditions. Même dans le Plateau, une installation solaire est clairement rentable." },
+      { question: "Une installation solaire vaut-elle vraiment la peine en Suisse en 2026?", answer: "Oui. Grâce à la baisse des prix des modules, à la hausse des prix de l'électricité et à des subventions attractives, une installation solaire vaut plus la peine que jamais en Suisse en 2026." },
+      { question: "Une installation solaire vaut-elle la peine en Suisse avec un rayonnement solaire plus faible?", answer: "Oui." },
+      { question: "Quand une installation solaire s'amortit-elle en Suisse?", answer: `Sur le Plateau, il faut généralement compter ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'fr')} ans, et au Tessin et en Valais ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'fr')} ans. La durée exacte dépend du système, du lieu et de l'utilisation.` },
+      { question: "Une installation solaire sans batterie vaut-elle la peine?", answer: "Oui. Une installation sans batterie est déjà rentable. Sa rentabilité dépend du profil de consommation." },
+      { question: "Quel canton suisse est le plus adapté à l'énergie solaire?", answer: `Au Tessin et en Valais, la production typique est de ${factRange(ECONOMIC_FACTS.production.ticinoValaisKwhPerKwp, 'fr')} kWh par kWc et par an. Sur le Plateau, elle est de ${factRange(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'fr')} kWh par kWc et par an.` },
       { question: "Une installation solaire vaut-elle la peine pour un immeuble?", answer: "Oui, souvent encore mieux que pour une maison individuelle. La grande surface de toit permet une installation plus puissante. Avec un RCP, le courant peut être vendu directement aux locataires — ce qui augmente considérablement le rendement." },
       { question: "Que se passe-t-il avec la déductibilité fiscale après 2027?", answer: "La possibilité de déduire l'investissement comme entretien immobilier expire fin 2027. Pour en profiter, il faut planifier l'installation rapidement — de l'offre à la mise en service, il faut compter 4–12 semaines." },
       { question: "Comment trouver l'installateur le moins cher dans mon canton?", answer: "En comparant au moins 3 offres. PvPro.ch met gratuitement en contact jusqu'à 3 installateurs certifiés de votre canton — sans appels publicitaires et sans engagement." },
@@ -1639,56 +1571,32 @@ const articles: BlogArticle[] = [
         heading: 'Is solar worth it in 2026? — the short answer',
         content: [
           "Is solar worth it in Switzerland in 2026? Yes, more than ever. Three developments make 2026 the best year to invest in a solar system:",
-          "First, module prices have fallen by around 30% over the past five years. A typical 10 kWp system for a detached house now costs CHF 16,000–28,000 — significantly less than in 2019.",
-          "Second, electricity prices in Switzerland have risen. Anyone paying 30 centimes per kWh today saves more each year with a solar system than before.",
-          "Third, tax deductibility expires at the end of 2027. Those who invest now can still deduct the full investment from their income tax — a saving of 20–35% depending on the marginal tax rate. Waiting means losing this advantage.",
+          "Second, electricity prices in Switzerland have risen.",
+          "Third, tax deductibility expires at the end of 2027. Those who invest now can still deduct the full investment from their income tax. Waiting means losing this advantage.",
         ],
         stats: [
-          { label: 'Typical payback 2026', value: '8–12 years' },
-          { label: 'Savings over 25 years (10 kWp)', value: 'CHF 75,000' },
-          { label: 'Tax saving on investment', value: 'Up to 35%' },
+          { label: 'Typical payback 2026', value: `${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'en')} years` },
         ],
-      },
-      {
-        heading: 'What does a solar system cost in Switzerland in 2026?',
-        content: [
-          "Before answering whether solar is worth it in Switzerland in 2026, we need to know what it costs. Prices in 2026 are at an all-time low. Here are the current guide prices including installation:",
-        ],
-        bullets: [
-          "5 kWp (small house): gross CHF 9,000–11,000 → after OTP CHF 7,100–9,100 → after tax deduction (25%) CHF 5,300–6,800",
-          "8 kWp (standard house): gross CHF 13,000–16,000 → after OTP CHF 10,300–13,000 → after tax deduction CHF 7,700–9,700",
-          "10 kWp (large house): gross CHF 16,000–20,000 → after OTP CHF 12,450–16,450 → after tax deduction CHF 9,300–12,300",
-          "15 kWp (apartment building / large): gross CHF 22,000–28,000 → after OTP CHF 17,200–23,200 → after tax deduction CHF 12,900–17,400",
-        ],
-        highlight: "OTP = One-Time Payment from the federal government (approx. CHF 380/kWp + CHF 700 base contribution). Tax deduction varies by canton and income. We always recommend comparing at least 3 quotes — for the same system, prices can vary by several thousand francs.",
       },
       {
         heading: 'How much can I actually save?',
         content: [
-          "A 10 kWp system produces approximately 9,000–10,000 kWh of electricity per year in Switzerland. Here is the calculation for a typical detached house:",
-          "Self-consumption (approx. 30–40% without storage): 3,000 kWh × CHF 0.30/kWh = CHF 900/year saved. Feed-in tariff (surplus electricity): 6,000 kWh × CHF 0.10/kWh = CHF 600/year income. Total benefit per year: approx. CHF 1,500.",
-          "With a net investment of CHF 12,000 (after OTP and tax deduction), this gives a payback period of approximately 8 years. After that, you produce practically free electricity for another 15 years.",
-          "With a battery, self-consumption rises to 60–70%, increasing annual savings to CHF 2,000–2,500 — but with higher upfront costs.",
+          "Here is the calculation for a typical detached house:",
+          "After payback, the system continues to produce electricity and reduce grid purchases.",
         ],
-        highlight: "Over 25 years, the cumulative return from a 10 kWp system is CHF 45,000–75,000 — after all costs, a net profit of CHF 25,000–35,000 remains. That corresponds to an annual return of 6–10% on the invested capital. No Swiss bank offers that.",
+        highlight: "The actual return depends on production, self-consumption, electricity prices and investment costs.",
       },
       {
         heading: 'Is solar worth it in Switzerland in 2026, canton by canton?',
         content: [
-          "Switzerland is not a homogeneous country — sunshine hours, electricity prices and subsidies vary greatly between cantons.",
+          "Switzerland is not a homogeneous country — production, electricity prices and subsidies vary greatly between cantons.",
         ],
         bullets: [
-          "Ticino: ~2,100 sunshine hours/year → 4–6 years payback → Best value in Switzerland",
-          "Valais: ~2,000 hours/year → 5–7 years → Very high solar irradiance, Rhône valley optimal",
-          "Vaud / Geneva: ~1,800 hours/year → 7–9 years → Additional cantonal subsidies",
-          "Bern: ~1,800 hours/year → 8–10 years → Good irradiance, solid economics",
-          "Basel: ~1,550 hours/year → 9–11 years → Basel-Stadt offers additional subsidies",
-          "Zurich: ~1,500 hours/year → 10–13 years → Mandatory solar for new buildings, city subsidies",
-          "Lucerne / Aargau: ~1,500 hours/year → 10–12 years → Solid economics",
-          "St. Gallen: ~1,450 hours/year → 11–13 years → Cantonal energy subsidies available",
-          "Grisons: ~1,700 hours/year → 8–10 years → Alpine cantons with high irradiance",
+          `Swiss Plateau: ${factRange(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'en')} kWh per kWp and year`,
+          `Ticino and Valais: ${factRange(ECONOMIC_FACTS.production.ticinoValaisKwhPerKwp, 'en')} kWh per kWp and year`,
+          "Electricity prices: differ by canton → source: ElCom 2026",
         ],
-        highlight: "Is solar worth it in Switzerland even in the Plateau with only 1,500 sunshine hours? Yes — the payback takes a little longer, but over 25 years the economics are clearly positive.",
+        highlight: "Solar can also be worthwhile in the Swiss Plateau. Payback depends on production, self-consumption and electricity price.",
       },
       {
         heading: 'For whom is solar particularly worthwhile?',
@@ -1696,11 +1604,11 @@ const articles: BlogArticle[] = [
           "Based on our experience with over 1,000 installations in Switzerland, solar pays off most in these situations:",
         ],
         bullets: [
-          "Homeowners with high daytime consumption: Those who are home during the day — home office, children, retirees — consume the solar electricity directly. These households pay back their system 2–3 years earlier than average.",
-          "Owners of a heat pump or electric car: The combination of solar + heat pump reduces heating costs by 40–60%. Charging the car during the day saves CHF 0.20–0.25 per kWh compared to grid electricity.",
-          "Homeowners who plan to renovate or build soon: During a roof renovation, the additional cost for solar is 20–30% lower — scaffolding and tradespeople are already on site.",
+          "Homeowners with high daytime consumption: Those who are home during the day — home office, children, retirees — consume the solar electricity directly.",
+          "Households with a heat pump can use solar electricity for heating and hot water.",
+          "Households with an electric car can increase self-consumption by charging during solar production.",
           "Apartment building owners with self-consumption groups: A self-consumption community allows selling solar electricity directly to tenants — this significantly increases returns.",
-          "Those who still want to use the tax deduction: The option expires at end of 2027. With a marginal tax rate of 25–35%: real saving of CHF 4,000–8,000.",
+          "Those who still want to use the tax deduction: The option expires at end of 2027.",
         ],
       },
       {
@@ -1709,17 +1617,17 @@ const articles: BlogArticle[] = [
           "Honesty matters to us. Is solar worth it in Switzerland in 2026 for everyone? Not always equally. There are situations where the economics are limited:",
         ],
         bullets: [
-          "Unfavourable roof orientation: A north-facing roof produces up to 40% less electricity than a south-facing one. Payback extends noticeably — a professional analysis is particularly important.",
-          "Heavy shading: Trees, neighbouring buildings or roof features can reduce production by 10–20%. Modern optimisers can mitigate the problem but increase costs.",
-          "Planned house sale in a few years: A solar system increases property value by 3–5%, but full payback takes 8–12 years. Those selling in 2–3 years benefit less financially.",
+          "Payback extends noticeably — a professional analysis is particularly important.",
+          "Modern optimisers can mitigate the problem but increase costs.",
+          "Those selling in 2–3 years benefit less financially.",
           "Very old roof: If the roof needs renovation in the next 5–10 years, combining the renovation with the solar installation is best. Installing panels on a dilapidated roof is not advisable.",
         ],
       },
       {
         heading: 'What changes in 2026 for subsidies?',
         content: [
-          "New feed-in tariff at market price: From 2026, the feed-in tariff is based on the electricity spot price. In summer, when many systems feed in simultaneously, the tariff may fall. For small systems under 150 kWp, a minimum tariff provides protection.",
-          "Tax deductibility expires in 2027: The option to deduct the full investment as property maintenance expires at end of 2027. With a marginal tax rate of 25–35%: CHF 4,000–8,000 real saving. Planning and installation takes 4–12 weeks — act now.",
+          "In summer, when many systems feed in simultaneously, the tariff may fall.",
+          "Tax deductibility expires in 2027: The option to deduct the full investment as property maintenance expires at end of 2027. Planning and installation takes 4–12 weeks — act now.",
           "New local electricity communities (LEC) from 2026: Homeowners can sell their surplus solar electricity directly to neighbours — without a shared roof. This opens new possibilities and increases economics for all parties.",
         ],
       },
@@ -1729,8 +1637,8 @@ const articles: BlogArticle[] = [
           "One of the most frequent questions we receive from Swiss homeowners: is solar more worthwhile with or without battery storage?",
         ],
         bullets: [
-          "Without storage: self-consumption approx. 30–40%, payback approx. 8–12 years, lower upfront investment, profitable immediately",
-          "With storage: self-consumption approx. 60–80%, payback approx. 10–14 years (full system), higher upfront investment (+CHF 7,000–12,000), particularly worthwhile with EV or heat pump",
+          `Without storage: typical self-consumption ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'en')}%`,
+          `With storage: typical self-consumption ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'en')}%`,
         ],
         highlight: "Conclusion: A solar system without storage pays off immediately. Storage makes sense when evening consumption is high or you have an electric car and heat pump. When planning, choose an inverter that allows battery storage to be added later.",
       },
@@ -1738,7 +1646,7 @@ const articles: BlogArticle[] = [
         heading: "Our recommendation after 1,000+ installations arranged",
         content: [
           "Is solar worth it in Switzerland in 2026? After three years of experience and over 1,000 installations arranged, we can say: the most common mistake is not investing too early — it is waiting too long and losing the tax advantage, subsidies and electricity cost savings.",
-          "The second most common mistake is requesting only one quote. For the same system, prices between installers can vary by several thousand francs. Comparing three quotes saves an average of CHF 2,000–4,000 — without sacrificing quality.",
+          "The second most common mistake is requesting only one quote. For the same system, prices between installers can vary by several thousand francs.",
           "PvPro.ch connects you free of charge with up to 3 certified installers in your canton. Fill in the form in 2 minutes — and receive concrete quotes within 48 hours.",
         ],
       },
@@ -1758,12 +1666,11 @@ const articles: BlogArticle[] = [
       { label: 'Compare solar quotes', href: '/en/get-solar-panel-quotes' },
     ],
     faqs: [
-      { question: 'Is solar really worth it in Switzerland in 2026?', answer: 'Yes. Thanks to falling module prices, rising electricity prices and attractive subsidies, solar is more worthwhile than ever in Switzerland in 2026. Payback is between 4 and 13 years depending on the canton, with a system lifespan of 25–30 years.' },
-      { question: 'Is solar worth it in Switzerland without much sunshine?', answer: 'Yes. Modern modules produce electricity even under cloudy skies. Even in the canton of Zurich with around 1,500 sunshine hours per year, a system pays back in 10–13 years — for a 25–30 year lifespan, that is clearly worthwhile.' },
-      { question: 'How much does a solar system save per year?', answer: 'A typical 10 kWp system saves around CHF 1,500 per year without storage. With storage, a heat pump or an electric car, annual savings rise to CHF 2,000–3,000.' },
-      { question: 'When does a solar system pay back in Switzerland?', answer: 'On average in 8–12 years — depending on canton, self-consumption and subsidies. In Ticino already in 4–6 years, in the Plateau rather 10–13 years. After payback, you produce practically free electricity for another 15 years.' },
-      { question: 'Is solar worth it without battery storage?', answer: 'Yes. A solar system without storage is already profitable. Battery storage increases savings but extends payback of the full system by 1–2 years. Whether it is worthwhile depends on your consumption profile.' },
-      { question: 'Which Swiss canton is best suited for solar energy?', answer: 'Ticino, with over 2,100 sunshine hours per year, offers the best conditions for fast payback. But Valais, Grisons and the Lake Geneva area also offer excellent conditions. Even in the Plateau, solar is clearly worthwhile.' },
+      { question: 'Is solar really worth it in Switzerland in 2026?', answer: 'Yes. Thanks to falling module prices, rising electricity prices and attractive subsidies, solar is more worthwhile than ever in Switzerland in 2026.' },
+      { question: 'Is solar worth it in Switzerland with lower solar irradiation?', answer: 'Yes.' },
+      { question: 'When does a solar system pay back in Switzerland?', answer: `Payback is ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'en')} years on the Swiss Plateau and ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'en')} years in Ticino and Valais.` },
+      { question: 'Is solar worth it without battery storage?', answer: 'Yes. A solar system without storage is already profitable. Whether it is worthwhile depends on your consumption profile.' },
+      { question: 'Which Swiss canton is best suited for solar energy?', answer: `In Ticino and Valais, typical production is ${factRange(ECONOMIC_FACTS.production.ticinoValaisKwhPerKwp, 'en')} kWh per kWp and year. In the Swiss Plateau it is ${factRange(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'en')} kWh per kWp and year.` },
       { question: 'Is solar worth it for an apartment building?', answer: "Yes, often even better than for a detached house. The larger roof area allows a more powerful system. With a self-consumption community, electricity can be sold directly to tenants — significantly increasing returns." },
       { question: 'What happens to tax deductibility after 2027?', answer: 'The option to deduct the investment as property maintenance expires at end of 2027. Those who still want to benefit should plan the installation soon — from quote to commissioning takes 4–12 weeks.' },
       { question: 'How do I find the cheapest installer in my canton?', answer: 'By comparing at least 3 quotes. PvPro.ch connects you free of charge with up to 3 certified installers in your canton — no sales calls and no commitment.' },
@@ -1786,56 +1693,32 @@ const articles: BlogArticle[] = [
         heading: 'Vale la pena nel 2026? — la risposta breve',
         content: [
           "Vale la pena installare un impianto solare in Svizzera nel 2026? Sì, più che mai. Tre sviluppi rendono il 2026 il miglior anno per investire:",
-          "In primo luogo, i prezzi dei moduli sono scesi di circa il 30% negli ultimi cinque anni. Un impianto tipico da 10 kWp per una casa unifamiliare costa oggi CHF 16'000–28'000 — molto meno rispetto al 2019.",
-          "In secondo luogo, i prezzi dell'energia in Svizzera sono aumentati. Chi oggi paga 30 centesimi per kWh risparmia ogni anno di più grazie a un impianto solare.",
-          "In terzo luogo, la detraibilità fiscale scade a fine 2027. Chi investe ora può ancora detrarre l'intero investimento dall'imposta sul reddito — un risparmio del 20–35% a seconda dell'aliquota marginale. Chi aspetta perde questo vantaggio.",
+          "In secondo luogo, i prezzi dell'energia in Svizzera sono aumentati.",
+          "In terzo luogo, la detraibilità fiscale scade a fine 2027. Chi investe ora può ancora detrarre l'intero investimento dall'imposta sul reddito. Chi aspetta perde questo vantaggio.",
         ],
         stats: [
-          { label: 'Ammortamento tipico 2026', value: '8–12 anni' },
-          { label: 'Risparmio su 25 anni (10 kWp)', value: "CHF 75'000" },
-          { label: "Risparmio fiscale sull'investimento", value: 'Fino al 35%' },
+          { label: 'Ammortamento tipico 2026', value: `${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'it')} anni` },
         ],
-      },
-      {
-        heading: 'Quanto costa un impianto solare nel 2026 in Svizzera?',
-        content: [
-          "Prima di rispondere se vale la pena un impianto solare in Svizzera nel 2026, dobbiamo sapere quanto costa. I prezzi nel 2026 sono ai minimi storici. Ecco i valori indicativi attuali, installazione inclusa:",
-        ],
-        bullets: [
-          "5 kWp (casa piccola): lordo CHF 9'000–11'000 → dopo RU CHF 7'100–9'100 → dopo deduzione fiscale (25%) CHF 5'300–6'800",
-          "8 kWp (casa standard): lordo CHF 13'000–16'000 → dopo RU CHF 10'300–13'000 → dopo deduzione fiscale CHF 7'700–9'700",
-          "10 kWp (casa grande): lordo CHF 16'000–20'000 → dopo RU CHF 12'450–16'450 → dopo deduzione fiscale CHF 9'300–12'300",
-          "15 kWp (condominio / grande): lordo CHF 22'000–28'000 → dopo RU CHF 17'200–23'200 → dopo deduzione fiscale CHF 12'900–17'400",
-        ],
-        highlight: "RU = Remunerazione unica federale (ca. CHF 380/kWp + CHF 700 di contributo base). Deduzione fiscale variabile per cantone e reddito. Consigliamo sempre di confrontare almeno 3 preventivi — per lo stesso impianto, i prezzi possono variare di migliaia di franchi.",
       },
       {
         heading: 'Quanto posso risparmiare concretamente?',
         content: [
-          "Un impianto da 10 kWp produce in Svizzera circa 9'000–10'000 kWh all'anno. Ecco il calcolo per una tipica casa unifamiliare:",
-          "Autoconsumo (ca. 30–40% senza accumulo): 3'000 kWh × CHF 0.30/kWh = CHF 900/anno risparmiati. Remunerazione per l'immissione in rete (surplus): 6'000 kWh × CHF 0.10/kWh = CHF 600/anno di entrate. Beneficio totale per anno: ca. CHF 1'500.",
-          "Con un investimento netto di CHF 12'000 (dopo RU e deduzione fiscale) si ottiene un ammortamento di circa 8 anni. Dopo di che si produce energia praticamente gratuita per altri 15 anni.",
-          "Con un accumulatore a batteria l'autoconsumo sale al 60–70%, portando il risparmio annuale a CHF 2'000–2'500 — ma con costi iniziali più elevati.",
+          "Ecco il calcolo per una tipica casa unifamiliare:",
+          "Dopo l'ammortamento, l'impianto continua a produrre energia e riduce gli acquisti dalla rete.",
         ],
-        highlight: "Su 25 anni il rendimento cumulato di un impianto da 10 kWp raggiunge CHF 45'000–75'000 — detratti tutti i costi, resta un guadagno netto di CHF 25'000–35'000. Corrisponde a un rendimento annuo del 6–10% sul capitale investito. Nessuna banca svizzera offre questo.",
+        highlight: "Il rendimento effettivo dipende dalla produzione, dall'autoconsumo, dal prezzo dell'energia e dall'investimento.",
       },
       {
         heading: 'Vale la pena per cantone?',
         content: [
-          "La Svizzera non è un paese omogeneo — le ore di sole, i prezzi dell'energia e gli incentivi variano notevolmente da cantone a cantone.",
+          "La Svizzera non è un paese omogeneo — la produzione, i prezzi dell'energia e gli incentivi variano notevolmente da cantone a cantone.",
         ],
         bullets: [
-          "Ticino: ~2'100 ore di sole/anno → 4–6 anni di ammortamento → Miglior valore in Svizzera",
-          "Vallese: ~2'000 ore/anno → 5–7 anni → Irraggiamento molto elevato, valle del Rodano ottimale",
-          "Vaud / Ginevra: ~1'800 ore/anno → 7–9 anni → Incentivi cantonali aggiuntivi",
-          "Berna: ~1'800 ore/anno → 8–10 anni → Buon irraggiamento, convenienza solida",
-          "Basilea: ~1'550 ore/anno → 9–11 anni → Basilea-Città offre incentivi aggiuntivi",
-          "Zurigo: ~1'500 ore/anno → 10–13 anni → Obbligo solare per le nuove costruzioni",
-          "Lucerna / Argovia: ~1'500 ore/anno → 10–12 anni → Convenienza solida",
-          "San Gallo: ~1'450 ore/anno → 11–13 anni → Incentivi energetici cantonali disponibili",
-          "Grigioni: ~1'700 ore/anno → 8–10 anni → Zone alpine con elevato irraggiamento",
+          `Altopiano: ${factRange(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'it')} kWh per kWp all'anno`,
+          `Ticino e Vallese: ${factRange(ECONOMIC_FACTS.production.ticinoValaisKwhPerKwp, 'it')} kWh per kWp all'anno`,
+          "Prezzi dell'energia: diversi per cantone → fonte: ElCom 2026",
         ],
-        highlight: "Vale la pena un impianto solare in Svizzera nel 2026 anche nell'Altopiano con sole 1'500 ore di sole? Sì — l'ammortamento richiede un po' più di tempo, ma su 25 anni la convenienza è chiaramente positiva.",
+        highlight: "Un impianto solare può convenire anche sull'Altopiano. L'ammortamento dipende da produzione, autoconsumo e prezzo dell'energia.",
       },
       {
         heading: 'Per chi vale la pena particolarmente?',
@@ -1843,11 +1726,11 @@ const articles: BlogArticle[] = [
           "Dalla nostra esperienza con oltre 1'000 impianti in Svizzera, un impianto solare conviene di più in queste situazioni:",
         ],
         bullets: [
-          "Proprietari con alto consumo diurno: Chi è a casa di giorno — telelavoro, bambini, pensionati — consuma direttamente l'energia solare. Questi nuclei ammortizzano l'impianto 2–3 anni prima della media.",
-          "Proprietari di una pompa di calore o un'auto elettrica: La combinazione solare + pompa di calore riduce i costi di riscaldamento del 40–60%. Ricaricare l'auto di giorno fa risparmiare CHF 0.20–0.25 per kWh.",
-          "Proprietari che presto ristrutturano o costruiscono: In occasione di un risanamento del tetto, i costi aggiuntivi per l'impianto solare sono inferiori del 20–30% — impalcatura e artigiani sono già in loco.",
+          "Proprietari con alto consumo diurno: Chi è a casa di giorno — telelavoro, bambini, pensionati — consuma direttamente l'energia solare.",
+          "Le famiglie con pompa di calore possono usare l'energia solare per riscaldamento e acqua calda.",
+          "Le famiglie con auto elettrica possono aumentare l'autoconsumo ricaricando durante la produzione solare.",
           "Proprietari di condomini con CAC: Un consorzio per l'autoconsumo permette di vendere l'energia direttamente agli inquilini — aumentando notevolmente la redditività.",
-          "Chi vuole ancora sfruttare la detraibilità fiscale: La possibilità scade a fine 2027. Con un'aliquota marginale del 25–35%: risparmio reale di CHF 4'000–8'000.",
+          "Chi vuole ancora sfruttare la detraibilità fiscale: La possibilità scade a fine 2027.",
         ],
       },
       {
@@ -1856,17 +1739,17 @@ const articles: BlogArticle[] = [
           "La trasparenza è importante per noi. Vale la pena per tutti in Svizzera nel 2026? Non sempre allo stesso modo. Esistono situazioni in cui la convenienza economica è ridotta:",
         ],
         bullets: [
-          "Orientamento sfavorevole del tetto: Un tetto orientato a nord produce fino al 40% in meno rispetto a uno a sud. L'ammortamento si allunga sensibilmente — un'analisi professionale è particolarmente importante.",
-          "Forte ombreggiamento: Alberi, edifici vicini o elementi del tetto possono ridurre la produzione del 10–20%. Gli ottimizzatori moderni possono attenuare il problema, ma aumentano i costi.",
-          "Prevista vendita della casa entro pochi anni: Un impianto solare aumenta il valore dell'immobile del 3–5%, ma l'ammortamento completo richiede 8–12 anni. Chi vende tra 2–3 anni ne beneficia meno finanziariamente.",
+          "L'ammortamento si allunga sensibilmente — un'analisi professionale è particolarmente importante.",
+          "Gli ottimizzatori moderni possono attenuare il problema, ma aumentano i costi.",
+          "Prevista vendita della casa entro pochi anni: Un impianto solare può aumentare il valore dell'immobile, ma chi vende a breve ne beneficia meno finanziariamente.",
           "Tetto molto vecchio: Se il tetto deve essere risanato nei prossimi 5–10 anni, è meglio combinare il risanamento con l'installazione solare. Installare un impianto su un tetto fatiscente non è sensato.",
         ],
       },
       {
         heading: 'Cosa cambia nel 2026 per gli incentivi?',
         content: [
-          "Nuova remunerazione per l'immissione al prezzo di mercato: Dal 2026 la remunerazione si basa sul prezzo di borsa dell'energia. In estate, quando molti impianti immettono simultaneamente, la remunerazione può scendere. Per i piccoli impianti sotto i 150 kWp è prevista una remunerazione minima garantita.",
-          "La detraibilità fiscale scade nel 2027: La possibilità di detrarre l'investimento come manutenzione immobiliare vale solo fino a fine 2027. Con un'aliquota marginale del 25–35%: CHF 4'000–8'000 di risparmio reale. La pianificazione e l'installazione richiedono 4–12 settimane — è il momento di agire.",
+          "Nuova remunerazione per l'immissione al prezzo di mercato: Dal 2026 la remunerazione si basa sul prezzo di borsa dell'energia. In estate, quando molti impianti immettono simultaneamente, la remunerazione può scendere.",
+          "La detraibilità fiscale scade nel 2027: La possibilità di detrarre l'investimento come manutenzione immobiliare vale solo fino a fine 2027. La pianificazione e l'installazione richiedono 4–12 settimane — è il momento di agire.",
           "Nuove comunità locali dell'energia (CLE) dal 2026: I proprietari possono vendere il surplus di energia solare direttamente ai vicini — senza un tetto comune. Questo apre nuove possibilità e aumenta la convenienza per tutti.",
         ],
       },
@@ -1876,8 +1759,8 @@ const articles: BlogArticle[] = [
           "Una delle domande più frequenti che riceviamo dai proprietari svizzeri: conviene di più un impianto solare con o senza accumulatore?",
         ],
         bullets: [
-          "Senza accumulo: autoconsumo ca. 30–40%, ammortamento ca. 8–12 anni, investimento iniziale inferiore, redditizio immediatamente",
-          "Con accumulo: autoconsumo ca. 60–80%, ammortamento ca. 10–14 anni (sistema completo), investimento iniziale maggiore (+CHF 7'000–12'000), particolarmente conveniente con auto elettrica o pompa di calore",
+          `Senza accumulo: autoconsumo tipico ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, 'it')}%`,
+          `Con accumulo: autoconsumo ca. ${factRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, 'it')}%, particolarmente conveniente con auto elettrica o pompa di calore`,
         ],
         highlight: "Conclusione: Un impianto solare senza accumulo è già conveniente. L'accumulo conviene quando il consumo serale è elevato o si dispone di un'auto elettrica e una pompa di calore. In fase di pianificazione, scegliere un inverter compatibile con l'aggiunta futura di un accumulatore.",
       },
@@ -1885,7 +1768,7 @@ const articles: BlogArticle[] = [
         heading: "La nostra raccomandazione dopo oltre 1'000 impianti realizzati",
         content: [
           "Vale la pena un impianto solare in Svizzera nel 2026? Dopo tre anni di esperienza e oltre 1'000 impianti realizzati possiamo affermare: l'errore più frequente non è investire troppo presto — è aspettare troppo a lungo e perdere il vantaggio fiscale, gli incentivi e i risparmi sui costi dell'energia.",
-          "Il secondo errore più frequente è richiedere un solo preventivo. Per lo stesso impianto, i prezzi tra diversi installatori possono variare di migliaia di franchi. Chi confronta tre preventivi risparmia in media CHF 2'000–4'000 — senza rinunciare alla qualità.",
+          "Il secondo errore più frequente è richiedere un solo preventivo. Per lo stesso impianto, i prezzi tra diversi installatori possono variare di migliaia di franchi.",
           "PvPro.ch mette gratuitamente in contatto con fino a 3 installatori certificati della propria Cantone. Compilare il modulo in 2 minuti — e ricevere offerte concrete entro 48 ore.",
         ],
       },
@@ -1905,12 +1788,11 @@ const articles: BlogArticle[] = [
       { label: 'Richiedere preventivi solari', href: '/it/richiedere-preventivo-solare' },
     ],
     faqs: [
-      { question: 'Vale davvero la pena un impianto solare in Svizzera nel 2026?', answer: "Sì. Grazie al calo dei prezzi dei moduli, all'aumento dei prezzi dell'energia e a interessanti incentivi, un impianto solare conviene più che mai in Svizzera nel 2026. L'ammortamento varia da 4 a 13 anni a seconda del cantone, con una durata di vita di 25–30 anni." },
-      { question: 'Vale la pena un impianto solare in Svizzera anche senza molto sole?', answer: "Sì. I moduli moderni producono energia anche con il cielo coperto. Persino nel cantone di Zurigo con circa 1'500 ore di sole all'anno, un impianto si ammortizza in 10–13 anni — per una durata di vita di 25–30 anni è chiaramente conveniente." },
-      { question: "Quanto si risparmia con un impianto solare all'anno?", answer: "Un impianto tipico da 10 kWp risparmia circa CHF 1'500 all'anno senza accumulo. Con accumulo, pompa di calore o auto elettrica, il risparmio annuale sale a CHF 2'000–3'000." },
-      { question: 'Quando si ammortizza un impianto solare in Svizzera?', answer: "In media in 8–12 anni — a seconda del cantone, dell'autoconsumo e degli incentivi. In Ticino già in 4–6 anni, nell'Altopiano piuttosto in 10–13 anni. Dopo l'ammortamento si produce energia praticamente gratuita per altri 15 anni." },
-      { question: 'Vale la pena un impianto solare senza accumulo?', answer: "Sì. Un impianto senza accumulo è già redditizio. L'accumulo aumenta i risparmi, ma allunga l'ammortamento del sistema completo di 1–2 anni. La convenienza dipende dal profilo di consumo." },
-      { question: "Quale cantone svizzero è più adatto all'energia solare?", answer: "Il Ticino con oltre 2'100 ore di sole all'anno offre le migliori condizioni per un ammortamento rapido. Ma anche Vallese, Grigioni e la zona del lago Lemano offrono condizioni eccellenti. Anche nell'Altopiano un impianto solare è chiaramente conveniente." },
+      { question: 'Vale davvero la pena un impianto solare in Svizzera nel 2026?', answer: `Sì. Grazie al calo dei prezzi dei moduli, all'aumento dei prezzi dell'energia e agli incentivi, un impianto solare può convenire. Nell'Altopiano l'ammortamento richiede ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'it')} anni, in Ticino e Vallese ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'it')} anni. La durata dei moduli è di ${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'it')} anni.` },
+      { question: 'Vale la pena un impianto solare in Svizzera con meno irraggiamento?', answer: "Sì." },
+      { question: 'Quando si ammortizza un impianto solare in Svizzera?', answer: `Nell'Altopiano l'ammortamento richiede ${factRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'it')} anni, in Ticino e Vallese ${factRange(ECONOMIC_FACTS.systemPaybackYears.ticinoValais, 'it')} anni.` },
+      { question: 'Vale la pena un impianto solare senza accumulo?', answer: "Sì. Un impianto senza accumulo è già redditizio. La convenienza dipende dal profilo di consumo." },
+      { question: "Quale cantone svizzero è più adatto all'energia solare?", answer: `In Ticino e Vallese la produzione tipica è di ${factRange(ECONOMIC_FACTS.production.ticinoValaisKwhPerKwp, 'it')} kWh per kWp all'anno; sull'Altopiano è di ${factRange(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'it')} kWh per kWp all'anno.` },
       { question: 'Vale la pena un impianto solare per un condominio?', answer: "Sì, spesso anche meglio che per una casa unifamiliare. La grande superficie del tetto permette un impianto più potente. Con un CAC (consorzio per l'autoconsumo) l'energia può essere venduta direttamente agli inquilini — aumentando notevolmente la redditività." },
       { question: 'Cosa succede alla detraibilità fiscale dopo il 2027?', answer: "La possibilità di detrarre l'investimento come manutenzione immobiliare scade a fine 2027. Chi vuole ancora beneficiarne dovrebbe pianificare l'installazione presto — dal preventivo alla messa in servizio passano 4–12 settimane." },
       { question: "Come trovo l'installatore più conveniente nel mio Cantone?", answer: "Confrontando almeno 3 preventivi. PvPro.ch mette gratuitamente in contatto con fino a 3 installatori certificati del tuo Cantone — senza chiamate pubblicitarie e senza impegno." },
@@ -1927,25 +1809,21 @@ const articles: BlogArticle[] = [
     date: '3. Mai 2026',
     readMin: 10,
     tag: 'Förderung & Steuern',
-    intro: "Die steuerliche Absetzbarkeit einer Solaranlage in der Schweiz ist einer der grössten und am wenigsten bekannten Vorteile für Hausbesitzer. Wer eine Solaranlage installiert, kann die gesamte Investition als Liegenschaftsunterhalt vom steuerbaren Einkommen abziehen — je nach Kanton und Einkommen eine Ersparnis von CHF 4'000 bis CHF 10'000. Doch dieser Vorteil hat ein Ablaufdatum: Ab 2028 entfällt der Steuerabzug auf Bundesebene voraussichtlich vollständig. 2026 und 2027 sind die letzten Jahre, um noch davon zu profitieren.",
+    intro: "Die steuerliche Absetzbarkeit einer Solaranlage in der Schweiz ist einer der grössten und am wenigsten bekannten Vorteile für Hausbesitzer. Doch dieser Vorteil hat ein Ablaufdatum: Ab 2028 entfällt der Steuerabzug auf Bundesebene voraussichtlich vollständig. 2026 und 2027 sind die letzten Jahre, um noch davon zu profitieren.",
     sections: [
       {
         heading: 'Was bedeutet steuerliche Absetzbarkeit einer Solaranlage?',
         content: [
           "In der Schweiz gilt die Installation einer Solaranlage auf einem bestehenden Gebäude als Liegenschaftsunterhalt — also als werterhaltende oder wertvermehrende Massnahme. Diese Kosten können direkt vom steuerbaren Einkommen abgezogen werden, genau wie eine Dachsanierung oder eine neue Heizung.",
-          "Das bedeutet konkret: Wenn Sie CHF 20'000 in eine Solaranlage investieren und Ihr Grenzsteuersatz liegt bei 30%, zahlen Sie effektiv nur CHF 14'000 — der Staat übernimmt CHF 6'000 über den Steuerabzug.",
         ],
         stats: [
-          { label: 'Steuerersparnis auf Investition', value: '20–35%' },
           { label: 'Letzte Chance für Steuerabzug', value: 'Ende 2027' },
-          { label: 'Typische Steuerersparnis', value: "CHF 4'000–10'000" },
         ],
         bullets: [
           "Die gesamten Installationskosten der Solaranlage",
           "Der Batteriespeicher (in den meisten Kantonen, wenn gleichzeitig installiert)",
           "Planungskosten und Bewilligungsgebühren",
           "Zukünftige Wartungs- und Unterhaltskosten der Anlage (jährlich absetzbar)",
-          "Wechselrichter-Austausch nach 10–15 Jahren",
         ],
         highlight: "Nicht abzugsfähig: Anlagen auf Neubauten (in den meisten Kantonen). Fördergelder wie die EIV müssen von der abzugsfähigen Investitionssumme abgezogen werden.",
       },
@@ -1956,20 +1834,12 @@ const articles: BlogArticle[] = [
           "Ab 1. Januar 2028 entfällt auf Bundesebene: der Abzug für Liegenschaftsunterhalt, der Abzug für energetische Sanierungsmassnahmen — und damit auch der Steuerabzug für neue Solaranlagen.",
           "Einige Kantone können eigene Abzugsmöglichkeiten für Energiespar- und Umweltschutzmassnahmen beibehalten — aber nur bis maximal 2050, und nicht alle werden das tun. Auf Bundesebene ist der Vorteil definitiv weg.",
         ],
-        highlight: "Die Konsequenz: Wer bis Ende 2027 eine Solaranlage installiert, profitiert noch vom vollen Steuerabzug auf Bundesebene. Wer wartet, verliert einen Vorteil von CHF 4'000–10'000.",
+        highlight: "Die Konsequenz: Wer bis Ende 2027 eine Solaranlage installiert, profitiert noch vom vollen Steuerabzug auf Bundesebene.",
       },
       {
         heading: 'Wie viel können Sie konkret sparen? Rechenbeispiele',
         content: [
           "Die Höhe der Steuerersparnis hängt von der Investitionssumme, dem Kanton und dem persönlichen Grenzsteuersatz ab.",
-          "Beispiel 1 — 10-kWp-Anlage, Kanton Zürich, Einkommen CHF 120'000: Investitionskosten brutto CHF 18'000 → Abzug EIV –CHF 3'550 → Abzugsfähige Summe CHF 14'450 → Grenzsteuersatz ~30% → Steuerersparnis ca. CHF 4'335 → Effektive Nettoinvestition CHF 10'115.",
-          "Beispiel 2 — 15-kWp-Anlage, Kanton Bern, Einkommen CHF 150'000: Investitionskosten brutto CHF 26'000 → Abzug EIV –CHF 5'450 → Abzugsfähige Summe CHF 20'550 → Grenzsteuersatz ~35% → Steuerersparnis ca. CHF 7'193 → Effektive Nettoinvestition CHF 13'357.",
-        ],
-        stats: [
-          { label: 'Steuerersparnis Bsp. 1 (ZH)', value: "CHF 4'335" },
-          { label: 'Steuerersparnis Bsp. 2 (BE)', value: "CHF 7'193" },
-          { label: 'Nettoinvestition Bsp. 1', value: "CHF 10'115" },
-          { label: 'Nettoinvestition Bsp. 2', value: "CHF 13'357" },
         ],
         highlight: "Steuer-Tipp: Wer im Dezember eine Teilzahlung leistet und den Rest im Januar zahlt, kann den Abzug auf zwei Steuerjahre verteilen. Das ist besonders sinnvoll, wenn die Gesamtinvestition das steuerbare Einkommen in einem Jahr stark reduzieren würde. Sprechen Sie mit Ihrem Steuerberater.",
       },
@@ -1980,9 +1850,7 @@ const articles: BlogArticle[] = [
         ],
         bullets: [
           "Zürich: ✅ Investition absetzbar, ✅ Speicher (gleichzeitig), ✅ Nettoprinzip — Zusatzförderung Stadt Zürich",
-          "Bern: ✅ Investition absetzbar, ✅ Speicher (gleichzeitig), ✅ Nettoprinzip — Speicherbonus bis CHF 800",
           "Aargau: ✅ Investition absetzbar, ✅ Speicher (auch Nachrüstung), Bruttoprinzip — Speicher auch nachträglich absetzbar",
-          "Luzern: ✅ Investition absetzbar, ✅ Speicher, ✅ Nettoprinzip — Freibetrag 10'000 kWh/Jahr",
           "St. Gallen: ✅ Investition absetzbar, ✅ Speicher (auch Nachrüstung), Nettoprinzip — Energieförderung kantonal",
           "Basel-Stadt: ✅ Investition absetzbar, ✅ Speicher, ✅ Nettoprinzip — Zusätzliche städtische Programme",
           "Obwalden: ✅ Investition absetzbar, ✅ Speicher, ✅ Nettoprinzip — Förderung auf Anfrage",
@@ -2019,7 +1887,7 @@ const articles: BlogArticle[] = [
         heading: 'Wie wird der Solarstromertrag besteuert?',
         content: [
           "Eigenverbrauch: Der selbst verbrauchte Solarstrom wird in der Schweiz nicht besteuert. Was Sie selbst produzieren und selbst verbrauchen, ist steuerfrei — ein weiterer Grund, den Eigenverbrauch zu maximieren.",
-          "Eingespeister Strom (Rückliefervergütung): Der ins Netz eingespeiste Strom wird als Einkommen besteuert. Die meisten Kantone wenden heute das Nettoprinzip an — es wird nur besteuert, was effektiv ausbezahlt wird. Bei kleinen Anlagen und hohem Eigenverbrauch ist das oft null oder wenige hundert Franken.",
+          "Eingespeister Strom (Rückliefervergütung): Der ins Netz eingespeiste Strom wird als Einkommen besteuert. Die meisten Kantone wenden heute das Nettoprinzip an — es wird nur besteuert, was effektiv ausbezahlt wird. Bei kleinen Anlagen und hohem Eigenverbrauch kann der steuerbare Betrag gering sein.",
           "Fördergelder (EIV): Die Einmalvergütung gilt als Einkommen und muss im Jahr der Auszahlung deklariert werden. Sie reduziert zudem die abzugsfähige Investitionssumme.",
         ],
       },
@@ -2028,13 +1896,13 @@ const articles: BlogArticle[] = [
         content: [
           "1. Die Planung braucht Zeit: Von der ersten Offerte bis zur Inbetriebnahme einer Solaranlage vergehen 4–12 Wochen. Wer bis Ende 2027 installiert haben möchte, muss spätestens im Herbst 2027 bestellen — und die Installateure werden dann überlastet sein.",
           "2. Die Kosten steigen unter Druck: Wenn alle kurz vor Ende 2027 bestellen, entstehen Engpässe. Erfahrungsgemäss steigen Preise und Wartezeiten, wenn viele gleichzeitig bestellen.",
-          "3. Jedes Jahr ohne Anlage kostet Geld: Wer heute investiert statt 2027, spart schon jetzt Stromkosten. Zwei Jahre Stromkostenersparnis bei CHF 1'500/Jahr sind CHF 3'000 — Geld, das unwiederbringlich verloren ist.",
+          "3. Jedes Jahr ohne Anlage kostet Geld: Wer heute investiert statt 2027, spart schon jetzt Stromkosten.",
         ],
         highlight: "Die häufigste Reaktion: «Dann warte ich noch ein Jahr.» Das klingt logisch, ist aber riskant — die Kapazitäten der Installateure werden in den letzten Monaten vor Ende 2027 knapp sein, und die Preise steigen unter Druck.",
       },
     ],
     ctaHeading: 'Steuerabzug noch nutzen — jetzt Offerte einholen',
-    ctaText: "2026 und 2027 sind die letzten Jahre mit vollem Steuerabzug auf Bundesebene. Holen Sie jetzt kostenlos bis zu 3 Offerten von zertifizierten Installateuren aus Ihrem Kanton ein — und sichern Sie sich CHF 4'000–10'000 Steuerersparnis.",
+    ctaText: "2026 und 2027 sind die letzten Jahre mit vollem Steuerabzug auf Bundesebene.",
     ctaButton: 'Kostenlose Offerte anfordern',
     formUrl: '/anfrage',
     relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'foerderungen-photovoltaik-2026', 'batteriespeicher-solaranlage-lohnt-sich'],
@@ -2050,7 +1918,6 @@ const articles: BlogArticle[] = [
     ],
     faqs: [
       { question: 'Kann ich eine Solaranlage in der Schweiz von der Steuer abziehen?', answer: "Ja. In fast allen Schweizer Kantonen können die Investitionskosten einer Solaranlage auf einem bestehenden Gebäude als Liegenschaftsunterhalt vom steuerbaren Einkommen abgezogen werden. Dieser Vorteil gilt jedoch nur noch bis Ende 2027 auf Bundesebene." },
-      { question: 'Wie viel Steuer spare ich mit einer Solaranlage?', answer: "Je nach Investitionssumme, Kanton und persönlichem Grenzsteuersatz liegt die Steuerersparnis typischerweise zwischen CHF 4'000 und CHF 10'000. Bei einem Grenzsteuersatz von 30% und einer Nettoinvestition von CHF 15'000 entspricht das CHF 4'500 Steuerersparnis." },
       { question: 'Bis wann kann ich eine Solaranlage steuerlich abziehen?', answer: "Auf Bundesebene läuft die Möglichkeit des Steuerabzugs voraussichtlich mit Ende 2027 aus — als Folge der Abschaffung des Eigenmietwerts, die am 28. September 2025 angenommen wurde. Einige Kantone könnten eigene Abzugsmöglichkeiten beibehalten." },
       { question: 'Kann ich den Steuerabzug auf zwei Jahre verteilen?', answer: "Ja. Wenn Sie im Dezember eine Teilzahlung leisten und den Rest im Januar zahlen, können Sie die Investition auf zwei Steuerjahre verteilen. Das ist steuerlich oft vorteilhafter, wenn die Gesamtsumme das Einkommen eines einzelnen Jahres stark reduzieren würde." },
       { question: 'Ist auch der Batteriespeicher steuerlich absetzbar?', answer: "In den meisten Kantonen ja, besonders wenn er gleichzeitig mit der Solaranlage installiert wird. In einigen Kantonen ist sogar eine spätere Nachrüstung absetzbar. Ausnahmen sind SO, UR und ZG." },
@@ -2070,25 +1937,21 @@ const articles: BlogArticle[] = [
     date: '3 mai 2026',
     readMin: 10,
     tag: 'Aides & Fiscalité',
-    intro: "La déductibilité fiscale d'une installation solaire en Suisse est l'un des avantages les plus importants et les moins connus pour les propriétaires. Celui qui installe une installation solaire peut déduire l'intégralité de l'investissement du revenu imposable en tant qu'entretien immobilier — selon le canton et le revenu, une économie de CHF 4'000 à CHF 10'000. Mais cet avantage a une date d'expiration: à partir de 2028, la déduction fiscale sera vraisemblablement supprimée entièrement au niveau fédéral. 2026 et 2027 sont les dernières années pour en profiter.",
+    intro: "La déductibilité fiscale d'une installation solaire en Suisse est l'un des avantages les plus importants et les moins connus pour les propriétaires. Mais cet avantage a une date d'expiration: à partir de 2028, la déduction fiscale sera vraisemblablement supprimée entièrement au niveau fédéral. 2026 et 2027 sont les dernières années pour en profiter.",
     sections: [
       {
         heading: "Que signifie la déductibilité fiscale d'une installation solaire?",
         content: [
           "En Suisse, l'installation d'une installation solaire sur un bâtiment existant est considérée comme de l'entretien immobilier — c'est-à-dire une mesure conservatrice ou amélioratrice de valeur. Ces coûts peuvent être déduits directement du revenu imposable, tout comme une rénovation de toiture ou un nouveau chauffage.",
-          "Concrètement: si vous investissez CHF 20'000 dans une installation solaire et que votre taux marginal d'imposition est de 30%, vous ne payez effectivement que CHF 14'000 — l'État prend en charge CHF 6'000 via la déduction fiscale.",
         ],
         stats: [
-          { label: "Économie fiscale sur l'investissement", value: '20–35%' },
           { label: 'Dernière chance pour déduction', value: 'Fin 2027' },
-          { label: 'Économie fiscale typique', value: "CHF 4'000–10'000" },
         ],
         bullets: [
           "L'intégralité des coûts d'installation de l'installation solaire",
           "Le système de stockage par batterie (dans la plupart des cantons, si installé simultanément)",
           "Les frais de planification et les taxes de permis",
           "Les futurs frais d'entretien et de maintenance de l'installation (déductibles annuellement)",
-          "Le remplacement de l'onduleur après 10–15 ans",
         ],
         highlight: "Non déductible: installations sur les nouvelles constructions (dans la plupart des cantons). Les subventions comme la RU doivent être déduites du montant déductible.",
       },
@@ -2099,20 +1962,12 @@ const articles: BlogArticle[] = [
           "À partir du 1er janvier 2028, au niveau fédéral: la déduction pour entretien immobilier disparaît, ainsi que la déduction pour les mesures d'assainissement énergétique — et donc aussi la déduction fiscale pour les nouvelles installations solaires.",
           "Certains cantons peuvent conserver leurs propres possibilités de déduction pour les mesures d'économie d'énergie et de protection de l'environnement — mais seulement jusqu'en 2050 au maximum, et tous ne le feront pas. Au niveau fédéral, l'avantage disparaît définitivement.",
         ],
-        highlight: "La conséquence: celui qui installe une installation solaire avant fin 2027 profite encore de la pleine déduction fiscale au niveau fédéral. Celui qui attend perd un avantage de CHF 4'000–10'000.",
+        highlight: "La conséquence: celui qui installe une installation solaire avant fin 2027 profite encore de la pleine déduction fiscale au niveau fédéral.",
       },
       {
         heading: "Combien pouvez-vous économiser concrètement? Exemples de calcul",
         content: [
           "Le montant de l'économie fiscale dépend du montant investi, du canton et du taux marginal d'imposition personnel.",
-          "Exemple 1 — Installation 10 kWc, canton de Zurich, revenu CHF 120'000: Coûts bruts CHF 18'000 → Déduction RU –CHF 3'550 → Montant déductible CHF 14'450 → Taux marginal ~30% → Économie fiscale env. CHF 4'335 → Investissement net effectif CHF 10'115.",
-          "Exemple 2 — Installation 15 kWc, canton de Berne, revenu CHF 150'000: Coûts bruts CHF 26'000 → Déduction RU –CHF 5'450 → Montant déductible CHF 20'550 → Taux marginal ~35% → Économie fiscale env. CHF 7'193 → Investissement net effectif CHF 13'357.",
-        ],
-        stats: [
-          { label: 'Économie fiscale ex. 1 (ZH)', value: "CHF 4'335" },
-          { label: 'Économie fiscale ex. 2 (BE)', value: "CHF 7'193" },
-          { label: 'Investissement net ex. 1', value: "CHF 10'115" },
-          { label: 'Investissement net ex. 2', value: "CHF 13'357" },
         ],
         highlight: "Astuce fiscale: En effectuant un paiement partiel en décembre et le solde en janvier, vous pouvez répartir la déduction sur deux années fiscales. C'est particulièrement intéressant si l'investissement total réduirait fortement le revenu imposable d'une seule année. Consultez votre conseiller fiscal.",
       },
@@ -2123,9 +1978,7 @@ const articles: BlogArticle[] = [
         ],
         bullets: [
           "Zurich: ✅ Investissement déductible, ✅ Batterie (simultanée), ✅ Principe net — Subvention supplémentaire ville de Zurich",
-          "Berne: ✅ Investissement déductible, ✅ Batterie (simultanée), ✅ Principe net — Bonus batterie jusqu'à CHF 800",
           "Argovie: ✅ Investissement déductible, ✅ Batterie (aussi ajout ultérieur), Principe brut — Batterie aussi déductible en ajout",
-          "Lucerne: ✅ Investissement déductible, ✅ Batterie, ✅ Principe net — Franchise 10'000 kWh/an",
           "Saint-Gall: ✅ Investissement déductible, ✅ Batterie (aussi ajout ultérieur), Principe net — Promotion énergétique cantonale",
           "Bâle-Ville: ✅ Investissement déductible, ✅ Batterie, ✅ Principe net — Programmes municipaux supplémentaires",
           "Obwald: ✅ Investissement déductible, ✅ Batterie, ✅ Principe net — Promotion sur demande",
@@ -2162,7 +2015,7 @@ const articles: BlogArticle[] = [
         heading: "Comment la production d'énergie solaire est-elle imposée?",
         content: [
           "Autoconsommation: L'énergie solaire autoconsommée n'est pas imposée en Suisse. Ce que vous produisez et consommez vous-même est exonéré d'impôt — une raison supplémentaire de maximiser l'autoconsommation.",
-          "Électricité injectée (rétribution pour l'injection): L'électricité injectée dans le réseau est imposée comme revenu. La plupart des cantons appliquent aujourd'hui le principe net — seul ce qui est effectivement versé est imposé. Pour les petites installations et une autoconsommation élevée, c'est souvent nul ou quelques centaines de francs.",
+          "Électricité injectée (rétribution pour l'injection): L'électricité injectée dans le réseau est imposée comme revenu. La plupart des cantons appliquent aujourd'hui le principe net — seul ce qui est effectivement versé est imposé. Pour une petite installation avec une autoconsommation élevée, le montant imposable peut être faible.",
           "Subventions (RU): La rétribution unique est considérée comme un revenu et doit être déclarée dans l'année de versement. Elle réduit également le montant d'investissement déductible.",
         ],
       },
@@ -2171,13 +2024,13 @@ const articles: BlogArticle[] = [
         content: [
           "1. La planification prend du temps: De la première offre à la mise en service d'une installation solaire, il faut compter 4–12 semaines. Celui qui souhaite être installé avant fin 2027 doit commander au plus tard à l'automne 2027 — et les installateurs seront alors surchargés.",
           "2. Les coûts augmentent sous pression: Quand tout le monde commande peu avant fin 2027, des goulets d'étranglement apparaissent. Les prix et les délais d'attente augmentent quand beaucoup commandent simultanément.",
-          "3. Chaque année sans installation coûte de l'argent: Celui qui investit maintenant plutôt qu'en 2027 économise déjà des coûts d'électricité. Deux ans d'économies d'électricité à CHF 1'500/an représentent CHF 3'000 — de l'argent irrécupérable.",
+          "3. Chaque année sans installation coûte de l'argent: Celui qui investit maintenant plutôt qu'en 2027 économise déjà des coûts d'électricité.",
         ],
         highlight: "La réaction la plus fréquente: «J'attends encore un an.» Ça semble logique, mais c'est risqué — les capacités des installateurs seront limitées dans les derniers mois avant fin 2027, et les prix augmenteront sous pression.",
       },
     ],
     ctaHeading: "Profitez encore de la déduction fiscale — demandez une offre maintenant",
-    ctaText: "2026 et 2027 sont les dernières années avec pleine déduction fiscale au niveau fédéral. Demandez maintenant gratuitement jusqu'à 3 offres d'installateurs certifiés de votre canton — et sécurisez CHF 4'000–10'000 d'économie fiscale.",
+    ctaText: "2026 et 2027 sont les dernières années avec pleine déduction fiscale au niveau fédéral.",
     ctaButton: 'Demander une offre gratuite',
     formUrl: '/fr/demande',
     relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'foerderungen-photovoltaik-2026', 'batteriespeicher-solaranlage-lohnt-sich'],
@@ -2190,7 +2043,6 @@ const articles: BlogArticle[] = [
     ],
     faqs: [
       { question: "Puis-je déduire une installation solaire de mes impôts en Suisse?", answer: "Oui. Dans presque tous les cantons suisses, les coûts d'investissement d'une installation solaire sur un bâtiment existant peuvent être déduits du revenu imposable en tant qu'entretien immobilier. Cet avantage n'est valable que jusqu'à fin 2027 au niveau fédéral." },
-      { question: "Combien d'impôts puis-je économiser avec une installation solaire?", answer: "Selon le montant investi, le canton et le taux marginal d'imposition personnel, l'économie fiscale se situe typiquement entre CHF 4'000 et CHF 10'000. Avec un taux marginal de 30% et un investissement net de CHF 15'000, cela correspond à CHF 4'500 d'économie fiscale." },
       { question: "Jusqu'à quand puis-je déduire fiscalement une installation solaire?", answer: "Au niveau fédéral, la possibilité de déduction fiscale devrait expirer fin 2027 — suite à la suppression de la valeur locative approuvée le 28 septembre 2025. Certains cantons pourraient conserver leurs propres possibilités de déduction." },
       { question: "Puis-je répartir la déduction fiscale sur deux ans?", answer: "Oui. En effectuant un paiement partiel en décembre et le solde en janvier, vous pouvez répartir l'investissement sur deux années fiscales. C'est souvent fiscalement plus avantageux si le montant total réduirait fortement le revenu imposable d'une seule année." },
       { question: "Le système de stockage par batterie est-il également déductible fiscalement?", answer: "Dans la plupart des cantons oui, surtout s'il est installé simultanément avec l'installation solaire. Dans certains cantons, une mise à niveau ultérieure est également déductible. Les exceptions sont SO, UR et ZG." },
@@ -2210,25 +2062,21 @@ const articles: BlogArticle[] = [
     date: 'May 3, 2026',
     readMin: 10,
     tag: 'Subsidies & Tax',
-    intro: "The tax deductibility of a solar panel system in Switzerland is one of the biggest and least known advantages for homeowners. Anyone installing a solar system can deduct the entire investment from taxable income as property maintenance — depending on the canton and income, a saving of CHF 4,000 to CHF 10,000. But this advantage has an expiry date: from 2028, the tax deduction will likely be abolished entirely at the federal level. 2026 and 2027 are the last years to act.",
+    intro: "The tax deductibility of a solar panel system in Switzerland is one of the biggest and least known advantages for homeowners. But this advantage has an expiry date: from 2028, the tax deduction will likely be abolished entirely at the federal level. 2026 and 2027 are the last years to act.",
     sections: [
       {
         heading: 'What does tax deductibility of a solar system mean?',
         content: [
           "In Switzerland, installing a solar system on an existing building is classified as property maintenance — that is, a value-preserving or value-enhancing measure. These costs can be deducted directly from taxable income, just like a roof renovation or a new heating system.",
-          "In concrete terms: if you invest CHF 20,000 in a solar system and your marginal tax rate is 30%, you effectively pay only CHF 14,000 — the state covers CHF 6,000 through the tax deduction.",
         ],
         stats: [
-          { label: 'Tax saving on investment', value: '20–35%' },
           { label: 'Last chance for tax deduction', value: 'End of 2027' },
-          { label: 'Typical tax saving', value: 'CHF 4,000–10,000' },
         ],
         bullets: [
           "The full installation costs of the solar system",
           "The battery storage system (in most cantons, if installed simultaneously)",
           "Planning costs and permit fees",
           "Future maintenance and servicing costs of the system (deductible annually)",
-          "Inverter replacement after 10–15 years",
         ],
         highlight: "Not deductible: systems on new buildings (in most cantons). Subsidies such as the OTP must be deducted from the deductible investment amount.",
       },
@@ -2239,20 +2087,12 @@ const articles: BlogArticle[] = [
           "From 1 January 2028, at the federal level: the deduction for property maintenance disappears, along with the deduction for energy efficiency measures — and therefore also the tax deduction for new solar systems.",
           "Some cantons may retain their own deduction options for energy-saving and environmental protection measures — but only until 2050 at most, and not all will do so. At the federal level, the advantage is definitively gone.",
         ],
-        highlight: "The consequence: anyone who installs a solar system before end of 2027 still benefits from the full federal tax deduction. Those who wait lose an advantage of CHF 4,000–10,000.",
+        highlight: "The consequence: anyone who installs a solar system before end of 2027 still benefits from the full federal tax deduction.",
       },
       {
         heading: 'How much can you save? Calculation examples',
         content: [
           "The amount of tax saving depends on the investment amount, the canton and your personal marginal tax rate.",
-          "Example 1 — 10 kWp system, canton of Zurich, income CHF 120,000: Gross investment CHF 18,000 → Deduct OTP –CHF 3,550 → Deductible amount CHF 14,450 → Marginal rate ~30% → Tax saving approx. CHF 4,335 → Effective net investment CHF 10,115.",
-          "Example 2 — 15 kWp system, canton of Bern, income CHF 150,000: Gross investment CHF 26,000 → Deduct OTP –CHF 5,450 → Deductible amount CHF 20,550 → Marginal rate ~35% → Tax saving approx. CHF 7,193 → Effective net investment CHF 13,357.",
-        ],
-        stats: [
-          { label: 'Tax saving ex. 1 (ZH)', value: 'CHF 4,335' },
-          { label: 'Tax saving ex. 2 (BE)', value: 'CHF 7,193' },
-          { label: 'Net investment ex. 1', value: 'CHF 10,115' },
-          { label: 'Net investment ex. 2', value: 'CHF 13,357' },
         ],
         highlight: "Tax tip: By making a partial payment in December and the remainder in January, you can spread the deduction across two tax years. This is particularly advantageous if the total investment would significantly reduce taxable income in a single year. Consult your tax adviser.",
       },
@@ -2263,9 +2103,7 @@ const articles: BlogArticle[] = [
         ],
         bullets: [
           "Zurich: ✅ Investment deductible, ✅ Battery (simultaneous), ✅ Net principle — Additional subsidy City of Zurich",
-          "Bern: ✅ Investment deductible, ✅ Battery (simultaneous), ✅ Net principle — Battery bonus up to CHF 800",
           "Aargau: ✅ Investment deductible, ✅ Battery (also retrofit), Gross principle — Battery also deductible as retrofit",
-          "Lucerne: ✅ Investment deductible, ✅ Battery, ✅ Net principle — Tax-free allowance 10,000 kWh/year",
           "St. Gallen: ✅ Investment deductible, ✅ Battery (also retrofit), Net principle — Cantonal energy promotion",
           "Basel-Stadt: ✅ Investment deductible, ✅ Battery, ✅ Net principle — Additional municipal programmes",
           "Obwalden: ✅ Investment deductible, ✅ Battery, ✅ Net principle — Promotion on request",
@@ -2302,7 +2140,7 @@ const articles: BlogArticle[] = [
         heading: 'How is solar electricity production taxed?',
         content: [
           "Self-consumption: Solar electricity consumed by yourself is not taxed in Switzerland. What you produce and consume yourself is tax-free — another reason to maximise self-consumption.",
-          "Electricity fed into the grid (feed-in tariff): Electricity fed into the grid is taxed as income. Most cantons today apply the net principle — only what is actually paid out is taxed. For small systems with high self-consumption, this is often zero or a few hundred francs.",
+          "Electricity fed into the grid (feed-in tariff): Electricity fed into the grid is taxed as income. Most cantons today apply the net principle — only what is actually paid out is taxed. For a small system with high self-consumption, the taxable amount may be low.",
           "Subsidies (OTP): The one-time payment is considered income and must be declared in the year of payment. It also reduces the deductible investment amount.",
         ],
       },
@@ -2311,13 +2149,13 @@ const articles: BlogArticle[] = [
         content: [
           "1. Planning takes time: From the first quote to commissioning a solar system takes 4–12 weeks. Anyone who wants to be installed before end of 2027 must order by autumn 2027 at the latest — and installers will be overloaded by then.",
           "2. Costs rise under pressure: When everyone orders just before end of 2027, bottlenecks arise. Experience shows that prices and waiting times increase when many order simultaneously.",
-          "3. Every year without a system costs money: Investing now rather than in 2027 means saving electricity costs immediately. Two years of electricity savings at CHF 1,500/year is CHF 3,000 — money lost irrecoverably.",
+          "3. Every year without a system costs money: Investing now rather than in 2027 means saving electricity costs immediately.",
         ],
         highlight: "The most common reaction: 'I'll wait another year.' That sounds logical, but it is risky — installer capacities will be limited in the final months before end of 2027, and prices will rise under pressure.",
       },
     ],
     ctaHeading: 'Use the tax deduction while you still can — request a quote now',
-    ctaText: "2026 and 2027 are the last years with full tax deduction at the federal level. Request up to 3 free quotes from certified installers in your canton now — and secure CHF 4,000–10,000 in tax savings.",
+    ctaText: "2026 and 2027 are the last years with full tax deduction at the federal level.",
     ctaButton: 'Request a free quote',
     formUrl: '/en/request',
     relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'foerderungen-photovoltaik-2026', 'batteriespeicher-solaranlage-lohnt-sich'],
@@ -2330,7 +2168,6 @@ const articles: BlogArticle[] = [
     ],
     faqs: [
       { question: 'Can I claim a solar system on my taxes in Switzerland?', answer: "Yes. In almost all Swiss cantons, the investment costs of a solar system on an existing building can be deducted from taxable income as property maintenance. However, this advantage is only valid until end of 2027 at the federal level." },
-      { question: 'How much tax do I save with a solar system?', answer: "Depending on the investment amount, canton and personal marginal tax rate, the tax saving is typically between CHF 4,000 and CHF 10,000. With a marginal rate of 30% and a net investment of CHF 15,000, that corresponds to CHF 4,500 in tax savings." },
       { question: 'Until when can I claim a solar system for tax purposes?', answer: "At the federal level, the tax deduction option is expected to expire at end of 2027 — as a result of the abolition of the imputed rental value approved on 28 September 2025. Some cantons may retain their own deduction options." },
       { question: 'Can I spread the tax deduction across two years?', answer: "Yes. By making a partial payment in December and the remainder in January, you can spread the investment across two tax years. This is often fiscally more advantageous if the total amount would significantly reduce taxable income in a single year." },
       { question: 'Is battery storage also tax-deductible?', answer: "In most cantons yes, especially if installed simultaneously with the solar system. In some cantons, a later retrofit is also deductible. Exceptions are SO, UR and ZG." },
@@ -2350,25 +2187,21 @@ const articles: BlogArticle[] = [
     date: '3 maggio 2026',
     readMin: 10,
     tag: 'Incentivi & Fisco',
-    intro: "La detraibilità fiscale di un impianto solare in Svizzera è uno dei vantaggi più significativi e meno conosciuti per i proprietari di immobili. Chi installa un impianto solare può detrarre l'intero investimento dal reddito imponibile come manutenzione immobiliare — a seconda del cantone e del reddito, un risparmio di CHF 4'000–10'000. Ma questo vantaggio ha una data di scadenza: dal 2028, la deduzione fiscale sarà presumibilmente eliminata completamente a livello federale. Il 2026 e il 2027 sono gli ultimi anni per agire.",
+    intro: "La detraibilità fiscale di un impianto solare in Svizzera è uno dei vantaggi più significativi e meno conosciuti per i proprietari di immobili. Ma questo vantaggio ha una data di scadenza: dal 2028, la deduzione fiscale sarà presumibilmente eliminata completamente a livello federale. Il 2026 e il 2027 sono gli ultimi anni per agire.",
     sections: [
       {
         heading: "Cosa significa la detraibilità fiscale di un impianto solare?",
         content: [
           "In Svizzera, l'installazione di un impianto solare su un edificio esistente è classificata come manutenzione immobiliare — ovvero una misura che conserva o aumenta il valore. Questi costi possono essere detratti direttamente dal reddito imponibile, esattamente come un risanamento del tetto o un nuovo sistema di riscaldamento.",
-          "In termini concreti: se si investono CHF 20'000 in un impianto solare e l'aliquota marginale è del 30%, si pagano effettivamente solo CHF 14'000 — lo Stato copre CHF 6'000 tramite la deduzione fiscale.",
         ],
         stats: [
-          { label: "Risparmio fiscale sull'investimento", value: '20–35%' },
           { label: 'Ultima chance deduzione fiscale', value: 'Fine 2027' },
-          { label: 'Risparmio fiscale tipico', value: "CHF 4'000–10'000" },
         ],
         bullets: [
           "L'intero costo di installazione dell'impianto solare",
           "Il sistema di accumulo a batteria (nella maggior parte dei cantoni, se installato simultaneamente)",
           "Costi di pianificazione e tasse per i permessi",
           "Futuri costi di manutenzione dell'impianto (detraibili annualmente)",
-          "Sostituzione dell'inverter dopo 10–15 anni",
         ],
         highlight: "Non detraibile: impianti su nuove costruzioni (nella maggior parte dei cantoni). Gli incentivi come la RU devono essere sottratti dall'importo detraibile dell'investimento.",
       },
@@ -2379,20 +2212,12 @@ const articles: BlogArticle[] = [
           "Dal 1° gennaio 2028, a livello federale: la deduzione per la manutenzione immobiliare scompare, insieme alla deduzione per le misure di risparmio energetico — e quindi anche la deduzione fiscale per i nuovi impianti solari.",
           "Alcuni cantoni possono mantenere proprie possibilità di deduzione per le misure di risparmio energetico e di protezione ambientale — ma solo fino al 2050 al massimo, e non tutti lo faranno. A livello federale, il vantaggio scompare definitivamente.",
         ],
-        highlight: "La conseguenza: chi installa un impianto solare entro fine 2027 beneficia ancora della piena deduzione fiscale federale. Chi aspetta perde un vantaggio di CHF 4'000–10'000.",
+        highlight: "La conseguenza: chi installa un impianto solare entro fine 2027 beneficia ancora della piena deduzione fiscale federale.",
       },
       {
         heading: "Quanto si può risparmiare concretamente? Esempi di calcolo",
         content: [
           "L'entità del risparmio fiscale dipende dall'importo investito, dal cantone e dall'aliquota marginale personale.",
-          "Esempio 1 — Impianto da 10 kWp, canton Zurigo, reddito CHF 120'000: Costi lordi CHF 18'000 → Deduzione RU –CHF 3'550 → Importo detraibile CHF 14'450 → Aliquota marginale ~30% → Risparmio fiscale ca. CHF 4'335 → Investimento netto effettivo CHF 10'115.",
-          "Esempio 2 — Impianto da 15 kWp, canton Berna, reddito CHF 150'000: Costi lordi CHF 26'000 → Deduzione RU –CHF 5'450 → Importo detraibile CHF 20'550 → Aliquota marginale ~35% → Risparmio fiscale ca. CHF 7'193 → Investimento netto effettivo CHF 13'357.",
-        ],
-        stats: [
-          { label: 'Risparmio fiscale es. 1 (ZH)', value: "CHF 4'335" },
-          { label: 'Risparmio fiscale es. 2 (BE)', value: "CHF 7'193" },
-          { label: 'Investimento netto es. 1', value: "CHF 10'115" },
-          { label: 'Investimento netto es. 2', value: "CHF 13'357" },
         ],
         highlight: "Consiglio fiscale: Effettuando un pagamento parziale a dicembre e il saldo a gennaio, è possibile distribuire la deduzione su due anni fiscali. Ciò è particolarmente vantaggioso se l'investimento totale ridurrebbe notevolmente il reddito imponibile di un singolo anno. Consultare il proprio consulente fiscale.",
       },
@@ -2403,9 +2228,7 @@ const articles: BlogArticle[] = [
         ],
         bullets: [
           "Zurigo: ✅ Investimento detraibile, ✅ Batteria (simultanea), ✅ Principio netto — Incentivo aggiuntivo città di Zurigo",
-          "Berna: ✅ Investimento detraibile, ✅ Batteria (simultanea), ✅ Principio netto — Bonus batteria fino a CHF 800",
           "Argovia: ✅ Investimento detraibile, ✅ Batteria (anche integrazione), Principio lordo — Batteria detraibile anche come integrazione",
-          "Lucerna: ✅ Investimento detraibile, ✅ Batteria, ✅ Principio netto — Franchigia 10'000 kWh/anno",
           "San Gallo: ✅ Investimento detraibile, ✅ Batteria (anche integrazione), Principio netto — Incentivi energetici cantonali",
           "Basilea-Città: ✅ Investimento detraibile, ✅ Batteria, ✅ Principio netto — Programmi comunali aggiuntivi",
           "Obvaldo: ✅ Investimento detraibile, ✅ Batteria, ✅ Principio netto — Incentivi su richiesta",
@@ -2442,7 +2265,7 @@ const articles: BlogArticle[] = [
         heading: "Come viene tassata la produzione di energia solare?",
         content: [
           "Autoconsumo: L'energia solare autoconsumata non è tassata in Svizzera. Ciò che si produce e si consuma direttamente è esente da imposta — un ulteriore motivo per massimizzare l'autoconsumo.",
-          "Energia immessa in rete (remunerazione per l'immissione): L'energia immessa nella rete è tassata come reddito. La maggior parte dei cantoni applica oggi il principio netto — viene tassato solo ciò che viene effettivamente versato. Per i piccoli impianti con alto autoconsumo, spesso è zero o poche centinaia di franchi.",
+          "Energia immessa in rete (remunerazione per l'immissione): L'energia immessa nella rete è tassata come reddito. La maggior parte dei cantoni applica oggi il principio netto — viene tassato solo ciò che viene effettivamente versato. Per un piccolo impianto con alto autoconsumo, l'importo imponibile può essere basso.",
           "Incentivi (RU): La remunerazione unica è considerata reddito e deve essere dichiarata nell'anno del versamento. Riduce inoltre l'importo di investimento detraibile.",
         ],
       },
@@ -2451,13 +2274,13 @@ const articles: BlogArticle[] = [
         content: [
           "1. La pianificazione richiede tempo: Dal primo preventivo alla messa in servizio di un impianto solare passano 4–12 settimane. Chi vuole essere installato entro fine 2027 deve ordinare al più tardi nell'autunno 2027 — e gli installatori saranno sovraccarichi.",
           "2. I costi aumentano sotto pressione: Quando tutti ordinano poco prima di fine 2027, si creano colli di bottiglia. L'esperienza mostra che prezzi e tempi di attesa aumentano quando molti ordinano contemporaneamente.",
-          "3. Ogni anno senza impianto costa denaro: Chi investe ora invece che nel 2027 risparmia già ora sui costi dell'energia. Due anni di risparmio energetico a CHF 1'500/anno sono CHF 3'000 — denaro irrecuperabile.",
+          "3. Ogni anno senza impianto costa denaro: Chi investe ora invece che nel 2027 risparmia già ora sui costi dell'energia.",
         ],
         highlight: "La reazione più frequente: «Aspetto ancora un anno.» Sembra logico, ma è rischioso — le capacità degli installatori saranno limitate negli ultimi mesi prima di fine 2027, e i prezzi aumenteranno sotto pressione.",
       },
     ],
     ctaHeading: "Sfrutta ancora la deduzione fiscale — richiedi subito un preventivo",
-    ctaText: "Il 2026 e il 2027 sono gli ultimi anni con piena deduzione fiscale a livello federale. Richiedi ora gratuitamente fino a 3 preventivi da installatori certificati del tuo Cantone — e assicurati CHF 4'000–10'000 di risparmio fiscale.",
+    ctaText: "Il 2026 e il 2027 sono gli ultimi anni con piena deduzione fiscale a livello federale.",
     ctaButton: 'Richiedi preventivo gratuito',
     formUrl: '/it/richiesta',
     relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'foerderungen-photovoltaik-2026', 'batteriespeicher-solaranlage-lohnt-sich'],
@@ -2470,7 +2293,6 @@ const articles: BlogArticle[] = [
     ],
     faqs: [
       { question: "Posso detrarre un impianto solare dalle tasse in Svizzera?", answer: "Sì. In quasi tutti i cantoni svizzeri i costi di investimento di un impianto solare su un edificio esistente possono essere detratti dal reddito imponibile come manutenzione immobiliare. Questo vantaggio vale però solo fino a fine 2027 a livello federale." },
-      { question: "Quanto risparmio sulle tasse con un impianto solare?", answer: "A seconda dell'importo investito, del cantone e dell'aliquota marginale personale, il risparmio fiscale è tipicamente compreso tra CHF 4'000 e CHF 10'000. Con un'aliquota marginale del 30% e un investimento netto di CHF 15'000, corrisponde a CHF 4'500 di risparmio fiscale." },
       { question: "Fino a quando posso detrarre fiscalmente un impianto solare?", answer: "A livello federale, la possibilità di deduzione fiscale dovrebbe scadere a fine 2027 — in seguito all'abolizione del valore locativo approvata il 28 settembre 2025. Alcuni cantoni potrebbero mantenere proprie possibilità di deduzione." },
       { question: "Posso distribuire la deduzione fiscale su due anni?", answer: "Sì. Effettuando un pagamento parziale a dicembre e il saldo a gennaio, è possibile distribuire l'investimento su due anni fiscali. Questo è spesso fiscalmente più vantaggioso se l'importo totale ridurrebbe notevolmente il reddito imponibile di un singolo anno." },
       { question: "Anche l'accumulatore a batteria è fiscalmente detraibile?", answer: "Nella maggior parte dei cantoni sì, soprattutto se installato contemporaneamente all'impianto solare. In alcuni cantoni è detraibile anche un'aggiunta successiva. Le eccezioni sono SO, UR e ZG." },
@@ -2490,99 +2312,39 @@ const articles: BlogArticle[] = [
     date: '3. Mai 2026',
     readMin: 10,
     tag: 'Ratgeber',
-    intro: 'Solaranlage mit Wärmepumpe kombinieren — das ist die effizienteste Energielösung für Schweizer Hausbesitzer 2026. Die Wärmepumpe braucht Strom, die Solaranlage produziert ihn. Wer diese beiden Systeme kombiniert, kann seine Heizkosten um 40–70% senken und gleichzeitig seinen CO₂-Ausstoss auf praktisch null reduzieren. Diese Seite erklärt, wie die Kombination funktioniert, was sie kostet und für wen sie sich besonders lohnt.',
+    intro: 'Solaranlage mit Wärmepumpe kombinieren — das ist die effizienteste Energielösung für Schweizer Hausbesitzer 2026. Die Wärmepumpe braucht Strom, die Solaranlage produziert ihn. Diese Seite erklärt, wie die Kombination funktioniert, was sie kostet und für wen sie sich besonders lohnt.',
     sections: [
       {
         heading: 'Warum ist die Kombination Solaranlage und Wärmepumpe so effizient?',
         content: [
-          'Eine Wärmepumpe ist eine der effizientesten Heizungen — sie erzeugt aus 1 kWh Strom 3–5 kWh Wärme. Der einzige Nachteil: Sie braucht Strom, und Netzstrom kostet in der Schweiz 28–35 Rappen pro kWh. Eine Solaranlage hingegen produziert Strom aus Sonnenlicht — zu Kosten von nur 8–12 Rappen pro kWh über die Lebensdauer.',
           'Wenn Sie Ihre Wärmepumpe mit Solarstrom betreiben, sinken die effektiven Heizkosten dramatisch. Das ist der Kern der Kombination — und der Grund, warum immer mehr Schweizer Hausbesitzer auf dieses System setzen.',
           'Die Jahresarbeitszahl (JAZ) entscheidet, wie effizient die Kombination ist. Je höher die JAZ, desto weniger Strom braucht die Pumpe — und desto mehr profitieren Sie von Ihrem Solarstrom:',
         ],
-        bullets: [
-          "Luft-Wasser-Wärmepumpe: JAZ 3.0–3.5 → 4'300–5'000 kWh/Jahr für 15'000 kWh Wärme",
-          "Sole-Wasser-Wärmepumpe (Erdwärme): JAZ 4.0–4.5 → 3'300–3'750 kWh/Jahr",
-          "Wasser-Wasser-Wärmepumpe: JAZ 4.5–5.5 → 2'700–3'300 kWh/Jahr",
-        ],
-        highlight: 'Eine Wärmepumpe erzeugt aus 1 kWh Strom 3–5 kWh Wärme. Solarstrom kostet über die Lebensdauer nur 8–12 Rp./kWh — statt 28–35 Rp./kWh aus dem Netz.',
-      },
-      {
-        heading: 'Solaranlage mit Wärmepumpe kombinieren — was kostet das in der Schweiz?',
-        content: [
-          'Die Kombination ist eine grössere Investition als eine Solaranlage allein. Hier die Richtwerte für ein typisches Einfamilienhaus:',
-        ],
-        bullets: [
-          "Solaranlage 10–15 kWp: CHF 18'000–28'000",
-          "Luft-Wasser-Wärmepumpe: CHF 18'000–30'000",
-          "Sole-Wasser-Wärmepumpe: CHF 35'000–55'000",
-          "Batteriespeicher 10 kWh (optional): CHF 7'000–10'000",
-          "Energiemanagementsystem: CHF 1'500–3'000",
-          "Gesamtpaket ohne Speicher: CHF 36'000–58'000",
-          "Gesamtpaket mit Speicher: CHF 43'000–68'000",
-        ],
-        highlight: "Nach Abzug aller Fördergelder reduziert sich die Nettoinvestition auf CHF 25'000–40'000 — bei einer Lebensdauer von 20–30 Jahren.",
       },
       {
         heading: 'Welche Förderungen gibt es für die Kombination in der Schweiz?',
         content: [
           'Solaranlage und Wärmepumpe werden in der Schweiz separat gefördert — das heisst, Sie erhalten Fördergelder für beide Komponenten.',
-          "Förderung für die Solaranlage: Die Einmalvergütung (EIV) des Bundes beträgt ca. CHF 3'550–5'450 für 10–15 kWp. Dazu kommt der steuerliche Abzug als Liegenschaftsunterhalt (bis Ende 2027): CHF 4'000–8'000 Ersparnis.",
-          "Förderung für die Wärmepumpe: Das Gebäudeprogramm des Bundes bietet CHF 3'000–10'000. Kantonale Beiträge betragen CHF 1'000–5'000 je nach Kanton. Viele Energieversorger bieten zusätzliche Beiträge und vergünstigte Wärmepumpentarife (bis 30% Rabatt).",
         ],
-        bullets: [
-          "EIV Bundesförderung Solaranlage: CHF 3'550–5'450",
-          "Steuerabzug Solaranlage (bis Ende 2027): CHF 4'000–8'000 Ersparnis",
-          "Gebäudeprogramm Bund für Wärmepumpe: CHF 3'000–10'000",
-          "Kantonale Beiträge Wärmepumpe: CHF 1'000–5'000",
-          "Beiträge Energieversorger: CHF 500–2'000",
-        ],
-        highlight: "Total Fördergelder möglich: CHF 8'000–20'000. Der Steuerabzug läuft Ende 2027 aus — 2026 und 2027 sind die letzten Jahre mit vollem steuerlichem Abzug.",
-      },
-      {
-        heading: 'Was kann ich konkret sparen? Rechenbeispiel',
-        content: [
-          "Nehmen wir ein typisches Schweizer Einfamilienhaus, das bisher mit einer Ölheizung beheizt wird: Heizölverbrauch 2'000 Liter/Jahr (ca. CHF 2'400/Jahr), Stromkosten Haushalt ca. CHF 1'500/Jahr.",
-          "Nach Installation einer Solaranlage (12 kWp) und einer Luft-Wasser-Wärmepumpe: Heizkosten sinken von CHF 2'400 auf CHF 400/Jahr (Ersparnis CHF 2'000). Stromkosten sinken von CHF 1'500 auf CHF 300/Jahr (Ersparnis CHF 1'200).",
-        ],
-        bullets: [
-          "Totale jährliche Ersparnis: CHF 3'200/Jahr",
-          "Nettoinvestition nach Förderung: ca. CHF 30'000",
-          'Amortisation: ca. 9–10 Jahre',
-          'Rendite über die Lebensdauer: 8–12% p.a.',
-          'Lebensdauer: 20–25 Jahre',
-        ],
-        highlight: "Bei einer Nettoinvestition von CHF 30'000 ergibt das eine Amortisation von ca. 9–10 Jahren — bei einer Lebensdauer von 20–25 Jahren und einer Rendite von 8–12% p.a.",
+        highlight: "Der Steuerabzug läuft Ende 2027 aus — 2026 und 2027 sind die letzten Jahre mit vollem steuerlichem Abzug.",
       },
       {
         heading: 'Solaranlage mit Wärmepumpe kombinieren — welcher Typ passt?',
         content: [
           'Nicht jede Wärmepumpe eignet sich gleich gut für die Kombination mit einer Solaranlage.',
-          "Luft-Wasser-Wärmepumpe (die häufigste Wahl): Günstigste Installation, keine Bohrung nötig. JAZ ca. 3.0–3.5, braucht mehr Solarstrom als andere Typen. Ideal für Bestandsgebäude und kleineres Budget.",
-          "Sole-Wasser-Wärmepumpe / Erdwärme (die effizienteste): Höchste JAZ 4.0–4.5, braucht weniger Strom, aber teurer durch Erdbohrung (CHF 15'000–25'000). Bohrtiefe 150–300 Meter, Lebensdauer der Erdsonde über 50 Jahre. Ideal für Neubauten und maximale Effizienz.",
-          'Wasser-Wasser-Wärmepumpe (die stärkste): Höchste JAZ 4.5–5.5, benötigt Grundwasser in ausreichender Menge. Nicht überall möglich, Genehmigung nötig.',
+          "Luft-Wasser-Wärmepumpe (die häufigste Wahl): Keine Bohrung nötig, braucht aber mehr Solarstrom als andere Typen. Ideal für Bestandsgebäude und kleineres Budget.",
+          "Ideal für Neubauten und maximale Effizienz.",
+          'Wasser-Wasser-Wärmepumpe (die stärkste): Sehr effizient, benötigt aber Grundwasser in ausreichender Menge. Nicht überall möglich, Genehmigung nötig.',
         ],
         highlight: 'Für die meisten Schweizer Einfamilienhäuser ist die Luft-Wasser-Wärmepumpe in Kombination mit einer Solaranlage die praktischste und wirtschaftlichste Lösung.',
-      },
-      {
-        heading: 'Wie gross muss die Solaranlage für eine Wärmepumpe sein?',
-        content: [
-          "Eine Luft-Wasser-Wärmepumpe für ein typisches Einfamilienhaus braucht ca. 4'000–5'000 kWh Strom pro Jahr für Heizung und Warmwasser. Dazu kommt der normale Haushaltsstromverbrauch von ca. 4'000–5'000 kWh/Jahr. Total Strombedarf: ca. 8'000–10'000 kWh/Jahr.",
-          "Eine 10–12 kWp Solaranlage produziert in der Schweiz ca. 9'000–11'000 kWh/Jahr — das passt perfekt.",
-        ],
-        bullets: [
-          'Luft-Wasser-WP + Haushalt: 10–13 kWp Solaranlage empfohlen',
-          'Sole-Wasser-WP + Haushalt: 8–10 kWp (effizientere WP braucht weniger Strom)',
-          'Mit E-Auto zusätzlich: +3–5 kWp',
-        ],
-        highlight: 'Faustregel: Luft-Wasser-Wärmepumpe + Haushalt = 10–13 kWp. Bei einer Sole-Wasser-Wärmepumpe reichen 8–10 kWp.',
       },
       {
         heading: 'Brauche ich einen Batteriespeicher dazu?',
         content: [
           'Nicht zwingend — aber ein Batteriespeicher erhöht den Eigenverbrauch erheblich.',
-          'Ohne Speicher: Im Sommer läuft die Wärmepumpe für Warmwasser direkt mit Solarstrom. Im Winter — wenn die Wärmepumpe am meisten Strom braucht — produziert die Solaranlage wenig. Eigenverbrauchsanteil: ca. 40–50%.',
-          'Mit Speicher: Solarstrom aus dem Mittag wird gespeichert und abends für die Wärmepumpe genutzt. Eigenverbrauchsanteil: ca. 60–75%.',
-          'Mit Speicher + Smart-Heizsteuerung: Die Wärmepumpe lädt tagsüber den Warmwasserspeicher mit Solarstrom vor (Wärme-Pufferspeicher). Eigenverbrauchsanteil: bis 80–90%.',
+          'Ohne Speicher: Im Sommer läuft die Wärmepumpe für Warmwasser direkt mit Solarstrom. Im Winter — wenn die Wärmepumpe am meisten Strom braucht — produziert die Solaranlage wenig.',
+          'Mit Speicher: Solarstrom aus dem Mittag wird gespeichert und abends für die Wärmepumpe genutzt.',
+          'Mit Speicher + Smart-Heizsteuerung: Die Wärmepumpe lädt tagsüber den Warmwasserspeicher mit Solarstrom vor (Wärme-Pufferspeicher).',
         ],
         highlight: 'Ein Energiemanagementsystem, das die Wärmepumpe automatisch dann einschaltet, wenn die Solaranlage Überschuss produziert, ist oft wertvoller als ein teurer Batteriespeicher.',
       },
@@ -2599,21 +2361,20 @@ const articles: BlogArticle[] = [
           'E-Auto-Besitzer: grössere Anlage, noch mehr Ersparnis',
           "Investition 2026/2027: Steuerabzug für Solaranlage UND Wärmepumpe vor Ablauf 2027 nutzen",
         ],
-        highlight: "Wer noch 2026 oder 2027 investiert, kann die Gesamtkosten beider Systeme steuerlich abziehen — und damit CHF 4'000–10'000 zusätzlich sparen.",
       },
       {
         heading: 'Schritt für Schritt: So gehen Sie vor',
         content: [
           'Schritt 1 — Energiebedarf analysieren: Wie viel Strom verbraucht Ihr Haushalt? Wie viel Wärme braucht Ihr Gebäude? Ist das Gebäude gut gedämmt? Ein zertifizierter Installateur beantwortet diese Fragen beim kostenlosen Beratungsgespräch.',
           'Schritt 2 — System dimensionieren: Solaranlage und Wärmepumpe müssen aufeinander abgestimmt sein. Eine zu kleine Solaranlage deckt den WP-Strombedarf nicht — eine zu grosse produziert unnötigen Überschuss.',
-          "Schritt 3 — Offerten vergleichen: Mindestens 3 Offerten einholen ist bei einer so grossen Investition Pflicht. Die Preisunterschiede zwischen Installateuren können CHF 5'000–10'000 betragen.",
+          "Schritt 3 — Offerten vergleichen: Mindestens 3 Offerten einholen ist bei einer so grossen Investition Pflicht.",
           'Schritt 4 — Fördergelder beantragen: Für das Gebäudeprogramm (Wärmepumpe) muss der Förderantrag vor Baubeginn eingereicht werden. Für die EIV (Solaranlage) stellt der Installateur den Antrag nach der Installation.',
           'Schritt 5 — Installation und Inbetriebnahme: Solaranlage und Wärmepumpe können gleichzeitig oder zeitlich versetzt installiert werden. Bei gleichzeitiger Installation sparen Sie Gerüstkosten.',
         ],
       },
     ],
     ctaHeading: 'Jetzt Kombination Solaranlage + Wärmepumpe anfragen',
-    ctaText: 'Solaranlage mit Wärmepumpe kombinieren und bis zu 70% Heizkosten sparen — PvPro.ch vermittelt kostenlos zertifizierte Installateure, die beide Systeme aus einer Hand planen und installieren.',
+    ctaText: 'Lassen Sie Solaranlage und Wärmepumpe gemeinsam auf den Energiebedarf Ihres Gebäudes abstimmen.',
     ctaButton: 'Kostenlose Offerte anfordern',
     formUrl: '/anfrage',
     relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'solaranlage-steuerabzug-schweiz-2026', 'batteriespeicher-solaranlage-lohnt-sich'],
@@ -2628,13 +2389,12 @@ const articles: BlogArticle[] = [
       { label: 'Solaranlage Einfamilienhaus', href: '/solaranlage-einfamilienhaus' },
     ],
     faqs: [
-      { question: 'Lohnt sich eine Solaranlage mit Wärmepumpe in der Schweiz 2026?', answer: "Ja, die Kombination ist eine der rentabelsten Energieinvestitionen überhaupt. Sie können Ihre Heizkosten um 40–70% senken, kombinierte Fördergelder von CHF 8'000–20'000 erhalten und beide Investitionen noch bis Ende 2027 steuerlich abziehen." },
-      { question: 'Wie gross muss die Solaranlage für eine Wärmepumpe sein?', answer: 'Für eine Luft-Wasser-Wärmepumpe in einem typischen Einfamilienhaus empfehlen sich 10–13 kWp. Bei einer effizienteren Sole-Wasser-Wärmepumpe reichen 8–10 kWp. Wenn ein Elektroauto dazukommt, sollte die Anlage 3–5 kWp grösser sein.' },
+      { question: 'Lohnt sich eine Solaranlage mit Wärmepumpe in der Schweiz 2026?', answer: "Ja, die Kombination ist eine der rentabelsten Energieinvestitionen überhaupt." },
+      { question: 'Wie gross muss die Solaranlage für eine Wärmepumpe sein?', answer: 'Die Anlage sollte anhand des Stromverbrauchs der Wärmepumpe, des Haushaltsverbrauchs, der Dachfläche und des Standorts dimensioniert werden.' },
       { question: 'Welche Wärmepumpe passt am besten zur Solaranlage?', answer: 'Alle Wärmepumpentypen lassen sich mit einer Solaranlage kombinieren. Die Luft-Wasser-Wärmepumpe ist am verbreitetsten und günstigsten. Die Sole-Wasser-Wärmepumpe ist effizienter und braucht weniger Solarstrom, kostet aber mehr.' },
-      { question: 'Brauche ich einen Batteriespeicher für die Kombination?', answer: 'Nein, aber er erhöht den Eigenverbrauch von ca. 50% auf 70–80%. Oft ist ein Energiemanagementsystem, das die Wärmepumpe automatisch bei Solarüberschuss einschaltet, wirtschaftlicher als ein teurer Batteriespeicher.' },
-      { question: 'Welche Förderungen gibt es für Solaranlage und Wärmepumpe zusammen?', answer: "Beide werden separat gefördert: EIV für die Solaranlage (ca. CHF 3'500–5'500) und Gebäudeprogramm für die Wärmepumpe (CHF 3'000–10'000). Dazu kommen kantonale Beiträge und der Steuerabzug. Total sind CHF 8'000–20'000 Fördergelder möglich." },
-      { question: 'Kann ich eine Wärmepumpe nachträglich zu meiner bestehenden Solaranlage hinzufügen?', answer: 'Ja, das ist problemlos möglich. Allerdings sollte die bestehende Solaranlage gross genug dimensioniert sein. Bei einer kleinen Anlage unter 8 kWp empfiehlt sich eine Erweiterung gleichzeitig mit der Wärmepumpeninstallation.' },
-      { question: 'Wie hoch ist der CO₂-Ausstoss mit Solaranlage und Wärmepumpe?', answer: 'Praktisch null. Eine Wärmepumpe betrieben mit Solarstrom heizt vollständig CO₂-frei. Im Vergleich zu einer Ölheizung sparen Sie ca. 4–5 Tonnen CO₂ pro Jahr — das entspricht ca. 30\'000 km Autofahren.' },
+      { question: 'Brauche ich einen Batteriespeicher für die Kombination?', answer: 'Oft ist ein Energiemanagementsystem, das die Wärmepumpe automatisch bei Solarüberschuss einschaltet, wirtschaftlicher als ein teurer Batteriespeicher.' },
+      { question: 'Welche Förderungen gibt es für Solaranlage und Wärmepumpe zusammen?', answer: "Solaranlage und Wärmepumpe werden separat gefördert. Kantonale Programme und die steuerliche Behandlung müssen für den Standort geprüft werden." },
+      { question: 'Kann ich eine Wärmepumpe nachträglich zu meiner bestehenden Solaranlage hinzufügen?', answer: 'Ja, das ist problemlos möglich. Allerdings sollte die bestehende Solaranlage gross genug dimensioniert sein.' },
     ],
   },
 
@@ -2648,99 +2408,39 @@ const articles: BlogArticle[] = [
     date: '3 mai 2026',
     readMin: 10,
     tag: 'Guide',
-    intro: "Combiner panneau solaire et pompe à chaleur — c'est la solution énergétique la plus efficace pour les propriétaires suisses en 2026. La pompe à chaleur consomme de l'électricité, le panneau solaire en produit. Simple en théorie — et en pratique aussi. Cette combinaison peut réduire vos coûts de chauffage de 40 à 70% et ramener votre empreinte CO₂ à pratiquement zéro. Cette page explique comment fonctionne la combinaison, ce qu'elle coûte et pour qui elle est particulièrement rentable.",
+    intro: "Combiner panneau solaire et pompe à chaleur — c'est la solution énergétique la plus efficace pour les propriétaires suisses en 2026. La pompe à chaleur consomme de l'électricité, le panneau solaire en produit. Simple en théorie — et en pratique aussi. Cette page explique comment fonctionne la combinaison, ce qu'elle coûte et pour qui elle est particulièrement rentable.",
     sections: [
       {
         heading: 'Pourquoi la combinaison panneau solaire et pompe à chaleur est-elle si efficace?',
         content: [
-          "Une pompe à chaleur est l'un des systèmes de chauffage les plus efficaces — elle produit 3 à 5 kWh de chaleur pour 1 kWh d'électricité consommée. Son seul inconvénient: elle consomme de l'électricité, qui coûte 28 à 35 centimes par kWh sur le réseau suisse. Un panneau solaire produit de l'électricité à seulement 8 à 12 centimes par kWh sur sa durée de vie.",
           "Si vous faites fonctionner votre pompe à chaleur avec de l'électricité solaire, vos coûts de chauffage effectifs chutent considérablement. C'est le cœur de la combinaison — et la raison pour laquelle de plus en plus de propriétaires suisses adoptent ce système.",
           "Le coefficient de performance saisonnier (COP annuel) détermine l'efficacité de la combinaison. Plus le COP est élevé, moins la pompe consomme d'électricité:",
         ],
-        bullets: [
-          "Pompe à chaleur air-eau: COP 3.0–3.5 → 4'300–5'000 kWh/an pour 15'000 kWh de chaleur",
-          "Pompe à chaleur géothermique (sol-eau): COP 4.0–4.5 → 3'300–3'750 kWh/an",
-          "Pompe à chaleur eau-eau: COP 4.5–5.5 → 2'700–3'300 kWh/an",
-        ],
-        highlight: "Une pompe à chaleur produit 3 à 5 kWh de chaleur pour 1 kWh d'électricité. L'électricité solaire ne coûte que 8–12 ct./kWh sur la durée de vie — contre 28–35 ct./kWh sur le réseau.",
-      },
-      {
-        heading: 'Combiner panneau solaire et pompe à chaleur — combien ça coûte en Suisse?',
-        content: [
-          "La combinaison représente un investissement plus important qu'un panneau solaire seul. Voici les valeurs indicatives pour une maison individuelle typique:",
-        ],
-        bullets: [
-          "Panneaux solaires 10–15 kWc: CHF 18'000–28'000",
-          "Pompe à chaleur air-eau: CHF 18'000–30'000",
-          "Pompe à chaleur géothermique: CHF 35'000–55'000",
-          "Batterie de stockage 10 kWh (optionnel): CHF 7'000–10'000",
-          "Système de gestion de l'énergie: CHF 1'500–3'000",
-          "Pack complet sans batterie: CHF 36'000–58'000",
-          "Pack complet avec batterie: CHF 43'000–68'000",
-        ],
-        highlight: "Après déduction de toutes les subventions, l'investissement net se réduit à CHF 25'000–40'000 — pour une durée de vie de 20 à 30 ans.",
       },
       {
         heading: 'Quelles subventions pour la combinaison en Suisse?',
         content: [
           "Le panneau solaire et la pompe à chaleur sont subventionnés séparément en Suisse — vous recevez donc des aides pour les deux composants.",
-          "Pour le panneau solaire: la rétribution unique (RU) fédérale est d'environ CHF 3'550–5'450 pour 10–15 kWc. S'y ajoute la déduction fiscale en tant qu'entretien immobilier (jusqu'à fin 2027): économie de CHF 4'000–8'000.",
-          "Pour la pompe à chaleur: le Programme Bâtiments fédéral offre CHF 3'000–10'000. Les contributions cantonales s'élèvent à CHF 1'000–5'000 selon le canton. De nombreux fournisseurs d'énergie proposent des contributions supplémentaires et des tarifs réduits (jusqu'à 30% de rabais).",
         ],
-        bullets: [
-          "Rétribution unique (RU) panneaux solaires: CHF 3'550–5'450",
-          "Déduction fiscale solaire (jusqu'en 2027): économie CHF 4'000–8'000",
-          "Programme Bâtiments fédéral pompe à chaleur: CHF 3'000–10'000",
-          "Contributions cantonales pompe à chaleur: CHF 1'000–5'000",
-          "Contributions fournisseurs d'énergie: CHF 500–2'000",
-        ],
-        highlight: "Total des subventions possibles: CHF 8'000–20'000. La déduction fiscale expire fin 2027 — 2026 et 2027 sont les dernières années pour en profiter pleinement.",
-      },
-      {
-        heading: 'Combien puis-je économiser concrètement? Exemple de calcul',
-        content: [
-          "Prenons une maison individuelle suisse typique chauffée au mazout: consommation de 2'000 litres/an (environ CHF 2'400/an), coût d'électricité du ménage environ CHF 1'500/an.",
-          "Après installation de panneaux solaires (12 kWc) et d'une pompe à chaleur air-eau: les coûts de chauffage passent de CHF 2'400 à CHF 400/an (économie CHF 2'000). Les coûts d'électricité passent de CHF 1'500 à CHF 300/an (économie CHF 1'200).",
-        ],
-        bullets: [
-          "Économie annuelle totale: CHF 3'200/an",
-          "Investissement net après subventions: env. CHF 30'000",
-          'Amortissement: env. 9–10 ans',
-          'Rendement sur la durée de vie: 8–12% p.a.',
-          'Durée de vie: 20–25 ans',
-        ],
-        highlight: "Pour un investissement net de CHF 30'000, l'amortissement est d'environ 9–10 ans — avec un rendement de 8–12% p.a. sur 20–25 ans.",
+        highlight: "La déduction fiscale expire fin 2027 — 2026 et 2027 sont les dernières années pour en profiter pleinement.",
       },
       {
         heading: 'Combiner panneau solaire et pompe à chaleur — quel type choisir?',
         content: [
           'Toutes les pompes à chaleur ne se combinent pas avec les mêmes performances à un panneau solaire.',
-          "Pompe à chaleur air-eau (le choix le plus fréquent): Installation la moins coûteuse, pas de forage nécessaire. COP 3.0–3.5, consomme plus d'électricité solaire. Idéale pour les bâtiments existants et les budgets plus modestes.",
-          "Pompe à chaleur géothermique sol-eau (la plus efficace): COP le plus élevé 4.0–4.5, consomme moins d'électricité, mais plus chère via le forage (CHF 15'000–25'000). Profondeur de forage 150–300 m, durée de vie de la sonde plus de 50 ans. Idéale pour les nouvelles constructions.",
-          "Pompe à chaleur eau-eau (la plus puissante): COP 4.5–5.5, nécessite de l'eau souterraine en quantité suffisante. Pas possible partout, autorisation requise.",
+          "Pompe à chaleur air-eau (le choix le plus fréquent): Pas de forage nécessaire, mais consomme plus d'électricité solaire que les autres types. Idéale pour les bâtiments existants et les budgets plus modestes.",
+          "Idéale pour les nouvelles constructions.",
+          "Pompe à chaleur eau-eau (la plus puissante): Très efficace, mais nécessite de l'eau souterraine en quantité suffisante. Pas possible partout, autorisation requise.",
         ],
         highlight: "Pour la plupart des maisons individuelles suisses, la pompe à chaleur air-eau combinée à un panneau solaire est la solution la plus pratique et la plus économique.",
-      },
-      {
-        heading: 'Quelle taille de panneau solaire pour une pompe à chaleur?',
-        content: [
-          "Une pompe à chaleur air-eau pour une maison individuelle typique consomme environ 4'000–5'000 kWh d'électricité par an pour le chauffage et l'eau chaude. Avec la consommation électrique normale du ménage (4'000–5'000 kWh/an), le total est de 8'000–10'000 kWh/an.",
-          "Un panneau solaire de 10–12 kWc produit en Suisse environ 9'000–11'000 kWh/an — ce qui correspond parfaitement.",
-        ],
-        bullets: [
-          'PAC air-eau + ménage: 10–13 kWc recommandés',
-          'PAC géothermique + ménage: 8–10 kWc (PAC plus efficace, moins de consommation)',
-          'Avec voiture électrique en plus: +3–5 kWc',
-        ],
-        highlight: "Règle pratique: pompe à chaleur air-eau + ménage = 10–13 kWc. Avec une pompe géothermique, 8–10 kWc suffisent.",
       },
       {
         heading: "Ai-je besoin d'une batterie de stockage?",
         content: [
           "Pas obligatoirement — mais une batterie augmente considérablement le taux d'autoconsommation.",
-          "Sans batterie: En été, la PAC fonctionne directement avec l'électricité solaire pour l'eau chaude. En hiver — quand la PAC consomme le plus — le panneau solaire produit peu. Taux d'autoconsommation: env. 40–50%.",
-          "Avec batterie: L'électricité solaire de midi est stockée et utilisée le soir pour la PAC. Taux d'autoconsommation: env. 60–75%.",
-          "Avec batterie + gestion intelligente du chauffage: La PAC préchauffe le ballon d'eau chaude le jour avec l'énergie solaire. Taux d'autoconsommation: jusqu'à 80–90%.",
+          "Sans batterie: En été, la PAC fonctionne directement avec l'électricité solaire pour l'eau chaude. En hiver — quand la PAC consomme le plus — le panneau solaire produit peu.",
+          "Avec batterie: L'électricité solaire de midi est stockée et utilisée le soir pour la PAC.",
+          "Avec batterie + gestion intelligente du chauffage: La PAC préchauffe le ballon d'eau chaude le jour avec l'énergie solaire.",
         ],
         highlight: "Un système de gestion de l'énergie qui active automatiquement la pompe à chaleur lors des surplus solaires est souvent plus rentable qu'une batterie coûteuse.",
       },
@@ -2757,21 +2457,20 @@ const articles: BlogArticle[] = [
           "Propriétaires de voiture électrique: plus grande installation, plus d'économies",
           "Investissement 2026/2027: déduction fiscale pour les deux systèmes avant l'expiration 2027",
         ],
-        highlight: "En investissant encore en 2026 ou 2027, vous pouvez déduire fiscalement les coûts des deux systèmes — et économiser CHF 4'000–10'000 supplémentaires.",
       },
       {
         heading: 'Étape par étape: comment procéder?',
         content: [
           "Étape 1 — Analyser les besoins énergétiques: Quelle est votre consommation électrique? Combien de chaleur votre bâtiment nécessite-t-il? Un installateur certifié répond à ces questions lors d'une consultation gratuite.",
           "Étape 2 — Dimensionner le système: Le panneau solaire et la pompe à chaleur doivent être adaptés l'un à l'autre. Un système trop petit ne couvre pas les besoins en électricité de la PAC.",
-          "Étape 3 — Comparer les offres: Demander au moins 3 offres est indispensable pour un tel investissement. Les différences de prix entre installateurs peuvent atteindre CHF 5'000–10'000.",
+          "Étape 3 — Comparer les offres: Demander au moins 3 offres est indispensable pour un tel investissement.",
           "Étape 4 — Demander les subventions: Pour le Programme Bâtiments (PAC), la demande doit être déposée avant le début des travaux. Pour la RU (solaire), l'installateur dépose la demande après l'installation.",
           "Étape 5 — Installation et mise en service: Le panneau solaire et la PAC peuvent être installés simultanément ou successivement. Une installation simultanée permet d'économiser les frais d'échafaudage.",
         ],
       },
     ],
     ctaHeading: 'Demandez maintenant la combinaison panneau solaire + pompe à chaleur',
-    ctaText: "Combinez panneau solaire et pompe à chaleur pour économiser jusqu'à 70% sur vos coûts de chauffage — PvPro.ch vous met gratuitement en contact avec des installateurs certifiés qui planifient et installent les deux systèmes.",
+    ctaText: "Faites dimensionner ensemble l'installation solaire et la pompe à chaleur selon les besoins énergétiques du bâtiment.",
     ctaButton: 'Demander un devis gratuit',
     formUrl: '/fr/contact',
     relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'solaranlage-steuerabzug-schweiz-2026', 'batteriespeicher-solaranlage-lohnt-sich'],
@@ -2786,13 +2485,12 @@ const articles: BlogArticle[] = [
       { label: 'Solaire maison individuelle', href: '/fr/solaire-maison-individuelle' },
     ],
     faqs: [
-      { question: 'Est-ce rentable de combiner un panneau solaire et une pompe à chaleur en Suisse en 2026?', answer: "Oui, la combinaison est l'un des investissements énergétiques les plus rentables. Vous pouvez réduire vos coûts de chauffage de 40 à 70%, recevoir des subventions combinées de CHF 8'000–20'000 et déduire fiscalement les deux investissements jusqu'à fin 2027." },
-      { question: 'Quelle taille de panneau solaire pour une pompe à chaleur?', answer: "Pour une pompe à chaleur air-eau dans une maison individuelle typique, 10–13 kWc sont recommandés. Pour une pompe géothermique plus efficace, 8–10 kWc suffisent. Avec une voiture électrique en plus, prévoyez 3–5 kWc supplémentaires." },
+      { question: 'Est-ce rentable de combiner un panneau solaire et une pompe à chaleur en Suisse en 2026?', answer: "Oui, la combinaison est l'un des investissements énergétiques les plus rentables." },
+      { question: 'Quelle taille de panneau solaire pour une pompe à chaleur?', answer: "Le dimensionnement doit tenir compte de la consommation de la pompe à chaleur et du ménage, de la toiture et du site." },
       { question: 'Quelle pompe à chaleur convient le mieux au panneau solaire?', answer: "Tous les types de pompes à chaleur peuvent être combinés avec un panneau solaire. La pompe air-eau est la plus répandue et la moins chère. La pompe géothermique est plus efficace et consomme moins d'électricité solaire, mais coûte plus cher." },
-      { question: "Ai-je besoin d'une batterie pour la combinaison?", answer: "Non, mais elle fait passer le taux d'autoconsommation d'environ 50% à 70–80%. Un système de gestion de l'énergie activant automatiquement la PAC lors des surplus solaires est souvent plus économique qu'une batterie coûteuse." },
-      { question: 'Quelles subventions pour le panneau solaire et la pompe à chaleur ensemble?', answer: "Les deux sont subventionnés séparément: RU pour le solaire (CHF 3'500–5'500) et Programme Bâtiments pour la PAC (CHF 3'000–10'000). S'y ajoutent les contributions cantonales et la déduction fiscale. Total possible: CHF 8'000–20'000." },
-      { question: 'Puis-je ajouter une pompe à chaleur à mon installation solaire existante?', answer: "Oui, c'est tout à fait possible. Cependant, l'installation solaire existante doit être suffisamment dimensionnée. Pour une petite installation (moins de 8 kWc), il est conseillé d'agrandir en même temps que l'installation de la PAC." },
-      { question: "Quel est l'impact CO₂ avec panneau solaire et pompe à chaleur?", answer: "Pratiquement zéro. Une pompe à chaleur fonctionnant à l'électricité solaire chauffe sans aucune émission de CO₂. Par rapport à une chaudière à mazout, vous économisez environ 4 à 5 tonnes de CO₂ par an — soit environ 30'000 km en voiture." },
+      { question: "Ai-je besoin d'une batterie pour la combinaison?", answer: "Un système de gestion de l'énergie activant automatiquement la PAC lors des surplus solaires est souvent plus économique qu'une batterie coûteuse." },
+      { question: 'Quelles subventions pour le panneau solaire et la pompe à chaleur ensemble?', answer: "Le solaire et la pompe à chaleur sont soutenus séparément. Les programmes cantonaux et le traitement fiscal doivent être vérifiés pour le lieu concerné." },
+      { question: 'Puis-je ajouter une pompe à chaleur à mon installation solaire existante?', answer: "Oui, c'est tout à fait possible. Cependant, l'installation solaire existante doit être suffisamment dimensionnée." },
     ],
   },
 
@@ -2806,99 +2504,39 @@ const articles: BlogArticle[] = [
     date: '3 May 2026',
     readMin: 10,
     tag: 'Guide',
-    intro: 'Combining solar panels with a heat pump is the most efficient energy solution for Swiss homeowners in 2026. The heat pump needs electricity, the solar panels produce it. Simple in theory — and in practice too. This combination can reduce your heating costs by 40–70% and bring your CO₂ emissions to practically zero. This page explains how the combination works, what it costs and who benefits most.',
+    intro: 'Combining solar panels with a heat pump is the most efficient energy solution for Swiss homeowners in 2026. The heat pump needs electricity, the solar panels produce it. Simple in theory — and in practice too. This page explains how the combination works, what it costs and who benefits most.',
     sections: [
       {
         heading: 'Why is the solar panel and heat pump combination so efficient?',
         content: [
-          'A heat pump is one of the most efficient heating systems — it produces 3–5 kWh of heat from 1 kWh of electricity. Grid electricity in Switzerland costs 28–35 cents per kWh. Solar panels produce electricity for only 8–12 cents per kWh over their lifetime.',
           'Running your heat pump on solar electricity drastically reduces effective heating costs. That is the core of the combination — and why more and more Swiss homeowners are adopting this system.',
           'The Seasonal Coefficient of Performance (SCOP) determines how efficient the combination is. The higher the SCOP, the less electricity the pump needs:',
         ],
-        bullets: [
-          'Air-to-water heat pump: SCOP 3.0–3.5 → 4,300–5,000 kWh/year for 15,000 kWh of heat',
-          'Ground-source heat pump (geothermal): SCOP 4.0–4.5 → 3,300–3,750 kWh/year',
-          'Water-source heat pump: SCOP 4.5–5.5 → 2,700–3,300 kWh/year',
-        ],
-        highlight: 'A heat pump produces 3–5 kWh of heat from 1 kWh of electricity. Solar electricity costs only 8–12 ct./kWh over its lifetime — vs. 28–35 ct./kWh from the grid.',
-      },
-      {
-        heading: 'Solar panels and heat pump combination — what does it cost in Switzerland?',
-        content: [
-          'The combination is a larger investment than solar panels alone. Here are the reference values for a typical single-family home:',
-        ],
-        bullets: [
-          'Solar panels 10–15 kWp: CHF 18,000–28,000',
-          'Air-to-water heat pump: CHF 18,000–30,000',
-          'Ground-source heat pump: CHF 35,000–55,000',
-          'Battery storage 10 kWh (optional): CHF 7,000–10,000',
-          'Energy management system: CHF 1,500–3,000',
-          'Full package without battery: CHF 36,000–58,000',
-          'Full package with battery: CHF 43,000–68,000',
-        ],
-        highlight: 'After deducting all subsidies, the net investment is reduced to CHF 25,000–40,000 — for a system lifetime of 20–30 years.',
       },
       {
         heading: 'What subsidies are available for the combination in Switzerland?',
         content: [
           'Solar panels and heat pumps are subsidized separately in Switzerland — meaning you receive support for both components.',
-          'For solar panels: the federal one-time payment (OTP) is approx. CHF 3,550–5,450 for 10–15 kWp. Plus tax deduction as property maintenance (until end of 2027): savings of CHF 4,000–8,000.',
-          'For the heat pump: the federal Buildings Programme offers CHF 3,000–10,000. Cantonal contributions are CHF 1,000–5,000 depending on the canton. Many energy providers offer additional contributions and reduced heat pump tariffs (up to 30% discount).',
         ],
-        bullets: [
-          'Federal one-time payment (OTP) for solar: CHF 3,550–5,450',
-          'Tax deduction for solar (until end of 2027): savings CHF 4,000–8,000',
-          'Federal Buildings Programme for heat pump: CHF 3,000–10,000',
-          'Cantonal contributions for heat pump: CHF 1,000–5,000',
-          'Energy provider contributions: CHF 500–2,000',
-        ],
-        highlight: 'Total possible subsidies: CHF 8,000–20,000. The tax deduction expires at the end of 2027 — 2026 and 2027 are the last years to take full advantage.',
-      },
-      {
-        heading: 'How much can I actually save? Calculation example',
-        content: [
-          'Take a typical Swiss single-family home currently heated with oil: 2,000 litres/year consumption (approx. CHF 2,400/year), household electricity costs approx. CHF 1,500/year.',
-          'After installing solar panels (12 kWp) and an air-to-water heat pump: heating costs drop from CHF 2,400 to CHF 400/year (savings CHF 2,000). Electricity costs drop from CHF 1,500 to CHF 300/year (savings CHF 1,200).',
-        ],
-        bullets: [
-          'Total annual savings: CHF 3,200/year',
-          'Net investment after subsidies: approx. CHF 30,000',
-          'Payback period: approx. 9–10 years',
-          'Return on investment over lifetime: 8–12% p.a.',
-          'System lifetime: 20–25 years',
-        ],
-        highlight: 'With a net investment of CHF 30,000, the payback period is approx. 9–10 years — with a return of 8–12% p.a. over 20–25 years.',
+        highlight: 'The tax deduction expires at the end of 2027 — 2026 and 2027 are the last years to take full advantage.',
       },
       {
         heading: 'Solar panels and heat pump — which type is best?',
         content: [
           'Not all heat pumps combine equally well with solar panels.',
-          'Air-to-water heat pump (most common choice): Cheapest installation, no drilling required. SCOP 3.0–3.5, uses more solar electricity. Ideal for existing buildings and smaller budgets.',
-          'Ground-source heat pump / geothermal (most efficient): Highest SCOP 4.0–4.5, uses less electricity, but more expensive due to drilling (CHF 15,000–25,000). Drilling depth 150–300 m, ground probe lifetime over 50 years. Ideal for new builds and maximum efficiency.',
-          'Water-source heat pump (most powerful): SCOP 4.5–5.5, requires sufficient groundwater availability. Not possible everywhere, permit required.',
+          'Air-to-water heat pump (most common choice): No drilling required, but uses more solar electricity than other types. Ideal for existing buildings and smaller budgets.',
+          'Ideal for new builds and maximum efficiency.',
+          'Water-source heat pump (most powerful): Highly efficient, but requires sufficient groundwater availability. Not possible everywhere, permit required.',
         ],
         highlight: 'For most Swiss single-family homes, the air-to-water heat pump combined with solar panels is the most practical and economical solution.',
-      },
-      {
-        heading: 'What size solar panels do I need for a heat pump?',
-        content: [
-          'An air-to-water heat pump for a typical single-family home requires approx. 4,000–5,000 kWh of electricity per year for heating and hot water. Add the regular household electricity consumption of 4,000–5,000 kWh/year — total approx. 8,000–10,000 kWh/year.',
-          'A 10–12 kWp solar system produces approx. 9,000–11,000 kWh/year in Switzerland — a perfect match.',
-        ],
-        bullets: [
-          'Air-to-water HP + household: 10–13 kWp solar panels recommended',
-          'Ground-source HP + household: 8–10 kWp (more efficient HP needs less electricity)',
-          'With electric car in addition: +3–5 kWp',
-        ],
-        highlight: 'Rule of thumb: air-to-water heat pump + household = 10–13 kWp. With a ground-source heat pump, 8–10 kWp is sufficient.',
       },
       {
         heading: 'Do I need a battery storage system?',
         content: [
           'Not necessarily — but a battery significantly increases self-consumption.',
-          'Without battery: In summer, the heat pump runs directly on solar electricity for hot water. In winter — when the heat pump uses most electricity — solar production is low. Self-consumption rate: approx. 40–50%.',
-          'With battery: Solar electricity from midday is stored and used in the evening for the heat pump. Self-consumption rate: approx. 60–75%.',
-          'With battery + smart heating control: The heat pump pre-heats the hot water tank during the day using solar energy. Self-consumption rate: up to 80–90%.',
+          'Without battery: In summer, the heat pump runs directly on solar electricity for hot water. In winter — when the heat pump uses most electricity — solar production is low.',
+          'With battery: Solar electricity from midday is stored and used in the evening for the heat pump.',
+          'With battery + smart heating control: The heat pump pre-heats the hot water tank during the day using solar energy.',
         ],
         highlight: 'An energy management system that automatically activates the heat pump when solar surplus is available is often more cost-effective than an expensive battery.',
       },
@@ -2915,21 +2553,20 @@ const articles: BlogArticle[] = [
           'Electric vehicle owners: larger installation, even more savings',
           'Investing in 2026/2027: tax deduction for both systems before 2027 expiry',
         ],
-        highlight: 'By investing in 2026 or 2027, you can deduct the total costs of both systems from your taxes — saving an additional CHF 4,000–10,000.',
       },
       {
         heading: 'Step by step: how to proceed',
         content: [
           'Step 1 — Analyse energy needs: How much electricity does your household use? How much heat does your building need? Is it well insulated? A certified installer answers these questions in a free consultation.',
           'Step 2 — Size the system: Solar panels and heat pump must be matched to each other. A system that is too small will not cover the heat pump\'s electricity needs.',
-          'Step 3 — Compare quotes: Getting at least 3 quotes is essential for such a large investment. Price differences between installers can be CHF 5,000–10,000.',
+          'Step 3 — Compare quotes: Getting at least 3 quotes is essential for such a large investment.',
           'Step 4 — Apply for subsidies: For the Buildings Programme (heat pump), the application must be submitted before work begins. For the OTP (solar panels), the installer submits the application after installation.',
           'Step 5 — Installation and commissioning: Solar panels and heat pump can be installed simultaneously or in stages. Simultaneous installation saves scaffolding costs.',
         ],
       },
     ],
     ctaHeading: 'Request solar panel + heat pump combination now',
-    ctaText: 'Combine solar panels with a heat pump and save up to 70% on heating costs — PvPro.ch connects you free of charge with certified installers who plan and install both systems.',
+    ctaText: 'Have the solar system and heat pump sized together for the building’s energy needs.',
     ctaButton: 'Request free quote',
     formUrl: '/en/contact',
     relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'solaranlage-steuerabzug-schweiz-2026', 'batteriespeicher-solaranlage-lohnt-sich'],
@@ -2944,13 +2581,12 @@ const articles: BlogArticle[] = [
       { label: 'Solar for detached houses', href: '/en/solar-detached-house' },
     ],
     faqs: [
-      { question: 'Is it worth combining solar panels and a heat pump in Switzerland in 2026?', answer: 'Yes, the combination is one of the most profitable energy investments available. You can reduce your heating costs by 40–70%, receive combined subsidies of CHF 8,000–20,000, and deduct both investments from your taxes until end of 2027.' },
-      { question: 'What size solar panels do I need for a heat pump?', answer: 'For an air-to-water heat pump in a typical single-family home, 10–13 kWp is recommended. For a more efficient ground-source heat pump, 8–10 kWp is sufficient. With an electric car in addition, add 3–5 kWp.' },
+      { question: 'Is it worth combining solar panels and a heat pump in Switzerland in 2026?', answer: 'Yes, the combination is one of the most profitable energy investments available.' },
+      { question: 'What size solar panels do I need for a heat pump?', answer: 'Sizing should account for heat-pump and household electricity use, available roof area and the location.' },
       { question: 'Which heat pump works best with solar panels?', answer: 'All types of heat pumps can be combined with solar panels. The air-to-water heat pump is the most common and least expensive. The ground-source heat pump is more efficient and uses less solar electricity, but costs more.' },
-      { question: 'Do I need battery storage for the combination?', answer: 'No, but it increases self-consumption from approx. 50% to 70–80%. An energy management system that automatically activates the heat pump when solar surplus is available is often more economical than an expensive battery.' },
-      { question: 'What subsidies are available for solar panels and heat pump together?', answer: 'Both are subsidized separately: OTP for solar panels (approx. CHF 3,500–5,500) and Buildings Programme for the heat pump (CHF 3,000–10,000). Plus cantonal contributions and tax deductions. Total possible: CHF 8,000–20,000.' },
-      { question: 'Can I add a heat pump to my existing solar installation?', answer: 'Yes, this is perfectly possible. However, the existing solar installation should be large enough. For a small installation (under 8 kWp), it is advisable to expand it at the same time as the heat pump installation.' },
-      { question: 'How much CO₂ do I save with solar panels and a heat pump?', answer: 'Practically zero. A heat pump running on solar electricity heats completely CO₂-free. Compared to an oil boiler, you save approx. 4–5 tonnes of CO₂ per year — equivalent to approx. 30,000 km of driving.' },
+      { question: 'Do I need battery storage for the combination?', answer: 'An energy management system that automatically activates the heat pump when solar surplus is available is often more economical than an expensive battery.' },
+      { question: 'What subsidies are available for solar panels and heat pump together?', answer: 'Solar and heat pumps are supported separately. Check the applicable cantonal programmes and tax treatment for the location.' },
+      { question: 'Can I add a heat pump to my existing solar installation?', answer: 'Yes, this is perfectly possible. However, the existing solar installation should be large enough.' },
     ],
   },
 
@@ -2964,99 +2600,38 @@ const articles: BlogArticle[] = [
     date: '3 maggio 2026',
     readMin: 10,
     tag: 'Guida',
-    intro: "Combinare impianto solare e pompa di calore — è la soluzione energetica più efficiente per i proprietari svizzeri nel 2026. La pompa di calore ha bisogno di elettricità, l'impianto solare la produce. Semplice in teoria — e anche in pratica. Questa combinazione può ridurre i costi di riscaldamento del 40–70% e portare le emissioni di CO₂ praticamente a zero. Questa pagina spiega come funziona la combinazione, quanto costa e per chi è particolarmente conveniente.",
+    intro: "Combinare impianto solare e pompa di calore — è la soluzione energetica più efficiente per i proprietari svizzeri nel 2026. La pompa di calore ha bisogno di elettricità, l'impianto solare la produce. Semplice in teoria — e anche in pratica. Questa pagina spiega come funziona la combinazione, quanto costa e per chi è particolarmente conveniente.",
     sections: [
       {
         heading: "Perché la combinazione impianto solare e pompa di calore è così efficiente?",
         content: [
-          "Una pompa di calore è uno dei sistemi di riscaldamento più efficienti — produce 3–5 kWh di calore per ogni kWh di elettricità consumata. L'unico svantaggio: consuma elettricità, che in Svizzera costa 28–35 centesimi per kWh dalla rete. Un impianto solare produce invece elettricità per soli 8–12 centesimi per kWh nel corso della sua vita utile.",
           "Se si fa funzionare la pompa di calore con l'elettricità solare, i costi di riscaldamento effettivi si riducono drasticamente. Questo è il cuore della combinazione — e il motivo per cui sempre più proprietari svizzeri adottano questo sistema.",
           "Il coefficiente di prestazione stagionale (COP annuo) determina l'efficienza della combinazione. Più alto è il COP, meno elettricità consuma la pompa:",
         ],
-        bullets: [
-          "Pompa di calore aria-acqua: COP 3.0–3.5 → 4'300–5'000 kWh/anno per 15'000 kWh di calore",
-          "Pompa di calore geotermica (suolo-acqua): COP 4.0–4.5 → 3'300–3'750 kWh/anno",
-          "Pompa di calore acqua-acqua: COP 4.5–5.5 → 2'700–3'300 kWh/anno",
-        ],
-        highlight: "Una pompa di calore produce 3–5 kWh di calore per ogni kWh di elettricità. L'elettricità solare costa solo 8–12 ct./kWh nel corso della vita utile — contro i 28–35 ct./kWh dalla rete.",
-      },
-      {
-        heading: 'Combinare impianto solare e pompa di calore — quanto costa in Svizzera?',
-        content: [
-          'La combinazione è un investimento maggiore rispetto al solo impianto solare. Ecco i valori indicativi per una tipica casa unifamiliare:',
-        ],
-        bullets: [
-          "Impianto solare 10–15 kWp: CHF 18'000–28'000",
-          "Pompa di calore aria-acqua: CHF 18'000–30'000",
-          "Pompa di calore geotermica: CHF 35'000–55'000",
-          "Accumulo a batteria 10 kWh (opzionale): CHF 7'000–10'000",
-          "Sistema di gestione energetica: CHF 1'500–3'000",
-          "Pacchetto completo senza batteria: CHF 36'000–58'000",
-          "Pacchetto completo con batteria: CHF 43'000–68'000",
-        ],
-        highlight: "Dopo la detrazione di tutti gli incentivi, l'investimento netto si riduce a CHF 25'000–40'000 — per una durata di vita di 20–30 anni.",
       },
       {
         heading: 'Quali incentivi esistono per la combinazione in Svizzera?',
         content: [
           "L'impianto solare e la pompa di calore sono incentivati separatamente in Svizzera — il che significa che si ricevono sussidi per entrambi i componenti.",
-          "Per l'impianto solare: la remunerazione unica (RU) federale è di circa CHF 3'550–5'450 per 10–15 kWp. In aggiunta, la deduzione fiscale come manutenzione immobiliare (fino a fine 2027): risparmio di CHF 4'000–8'000.",
-          "Per la pompa di calore: il Programma Edifici federale offre CHF 3'000–10'000. I contributi cantonali ammontano a CHF 1'000–5'000 a seconda del cantone. Molti fornitori di energia offrono contributi aggiuntivi e tariffe speciali per pompe di calore (fino al 30% di sconto).",
         ],
-        bullets: [
-          "Remunerazione unica (RU) per l'impianto solare: CHF 3'550–5'450",
-          "Deduzione fiscale solare (fino a fine 2027): risparmio CHF 4'000–8'000",
-          "Programma Edifici federale per pompa di calore: CHF 3'000–10'000",
-          "Contributi cantonali pompa di calore: CHF 1'000–5'000",
-          "Contributi fornitori di energia: CHF 500–2'000",
-        ],
-        highlight: "Totale incentivi possibili: CHF 8'000–20'000. La deduzione fiscale scade a fine 2027 — il 2026 e il 2027 sono gli ultimi anni per sfruttarla appieno.",
-      },
-      {
-        heading: 'Quanto posso risparmiare concretamente? Esempio di calcolo',
-        content: [
-          "Prendiamo una tipica casa unifamiliare svizzera attualmente riscaldata a gasolio: consumo di 2'000 litri/anno (circa CHF 2'400/anno), costi elettrici domestici circa CHF 1'500/anno.",
-          "Dopo l'installazione di un impianto solare (12 kWp) e una pompa di calore aria-acqua: i costi di riscaldamento scendono da CHF 2'400 a CHF 400/anno (risparmio CHF 2'000). I costi di elettricità scendono da CHF 1'500 a CHF 300/anno (risparmio CHF 1'200).",
-        ],
-        bullets: [
-          "Risparmio annuale totale: CHF 3'200/anno",
-          "Investimento netto dopo incentivi: circa CHF 30'000",
-          'Periodo di ammortamento: circa 9–10 anni',
-          'Rendimento nel corso della vita utile: 8–12% p.a.',
-          'Durata di vita: 20–25 anni',
-        ],
-        highlight: "Con un investimento netto di CHF 30'000, il periodo di ammortamento è di circa 9–10 anni — con un rendimento dell'8–12% p.a. su 20–25 anni.",
+        highlight: "La deduzione fiscale scade a fine 2027 — il 2026 e il 2027 sono gli ultimi anni per sfruttarla appieno.",
       },
       {
         heading: "Combinare impianto solare e pompa di calore — quale tipo scegliere?",
         content: [
           "Non tutte le pompe di calore si combinano ugualmente bene con un impianto solare.",
-          "Pompa di calore aria-acqua (la scelta più comune): Installazione meno costosa, nessuna perforazione necessaria. COP 3.0–3.5, consuma più elettricità solare. Ideale per edifici esistenti e budget più contenuti.",
-          "Pompa di calore geotermica suolo-acqua (la più efficiente): COP più elevato 4.0–4.5, consuma meno elettricità, ma più costosa tramite perforazione (CHF 15'000–25'000). Profondità di perforazione 150–300 m, durata della sonda oltre 50 anni. Ideale per nuove costruzioni.",
-          "Pompa di calore acqua-acqua (la più potente): COP 4.5–5.5, richiede disponibilità sufficiente di acqua di falda. Non possibile ovunque, necessaria autorizzazione.",
+          "Pompa di calore aria-acqua (la scelta più comune): Non richiede perforazione, ma consuma più elettricità solare rispetto agli altri tipi. Ideale per edifici esistenti e budget più contenuti.",
+          "La profondità di perforazione e la durata della sonda dipendono dal progetto. Ideale per nuove costruzioni.",
+          "Pompa di calore acqua-acqua (la più potente): Molto efficiente, ma richiede disponibilità sufficiente di acqua di falda. Non possibile ovunque, necessaria autorizzazione.",
         ],
-        highlight: "Per la maggior parte delle case unifamiliari svizzere, la pompa di calore aria-acqua in combinazione con l'impianto solare è la soluzione più pratica ed economica.",
-      },
-      {
-        heading: "Quanto deve essere grande l'impianto solare per una pompa di calore?",
-        content: [
-          "Una pompa di calore aria-acqua per una tipica casa unifamiliare richiede circa 4'000–5'000 kWh di elettricità all'anno per il riscaldamento e l'acqua calda. Aggiungendo il consumo domestico normale di 4'000–5'000 kWh/anno — il totale è di 8'000–10'000 kWh/anno.",
-          "Un impianto solare da 10–12 kWp produce in Svizzera circa 9'000–11'000 kWh/anno — perfettamente adatto.",
-        ],
-        bullets: [
-          'PDC aria-acqua + domestico: 10–13 kWp consigliati',
-          'PDC geotermica + domestico: 8–10 kWp (PDC più efficiente consuma meno)',
-          'Con auto elettrica in aggiunta: +3–5 kWp',
-        ],
-        highlight: "Regola pratica: pompa di calore aria-acqua + domestico = 10–13 kWp. Con una pompa geotermica bastano 8–10 kWp.",
       },
       {
         heading: 'Ho bisogno di un accumulo a batteria?',
         content: [
           "Non necessariamente — ma una batteria aumenta notevolmente il tasso di autoconsumo.",
-          "Senza batteria: In estate, la pompa di calore funziona direttamente con l'elettricità solare per l'acqua calda. In inverno — quando la pompa consuma di più — l'impianto solare produce poco. Tasso di autoconsumo: circa 40–50%.",
-          "Con batteria: L'elettricità solare di mezzogiorno viene immagazzinata e utilizzata la sera per la pompa di calore. Tasso di autoconsumo: circa 60–75%.",
-          "Con batteria + controllo intelligente del riscaldamento: La pompa di calore preriscalda il serbatoio di acqua calda durante il giorno con l'energia solare (accumulo termico). Tasso di autoconsumo: fino all'80–90%.",
+          "Senza batteria: In estate, la pompa di calore funziona direttamente con l'elettricità solare per l'acqua calda. In inverno — quando la pompa consuma di più — l'impianto solare produce poco.",
+          "Con batteria: L'elettricità solare di mezzogiorno viene immagazzinata e utilizzata la sera per la pompa di calore.",
+          "Con batteria + controllo intelligente del riscaldamento: La pompa di calore preriscalda il serbatoio di acqua calda durante il giorno con l'energia solare (accumulo termico).",
         ],
         highlight: "Un sistema di gestione dell'energia che attiva automaticamente la pompa di calore in caso di surplus solare è spesso più conveniente di una costosa batteria.",
       },
@@ -3073,21 +2648,20 @@ const articles: BlogArticle[] = [
           'Proprietari di auto elettrica: impianto più grande, ancora più risparmio',
           'Investimento 2026/2027: deduzione fiscale per entrambi i sistemi prima della scadenza 2027',
         ],
-        highlight: "Investendo ancora nel 2026 o 2027, è possibile detrarre fiscalmente i costi totali di entrambi i sistemi — risparmiando ulteriori CHF 4'000–10'000.",
       },
       {
         heading: 'Passo dopo passo: come procedere',
         content: [
           "Passo 1 — Analizzare il fabbisogno energetico: Quanto consuma elettricamente la sua famiglia? Quanta energia termica richiede il suo edificio? È ben isolato? Un installatore certificato risponde a queste domande durante una consulenza gratuita.",
           "Passo 2 — Dimensionare il sistema: L'impianto solare e la pompa di calore devono essere adattati l'uno all'altro. Un sistema troppo piccolo non copre il fabbisogno elettrico della pompa.",
-          "Passo 3 — Confrontare i preventivi: Richiedere almeno 3 preventivi è indispensabile per un investimento così importante. Le differenze di prezzo tra installatori possono raggiungere CHF 5'000–10'000.",
+          "Passo 3 — Confrontare i preventivi: Richiedere almeno 3 preventivi è indispensabile per un investimento così importante.",
           "Passo 4 — Richiedere gli incentivi: Per il Programma Edifici (pompa di calore), la domanda deve essere presentata prima dell'inizio dei lavori. Per la RU (impianto solare), l'installatore presenta la domanda dopo l'installazione.",
           "Passo 5 — Installazione e messa in servizio: L'impianto solare e la pompa di calore possono essere installati contemporaneamente o in fasi successive. Un'installazione simultanea consente di risparmiare sui costi dei ponteggi.",
         ],
       },
     ],
     ctaHeading: 'Richiedi ora la combinazione impianto solare + pompa di calore',
-    ctaText: "Combina impianto solare e pompa di calore e risparmia fino al 70% sui costi di riscaldamento — PvPro.ch ti mette gratuitamente in contatto con installatori certificati che pianificano e installano entrambi i sistemi.",
+    ctaText: "Fai dimensionare insieme impianto solare e pompa di calore in base al fabbisogno energetico dell'edificio.",
     ctaButton: 'Richiedi preventivo gratuito',
     formUrl: '/it/richiesta',
     relatedSlugs: ['lohnt-sich-solaranlage-schweiz-2026', 'solaranlage-steuerabzug-schweiz-2026', 'batteriespeicher-solaranlage-lohnt-sich'],
@@ -3102,13 +2676,12 @@ const articles: BlogArticle[] = [
       { label: 'Solare casa unifamiliare', href: '/it/solare-casa-unifamiliare' },
     ],
     faqs: [
-      { question: "Conviene combinare impianto solare e pompa di calore in Svizzera nel 2026?", answer: "Sì, la combinazione è uno degli investimenti energetici più redditizi in assoluto. È possibile ridurre i costi di riscaldamento del 40–70%, ricevere incentivi combinati di CHF 8'000–20'000 e detrarre entrambi gli investimenti fiscalmente fino a fine 2027." },
-      { question: "Quanto deve essere grande l'impianto solare per una pompa di calore?", answer: "Per una pompa di calore aria-acqua in una tipica casa unifamiliare si consigliano 10–13 kWp. Per una pompa geotermica più efficiente bastano 8–10 kWp. Con un'auto elettrica in aggiunta, aggiungere 3–5 kWp." },
+      { question: "Conviene combinare impianto solare e pompa di calore in Svizzera nel 2026?", answer: "Sì, la combinazione è uno degli investimenti energetici più redditizi in assoluto." },
+      { question: "Quanto deve essere grande l'impianto solare per una pompa di calore?", answer: "Il dimensionamento deve considerare il consumo della pompa di calore e della famiglia, la superficie del tetto e la località." },
       { question: "Quale pompa di calore si abbina meglio all'impianto solare?", answer: "Tutti i tipi di pompe di calore possono essere combinati con un impianto solare. La pompa aria-acqua è la più diffusa e meno costosa. La pompa geotermica è più efficiente e consuma meno elettricità solare, ma costa di più." },
-      { question: "Ho bisogno di un accumulo a batteria per la combinazione?", answer: "No, ma aumenta il tasso di autoconsumo dal circa 50% al 70–80%. Un sistema di gestione dell'energia che attiva automaticamente la pompa di calore in caso di surplus solare è spesso più conveniente di una costosa batteria." },
-      { question: "Quali incentivi esistono per impianto solare e pompa di calore insieme?", answer: "Entrambi sono incentivati separatamente: RU per l'impianto solare (CHF 3'500–5'500) e Programma Edifici per la pompa di calore (CHF 3'000–10'000). Si aggiungono i contributi cantonali e la deduzione fiscale. Totale possibile: CHF 8'000–20'000." },
-      { question: "Posso aggiungere una pompa di calore al mio impianto solare esistente?", answer: "Sì, è perfettamente possibile. Tuttavia, l'impianto solare esistente deve essere sufficientemente dimensionato. Per un piccolo impianto (meno di 8 kWp), si consiglia di ampliarlo contemporaneamente all'installazione della pompa di calore." },
-      { question: "Quanto CO₂ risparmio con impianto solare e pompa di calore?", answer: "Praticamente zero. Una pompa di calore alimentata con elettricità solare riscalda completamente senza emissioni di CO₂. Rispetto a una caldaia a gasolio, si risparmiano circa 4–5 tonnellate di CO₂ all'anno — equivalente a circa 30'000 km di guida." },
+      { question: "Ho bisogno di un accumulo a batteria per la combinazione?", answer: "Un sistema di gestione dell'energia che attiva automaticamente la pompa di calore in caso di surplus solare è spesso più conveniente di una costosa batteria." },
+      { question: "Quali incentivi esistono per impianto solare e pompa di calore insieme?", answer: "Solare e pompa di calore sono sostenuti separatamente. Occorre verificare i programmi cantonali e il trattamento fiscale applicabili alla località." },
+      { question: "Posso aggiungere una pompa di calore al mio impianto solare esistente?", answer: "Sì, è perfettamente possibile. Tuttavia, l'impianto solare esistente deve essere sufficientemente dimensionato." },
     ],
   },
 
@@ -3130,14 +2703,13 @@ const articles: BlogArticle[] = [
         content: [
           'Die Solaranlage selbst macht nur einen Teil der Investition aus. Der Installateur entscheidet über vier entscheidende Faktoren:',
           'Die Qualität der Installation: Eine schlecht montierte Anlage verliert über die Jahre Leistung, hat höhere Ausfallrisiken und kann im schlimmsten Fall Dachschäden verursachen. Ein erfahrener lokaler Installateur kennt die Dachtypen in Ihrem Kanton und installiert korrekt.',
-          'Den Preis: Für exakt die gleiche Anlage — gleiche Module, gleicher Wechselrichter, gleiche Leistung — können die Preise zwischen verschiedenen Installateuren um CHF 2\'000–4\'000 variieren. Wer nur einen Installateur anfragt und unterschreibt, zahlt oft zu viel.',
+          'Wer nur einen Installateur anfragt und unterschreibt, zahlt oft zu viel.',
           'Den Service nach der Installation: Wer kümmert sich, wenn die Anlage nach drei Jahren einen Fehler zeigt? Ein lokaler Installateur ist in 30 Minuten bei Ihnen. Ein nationaler Anbieter schickt vielleicht einen Techniker, der aus einer anderen Kanton kommt.',
           'Die Förderbeantragung: Ein erfahrener lokaler Installateur kennt die kantonalen Förderprogramme und die Besonderheiten des lokalen Netzbetreibers — und beantragt alles korrekt und rechtzeitig.',
         ],
         stats: [
           { value: '25+', label: 'geprüfte Fachbetriebe im PvPro.ch-Netzwerk' },
           { value: '48 Stunden', label: 'bis zur ersten Offerte' },
-          { value: 'CHF 2\'000–4\'000', label: 'durchschnittliche Ersparnis durch Vergleich' },
         ],
       },
       {
@@ -3173,7 +2745,7 @@ const articles: BlogArticle[] = [
           '2. Lokale Erfahrung: Hat der Installateur nachgewiesene Projekte in Ihrem Kanton? Kennt er die lokalen Netzbetreiber, die kantonalen Förderprogramme und die üblichen Dachtypen in Ihrer Gegend?',
           '3. Referenzen: Fragen Sie nach abgeschlossenen Projekten in Ihrer Gemeinde. Ein guter Installateur kann Ihnen Referenzkunden nennen, die Sie kontaktieren können.',
           '4. Was steht in der Offerte? Eine professionelle Offerte enthält immer: Anlagengrösse in kWp, Modulhersteller und -typ, Wechselrichtermarke, Montagesystem, Installationskosten separat, geschätzte Jahresproduktion, Förderung und Garantien. Wenn diese Punkte fehlen, ist das ein Warnsignal.',
-          '5. Garantien: Welche Garantien bietet der Installateur auf die Montagearbeit? Seriöse Betriebe geben mindestens 5 Jahre Garantie auf die Installation selbst — zusätzlich zu den Herstellergarantien auf Module (25 Jahre) und Wechselrichter (5–12 Jahre).',
+          '5. Garantien: Welche Garantien bietet der Installateur auf die Montagearbeit?',
           '6. Versicherung: Ist der Betrieb für allfällige Schäden während der Installation versichert? Das sollte immer gefragt werden.',
         ],
       },
@@ -3183,15 +2755,15 @@ const articles: BlogArticle[] = [
           'Aus unserer Erfahrung mit über 1\'000 vermittelten Anlagen sehen wir immer wieder die gleichen Fehler:',
         ],
         bullets: [
-          'Fehler 1 — Nur einen Installateur anfragen: Der häufigste und teuerste Fehler. Ohne Vergleich wissen Sie nie, ob der Preis fair ist. Die Differenz zwischen verschiedenen Offerten beträgt oft CHF 2\'000–4\'000 für dieselbe Anlage.',
-          'Fehler 2 — Den billigsten wählen: Billig ist nicht immer gut. Minderwertige Module, ungenaue Dimensionierung oder schlechte Montagearbeit kosten langfristig mehr als ein paar hundert Franken gespartes Geld. Qualität hat ihren Preis.',
+          'Fehler 1 — Nur einen Installateur anfragen: Der häufigste und teuerste Fehler. Ohne Vergleich wissen Sie nie, ob der Preis fair ist.',
+          'Fehler 2 — Den billigsten wählen: Billig ist nicht immer gut. Minderwertige Module, ungenaue Dimensionierung oder schlechte Montagearbeit können langfristig Mehrkosten verursachen. Qualität hat ihren Preis.',
           'Fehler 3 — Keine Referenzen prüfen: Viele Hausbesitzer unterschreiben eine Offerte, ohne je nach Referenzen gefragt zu haben. Ein Anruf bei einem früheren Kunden des Installateurs kann sehr aufschlussreich sein.',
           'Fehler 4 — Keine schriftliche Offerte verlangen: Mündliche Zusagen zählen nicht. Alles — Preis, Komponenten, Garantien, Fristen — muss schriftlich in der Offerte stehen.',
           'Fehler 5 — Die Förderbeantragung dem Installateur überlassen ohne nachzufragen: Die meisten Installateure übernehmen die Anmeldung bei Pronovo für die EIV. Fragen Sie aber explizit nach: Ist das im Preis inbegriffen? Bis wann wird der Antrag gestellt?',
           'Fehler 6 — Anlage zu klein dimensionieren: Viele Hausbesitzer kaufen die kleinste Anlage, die gerade so reicht. Wenn später ein E-Auto oder eine Wärmepumpe dazukommt, reicht die Kapazität nicht mehr. Besser etwas grösser planen.',
-          'Fehler 7 — Den Installateur nicht nach dem After-Sales-Service fragen: Was passiert nach der Installation? Wer wartet die Anlage? Gibt es einen Wartungsvertrag? Diese Fragen werden oft vergessen — und sind besonders wichtig bei einer Investition mit 25 Jahren Lebensdauer.',
+          'Fehler 7 — Den Installateur nicht nach dem After-Sales-Service fragen: Was passiert nach der Installation? Wer wartet die Anlage? Gibt es einen Wartungsvertrag?',
         ],
-        highlight: 'Wer mindestens 3 Offerten vergleicht, spart im Schnitt CHF 2\'000–4\'000 für dieselbe Anlage. PvPro.ch übernimmt diesen Vergleich kostenlos für Sie.',
+        highlight: 'PvPro.ch übernimmt diesen Vergleich kostenlos für Sie.',
       },
       {
         heading: 'Wie prüft PvPro.ch die Installateure im Netzwerk?',
@@ -3214,7 +2786,7 @@ const articles: BlogArticle[] = [
           'Kantonale Förderprogramme: Viele Kantone haben eigene Förderprogramme zusätzlich zur Bundesförderung. Ein lokaler Installateur kennt diese Programme und beantragt sie automatisch für Sie. Ein nationaler Anbieter ohne lokale Kenntnis vergisst sie oft.',
           'Lokale Netzbetreiber: Jede Gemeinde hat ihren eigenen Netzbetreiber mit eigenen Prozessen für die Anmeldung der Anlage und die Rückliefervergütung. Ein lokaler Installateur kennt den Prozess bei Ihrem Netzbetreiber — und vermeidet Verzögerungen.',
           'Kantonale Bewilligungsverfahren: Auch wenn die meisten Anlagen bewilligungsfrei sind, gibt es kantonale und kommunale Besonderheiten. Ein lokaler Installateur weiss, was in Ihrer Gemeinde gilt.',
-          'Schneller Service: Wenn nach der Installation etwas nicht stimmt, ist ein lokaler Betrieb in kurzer Zeit bei Ihnen. Das gibt Sicherheit über 25 Jahre Anlagenbetrieb.',
+          `Schneller Service: Wenn nach der Installation etwas nicht stimmt, ist ein lokaler Betrieb in kurzer Zeit bei Ihnen. Das gibt Sicherheit über die typische Modullebensdauer von ${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'de')} Jahren.`,
         ],
         highlight: 'Ein lokaler Installateur kennt die kantonalen Förderprogramme, den lokalen Netzbetreiber und ist bei Problemen schnell vor Ort — das ist in der Schweiz besonders wichtig.',
       },
@@ -3250,21 +2822,20 @@ const articles: BlogArticle[] = [
     date: '3 mai 2026',
     readMin: 10,
     tag: 'Guide',
-    intro: "Si vous souhaitez acheter une installation solaire en Suisse, vous vous posez une question qui semble simple à première vue: quel est le meilleur installateur solaire dans mon canton? La réponse est plus compliquée qu'on ne le pense — car il existe des centaines d'installateurs en Suisse, la qualité varie énormément, et les prestataires nationaux ne sont pas toujours meilleurs que les entreprises locales spécialisées. Nous vous aidons à trouver le bon installateur — fort de trois ans d'expérience et de plus de 1'000 installations intermédiées dans toute la Suisse.",
+    intro: "Si vous souhaitez acheter une installation solaire en Suisse, vous vous posez une question qui semble simple à première vue: quel est le meilleur installateur solaire dans mon canton? La réponse est plus compliquée qu'on ne le pense — car il existe des centaines d'installateurs en Suisse, la qualité varie énormément, et les prestataires nationaux ne sont pas toujours meilleurs que les entreprises locales spécialisées.",
     sections: [
       {
         heading: "Pourquoi le choix de l'installateur est-il si important?",
         content: [
           "L'installation solaire elle-même ne représente qu'une partie de l'investissement. L'installateur détermine quatre facteurs décisifs:",
           "La qualité de l'installation: Une installation mal montée perd de la puissance au fil des années, présente des risques de pannes plus élevés et peut, dans le pire des cas, causer des dommages au toit. Un installateur local expérimenté connaît les types de toits de votre canton et installe correctement.",
-          "Le prix: Pour exactement la même installation — mêmes modules, même onduleur, même puissance — les prix peuvent varier de CHF 2'000–4'000 entre différents installateurs. Celui qui ne demande qu'un seul devis et signe paie souvent trop cher.",
+          "Celui qui ne demande qu'un seul devis et signe paie souvent trop cher.",
           "Le service après installation: Qui s'occupe si l'installation présente une anomalie après trois ans? Un installateur local est chez vous en 30 minutes. Un prestataire national envoie peut-être un technicien venant d'une autre canton.",
           "La demande de subventions: Un installateur local expérimenté connaît les programmes de subventions cantonaux et les particularités du gestionnaire de réseau local — et soumet tout correctement et dans les délais.",
         ],
         stats: [
           { value: '25+', label: "entreprises qualifiées dans le réseau PvPro.ch" },
           { value: '48 heures', label: "jusqu'au premier devis" },
-          { value: "CHF 2'000–4'000", label: "économie moyenne grâce à la comparaison" },
         ],
       },
       {
@@ -3300,7 +2871,7 @@ const articles: BlogArticle[] = [
           "2. Expérience locale: L'installateur a-t-il des projets avérés dans votre canton ou votre canton? Connaît-il les gestionnaires de réseau locaux, les programmes de subventions cantonaux et les types de toits courants dans votre canton?",
           "3. Références: Demandez des projets réalisés dans votre commune. Un bon installateur peut vous indiquer des clients de référence que vous pouvez contacter.",
           "4. Que contient l'offre? Une offre professionnelle contient toujours: la taille de l'installation en kWc, le fabricant et le type de modules, la marque de l'onduleur, le système de montage, les coûts d'installation séparés, la production annuelle estimée, les subventions et les garanties. Si ces éléments manquent, c'est un signal d'alarme.",
-          "5. Garanties: Quelles garanties l'installateur offre-t-il sur le travail de montage? Les entreprises sérieuses accordent au moins 5 ans de garantie sur l'installation elle-même — en plus des garanties fabricant sur les modules (25 ans) et les onduleurs (5–12 ans).",
+          "5. Garanties: Quelles garanties l'installateur offre-t-il sur le travail de montage?",
           "6. Assurance: L'entreprise est-elle assurée pour les éventuels dommages pendant l'installation? Cela doit toujours être demandé.",
         ],
       },
@@ -3310,15 +2881,15 @@ const articles: BlogArticle[] = [
           "D'après notre expérience avec plus de 1'000 installations intermédiées, nous voyons toujours les mêmes erreurs:",
         ],
         bullets: [
-          "Erreur 1 — Ne demander qu'un seul devis: L'erreur la plus fréquente et la plus coûteuse. Sans comparaison, vous ne saurez jamais si le prix est équitable. La différence entre différentes offres est souvent de CHF 2'000–4'000 pour la même installation.",
-          "Erreur 2 — Choisir le moins cher: Bon marché n'est pas toujours bon. Des modules de qualité inférieure, un dimensionnement imprécis ou un mauvais travail de montage coûtent à long terme plus que quelques centaines de francs économisés. La qualité a son prix.",
+          "Erreur 1 — Ne demander qu'un seul devis: L'erreur la plus fréquente et la plus coûteuse. Sans comparaison, vous ne saurez jamais si le prix est équitable.",
+          "Erreur 2 — Choisir le moins cher: Bon marché n'est pas toujours bon. Des modules de qualité inférieure, un dimensionnement imprécis ou un mauvais travail de montage peuvent entraîner des surcoûts à long terme. La qualité a son prix.",
           "Erreur 3 — Ne pas vérifier les références: De nombreux propriétaires signent une offre sans jamais avoir demandé de références. Un appel à un ancien client de l'installateur peut être très instructif.",
           "Erreur 4 — Ne pas exiger d'offre écrite: Les promesses verbales ne comptent pas. Tout — prix, composants, garanties, délais — doit figurer par écrit dans l'offre.",
           "Erreur 5 — Laisser la demande de subventions à l'installateur sans se renseigner: La plupart des installateurs se chargent de l'inscription auprès de Pronovo pour la RU. Mais demandez-le explicitement: est-ce inclus dans le prix? Pour quand la demande sera-t-elle déposée?",
           "Erreur 6 — Dimensionner l'installation trop petite: De nombreux propriétaires achètent la plus petite installation qui suffira tout juste. Si plus tard une voiture électrique ou une pompe à chaleur s'ajoute, la capacité sera insuffisante. Mieux vaut prévoir un peu plus grand.",
-          "Erreur 7 — Ne pas demander à l'installateur son service après-vente: Que se passe-t-il après l'installation? Qui entretient l'installation? Y a-t-il un contrat de maintenance? Ces questions sont souvent oubliées — et sont particulièrement importantes pour un investissement d'une durée de vie de 25 ans.",
+          "Erreur 7 — Ne pas demander à l'installateur son service après-vente: Que se passe-t-il après l'installation? Qui entretient l'installation? Y a-t-il un contrat de maintenance?",
         ],
-        highlight: "Celui qui compare au moins 3 offres économise en moyenne CHF 2'000–4'000 pour la même installation. PvPro.ch effectue cette comparaison gratuitement pour vous.",
+        highlight: "PvPro.ch effectue cette comparaison gratuitement pour vous.",
       },
       {
         heading: 'Comment PvPro.ch vérifie-t-il les installateurs du réseau?',
@@ -3341,7 +2912,7 @@ const articles: BlogArticle[] = [
           "Programmes de subventions cantonaux: De nombreux cantons disposent de leurs propres programmes de subventions en plus des aides fédérales. Un installateur local connaît ces programmes et les demande automatiquement pour vous. Un prestataire national sans connaissance locale les oublie souvent.",
           "Gestionnaires de réseau locaux: Chaque commune a son propre gestionnaire de réseau avec ses propres processus pour l'inscription de l'installation et la rétribution pour l'électricité injectée. Un installateur local connaît la procédure auprès de votre gestionnaire de réseau — et évite les retards.",
           "Procédures d'autorisation cantonales: Même si la plupart des installations sont exemptées d'autorisation, il existe des particularités cantonales et communales. Un installateur local sait ce qui est valable dans votre commune.",
-          "Service rapide: Si quelque chose ne va pas après l'installation, une entreprise locale est chez vous en peu de temps. Cela offre une sécurité sur 25 ans de fonctionnement de l'installation.",
+          `Service rapide: Si quelque chose ne va pas après l'installation, une entreprise locale intervient rapidement. Cela sécurise la durée de vie typique des panneaux de ${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'fr')} ans.`,
         ],
         highlight: "Un installateur local connaît les programmes de subventions cantonaux, le gestionnaire de réseau local et est rapidement sur place en cas de problème — c'est particulièrement important en Suisse.",
       },
@@ -3384,14 +2955,13 @@ const articles: BlogArticle[] = [
         content: [
           'The solar system itself represents only part of the investment. The installer determines four decisive factors:',
           'The quality of installation: A poorly mounted system loses performance over the years, has higher failure risks, and can in the worst case cause roof damage. An experienced local installer knows the roof types in your canton and installs correctly.',
-          "The price: For exactly the same system — same modules, same inverter, same output — prices between different installers can vary by CHF 2'000–4'000. Those who ask only one installer and sign often pay too much.",
+          "Those who ask only one installer and sign often pay too much.",
           'After-sales service: Who takes care of things if the system shows a fault after three years? A local installer is with you in 30 minutes. A national provider might send a technician from another canton.',
           'Subsidy applications: An experienced local installer knows the cantonal subsidy programmes and the specifics of the local grid operator — and submits everything correctly and on time.',
         ],
         stats: [
           { value: '25+', label: 'qualified companies in the PvPro.ch network' },
           { value: '48 hours', label: 'until the first quote' },
-          { value: "CHF 2'000–4'000", label: 'average savings through comparison' },
         ],
       },
       {
@@ -3427,7 +2997,7 @@ const articles: BlogArticle[] = [
           '2. Local experience: Does the installer have proven projects in your canton or canton? Do they know the local grid operators, the cantonal subsidy programmes, and the common roof types in your area?',
           '3. References: Ask for completed projects in your municipality. A good installer can provide you with reference customers you can contact.',
           '4. What is in the quote? A professional quote always contains: system size in kWp, module manufacturer and type, inverter brand, mounting system, installation costs separately, estimated annual output, subsidies, and warranties. If these points are missing, that is a warning sign.',
-          '5. Warranties: What warranties does the installer offer on the mounting work? Reputable companies give at least 5 years of warranty on the installation itself — in addition to the manufacturer warranties on modules (25 years) and inverters (5–12 years).',
+          '5. Warranties: What warranties does the installer offer on the mounting work?',
           '6. Insurance: Is the company insured for any damage during installation? This should always be asked.',
         ],
       },
@@ -3437,15 +3007,15 @@ const articles: BlogArticle[] = [
           "From our experience with over 1'000 brokered installations, we see the same mistakes again and again:",
         ],
         bullets: [
-          "Mistake 1 — Only asking one installer: The most frequent and costly mistake. Without comparison, you will never know if the price is fair. The difference between different quotes is often CHF 2'000–4'000 for the same system.",
-          'Mistake 2 — Choosing the cheapest: Cheap is not always good. Inferior modules, inaccurate sizing, or poor mounting work cost more in the long run than a few hundred francs saved. Quality has its price.',
+          "Mistake 1 — Only asking one installer: The most frequent and costly mistake. Without comparison, you will never know if the price is fair.",
+          'Mistake 2 — Choosing the cheapest: Cheap is not always good. Inferior modules, inaccurate sizing, or poor mounting work can create additional long-term costs. Quality has its price.',
           'Mistake 3 — Not checking references: Many homeowners sign a quote without ever having asked for references. A call to a former customer of the installer can be very revealing.',
           'Mistake 4 — Not requesting a written quote: Verbal promises do not count. Everything — price, components, warranties, deadlines — must be in writing in the quote.',
           'Mistake 5 — Leaving the subsidy application to the installer without asking: Most installers handle the registration with Pronovo for the OTS. But ask explicitly: is that included in the price? By when will the application be submitted?',
           'Mistake 6 — Sizing the system too small: Many homeowners buy the smallest system that will just be sufficient. If an electric car or a heat pump is added later, the capacity will no longer be enough. Better to plan a little larger.',
-          'Mistake 7 — Not asking the installer about after-sales service: What happens after installation? Who maintains the system? Is there a maintenance contract? These questions are often forgotten — and are particularly important for an investment with a 25-year lifespan.',
+          'Mistake 7 — Not asking the installer about after-sales service: What happens after installation? Who maintains the system? Is there a maintenance contract?',
         ],
-        highlight: "Those who compare at least 3 quotes save on average CHF 2'000–4'000 for the same system. PvPro.ch does this comparison free of charge for you.",
+        highlight: "PvPro.ch does this comparison free of charge for you.",
       },
       {
         heading: 'How does PvPro.ch verify the installers in the network?',
@@ -3468,7 +3038,7 @@ const articles: BlogArticle[] = [
           'Cantonal subsidy programmes: Many cantons have their own subsidy programmes in addition to federal support. A local installer knows these programmes and applies for them automatically for you. A national provider without local knowledge often forgets them.',
           'Local grid operators: Each municipality has its own grid operator with its own processes for registering the system and the feed-in compensation. A local installer knows the process at your grid operator — and avoids delays.',
           'Cantonal permit procedures: Even if most systems are permit-free, there are cantonal and municipal specifics. A local installer knows what applies in your municipality.',
-          'Fast service: If something is not right after installation, a local company is with you in a short time. This provides security over 25 years of system operation.',
+          `Fast service: If something is not right after installation, a local company can respond quickly. This supports the typical panel lifetime of ${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'en')} years.`,
         ],
         highlight: 'A local installer knows the cantonal subsidy programmes, the local grid operator, and is quickly on site in case of problems — this is particularly important in Switzerland.',
       },
@@ -3499,7 +3069,7 @@ const articles: BlogArticle[] = [
     slug: 'besten-solarinstallateur-schweiz-finden',
     locale: 'it',
     title: 'Come trovare il miglior installatore solare in Svizzera nel 2026 – La guida completa',
-    metaDescription: 'Come trovare il miglior installatore solare nel tuo Cantone in Svizzera? Perché il locale è meglio, i criteri essenziali e come PvPro.ch semplifica la ricerca.',
+    metaDescription: 'Come trovare il miglior installatore solare nel tuo Cantone in Svizzera?',
     image: '/images/installateur-solarmodul-dach-alpen.webp',
     date: '3 maggio 2026',
     readMin: 10,
@@ -3511,14 +3081,13 @@ const articles: BlogArticle[] = [
         content: [
           "L'impianto solare stesso rappresenta solo una parte dell'investimento. L'installatore determina quattro fattori decisivi:",
           "La qualità dell'installazione: Un impianto montato male perde prestazioni nel corso degli anni, presenta rischi di guasti più elevati e può, nel peggiore dei casi, causare danni al tetto. Un installatore locale esperto conosce i tipi di tetti del vostro Cantone e installa correttamente.",
-          "Il prezzo: Per esattamente lo stesso impianto — stessi moduli, stesso inverter, stessa potenza — i prezzi tra i diversi installatori possono variare di CHF 2'000–4'000. Chi chiede un solo preventivo e firma spesso paga troppo.",
+          "Chi chiede un solo preventivo e firma spesso paga troppo.",
           "Il servizio post-installazione: Chi si occupa se l'impianto mostra un guasto dopo tre anni? Un installatore locale è da voi in 30 minuti. Un fornitore nazionale manda forse un tecnico proveniente da un'altra Cantone.",
           "La richiesta di sovvenzioni: Un installatore locale esperto conosce i programmi di sovvenzione cantonali e le specificità del gestore di rete locale — e presenta tutto correttamente e nei tempi previsti.",
         ],
         stats: [
           { value: '25+', label: 'aziende qualificate nella rete PvPro.ch' },
           { value: '48 ore', label: 'fino al primo preventivo' },
-          { value: "CHF 2'000–4'000", label: 'risparmio medio grazie al confronto' },
         ],
       },
       {
@@ -3554,7 +3123,7 @@ const articles: BlogArticle[] = [
           "2. Esperienza locale: L'installatore ha progetti comprovati nel vostro cantone o nel vostro Cantone? Conosce i gestori di rete locali, i programmi di sovvenzione cantonali e i tipi di tetti comuni nella vostra zona?",
           "3. Referenze: Chiedete progetti completati nel vostro comune. Un buon installatore può fornirvi clienti di riferimento che potete contattare.",
           "4. Cosa contiene il preventivo? Un preventivo professionale contiene sempre: la dimensione dell'impianto in kWp, il produttore e il tipo di moduli, la marca dell'inverter, il sistema di montaggio, i costi di installazione separati, la produzione annua stimata, le sovvenzioni e le garanzie. Se questi punti mancano, è un segnale d'allarme.",
-          "5. Garanzie: Quali garanzie offre l'installatore sul lavoro di montaggio? Le aziende serie concedono almeno 5 anni di garanzia sull'installazione stessa — in aggiunta alle garanzie del produttore sui moduli (25 anni) e sugli inverter (5–12 anni).",
+          "5. Garanzie: Quali garanzie offre l'installatore sul lavoro di montaggio?",
           "6. Assicurazione: L'azienda è assicurata per eventuali danni durante l'installazione? Va sempre chiesto.",
         ],
       },
@@ -3564,15 +3133,15 @@ const articles: BlogArticle[] = [
           "Dalla nostra esperienza con oltre 1'000 impianti installati, vediamo sempre gli stessi errori:",
         ],
         bullets: [
-          "Errore 1 — Chiedere un solo preventivo: L'errore più frequente e più costoso. Senza confronto, non saprete mai se il prezzo è equo. La differenza tra i vari preventivi è spesso di CHF 2'000–4'000 per lo stesso impianto.",
-          "Errore 2 — Scegliere il più economico: Economico non è sempre buono. Moduli di qualità inferiore, dimensionamento impreciso o un cattivo lavoro di montaggio costano a lungo termine più di qualche centinaio di franchi risparmiati. La qualità ha il suo prezzo.",
+          "Errore 1 — Chiedere un solo preventivo: L'errore più frequente e più costoso. Senza confronto, non saprete mai se il prezzo è equo.",
+          "Errore 2 — Scegliere il più economico: Economico non è sempre buono. Moduli di qualità inferiore, dimensionamento impreciso o un cattivo lavoro di montaggio possono generare costi aggiuntivi a lungo termine. La qualità ha il suo prezzo.",
           "Errore 3 — Non verificare le referenze: Molti proprietari firmano un preventivo senza aver mai chiesto referenze. Una telefonata a un ex cliente dell'installatore può essere molto istruttiva.",
           "Errore 4 — Non richiedere un preventivo scritto: Le promesse verbali non contano. Tutto — prezzo, componenti, garanzie, scadenze — deve essere scritto nel preventivo.",
           "Errore 5 — Lasciare la richiesta di sovvenzione all'installatore senza informarsi: La maggior parte degli installatori si occupa dell'iscrizione presso Pronovo per la RU. Ma chiedetelo esplicitamente: è incluso nel prezzo? Entro quando verrà presentata la domanda?",
           "Errore 6 — Dimensionare l'impianto troppo piccolo: Molti proprietari acquistano il più piccolo impianto che basterà appena. Se in seguito si aggiunge un'auto elettrica o una pompa di calore, la capacità non sarà più sufficiente. Meglio pianificare un po' più grande.",
-          "Errore 7 — Non chiedere all'installatore del servizio post-vendita: Cosa succede dopo l'installazione? Chi effettua la manutenzione dell'impianto? C'è un contratto di manutenzione? Queste domande vengono spesso dimenticate — e sono particolarmente importanti per un investimento con una durata di vita di 25 anni.",
+          "Errore 7 — Non chiedere all'installatore del servizio post-vendita: Cosa succede dopo l'installazione? Chi effettua la manutenzione dell'impianto? C'è un contratto di manutenzione? Queste domande vengono spesso dimenticate — e sono particolarmente importanti per un investimento di lunga durata.",
         ],
-        highlight: "Chi confronta almeno 3 preventivi risparmia in media CHF 2'000–4'000 per lo stesso impianto. PvPro.ch effettua questo confronto gratuitamente per voi.",
+        highlight: "PvPro.ch effettua questo confronto gratuitamente per voi.",
       },
       {
         heading: 'Come verifica PvPro.ch gli installatori della rete?',
@@ -3592,10 +3161,10 @@ const articles: BlogArticle[] = [
         heading: 'Perché un installatore locale è particolarmente importante in Svizzera?',
         content: [
           "La Svizzera è un paese federale — e questo vale anche per gli impianti solari. Ciò che è valido nel cantone di Zurigo non lo è necessariamente nel cantone di Berna:",
-          "Programmi di sovvenzione cantonali: Molti cantoni dispongono di propri programmi di sovvenzione in aggiunta agli aiuti federali. Un installatore locale conosce questi programmi e li richiede automaticamente per voi. Un fornitore nazionale senza conoscenze locali spesso li dimentica.",
+          "Programmi di sovvenzione cantonali: Molti cantoni dispongono di propri programmi di sovvenzione in aggiunta agli aiuti federali. Un installatore locale conosce questi programmi e li richiede automaticamente per voi.",
           "Gestori di rete locali: Ogni comune ha il proprio gestore di rete con i propri processi per la registrazione dell'impianto e la retribuzione per l'energia immessa in rete. Un installatore locale conosce la procedura presso il vostro gestore di rete — ed evita i ritardi.",
           "Procedure di autorizzazione cantonali: Anche se la maggior parte degli impianti è esente da autorizzazione, esistono particolarità cantonali e comunali. Un installatore locale sa cosa è valido nel vostro comune.",
-          "Servizio rapido: Se dopo l'installazione qualcosa non va, un'azienda locale è da voi in poco tempo. Questo garantisce sicurezza per 25 anni di funzionamento dell'impianto.",
+          "Servizio rapido: Se dopo l'installazione qualcosa non va, un'azienda locale è da voi in poco tempo.",
         ],
         highlight: "Un installatore locale conosce i programmi di sovvenzione cantonali, il gestore di rete locale ed è rapidamente sul posto in caso di problemi — questo è particolarmente importante in Svizzera.",
       },
@@ -3626,7 +3195,7 @@ const articles: BlogArticle[] = [
     slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
     locale: 'de',
     title: 'Ist ein Batteriespeicher gefährlich? Was Sie wirklich wissen müssen',
-    metaDescription: 'Ist ein Batteriespeicher für die Solaranlage wirklich gefährlich? Brandrisiko nur 0.005% laut Studie. Was Sie über LFP-Batterien, Sicherheitsstandards und Aufstellort wissen müssen.',
+    metaDescription: 'Ist ein Batteriespeicher für die Solaranlage wirklich gefährlich? Was Sie über LFP-Batterien, Sicherheitsstandards und Aufstellort wissen müssen.',
     image: '/images/aurora-energy-batteriespeicher.webp',
     date: '3. Mai 2026',
     readMin: 10,
@@ -3637,14 +3206,13 @@ const articles: BlogArticle[] = [
         heading: 'Die Fakten: Wie hoch ist das Brandrisiko wirklich?',
         content: [
           'Die Antwort kommt aus einer Studie der renommierten Rheinisch-Westfälischen Technischen Hochschule (RWTH) Aachen vom Dezember 2024 — einer der grössten je durchgeführten Untersuchungen zur Sicherheit von Heimspeichern.',
-          "Brandrisiko bei Heimspeichern: 0.005% pro Jahr. Das bedeutet: Von 100'000 installierten Batteriespeichern brennt statistisch gesehen einer pro Jahr.",
-          'Zum Vergleich: Allgemeines Hausbrand-Risiko ca. 0.25% — Geschirrspüler ca. 0.03% — Waschmaschine ca. 0.025% — Batteriespeicher (LFP) ca. 0.005% — Kerzen ca. 0.5%.',
+          "Für Heimspeicher sind sichere LFP-Technologie und fachgerechte Installation entscheidend.",
+          'Ein Batteriespeicher muss nach Herstellerangaben installiert und betrieben werden.',
           'Ein moderner LFP-Batteriespeicher ist damit 50-mal sicherer als das allgemeine Hausbrand-Risiko — und sicherer als Ihre Waschmaschine.',
         ],
         stats: [
-          { value: '0.005%', label: 'Brandrisiko laut RWTH-Studie 2024' },
+          { value: '—', label: 'Brandrisiko: keine Angabe aus facts.ts' },
           { value: '50x sicherer', label: 'als das allgemeine Hausbrand-Risiko' },
-          { value: '80%', label: 'der Speicher in CH sind LFP — die sicherste Technologie' },
         ],
       },
       {
@@ -3652,7 +3220,7 @@ const articles: BlogArticle[] = [
         content: [
           'Die Berichte über brennende Batterien betreffen fast ausschliesslich NMC-Batterien (Nickel-Mangan-Kobalt) — eine ältere Technologie, die in frühen Heimspeichern und vor allem in Elektroautos und Smartphones eingesetzt wird.',
           'NMC-Batterien sind chemisch instabiler bei Überhitzung, können bei Überladung oder mechanischen Schäden in Brand geraten und setzen bei thermischem Durchgehen Sauerstoff frei — was das Feuer anfacht. Sie werden in Heimspeichern kaum noch eingesetzt.',
-          'LFP-Batterien (Lithium-Eisenphosphat) sind chemisch extrem stabil, selbst bei Überhitzung. Kein thermisches Durchgehen unter normalen Bedingungen, kein Sauerstoff bei Schäden — kein Selbstentzündungsrisiko. Sie sind heute Standard in der Schweiz: über 80% aller neu installierten Speicher verwenden LFP.',
+          'LFP-Batterien (Lithium-Eisenphosphat) sind chemisch sehr stabil, selbst bei Überhitzung. Unter normalen Bedingungen ist das Risiko eines thermischen Durchgehens gering. LFP ist heute bei neuen Heimspeichern weit verbreitet.',
           'Fazit: Wenn Sie heute einen neuen Batteriespeicher kaufen, erhalten Sie mit hoher Wahrscheinlichkeit eine LFP-Batterie — die sicherste verfügbare Technologie für Heimspeicher.',
         ],
       },
@@ -3663,7 +3231,7 @@ const articles: BlogArticle[] = [
           "Thermische Stabilität: LFP-Zellen beginnen erst bei über 270°C zu zerfallen — NMC-Zellen bereits ab 150°C. Bei einem Hausbrand wäre selbst dann kein thermisches Durchgehen zu erwarten.",
           'Kein Sauerstoff bei Überhitzung: Andere Lithium-Technologien können bei Überhitzung Sauerstoff freisetzen, der das Feuer intensiviert. LFP tut das nicht — das Feuer kann sich nicht selbst anfachen.',
           'Mechanische Robustheit: LFP-Zellen halten selbst starken mechanischen Belastungen stand. Der berühmte "Nageltest" — ein Nagel wird in die Batterie getrieben — verursacht bei LFP keine Brandreaktion.',
-          "Lebensdauer: LFP-Batterien halten 4'000–8'000 Ladezyklen — das entspricht 15–25 Jahren bei täglichem Laden. Damit übertreffen sie NMC-Batterien deutlich.",
+          "Damit übertreffen sie NMC-Batterien deutlich.",
           'Bekannte Hersteller mit LFP-Technologie: BYD (HVM/HVS), Huawei (Luna), Fronius (Reserva), Fenecon (Home) — alle Marktführer setzen heute auf LFP.',
         ],
       },
@@ -3690,7 +3258,6 @@ const articles: BlogArticle[] = [
           'IEC 62619 — Internationale Sicherheitsanforderungen für stationäre Lithium-Batterien.',
           'VDE-AR-E 2510-50 — Deutsche Norm für Heimspeicher — in der Schweiz anerkannt.',
           'CE-Kennzeichnung — Erfüllung europäischer Sicherheitsstandards.',
-          'UN 38.3 — Transportprüfungen für Lithium-Batterien.',
           'Ein seriöser Installateur in der Schweiz verbaut nur Speicher mit diesen Zertifizierungen. Fragen Sie explizit danach, bevor Sie unterschreiben.',
         ],
       },
@@ -3706,7 +3273,7 @@ const articles: BlogArticle[] = [
       {
         heading: 'Was ist mit chinesischen Batterien — sind die sicher?',
         content: [
-          'Diese Frage stellen viele Schweizer Hausbesitzer, da chinesische Hersteller wie BYD und Huawei den Schweizer Markt dominieren und ca. zwei Drittel aller installierten Speicher ausmachen.',
+          'Diese Frage stellen viele Schweizer Hausbesitzer, da chinesische Hersteller wie BYD und Huawei auf dem Schweizer Markt weit verbreitet sind.',
           'Die ehrliche Antwort: Ja, die führenden chinesischen Hersteller sind sicher — wenn man die richtigen kauft. BYD und Huawei sind weltweit führend in der LFP-Technologie und erfüllen alle relevanten internationalen Sicherheitsstandards (IEC 62619, CE, UN 38.3). Ihre Produkte werden regelmässig von unabhängigen Instituten getestet.',
           'Der Unterschied liegt bei No-Name-Produkten aus dem Niedrigpreissegment — dort kann die Qualitätskontrolle mangelhaft sein. Diese sollten Sie vermeiden.',
           'Unsere Empfehlung: Kaufen Sie Markenprodukte von bekannten Herstellern — ob chinesisch oder europäisch spielt eine untergeordnete Rolle. Wichtiger ist die Zertifizierung und die Garantie.',
@@ -3722,7 +3289,6 @@ const articles: BlogArticle[] = [
           '✅ IEC 62619 Zertifizierung — internationale Sicherheitsnorm',
           '✅ CE-Kennzeichnung — europäischer Standard',
           '✅ Bewährtes BMS — von einem Markenhersteller',
-          '✅ Mindestens 10 Jahre Garantie — auf Kapazität und Funktion',
           '✅ Zertifizierter Installateur — elektrische Installation nur vom Fachmann',
           '✅ Korrekter Aufstellort — gemäss Herstellerangaben und VKF-Richtlinien',
           '✅ Brandschutzversicherung prüfen — ob Ihre Hausversicherung Speicher abdeckt',
@@ -3739,11 +3305,11 @@ const articles: BlogArticle[] = [
       },
     ],
     faqs: [
-      { question: 'Ist ein Batteriespeicher für die Solaranlage gefährlich?', answer: 'Moderne LFP-Batteriespeicher sind sehr sicher. Laut einer RWTH-Studie von 2024 liegt das Brandrisiko bei nur 0.005% pro Jahr — 50-mal niedriger als das allgemeine Hausbrand-Risiko. Die LFP-Technologie, die heute Standard in der Schweiz ist, ist thermisch extrem stabil und praktisch nicht entflammbar.' },
+      { question: 'Ist ein Batteriespeicher für die Solaranlage gefährlich?', answer: 'Moderne LFP-Batteriespeicher sind auf Sicherheit ausgelegt. Eine korrekte Installation, ausreichende Belüftung und die Herstellerangaben sind entscheidend.' },
       { question: 'Kann ein Batteriespeicher explodieren?', answer: 'Explosionen bei modernen LFP-Heimspeichern sind praktisch ausgeschlossen. Die Chemie der LFP-Zellen ist so stabil, dass selbst bei mechanischen Schäden keine Kettenreaktion ausgelöst wird. Ältere NMC-Technologien haben ein höheres Risiko — werden aber in neuen Heimspeichern kaum noch eingesetzt.' },
       { question: 'Wo darf ich einen Batteriespeicher aufstellen?', answer: 'LFP-Batteriespeicher dürfen in allen Räumen aufgestellt werden — Keller, Hauswirtschaftsraum, Garage. Wichtig: trockener Ort, 5–35°C Umgebungstemperatur, ausreichende Belüftung und Mindestabstände zu brennbaren Materialien gemäss Herstellerangaben.' },
       { question: 'Sind chinesische Batteriespeicher sicher?', answer: 'Die führenden chinesischen Hersteller wie BYD und Huawei produzieren qualitativ hochwertige LFP-Speicher, die alle internationalen Sicherheitsstandards erfüllen. Zu vermeiden sind No-Name-Produkte aus dem Niedrigpreissegment ohne anerkannte Zertifizierungen.' },
-      { question: 'Wie lange hält ein Batteriespeicher?', answer: "Moderne LFP-Batteriespeicher halten 4'000–8'000 Ladezyklen, was bei täglichem Laden 15–25 Jahren entspricht. Die meisten Hersteller geben 10 Jahre Garantie auf mindestens 80% der ursprünglichen Kapazität." },
+      { question: 'Wie lange hält ein Batteriespeicher?', answer: 'Die Lebensdauer hängt von Hersteller, Zellchemie, Nutzung und Garantiebedingungen ab.' },
       { question: 'Muss ich meinen Batteriespeicher bei der Versicherung melden?', answer: 'Ja, empfohlen. In den meisten Schweizer Kantonen ist der Speicher als Gebäudebestandteil automatisch durch die Gebäudeversicherung gedeckt. Melden Sie die Installation trotzdem, um sicherzugehen, dass Schäden abgedeckt sind.' },
       { question: 'Welche Zertifizierungen sollte ein sicherer Batteriespeicher haben?', answer: 'Mindestens IEC 62619 (internationale Norm für stationäre Lithium-Batterien), CE-Kennzeichnung und UN 38.3. Für den Schweizer Markt ist auch die VDE-AR-E 2510-50 ein anerkanntes Qualitätsmerkmal.' },
     ],
@@ -3765,7 +3331,7 @@ const articles: BlogArticle[] = [
     slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
     locale: 'fr',
     title: "Un système de stockage de batteries est-il dangereux? Ce que vous devez vraiment savoir",
-    metaDescription: "Un système de stockage de batteries pour installation solaire est-il vraiment dangereux? Risque d'incendie de seulement 0.005% selon une étude. Ce qu'il faut savoir sur les batteries LFP, les normes de sécurité et le lieu d'installation.",
+    metaDescription: "Un système de stockage de batteries pour installation solaire est-il vraiment dangereux? Ce qu'il faut savoir sur les batteries LFP, les normes de sécurité et le lieu d'installation.",
     image: '/images/aurora-energy-batteriespeicher.webp',
     date: '3 mai 2026',
     readMin: 10,
@@ -3776,14 +3342,13 @@ const articles: BlogArticle[] = [
         heading: "Les faits: quel est réellement le risque d'incendie?",
         content: [
           "La réponse provient d'une étude de la renommée Université technique rhénane-westphalienne (RWTH) d'Aix-la-Chapelle de décembre 2024 — l'une des plus grandes enquêtes jamais réalisées sur la sécurité des systèmes de stockage domestiques.",
-          "Risque d'incendie pour les systèmes de stockage domestiques: 0.005% par an. Cela signifie que sur 100'000 systèmes installés, statistiquement un seul prend feu par an.",
-          "Pour comparaison: Risque général d'incendie d'un logement ca. 0.25% — Lave-vaisselle ca. 0.03% — Machine à laver ca. 0.025% — Système de stockage (LFP) ca. 0.005% — Bougies ca. 0.5%.",
+          "Pour les systèmes de stockage domestiques, la technologie LFP et une installation professionnelle sont essentielles.",
+          "Le système doit être installé et utilisé selon les instructions du fabricant.",
           "Un système de stockage LFP moderne est ainsi 50 fois plus sûr que le risque général d'incendie d'un logement — et plus sûr que votre machine à laver.",
         ],
         stats: [
-          { value: '0.005%', label: "Risque d'incendie selon l'étude RWTH 2024" },
+          { value: '—', label: "Risque d'incendie: aucune valeur dans facts.ts" },
           { value: '50x plus sûr', label: "que le risque général d'incendie d'un logement" },
-          { value: '80%', label: 'des systèmes en CH sont LFP — la technologie la plus sûre' },
         ],
       },
       {
@@ -3791,7 +3356,7 @@ const articles: BlogArticle[] = [
         content: [
           "Les rapports sur des batteries en feu concernent presque exclusivement les batteries NMC (nickel-manganèse-cobalt) — une technologie plus ancienne utilisée dans les premiers systèmes domestiques et surtout dans les voitures électriques et les smartphones.",
           "Les batteries NMC sont chimiquement moins stables en cas de surchauffe, peuvent prendre feu en cas de surcharge ou de dommages mécaniques et libèrent de l'oxygène lors d'un emballement thermique — ce qui attise l'incendie. Elles ne sont pratiquement plus utilisées dans les nouveaux systèmes domestiques.",
-          "Les batteries LFP (lithium-fer-phosphate) sont chimiquement extrêmement stables, même en cas de surchauffe. Elles ne présentent pas d'emballement thermique et ne libèrent pas d'oxygène en cas de dommages. Elles sont aujourd'hui la norme en Suisse: plus de 80% de tous les systèmes nouvellement installés utilisent la technologie LFP.",
+          "Les batteries LFP (lithium-fer-phosphate) sont chimiquement très stables, même en cas de surchauffe. Dans des conditions normales, le risque d'emballement thermique est faible. Cette technologie est aujourd'hui largement utilisée dans les systèmes domestiques.",
           "Conclusion: si vous achetez aujourd'hui un nouveau système de stockage, vous obtiendrez très probablement une batterie LFP — la technologie la plus sûre disponible pour les systèmes domestiques.",
         ],
       },
@@ -3802,7 +3367,7 @@ const articles: BlogArticle[] = [
           "Stabilité thermique: Les cellules LFP ne commencent à se décomposer qu'à plus de 270°C — les cellules NMC dès 150°C. Même en cas d'incendie dans le bâtiment, aucun emballement thermique ne serait à craindre.",
           "Pas d'oxygène en cas de surchauffe: D'autres technologies lithium peuvent libérer de l'oxygène lors d'une surchauffe, intensifiant l'incendie. Le LFP ne le fait pas — l'incendie ne peut pas s'auto-alimenter.",
           'Robustesse mécanique: Les cellules LFP résistent même à de fortes contraintes mécaniques. Le fameux «test du clou» ne provoque aucune réaction dans les batteries LFP.',
-          "Durée de vie: Les batteries LFP durent 4'000–8'000 cycles de charge — correspondant à 15–25 ans avec une charge quotidienne. Elles surpassent ainsi nettement les batteries NMC.",
+          "Elles surpassent ainsi nettement les batteries NMC.",
           'Fabricants connus: BYD (HVM/HVS), Huawei (Luna), Fronius (Reserva), Fenecon (Home) — tous les leaders du marché misent aujourd\'hui sur le LFP.',
         ],
       },
@@ -3829,7 +3394,6 @@ const articles: BlogArticle[] = [
           "IEC 62619 — Exigences de sécurité internationales pour les batteries lithium stationnaires.",
           "VDE-AR-E 2510-50 — Norme allemande pour les systèmes de stockage domestiques — reconnue en Suisse.",
           "Marquage CE — Conformité aux normes de sécurité européennes.",
-          "UN 38.3 — Tests de transport pour les batteries lithium.",
           "Un installateur sérieux en Suisse n'installe que des systèmes dotés de ces certifications. Demandez-le explicitement avant de signer.",
         ],
       },
@@ -3845,7 +3409,7 @@ const articles: BlogArticle[] = [
       {
         heading: "Qu'en est-il des batteries chinoises — sont-elles sûres?",
         content: [
-          "Beaucoup de propriétaires suisses posent cette question, car des fabricants chinois comme BYD et Huawei dominent le marché suisse et représentent environ deux tiers de tous les systèmes installés.",
+          "Beaucoup de propriétaires suisses posent cette question, car des fabricants chinois comme BYD et Huawei sont largement présents sur le marché suisse.",
           "La réponse honnête: Oui, les principaux fabricants chinois sont sûrs — si l'on choisit les bons. BYD et Huawei sont des leaders mondiaux dans la technologie LFP et respectent toutes les normes de sécurité internationales pertinentes (IEC 62619, CE, UN 38.3).",
           "La différence réside dans les produits sans marque du segment bas de gamme — là, le contrôle qualité peut être défaillant. Ceux-ci sont à éviter.",
           "Notre recommandation: Achetez des produits de marque de fabricants reconnus — qu'ils soient chinois ou européens, cela importe peu. Plus importantes sont la certification et la garantie.",
@@ -3861,7 +3425,6 @@ const articles: BlogArticle[] = [
           "✅ Certification IEC 62619 — norme de sécurité internationale",
           "✅ Marquage CE — norme européenne",
           "✅ BMS éprouvé — d'un fabricant reconnu",
-          "✅ Au moins 10 ans de garantie — sur la capacité et le fonctionnement",
           "✅ Installateur certifié — installation électrique uniquement par un professionnel",
           "✅ Emplacement correct — selon les instructions du fabricant et les directives VKF",
           "✅ Vérifier l'assurance incendie — si votre assurance habitation couvre les systèmes de stockage",
@@ -3878,11 +3441,11 @@ const articles: BlogArticle[] = [
       },
     ],
     faqs: [
-      { question: "Un système de stockage de batteries pour installation solaire est-il dangereux?", answer: "Les systèmes de stockage LFP modernes sont très sûrs. Selon une étude RWTH de 2024, le risque d'incendie n'est que de 0.005% par an — 50 fois inférieur au risque général d'incendie d'un logement. La technologie LFP est thermiquement extrêmement stable et pratiquement ininflammable." },
+      { question: "Un système de stockage de batteries pour installation solaire est-il dangereux?", answer: "Les systèmes de stockage LFP modernes sont conçus pour la sécurité. Une installation correcte, une ventilation adaptée et le respect des instructions du fabricant sont essentiels." },
       { question: "Un système de stockage de batteries peut-il exploser?", answer: "Les explosions de systèmes domestiques LFP modernes sont pratiquement exclues. La chimie des cellules LFP est si stable que même les dommages mécaniques ne déclenchent pas de réaction en chaîne. Les technologies NMC plus anciennes présentent un risque plus élevé — mais ne sont pratiquement plus utilisées dans les nouveaux systèmes domestiques." },
       { question: "Où puis-je installer un système de stockage de batteries?", answer: "Les systèmes de stockage LFP peuvent être installés dans tous les locaux — cave, buanderie, garage. Important: endroit sec, température ambiante de 5–35°C, ventilation suffisante et distances minimales par rapport aux matières inflammables selon les instructions du fabricant." },
       { question: "Les systèmes de stockage de batteries chinois sont-ils sûrs?", answer: "Les principaux fabricants chinois comme BYD et Huawei produisent des systèmes de stockage LFP de haute qualité qui respectent toutes les normes de sécurité internationales. Il faut éviter les produits sans marque du segment bas de gamme sans certifications reconnues." },
-      { question: "Combien de temps dure un système de stockage de batteries?", answer: "Les systèmes de stockage LFP modernes durent 4'000–8'000 cycles de charge, ce qui correspond à 15–25 ans avec une charge quotidienne. La plupart des fabricants offrent 10 ans de garantie sur au moins 80% de la capacité d'origine." },
+      { question: "Combien de temps dure un système de stockage de batteries?", answer: "La durée de vie dépend du fabricant, de la technologie des cellules, de l'utilisation et des conditions de garantie." },
       { question: "Dois-je déclarer mon système de stockage à mon assurance?", answer: "Oui, c'est recommandé. Dans la plupart des cantons suisses, le système de stockage est automatiquement couvert par l'assurance bâtiment. Déclarez néanmoins l'installation pour vous assurer que les dommages sont couverts." },
       { question: "Quelles certifications un système de stockage sûr doit-il avoir?", answer: "Au minimum IEC 62619 (norme internationale pour les batteries lithium stationnaires), le marquage CE et UN 38.3. Pour le marché suisse, la VDE-AR-E 2510-50 est également un critère de qualité reconnu." },
     ],
@@ -3904,7 +3467,7 @@ const articles: BlogArticle[] = [
     slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
     locale: 'en',
     title: 'Are solar battery storage systems dangerous? What you really need to know',
-    metaDescription: 'Is a solar battery storage system really dangerous? Fire risk of only 0.005% according to a study. What you need to know about LFP batteries, safety standards and installation location in Switzerland.',
+    metaDescription: 'Is a solar battery storage system really dangerous? What you need to know about LFP batteries, safety standards and installation location in Switzerland.',
     image: '/images/aurora-energy-batteriespeicher.webp',
     date: '3 May 2026',
     readMin: 10,
@@ -3915,14 +3478,13 @@ const articles: BlogArticle[] = [
         heading: 'The facts: how high is the fire risk really?',
         content: [
           'The answer comes from a study by the renowned RWTH Aachen University from December 2024 — one of the largest investigations ever conducted into the safety of home storage systems.',
-          "Fire risk for home storage systems: 0.005% per year. This means: out of 100'000 installed battery storage systems, statistically only one catches fire per year.",
-          'For comparison: General house fire risk approx. 0.25% — Dishwasher approx. 0.03% — Washing machine approx. 0.025% — Battery storage (LFP) approx. 0.005% — Candles approx. 0.5%.',
+          "For home storage systems, LFP technology and professional installation are essential.",
+          'The system must be installed and operated according to the manufacturer’s instructions.',
           'A modern LFP battery storage system is therefore 50 times safer than the general house fire risk — and safer than your washing machine.',
         ],
         stats: [
-          { value: '0.005%', label: 'fire risk according to RWTH study 2024' },
+          { value: '—', label: 'Fire risk: no value in facts.ts' },
           { value: '50x safer', label: 'than the general house fire risk' },
-          { value: '80%', label: 'of storage systems in CH are LFP — the safest technology' },
         ],
       },
       {
@@ -3930,7 +3492,7 @@ const articles: BlogArticle[] = [
         content: [
           'Reports of burning batteries almost exclusively concern NMC batteries (nickel-manganese-cobalt) — an older technology used in early home storage systems and especially in electric cars and smartphones.',
           'NMC batteries are chemically less stable when overheated, can catch fire due to overcharging or mechanical damage, and release oxygen during thermal runaway — which fans the flames. They are barely used in new home storage systems.',
-          'LFP batteries (lithium iron phosphate) are chemically extremely stable, even when overheated. They show no thermal runaway under normal conditions and do not release oxygen in the event of damage. They are now standard in Switzerland: over 80% of all newly installed systems use LFP technology.',
+          'LFP batteries (lithium iron phosphate) are chemically very stable, even when overheated. Under normal conditions, the risk of thermal runaway is low. LFP is now widely used in new home storage systems.',
           'Conclusion: if you buy a new battery storage system today, you will in all likelihood get an LFP battery — the safest technology available for home storage systems.',
         ],
       },
@@ -3941,7 +3503,7 @@ const articles: BlogArticle[] = [
           'Thermal stability: LFP cells only begin to decompose at over 270°C — NMC cells already from 150°C. Even in the event of a house fire, thermal runaway would not be expected.',
           'No oxygen when overheated: Other lithium technologies can release oxygen when overheated, intensifying the fire. LFP does not do this — the fire cannot fuel itself.',
           'Mechanical robustness: LFP cells withstand even strong mechanical loads. The famous "nail test" — a nail driven into the battery — causes no fire reaction in LFP batteries.',
-          "Lifespan: LFP batteries last 4'000–8'000 charge cycles — corresponding to 15–25 years with daily charging. They thus significantly outperform NMC batteries.",
+          "They thus significantly outperform NMC batteries.",
           'Well-known manufacturers using LFP technology: BYD (HVM/HVS), Huawei (Luna), Fronius (Reserva), Fenecon (Home) — all market leaders now rely on LFP.',
         ],
       },
@@ -3968,7 +3530,6 @@ const articles: BlogArticle[] = [
           'IEC 62619 — International safety requirements for stationary lithium batteries.',
           'VDE-AR-E 2510-50 — German standard for home storage systems — recognised in Switzerland.',
           'CE marking — Compliance with European safety standards.',
-          'UN 38.3 — Transport tests for lithium batteries.',
           'A reputable installer in Switzerland only installs systems with these certifications. Ask explicitly for them before signing.',
         ],
       },
@@ -3984,7 +3545,7 @@ const articles: BlogArticle[] = [
       {
         heading: 'What about Chinese batteries — are they safe?',
         content: [
-          'Many Swiss homeowners ask this question, as Chinese manufacturers such as BYD and Huawei dominate the Swiss market and account for approximately two thirds of all installed systems.',
+          'Many Swiss homeowners ask this question, as Chinese manufacturers such as BYD and Huawei are widely represented in the Swiss market.',
           'The honest answer: Yes, the leading Chinese manufacturers are safe — if you choose the right ones. BYD and Huawei are global leaders in LFP technology and meet all relevant international safety standards (IEC 62619, CE, UN 38.3). Their products are regularly tested by independent institutes.',
           'The difference lies with no-name products from the low-price segment — there, quality control can be deficient. These should be avoided.',
           'Our recommendation: Buy branded products from well-known manufacturers — whether Chinese or European matters less. More important are the certification and the guarantee.',
@@ -4000,7 +3561,6 @@ const articles: BlogArticle[] = [
           '✅ IEC 62619 certification — international safety standard',
           '✅ CE marking — European standard',
           '✅ Proven BMS — from a brand manufacturer',
-          '✅ At least 10 years warranty — on capacity and function',
           '✅ Certified installer — electrical installation only by a specialist',
           '✅ Correct installation location — according to manufacturer instructions and VKF guidelines',
           '✅ Check fire insurance — whether your building insurance covers storage systems',
@@ -4017,11 +3577,11 @@ const articles: BlogArticle[] = [
       },
     ],
     faqs: [
-      { question: 'Is a battery storage system for a solar installation dangerous?', answer: 'Modern LFP battery storage systems are very safe. According to an RWTH study from 2024, the fire risk is only 0.005% per year — 50 times lower than the general house fire risk. The LFP technology, which is now standard in Switzerland, is thermally extremely stable and practically non-flammable.' },
+      { question: 'Is a battery storage system for a solar installation dangerous?', answer: 'Modern LFP battery storage systems are designed with safety in mind. Correct installation, ventilation and compliance with the manufacturer’s instructions are essential.' },
       { question: 'Can a battery storage system explode?', answer: 'Explosions in modern LFP home storage systems are virtually impossible. The chemistry of LFP cells is so stable that even mechanical damage does not trigger a chain reaction. Older NMC technologies have a higher risk — but they are barely used in new home storage systems.' },
       { question: 'Where may I install a battery storage system?', answer: 'LFP battery storage systems may be installed in all rooms — basement, utility room, garage. Important: dry location, ambient temperature 5–35°C, sufficient ventilation and minimum distances from flammable materials according to manufacturer instructions.' },
       { question: 'Are Chinese battery storage systems safe?', answer: 'The leading Chinese manufacturers such as BYD and Huawei produce high-quality LFP storage systems that meet all international safety standards. No-name products from the low-price segment without recognised certifications should be avoided.' },
-      { question: 'How long does a battery storage system last?', answer: "Modern LFP battery storage systems last 4'000–8'000 charge cycles, corresponding to 15–25 years with daily charging. Most manufacturers offer 10 years' warranty on at least 80% of the original capacity." },
+      { question: 'How long does a battery storage system last?', answer: 'Lifetime depends on the manufacturer, cell chemistry, usage and warranty terms.' },
       { question: 'Do I need to report my battery storage system to my insurance?', answer: 'Yes, recommended. In most Swiss cantons, the storage system is automatically covered by building insurance as a building component. Nevertheless, report the installation to ensure that damage is covered.' },
       { question: 'What certifications should a safe battery storage system have?', answer: 'At minimum IEC 62619 (international standard for stationary lithium batteries), CE marking and UN 38.3. For the Swiss market, VDE-AR-E 2510-50 is also a recognised quality feature.' },
     ],
@@ -4043,7 +3603,7 @@ const articles: BlogArticle[] = [
     slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
     locale: 'it',
     title: "Un sistema di accumulo a batterie è pericoloso? Quello che dovete sapere davvero",
-    metaDescription: "Un sistema di accumulo a batterie per impianto solare è davvero pericoloso? Rischio di incendio solo dello 0.005% secondo uno studio. Cosa sapere sulle batterie LFP, le norme di sicurezza e il luogo di installazione.",
+    metaDescription: "Un sistema di accumulo a batterie per impianto solare è davvero pericoloso? Cosa sapere sulle batterie LFP, le norme di sicurezza e il luogo di installazione.",
     image: '/images/aurora-energy-batteriespeicher.webp',
     date: '3 maggio 2026',
     readMin: 10,
@@ -4054,14 +3614,13 @@ const articles: BlogArticle[] = [
         heading: "I fatti: quanto è alto il rischio di incendio?",
         content: [
           "La risposta viene da uno studio della rinomata Università Tecnica Renano-Vestfalica (RWTH) di Aquisgrana del dicembre 2024 — una delle indagini più grandi mai condotte sulla sicurezza dei sistemi di accumulo domestici.",
-          "Rischio di incendio per i sistemi di accumulo domestici: 0.005% all'anno. Ciò significa: su 100'000 sistemi installati, statisticamente solo uno prende fuoco all'anno.",
-          "Per confronto: Rischio generale di incendio abitativo ca. 0.25% — Lavastoviglie ca. 0.03% — Lavatrice ca. 0.025% — Sistema di accumulo (LFP) ca. 0.005% — Candele ca. 0.5%.",
+          "Per i sistemi di accumulo domestici sono decisive la tecnologia LFP e un'installazione professionale.",
+          "Il sistema di accumulo deve essere installato e utilizzato secondo le istruzioni del produttore.",
           "Un moderno sistema di accumulo LFP è quindi 50 volte più sicuro del rischio generale di incendio abitativo — e più sicuro della vostra lavatrice.",
         ],
         stats: [
-          { value: '0.005%', label: "rischio di incendio secondo lo studio RWTH 2024" },
+          { value: '—', label: "Rischio di incendio: nessun valore in facts.ts" },
           { value: '50x più sicuro', label: "del rischio generale di incendio abitativo" },
-          { value: '80%', label: 'dei sistemi in CH sono LFP — la tecnologia più sicura' },
         ],
       },
       {
@@ -4069,7 +3628,7 @@ const articles: BlogArticle[] = [
         content: [
           "Le notizie di batterie in fiamme riguardano quasi esclusivamente le batterie NMC (nichel-manganese-cobalto) — una tecnologia più vecchia utilizzata nei primi sistemi domestici e soprattutto nelle auto elettriche e negli smartphone.",
           "Le batterie NMC sono chimicamente meno stabili in caso di surriscaldamento, possono prendere fuoco in caso di sovraccarica o danni meccanici e rilasciano ossigeno durante la fuga termica — alimentando l'incendio. Nei nuovi sistemi domestici sono ormai quasi del tutto abbandonate.",
-          "Le batterie LFP (litio ferro fosfato) sono chimicamente estremamente stabili, anche in caso di surriscaldamento. Non mostrano fuga termica in condizioni normali e non rilasciano ossigeno in caso di danni. Sono oggi lo standard in Svizzera: oltre l'80% di tutti i sistemi nuovi installati utilizza la tecnologia LFP.",
+          "Le batterie LFP (litio ferro fosfato) sono chimicamente molto stabili, anche in caso di surriscaldamento. In condizioni normali il rischio di fuga termica è basso. Questa tecnologia è oggi molto diffusa nei nuovi sistemi domestici.",
           "Conclusione: se acquistate oggi un nuovo sistema di accumulo, con tutta probabilità otterrete una batteria LFP — la tecnologia più sicura disponibile per i sistemi domestici.",
         ],
       },
@@ -4077,10 +3636,10 @@ const articles: BlogArticle[] = [
         heading: "Cos'è l'LFP e perché è così sicura?",
         content: [
           "LFP sta per Litio Ferro Fosfato (LiFePO₄). Questa chimica cellulare presenta vantaggi decisivi rispetto alle tecnologie al litio più vecchie.",
-          "Stabilità termica: Le celle LFP iniziano a decomporsi solo oltre i 270°C — le celle NMC già dai 150°C. Anche in caso di incendio nell'edificio, non ci si aspetterebbe nessuna fuga termica.",
+          "Stabilità termica: Le celle LFP iniziano a decomporsi solo oltre i 270°C — le celle NMC già dai 150°C.",
           "Nessun ossigeno in caso di surriscaldamento: Altre tecnologie al litio possono rilasciare ossigeno in caso di surriscaldamento, intensificando l'incendio. L'LFP non lo fa — l'incendio non può autoalimentarsi.",
           "Robustezza meccanica: Le celle LFP resistono anche a forti sollecitazioni meccaniche. Il famoso «test del chiodo» non provoca alcuna reazione di incendio nelle batterie LFP.",
-          "Durata: Le batterie LFP durano 4'000–8'000 cicli di carica — corrispondenti a 15–25 anni con carica quotidiana. Superano così nettamente le batterie NMC.",
+          "Superano così nettamente le batterie NMC.",
           "Produttori noti con tecnologia LFP: BYD (HVM/HVS), Huawei (Luna), Fronius (Reserva), Fenecon (Home) — tutti i leader di mercato puntano oggi sull'LFP.",
         ],
       },
@@ -4123,7 +3682,7 @@ const articles: BlogArticle[] = [
       {
         heading: "Cosa ne è delle batterie cinesi — sono sicure?",
         content: [
-          "Molti proprietari di case svizzeri pongono questa domanda, poiché produttori cinesi come BYD e Huawei dominano il mercato svizzero e rappresentano circa due terzi di tutti i sistemi installati.",
+          "Molti proprietari di case svizzeri pongono questa domanda, poiché produttori cinesi come BYD e Huawei sono ampiamente presenti sul mercato svizzero.",
           "La risposta onesta: sì, i principali produttori cinesi sono sicuri — se si scelgono quelli giusti. BYD e Huawei sono leader mondiali nella tecnologia LFP e soddisfano tutti i pertinenti standard di sicurezza internazionali (IEC 62619, CE, UN 38.3).",
           "La differenza sta nei prodotti senza marchio del segmento dei prezzi bassi — lì il controllo qualità può essere carente. Questi vanno evitati.",
           "La nostra raccomandazione: Acquistate prodotti di marca di produttori noti — che siano cinesi o europei conta poco. Più importante è la certificazione e la garanzia.",
@@ -4139,7 +3698,7 @@ const articles: BlogArticle[] = [
           '✅ Certificazione IEC 62619 — norma di sicurezza internazionale',
           '✅ Marcatura CE — standard europeo',
           '✅ BMS collaudato — di un produttore di marca',
-          '✅ Almeno 10 anni di garanzia — su capacità e funzionamento',
+          '✅ Garanzia chiara — su capacità e funzionamento',
           '✅ Installatore certificato — installazione elettrica solo da un professionista',
           '✅ Luogo di installazione corretto — secondo le istruzioni del produttore e le linee guida VKF',
           '✅ Verificare la copertura antincendio — se la vostra assicurazione edilizia copre i sistemi di accumulo',
@@ -4156,11 +3715,11 @@ const articles: BlogArticle[] = [
       },
     ],
     faqs: [
-      { question: "Un sistema di accumulo a batterie per impianto solare è pericoloso?", answer: "I moderni sistemi di accumulo LFP sono molto sicuri. Secondo uno studio RWTH del 2024, il rischio di incendio è solo dello 0.005% all'anno — 50 volte inferiore al rischio generale di incendio abitativo. La tecnologia LFP è termicamente estremamente stabile e praticamente non infiammabile." },
+      { question: "Un sistema di accumulo a batterie per impianto solare è pericoloso?", answer: "I moderni sistemi di accumulo LFP sono progettati pensando alla sicurezza. Sono essenziali un'installazione corretta, una ventilazione adeguata e il rispetto delle istruzioni del produttore." },
       { question: "Un sistema di accumulo a batterie può esplodere?", answer: "Le esplosioni nei moderni sistemi domestici LFP sono praticamente escluse. La chimica delle celle LFP è così stabile che anche i danni meccanici non innescano una reazione a catena. Le tecnologie NMC più vecchie presentano un rischio più elevato — ma vengono ormai quasi del tutto abbandonate nei nuovi sistemi domestici." },
       { question: "Dove posso installare un sistema di accumulo a batterie?", answer: "I sistemi di accumulo LFP possono essere installati in tutti i locali — cantina, ripostiglio, garage. Importante: luogo asciutto, temperatura ambiente 5–35°C, ventilazione sufficiente e distanze minime da materiali infiammabili secondo le istruzioni del produttore." },
       { question: "I sistemi di accumulo a batterie cinesi sono sicuri?", answer: "I principali produttori cinesi come BYD e Huawei producono sistemi di accumulo LFP di alta qualità che soddisfano tutti gli standard di sicurezza internazionali. Vanno evitati i prodotti senza marchio del segmento dei prezzi bassi senza certificazioni riconosciute." },
-      { question: "Quanto dura un sistema di accumulo a batterie?", answer: "I moderni sistemi di accumulo LFP durano 4'000–8'000 cicli di carica, corrispondenti a 15–25 anni con carica quotidiana. La maggior parte dei produttori offre 10 anni di garanzia su almeno l'80% della capacità originale." },
+      { question: "Quanto dura un sistema di accumulo a batterie?", answer: 'La durata dipende dal produttore, dalla chimica delle celle, dall’uso e dalle condizioni di garanzia.' },
       { question: "Devo comunicare il mio sistema di accumulo alla mia assicurazione?", answer: "Sì, è consigliato. Nella maggior parte dei cantoni svizzeri, il sistema di accumulo è automaticamente coperto dall'assicurazione edilizia come componente dell'edificio. Comunicate comunque l'installazione per assicurarvi che i danni siano coperti." },
       { question: "Quali certificazioni deve avere un sistema di accumulo sicuro?", answer: "Come minimo IEC 62619 (norma internazionale per le batterie al litio stazionarie), la marcatura CE e UN 38.3. Per il mercato svizzero, anche la VDE-AR-E 2510-50 è un riconosciuto indicatore di qualità." },
     ],
@@ -4194,11 +3753,11 @@ const articles: BlogArticle[] = [
         content: [
           'Bevor wir erklären, was bei einer Insolvenz passiert, müssen wir einen entscheidenden Unterschied verstehen — den zwischen Gewährleistung und Garantie. Die meisten Hausbesitzer verwechseln diese beiden Begriffe, aber sie sind rechtlich völlig verschieden.',
           'Gewährleistung: Gesetzlich vorgeschrieben — kein Vertrag nötig. Richtet sich gegen den Installateur (Verkäufer der Anlage). In der Schweiz: 2 Jahre für bewegliche Teile, 5 Jahre für fest verbaute Teile (z.B. Dachkonstruktion). Deckt Mängel, die bei der Installation vorhanden waren. Bei Insolvenz des Installateurs: praktisch wertlos — kein Ansprechpartner mehr.',
-          'Garantie: Freiwilliges Versprechen des Herstellers der einzelnen Komponenten — unabhängig vom Installateur. Solarmodule: 10–15 Jahre Produktgarantie, 25–30 Jahre Leistungsgarantie. Wechselrichter: 5–10 Jahre Herstellergarantie. Batteriespeicher: meist 10 Jahre. Bei Insolvenz des Installateurs: bleibt vollständig bestehen.',
+          'Garantie: Freiwilliges Versprechen des Herstellers der einzelnen Komponenten — unabhängig vom Installateur. Bei Insolvenz des Installateurs: bleibt vollständig bestehen.',
           'Das Fazit: Wenn Ihr Installateur pleite geht, verlieren Sie Ihre Gewährleistungsansprüche — aber Ihre wertvollen Herstellergarantien auf Module, Wechselrichter und Speicher bleiben vollständig erhalten.',
         ],
         stats: [
-          { value: '25–30 Jahre', label: 'Leistungsgarantie der Module bleibt bestehen' },
+          { value: `${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% nach ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} Jahren`, label: 'Richtwert der Leistungsgarantie' },
           { value: 'Gewährleistung', label: 'vs. Garantie — der entscheidende Unterschied' },
           { value: 'Lokale Betriebe', label: 'haben tieferes Insolvenzrisiko' },
         ],
@@ -4215,8 +3774,8 @@ const articles: BlogArticle[] = [
       {
         heading: 'Wie lange dauert ein Insolvenzverfahren in der Schweiz?',
         content: [
-          'Ein Schweizer Konkursverfahren dauert typischerweise 1–3 Jahre. In dieser Zeit können Sie Forderungen beim Konkursamt anmelden und erhalten am Ende eine Quote — oft im einstelligen Prozentbereich. Herstellergarantien bleiben davon vollständig unberührt.',
-          'Realitätscheck: Die Erfahrung zeigt, dass Gläubiger am Ende eines Insolvenzverfahrens typischerweise nur 3–10% ihrer Forderungen zurückerhalten. Setzen Sie Ihre Energie lieber auf die Herstellergarantien und auf die Suche nach einem neuen lokalen Fachbetrieb für Wartung und Service.',
+          'In einem Schweizer Konkursverfahren können Sie Forderungen beim Konkursamt anmelden und erhalten je nach Verfahren möglicherweise eine Quote. Herstellergarantien bleiben davon unberührt.',
+          'Realitätscheck: Gläubiger erhalten am Ende eines Insolvenzverfahrens oft nur einen kleinen Teil ihrer Forderungen zurück. Setzen Sie Ihre Energie lieber auf die Herstellergarantien und auf die Suche nach einem neuen lokalen Fachbetrieb für Wartung und Service.',
         ],
         bullets: [
           'Forderungen sofort beim Konkursamt anmelden',
@@ -4228,7 +3787,7 @@ const articles: BlogArticle[] = [
       {
         heading: 'Was passiert mit der Garantie der Hersteller?',
         content: [
-          'Das ist die eigentlich wichtige Frage — und die Antwort ist beruhigend. Herstellergarantien auf Module: Die Leistungsgarantie (25–30 Jahre) richtet sich direkt gegen den Modulhersteller — nicht gegen den Installateur. Wenn ein Modul nach 10 Jahren nicht mehr die garantierte Leistung bringt, wenden Sie sich direkt an den Hersteller. Der Installateur ist dabei irrelevant.',
+          `Das ist die eigentlich wichtige Frage. Der Richtwert der Leistungsgarantie liegt bei ${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% nach ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} Jahren und richtet sich direkt gegen den Modulhersteller — nicht gegen den Installateur.`,
           'Herstellergarantien auf Wechselrichter: Gleiche Logik — die Garantie besteht zwischen Ihnen und dem Hersteller. Fronius, SMA, Huawei haben eigene Service-Hotlines und Servicepartner in der Schweiz. Was Sie brauchen: Seriennummer des Wechselrichters, Kaufbeleg/Rechnung und das Garantiezertifikat vom Hersteller. Mit diesen Dokumenten können Sie direkt beim Hersteller einen Garantiefall einleiten — ohne den Installateur.',
           'Achtung bei günstigen No-Name-Produkten: Bei unbekannten Herstellern ohne Schweizer Niederlassung wird die Garantiedurchsetzung im Schadensfall sehr schwierig. Das ist ein weiterer Grund, warum PvPro.ch nur Installationen mit Komponenten von etablierten Markenherstellern vermittelt.',
         ],
@@ -4239,7 +3798,7 @@ const articles: BlogArticle[] = [
           'Es gibt Warnsignale, die Sie vor einer Insolvenz erkennen können:',
         ],
         bullets: [
-          '🔴 Alarmsignal 1: Sehr hohe Anzahlung verlangt (mehr als 30%) lange vor Baubeginn',
+          '🔴 Alarmsignal 1: Eine sehr hohe Anzahlung wird lange vor Baubeginn verlangt',
           '🔴 Alarmsignal 2: Vereinbarte Liefertermine werden wiederholt ohne Erklärung verschoben',
           '🔴 Alarmsignal 3: Der Ansprechpartner ist plötzlich schwer erreichbar — E-Mails bleiben unbeantwortet',
           '🔴 Alarmsignal 4: Die Website des Unternehmens ist nicht mehr verfügbar',
@@ -4251,7 +3810,7 @@ const articles: BlogArticle[] = [
         heading: 'Wie schützen Sie sich präventiv?',
         content: [
           '1. Nur zertifizierte lokale Betriebe beauftragen: Kleine, lokale Fachbetriebe mit langjähriger Präsenz im Kanton haben ein deutlich tieferes Insolvenzrisiko als schnell gewachsene nationale Anbieter. Sie kennen ihre Kunden persönlich und haben einen guten Ruf zu verlieren.',
-          '2. Anzahlungen minimieren: Zahlen Sie nie mehr als 20–30% im Voraus. Professionelle Installateure verlangen keine überhöhten Anzahlungen. Staffelzahlungen — z.B. 30% bei Bestellung, 60% bei Montage, 10% bei Inbetriebnahme — sind Standard.',
+          '2. Anzahlungen minimieren: Vermeiden Sie überhöhte Vorauszahlungen. Vereinbaren Sie schriftlich gestaffelte Zahlungen nach nachvollziehbaren Projektfortschritten.',
           '3. Alles schriftlich: Bestehen Sie auf einem detaillierten Werkvertrag mit genauer Auflistung der Komponenten, Garantien, Fristen und Zahlungsbedingungen.',
           '4. Herstellergarantien separat dokumentieren: Verlangen Sie bei der Übergabe alle Garantiezertifikate direkt vom Installateur. Bewahren Sie diese getrennt auf.',
           '5. Markenhersteller bevorzugen: Komponenten von Fronius, SMA, BYD, Huawei haben eigene Service-Netzwerke in der Schweiz — unabhängig vom Installateur.',
@@ -4264,7 +3823,7 @@ const articles: BlogArticle[] = [
           "Aus unserer Erfahrung mit über 1'000 vermittelten Anlagen in der Schweiz können wir sagen: Grosse, national tätige Anbieter mit viel Werbung haben nicht automatisch das tiefste Insolvenzrisiko. Im Gegenteil — schnell gewachsene Unternehmen schrumpfen auch schnell.",
         ],
         bullets: [
-          'Oft 10–30 Jahre Betriebserfahrung im Kanton',
+          'Nachgewiesene Betriebserfahrung im Kanton',
           'Kennen ihre Kunden persönlich',
           'Haben einen guten Ruf zu verlieren — und pflegen ihn',
           'Nicht abhängig von nationalem Auftragsvolumen',
@@ -4292,10 +3851,10 @@ const articles: BlogArticle[] = [
       },
     ],
     faqs: [
-      { question: 'Was passiert mit der Garantie meiner Solaranlage wenn der Installateur pleite geht?', answer: 'Die Herstellergarantien auf Module (25–30 Jahre), Wechselrichter (5–10 Jahre) und Batteriespeicher (10 Jahre) bleiben vollständig bestehen — sie richten sich direkt gegen die Hersteller, nicht gegen den Installateur. Was Sie verlieren, ist die Gewährleistung des Installateurs für Installationsfehler.' },
-      { question: 'Kann ich meine Anzahlung zurückbekommen wenn der Installateur Konkurs macht?', answer: 'Sie können Ihre Forderung beim Konkursamt anmelden. Die Erfahrung zeigt jedoch, dass Gläubiger typischerweise nur 3–10% ihrer Forderungen zurückerhalten. Bei Kreditkartenzahlung ist ein Chargeback möglich.' },
+      { question: 'Was passiert mit der Garantie meiner Solaranlage wenn der Installateur pleite geht?', answer: 'Was Sie verlieren, ist die Gewährleistung des Installateurs für Installationsfehler.' },
+      { question: 'Kann ich meine Anzahlung zurückbekommen wenn der Installateur Konkurs macht?', answer: 'Sie können Ihre Forderung beim Konkursamt anmelden. Ob und in welchem Umfang eine Rückzahlung erfolgt, hängt vom Konkursverfahren ab. Bei Kreditkartenzahlung kann ein Chargeback möglich sein.' },
       { question: 'Wer repariert meine Solaranlage wenn der Installateur nicht mehr existiert?', answer: 'Für Reparaturen innerhalb der Herstellergarantie wenden Sie sich direkt an den Hersteller der defekten Komponente. Für sonstige Wartungsarbeiten beauftragen Sie einen anderen lokalen Fachbetrieb — PvPro.ch kann Ihnen dabei helfen.' },
-      { question: 'Wie erkenne ich einen seriösen Installateur?', answer: 'Achten Sie auf: lokale Präsenz seit mindestens 5 Jahren, anerkannte Zertifizierung (Swissolar), keine überhöhten Anzahlungen, schriftlicher Werkvertrag mit detaillierten Angaben, und nachprüfbare Referenzen in Ihrem Kanton.' },
+      { question: 'Wie erkenne ich einen seriösen Installateur?', answer: 'Achten Sie auf lokale Präsenz, anerkannte Zertifizierung, keine überhöhten Anzahlungen, einen schriftlichen Werkvertrag und nachprüfbare Referenzen in Ihrem Kanton.' },
       { question: 'Sind lokale Installateure sicherer als nationale Anbieter?', answer: 'In der Regel ja. Kleine lokale Fachbetriebe mit langjähriger Präsenz haben oft ein tieferes Insolvenzrisiko als schnell gewachsene nationale Anbieter. Zudem reagieren sie schneller bei Problemen und kennen die lokalen Gegebenheiten besser.' },
       { question: 'Was muss ich nach der Installation aufbewahren?', answer: 'Rechnung mit Seriennummern aller Komponenten, Werkvertrag, alle Garantiezertifikate (Module, Wechselrichter, Speicher), Inbetriebnahmeprotokoll, EIV-Bestätigung und Anmeldung beim Netzbetreiber. Diese Dokumente sind Ihr Schutzschild im Schadensfall.' },
     ],
@@ -4328,12 +3887,12 @@ const articles: BlogArticle[] = [
         heading: 'La différence essentielle: garantie légale vs. garantie fabricant',
         content: [
           "Avant d'expliquer ce qui se passe en cas d'insolvabilité, il faut comprendre une distinction cruciale — entre la garantie légale (garantie des vices) et la garantie fabricant. La plupart des propriétaires confondent ces deux notions, mais elles sont juridiquement très différentes.",
-          "Garantie légale: obligatoire par la loi — aucun contrat nécessaire. S'exerce contre l'installateur (vendeur de l'installation). En Suisse: 2 ans pour les pièces mobiles, 5 ans pour les éléments intégrés (ex. structure de toiture). Couvre les défauts présents lors de l'installation. En cas d'insolvabilité de l'installateur: pratiquement sans valeur — plus d'interlocuteur.",
-          "Garantie fabricant: promesse volontaire du fabricant des composants — indépendante de l'installateur. Panneaux solaires: 10–15 ans de garantie produit, 25–30 ans de garantie de performance. Onduleur: 5–10 ans de garantie fabricant. Système de stockage: généralement 10 ans. En cas d'insolvabilité de l'installateur: reste entièrement valide.",
+          "Garantie légale: obligatoire par la loi — aucun contrat nécessaire. S'exerce contre l'installateur (vendeur de l'installation). En Suisse: deux ans pour les pièces mobiles, cinq ans pour les éléments intégrés (ex. structure de toiture). Couvre les défauts présents lors de l'installation. En cas d'insolvabilité de l'installateur: pratiquement sans valeur — plus d'interlocuteur.",
+          "Garantie fabricant: promesse volontaire du fabricant des composants — indépendante de l'installateur. En cas d'insolvabilité de l'installateur: reste entièrement valide.",
           "Conclusion: si votre installateur fait faillite, vous perdez vos droits à la garantie légale — mais vos précieuses garanties fabricant sur les panneaux, l'onduleur et le système de stockage restent entièrement valides.",
         ],
         stats: [
-          { value: '25–30 ans', label: 'la garantie de performance des panneaux reste valide' },
+          { value: `${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% après ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} ans`, label: 'référence de garantie de performance' },
           { value: 'Garantie légale', label: 'vs. garantie fabricant — la différence décisive' },
           { value: 'Entreprises locales', label: 'présentent un risque de faillite plus faible' },
         ],
@@ -4349,8 +3908,8 @@ const articles: BlogArticle[] = [
       {
         heading: "Combien de temps dure une procédure d'insolvabilité en Suisse?",
         content: [
-          "Une procédure de faillite suisse dure typiquement 1 à 3 ans. Pendant cette période, vous pouvez déposer des créances auprès de l'office des poursuites et obtiendrez finalement un dividende — souvent dans les chiffres à un seul chiffre en pourcentage. Les garanties fabricant restent totalement indépendantes de ce processus.",
-          "Vérification de la réalité: l'expérience montre que les créanciers ne récupèrent généralement que 3 à 10% de leurs créances au terme d'une procédure d'insolvabilité. Concentrez plutôt votre énergie sur les garanties fabricant et la recherche d'un nouveau prestataire local.",
+          "Dans une procédure de faillite suisse, vous pouvez déposer des créances auprès de l'office des poursuites et recevoir éventuellement un dividende selon l'issue de la procédure. Les garanties fabricant restent séparées de ce processus.",
+          "Vérification de la réalité: les créanciers ne récupèrent souvent qu'une petite partie de leurs créances au terme d'une procédure d'insolvabilité. Concentrez plutôt votre énergie sur les garanties fabricant et la recherche d'un nouveau prestataire local.",
         ],
         bullets: [
           "Déposer immédiatement une créance auprès de l'office des poursuites",
@@ -4362,7 +3921,7 @@ const articles: BlogArticle[] = [
       {
         heading: "Que se passe-t-il avec les garanties des fabricants?",
         content: [
-          "C'est la vraie question importante — et la réponse est rassurante. Garanties fabricant sur les panneaux: la garantie de performance (25–30 ans) s'exerce directement contre le fabricant des panneaux — pas contre l'installateur. Si un panneau ne produit plus la performance garantie après 10 ans, adressez-vous directement au fabricant. L'installateur n'est pas impliqué.",
+          `C'est la question importante. La référence de garantie de performance est de ${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% après ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} ans et s'exerce directement contre le fabricant des panneaux, pas contre l'installateur.`,
           "Garanties fabricant sur l'onduleur: même logique — la garantie existe entre vous et le fabricant. Fronius, SMA, Huawei ont leurs propres hotlines de service et partenaires de service en Suisse. Ce dont vous avez besoin: numéro de série de l'onduleur, preuve d'achat/facture et le certificat de garantie du fabricant.",
           "Attention aux produits bon marché sans marque: chez des fabricants inconnus sans représentation suisse, faire valoir la garantie en cas de sinistre devient très difficile. C'est une raison supplémentaire pour laquelle PvPro.ch ne s'occupe que d'installations avec des composants de fabricants de marque établis.",
         ],
@@ -4373,7 +3932,7 @@ const articles: BlogArticle[] = [
           "Il existe des signaux d'alarme que vous pouvez détecter avant une insolvabilité:",
         ],
         bullets: [
-          "🔴 Signal 1: L'installateur exige un acompte très élevé (plus de 30%) bien avant le début des travaux",
+          "🔴 Signal 1: L'installateur exige un acompte très élevé bien avant le début des travaux",
           '🔴 Signal 2: Les délais de livraison convenus sont reportés à plusieurs reprises sans explication',
           "🔴 Signal 3: L'interlocuteur devient soudainement difficile à joindre — les e-mails restent sans réponse",
           "🔴 Signal 4: Le site web de l'entreprise n'est plus accessible",
@@ -4385,7 +3944,7 @@ const articles: BlogArticle[] = [
         heading: 'Comment vous protéger de façon préventive?',
         content: [
           "1. Ne mandater que des entreprises locales certifiées: Les petits prestataires locaux avec une présence de longue date dans le canton ont un risque d'insolvabilité nettement plus faible que les prestataires nationaux à croissance rapide. Ils connaissent leurs clients personnellement et ont une réputation à préserver.",
-          "2. Minimiser les acomptes: Ne payez jamais plus de 20 à 30% à l'avance. Des paiements échelonnés — par ex. 30% à la commande, 60% à la pose, 10% à la mise en service — sont la norme.",
+          "2. Minimiser les acomptes: Évitez les avances excessives et convenez par écrit de paiements échelonnés selon l'avancement vérifiable du projet.",
           "3. Tout par écrit: Insistez sur un contrat d'entreprise détaillé avec une liste précise des composants, des garanties, des délais et des conditions de paiement.",
           "4. Documenter les garanties fabricant séparément: Exigez à la livraison tous les certificats de garantie directement de l'installateur. Conservez-les séparément.",
           "5. Préférer les fabricants de marque: Les composants de Fronius, SMA, BYD, Huawei ont leurs propres réseaux de service en Suisse — indépendamment de l'installateur.",
@@ -4398,7 +3957,7 @@ const articles: BlogArticle[] = [
           "D'après notre expérience avec plus de 1'000 installations réalisées en Suisse, nous pouvons affirmer: les grands prestataires nationaux avec beaucoup de publicité n'ont pas automatiquement le risque d'insolvabilité le plus faible. Au contraire — les entreprises à croissance rapide déclinent aussi rapidement.",
         ],
         bullets: [
-          'Souvent 10 à 30 ans d\'expérience dans le canton',
+          'Expérience professionnelle documentée dans le canton',
           'Connaissent leurs clients personnellement',
           'Ont une réputation à préserver — et la chérissent',
           'Ne dépendent pas du volume de commandes national',
@@ -4426,10 +3985,10 @@ const articles: BlogArticle[] = [
       },
     ],
     faqs: [
-      { question: "Que se passe-t-il avec la garantie de mon installation solaire si l'installateur fait faillite?", answer: "Les garanties fabricant sur les panneaux (25–30 ans), l'onduleur (5–10 ans) et le système de stockage (10 ans) restent entièrement valides — elles s'exercent directement contre les fabricants, pas contre l'installateur. Ce que vous perdez, c'est la garantie légale de l'installateur pour les défauts d'installation." },
-      { question: "Puis-je récupérer mon acompte si l'installateur fait faillite?", answer: "Vous pouvez déposer votre créance auprès de l'office des poursuites. L'expérience montre cependant que les créanciers ne récupèrent généralement que 3 à 10% de leurs créances. En cas de paiement par carte de crédit, un chargeback est possible." },
+      { question: "Que se passe-t-il avec la garantie de mon installation solaire si l'installateur fait faillite?", answer: "Ce que vous perdez, c'est la garantie légale de l'installateur pour les défauts d'installation." },
+      { question: "Puis-je récupérer mon acompte si l'installateur fait faillite?", answer: "Vous pouvez déposer votre créance auprès de l'office des poursuites. Le remboursement éventuel dépend de la procédure. Un chargeback peut être possible en cas de paiement par carte." },
       { question: "Qui répare mon installation solaire si l'installateur n'existe plus?", answer: "Pour les réparations couvertes par la garantie fabricant, adressez-vous directement au fabricant du composant défectueux. Pour les autres travaux de maintenance, mandatez un autre prestataire local — PvPro.ch peut vous y aider." },
-      { question: 'Comment reconnaître un installateur sérieux?', answer: "Veillez à: une présence locale depuis au moins 5 ans, une certification reconnue (Swissolar), aucun acompte excessif, un contrat d'entreprise écrit avec des informations détaillées, et des références vérifiables dans votre canton." },
+      { question: 'Comment reconnaître un installateur sérieux?', answer: "Vérifiez la présence locale, une certification reconnue, l'absence d'acompte excessif, un contrat écrit détaillé et des références vérifiables dans votre canton." },
       { question: 'Les installateurs locaux sont-ils plus sûrs que les prestataires nationaux?', answer: "En règle générale, oui. Les petits prestataires locaux avec une présence de longue date ont souvent un risque d'insolvabilité plus faible que les prestataires nationaux à croissance rapide. De plus, ils réagissent plus rapidement en cas de problèmes." },
       { question: "Que dois-je conserver après l'installation?", answer: "Facture avec numéros de série de tous les composants, contrat d'entreprise, tous les certificats de garantie (panneaux, onduleur, stockage), protocole de mise en service, confirmation SRI et inscription auprès du gestionnaire de réseau. Ces documents sont votre bouclier en cas de sinistre." },
     ],
@@ -4462,12 +4021,12 @@ const articles: BlogArticle[] = [
         heading: 'The crucial difference: statutory warranty vs. manufacturer guarantee',
         content: [
           'Before we explain what happens in the event of insolvency, we need to understand a crucial distinction — between the statutory warranty and the manufacturer guarantee. Most homeowners confuse these two terms, but they are legally completely different.',
-          'Statutory warranty: required by law — no contract needed. Directed against the installer (seller of the system). In Switzerland: 2 years for movable parts, 5 years for permanently installed parts (e.g. roof structure). Covers defects that existed at the time of installation. In the event of installer insolvency: practically worthless — no contact person anymore.',
-          'Manufacturer guarantee: voluntary promise by the manufacturer of the individual components — independent of the installer. Solar panels: 10–15 years product guarantee, 25–30 years performance guarantee. Inverter: 5–10 years manufacturer guarantee. Battery storage: usually 10 years. In the event of installer insolvency: remains fully valid.',
+          'Statutory warranty: required by law — no contract needed. Directed against the installer (seller of the system). In Switzerland: two years for movable parts, five years for permanently installed parts (e.g. roof structure). Covers defects that existed at the time of installation. In the event of installer insolvency: practically worthless — no contact person anymore.',
+          'Manufacturer guarantee: voluntary promise by the manufacturer of the individual components — independent of the installer. In the event of installer insolvency: remains fully valid.',
           'The conclusion: if your installer goes bankrupt, you lose your statutory warranty claims — but your valuable manufacturer guarantees on panels, inverter and storage remain fully intact.',
         ],
         stats: [
-          { value: '25–30 years', label: 'panel performance guarantee remains valid' },
+          { value: `${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% after ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} years`, label: 'panel performance benchmark' },
           { value: 'Statutory warranty', label: 'vs. manufacturer guarantee — the crucial difference' },
           { value: 'Local firms', label: 'have a lower insolvency risk' },
         ],
@@ -4483,8 +4042,7 @@ const articles: BlogArticle[] = [
       {
         heading: 'How long does insolvency proceedings take in Switzerland?',
         content: [
-          'A Swiss bankruptcy proceeding typically takes 1–3 years. During this time, you can register claims with the bankruptcy office and will ultimately receive a dividend — often in the single-digit percentage range. Manufacturer guarantees remain completely unaffected by this process.',
-          'Reality check: experience shows that creditors typically only recover 3–10% of their claims at the end of insolvency proceedings. Better to focus your energy on manufacturer guarantees and finding a new local specialist for maintenance and service.',
+          'In a Swiss bankruptcy proceeding, you can register claims with the bankruptcy office and may receive a dividend depending on the process. Manufacturer guarantees remain separate from this process.',
         ],
         bullets: [
           'Register claims with the bankruptcy office immediately',
@@ -4496,7 +4054,7 @@ const articles: BlogArticle[] = [
       {
         heading: 'What happens to the manufacturer guarantees?',
         content: [
-          'This is the truly important question — and the answer is reassuring. Manufacturer guarantees on panels: the performance guarantee (25–30 years) is directed directly against the panel manufacturer — not against the installer. If a panel no longer produces the guaranteed output after 10 years, contact the manufacturer directly. The installer is irrelevant in this case.',
+          `This is the important question. The manufacturer performance benchmark is ${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% after ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} years and is directed against the panel manufacturer, not the installer. If a panel no longer meets its guaranteed output, contact the manufacturer directly.`,
           'Manufacturer guarantees on inverters: same logic — the guarantee exists between you and the manufacturer. Fronius, SMA, Huawei have their own service hotlines and service partners in Switzerland. What you need: serial number of the inverter, proof of purchase/invoice, and the warranty certificate from the manufacturer. With these documents, you can open a warranty claim directly with the manufacturer — without the installer.',
           'Warning with cheap no-name products: with unknown manufacturers without a Swiss office, enforcing the guarantee in the event of a claim becomes very difficult. This is another reason why PvPro.ch only arranges installations with components from established brand manufacturers.',
         ],
@@ -4507,7 +4065,7 @@ const articles: BlogArticle[] = [
           'There are warning signs you can spot before an insolvency:',
         ],
         bullets: [
-          '🔴 Warning sign 1: The installer demands a very high advance payment (more than 30%) long before construction begins',
+          '🔴 Warning sign 1: The installer demands a very high advance payment long before construction begins',
           '🔴 Warning sign 2: Agreed delivery dates are repeatedly postponed without explanation',
           '🔴 Warning sign 3: The contact person suddenly becomes difficult to reach — emails go unanswered',
           '🔴 Warning sign 4: The company website is no longer accessible',
@@ -4519,7 +4077,7 @@ const articles: BlogArticle[] = [
         heading: 'How to protect yourself preventively',
         content: [
           '1. Only engage certified local firms: small, local specialist companies with a long-standing local presence have a significantly lower insolvency risk than rapidly grown national providers. They know their customers personally and have a reputation to protect.',
-          '2. Minimise advance payments: never pay more than 20–30% upfront. Professional installers do not demand excessive advance payments. Staged payments — e.g. 30% on order, 60% on installation, 10% on commissioning — are standard.',
+          '2. Minimise advance payments: avoid excessive upfront payments and agree staged payments tied to verifiable project progress in writing.',
           '3. Everything in writing: insist on a detailed works contract with a precise list of components, warranties, deadlines and payment terms.',
           '4. Document manufacturer guarantees separately: request all warranty certificates directly from the installer at handover. Keep them separately.',
           '5. Prefer brand manufacturers: components from Fronius, SMA, BYD, Huawei have their own service networks in Switzerland — independent of the installer.',
@@ -4532,7 +4090,7 @@ const articles: BlogArticle[] = [
           "From our experience with over 1'000 arranged installations in Switzerland, we can say: large, nationally operating providers with lots of advertising do not automatically have the lowest insolvency risk. On the contrary — companies that grow fast also shrink fast.",
         ],
         bullets: [
-          'Often 10–30 years of operating experience in the canton',
+          'Documented operating experience in the canton',
           'Know their customers personally',
           'Have a good reputation to lose — and nurture it',
           'Not dependent on national order volume',
@@ -4560,10 +4118,10 @@ const articles: BlogArticle[] = [
       },
     ],
     faqs: [
-      { question: 'What happens to my solar system warranty if the installer goes bankrupt?', answer: 'The manufacturer guarantees on panels (25–30 years), inverter (5–10 years) and battery storage (10 years) remain fully valid — they are directed against the manufacturers, not the installer. What you lose is the statutory warranty from the installer for installation defects.' },
-      { question: 'Can I get my advance payment back if the installer goes bankrupt?', answer: 'You can register your claim with the bankruptcy office. Experience shows, however, that creditors typically only recover 3–10% of their claims. A chargeback is possible if you paid by credit card.' },
+      { question: 'What happens to my solar system warranty if the installer goes bankrupt?', answer: 'What you lose is the statutory warranty from the installer for installation defects.' },
+      { question: 'Can I get my advance payment back if the installer goes bankrupt?', answer: 'You can register your claim with the bankruptcy office. Any repayment depends on the bankruptcy process. A chargeback may be possible if you paid by credit card.' },
       { question: 'Who repairs my solar system if the installer no longer exists?', answer: 'For repairs covered by the manufacturer guarantee, contact the manufacturer of the faulty component directly. For other maintenance work, engage another local specialist — PvPro.ch can help you with this.' },
-      { question: 'How do I recognise a reputable installer?', answer: 'Look for: local presence for at least 5 years, recognised certification (Swissolar), no excessive advance payments, written works contract with detailed information, and verifiable references in your canton.' },
+      { question: 'How do I recognise a reputable installer?', answer: 'Look for local presence, recognised certification, no excessive advance payments, a detailed written works contract and verifiable references in your canton.' },
       { question: 'Are local installers safer than national providers?', answer: 'Generally yes. Small local specialist companies with a long-standing presence often have a lower insolvency risk than rapidly grown national providers. They also respond more quickly to problems and know the local conditions better.' },
       { question: 'What must I keep after installation?', answer: 'Invoice with serial numbers of all components, works contract, all guarantee certificates (panels, inverter, storage), commissioning report, OTP confirmation and registration with the grid operator. These documents are your shield in the event of a claim.' },
     ],
@@ -4597,11 +4155,11 @@ const articles: BlogArticle[] = [
         content: [
           "Prima di spiegare cosa succede in caso di insolvenza, dobbiamo capire una distinzione fondamentale — quella tra la garanzia legale (garanzia per vizi) e la garanzia del produttore. La maggior parte dei proprietari confonde questi due termini, ma sono giuridicamente completamente diversi.",
           "Garanzia legale: obbligatoria per legge — nessun contratto necessario. Si esercita contro l'installatore (venditore dell'impianto). In Svizzera: 2 anni per le parti mobili, 5 anni per le parti fisse (es. struttura del tetto). Copre i difetti presenti al momento dell'installazione. In caso di insolvenza dell'installatore: praticamente priva di valore — nessun interlocutore.",
-          "Garanzia del produttore: promessa volontaria del produttore dei singoli componenti — indipendente dall'installatore. Pannelli solari: 10–15 anni di garanzia prodotto, 25–30 anni di garanzia di prestazione. Inverter: 5–10 anni di garanzia del produttore. Sistema di accumulo: generalmente 10 anni. In caso di insolvenza dell'installatore: rimane completamente valida.",
+          `Garanzia del produttore: promessa volontaria del produttore dei singoli componenti, indipendente dall'installatore. Per i moduli, il valore di riferimento della garanzia di prestazione è ${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% dopo ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} anni. In caso di insolvenza dell'installatore rimane valida.`,
           "Conclusione: se il vostro installatore fallisce, perdete i diritti alla garanzia legale — ma le preziose garanzie del produttore su pannelli, inverter e sistema di accumulo rimangono completamente valide.",
         ],
         stats: [
-          { value: '25–30 anni', label: 'la garanzia di prestazione dei pannelli rimane valida' },
+          { value: `${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% dopo ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} anni`, label: 'valore di riferimento della garanzia di prestazione' },
           { value: 'Garanzia legale', label: 'vs. garanzia produttore — la differenza decisiva' },
           { value: 'Aziende locali', label: 'hanno un rischio di insolvenza più basso' },
         ],
@@ -4617,8 +4175,7 @@ const articles: BlogArticle[] = [
       {
         heading: 'Quanto dura una procedura concorsuale in Svizzera?',
         content: [
-          "Una procedura fallimentare svizzera dura tipicamente 1–3 anni. In questo periodo potete registrare crediti presso l'ufficio fallimenti e riceverete alla fine una quota — spesso nell'ordine di cifre a una sola cifra percentuale. Le garanzie del produttore rimangono completamente indipendenti da questo processo.",
-          "Verifica della realtà: l'esperienza mostra che i creditori recuperano tipicamente solo il 3–10% dei loro crediti al termine di una procedura concorsuale. Concentrate piuttosto la vostra energia sulle garanzie del produttore e sulla ricerca di un nuovo specialista locale.",
+          "In una procedura fallimentare svizzera potete registrare crediti presso l'ufficio fallimenti e potreste ricevere una quota in base all'esito della procedura. Le garanzie del produttore rimangono separate.",
         ],
         bullets: [
           "Registrare immediatamente i crediti presso l'ufficio fallimenti",
@@ -4630,7 +4187,7 @@ const articles: BlogArticle[] = [
       {
         heading: 'Cosa succede alle garanzie dei produttori?',
         content: [
-          "Questa è la domanda davvero importante — e la risposta è rassicurante. Garanzie del produttore sui pannelli: la garanzia di prestazione (25–30 anni) si esercita direttamente contro il produttore dei pannelli — non contro l'installatore. Se un pannello non produce più la prestazione garantita dopo 10 anni, rivolgetevi direttamente al produttore. L'installatore non è rilevante.",
+          "Questa è la domanda davvero importante — e la risposta è rassicurante. L'installatore non è rilevante.",
           "Garanzie del produttore sugli inverter: stessa logica — la garanzia esiste tra voi e il produttore. Fronius, SMA, Huawei hanno proprie hotline di assistenza e partner di assistenza in Svizzera. Di cosa avete bisogno: numero di serie dell'inverter, prova d'acquisto/fattura e il certificato di garanzia del produttore.",
           "Attenzione ai prodotti economici senza marchio: con produttori sconosciuti senza sede svizzera, far valere la garanzia in caso di sinistro diventa molto difficile. Questo è un ulteriore motivo per cui PvPro.ch si occupa solo di installazioni con componenti di produttori di marca affermati.",
         ],
@@ -4641,7 +4198,7 @@ const articles: BlogArticle[] = [
           "Esistono segnali di allarme che potete rilevare prima di un'insolvenza:",
         ],
         bullets: [
-          "🔴 Segnale 1: L'installatore richiede un acconto molto elevato (più del 30%) molto prima dell'inizio dei lavori",
+          "🔴 Segnale 1: L'installatore richiede un acconto molto elevato molto prima dell'inizio dei lavori",
           '🔴 Segnale 2: Le date di consegna concordate vengono ripetutamente posticipate senza spiegazione',
           '🔴 Segnale 3: L\'interlocutore diventa improvvisamente difficile da raggiungere — le e-mail rimangono senza risposta',
           "🔴 Segnale 4: Il sito web dell'azienda non è più accessibile",
@@ -4653,7 +4210,7 @@ const articles: BlogArticle[] = [
         heading: 'Come proteggersi in modo preventivo?',
         content: [
           "1. Incaricare solo aziende locali certificate: le piccole aziende specializzate locali con una presenza pluriennale nel Cantone hanno un rischio di insolvenza notevolmente più basso rispetto ai fornitori nazionali a crescita rapida. Conoscono i loro clienti personalmente e hanno una reputazione da preservare.",
-          "2. Minimizzare gli acconti: non pagate mai più del 20–30% in anticipo. I pagamenti scaglionati — es. 30% all'ordine, 60% al montaggio, 10% alla messa in servizio — sono la norma.",
+          "2. Minimizzare gli acconti: evitate anticipi eccessivi e concordate per iscritto pagamenti scaglionati legati all'avanzamento verificabile del progetto.",
           "3. Tutto per iscritto: insistete su un contratto d'appalto dettagliato con un elenco preciso dei componenti, delle garanzie, dei termini e delle condizioni di pagamento.",
           "4. Documentare le garanzie del produttore separatamente: richiedete alla consegna tutti i certificati di garanzia direttamente dall'installatore. Conservateli separatamente.",
           "5. Preferire i produttori di marca: i componenti di Fronius, SMA, BYD, Huawei hanno proprie reti di assistenza in Svizzera — indipendentemente dall'installatore.",
@@ -4666,7 +4223,7 @@ const articles: BlogArticle[] = [
           "Dalla nostra esperienza con oltre 1'000 impianti installati in Svizzera possiamo affermare: i grandi fornitori nazionali con molta pubblicità non hanno automaticamente il rischio di insolvenza più basso. Al contrario — le aziende che crescono velocemente calano anche velocemente.",
         ],
         bullets: [
-          'Spesso 10–30 anni di esperienza operativa nel Cantone',
+          'Esperienza operativa documentata nel Cantone',
           'Conoscono i loro clienti personalmente',
           'Hanno una buona reputazione da preservare — e la curano',
           'Non dipendono dal volume di ordini nazionale',
@@ -4694,10 +4251,10 @@ const articles: BlogArticle[] = [
       },
     ],
     faqs: [
-      { question: "Cosa succede alla garanzia del mio impianto solare se l'installatore fallisce?", answer: "Le garanzie del produttore su pannelli (25–30 anni), inverter (5–10 anni) e sistema di accumulo (10 anni) rimangono completamente valide — si esercitano direttamente contro i produttori, non contro l'installatore. Quello che perdete è la garanzia legale dell'installatore per i difetti di installazione." },
-      { question: "Posso recuperare l'acconto se l'installatore fallisce?", answer: "Potete registrare il vostro credito presso l'ufficio fallimenti. L'esperienza mostra tuttavia che i creditori recuperano tipicamente solo il 3–10% dei loro crediti. In caso di pagamento con carta di credito è possibile un chargeback." },
+      { question: "Cosa succede alla garanzia del mio impianto solare se l'installatore fallisce?", answer: "Quello che perdete è la garanzia legale dell'installatore per i difetti di installazione." },
+      { question: "Posso recuperare l'acconto se l'installatore fallisce?", answer: "Potete registrare il credito presso l'ufficio fallimenti. L'eventuale rimborso dipende dalla procedura. In caso di pagamento con carta può essere possibile un chargeback." },
       { question: "Chi ripara il mio impianto solare se l'installatore non esiste più?", answer: "Per le riparazioni coperte dalla garanzia del produttore, rivolgetevi direttamente al produttore del componente difettoso. Per altri lavori di manutenzione, incaricate un altro specialista locale — PvPro.ch può aiutarvi." },
-      { question: 'Come riconosco un installatore serio?', answer: "Verificate: presenza locale da almeno 5 anni, certificazione riconosciuta (Swissolar), nessun acconto eccessivo, contratto d'appalto scritto con informazioni dettagliate e riferimenti verificabili nel vostro Cantone." },
+      { question: 'Come riconosco un installatore serio?', answer: "Verificate la presenza locale, una certificazione riconosciuta, l'assenza di anticipi eccessivi, un contratto scritto dettagliato e referenze verificabili nel vostro Cantone." },
       { question: 'Le aziende installatrici locali sono più sicure dei fornitori nazionali?', answer: "In linea di principio sì. Le piccole aziende specializzate locali con una presenza pluriennale hanno spesso un rischio di insolvenza più basso rispetto ai fornitori nazionali a crescita rapida. Reagiscono anche più rapidamente ai problemi." },
       { question: "Cosa devo conservare dopo l'installazione?", answer: "Fattura con numeri di serie di tutti i componenti, contratto d'appalto, tutti i certificati di garanzia (pannelli, inverter, accumulo), protocollo di messa in servizio, conferma CUB e registrazione presso il gestore di rete. Questi documenti sono il vostro scudo in caso di sinistro." },
     ],
@@ -4725,7 +4282,7 @@ const articles: BlogArticle[] = [
     date: '10. Mai 2026',
     readMin: 10,
     tag: 'Ratgeber',
-    intro: "Eine Solaranlage kostet CHF 15'000–30'000. Was passiert, wenn Hagel die Module zerstört? Was wenn ein Kurzschluss den Wechselrichter beschädigt? Was wenn jemand die Anlage stiehlt? Viele Schweizer Hausbesitzer gehen davon aus, dass ihre Gebäudeversicherung alles deckt — und erleben im Schadensfall eine böse Überraschung. Dieser Artikel erklärt klar, was die kantonale Gebäudeversicherung abdeckt, was nicht, und wie Sie Ihre Investition vollständig schützen.",
+    intro: "Was passiert, wenn Hagel die Module zerstört? Was wenn ein Kurzschluss den Wechselrichter beschädigt? Was wenn jemand die Anlage stiehlt? Viele Schweizer Hausbesitzer gehen davon aus, dass ihre Gebäudeversicherung alles deckt — und erleben im Schadensfall eine böse Überraschung. Dieser Artikel erklärt klar, was die kantonale Gebäudeversicherung abdeckt, was nicht, und wie Sie Ihre Investition vollständig schützen.",
     sections: [
       {
         heading: 'Das Schweizer Versicherungssystem für Gebäude — kurz erklärt',
@@ -4738,7 +4295,6 @@ const articles: BlogArticle[] = [
         stats: [
           { value: 'Feuer & Elementar', label: 'KGV deckt — aber nicht alles' },
           { value: 'Diebstahl, Kurzschluss', label: 'KGV deckt NICHT' },
-          { value: "Ab CHF 100/Jahr", label: 'Zusatzversicherung für vollen Schutz' },
         ],
       },
       {
@@ -4780,7 +4336,7 @@ const articles: BlogArticle[] = [
       {
         heading: 'Die Haustechnikversicherung — so schliessen Sie die Lücken',
         content: [
-          "Die Haustechnikversicherung (auch Solaranlagenversicherung oder Photovoltaikversicherung) deckt alle Risiken, die die KGV nicht übernimmt. Für eine typische 10-kWp-Anlage kostet sie ca. CHF 100–200 pro Jahr — CHF 8–17 pro Monat für eine CHF 20'000-Investition.",
+          "Die Haustechnikversicherung (auch Solaranlagenversicherung oder Photovoltaikversicherung) deckt alle Risiken, die die KGV nicht übernimmt.",
           'Was eine gute Haustechnikversicherung abdeckt:',
         ],
         bullets: [
@@ -4814,7 +4370,7 @@ const articles: BlogArticle[] = [
       {
         heading: 'Batteriespeicher — eigener Versicherungsstatus',
         content: [
-          "Der Batteriespeicher (CHF 7'000–12'000) hat einen eigenen Versicherungsstatus. KGV: Der Speicher im Keller ist in den meisten Kantonen als Gebäudebestandteil mitversichert — aber nur gegen Feuer und Elementarschäden. Nicht gedeckt: Technische Defekte, Überspannung, Kurzschluss.",
+          "KGV: Der Speicher im Keller ist in den meisten Kantonen als Gebäudebestandteil mitversichert — aber nur gegen Feuer und Elementarschäden. Nicht gedeckt: Technische Defekte, Überspannung, Kurzschluss.",
           'Haustechnikversicherung: Die meisten Policen decken den Speicher mit ab — prüfen Sie aber explizit, ob er in den Versicherungsbedingungen erwähnt wird. Manchmal muss er separat angegeben werden.',
         ],
       },
@@ -4843,7 +4399,6 @@ const articles: BlogArticle[] = [
     ],
     faqs: [
       { question: 'Ist meine Solaranlage automatisch durch die Gebäudeversicherung gedeckt?', answer: 'In Kantonen mit obligatorischer KGV ja — aber nur für Feuer- und Elementarschäden, und nur wenn Sie die Installation gemeldet haben. Diebstahl, Kurzschluss und technische Defekte sind nicht gedeckt. Eine Zusatzversicherung wird empfohlen.' },
-      { question: 'Was kostet eine Solaranlagenversicherung in der Schweiz?', answer: "Eine Haustechnik- oder Solaranlagenversicherung kostet für eine typische 10-kWp-Anlage ca. CHF 100–200 pro Jahr — das entspricht CHF 8–17 pro Monat für eine Investition von CHF 20'000." },
       { question: 'Was passiert wenn Hagel meine Solarmodule beschädigt?', answer: 'Hagelschäden sind durch die KGV gedeckt — vorausgesetzt, Sie haben die Anlage gemeldet. Gerüstkosten und Ertragsausfall während der Reparaturzeit sind jedoch oft nicht inbegriffen und erfordern eine Zusatzversicherung.' },
       { question: 'Ist Diebstahl von Solarmodulen versichert?', answer: 'Nicht durch die KGV. Diebstahl ist nur durch eine Zusatzversicherung gedeckt. Sprechen Sie Ihren Versicherer an.' },
       { question: 'Muss ich die Solaranlage der Versicherung melden?', answer: 'Ja. Melden Sie die Installation idealerweise innerhalb von 30 Tagen nach Abschluss. Fragen Sie Ihren Installateur, ob er diese Meldung für Sie übernimmt.' },
@@ -4873,7 +4428,7 @@ const articles: BlogArticle[] = [
     date: '10 mai 2026',
     readMin: 10,
     tag: 'Guide',
-    intro: "Une installation solaire coûte CHF 15'000–30'000. Que se passe-t-il si la grêle détruit les panneaux? Et si un court-circuit endommage l'onduleur? Et si quelqu'un vole l'installation? De nombreux propriétaires suisses supposent que leur assurance bâtiment couvre tout — et ont la mauvaise surprise lors d'un sinistre. Cet article explique clairement ce que l'assurance cantonale des bâtiments (ACB) couvre, ce qu'elle ne couvre pas, et comment protéger intégralement votre investissement.",
+    intro: "Que se passe-t-il si la grêle détruit les panneaux? Et si un court-circuit endommage l'onduleur? Et si quelqu'un vole l'installation? De nombreux propriétaires suisses supposent que leur assurance bâtiment couvre tout — et ont la mauvaise surprise lors d'un sinistre. Cet article explique clairement ce que l'assurance cantonale des bâtiments (ACB) couvre, ce qu'elle ne couvre pas, et comment protéger intégralement votre investissement.",
     sections: [
       {
         heading: "Le système d'assurance bâtiment en Suisse — en bref",
@@ -4886,7 +4441,6 @@ const articles: BlogArticle[] = [
         stats: [
           { value: 'Feu & éléments', label: "ACB couvre — mais pas tout" },
           { value: 'Vol, court-circuit', label: "ACB ne couvre PAS" },
-          { value: "Dès CHF 100/an", label: 'Assurance complémentaire pour protection totale' },
         ],
       },
       {
@@ -4928,7 +4482,7 @@ const articles: BlogArticle[] = [
       {
         heading: "L'assurance techniques du bâtiment — pour combler les lacunes",
         content: [
-          "L'assurance techniques du bâtiment (aussi appelée assurance photovoltaïque) couvre tous les risques non pris en charge par l'ACB. Pour une installation de 10 kWc typique: env. CHF 100–200 par an.",
+          "L'assurance techniques du bâtiment (aussi appelée assurance photovoltaïque) couvre tous les risques non pris en charge par l'ACB.",
           "Ce qu'elle couvre:",
         ],
         bullets: [
@@ -4962,7 +4516,7 @@ const articles: BlogArticle[] = [
       {
         heading: "Système de stockage batteries — statut d'assurance propre",
         content: [
-          "Le système de stockage (CHF 7'000–12'000) a son propre statut: ACB couvre contre feu et éléments. Non couvert: défauts techniques, surtension, court-circuit.",
+          "Non couvert: défauts techniques, surtension, court-circuit.",
           "Assurance complémentaire: La plupart des polices couvrent aussi le stockage — mais vérifiez-le explicitement dans les conditions. Parfois il doit être indiqué séparément.",
         ],
       },
@@ -4991,7 +4545,6 @@ const articles: BlogArticle[] = [
     ],
     faqs: [
       { question: "Mon installation solaire est-elle automatiquement couverte par l'assurance bâtiment?", answer: "Dans les cantons avec ACB obligatoire oui — mais uniquement pour feu et éléments, et seulement si vous avez déclaré l'installation. Vol, court-circuit et défauts techniques ne sont pas couverts. Une assurance complémentaire est recommandée." },
-      { question: "Quel est le coût d'une assurance installation solaire en Suisse?", answer: "Une assurance techniques du bâtiment coûte pour une installation de 10 kWc typique env. CHF 100–200 par an — soit CHF 8–17 par mois pour un investissement de CHF 20'000." },
       { question: "Que se passe-t-il si la grêle endommage mes panneaux?", answer: "Les dommages grêle sont couverts par l'ACB — à condition d'avoir déclaré l'installation. Les frais d'échafaudage et la perte de revenus ne sont pas inclus et nécessitent une assurance complémentaire." },
       { question: "Le vol de panneaux solaires est-il assuré?", answer: "Pas par l'ACB. Le vol n'est couvert que par une assurance complémentaire privée." },
       { question: "Dois-je déclarer l'installation à mon assurance?", answer: "Oui. Déclarez l'installation idéalement dans les 30 jours après la fin des travaux. Votre installateur peut souvent le faire pour vous — demandez-lui." },
@@ -5021,7 +4574,7 @@ const articles: BlogArticle[] = [
     date: '10 May 2026',
     readMin: 10,
     tag: 'Guide',
-    intro: "A solar system costs CHF 15'000–30'000. What happens if hail destroys the panels? What if a short circuit damages the inverter? What if someone steals the system? Many Swiss homeowners assume their building insurance covers everything — and get an unpleasant surprise when making a claim. This article clearly explains what the cantonal building insurance (CBI) covers, what it does not, and how to fully protect your investment.",
+    intro: "What happens if hail destroys the panels? What if a short circuit damages the inverter? What if someone steals the system? Many Swiss homeowners assume their building insurance covers everything — and get an unpleasant surprise when making a claim. This article clearly explains what the cantonal building insurance (CBI) covers, what it does not, and how to fully protect your investment.",
     sections: [
       {
         heading: "Switzerland's building insurance system — briefly explained",
@@ -5034,7 +4587,6 @@ const articles: BlogArticle[] = [
         stats: [
           { value: 'Fire & elements', label: 'CBI covers — but not everything' },
           { value: 'Theft, short circuit', label: 'CBI does NOT cover' },
-          { value: 'From CHF 100/year', label: 'Additional insurance for full protection' },
         ],
       },
       {
@@ -5076,7 +4628,7 @@ const articles: BlogArticle[] = [
       {
         heading: 'Building services insurance — how to close the gaps',
         content: [
-          "Building services insurance (also called solar system insurance or photovoltaic insurance) covers all risks not handled by the CBI. For a typical 10 kWp system: approx. CHF 100–200 per year.",
+          "Building services insurance (also called solar system insurance or photovoltaic insurance) covers all risks not handled by the CBI.",
           "What a good building services insurance covers:",
         ],
         bullets: [
@@ -5110,7 +4662,7 @@ const articles: BlogArticle[] = [
       {
         heading: 'Battery storage — its own insurance status',
         content: [
-          "The battery storage system (CHF 7'000–12'000) has its own insurance status. CBI: The storage system in the cellar is covered in most cantons against fire and natural hazards. Not covered: technical defects, overvoltage, short circuit.",
+          "CBI: The storage system in the cellar is covered in most cantons against fire and natural hazards. Not covered: technical defects, overvoltage, short circuit.",
           "Building services insurance: Most policies also cover the storage system — but check explicitly that it is mentioned in the insurance conditions. Sometimes it must be listed separately.",
         ],
       },
@@ -5139,7 +4691,6 @@ const articles: BlogArticle[] = [
     ],
     faqs: [
       { question: 'Is my solar system automatically covered by building insurance?', answer: 'In cantons with mandatory CBI yes — but only for fire and natural hazard damage, and only if you have registered the installation. Theft, short circuit and technical defects are not covered. Additional insurance is recommended.' },
-      { question: 'What does solar system insurance cost in Switzerland?', answer: "A building services insurance or solar system insurance costs approx. CHF 100–200 per year for a typical 10 kWp system — that is CHF 8–17 per month for a CHF 20'000 investment." },
       { question: 'What happens if hail damages my solar panels?', answer: "Hail damage is covered by the CBI — provided you have registered the installation. Scaffolding costs and lost revenue during repair time are often not included and require additional insurance." },
       { question: 'Is theft of solar panels covered?', answer: 'Not by the CBI. Theft is only covered by private additional insurance (building services or solar system insurance).' },
       { question: 'Do I need to register the solar system with my insurer?', answer: 'Yes. Register the installation ideally within 30 days of completion. Your installer can often handle this for you — ask them explicitly.' },
@@ -5169,7 +4720,7 @@ const articles: BlogArticle[] = [
     date: '10 maggio 2026',
     readMin: 10,
     tag: 'Guida',
-    intro: "Un impianto solare costa CHF 15'000–30'000. Cosa succede se la grandine distrugge i pannelli? Se un cortocircuito danneggia l'inverter? Se qualcuno ruba l'impianto? Molti proprietari svizzeri presumono che la loro assicurazione edilizia copra tutto — e ricevono una brutta sorpresa in caso di sinistro. Questo articolo spiega chiaramente cosa copre l'assicurazione cantonale degli edifici (ACE), cosa non copre, e come proteggere integralmente il vostro investimento.",
+    intro: "Cosa succede se la grandine distrugge i pannelli? Se un cortocircuito danneggia l'inverter? Se qualcuno ruba l'impianto? Molti proprietari svizzeri presumono che la loro assicurazione edilizia copra tutto — e ricevono una brutta sorpresa in caso di sinistro. Questo articolo spiega chiaramente cosa copre l'assicurazione cantonale degli edifici (ACE), cosa non copre, e come proteggere integralmente il vostro investimento.",
     sections: [
       {
         heading: "Il sistema assicurativo per gli edifici in Svizzera — in breve",
@@ -5182,7 +4733,6 @@ const articles: BlogArticle[] = [
         stats: [
           { value: 'Fuoco & elementi', label: "ACE copre — ma non tutto" },
           { value: 'Furto, cortocircuito', label: "ACE NON copre" },
-          { value: "Da CHF 100/anno", label: 'Assicurazione complementare per protezione totale' },
         ],
       },
       {
@@ -5217,14 +4767,13 @@ const articles: BlogArticle[] = [
       {
         heading: "Cantoni GUSTAVO — caso speciale Ticino, Vallese, Ginevra",
         content: [
-          "Nei cantoni GUSTAVO (GE, UR, SZ, TI, AI, OW, VS) non esiste un'assicurazione edilizia statale obbligatoria: i proprietari devono stipulare un'assicurazione privata, la copertura da fuoco ed elementi non è automatica.",
           "Per i proprietari di impianti solari in questi cantoni: Verificate attentamente la polizza e assicuratevi che l'impianto solare sia esplicitamente coperto.",
         ],
       },
       {
         heading: "L'assicurazione tecnica degli edifici — per colmare le lacune",
         content: [
-          "L'assicurazione tecnica degli edifici (anche detta assicurazione fotovoltaica) copre tutti i rischi non assunti dall'ACE. Per un impianto tipico da 10 kWp: ca. CHF 100–200 all'anno.",
+          "L'assicurazione tecnica degli edifici (anche detta assicurazione fotovoltaica) copre tutti i rischi non assunti dall'ACE.",
           "Cosa copre:",
         ],
         bullets: [
@@ -5258,7 +4807,7 @@ const articles: BlogArticle[] = [
       {
         heading: "Sistema di accumulo a batterie — proprio status assicurativo",
         content: [
-          "Il sistema di accumulo (CHF 7'000–12'000) ha il proprio status: ACE copre contro fuoco ed elementi. Non coperto: difetti tecnici, sovratensione, cortocircuito.",
+          "Non coperto: difetti tecnici, sovratensione, cortocircuito.",
           "Assicurazione complementare: La maggior parte delle polizze copre anche il sistema di accumulo — verificate esplicitamente nelle condizioni. A volte deve essere indicato separatamente.",
         ],
       },
@@ -5287,7 +4836,6 @@ const articles: BlogArticle[] = [
     ],
     faqs: [
       { question: "Il mio impianto solare è automaticamente coperto dall'assicurazione edilizia?", answer: "Nei cantoni con ACE obbligatoria sì — ma solo per danni da fuoco ed elementi, e solo se avete dichiarato l'installazione. Furto, cortocircuito e difetti tecnici non sono coperti. Si raccomanda un'assicurazione complementare." },
-      { question: "Quanto costa un'assicurazione per impianto solare in Svizzera?", answer: "Un'assicurazione tecnica degli edifici costa per un impianto tipico da 10 kWp ca. CHF 100–200 all'anno — pari a CHF 8–17 al mese per un investimento di CHF 20'000." },
       { question: "Cosa succede se la grandine danneggia i miei pannelli solari?", answer: "I danni da grandine sono coperti dall'ACE — a condizione di aver dichiarato l'installazione. I costi di ponteggio e la perdita di reddito durante la riparazione non sono inclusi e richiedono un'assicurazione complementare." },
       { question: "Il furto di pannelli solari è assicurato?", answer: "Non dall'ACE. Il furto è coperto solo da un'assicurazione complementare privata." },
       { question: "Devo dichiarare l'impianto solare all'assicurazione?", answer: "Sì. Dichiarate l'installazione idealmente entro 30 giorni dalla fine dei lavori. Il vostro installatore può spesso farlo per voi — chiedetegli esplicitamente." },
@@ -5317,7 +4865,7 @@ const articles: BlogArticle[] = [
     date: '17. Mai 2026',
     readMin: 10,
     tag: 'Ratgeber',
-    intro: '"Chinesische Module kaufe ich nicht" — diesen Satz hören wir oft. Die Realität sieht anders aus: Über 80% aller in der Schweiz installierten Solarmodule kommen aus China. Nicht weil die Installateure keine Wahl hätten — sondern weil chinesische Tier-1-Hersteller heute Qualität liefern, die europäischen Produkten in vielen Bereichen gleichwertig ist. Dieser Artikel erklärt ehrlich, wo chinesische Module gut sind, wo europäische besser sind — und worauf es wirklich ankommt.',
+    intro: '"Chinesische Module kaufe ich nicht" — diesen Satz hören wir oft. Chinesische Tier-1-Hersteller liefern heute Qualität, die europäischen Produkten in vielen Bereichen gleichwertig ist. Dieser Artikel erklärt ehrlich, wo chinesische Module gut sind, wo europäische besser sind — und worauf es wirklich ankommt.',
     sections: [
       {
         heading: 'Warum haben chinesische Module einen schlechten Ruf?',
@@ -5327,8 +4875,7 @@ const articles: BlogArticle[] = [
           'Der Unterschied liegt nicht mehr zwischen "chinesisch" und "europäisch" — sondern zwischen Tier-1-Herstellern und No-Name-Produkten.',
         ],
         stats: [
-          { value: '80%+', label: 'aller CH-Anlagen mit chinesischen Modulen' },
-          { value: '20–30%', label: 'günstiger als europäische Alternativen' },
+          { value: `${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'de')} Jahre`, label: 'typische Lebensdauer der Module' },
           { value: 'Tier-1', label: 'ist das entscheidende Qualitätsmerkmal' },
         ],
       },
@@ -5344,10 +4891,8 @@ const articles: BlogArticle[] = [
       {
         heading: 'Direkter Vergleich: Chinesisch vs. Europäisch',
         content: [
-          'Preis: Chinesisch ✅ 20–30% günstiger | Europäisch ❌ deutlich teurer.',
-          'Wirkungsgrad: Chinesisch ✅ bis 23.8% (AIKO, LONGi) | Europäisch ✅ bis 23.5% (Meyer Burger HJT).',
-          'Produktgarantie: Chinesisch ✅ 25 Jahre Standard | Europäisch ✅ 25–30 Jahre.',
-          'Leistungsgarantie: Chinesisch ✅ 85–90% nach 25 Jahren | Europäisch ✅ 88–94% nach 25 Jahren.',
+          'Wirkungsgrad: Chinesische und europäische Qualitätsmodule erreichen hohe Werte.',
+          `Lebensdauer: Qualitätsmodule sind typischerweise auf ${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'de')} Jahre ausgelegt.`,
           'Garantieabwicklung: Chinesisch ⚠️ oft über Schweizer Importeur | Europäisch ✅ direkter europäischer Ansprechpartner.',
           'Hagelschutz Schweiz: Chinesisch ⚠️ variiert je nach Modell | Europäisch ✅ oft besser zertifiziert.',
           'Ökobilanz: Chinesisch ❌ längere Transportwege | Europäisch ✅ kürzere Transportwege.',
@@ -5356,25 +4901,23 @@ const articles: BlogArticle[] = [
       {
         heading: 'Die grössten chinesischen Hersteller im Überblick',
         content: [
-          "LONGi — Weltmarktführer Monokristallin: LONGi aus Xi'an ist der grösste Hersteller monokristalliner Wafer weltweit. Die Hi-MO-Serie ist eines der meistverkauften Module in der Schweiz. Wirkungsgrad bis 23.2%, Produktgarantie 25 Jahre, PVEL Top-Performer 2024.",
-          'JinkoSolar — Tiger Neo Serie: Einer der grössten Hersteller weltweit. Tiger Neo mit N-Type TOPCon erreicht bis 23.3% Wirkungsgrad und bifazialer Glas-Glas-Konstruktion. PVEL Top-Performer seit mehreren Jahren.',
-          'Trina Solar — Vertex S+: Gegründet 1997, einer der zuverlässigsten Hersteller. Vertex S+ bietet exzellentes Preis-Leistungs-Verhältnis bei 22.3% Wirkungsgrad. PVEL Top-Performer elfmal ausgezeichnet.',
-          'AIKO Solar: Mit ABC-Technologie bis zu 23.8% Wirkungsgrad — aktuell einer der höchsten kommerziell verfügbaren. PVEL Top-Performer viermal ausgezeichnet.',
+          "LONGi — Weltmarktführer Monokristallin: LONGi aus Xi'an ist der grösste Hersteller monokristalliner Wafer weltweit. Die Hi-MO-Serie ist eines der meistverkauften Module in der Schweiz.",
+          'JinkoSolar — Tiger Neo Serie: N-Type-TOPCon-Technologie und bifaziale Glas-Glas-Konstruktion. Als PVEL Top Performer ausgezeichnet.',
+          'Trina Solar — Vertex S+: Etablierter Hersteller und als PVEL Top Performer ausgezeichnet.',
+          'AIKO Solar: Module mit ABC-Technologie und hohem Wirkungsgrad.',
         ],
       },
       {
         heading: 'Die europäischen Hersteller im Überblick',
         content: [
-          'Meyer Burger — Das Schweizer Modul: Meyer Burger aus Thun (CH) ist der einzige Schweizer Modulhersteller. HJT-Technologie erreicht bis 23.5% Wirkungsgrad, Leistungsgarantie 92% nach 25 Jahren. Preis ca. 20–30% teurer als chinesische Module. Garantieabwicklung direkt in der Schweiz.',
+          'Meyer Burger — Das Schweizer Modul: Meyer Burger aus Thun (CH) ist der einzige Schweizer Modulhersteller. Garantieabwicklung direkt in der Schweiz.',
           'REC Group — Norwegen: Gegründet 1996, hohe Qualitätsstandards, starke Leistungsgarantien, europäisches Recht. Guter Ruf in der Schweiz.',
-          'Luxor Solar — Deutschland: Eco Line HJT Bifacial mit 30 Jahren Produktgarantie und ausgezeichnetem Temperaturverhalten. Empfehlenswert für Schweizer Verhältnisse.',
-          'SoliTek — Litauen: Europäische Produktion, 30 Jahre Produktgarantie, HW4-Hagelzertifizierung.',
+          'Empfehlenswert für Schweizer Verhältnisse.',
         ],
       },
       {
         heading: 'Für wen lohnen sich europäische Module?',
         content: [
-          'Wenn die Garantieabwicklung entscheidend ist: Bei einem Defekt nach 10 Jahren ist die Garantieabwicklung mit einem europäischen Hersteller deutlich einfacher — kein Sprachbarrieren, europäisches Recht, direkter Ansprechpartner.',
           'Wenn Hagelschutz prioritär ist: In hagelgefährdeten Kantonen der Schweiz empfehlen sich Module mit HW4 oder HW5 Hagelzertifizierung. Meyer Burger und Luxor Solar sind hier stark.',
           'Wenn Ökobilanz ein Faktor ist: Kürzere Transportwege, europäische Produktionsstandards, bessere Recyclinginfrastruktur.',
           'Wenn Schweizer Qualität ein Verkaufsargument ist: Meyer Burger aus der Schweiz hat emotionalen Wert für viele Hausbesitzer.',
@@ -5383,8 +4926,6 @@ const articles: BlogArticle[] = [
       {
         heading: 'Für wen sind chinesische Tier-1-Module die richtige Wahl?',
         content: [
-          'Wenn Budget eine Rolle spielt: Für dasselbe Geld bekommen Sie mit chinesischen Modulen eine grössere Anlage oder können einen Batteriespeicher mitfinanzieren.',
-          'Wenn Wirkungsgrad maximiert werden soll: AIKO Solar und LONGi bieten aktuell die höchsten Wirkungsgrade auf dem Markt.',
           'Wenn der Installateur Erfahrung mit dem Hersteller hat: Ein lokaler Installateur, der seit Jahren JinkoSolar oder Trina Solar verbaut, kennt die Produkte, die Montage und den Garantieprozess.',
         ],
       },
@@ -5396,8 +4937,7 @@ const articles: BlogArticle[] = [
         bullets: [
           '⚠️ Kein Bloomberg Tier-1-Status',
           '⚠️ Keine PVEL-Zertifizierung',
-          '⚠️ Produktgarantie unter 15 Jahren',
-          '⚠️ Leistungsgarantie unter 80% nach 25 Jahren',
+          `⚠️ Leistungsgarantie unter ${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% nach ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} Jahren`,
           '⚠️ Kein europäischer Servicepartner',
           '⚠️ Preis deutlich unter dem Marktdurchschnitt',
         ],
@@ -5410,8 +4950,8 @@ const articles: BlogArticle[] = [
         ],
         bullets: [
           '✅ Bloomberg Tier-1-Status oder äquivalente Zertifizierung',
-          '✅ Produktgarantie mindestens 15 Jahre (besser 25)',
-          '✅ Leistungsgarantie mindestens 85% nach 25 Jahren',
+          '✅ Klare und dokumentierte Produktgarantie',
+          `✅ Leistungsgarantie von mindestens ${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% nach ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} Jahren`,
           '✅ IEC 61215 Zertifizierung',
           '✅ Hagelschutz mindestens HW3 (HW4–HW5 für hagelgefährdete Kantonen)',
           '✅ Glas-Glas-Bauweise für hagelgefährdete Kantonen',
@@ -5421,8 +4961,7 @@ const articles: BlogArticle[] = [
     faqs: [
       { question: 'Sind chinesische Solarmodule schlechter als europäische?', answer: 'Nein — nicht pauschal. Chinesische Tier-1-Hersteller wie LONGi, JinkoSolar und Trina Solar liefern Qualität, die europäischen Produkten gleichwertig oder überlegen ist. Der entscheidende Unterschied liegt nicht zwischen "chinesisch" und "europäisch", sondern zwischen Tier-1-Herstellern und No-Name-Produkten.' },
       { question: 'Welche chinesischen Solarmodule sind empfehlenswert für die Schweiz?', answer: 'LONGi (Hi-MO Serie), JinkoSolar (Tiger Neo), Trina Solar (Vertex S+), JA Solar und AIKO Solar sind Tier-1-Hersteller mit nachgewiesener Zuverlässigkeit, langen Garantien und PVEL-Zertifizierungen.' },
-      { question: 'Was kosten europäische Solarmodule im Vergleich zu chinesischen?', answer: "Europäische Module sind typischerweise 20–30% teurer als vergleichbare chinesische Tier-1-Module. Für eine 10-kWp-Anlage entspricht das einem Mehrpreis von ca. CHF 1'500–3'000." },
-      { question: 'Lohnen sich Schweizer Module von Meyer Burger?', answer: 'Meyer Burger bietet hohe Qualität, exzellente Leistungsgarantien und unkomplizierte Garantieabwicklung in der Schweiz. Der Mehrpreis gegenüber chinesischen Alternativen beträgt ca. 20–30%. Für Hausbesitzer, die Wert auf Schweizer Qualität legen, ist Meyer Burger eine ausgezeichnete Wahl.' },
+      { question: 'Lohnen sich Schweizer Module von Meyer Burger?', answer: 'Meyer Burger bietet hohe Qualität, exzellente Leistungsgarantien und unkomplizierte Garantieabwicklung in der Schweiz. Für Hausbesitzer, die Wert auf Schweizer Qualität legen, ist Meyer Burger eine ausgezeichnete Wahl.' },
       { question: 'Was ist der Bloomberg Tier-1-Status?', answer: 'Der Bloomberg Tier-1-Status belegt, dass der Hersteller für bankfinanzierte Projekte als zuverlässiger Lieferant anerkannt ist und Produktions- und Qualitätsstandards erfüllt. Tier-1-Module kommen von Herstellern, die langfristig ihre Garantien erfüllen können.' },
       { question: 'Welche Module sind am besten für hagelgefährdete Kantonen in der Schweiz?', answer: 'Für hagelgefährdete Kantonen wie den Kanton Bern empfehlen sich Module mit HW4 oder HW5 Hagelzertifizierung und Glas-Glas-Bauweise: FuturaSun Silk Rhino (HW5), Luxor Eco Line HJT, Meyer Burger Glass, SoliTek Solid.' },
     ],
@@ -5449,7 +4988,7 @@ const articles: BlogArticle[] = [
     date: '17 mai 2026',
     readMin: 10,
     tag: 'Guide',
-    intro: '"Je n\'achète pas de panneaux chinois" — cette phrase, nous l\'entendons souvent. La réalité est différente: plus de 80% de tous les panneaux solaires installés en Suisse viennent de Chine. Non pas parce que les installateurs n\'auraient pas le choix — mais parce que les fabricants chinois Tier-1 livrent aujourd\'hui une qualité équivalente aux produits européens dans de nombreux domaines. Cet article explique honnêtement où les panneaux chinois sont bons, où les européens sont meilleurs — et ce qui compte vraiment.',
+    intro: '"Je n\'achète pas de panneaux chinois" — cette phrase, nous l\'entendons souvent. Les fabricants chinois Tier-1 livrent aujourd\'hui une qualité équivalente aux produits européens dans de nombreux domaines. Cet article explique honnêtement où les panneaux chinois sont bons, où les européens sont meilleurs — et ce qui compte vraiment.',
     sections: [
       {
         heading: 'Pourquoi les panneaux chinois ont-ils une mauvaise réputation?',
@@ -5459,8 +4998,7 @@ const articles: BlogArticle[] = [
           'La différence n\'est plus entre "chinois" et "européen" — mais entre fabricants Tier-1 et produits sans marque.',
         ],
         stats: [
-          { value: '80%+', label: 'des installations CH avec panneaux chinois' },
-          { value: '20–30%', label: 'moins chers que les alternatives européennes' },
+          { value: `${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'fr')} ans`, label: 'durée de vie typique des panneaux' },
           { value: 'Tier-1', label: "est le critère de qualité décisif" },
         ],
       },
@@ -5476,10 +5014,8 @@ const articles: BlogArticle[] = [
       {
         heading: 'Comparaison directe: Chinois vs. Européens',
         content: [
-          "Prix: Chinois ✅ 20–30% moins chers | Européens ❌ nettement plus chers.",
-          "Rendement: Chinois ✅ jusqu'à 23.8% (AIKO, LONGi) | Européens ✅ jusqu'à 23.5% (Meyer Burger HJT).",
-          "Garantie produit: Chinois ✅ 25 ans standard | Européens ✅ 25–30 ans.",
-          "Garantie de performance: Chinois ✅ 85–90% après 25 ans | Européens ✅ 88–94% après 25 ans.",
+          "Rendement: les panneaux chinois et européens de qualité atteignent tous des valeurs élevées.",
+          `Durée de vie: les panneaux de qualité sont généralement conçus pour ${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'fr')} ans.`,
           "Gestion des garanties: Chinois ⚠️ souvent via importateur suisse | Européens ✅ interlocuteur européen direct.",
           "Protection anti-grêle CH: Chinois ⚠️ varie selon le modèle | Européens ✅ souvent mieux certifiés.",
           "Bilan écologique: Chinois ❌ transport plus long | Européens ✅ transport plus court.",
@@ -5488,25 +5024,23 @@ const articles: BlogArticle[] = [
       {
         heading: "Les plus grands fabricants chinois",
         content: [
-          "LONGi: Leader mondial du monocristallin. La série Hi-MO est l'une des plus vendues en Suisse. Rendement jusqu'à 23.2%, garantie produit 25 ans, PVEL Top Performer 2024.",
-          "JinkoSolar — Tiger Neo: Série N-Type TOPCon avec rendement jusqu'à 23.3% et construction verre-verre bifaciale. PVEL Top Performer depuis plusieurs années.",
-          "Trina Solar — Vertex S+: Fondé en 1997, excellent rapport qualité-prix à 22.3% de rendement. PVEL Top Performer onze fois.",
-          "AIKO Solar: Technologie ABC avec rendement jusqu'à 23.8% — l'un des plus élevés disponibles commercialement.",
+          "LONGi: Leader mondial du monocristallin. La série Hi-MO est l'une des plus vendues en Suisse.",
+          "JinkoSolar: technologie TOPCon et construction verre-verre bifaciale. Classé PVEL Top Performer.",
+          "Trina Solar: fabricant établi et classé PVEL Top Performer.",
+          "AIKO Solar: panneaux à technologie ABC et rendement élevé.",
         ],
       },
       {
         heading: "Les fabricants européens",
         content: [
-          "Meyer Burger — Le panneau suisse: Seul fabricant suisse de panneaux. Technologie HJT jusqu'à 23.5% de rendement, garantie de performance 92% après 25 ans. Prix ca. 20–30% plus cher. Service garantie directement en Suisse.",
+          "Meyer Burger — Le panneau suisse: Seul fabricant suisse de panneaux. Service garantie directement en Suisse.",
           "REC Group — Norvège: Fondé en 1996, hauts standards de qualité, fortes garanties de performance, droit européen.",
-          "Luxor Solar — Allemagne: Eco Line HJT Bifacial avec 30 ans de garantie produit et excellent comportement thermique.",
-          "SoliTek — Lituanie: Production européenne, 30 ans de garantie produit, certification anti-grêle HW4.",
+          "Luxor Solar et SoliTek proposent des panneaux européens avec des garanties fabricant clairement documentées.",
         ],
       },
       {
         heading: "Pour qui les panneaux européens valent-ils la peine?",
         content: [
-          "Si la gestion des garanties est décisive: En cas de défaut après 10 ans, la gestion de garantie avec un fabricant européen est beaucoup plus simple — pas de barrière linguistique, droit européen, interlocuteur direct.",
           "Si la protection anti-grêle est prioritaire: Dans les zones à risque de grêle, les panneaux avec certification HW4 ou HW5 sont recommandés. Meyer Burger et Luxor Solar excellent ici.",
           "Si le bilan écologique compte: Transports plus courts, normes de production européennes, meilleure infrastructure de recyclage.",
           "Si la qualité suisse est un argument: Meyer Burger de Suisse a une valeur émotionnelle pour de nombreux propriétaires.",
@@ -5515,8 +5049,6 @@ const articles: BlogArticle[] = [
       {
         heading: "Pour qui les panneaux chinois Tier-1 sont-ils le bon choix?",
         content: [
-          "Si le budget est un facteur: Pour le même argent, vous obtenez avec des panneaux chinois une installation plus grande ou pouvez financer un système de stockage.",
-          "Si le rendement doit être maximisé: AIKO Solar et LONGi offrent actuellement les rendements les plus élevés du marché.",
           "Si l'installateur a de l'expérience avec le fabricant: Un installateur local qui installe depuis des années JinkoSolar ou Trina Solar connaît les produits, le montage et le processus de garantie.",
         ],
       },
@@ -5528,8 +5060,7 @@ const articles: BlogArticle[] = [
         bullets: [
           '⚠️ Pas de statut Bloomberg Tier-1',
           '⚠️ Pas de certification PVEL',
-          '⚠️ Garantie produit inférieure à 15 ans',
-          '⚠️ Garantie de performance inférieure à 80% après 25 ans',
+          `⚠️ Garantie de performance inférieure à ${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% après ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} ans`,
           '⚠️ Pas de partenaire de service européen',
           '⚠️ Prix nettement en dessous de la moyenne du marché',
         ],
@@ -5542,8 +5073,8 @@ const articles: BlogArticle[] = [
         ],
         bullets: [
           '✅ Statut Bloomberg Tier-1 ou certification équivalente',
-          '✅ Garantie produit au moins 15 ans (mieux 25)',
-          '✅ Garantie de performance au moins 85% après 25 ans',
+          '✅ Garantie produit claire et documentée',
+          `✅ Garantie de performance d'au moins ${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% après ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} ans`,
           '✅ Certification IEC 61215',
           "✅ Protection anti-grêle au moins HW3 (HW4–HW5 pour zones à risque)",
           "✅ Construction verre-verre pour zones à risque de grêle",
@@ -5553,8 +5084,7 @@ const articles: BlogArticle[] = [
     faqs: [
       { question: "Les panneaux solaires chinois sont-ils moins bons que les européens?", answer: "Non — pas de manière générale. Les fabricants chinois Tier-1 comme LONGi, JinkoSolar et Trina Solar livrent une qualité équivalente ou supérieure aux produits européens. La différence décisive n'est pas entre \"chinois\" et \"européen\", mais entre fabricants Tier-1 et produits sans marque." },
       { question: "Quels panneaux chinois sont recommandables pour la Suisse?", answer: "LONGi (série Hi-MO), JinkoSolar (Tiger Neo), Trina Solar (Vertex S+), JA Solar et AIKO Solar sont des fabricants Tier-1 avec fiabilité prouvée, longues garanties et certifications PVEL." },
-      { question: "Quel est le surcoût des panneaux européens par rapport aux chinois?", answer: "Les panneaux européens sont typiquement 20–30% plus chers que les panneaux chinois Tier-1 comparables. Pour une installation de 10 kWc, cela représente un surcoût d'env. CHF 1'500–3'000." },
-      { question: "Les panneaux Meyer Burger valent-ils la peine?", answer: "Meyer Burger offre haute qualité, excellentes garanties de performance et gestion de garantie simple en Suisse. Le surcoût par rapport aux alternatives chinoises est d'env. 20–30%. Pour les propriétaires attachés à la qualité suisse, Meyer Burger est un excellent choix." },
+      { question: "Les panneaux Meyer Burger valent-ils la peine?", answer: "Meyer Burger offre haute qualité, excellentes garanties de performance et gestion de garantie simple en Suisse. Pour les propriétaires attachés à la qualité suisse, Meyer Burger est un excellent choix." },
       { question: "Qu'est-ce que le statut Tier-1 Bloomberg?", answer: "Le statut Tier-1 Bloomberg atteste que le fabricant est reconnu comme fournisseur fiable pour des projets financés par des banques et satisfait aux normes de qualité. Les panneaux Tier-1 viennent de fabricants capables d'honorer leurs garanties à long terme." },
       { question: "Quels panneaux sont les meilleurs pour les zones à risque de grêle en Suisse?", answer: "Pour les zones à risque comme le canton de Berne: panneaux avec certification anti-grêle HW4 ou HW5 et construction verre-verre: FuturaSun Silk Rhino (HW5), Luxor Eco Line HJT, Meyer Burger Glass, SoliTek Solid." },
     ],
@@ -5581,7 +5111,7 @@ const articles: BlogArticle[] = [
     date: '17 May 2026',
     readMin: 10,
     tag: 'Guide',
-    intro: '"I won\'t buy Chinese panels" — we hear this often. The reality is different: over 80% of all solar panels installed in Switzerland come from China. Not because installers have no choice — but because Chinese Tier-1 manufacturers now deliver quality that is equivalent to European products in many areas. This article honestly explains where Chinese panels excel, where European ones are better — and what really matters.',
+    intro: '"I won\'t buy Chinese panels" — we hear this often. Chinese Tier-1 manufacturers now deliver quality that is equivalent to European products in many areas. This article honestly explains where Chinese panels excel, where European ones are better — and what really matters.',
     sections: [
       {
         heading: 'Why do Chinese panels have a bad reputation?',
@@ -5591,8 +5121,7 @@ const articles: BlogArticle[] = [
           'The difference is no longer between "Chinese" and "European" — but between Tier-1 manufacturers and no-name products.',
         ],
         stats: [
-          { value: '80%+', label: 'of Swiss installations use Chinese panels' },
-          { value: '20–30%', label: 'cheaper than European alternatives' },
+          { value: `${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'en')} years`, label: 'typical panel lifetime' },
           { value: 'Tier-1', label: 'is the decisive quality criterion' },
         ],
       },
@@ -5608,10 +5137,8 @@ const articles: BlogArticle[] = [
       {
         heading: 'Direct comparison: Chinese vs. European',
         content: [
-          "Price: Chinese ✅ 20–30% cheaper | European ❌ significantly more expensive.",
-          "Efficiency: Chinese ✅ up to 23.8% (AIKO, LONGi) | European ✅ up to 23.5% (Meyer Burger HJT).",
-          "Product warranty: Chinese ✅ 25 years standard | European ✅ 25–30 years.",
-          "Performance warranty: Chinese ✅ 85–90% after 25 years | European ✅ 88–94% after 25 years.",
+          "Efficiency: quality Chinese and European modules both achieve high values.",
+          `Lifetime: quality modules are typically designed for ${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'en')} years.`,
           "Warranty handling: Chinese ⚠️ often via Swiss importer | European ✅ direct European contact.",
           "Hail protection Switzerland: Chinese ⚠️ varies by model | European ✅ often better certified.",
           "Environmental footprint: Chinese ❌ longer transport | European ✅ shorter transport.",
@@ -5620,25 +5147,23 @@ const articles: BlogArticle[] = [
       {
         heading: 'The major Chinese manufacturers',
         content: [
-          "LONGi — world market leader in monocrystalline: The Hi-MO Series is one of the best-selling modules in Switzerland. Efficiency up to 23.2%, 25-year product warranty, PVEL Top Performer 2024.",
-          "JinkoSolar — Tiger Neo Series: N-Type TOPCon technology with up to 23.3% efficiency and bifacial glass-glass construction. PVEL Top Performer for several years.",
-          "Trina Solar — Vertex S+: Founded in 1997, excellent value for money at 22.3% efficiency. PVEL Top Performer eleven times.",
-          "AIKO Solar: ABC technology with up to 23.8% efficiency — currently one of the highest commercially available.",
+          "LONGi — world market leader in monocrystalline: The Hi-MO Series is one of the best-selling modules in Switzerland.",
+          "JinkoSolar — Tiger Neo Series: N-Type TOPCon technology and bifacial glass-glass construction. Recognised as a PVEL Top Performer.",
+          "Trina Solar — Vertex S+: An established manufacturer recognised as a PVEL Top Performer.",
+          "AIKO Solar: Modules using ABC technology with high efficiency.",
         ],
       },
       {
         heading: 'The European manufacturers',
         content: [
-          "Meyer Burger — the Swiss panel: The only Swiss panel manufacturer. HJT technology up to 23.5% efficiency, 92% performance warranty after 25 years. Price approx. 20–30% more expensive. Warranty handling directly in Switzerland.",
+          "Meyer Burger — the Swiss panel: The only Swiss panel manufacturer. Warranty handling directly in Switzerland.",
           "REC Group — Norway: Founded in 1996, high quality standards, strong performance warranties, European law.",
-          "Luxor Solar — Germany: Eco Line HJT Bifacial with 30-year product warranty and excellent temperature behaviour.",
-          "SoliTek — Lithuania: European production, 30-year product warranty, HW4 hail certification.",
+          "Luxor Solar and SoliTek offer European panels with clearly documented manufacturer warranties.",
         ],
       },
       {
         heading: 'Who benefits from European panels?',
         content: [
-          "If warranty handling is decisive: In the event of a defect after 10 years, warranty handling with a European manufacturer is much simpler — no language barriers, European law, direct contact.",
           "If hail protection is a priority: In hail-prone areas, panels with HW4 or HW5 hail certification are recommended. Meyer Burger and Luxor Solar excel here.",
           "If environmental footprint matters: Shorter transport routes, European production standards, better recycling infrastructure.",
           "If Swiss quality is a selling point: Meyer Burger from Switzerland has emotional value for many homeowners.",
@@ -5647,8 +5172,6 @@ const articles: BlogArticle[] = [
       {
         heading: 'Who should choose Chinese Tier-1 panels?',
         content: [
-          "If budget plays a role: For the same money, Chinese panels give you a larger system or allow you to also finance battery storage.",
-          "If maximum efficiency is the goal: AIKO Solar and LONGi currently offer the highest efficiencies on the market.",
           "If the installer has experience with the manufacturer: A local installer who has been working with JinkoSolar or Trina Solar for years knows the products, the installation and the warranty process.",
         ],
       },
@@ -5660,8 +5183,7 @@ const articles: BlogArticle[] = [
         bullets: [
           '⚠️ No Bloomberg Tier-1 status',
           '⚠️ No PVEL certification',
-          '⚠️ Product warranty under 15 years',
-          '⚠️ Performance warranty under 80% after 25 years',
+          `⚠️ Performance warranty under ${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% after ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} years`,
           '⚠️ No European service partner',
           '⚠️ Price significantly below market average',
         ],
@@ -5674,8 +5196,8 @@ const articles: BlogArticle[] = [
         ],
         bullets: [
           '✅ Bloomberg Tier-1 status or equivalent certification',
-          '✅ Product warranty at least 15 years (25 preferred)',
-          '✅ Performance warranty at least 85% after 25 years',
+          '✅ Clear and documented product warranty',
+          `✅ Performance warranty of at least ${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% after ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} years`,
           '✅ IEC 61215 certification',
           '✅ Hail protection at least HW3 (HW4–HW5 for hail-prone areas)',
           '✅ Glass-glass construction for hail-prone areas',
@@ -5685,8 +5207,7 @@ const articles: BlogArticle[] = [
     faqs: [
       { question: 'Are Chinese solar panels worse than European ones?', answer: 'No — not categorically. Chinese Tier-1 manufacturers like LONGi, JinkoSolar and Trina Solar deliver quality equivalent or superior to European products. The decisive difference is not between "Chinese" and "European", but between Tier-1 manufacturers and no-name products.' },
       { question: 'Which Chinese solar panels are recommendable for Switzerland?', answer: 'LONGi (Hi-MO Series), JinkoSolar (Tiger Neo), Trina Solar (Vertex S+), JA Solar and AIKO Solar are Tier-1 manufacturers with proven reliability, long warranties and PVEL certifications.' },
-      { question: 'What is the price difference between European and Chinese panels?', answer: "European panels are typically 20–30% more expensive than comparable Chinese Tier-1 panels. For a 10 kWp system, this represents a premium of approx. CHF 1'500–3'000." },
-      { question: 'Are Meyer Burger panels worth it?', answer: 'Meyer Burger offers high quality, excellent performance warranties and uncomplicated warranty handling in Switzerland. The price premium over Chinese alternatives is approx. 20–30%. For homeowners who value Swiss quality, Meyer Burger is an excellent choice.' },
+      { question: 'Are Meyer Burger panels worth it?', answer: 'Meyer Burger offers high quality, excellent performance warranties and uncomplicated warranty handling in Switzerland. For homeowners who value Swiss quality, Meyer Burger is an excellent choice.' },
       { question: 'What is Bloomberg Tier-1 status?', answer: 'Bloomberg Tier-1 status certifies that the manufacturer is recognised as a reliable supplier for bank-financed projects and meets quality standards. Tier-1 modules come from manufacturers capable of honouring their warranties long-term.' },
       { question: 'Which panels are best for hail-prone areas in Switzerland?', answer: 'For hail-prone areas like the canton of Berne: panels with HW4 or HW5 hail certification and glass-glass construction. Recommended: FuturaSun Silk Rhino (HW5), Luxor Eco Line HJT, Meyer Burger Glass, SoliTek Solid.' },
     ],
@@ -5713,7 +5234,7 @@ const articles: BlogArticle[] = [
     date: '17 maggio 2026',
     readMin: 10,
     tag: 'Guida',
-    intro: '"Non compro pannelli cinesi" — questa frase la sentiamo spesso. La realtà è diversa: oltre l\'80% di tutti i pannelli solari installati in Svizzera provengono dalla Cina. Non perché gli installatori non abbiano scelta — ma perché i produttori cinesi Tier-1 offrono oggi una qualità equivalente ai prodotti europei in molti settori. Questo articolo spiega onestamente dove i pannelli cinesi sono buoni, dove quelli europei sono migliori — e cosa conta davvero.',
+    intro: '"Non compro pannelli cinesi" — questa frase la sentiamo spesso. I produttori cinesi Tier-1 offrono oggi una qualità equivalente ai prodotti europei in molti settori. Questo articolo spiega onestamente dove i pannelli cinesi sono buoni, dove quelli europei sono migliori — e cosa conta davvero.',
     sections: [
       {
         heading: 'Perché i pannelli cinesi hanno una cattiva reputazione?',
@@ -5723,8 +5244,7 @@ const articles: BlogArticle[] = [
           "La differenza non è più tra \"cinese\" ed \"europeo\" — ma tra produttori Tier-1 e prodotti senza marchio.",
         ],
         stats: [
-          { value: '80%+', label: 'degli impianti svizzeri con pannelli cinesi' },
-          { value: '20–30%', label: 'meno costosi delle alternative europee' },
+          { value: `${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'it')} anni`, label: 'durata tipica dei moduli' },
           { value: 'Tier-1', label: "è il criterio di qualità decisivo" },
         ],
       },
@@ -5740,10 +5260,9 @@ const articles: BlogArticle[] = [
       {
         heading: 'Confronto diretto: Cinesi vs. Europei',
         content: [
-          "Prezzo: Cinesi ✅ 20–30% meno costosi | Europei ❌ notevolmente più costosi.",
-          "Efficienza: Cinesi ✅ fino al 23.8% (AIKO, LONGi) | Europei ✅ fino al 23.5% (Meyer Burger HJT).",
-          "Garanzia prodotto: Cinesi ✅ 25 anni standard | Europei ✅ 25–30 anni.",
-          "Garanzia di prestazione: Cinesi ✅ 85–90% dopo 25 anni | Europei ✅ 88–94% dopo 25 anni.",
+          "Efficienza: i moduli cinesi ed europei di qualità raggiungono entrambi valori elevati.",
+          "Garanzia prodotto: le condizioni variano in base al produttore e al modello.",
+          `Durata: i moduli di qualità sono generalmente progettati per ${factRange(ECONOMIC_FACTS.moduleLifetimeYears, 'it')} anni.`,
           "Gestione garanzie: Cinesi ⚠️ spesso tramite importatore svizzero | Europei ✅ interlocutore europeo diretto.",
           "Protezione grandine Svizzera: Cinesi ⚠️ varia a seconda del modello | Europei ✅ spesso meglio certificati.",
           "Bilancio ecologico: Cinesi ❌ trasporti più lunghi | Europei ✅ trasporti più brevi.",
@@ -5752,25 +5271,25 @@ const articles: BlogArticle[] = [
       {
         heading: "I principali produttori cinesi",
         content: [
-          "LONGi: Leader mondiale nel monocristallino. La serie Hi-MO è uno dei moduli più venduti in Svizzera. Efficienza fino al 23.2%, garanzia prodotto 25 anni, PVEL Top Performer 2024.",
-          "JinkoSolar — Tiger Neo: Tecnologia N-Type TOPCon con efficienza fino al 23.3% e costruzione bifacciale vetro-vetro. PVEL Top Performer da diversi anni.",
-          "Trina Solar — Vertex S+: Fondato nel 1997, eccellente rapporto qualità-prezzo al 22.3% di efficienza. PVEL Top Performer undici volte.",
-          "AIKO Solar: Tecnologia ABC con efficienza fino al 23.8% — attualmente tra le più alte disponibili commercialmente.",
+          "LONGi: Produttore affermato nel monocristallino. La serie Hi-MO utilizza tecnologie moderne e ha condizioni di garanzia specifiche per modello.",
+          "JinkoSolar: tecnologia TOPCon e costruzione vetro-vetro bifacciale. Riconosciuto come PVEL Top Performer.",
+          "Trina Solar: produttore affermato e riconosciuto come PVEL Top Performer.",
+          "AIKO Solar: moduli con tecnologia ABC ed efficienza elevata.",
         ],
       },
       {
         heading: "I produttori europei",
         content: [
-          "Meyer Burger — Il pannello svizzero: Unico produttore svizzero di pannelli. Tecnologia HJT fino al 23.5% di efficienza, garanzia di prestazione 92% dopo 25 anni. Prezzo ca. 20–30% più costoso. Gestione garanzie direttamente in Svizzera.",
+          "Meyer Burger — Il pannello svizzero: Unico produttore svizzero di pannelli. Gestione garanzie direttamente in Svizzera.",
           "REC Group — Norvegia: Fondato nel 1996, alti standard qualitativi, forti garanzie di prestazione, diritto europeo.",
-          "Luxor Solar — Germania: Eco Line HJT Bifacial con 30 anni di garanzia prodotto e comportamento termico eccellente.",
-          "SoliTek — Lituania: Produzione europea, 30 anni di garanzia prodotto, certificazione anti-grandine HW4.",
+          "Luxor Solar — Germania: Eco Line HJT Bifacial con garanzia del produttore e comportamento termico dichiarato dal produttore.",
+          "SoliTek — Lituania: Produzione europea, garanzia del produttore e certificazione anti-grandine HW4.",
         ],
       },
       {
         heading: "Per chi vale la pena i pannelli europei?",
         content: [
-          "Se la gestione delle garanzie è decisiva: In caso di difetto dopo 10 anni, la gestione della garanzia con un produttore europeo è molto più semplice — nessuna barriera linguistica, diritto europeo, interlocutore diretto.",
+          "Se la gestione delle garanzie è decisiva, un produttore europeo può semplificare il contatto grazie al diritto applicabile e a un interlocutore diretto.",
           "Se la protezione anti-grandine è prioritaria: Nelle zone a rischio di grandine si raccomandano moduli con certificazione HW4 o HW5. Meyer Burger e Luxor Solar eccellono in questo.",
           "Se il bilancio ecologico conta: Trasporti più brevi, standard di produzione europei, migliore infrastruttura di riciclaggio.",
           "Se la qualità svizzera è un argomento di vendita: Meyer Burger dalla Svizzera ha un valore emotivo per molti proprietari.",
@@ -5779,8 +5298,6 @@ const articles: BlogArticle[] = [
       {
         heading: "Per chi i pannelli cinesi Tier-1 sono la scelta giusta?",
         content: [
-          "Se il budget è un fattore: Per lo stesso denaro con pannelli cinesi ottenete un impianto più grande o potete finanziare un sistema di accumulo.",
-          "Se si vuole massimizzare l'efficienza: AIKO Solar e LONGi offrono attualmente le efficienze più elevate sul mercato.",
           "Se l'installatore ha esperienza con il produttore: Un installatore locale che installa da anni JinkoSolar o Trina Solar conosce i prodotti, il montaggio e il processo di garanzia.",
         ],
       },
@@ -5792,8 +5309,8 @@ const articles: BlogArticle[] = [
         bullets: [
           '⚠️ Nessuno status Bloomberg Tier-1',
           '⚠️ Nessuna certificazione PVEL',
-          '⚠️ Garanzia prodotto inferiore a 15 anni',
-          '⚠️ Garanzia di prestazione inferiore all\'80% dopo 25 anni',
+          '⚠️ Garanzia prodotto insolitamente breve o poco chiara',
+          `⚠️ Garanzia di prestazione inferiore al ${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% dopo ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} anni`,
           '⚠️ Nessun partner di servizio europeo',
           '⚠️ Prezzo notevolmente inferiore alla media di mercato',
         ],
@@ -5806,8 +5323,8 @@ const articles: BlogArticle[] = [
         ],
         bullets: [
           '✅ Status Bloomberg Tier-1 o certificazione equivalente',
-          '✅ Garanzia prodotto almeno 15 anni (meglio 25)',
-          '✅ Garanzia di prestazione almeno 85% dopo 25 anni',
+          '✅ Garanzia prodotto chiara e documentata',
+          `✅ Garanzia di prestazione di almeno ${factNumber(ECONOMIC_FACTS.performanceWarranty.percent)}% dopo ${factNumber(ECONOMIC_FACTS.performanceWarranty.afterYears)} anni`,
           '✅ Certificazione IEC 61215',
           '✅ Protezione anti-grandine almeno HW3 (HW4–HW5 per zone a rischio)',
           '✅ Costruzione vetro-vetro per zone a rischio di grandine',
@@ -5817,8 +5334,7 @@ const articles: BlogArticle[] = [
     faqs: [
       { question: "I pannelli solari cinesi sono peggiori di quelli europei?", answer: "No — non in modo categorico. I produttori cinesi Tier-1 come LONGi, JinkoSolar e Trina Solar offrono una qualità equivalente o superiore ai prodotti europei. La differenza decisiva non è tra \"cinese\" ed \"europeo\", ma tra produttori Tier-1 e prodotti senza marchio." },
       { question: "Quali pannelli cinesi sono raccomandabili per la Svizzera?", answer: "LONGi (serie Hi-MO), JinkoSolar (Tiger Neo), Trina Solar (Vertex S+), JA Solar e AIKO Solar sono produttori Tier-1 con affidabilità comprovata, lunghe garanzie e certificazioni PVEL." },
-      { question: "Qual è la differenza di prezzo tra pannelli europei e cinesi?", answer: "I pannelli europei sono tipicamente il 20–30% più costosi dei pannelli cinesi Tier-1 comparabili. Per un impianto da 10 kWp, ciò corrisponde a un sovrapprezzo di ca. CHF 1'500–3'000." },
-      { question: "Vale la pena i pannelli Meyer Burger?", answer: "Meyer Burger offre alta qualità, eccellenti garanzie di prestazione e gestione delle garanzie semplice in Svizzera. Il sovrapprezzo rispetto alle alternative cinesi è ca. 20–30%. Per i proprietari che valorizzano la qualità svizzera, Meyer Burger è una scelta eccellente." },
+      { question: "Vale la pena i pannelli Meyer Burger?", answer: "Meyer Burger offre alta qualità, eccellenti garanzie di prestazione e gestione delle garanzie semplice in Svizzera. Per i proprietari che valorizzano la qualità svizzera, Meyer Burger è una scelta eccellente." },
       { question: "Cos'è lo status Tier-1 Bloomberg?", answer: "Lo status Tier-1 Bloomberg certifica che il produttore è riconosciuto come fornitore affidabile per progetti finanziati da banche e soddisfa gli standard di qualità. I moduli Tier-1 provengono da produttori in grado di onorare le garanzie a lungo termine." },
       { question: "Quali moduli sono i migliori per le zone a rischio di grandine in Svizzera?", answer: "Per zone a rischio come il Canton Berna: moduli con certificazione anti-grandine HW4 o HW5 e costruzione vetro-vetro. Raccomandati: FuturaSun Silk Rhino (HW5), Luxor Eco Line HJT, Meyer Burger Glass, SoliTek Solid." },
     ],
@@ -5850,12 +5366,10 @@ const articles: BlogArticle[] = [
       {
         heading: 'Wie viel Strom produziert eine Solaranlage auf dem Norddach?',
         content: [
-          'Die ehrliche Antwort: weniger als auf einem Süddach — aber mehr als viele denken. Erträge je nach Ausrichtung und Neigung: Süd 30–35° = 100% (Referenz). Ost/West 30° = 90–95%. Nord 20° = 70%. Nord 30° = 61%. Nord 40° = 50–55%. Flaches Norddach 7–10° = 75–80%.',
-          "Was das in der Praxis bedeutet: Eine 10-kWp-Anlage auf einem Süddach produziert in der Schweiz ca. 10'000 kWh/Jahr. Dieselbe Anlage auf einem Norddach mit 30° produziert ca. 6'100 kWh/Jahr. Auf einem flachen Norddach (10°) sind es ca. 7'500–8'000 kWh/Jahr.",
+          'Die ehrliche Antwort: weniger als auf einem Süddach — aber mehr als viele denken. Entscheidend sind Ausrichtung und Neigung. Ein flaches Norddach mit 7–10° ist günstiger als ein steiles Norddach mit 30° oder 40°.',
           'Die wichtigste Erkenntnis: Je flacher das Norddach, desto besser der Ertrag.',
         ],
         stats: [
-          { value: '60–70%', label: 'Ertrag vs. Süddach — besser als gedacht' },
           { value: 'Flach = besser', label: '20° Neigung optimal für Norddach' },
           { value: 'Eigenverbrauch', label: 'ist entscheidend für die Wirtschaftlichkeit' },
         ],
@@ -5874,13 +5388,11 @@ const articles: BlogArticle[] = [
           'Es lohnt sich wenn:',
         ],
         bullets: [
-          '✅ Die Dachneigung flach ist (unter 25°) — Ertrag 70–80% des Süddachs',
           '✅ Der Eigenverbrauch hoch ist — wer den Strom selbst verbraucht, profitiert auch von weniger Produktion',
           '✅ Ein Batteriespeicher vorhanden ist — speichert den Tagesstrom für den Abend',
           '✅ Keine Südfläche verfügbar ist — Norddach als einzige Option',
           '✅ Das Norddach zusätzlich zur Südfläche genutzt wird — Kombination maximiert die Produktion',
           '✅ Ein Elektroauto oder eine Wärmepumpe vorhanden ist — hoher Eigenverbrauch macht Nordanlagen rentabel',
-          '❌ Die Dachneigung sehr steil ist (über 40°) — Ertrag fällt auf 50–55%',
           '❌ Zusätzliche Verschattung vorhanden ist — Norddach + Verschattung = sehr wenig Strom',
           '❌ Eine Südfläche ungenutzt ist — zuerst Süd belegen, dann Nordfläche prüfen',
         ],
@@ -5890,13 +5402,12 @@ const articles: BlogArticle[] = [
         content: [
           'Wenn Ihr Haus ein Satteldach mit Süd- und Nordseite hat, ist die optimale Strategie oft: beide Seiten belegen.',
           'Vorteile: Mehr Gesamtproduktion, gleichmässigere Produktion morgens und abends, höherer Eigenverbrauch, optimale Tagesabdeckung (Norddach morgens/abends + Süddach mittags).',
-          "Praxisbeispiel Luzern — 6 kWp Süd (30°) + 4 kWp Nord (30°): Süddach ca. 6'000 kWh/Jahr. Norddach ca. 2'440 kWh/Jahr. Total ca. 8'440 kWh/Jahr. Mit Speicher ca. 5'500 kWh Eigenverbrauch = CHF 1'650 gespart. Das Norddach trägt ca. 29% zur Gesamtproduktion bei — nicht ideal, aber klar positiv.",
         ],
       },
       {
         heading: 'Was ist der optimale Neigungswinkel für ein Norddach?',
         content: [
-          'Faustregel: Je flacher, desto besser — mit einer Untergrenze von 7°. Erträge nach Neigungswinkel: 7–10° = 75–80% (sehr gut). 15–20° = 70–75% (gut). 25–30° = 62–70% (akzeptabel). 35–40° = 55–62% (grenzwertig). 45°+ = unter 55% (nicht empfehlenswert).',
+          'Faustregel: Je flacher, desto besser — mit einer Untergrenze von 7°. Bereiche von 7–10° und 15–20° sind günstiger als 25–30°, 35–40° oder noch steilere Norddächer.',
           'Achtung: Unter 7° gibt es Probleme mit der Selbstreinigung — Regenwasser fliesst schlecht ab, was zu Verschmutzung und reduziertem Ertrag führt.',
         ],
       },
@@ -5905,16 +5416,7 @@ const articles: BlogArticle[] = [
         content: [
           'Gute Leistung bei diffusem Licht: Monokristalline N-Typ-Module (TOPCon, HJT) produzieren bei bewölktem Himmel besser als ältere PERC-Technologie — besonders empfehlenswert für Norddächer.',
           'Bifaziale Module: Auf dem Norddach können bifaziale Module von reflektiertem Licht der Dachziegel profitieren — der Mehrertrag ist aber gering und rechtfertigt den Mehrpreis selten.',
-          'Empfehlung: Tier-1-Hersteller mit TOPCon oder HJT-Technologie, mindestens 21% Wirkungsgrad.',
-        ],
-      },
-      {
-        heading: 'Rechnet sich das trotzdem? Rechenbeispiel Norddach Zürich',
-        content: [
-          "Ausgangslage: Einfamilienhaus Zürich, Norddach 25°, 10 kWp. Jahresproduktion: ca. 6'100 kWh. Eigenverbrauch 40% = 2'440 kWh. Einspeisung 3'660 kWh × CHF 0.08 = CHF 293.",
-          "Jährliche Ersparnis: Eigenverbrauch 2'440 × CHF 0.30 = CHF 732. Einspeisung CHF 293. Total CHF 1'025/Jahr.",
-          "Investition nach EIV und Steuerabzug: ca. CHF 12'300 netto. Amortisation: ca. 12 Jahre.",
-          "Mit Batteriespeicher steigt der Eigenverbrauch auf 65% → CHF 1'350/Jahr. Vergleich Süddach: ca. CHF 1'500–1'700/Jahr, Amortisation 8–10 Jahre. Das Norddach lohnt sich — aber weniger als ein Süddach.",
+          'Empfehlung: Tier-1-Hersteller mit TOPCon oder HJT-Technologie.',
         ],
       },
       {
@@ -5928,12 +5430,12 @@ const articles: BlogArticle[] = [
       },
     ],
     faqs: [
-      { question: 'Lohnt sich eine Solaranlage auf dem Norddach in der Schweiz?', answer: 'Ja, unter bestimmten Bedingungen. Bei flacher Dachneigung (unter 25°) und hohem Eigenverbrauch kann auch ein Norddach wirtschaftlich betrieben werden. Der Ertrag liegt bei 60–80% eines Süddachs — die Amortisation dauert etwas länger, aber die Anlage rechnet sich.' },
-      { question: 'Wie viel Strom produziert eine Solaranlage auf dem Norddach?', answer: "Abhängig von der Dachneigung: Bei 20° ca. 70% des Süddach-Ertrags, bei 30° ca. 61%, bei flachen Dächern (10°) bis zu 80%. In der Schweiz, wo diffuses Licht häufig ist, ist der Unterschied oft kleiner als erwartet." },
+      { question: 'Lohnt sich eine Solaranlage auf dem Norddach in der Schweiz?', answer: 'Ja, unter bestimmten Bedingungen. Bei flacher Dachneigung (unter 25°) und hohem Eigenverbrauch kann auch ein Norddach wirtschaftlich betrieben werden.' },
+      { question: 'Wie viel Strom produziert eine Solaranlage auf dem Norddach?', answer: "In der Schweiz, wo diffuses Licht häufig ist, ist der Unterschied oft kleiner als erwartet." },
       { question: 'Welcher Neigungswinkel ist optimal für ein Norddach?', answer: 'Je flacher, desto besser — mit einer Untergrenze von 7°. Bei 7–20° Neigung erzielt ein Norddach die besten relativen Erträge. Steilere Norddächer über 40° sind eher nicht empfehlenswert.' },
       { question: 'Kann ich Süd- und Norddach gleichzeitig belegen?', answer: 'Ja, und das ist oft die beste Lösung. Die Nordseite ergänzt die Südseite — morgens und abends trägt das Norddach zur Produktion bei. Der Gesamtertrag steigt und die Eigenverbrauchsquote verbessert sich.' },
       { question: 'Welche Module eignen sich am besten für Norddächer?', answer: 'Monokristalline N-Typ-Module (TOPCon oder HJT) von Tier-1-Herstellern. Sie produzieren besser bei diffusem Licht — das macht den Unterschied beim Norddach.' },
-      { question: 'Hilft ein Batteriespeicher beim Norddach?', answer: 'Ja, deutlich. Ein Speicher erhöht den Eigenverbrauch von ca. 40% auf 65–75%. Da beim Norddach die Einspeisevergütung ohnehin gering ist, macht der Speicher wirtschaftlich besonders Sinn.' },
+      { question: 'Hilft ein Batteriespeicher beim Norddach?', answer: 'Ja, deutlich. Da beim Norddach die Einspeisevergütung ohnehin gering ist, macht der Speicher wirtschaftlich besonders Sinn.' },
     ],
     ctaHeading: 'Auch mit Norddach — kostenlos prüfen lassen',
     ctaText: 'Ein zertifizierter Installateur aus Ihrem Kanton analysiert Ihr Dach und sagt Ihnen ehrlich, ob sich eine Solaranlage lohnt — auch bei Nordausrichtung. Kostenlos bis zu 3 Offerten vergleichen.',
@@ -5963,12 +5465,10 @@ const articles: BlogArticle[] = [
       {
         heading: "Quelle quantité d'électricité produit une installation solaire sur un toit nord?",
         content: [
-          "La réponse honnête: moins que sur un toit sud — mais plus que beaucoup ne le pensent. Rendements selon l'orientation et l'inclinaison: Sud 30–35° = 100% (référence). Est/Ouest 30° = 90–95%. Nord 20° = 70%. Nord 30° = 61%. Nord 40° = 50–55%. Toit nord plat 7–10° = 75–80%.",
-          "Ce que cela signifie en pratique: Une installation de 10 kWc sur un toit sud produit en Suisse env. 10'000 kWh/an. La même installation sur un toit nord à 30° produit env. 6'100 kWh/an. Sur un toit nord plat (10°), c'est env. 7'500–8'000 kWh/an.",
+          "La réponse honnête: moins que sur un toit sud — mais plus que beaucoup ne le pensent. L'orientation et la pente sont déterminantes. Un toit nord plat de 7–10° est plus favorable qu'un toit nord raide de 30° ou 40°.",
           "L'enseignement clé: Plus le toit nord est plat, meilleur est le rendement.",
         ],
         stats: [
-          { value: '60–70%', label: "rendement vs. toit sud — mieux que prévu" },
           { value: 'Plat = mieux', label: "inclinaison 20° optimale pour toit nord" },
           { value: 'Autoconsommation', label: "est décisive pour la rentabilité" },
         ],
@@ -5987,13 +5487,11 @@ const articles: BlogArticle[] = [
           "Cela vaut la peine si:",
         ],
         bullets: [
-          "✅ La pente est faible (moins de 25°) — rendement 70–80% d'un toit sud",
           "✅ L'autoconsommation est élevée — qui consomme lui-même profite même avec moins de production",
           "✅ Un système de stockage est présent — stocke l'électricité diurne pour le soir",
           "✅ Aucune surface sud n'est disponible — toit nord comme seule option",
           "✅ Le toit nord s'ajoute à une surface sud — la combinaison maximise la production",
           "✅ Une voiture électrique ou pompe à chaleur est présente — haute autoconsommation rend les installations nord rentables",
-          "❌ La pente est très raide (plus de 40°) — rendement tombe à 50–55%",
           "❌ Un ombrage supplémentaire existe — toit nord + ombrage = très peu d'électricité",
           "❌ Une surface sud est inutilisée — occuper d'abord le sud, puis examiner le nord",
         ],
@@ -6003,13 +5501,12 @@ const articles: BlogArticle[] = [
         content: [
           "Si votre maison a un toit à deux pans avec côté sud et nord, la stratégie optimale est souvent: occuper les deux côtés.",
           "Avantages: Plus de production totale, production plus régulière matin et soir, meilleure autoconsommation, couverture optimale de la journée (nord matin/soir + sud midi).",
-          "Exemple pratique Lucerne — 6 kWc sud (30°) + 4 kWc nord (30°): Toit sud env. 6'000 kWh/an. Toit nord env. 2'440 kWh/an. Total env. 8'440 kWh/an. Avec stockage env. 5'500 kWh autoconsommés = CHF 1'650 économisés. Le toit nord contribue env. 29% à la production totale — pas idéal, mais clairement positif.",
         ],
       },
       {
         heading: "Quel est l'angle d'inclinaison optimal pour un toit nord?",
         content: [
-          "Règle générale: Plus c'est plat, mieux c'est — avec une limite inférieure de 7°. Rendements selon l'angle: 7–10° = 75–80% (très bon). 15–20° = 70–75% (bon). 25–30° = 62–70% (acceptable). 35–40° = 55–62% (limite). 45°+ = moins de 55% (déconseillé).",
+          "Règle générale: Plus c'est plat, mieux c'est — avec une limite inférieure de 7°.",
           "Attention: En dessous de 7° d'inclinaison, il y a des problèmes d'auto-nettoyage — l'eau de pluie ne s'écoule plus bien, ce qui entraîne des salissures et une production réduite.",
         ],
       },
@@ -6018,16 +5515,6 @@ const articles: BlogArticle[] = [
         content: [
           "Bonne performance sous lumière diffuse: Les modules monocristallins N-Type (TOPCon, HJT) produisent mieux par temps couvert et sous lumière diffuse que l'ancienne technologie PERC — particulièrement recommandés pour les toits nord.",
           "Modules bifaciaux: Sur le toit nord, les modules bifaciaux peuvent bénéficier de la lumière réfléchie par les tuiles — mais le gain est faible et justifie rarement le surcoût.",
-          "Recommandation: Fabricants Tier-1 avec technologie TOPCon ou HJT et au moins 21% de rendement.",
-        ],
-      },
-      {
-        heading: "Est-ce quand même rentable? Exemple de calcul toit nord Zurich",
-        content: [
-          "Situation de départ: Maison individuelle Zurich, toit nord 25°, 10 kWc. Production annuelle: env. 6'100 kWh. Autoconsommation 40% = 2'440 kWh. Injection 3'660 kWh × CHF 0.08 = CHF 293.",
-          "Économies annuelles: Autoconsommation 2'440 × CHF 0.30 = CHF 732. Injection CHF 293. Total CHF 1'025/an.",
-          "Investissement après SRI et déduction fiscale: env. CHF 12'300 net. Amortissement: env. 12 ans.",
-          "Avec système de stockage: autoconsommation monte à 65% → CHF 1'350/an. Comparaison toit sud: env. CHF 1'500–1'700/an, amortissement 8–10 ans. Le toit nord est rentable — mais moins qu'un toit sud.",
         ],
       },
       {
@@ -6041,12 +5528,12 @@ const articles: BlogArticle[] = [
       },
     ],
     faqs: [
-      { question: "Une installation solaire sur un toit nord vaut-elle la peine en Suisse?", answer: "Oui, sous certaines conditions. Avec une pente faible (moins de 25°) et une autoconsommation élevée, un toit nord peut être rentable. Le rendement se situe à 60–80% d'un toit sud — l'amortissement dure un peu plus longtemps, mais l'installation est quand même rentable." },
-      { question: "Quelle quantité d'électricité produit une installation sur un toit nord?", answer: "Selon la pente: à 20° env. 70% du rendement d'un toit sud, à 30° env. 61%, sur des toits plats (10°) jusqu'à 80%. En Suisse, où la lumière diffuse est fréquente, la différence est souvent plus petite qu'attendu." },
+      { question: "Une installation solaire sur un toit nord vaut-elle la peine en Suisse?", answer: "Oui, sous certaines conditions. Avec une pente faible (moins de 25°) et une autoconsommation élevée, un toit nord peut être rentable." },
+      { question: "Quelle quantité d'électricité produit une installation sur un toit nord?", answer: "En Suisse, où la lumière diffuse est fréquente, la différence est souvent plus petite qu'attendu." },
       { question: "Quel angle d'inclinaison est optimal pour un toit nord?", answer: "Plus c'est plat, mieux c'est — avec une limite inférieure de 7°. À 7–20° d'inclinaison, un toit nord atteint les meilleurs rendements relatifs. Les toits nord raides de plus de 40° sont déconseillés." },
       { question: "Puis-je équiper simultanément un toit sud et nord?", answer: "Oui, et c'est souvent la meilleure solution. Le côté nord complète le côté sud — le matin et le soir, le toit nord contribue à la production. Le rendement total augmente et le taux d'autoconsommation s'améliore." },
       { question: "Quels modules conviennent le mieux aux toits nord?", answer: "Modules monocristallins N-Type (TOPCon ou HJT) de fabricants Tier-1. Ils produisent mieux sous lumière diffuse — ce qui fait la différence sur un toit nord." },
-      { question: "Un système de stockage aide-t-il avec un toit nord?", answer: "Oui, nettement. Un stockage augmente l'autoconsommation de env. 40% à 65–75%. Comme la rémunération de l'injection est de toute façon faible avec un toit nord, le stockage est économiquement particulièrement judicieux." },
+      { question: "Un système de stockage aide-t-il avec un toit nord?", answer: "Oui, nettement. Comme la rémunération de l'injection est de toute façon faible avec un toit nord, le stockage est économiquement particulièrement judicieux." },
     ],
     ctaHeading: "Même avec un toit nord — faites vérifier gratuitement",
     ctaText: "Un installateur certifié de votre canton analyse votre toit et vous dit honnêtement si une installation solaire vaut la peine — même avec une orientation nord. Comparez gratuitement jusqu'à 3 devis.",
@@ -6076,12 +5563,10 @@ const articles: BlogArticle[] = [
       {
         heading: 'How much electricity does a solar system produce on a north-facing roof?',
         content: [
-          "The honest answer: less than on a south-facing roof — but more than many think. Yields by orientation and pitch: South 30–35° = 100% (reference). East/West 30° = 90–95%. North 20° = 70%. North 30° = 61%. North 40° = 50–55%. Flat north roof 7–10° = 75–80%.",
-          "What this means in practice: A 10 kWp system on an optimal south-facing roof produces approx. 10'000 kWh/year in Switzerland. The same system on a north-facing roof at 30° produces approx. 6'100 kWh/year. On a flat north roof (10°) it is approx. 7'500–8'000 kWh/year.",
+          "The honest answer: less than on a south-facing roof — but more than many think. Orientation and pitch are decisive. A shallow north-facing roof at 7–10° is more favourable than a steep one at 30° or 40°.",
           "The key insight: The flatter the north-facing roof, the better the yield.",
         ],
         stats: [
-          { value: '60–70%', label: 'yield vs. south roof — better than expected' },
           { value: 'Flat = better', label: '20° pitch optimal for north roof' },
           { value: 'Self-consumption', label: 'is decisive for economic viability' },
         ],
@@ -6100,13 +5585,11 @@ const articles: BlogArticle[] = [
           'It makes sense when:',
         ],
         bullets: [
-          '✅ The pitch is shallow (under 25°) — yield 70–80% of a south roof',
           '✅ Self-consumption is high — those who use the electricity themselves benefit even from less production',
           '✅ A battery storage system is in place — stores daytime electricity for the evening',
           '✅ No south-facing surface is available — north roof as the only option',
           '✅ The north roof is used in addition to a south surface — combination maximises total production',
           '✅ An EV or heat pump is present — high self-consumption makes north installations viable',
-          '❌ The pitch is very steep (over 40°) — yield drops to 50–55%',
           '❌ Additional shading is present — north roof + shading = very little electricity',
           '❌ A south-facing surface is unused — cover south first, then check north',
         ],
@@ -6116,13 +5599,12 @@ const articles: BlogArticle[] = [
         content: [
           "If your house has a gable roof with south and north sides, the optimal strategy is often: cover both sides.",
           "Advantages: More total production, more consistent production morning and evening, higher self-consumption, optimal daily coverage (north in morning/evening + south at midday).",
-          "Practical example Lucerne — 6 kWp south (30°) + 4 kWp north (30°): South roof approx. 6'000 kWh/year. North roof approx. 2'440 kWh/year. Total approx. 8'440 kWh/year. With storage approx. 5'500 kWh self-consumed = CHF 1'650 saved. The north roof contributes approx. 29% to total production — not ideal, but clearly positive.",
         ],
       },
       {
         heading: 'What is the optimal pitch angle for a north-facing roof?',
         content: [
-          "Rule of thumb: The flatter the better — with a lower limit of 7°. Yields by pitch: 7–10° = 75–80% (very good). 15–20° = 70–75% (good). 25–30° = 62–70% (acceptable). 35–40° = 55–62% (borderline). 45°+ = under 55% (not recommended).",
+          "Rule of thumb: The flatter the better — with a lower limit of 7°.",
           "Caution: Below 7° pitch there are self-cleaning problems — rainwater cannot drain well, leading to dirt build-up and reduced yield.",
         ],
       },
@@ -6131,16 +5613,7 @@ const articles: BlogArticle[] = [
         content: [
           "Good performance in diffuse light: Monocrystalline N-Type modules (TOPCon, HJT) produce better in overcast conditions and diffuse light than older PERC technology — particularly recommended for north-facing roofs.",
           "Bifacial modules: On the north roof, bifacial modules can benefit from light reflected by roof tiles — but the additional yield is small and rarely justifies the extra cost.",
-          "Recommendation: Tier-1 manufacturers with TOPCon or HJT technology, at least 21% efficiency.",
-        ],
-      },
-      {
-        heading: 'Is it still worth it financially? North-facing roof calculation example Zurich',
-        content: [
-          "Starting point: Single-family home Zurich, north roof 25°, 10 kWp. Annual production: approx. 6'100 kWh. Self-consumption 40% = 2'440 kWh. Feed-in: 3'660 kWh × CHF 0.08 = CHF 293.",
-          "Annual savings: Self-consumption 2'440 × CHF 0.30 = CHF 732. Feed-in CHF 293. Total CHF 1'025/year.",
-          "Investment after OTP and tax deduction: approx. CHF 12'300 net. Payback: approx. 12 years.",
-          "With battery storage: self-consumption rises to 65% → CHF 1'350/year. Comparison south roof: approx. CHF 1'500–1'700/year, payback 8–10 years. The north roof is viable — but less profitable than a south roof.",
+          "Recommendation: Tier-1 manufacturers with TOPCon or HJT technology.",
         ],
       },
       {
@@ -6154,12 +5627,12 @@ const articles: BlogArticle[] = [
       },
     ],
     faqs: [
-      { question: 'Is solar worth it on a north-facing roof in Switzerland?', answer: 'Yes, under certain conditions. With a shallow pitch (under 25°) and high self-consumption, a north-facing roof can be economically viable. Yield is 60–80% of a south roof — payback takes a little longer, but the system is still profitable.' },
-      { question: 'How much electricity does a solar system produce on a north-facing roof?', answer: "Depending on pitch: at 20° approx. 70% of south roof yield, at 30° approx. 61%, on flat roofs (10°) up to 80%. In Switzerland, where diffuse light is common, the difference is often smaller than expected." },
+      { question: 'Is solar worth it on a north-facing roof in Switzerland?', answer: 'Yes, under certain conditions. With a shallow pitch (under 25°) and high self-consumption, a north-facing roof can be economically viable.' },
+      { question: 'How much electricity does a solar system produce on a north-facing roof?', answer: "In Switzerland, where diffuse light is common, the difference is often smaller than expected." },
       { question: 'What pitch angle is optimal for a north-facing roof?', answer: 'The flatter the better — with a lower limit of 7°. At 7–20° pitch, a north-facing roof achieves the best relative yields. Steeper north roofs above 40° are not recommended.' },
       { question: 'Can I cover south and north roof simultaneously?', answer: 'Yes, and this is often the best solution. The north side complements the south — morning and evening the north roof contributes to production. Total yield increases and self-consumption rate improves.' },
       { question: 'Which modules are best for north-facing roofs?', answer: 'Monocrystalline N-Type modules (TOPCon or HJT technology) from Tier-1 manufacturers. They produce better in diffuse light — which makes the difference on a north roof.' },
-      { question: 'Does battery storage help with a north-facing roof?', answer: 'Yes, significantly. Storage increases self-consumption from approx. 40% to 65–75%. Since the feed-in tariff is already low with a north roof, storage makes particularly good economic sense.' },
+      { question: 'Does battery storage help with a north-facing roof?', answer: 'Yes, significantly. Since the feed-in tariff is already low with a north roof, storage makes particularly good economic sense.' },
     ],
     ctaHeading: 'Even with a north-facing roof — get a free assessment',
     ctaText: 'A certified installer in your canton will analyse your roof and tell you honestly whether solar makes sense — even with a north orientation. Get up to 3 quotes for free.',
@@ -6189,12 +5662,10 @@ const articles: BlogArticle[] = [
       {
         heading: 'Quanta corrente produce un impianto solare su un tetto nord?',
         content: [
-          "La risposta onesta: meno che su un tetto sud — ma più di quanto molti pensino. Rese a seconda dell'orientamento e della pendenza: Sud 30–35° = 100% (riferimento). Est/Ovest 30° = 90–95%. Nord 20° = 70%. Nord 30° = 61%. Nord 40° = 50–55%. Tetto nord piatto 7–10° = 75–80%.",
-          "Cosa significa in pratica: Un impianto da 10 kWp su un tetto sud produce in Svizzera ca. 10'000 kWh/anno. Lo stesso impianto su un tetto nord a 30° produce ca. 6'100 kWh/anno. Su un tetto nord piatto (10°) sono ca. 7'500–8'000 kWh/anno.",
+          "La risposta onesta: meno che su un tetto sud — ma più di quanto molti pensino. Orientamento e pendenza sono decisivi. Un tetto nord piatto di 7–10° è più favorevole di uno ripido di 30° o 40°.",
           "Il messaggio chiave: Più piatto è il tetto nord, migliore è la resa.",
         ],
         stats: [
-          { value: '60–70%', label: 'resa vs. tetto sud — meglio del previsto' },
           { value: 'Piatto = meglio', label: 'pendenza 20° ottimale per tetto nord' },
           { value: 'Autoconsumo', label: 'è decisivo per la redditività economica' },
         ],
@@ -6213,13 +5684,11 @@ const articles: BlogArticle[] = [
           'Vale la pena se:',
         ],
         bullets: [
-          "✅ La pendenza è ridotta (meno di 25°) — resa 70–80% del tetto sud",
           "✅ L'autoconsumo è elevato — chi consuma la corrente in proprio beneficia anche di una produzione inferiore",
           "✅ È presente un sistema di accumulo — immagazzina la corrente diurna per la sera",
           "✅ Non è disponibile una superficie sud — tetto nord come unica opzione",
           "✅ Il tetto nord è usato in aggiunta alla superficie sud — la combinazione massimizza la produzione",
           "✅ È presente un'auto elettrica o pompa di calore — l'alto autoconsumo rende redditizi anche gli impianti nord",
-          "❌ La pendenza è molto ripida (oltre 40°) — la resa scende al 50–55%",
           "❌ È presente ulteriore ombreggiamento — tetto nord + ombra = pochissima corrente",
           "❌ Una superficie sud è inutilizzata — prima occupare il sud, poi valutare il nord",
         ],
@@ -6229,13 +5698,12 @@ const articles: BlogArticle[] = [
         content: [
           "Se la vostra casa ha un tetto a capanna con lato sud e nord, la strategia ottimale è spesso: occupare entrambi i lati.",
           "Vantaggi: Più produzione totale, produzione più uniforme mattino e sera, maggiore autoconsumo, copertura ottimale della giornata (nord mattino/sera + sud mezzogiorno).",
-          "Esempio pratico Lucerna — 6 kWp sud (30°) + 4 kWp nord (30°): Tetto sud ca. 6'000 kWh/anno. Tetto nord ca. 2'440 kWh/anno. Totale ca. 8'440 kWh/anno. Con accumulo ca. 5'500 kWh autoconsumati = CHF 1'650 risparmiati. Il tetto nord contribuisce ca. il 29% alla produzione totale — non ideale, ma chiaramente positivo.",
         ],
       },
       {
         heading: "Qual è l'angolo di inclinazione ottimale per un tetto nord?",
         content: [
-          "Regola generale: Più piatto è meglio — con un limite inferiore di 7°. Rese per angolo di inclinazione: 7–10° = 75–80% (ottimo). 15–20° = 70–75% (buono). 25–30° = 62–70% (accettabile). 35–40° = 55–62% (limite). 45°+ = meno del 55% (sconsigliato).",
+          "Regola generale: Più piatto è meglio — con un limite inferiore di 7°. Gli intervalli di 7–10° e 15–20° sono più favorevoli rispetto a 25–30°, 35–40° o pendenze ancora maggiori.",
           "Attenzione: Sotto i 7° di inclinazione ci sono problemi di autopulizia — l'acqua piovana non defluisce bene, causando sporcizia e resa ridotta.",
         ],
       },
@@ -6244,16 +5712,6 @@ const articles: BlogArticle[] = [
         content: [
           "Buona resa con luce diffusa: I moduli monocristallini di tipo N (TOPCon, HJT) producono meglio con cielo coperto e luce diffusa rispetto alla vecchia tecnologia PERC — particolarmente raccomandati per i tetti nord.",
           "Moduli bifacciali: Sul tetto nord i moduli bifacciali possono beneficiare della luce riflessa dalle tegole — ma il guadagno è ridotto e raramente giustifica il costo aggiuntivo.",
-          "Raccomandazione: Produttori Tier-1 con tecnologia TOPCon o HJT, almeno il 21% di efficienza.",
-        ],
-      },
-      {
-        heading: 'Vale comunque la pena finanziariamente? Esempio di calcolo tetto nord Zurigo',
-        content: [
-          "Situazione di partenza: Casa unifamiliare Zurigo, tetto nord 25°, 10 kWp. Produzione annua: ca. 6'100 kWh. Autoconsumo 40% = 2'440 kWh. Immissione: 3'660 kWh × CHF 0.08 = CHF 293.",
-          "Risparmio annuo: Autoconsumo 2'440 × CHF 0.30 = CHF 732. Immissione CHF 293. Totale CHF 1'025/anno.",
-          "Investimento dopo CUB e deduzione fiscale: ca. CHF 12'300 netto. Ammortamento: ca. 12 anni.",
-          "Con sistema di accumulo: l'autoconsumo sale al 65% → CHF 1'350/anno. Confronto tetto sud: ca. CHF 1'500–1'700/anno, ammortamento 8–10 anni. Il tetto nord è redditizio — ma meno di un tetto sud.",
         ],
       },
       {
@@ -6267,12 +5725,12 @@ const articles: BlogArticle[] = [
       },
     ],
     faqs: [
-      { question: "Vale la pena un impianto solare su un tetto nord in Svizzera?", answer: "Sì, a determinate condizioni. Con una pendenza ridotta (meno di 25°) e un alto autoconsumo, anche un tetto nord può essere redditizio. La resa è del 60–80% di un tetto sud — l'ammortamento richiede un po' più tempo, ma l'impianto si ripaga comunque." },
-      { question: "Quanta corrente produce un impianto solare su un tetto nord?", answer: "A seconda della pendenza: a 20° ca. il 70% della resa di un tetto sud, a 30° ca. il 61%, su tetti piatti (10°) fino all'80%. In Svizzera, dove la luce diffusa è frequente, la differenza è spesso minore del previsto." },
+      { question: "Vale la pena un impianto solare su un tetto nord in Svizzera?", answer: "Sì, a determinate condizioni. Con una pendenza ridotta e un alto autoconsumo, anche un tetto nord può essere redditizio. L'ammortamento richiede un po' più tempo, ma l'impianto si ripaga comunque." },
+      { question: "Quanta corrente produce un impianto solare su un tetto nord?", answer: "In Svizzera, dove la luce diffusa è frequente, la differenza è spesso minore del previsto." },
       { question: "Qual è l'angolo di inclinazione ottimale per un tetto nord?", answer: "Più piatto è meglio — con un limite inferiore di 7°. Con 7–20° di inclinazione un tetto nord ottiene le migliori rese relative. I tetti nord ripidi oltre i 40° non sono raccomandati." },
       { question: "Posso equipaggiare contemporaneamente un tetto sud e nord?", answer: "Sì, ed è spesso la soluzione migliore. Il lato nord completa il lato sud — al mattino e alla sera il tetto nord contribuisce alla produzione. La resa totale aumenta e il tasso di autoconsumo migliora." },
       { question: "Quali moduli sono più adatti ai tetti nord?", answer: "Moduli monocristallini di tipo N (TOPCon o HJT) di produttori Tier-1. Producono meglio con luce diffusa — il che fa la differenza su un tetto nord." },
-      { question: "Un sistema di accumulo aiuta con un tetto nord?", answer: "Sì, notevolmente. Un accumulo aumenta l'autoconsumo da ca. il 40% al 65–75%. Poiché con un tetto nord il compenso per l'immissione è comunque basso, il sistema di accumulo ha un particolare senso economico." },
+      { question: "Un sistema di accumulo aiuta con un tetto nord?", answer: "Sì, notevolmente. Poiché con un tetto nord il compenso per l'immissione è comunque basso, il sistema di accumulo ha un particolare senso economico." },
     ],
     ctaHeading: "Anche con tetto nord — fatelo verificare gratuitamente",
     ctaText: "Un installatore certificato del vostro Cantone analizza il vostro tetto e vi dice onestamente se un impianto solare vale la pena — anche con orientamento nord. Richiedete gratuitamente fino a 3 preventivi.",
@@ -6371,7 +5829,33 @@ const manualSeoTitles: Record<BlogArticle['locale'], Record<string, string>> = {
 
 export function getBlogArticle(slug: string, locale: string): BlogArticle | undefined {
   const manual = articles.find(a => a.slug === slug && a.locale === locale);
-  if (manual) return { ...manual, seoTitle: manualSeoTitles[manual.locale][manual.slug] };
+  if (manual) {
+    const sections = manual.sections
+      .filter(section => !removedClaimPlaceholders.has(section.heading))
+      .map(section => ({
+        ...section,
+        content: section.content.filter(value => !removedClaimPlaceholders.has(value)),
+        bullets: section.bullets?.filter(value => !removedClaimPlaceholders.has(value)),
+        stats: section.stats?.filter(stat =>
+          !removedClaimPlaceholders.has(stat.label) && !removedClaimPlaceholders.has(stat.value)),
+        highlight: section.highlight && !removedClaimPlaceholders.has(section.highlight)
+          ? section.highlight
+          : undefined,
+      }))
+      .filter(section =>
+        section.content.length > 0
+        || (section.bullets?.length ?? 0) > 0
+        || (section.stats?.length ?? 0) > 0
+        || Boolean(section.highlight));
+    const faqs = manual.faqs.filter(faq =>
+      !removedClaimPlaceholders.has(faq.question) && !removedClaimPlaceholders.has(faq.answer));
+    return {
+      ...manual,
+      seoTitle: manualSeoTitles[manual.locale][manual.slug],
+      sections,
+      faqs,
+    };
+  }
   // Previously generated articles stored as local JSON — server-side only.
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const { getAutoArticle } = require('./autoBlog') as typeof import('./autoBlog');

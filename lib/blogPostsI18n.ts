@@ -4,6 +4,8 @@
  * Author and date are locale-formatted but kept consistent.
  */
 
+import { ECONOMIC_FACTS, formatSwissNumber } from './facts';
+
 export interface BlogPostLocale {
   slug: string;
   title: string;
@@ -33,7 +35,7 @@ const fr: BlogPostLocale[] = [
   {
     slug: 'chinesische-vs-europaeische-solarmodule-schweiz',
     title: 'Panneaux solaires chinois vs. européens — comparaison honnête pour la Suisse 2026',
-    excerpt: 'Plus de 80% des installations suisses ont des panneaux chinois. Pourquoi — et quand les panneaux européens valent-ils la peine?',
+    excerpt: 'De nombreuses installations suisses ont des panneaux chinois. Pourquoi — et quand les panneaux européens valent-ils la peine?',
     tag: 'Guide',
     image: '/images/solarmodul-regentropfen-alpen.webp',
     author: 'PvPro.ch Rédaction',
@@ -66,7 +68,7 @@ const fr: BlogPostLocale[] = [
   {
     slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
     title: "Un système de stockage de batteries est-il dangereux? Ce que vous devez vraiment savoir",
-    excerpt: "Risque d'incendie de seulement 0.005% selon l'étude RWTH 2024. Ce qu'il faut savoir sur les batteries LFP, les normes de sécurité et le lieu d'installation en Suisse.",
+    excerpt: "Ce qu'il faut savoir sur les batteries LFP, les normes de sécurité et le lieu d'installation en Suisse.",
     tag: 'Guide',
     image: '/images/aurora-energy-batteriespeicher.webp',
     author: 'PvPro.ch Rédaction',
@@ -88,7 +90,7 @@ const fr: BlogPostLocale[] = [
   {
     slug: 'solaranlage-waermepumpe-kombinieren-schweiz',
     title: 'Combiner panneau solaire et pompe à chaleur en Suisse — est-ce rentable en 2026?',
-    excerpt: "Combiner panneau solaire et pompe à chaleur pour économiser jusqu'à 70% sur le chauffage. Coûts, subventions, amortissement et exemple de calcul pour les maisons suisses.",
+    excerpt: "Combiner panneau solaire et pompe à chaleur pour réduire la consommation du chauffage. Coûts, subventions, amortissement et exemple de calcul pour les maisons suisses.",
     tag: 'Guide',
     image: '/images/solaranlage-waermepumpe-chalet-winter.webp',
     author: 'PvPro.ch Rédaction',
@@ -99,7 +101,7 @@ const fr: BlogPostLocale[] = [
   {
     slug: 'solaranlage-steuerabzug-schweiz-2026',
     title: 'Déduction fiscale panneau solaire Suisse 2026 — dernière chance jusqu\'en 2027',
-    excerpt: "Déduire votre panneau solaire des impôts en Suisse: jusqu'à CHF 4'000–10'000 d'économie. Comparaison cantonale, exemples de calcul et pourquoi agir maintenant.",
+    excerpt: "Déduire votre panneau solaire des impôts en Suisse: comparaison cantonale, exemples de calcul et pourquoi agir maintenant.",
     tag: 'Aides & Fiscalité',
     image: '/images/steuererklaerung-solaranlage-schweiz.webp',
     author: 'PvPro.ch Rédaction',
@@ -176,7 +178,7 @@ const fr: BlogPostLocale[] = [
   {
     slug: 'eigenverbrauch-optimieren-solar',
     title: 'Maximiser l\'autoconsommation: comment utiliser au mieux votre énergie solaire',
-    excerpt: "Avec les bonnes stratégies, vous pouvez consommer jusqu'à 80% de votre énergie solaire vous-même. De la planification à la pompe à chaleur — nos conseils pratiques.",
+    excerpt: `Avec une batterie, vous pouvez consommer jusqu'à ${formatSwissNumber(ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max)}% de votre énergie solaire vous-même. De la planification à la pompe à chaleur — nos conseils pratiques.`,
     tag: 'Conseils',
     image: '/images/solar-energieertrag-tablet-chalet.webp',
     author: 'PvPro.ch Rédaction',
@@ -198,7 +200,7 @@ const fr: BlogPostLocale[] = [
   {
     slug: 'vergleichsportal-photovoltaik-schweiz',
     title: 'Comparer les installateurs photovoltaïques en Suisse: trouver le meilleur prestataire',
-    excerpt: 'En comparant correctement les installateurs, les propriétaires suisses économisent des milliers de francs. Comment comparer les offres photovoltaïques et trouver l\'installateur idéal.',
+    excerpt: 'En comparant correctement les installateurs, les propriétaires suisses peuvent économiser. Comment comparer les offres photovoltaïques et trouver l\'installateur idéal.',
     tag: 'Guide',
     image: '/images/asset-installateur-tablet.webp',
     author: 'PvPro.ch Rédaction',
@@ -311,7 +313,7 @@ const en: BlogPostLocale[] = [
   {
     slug: 'chinesische-vs-europaeische-solarmodule-schweiz',
     title: 'Chinese vs. European solar panels — an honest comparison for Switzerland 2026',
-    excerpt: 'Over 80% of Swiss installations use Chinese panels. Why — and when do European panels make sense? An honest comparison.',
+    excerpt: 'Many Swiss installations use Chinese panels. Why — and when do European panels make sense? An honest comparison.',
     tag: 'Guide',
     image: '/images/solarmodul-regentropfen-alpen.webp',
     author: 'PvPro.ch Editorial',
@@ -344,7 +346,7 @@ const en: BlogPostLocale[] = [
   {
     slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
     title: 'Are solar battery storage systems dangerous? What you really need to know',
-    excerpt: 'Fire risk of only 0.005% according to the RWTH study 2024. What you need to know about LFP batteries, safety standards and the right installation location in Switzerland.',
+    excerpt: 'What you need to know about LFP batteries, safety standards and the right installation location in Switzerland.',
     tag: 'Guide',
     image: '/images/aurora-energy-batteriespeicher.webp',
     author: 'PvPro.ch Editorial',
@@ -366,7 +368,7 @@ const en: BlogPostLocale[] = [
   {
     slug: 'solaranlage-waermepumpe-kombinieren-schweiz',
     title: 'Combining Solar Panels and Heat Pump in Switzerland — Is It Worth It in 2026?',
-    excerpt: 'Combine solar panels with a heat pump and save up to 70% on heating costs. Costs, subsidies, payback and calculation example for Swiss homeowners.',
+    excerpt: 'Combine solar panels with a heat pump to reduce heating consumption. Costs, subsidies, payback and calculation example for Swiss homeowners.',
     tag: 'Guide',
     image: '/images/solaranlage-waermepumpe-chalet-winter.webp',
     author: 'PvPro.ch Editorial',
@@ -377,7 +379,7 @@ const en: BlogPostLocale[] = [
   {
     slug: 'solaranlage-steuerabzug-schweiz-2026',
     title: 'Solar Panel Tax Deduction Switzerland 2026 — Last Chance Until 2027',
-    excerpt: 'Claiming a solar system on your Swiss taxes: save CHF 4,000–10,000 before end of 2027. Cantonal comparison, calculation examples and why to act now.',
+    excerpt: 'Claiming a solar system on your Swiss taxes: cantonal comparison, calculation examples and why to act now.',
     tag: 'Subsidies & Tax',
     image: '/images/steuererklaerung-solaranlage-schweiz.webp',
     author: 'PvPro.ch Editorial',
@@ -454,7 +456,7 @@ const en: BlogPostLocale[] = [
   {
     slug: 'eigenverbrauch-optimieren-solar',
     title: 'Maximising self-consumption: how to get the most from your solar energy',
-    excerpt: 'With smart strategies you can self-consume up to 80% of your solar energy. From scheduling to heat pumps — practical tips for Swiss households.',
+    excerpt: `With a battery you can self-consume up to ${formatSwissNumber(ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max)}% of your solar energy. From scheduling to heat pumps — practical tips for Swiss households.`,
     tag: 'Tips',
     image: '/images/solar-energieertrag-tablet-chalet.webp',
     author: 'PvPro.ch Editorial',
@@ -476,7 +478,7 @@ const en: BlogPostLocale[] = [
   {
     slug: 'vergleichsportal-photovoltaik-schweiz',
     title: 'Compare solar installers in Switzerland: how to find the best provider',
-    excerpt: 'Comparing installers correctly saves Swiss homeowners thousands of francs. How to systematically compare photovoltaic providers and find the ideal installer.',
+    excerpt: 'Comparing installers correctly can save Swiss homeowners money. How to systematically compare photovoltaic providers and find the ideal installer.',
     tag: 'Guide',
     image: '/images/asset-installateur-tablet.webp',
     author: 'PvPro.ch Editorial',
@@ -589,7 +591,7 @@ const it: BlogPostLocale[] = [
   {
     slug: 'chinesische-vs-europaeische-solarmodule-schweiz',
     title: 'Pannelli solari cinesi vs. europei — confronto onesto per la Svizzera 2026',
-    excerpt: 'Oltre l\'80% degli impianti svizzeri ha pannelli cinesi. Perché — e quando vale la pena quelli europei?',
+    excerpt: 'Molti impianti svizzeri hanno pannelli cinesi. Perché — e quando vale la pena scegliere quelli europei?',
     tag: 'Guida',
     image: '/images/solarmodul-regentropfen-alpen.webp',
     author: 'PvPro.ch Redazione',
@@ -622,7 +624,7 @@ const it: BlogPostLocale[] = [
   {
     slug: 'batteriespeicher-brandgefahr-sicherheit-schweiz',
     title: "Un sistema di accumulo a batterie è pericoloso? Quello che dovete sapere davvero",
-    excerpt: "Rischio di incendio solo dello 0.005% secondo lo studio RWTH 2024. Cosa sapere sulle batterie LFP, le norme di sicurezza e il luogo di installazione in Svizzera.",
+    excerpt: "Cosa sapere sulle batterie LFP, le norme di sicurezza e il luogo di installazione in Svizzera.",
     tag: 'Guida',
     image: '/images/aurora-energy-batteriespeicher.webp',
     author: 'PvPro.ch Redazione',
@@ -644,7 +646,7 @@ const it: BlogPostLocale[] = [
   {
     slug: 'solaranlage-waermepumpe-kombinieren-schweiz',
     title: 'Combinare impianto solare e pompa di calore in Svizzera — conviene nel 2026?',
-    excerpt: "Combina impianto solare e pompa di calore e risparmia fino al 70% sui costi di riscaldamento. Costi, incentivi, ammortamento ed esempio di calcolo per le case svizzere.",
+    excerpt: "Combina impianto solare e pompa di calore per ridurre i consumi di riscaldamento. Costi, incentivi, ammortamento ed esempio di calcolo per le case svizzere.",
     tag: 'Guida',
     image: '/images/solaranlage-waermepumpe-chalet-winter.webp',
     author: 'PvPro.ch Redazione',
@@ -655,7 +657,7 @@ const it: BlogPostLocale[] = [
   {
     slug: 'solaranlage-steuerabzug-schweiz-2026',
     title: 'Detrazione fiscale impianto solare Svizzera 2026 — ultima chance fino al 2027',
-    excerpt: "Detrarre l'impianto solare dalle tasse in Svizzera: risparmio CHF 4'000–10'000 entro fine 2027. Confronto cantonale, esempi di calcolo e perché agire ora.",
+    excerpt: "Detrarre l'impianto solare dalle tasse in Svizzera: confronto cantonale, esempi di calcolo e perché agire ora.",
     tag: 'Incentivi & Fisco',
     image: '/images/steuererklaerung-solaranlage-schweiz.webp',
     author: 'PvPro.ch Redazione',
@@ -732,7 +734,7 @@ const it: BlogPostLocale[] = [
   {
     slug: 'eigenverbrauch-optimieren-solar',
     title: 'Massimizzare l\'autoconsumo: come sfruttare al meglio la tua energia solare',
-    excerpt: 'Con le giuste strategie puoi autoconsummare fino all\'80% della tua energia solare. Dalla pianificazione alla pompa di calore — consigli pratici.',
+    excerpt: `Con una batteria puoi autoconsumare fino all'${formatSwissNumber(ECONOMIC_FACTS.selfConsumptionPercent.withStorage.max)}% della tua energia solare. Dalla pianificazione alla pompa di calore — consigli pratici.`,
     tag: 'Consigli',
     image: '/images/solar-energieertrag-tablet-chalet.webp',
     author: 'PvPro.ch Redazione',
@@ -754,7 +756,7 @@ const it: BlogPostLocale[] = [
   {
     slug: 'vergleichsportal-photovoltaik-schweiz',
     title: 'Confrontare installatori fotovoltaici in Svizzera: trovare il miglior fornitore',
-    excerpt: 'Confrontando correttamente gli installatori, i proprietari svizzeri risparmiano migliaia di franchi. Come confrontare sistematicamente le offerte fotovoltaiche e trovare l\'installatore ideale.',
+    excerpt: 'Confrontando correttamente gli installatori, i proprietari svizzeri possono risparmiare. Come confrontare sistematicamente le offerte fotovoltaiche e trovare l\'installatore ideale.',
     tag: 'Guida',
     image: '/images/asset-installateur-tablet.webp',
     author: 'PvPro.ch Redazione',

@@ -4,6 +4,16 @@ import { ChevronRight, Sun, Zap, TrendingDown, CheckCircle2, Home, Ruler, Award,
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import PhotovoltaikFaq from '@/components/PhotovoltaikFaq';
+import { ECONOMIC_FACTS, SYSTEM_PRICE_NOTES, formatRangeForLocale, formatSwissNumber, getSourceNote } from '@/lib/facts';
+
+const costPerM2 = {
+  min: Math.round(ECONOMIC_FACTS.systemCosts.perKwp.min / ECONOMIC_FACTS.roofAreaM2PerKwp),
+  max: Math.round(ECONOMIC_FACTS.systemCosts.perKwp.max / ECONOMIC_FACTS.roofAreaM2PerKwp),
+};
+const productionPerM2 = {
+  min: Math.round(ECONOMIC_FACTS.production.plateauKwhPerKwp.min / ECONOMIC_FACTS.roofAreaM2PerKwp),
+  max: Math.round(ECONOMIC_FACTS.production.plateauKwhPerKwp.max / ECONOMIC_FACTS.roofAreaM2PerKwp),
+};
 
 export const metadata: Metadata = pageMetadata({
   title: 'Photovoltaik Kosten pro m² Schweiz: Preise, Beispiele und Berechnung | PvPro.ch',
@@ -21,20 +31,18 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/photovoltaik-kosten-pro-m2', locale: 'de' });
 
 const priceRows = [
-  { label: 'Einfache Anlage', range: 'ca. 200 – 250 CHF', color: '#6b7280', highlight: false },
-  { label: 'Standardanlage', range: 'ca. 250 – 350 CHF', color: '#fcb210', highlight: true },
-  { label: 'Hochwertige Anlage', range: 'ca. 350 – 400+ CHF', color: '#1e3a5f', highlight: false },
+  { label: 'Richtwert', range: formatRangeForLocale(costPerM2, 'CHF', 'de'), color: '#fcb210', highlight: true },
 ];
 
 const comparisonRows = [
-  { unit: 'pro m²', price: '200 – 400 CHF', note: 'Erste grobe Einschätzung' },
-  { unit: 'pro kWp', price: "1'000 – 1'500 CHF", note: 'Genauere Planung & Offerte' },
+  { unit: 'pro m²', price: formatRangeForLocale(costPerM2, 'CHF', 'de'), note: 'Aus Kosten pro kWp abgeleitet' },
+  { unit: 'pro kWp', price: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.perKwp, 'CHF', 'de'), note: 'Genauere Planung & Offerte' },
 ];
 
 const exampleRows = [
-  { position: 'Dachfläche', value: '60 m²', last: false },
-  { position: 'Preis pro m²', value: '250 CHF', last: false },
-  { position: 'Gesamtpreis (Richtwert)', value: "ca. 15'000 CHF", last: true },
+  { position: 'Dachfläche', value: `${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`, last: false },
+  { position: 'Preis pro m²', value: formatRangeForLocale(costPerM2, 'CHF', 'de'), last: false },
+  { position: 'Gesamtpreis 10 kWp', value: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de'), last: true },
 ];
 
 const factors = [
@@ -67,13 +75,13 @@ export default function PhotovoltaikKostenProM2Page() {
             </h1>
             <p className="text-white/70 text-lg leading-relaxed mb-10 max-w-2xl">
               Viele Hausbesitzer möchten schnell verstehen, wie teuer eine Solaranlage für ihr Dach ist — ohne technische Details. In der Schweiz liegen die Kosten für Photovoltaik durchschnittlich zwischen{' '}
-              <strong className="text-white">200 und 400 CHF pro m²</strong>.
+              <strong className="text-white">{formatRangeForLocale(costPerM2, 'CHF', 'de')} pro m²</strong>.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { value: '200 – 400 CHF', label: 'pro m² Richtwert' },
-                { value: '1 kWp ≈ 5–6 m²', label: 'Flächenbedarf' },
-                { value: '150 – 200 kWh', label: 'Strom pro m²/Jahr' },
+                { value: formatRangeForLocale(costPerM2, 'CHF', 'de'), label: 'pro m² Richtwert' },
+                { value: `1 kWp = ${formatSwissNumber(ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`, label: 'Flächenbedarf' },
+                { value: formatRangeForLocale(productionPerM2, 'kWh', 'de'), label: 'Strom pro m²/Jahr im Mittelland' },
               ].map((s) => (
                 <div key={s.label} className="rounded-2xl bg-white/5 border border-white/10 px-5 py-4">
                   <p className="text-2xl font-bold text-white mb-1">{s.value}</p>
@@ -105,6 +113,7 @@ export default function PhotovoltaikKostenProM2Page() {
               </div>
             ))}
           </div>
+          <p className="text-xs text-gray-500 mt-3">{SYSTEM_PRICE_NOTES.de} {getSourceNote('de')}</p>
           <p className="text-xs text-gray-400 mt-3 italic">Diese Werte dienen als Orientierung. Der genaue Preis hängt immer vom konkreten Projekt ab.</p>
         </section>
 
@@ -118,9 +127,9 @@ export default function PhotovoltaikKostenProM2Page() {
             </p>
             <div className="rounded-2xl bg-[#fcb210]/5 border border-[#fcb210]/20 p-6">
               <p className="text-sm font-bold text-[#fcb210] mb-3">Grobe Umrechnung</p>
-              <p className="text-3xl font-bold text-gray-900 mb-4">1 kWp ≈ 5–6 m²</p>
+              <p className="text-3xl font-bold text-gray-900 mb-4">1 kWp = {formatSwissNumber(ECONOMIC_FACTS.roofAreaM2PerKwp)} m²</p>
               <div className="space-y-2 text-sm text-gray-600">
-                {["10 kWp Anlage → ca. 50–60 m² Dachfläche", "20 kWp Anlage → ca. 100–120 m² Dachfläche"].map((item) => (
+                {[`10 kWp Anlage → ${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m² Dachfläche`, `20 kWp Anlage → ${formatSwissNumber(20 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m² Dachfläche`].map((item) => (
                   <div key={item} className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" />
                     <span>{item}</span>
@@ -161,7 +170,7 @@ export default function PhotovoltaikKostenProM2Page() {
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Rechenbeispiel</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Beispiel: Solaranlage für ein Einfamilienhaus</h2>
             <p className="text-gray-500 leading-relaxed mb-6">
-              Ein typisches Schweizer Einfamilienhaus mit 60 m² Dachfläche und ca. 10 kWp Leistung:
+              Ein Beispiel mit {formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m² Dachfläche und 10 kWp Leistung:
             </p>
             <div className="rounded-2xl border border-gray-100 overflow-hidden mb-5 shadow-sm">
               {exampleRows.map((row, i) => (
@@ -172,7 +181,7 @@ export default function PhotovoltaikKostenProM2Page() {
               ))}
             </div>
             <div className="rounded-2xl bg-amber-50 border border-amber-100 p-4 text-sm text-amber-800 leading-relaxed">
-              <strong>Hinweis:</strong> In der Realität liegen die Gesamtkosten oft höher (20'000 – 30'000 CHF), da Wechselrichter, Installation, Planung und Montage zusätzlich eingerechnet werden.
+              <strong>Hinweis:</strong> Der nationale Richtwert für 10 kWp beträgt {formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de')}, schlüsselfertig ohne Speicher.
             </div>
           </div>
         </section>
@@ -209,20 +218,20 @@ export default function PhotovoltaikKostenProM2Page() {
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Wie viel Strom produziert 1 m² Photovoltaik?</h2>
               <p className="text-white/70 leading-relaxed mb-6">
                 Ein Quadratmeter Photovoltaik produziert in der Schweiz ungefähr{' '}
-                <strong className="text-white">150 – 200 kWh Strom pro Jahr</strong>. Die genaue Produktion hängt von Ausrichtung, Neigung und Standort ab.
+                <strong className="text-white">{formatRangeForLocale(productionPerM2, 'kWh Strom pro Jahr', 'de')}</strong>. Die genaue Produktion hängt von Ausrichtung, Neigung und Standort ab.
               </p>
               <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-5 py-4">
                 <Zap className="w-6 h-6 text-[#fcb210] flex-shrink-0" />
                 <p className="text-sm text-white/80">
-                  <strong className="text-white">50 m²</strong> → ca. <strong className="text-white">7'500 – 10'000 kWh</strong> jährlich
+                  <strong className="text-white">{formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²</strong> → <strong className="text-white">{formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis {formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh</strong> jährlich
                 </p>
               </div>
             </div>
             <div className="space-y-4">
               {[
-                { label: '20 m²', kwh: "3'000 – 4'000 kWh/Jahr", pct: 30 },
-                { label: '40 m²', kwh: "6'000 – 8'000 kWh/Jahr", pct: 60 },
-                { label: '60 m²', kwh: "9'000 – 12'000 kWh/Jahr", pct: 90 },
+                { label: '5 kWp', kwh: `${formatSwissNumber(5 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(5 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh/Jahr`, pct: 30 },
+                { label: '8 kWp', kwh: `${formatSwissNumber(8 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(8 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh/Jahr`, pct: 60 },
+                { label: '10 kWp', kwh: `${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh/Jahr`, pct: 90 },
               ].map((row) => (
                 <div key={row.label}>
                   <div className="flex justify-between text-sm mb-1.5">

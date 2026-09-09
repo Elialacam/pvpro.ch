@@ -1,0 +1,112 @@
+Crea lib/facts.ts come unica fonte di tutti i numeri economici del sito. Poi passa tutto il sito e fai leggere ogni pagina da quel file. Nessun numero economico deve restare scritto a mano in un componente o in un testo.
+
+=== VALORI ===
+
+COSTO IMPIANTO (chiavi in mano, senza accumulo)
+per kWp: da 1'800 a 3'000 CHF
+5 kWp: da 12'000 a 15'000 CHF
+8 kWp: da 17'000 a 21'000 CHF
+10 kWp: da 19'000 a 24'000 CHF
+15 kWp: da 27'000 a 34'000 CHF
+
+ACCUMULO (installato)
+5 kWh: da 3'500 a 5'000 CHF
+10 kWh: da 5'500 a 7'500 CHF
+15 kWh: da 7'500 a 9'500 CHF
+20 kWh: da 9'500 a 12'000 CHF
+inverter ibrido se aggiunto dopo: da 1'500 a 3'000 CHF in più
+ammortamento della sola batteria: da 10 a 14 anni
+
+INCENTIVI
+RU Pronovo: 360 CHF per kWp fino a 30 kWp, 300 CHF oltre, più contributo base
+RU su un 10 kWp: circa 3'600 CHF
+quota federale: dal 15 al 20% dell'investimento senza accumulo. Con accumulo scende, perché la batteria non aumenta la RU
+totale federale più cantonale più comunale: fino al 40%
+accumulo nel Cantone di Zurigo: 500 CHF per kWh, massimo 15'000 CHF
+
+PRODUZIONE E REDDITIVITÀ
+produzione: da 950 a 1'000 kWh per kWp sull'Altopiano, da 1'050 a 1'100 in Ticino e Vallese
+autoconsumo: dal 25 al 35% senza batteria, dal 60 all'80% con batteria
+superficie tetto: 6,5 m² per kWp
+prezzo elettricità: mediana svizzera 27,7 ct/kWh
+rimunerazione immissione: da 4 a 15 ct/kWh secondo il gestore
+ammortamento impianto: da 9 a 13 anni sull'Altopiano, da 7 a 11 in Ticino e Vallese
+durata moduli: da 25 a 30 anni
+garanzia di prestazione: 80% dopo 25 anni
+
+TARIFFE ELETTRICHE PER CANTONE (ct/kWh)
+Basilea Città 33,3
+Sciaffusa 32,2
+Vaud 31,7
+Basilea Campagna 31,0
+Glarona 30,9
+San Gallo 29,9
+Turgovia 29,2
+Neuchâtel 29,2
+Grigioni 29,2
+Soletta 29,1
+Appenzello Esterno 28,7
+Berna 28,0
+Appenzello Interno 27,6
+Giura 27,4
+Argovia 27,3
+Friburgo 27,3
+Vallese 26,8
+Obvaldo 26,5
+Svitto 25,3
+Uri 25,1
+Lucerna 25,0
+Ginevra 24,9
+Ticino 24,8
+Zurigo 24,7
+Zugo 23,0
+Nidvaldo 22,1
+mediana svizzera 27,7
+
+=== ORE DI SOLE: DA RIMUOVERE ===
+
+Le cifre di ore di sole presenti oggi sul sito non sono verificate e in più Cantoni sono duplicate. Rimuovile da tutte le pagine, in tutte le lingue, insieme al riquadro o alla riga che le contiene, senza sostituirle con altri numeri. Vale anche per il calcolatore solare e per gli articoli del blog. Sistema il layout dove resta uno spazio vuoto.
+
+=== COME PROCEDERE ===
+
+Ricava dal codice l'elenco completo di ogni route del sito, in tutte e quattro le lingue: homepage, pagine cantonali, pagine servizio, pagine legali, blog index, ogni singolo articolo e qualunque altra pagina esistente. Aggiungi componenti condivisi, file di traduzione e dati JSON, perché lì i numeri sono scritti una volta sola e stampati su più pagine.
+
+Apri una per una ogni voce dell'elenco. In ognuna cerca qualsiasi numero che riguardi costi, incentivi, ammortamento, produzione, tariffe elettriche, autoconsumo, durata o prezzi di batterie, e sostituiscilo con il valore corrispondente del file. Controlla anche title, meta description, og:description, testi alt e FAQ.
+
+Nessuna pagina va saltata, nemmeno quelle che sembrano non avere numeri: aprile, verificale e dichiarale come verificate.
+
+Se trovi un numero senza corrispondente nel file, segnalalo. Non lasciarlo com'è e non inventarne uno.
+
+=== TESTI DA AGGIUNGERE ===
+
+Sotto i numeri economici:
+IT "Valori indicativi, aggiornato settembre 2026. Fonti: Pronovo, ElCom, Swissolar."
+DE "Richtwerte, Stand September 2026. Quellen: Pronovo, ElCom, Swissolar."
+FR e EN equivalenti.
+
+Sotto i prezzi degli impianti:
+IT "Prezzi di installatori indipendenti, chiavi in mano con montaggio e IVA, senza accumulo. Le aziende elettriche regionali applicano di regola prezzi più alti."
+DE "Preise unabhängiger Installateure, schlüsselfertig inkl. Montage und MwSt., ohne Batteriespeicher. Regionale Elektrizitätswerke liegen in der Regel höher."
+FR e EN equivalenti.
+
+Sotto i prezzi delle batterie:
+IT "Prezzi con installazione e messa in servizio comprese. Se l'accumulo viene aggiunto in un secondo momento e manca un inverter ibrido, si aggiungono da 1'500 a 3'000 CHF."
+DE "Preise inkl. Installation und Inbetriebnahme. Wird der Speicher später nachgerüstet und fehlt ein Hybrid-Wechselrichter, kommen 1'500 bis 3'000 CHF dazu."
+FR e EN equivalenti.
+
+Sotto le tariffe elettriche:
+IT "Fonte: ElCom 2026". DE, FR e EN equivalenti. Mai scrivere "Profil H4" nel testo visibile.
+
+=== REGOLE ===
+
+I testi che scrivi devono sembrare scritti da una persona, non da un'AI. Frasi brevi e dirette, niente trattini lunghi, niente parole da brochure, nessun entusiasmo. Se una frase non la direbbe un installatore al telefono, riscrivila.
+
+Pagina Solaranlage Kosten: i valori "nach Abzug der Förderungen" per un 10 kWp contraddicono l'esempio di calcolo sulla stessa pagina. Usa i valori del file separando costo lordo e costo netto dopo la RU.
+
+Le pagine cantonali usano gli stessi costi nazionali. Cambiano solo produzione, ammortamento e tariffa elettrica.
+
+Formato svizzero con apostrofo: 19'000, 24'000. Mai il punto.
+
+Non toccare i testi non numerici né l'H1 della homepage.
+
+Alla fine dimmi: quante pagine hai controllato in totale, quali file hai modificato, e ogni numero che hai trovato senza corrispondente nel file.

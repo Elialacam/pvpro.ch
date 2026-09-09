@@ -16,11 +16,10 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/en/blog/balcony-power-station-switzerland', locale: 'en', type: 'article' });
 
 const comparisonRows = [
-  { factor: 'Costs', balkon: 'CHF 300–1,200', solar: 'CHF 20,000–35,000', winner: 'balkon' },
-  { factor: 'Output', balkon: '300–800 Watt', solar: '8,000–12,000 Watt', winner: 'solar' },
-  { factor: 'Production/year', balkon: '200–600 kWh', solar: '8,000–12,000 kWh', winner: 'solar' },
-  { factor: 'Savings/year', balkon: 'CHF 50–150', solar: 'CHF 1,500–3,000', winner: 'solar' },
-  { factor: 'Payback period', balkon: '3–6 years', solar: '8–12 years', winner: 'balkon' },
+  { factor: 'Costs', balkon: 'depends on model', solar: 'according to quote', winner: 'balkon' },
+  { factor: 'Output', balkon: '300–800 Watt', solar: "8'000–12'000 Watt", winner: 'solar' },
+  { factor: 'Production/year', balkon: 'low', solar: 'substantially higher', winner: 'solar' },
+  { factor: 'Savings/year', balkon: 'low', solar: 'substantially higher', winner: 'solar' },
   { factor: 'Property value', balkon: 'None', solar: 'Yes (real estate)', winner: 'solar' },
   { factor: 'Subsidies', balkon: 'None', solar: 'RU + cantonal', winner: 'solar' },
   { factor: 'Target group', balkon: 'Renters', solar: 'Homeowners', winner: null },
@@ -109,8 +108,8 @@ export default function BalconyPowerStationSwitzerlandPage() {
                 {[
                   { label: 'Modules', value: '1–2' },
                   { label: 'Max. output', value: '800 W' },
-                  { label: 'Production/year', value: '200–600 kWh' },
-                  { label: 'Savings/year', value: 'CHF 50–150' },
+                  { label: 'Production/year', value: 'depends on orientation' },
+                  { label: 'Savings/year', value: 'depends on self-consumption' },
                 ].map((s) => (
                   <div key={s.label} className="rounded-xl bg-gray-50 border border-gray-100 p-4 text-center">
                     <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">{s.label}</p>
@@ -149,14 +148,14 @@ export default function BalconyPowerStationSwitzerlandPage() {
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">How much electricity does a balcony power station produce?</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                A typical balcony power station produces around <strong>200–600 kWh per year</strong> — this corresponds to the base consumption of a few appliances (fridge, standby). This is far from covering the majority of a household&apos;s electricity consumption.
+                A typical balcony power station covers only a small part of household electricity consumption.
               </p>
               <div className="rounded-2xl bg-gray-50 border border-gray-100 p-6 space-y-5">
                 <p className="font-bold text-gray-900 text-sm mb-4">Comparison: annual production</p>
                 <div>
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-gray-600">Balcony power station (800 W)</span>
-                    <span className="font-bold text-gray-800">up to 600 kWh</span>
+                    <span className="font-bold text-gray-800">low production</span>
                   </div>
                   <div className="h-4 rounded-full bg-gray-200">
                     <div className="h-4 rounded-full bg-gray-400" style={{ width: '5%' }} />
@@ -164,8 +163,8 @@ export default function BalconyPowerStationSwitzerlandPage() {
                 </div>
                 <div>
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="text-gray-600">Solar installation (10 kWp)</span>
-                    <span className="font-bold text-[#fcb210]">9,000–11,000 kWh</span>
+                    <span className="text-gray-600">Solar installation</span>
+                    <span className="font-bold text-[#fcb210]">substantially higher production</span>
                   </div>
                   <div className="h-4 rounded-full bg-gray-200">
                     <div className="h-4 rounded-full bg-[#fcb210]" style={{ width: '90%' }} />
@@ -241,13 +240,13 @@ export default function BalconyPowerStationSwitzerlandPage() {
                   Many start with the idea of a balcony power station and then realise: <strong className="text-white">the effect is too small.</strong>
                 </p>
                 <p className="text-white/70 leading-relaxed mb-6">
-                  A full solar installation saves you <strong className="text-white">CHF 1,500–3,000</strong> annually — 10–20× more than a balcony power station. And with the one-time payment (OTP) and cantonal subsidies, acquisition costs are significantly reduced.
+                  A full solar installation saves substantially more than a balcony power station. The one-time payment and cantonal subsidies reduce acquisition costs.
                 </p>
                 <div className="grid grid-cols-3 gap-3 mb-6">
                   {[
                     { icon: Zap, label: '15–20×', sub: 'more energy production' },
                     { icon: TrendingUp, label: '10–20×', sub: 'more savings/year' },
-                    { icon: CheckCircle2, label: '100%', sub: 'subsidies available' },
+              { icon: CheckCircle2, label: 'Check', sub: 'subsidies available' },
                   ].map((item) => {
                     const Icon = item.icon;
                     return (
@@ -300,9 +299,9 @@ export default function BalconyPowerStationSwitzerlandPage() {
                   {[
                     { label: 'Allowed in CH?', value: 'Yes, with registration' },
                     { label: 'Max. output', value: '800 Watt (plug-and-play)' },
-                    { label: 'Costs', value: 'CHF 300–1,200' },
-                    { label: 'Production/year', value: '200–600 kWh' },
-                    { label: 'Savings/year', value: 'CHF 50–150' },
+                    { label: 'Costs', value: 'depends on model' },
+                    { label: 'Production/year', value: 'depends on orientation' },
+                    { label: 'Savings/year', value: 'depends on self-consumption' },
                     { label: 'Registration required', value: 'Yes, with grid operator' },
                   ].map((item) => (
                     <div key={item.label} className="flex justify-between items-start gap-2 py-2 border-b border-gray-50 last:border-0">

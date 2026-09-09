@@ -30,7 +30,7 @@ export const metadata: Metadata = pageMetadata({
 const faqs = [
   {
     question: 'Wie lange dauert die Montage einer Solaranlage auf einem Einfamilienhaus?',
-    answer: 'Die eigentliche Montage dauert bei einem Einfamilienhaus mit 8–12 kWp typischerweise 1 bis 3 Tage. Die gesamte Projektdauer ab Auftragserteilung beträgt 4 bis 12 Wochen.',
+    answer: 'Die Dauer hängt von Anlagengrösse, Dach und Bewilligungsverfahren ab. Der Installateur nennt den Zeitplan in der Offerte.',
   },
   {
     question: 'Muss ich während der Installation zu Hause sein?',
@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     question: 'Wann fängt die Anlage an, Strom zu produzieren?',
-    answer: 'Direkt nach der Inbetriebnahme — also am letzten Tag der Montage. Vom ersten Tag an produziert die Anlage Strom, sofern die Sonne scheint.',
+    answer: 'Direkt nach der Inbetriebnahme produziert die Anlage Strom, sofern die Bedingungen passen.',
   },
   {
     question: 'Was passiert nach der Installation?',
@@ -58,7 +58,7 @@ const phases = [
   {
     n: '1',
     title: 'Planung und Offerte',
-    duration: '1–2 Wochen',
+    duration: 'Individueller Zeitplan',
     text: (
       <>
         Alles beginnt mit einer Bedarfsanalyse. Ein zertifizierter Installateur besucht Ihr Gebäude, analysiert Dachfläche, Ausrichtung, Neigung und Verschattung. Auf dieser Basis erstellt er eine massgeschneiderte Offerte mit Anlagengrösse, Komponenten und{' '}
@@ -69,7 +69,7 @@ const phases = [
   {
     n: '2',
     title: 'Bewilligung und Meldung',
-    duration: '1–4 Wochen',
+    duration: 'Je nach Gemeinde',
     text: (
       <>
         In den meisten Fällen ist eine Solaranlage auf dem Dach{' '}
@@ -81,7 +81,7 @@ const phases = [
   {
     n: '3',
     title: 'Materialbeschaffung',
-    duration: '2–6 Wochen',
+    duration: 'Je nach Verfügbarkeit',
     text: (
       <>
         Nach Auftragserteilung werden Module, Wechselrichter, Montagesystem und allfälliger{' '}
@@ -93,19 +93,19 @@ const phases = [
   {
     n: '4',
     title: 'Montage',
-    duration: '1–3 Tage',
+    duration: 'Je nach Anlagengrösse',
     text: 'Das Montageteam installiert die Unterkonstruktion auf dem Dach, befestigt die Module, verlegt die DC-Kabel und installiert den Wechselrichter im Gebäude. Bei grösseren Anlagen dauert die Montage länger.',
   },
   {
     n: '5',
     title: 'Elektrischer Anschluss und Inbetriebnahme',
-    duration: '1 Tag',
+    duration: 'Nach Montage',
     text: 'Ein zertifizierter Elektriker schliesst die Anlage ans Hausnetz an und nimmt sie in Betrieb. Die Anlage wird konfiguriert und getestet.',
   },
   {
     n: '6',
     title: 'Anmeldung und Förderung',
-    duration: '2–4 Wochen',
+    duration: 'Je nach Bearbeitung',
     text: (
       <>
         Der Installateur meldet die Anlage beim lokalen Netzbetreiber an und stellt den Antrag für die{' '}
@@ -117,13 +117,13 @@ const phases = [
 ];
 
 const durations = [
-  { phase: 'Planung und Offerte', duration: '1–2 Wochen' },
-  { phase: 'Bewilligung / Meldung', duration: '1–4 Wochen' },
-  { phase: 'Materialbeschaffung', duration: '2–6 Wochen' },
-  { phase: 'Montage', duration: '1–3 Tage' },
-  { phase: 'Anschluss und Inbetriebnahme', duration: '1 Tag' },
-  { phase: 'Anmeldung EIV', duration: '2–4 Wochen' },
-  { phase: 'Gesamtdauer ab Auftrag', duration: '4–12 Wochen', highlight: true },
+  { phase: 'Planung und Offerte', duration: 'Individueller Zeitplan', highlight: false },
+  { phase: 'Bewilligung / Meldung', duration: 'Je nach Gemeinde', highlight: false },
+  { phase: 'Materialbeschaffung', duration: 'Je nach Verfügbarkeit', highlight: false },
+  { phase: 'Montage', duration: 'Je nach Anlagengrösse', highlight: false },
+  { phase: 'Anschluss und Inbetriebnahme', duration: 'Nach Montage', highlight: false },
+  { phase: 'Anmeldung EIV', duration: 'Je nach Bearbeitung', highlight: false },
+  { phase: 'Gesamtdauer ab Auftrag', duration: 'Projektabhängig', highlight: true },
 ];
 
 const installateurLeistungen = [
@@ -171,8 +171,8 @@ export default function PhotovoltaikInstallationSchweizPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: '1–3 Tage', sub: 'Montagedauer EFH', note: 'für ein typisches Einfamilienhaus' },
-              { val: '4–12 Wochen', sub: 'Vorlaufzeit ab Auftrag', note: 'inkl. Planung und Materialbeschaffung' },
+              { val: 'Projektabhängig', sub: 'Montagedauer EFH', note: 'nach Dach und Anlage' },
+              { val: 'Individuell', sub: 'Vorlaufzeit ab Auftrag', note: 'nach Planung und Materialverfügbarkeit' },
               { val: 'Schlüsselfertig', sub: 'Installateur übernimmt alles', note: 'von Planung bis EIV-Antrag' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>

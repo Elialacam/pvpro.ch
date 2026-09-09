@@ -4,6 +4,11 @@ import { ChevronRight, Sun, CheckCircle2, Home, Ruler, Cpu, Wrench, ArrowRight }
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatChfForLocale, formatRangeForLocale } from '@/lib/facts';
+
+const facts = ECONOMIC_FACTS;
+const frRange = (range: { min: number; max: number }, unit: string) => formatRangeForLocale(range, unit, 'fr');
+const netTen = { min: facts.systemCosts.bySize[10].min - facts.incentives.tenKwpApprox, max: facts.systemCosts.bySize[10].max - facts.incentives.tenKwpApprox };
 
 const baseMetadata: Metadata = {
   title: 'Installation solaire maison individuelle Suisse : coûts, taille et avantages | PvPro.ch',
@@ -21,17 +26,18 @@ const baseMetadata: Metadata = {
 };
 
 const costRows = [
-  { size: 'Petite installation (6–8 kWp)',  price: "env. 20'000 – 25'000 CHF", highlight: false },
-  { size: 'Standard (8–10 kWp)',            price: "env. 25'000 – 30'000 CHF", highlight: true },
-  { size: 'Grande installation (10–15 kWp)', price: "env. 30'000 – 35'000 CHF", highlight: false },
+  { size: '5 kWp', price: frRange(facts.systemCosts.bySize[5], 'CHF'), highlight: false },
+  { size: '8 kWp', price: frRange(facts.systemCosts.bySize[8], 'CHF'), highlight: true },
+  { size: '10 kWp', price: frRange(facts.systemCosts.bySize[10], 'CHF'), highlight: false },
+  { size: '15 kWp', price: frRange(facts.systemCosts.bySize[15], 'CHF'), highlight: false },
 ];
 
 const exampleRows = [
-  { label: 'Surface de toit',   value: '60 m²',                        highlight: false },
+  { label: 'Surface de toit', value: `${10 * facts.roofAreaM2PerKwp} m²`, highlight: false },
   { label: 'Puissance',         value: '10 kWp',                       highlight: false },
-  { label: 'Coûts',             value: "env. 25'000 – 30'000 CHF",    highlight: false },
-  { label: 'Subvention RU',     value: "env. 3'600 CHF",              highlight: false },
-  { label: 'Coûts effectifs',   value: "env. 20'000 – 26'000 CHF",    highlight: true },
+  { label: 'Coût brut', value: frRange(facts.systemCosts.bySize[10], 'CHF'), highlight: false },
+  { label: 'Subvention RU', value: formatChfForLocale(facts.incentives.tenKwpApprox, 'fr'), highlight: false },
+  { label: 'Coût net après RU', value: frRange(netTen, 'CHF'), highlight: true },
 ];
 
 const factors = [
@@ -71,7 +77,7 @@ export default function SolaireMaisonIndividuellePage() {
                 Installation solaire pour maison individuelle : coûts, taille et avantages
               </h1>
               <p className="text-white/70 text-lg leading-relaxed mb-8">
-                Une installation solaire réduit vos coûts d'électricité et vous rend plus indépendant. Typiquement, une maison individuelle est équipée de <strong className="text-white">8–12 kWp</strong> — soit environ <strong className="text-white">50–70 m²</strong> de surface de toit.
+                 Une installation solaire réduit vos coûts d'électricité et vous rend plus indépendant. Le tableau ci-dessous présente les tailles couvertes par les valeurs nationales.
               </p>
               <Link
                 href="/fr/demande"
@@ -83,10 +89,10 @@ export default function SolaireMaisonIndividuellePage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: '8–12 kWp',           label: "Taille typique de l'installation" },
-                { value: "25'000–30'000",       label: 'CHF investissement' },
-                { value: "9'000–11'000",        label: 'kWh production/an' },
-                { value: '25–30 ans',           label: 'Durée de vie' },
+                 { value: '10 kWp', label: "Exemple d'installation" },
+                 { value: frRange(facts.systemCosts.bySize[10], 'CHF'), label: 'Investissement brut' },
+                 { value: frRange({ min: 10 * facts.production.plateauKwhPerKwp.min, max: 10 * facts.production.plateauKwhPerKwp.max }, 'kWh'), label: 'Production annuelle sur le Plateau' },
+                 { value: frRange(facts.moduleLifetimeYears, 'ans'), label: 'Durée de vie' },
               ].map((s) => (
                 <div key={s.label} className="rounded-2xl bg-white/5 border border-white/10 px-5 py-4">
                   <p className="text-xl sm:text-2xl font-bold text-white mb-1">{s.value}</p>
@@ -109,8 +115,7 @@ export default function SolaireMaisonIndividuellePage() {
                 Quelle taille doit avoir votre installation solaire ?
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
-                La taille optimale dépend de la consommation électrique. En règle générale :{' '}
-                <strong className="text-gray-800">1'000 kWh de consommation → env. 1–2 kWp d'installation.</strong>
+                 La taille optimale dépend de la consommation électrique, du toit et des usages prévus.
               </p>
               <p className="text-gray-500 leading-relaxed">
                 Si vous avez une pompe à chaleur ou une voiture électrique, une installation plus grande est souvent rentable. Utilisez le calculateur pour obtenir une première recommandation.
@@ -130,8 +135,8 @@ export default function SolaireMaisonIndividuellePage() {
               Combien coûte une installation solaire pour une maison individuelle ?
             </h2>
             <p className="text-gray-500 leading-relaxed mb-6">
-              Pour une installation typique de 10 kWp avec environ 50 m² de surface de toit, des investissements d'environ{' '}
-              <strong className="text-gray-800">25'000 à 30'000 CHF</strong> sont réalistes.
+               Pour une installation de 10 kWp avec environ {10 * facts.roofAreaM2PerKwp} m² de surface de toit, le coût brut est de{' '}
+               <strong className="text-gray-800">{frRange(facts.systemCosts.bySize[10], 'CHF')}</strong>.
               Après subventions et déductions fiscales, le prix effectif peut être nettement inférieur.
             </p>
             <div className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
@@ -145,6 +150,7 @@ export default function SolaireMaisonIndividuellePage() {
                 </div>
               ))}
             </div>
+            <p className="text-xs text-gray-400 mt-3">{SYSTEM_PRICE_NOTES.fr} {SOURCE_NOTES.fr}</p>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
             <Image src="/images/asset-installateur-dach-1.webp" alt="Installation solaire maison individuelle Suisse" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" loading="lazy"/>
@@ -162,13 +168,11 @@ export default function SolaireMaisonIndividuellePage() {
                 Quelle quantité d'électricité produit une installation solaire ?
               </h2>
               <p className="text-white/70 leading-relaxed mb-6">
-                Une installation typique sur une maison individuelle produit{' '}
-                <strong className="text-white">env. 9'000 – 11'000 kWh par an</strong> — soit la majeure partie des besoins électriques d'un foyer.
+                 Sur le Plateau, la production annuelle dépend directement de la puissance installée.
               </p>
               {[
-                { label: 'Installation 8 kWp',  value: "7'200 – 8'800 kWh/an",   pct: 65 },
-                { label: 'Installation 10 kWp', value: "9'000 – 11'000 kWh/an",  pct: 80 },
-                { label: 'Installation 12 kWp', value: "10'800 – 13'200 kWh/an", pct: 95 },
+                 { label: 'Installation 8 kWp', value: frRange({ min: 8 * facts.production.plateauKwhPerKwp.min, max: 8 * facts.production.plateauKwhPerKwp.max }, 'kWh/an'), pct: 65 },
+                 { label: 'Installation 10 kWp', value: frRange({ min: 10 * facts.production.plateauKwhPerKwp.min, max: 10 * facts.production.plateauKwhPerKwp.max }, 'kWh/an'), pct: 80 },
               ].map((row) => (
                 <div key={row.label} className="mb-4">
                   <div className="flex justify-between text-sm mb-1.5">
@@ -220,11 +224,11 @@ export default function SolaireMaisonIndividuellePage() {
                 Subventions pour installations solaires en Suisse
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
-                Pour une installation de 10 kWp, la subvention fédérale correspond à environ <strong className="text-gray-800">3'600 CHF</strong>. S'y ajoutent des subventions cantonales et des déductions fiscales.
+                Pour une installation de 10 kWp, la subvention fédérale correspond à environ <strong className="text-gray-800">{formatChfForLocale(facts.incentives.tenKwpApprox, 'fr')}</strong>. S&apos;y ajoutent des subventions cantonales et des déductions fiscales.
               </p>
               <div className="space-y-3">
                 {[
-                  "Rémunération unique (RU) fédérale : env. 360 CHF/kWp",
+                   `Rémunération unique (RU) fédérale : ${formatChfForLocale(facts.incentives.pronovoPerKwpUpTo30, 'fr')}/kWp jusqu'à 30 kWp`,
                   "Programmes de subventions cantonaux supplémentaires",
                   "Déductions fiscales au niveau fédéral",
                 ].map((item) => (
@@ -240,11 +244,11 @@ export default function SolaireMaisonIndividuellePage() {
             </div>
             <div className="space-y-3">
               {[
-                { label: 'Investissement (10 kWp)',  value: "25'000 – 30'000 CHF", color: 'text-gray-800',   highlight: false },
-                { label: 'Subvention fédérale RU',  value: "– 3'600 CHF",          color: 'text-green-600',  highlight: false },
+                 { label: 'Investissement (10 kWp)', value: frRange(facts.systemCosts.bySize[10], 'CHF'), color: 'text-gray-800', highlight: false },
+                 { label: 'Subvention fédérale RU', value: `– ${formatChfForLocale(facts.incentives.tenKwpApprox, 'fr')}`, color: 'text-green-600', highlight: false },
                 { label: 'Subvention cantonale',    value: 'variable',              color: 'text-green-600',  highlight: false },
                 { label: 'Déductions fiscales',     value: 'variable',              color: 'text-green-600',  highlight: false },
-                { label: 'Coûts effectifs',         value: "env. 20'000 – 26'000 CHF", color: 'text-[#fcb210]', highlight: true },
+                 { label: 'Coût net après RU', value: frRange(netTen, 'CHF'), color: 'text-[#fcb210]', highlight: true },
               ].map((row) => (
                 <div key={row.label} className={`flex justify-between items-center px-5 py-3.5 rounded-xl ${row.highlight ? 'bg-orange-50 border border-orange-100' : 'bg-white border border-gray-100'}`}>
                   <span className={`text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>
@@ -266,14 +270,14 @@ export default function SolaireMaisonIndividuellePage() {
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Investissement initial moins élevé</span></div>
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Amortissement plus rapide</span></div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Autoconsommation env. 25–40%</span></div>
+                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gray-300 flex-shrink-0" /><span>Autoconsommation {frRange(facts.selfConsumptionPercent.withoutStorage, '%')}</span></div>
               </div>
             </div>
             <div className="rounded-2xl border border-[#fcb210]/30 p-6 shadow-sm bg-orange-50">
               <p className="font-bold text-gray-900 text-lg mb-1">Avec stockage batterie</p>
               <p className="text-sm text-[#fcb210] font-semibold mb-4">Recommandé pour une consommation élevée</p>
               <div className="space-y-2 text-sm text-gray-600">
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Autoconsommation jusqu'à 50–65%</span></div>
+                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Autoconsommation {frRange(facts.selfConsumptionPercent.withStorage, '%')}</span></div>
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Utiliser l'électricité aussi le soir</span></div>
                 <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#fcb210] flex-shrink-0" /><span>Plus grande indépendance</span></div>
               </div>

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: 'Confronta impianti fotovoltaici in Ticino | PvPro.ch',
     template: '%s | PvPro.ch',
   },
-  description: 'Confronta gratuitamente le offerte di impianti fotovoltaici da installatori certificati in Ticino. Risparmia fino al 30% con il confronto. 100% senza impegno.',
+  description: 'Confronta gratuitamente le offerte di impianti fotovoltaici da installatori certificati in Ticino. Il confronto è gratuito e senza impegno.',
   authors: [{ name: 'PvPro.ch' }],
   robots: {
     index: true,

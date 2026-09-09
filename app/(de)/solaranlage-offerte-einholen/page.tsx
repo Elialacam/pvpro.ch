@@ -88,7 +88,7 @@ const steps = [
 const buildingTypes = [
   {
     title: 'Einfamilienhaus',
-    desc: 'die häufigste Anfrage, typisch 8–12 kWp',
+    desc: 'häufige Anfrage für ein Einfamilienhaus',
     href: '/solaranlage-einfamilienhaus',
   },
   {
@@ -133,7 +133,7 @@ export default function SolaranlageOfferteEinholenPage() {
             {[
               { val: 'Kostenlos', sub: 'kein Risiko, kein Versteck', note: 'vollständig gratis für Hausbesitzer' },
               { val: '24–48 Stunden', sub: 'bis zur ersten Offerte', note: 'schnelle Antwort von lokalen Fachbetrieben' },
-              { val: "Bis zu 4'000 CHF", sub: 'mögliche Ersparnis durch Vergleich', note: 'je nach Grösse der Anlage' },
+              { val: 'Direkter Vergleich', sub: 'Preis und Leistung prüfen', note: 'für Ihr konkretes Dach' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -155,7 +155,7 @@ export default function SolaranlageOfferteEinholenPage() {
               Warum mehrere Offerten einholen?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-5">
-              Viele Hausbesitzer in der Schweiz machen denselben Fehler: Sie fragen nur einen Installateur an und akzeptieren das erste Angebot. Was die meisten nicht wissen ist, dass für exakt die gleiche Anlage — gleiche Module, gleicher Wechselrichter, gleiche Leistung — die Preise zwischen verschiedenen Installateuren um bis zu 4'000 Franken variieren können.
+              Viele Hausbesitzer in der Schweiz fragen nur einen Installateur an und akzeptieren das erste Angebot. Für die gleiche Anlage können Preise und Leistungen zwischen verschiedenen Installateuren variieren.
             </p>
             <p className="text-gray-600 leading-relaxed">
               Der Grund dafür ist einfach: Installateure kalkulieren unterschiedlich, haben verschiedene Einkaufskonditionen und unterschiedliche Margen. Wer vergleicht, gewinnt.
@@ -166,9 +166,9 @@ export default function SolaranlageOfferteEinholenPage() {
               <p className="text-white/60 text-xs font-bold uppercase tracking-widest mb-5">Beispiel — 10 kWp Anlage</p>
               <div className="space-y-4">
                 {[
-                  { label: 'Installateur A', price: "29'500 CHF", highlight: false },
-                  { label: 'Installateur B', price: "26'800 CHF", highlight: false },
-                  { label: 'Installateur C (günstigster)', price: "25'600 CHF", highlight: true },
+                  { label: 'Installateur A', price: 'Individuelle Offerte', highlight: false },
+                  { label: 'Installateur B', price: 'Individuelle Offerte', highlight: false },
+                  { label: 'Installateur C', price: 'Individuelle Offerte', highlight: true },
                 ].map(r => (
                   <div key={r.label} className={`flex justify-between items-center rounded-xl px-5 py-3 ${r.highlight ? 'bg-orange-500/20 border border-orange-500/30' : 'bg-white/5'}`}>
                     <span className={`text-sm font-medium ${r.highlight ? 'text-orange-300' : 'text-white/70'}`}>{r.label}</span>
@@ -177,7 +177,7 @@ export default function SolaranlageOfferteEinholenPage() {
                 ))}
                 <div className="border-t border-white/10 pt-4 flex justify-between items-center">
                   <span className="text-white/60 text-sm">Ersparnis durch Vergleich</span>
-                  <span className="text-green-400 font-bold">bis zu 3'900 CHF</span>
+                  <span className="text-green-400 font-bold">Preisunterschiede sichtbar</span>
                 </div>
               </div>
             </div>

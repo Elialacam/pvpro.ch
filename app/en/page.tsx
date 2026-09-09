@@ -12,6 +12,7 @@ import Link from 'next/link';
 import { MapPin } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { ECONOMIC_FACTS, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Compare solar quotes: 3 certified installers | PvPro.ch',
@@ -22,7 +23,7 @@ export default function EnglishHomePage() {
   const defaultFAQs = [
     {
       question: 'How much does a solar system cost in Switzerland?',
-      answer: 'A typical solar system for a single-family home costs between CHF 9,500 and CHF 25,000. The exact price depends on the system size, roof characteristics, and components used. With a battery storage system, costs are higher, between CHF 19,500 and CHF 35,000.',
+      answer: `A 10 kWp solar system costs ${formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')} without battery storage. The exact price depends on the system size, roof characteristics, and components used.`,
     },
     {
       question: 'How does the PvPro.ch referral service work?',
@@ -30,7 +31,7 @@ export default function EnglishHomePage() {
     },
     {
       question: 'Are there subsidies for solar systems in Switzerland?',
-      answer: 'Yes! Switzerland offers various subsidies: the One-Time Payment (EIV) from the federal government covers up to 30% of investment costs. Additionally, there are cantonal and municipal incentive programs, plus tax deductions. Our partner installers help you apply for all available subsidies.',
+      answer: `Yes! Switzerland offers various subsidies: the federal share is ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', 'en')} of investment costs without storage. Additionally, there are cantonal and municipal incentive programs, plus tax deductions. Our partner installers help you apply for all available subsidies.`,
     },
     {
       question: 'How long does a solar system installation take?',
@@ -38,11 +39,11 @@ export default function EnglishHomePage() {
     },
     {
       question: 'Is a solar system worthwhile even with little sunshine?',
-      answer: 'Yes! Even in less sunny areas of Switzerland, solar systems produce enough electricity to pay for themselves. Modern solar modules work efficiently even with diffuse light. The average payback period in Switzerland is 10-15 years, with a lifespan of 25-30 years.',
+      answer: `Yes! Even in less sunny areas of Switzerland, solar systems produce enough electricity to pay for themselves. Modern solar modules work efficiently even with diffuse light. On the Swiss Plateau, the indicative payback period is ${formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en')}, with a module lifespan of ${formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en')}.`,
     },
     {
       question: 'Is PvPro.ch service really free?',
-      answer: 'Yes, our service is 100% free and non-binding for you. We are financed through commissions from our partner installers. You pay nothing for the referral and still receive the same prices as if you contacted the installer directly.',
+    answer: 'Yes, our service is free and non-binding for you. We are financed through commissions from our partner installers. You pay nothing for the referral and still receive the same prices as if you contacted the installer directly.',
     },
   ];
 

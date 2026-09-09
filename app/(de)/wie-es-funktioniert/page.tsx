@@ -19,7 +19,7 @@ const steps = [
       'Name, Telefonnummer und E-Mail-Adresse',
       'Vollständige Adresse Ihrer Liegenschaft',
       'Kein Konto erforderlich, keine Registrierung',
-      '100% kostenlos und unverbindlich',
+  'Kostenlos und unverbindlich',
     ],
   },
   {
@@ -53,7 +53,7 @@ const steps = [
 const benefits = [
   { Icon: Clock,       title: 'Zeitersparnis',      text: 'Statt selbst Angebote einzuholen, erledigt PvPro.ch die Suche für Sie — in weniger als 2 Minuten.' },
   { Icon: ShieldCheck, title: 'Geprüfte Qualität',  text: 'Nur Installateure mit gültigen Zertifikaten, Versicherungsnachweis und positiven Referenzen.' },
-  { Icon: Euro,        title: 'Kostenlos',           text: 'Unser Service ist für Hausbesitzer zu 100% kostenlos. Wir finanzieren uns durch Installateurprovisionen.' },
+  { Icon: Euro,        title: 'Kostenlos',           text: 'Unser Service ist für Hausbesitzer kostenlos. Wir finanzieren uns durch Installateurprovisionen.' },
   { Icon: Phone,       title: 'Persönlicher Support', text: 'Bei Fragen steht Ihnen unser Team jederzeit per Telefon und E-Mail zur Verfügung.' },
 ];
 
@@ -149,7 +149,7 @@ export default function WieEsFunktioniertPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-6">Häufige Fragen</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
-              { q: 'Ist der Service wirklich kostenlos?', a: 'Ja, zu 100%. Wir finanzieren uns durch Provisionen der Installateure — ohne Aufpreis für Sie.' },
+              { q: 'Ist der Service wirklich kostenlos?', a: 'Ja. Wir finanzieren uns durch Provisionen der Installateure — ohne Aufpreis für Sie.' },
               { q: 'Bin ich zur Auswahl eines Angebots verpflichtet?', a: 'Nein. Sie können alle Offerten ablehnen, ohne irgendwelche Konsequenzen.' },
               { q: 'Wie schnell erhalte ich die Offerten?', a: 'In der Regel innerhalb von 24–48 Stunden nach Ihrer Anfrage.' },
               { q: 'In welchen Kantonen ist PvPro.ch aktiv?', a: 'Wir sind in der ganzen Schweiz tätig, in allen 26 Kantonen.' },

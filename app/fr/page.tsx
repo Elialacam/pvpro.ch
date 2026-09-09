@@ -12,6 +12,7 @@ import Link from 'next/link';
 import { MapPin } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { ECONOMIC_FACTS, formatRangeForLocale } from '@/lib/facts';
 
 const baseMetadata: Metadata = {
   title: 'Comparer les offres solaires : 3 entreprises certifiées | PvPro.ch',
@@ -22,7 +23,7 @@ export default function FrenchHomePage() {
   const defaultFAQs = [
     {
       question: 'Combien coûte une installation solaire en Suisse?',
-      answer: 'Une installation solaire typique pour une maison individuelle coûte entre CHF 9.500 et CHF 25.000. Le prix exact dépend de la taille de l\'installation, de l\'état du toit et des composants utilisés. Avec une batterie de stockage, les coûts sont plus élevés, entre CHF 19.500 et CHF 35.000.',
+      answer: `Une installation de 10 kWp coûte ${formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'fr')}, sans stockage. Un stockage de 10 kWh coûte ${formatRangeForLocale(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF', 'fr')}.`,
     },
     {
       question: 'Comment fonctionne l\'intermédiation de PvPro.ch?',
@@ -30,7 +31,7 @@ export default function FrenchHomePage() {
     },
     {
       question: 'Existe-t-il des subventions pour les installations solaires en Suisse?',
-      answer: 'Oui! La Suisse offre différentes subventions: la Rétribution Unique (RU) de la Confédération couvre jusqu\'à 30% des coûts d\'investissement. En plus, il existe des programmes de subventions cantonales et communales ainsi que des déductions fiscales. Nos installateurs partenaires vous aident à demander toutes les subventions disponibles.',
+      answer: `Oui. La Rétribution Unique couvre une part fédérale indicative de ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', 'fr')}. Le total des aides fédérales, cantonales et communales peut atteindre ${ECONOMIC_FACTS.incentives.combinedMaxPercent}%.`,
     },
     {
       question: 'Combien de temps faut-il pour installer une installation solaire?',
@@ -38,11 +39,11 @@ export default function FrenchHomePage() {
     },
     {
       question: 'Une installation solaire est-elle rentable même avec peu de soleil?',
-      answer: 'Oui! Même dans les zones moins ensoleillées de Suisse, les installations solaires produisent assez d\'électricité pour s\'amortir. Les modules solaires modernes fonctionnent efficacement même avec une lumière diffuse. La période d\'amortissement moyenne en Suisse est de 10-15 ans, pour une durée de vie de 25-30 ans.',
+      answer: `Oui. Sur le Plateau, l'amortissement indicatif est de ${formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'ans', 'fr')}, pour une durée de vie des modules de ${formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'ans', 'fr')}.`,
     },
     {
       question: 'Le service de PvPro.ch est-il vraiment gratuit?',
-      answer: 'Oui, notre service est à 100% gratuit et sans engagement pour vous. Nous nous finançons par des commissions de nos installateurs partenaires. Vous ne payez rien pour l\'intermédiation et recevez néanmoins les mêmes prix qu\'en cas de demande directe auprès de l\'installateur.',
+    answer: 'Oui, notre service est gratuit et sans engagement pour vous. Nous nous finançons par des commissions de nos installateurs partenaires. Vous ne payez rien pour l\'intermédiation et recevez néanmoins les mêmes prix qu\'en cas de demande directe auprès de l\'installateur.',
     },
   ];
 

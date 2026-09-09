@@ -35,18 +35,6 @@
           "highlight": "Planen Sie die Speicherkosten nicht nur für die Batterie, sondern berücksichtigen Sie auch den passenden Hybrid-Wechselrichter."
         },
         {
-          "heading": "5 kWp und 10 kWp mit Speicher: Komplettanlagen im Kostenvergleich",
-          "content": [
-            "Die optimalen Kosten für eine PV-Anlage mit Speicher richten sich nach dem Strombedarf Ihres Haushalts. Kleinere Systeme passen zu Paaren, größere sind für Familien geeignet.",
-            "Ein passender Speicher ermöglicht den profitablen Einsatz des erzeugten Stroms auch ausserhalb der Sonnenstunden."
-          ],
-          "bullets": [
-            "5 kWp Komplettanlage: Für 1–2 Personen, kompakt und zielgerichtet",
-            "10 kWp Komplettanlage: Für Familien, höherer Eigenverbrauch"
-          ],
-          "highlight": "Einrichtung und Förderprogramme reduzieren Ihre finanziellen Hürden erheblich."
-        },
-        {
           "heading": "Förderungen senken deine Netto-Investition spürbar",
           "content": [
             "Staatliche Förderungen reduzieren die Ausgaben für eine PV-Anlage in der Schweiz deutlich. Die Kombination aus Direktförderung und Steuerabzug verbessert die Netto-Rechnung erheblich.",
@@ -80,14 +68,6 @@
         {
           "question": "Welche Reparaturkosten können anfallen?",
           "answer": "Laufende Kosten hängen von regelmäßiger Pflege ab. Ein frühzeitiger Kostenvergleich mit Fachbetrieben hilft beim Einschätzen der künftigen Ausgaben."
-        },
-        {
-          "question": "Was kostet eine 5 kWp-Komplettanlage ohne Speicher?",
-          "answer": "Kosten variieren stark je nach Dachform und Komponentenauswahl. Förderungen reduzieren den finanziellen Aufwand spürbar."
-        },
-        {
-          "question": "Was kosten 5 kWp- und 10 kWp-Komplettanlagen mit Speicher?",
-          "answer": "Die Kosten werden massgeblich durch die Batteriekapazität beeinflusst. Ein Stromspeicher erhöht den Eigenverbrauch im Haushalt deutlich."
         },
         {
           "question": "Ist die Miete einer Komplettanlage eine Alternative?",
@@ -128,18 +108,6 @@
           "highlight": "Prévoyez les coûts de stockage non seulement pour la batterie, mais tenez compte également de l'onduleur hybride approprié."
         },
         {
-          "heading": "5 kWc et 10 kWc avec stockage : Comparaison des coûts des installations complètes",
-          "content": [
-            "Les coûts optimaux pour une installation PV avec stockage dépendent de la consommation d'électricité de votre ménage. Les systèmes plus petits conviennent aux couples, tandis que ceux plus grands sont adaptés aux familles.",
-            "Un stockage approprié permet d'utiliser de manière rentable l'électricité produite en dehors des heures d'ensoleillement."
-          ],
-          "bullets": [
-            "Installation complète de 5 kWc : Pour 1 à 2 personnes, compacte et ciblée",
-            "Installation complète de 10 kWc : Pour familles, autoconsommation plus élevée"
-          ],
-          "highlight": "L'installation et les programmes de subvention réduisent considérablement vos obstacles financiers."
-        },
-        {
           "heading": "Les subventions réduisent de façon notable votre investissement net",
           "content": [
             "Les subventions gouvernementales réduisent considérablement les dépenses pour une installation PV en Suisse. La combinaison entre subvention directe et déduction fiscale améliore considérablement le calcul net.",
@@ -173,14 +141,6 @@
         {
           "question": "Quels coûts de réparation peuvent survenir ?",
           "answer": "Les coûts courants dépendent de l'entretien régulier. Une comparaison précoce des coûts avec des entreprises spécialisées aide à estimer les dépenses futures."
-        },
-        {
-          "question": "Quel est le coût d'une installation complète de 5 kWc sans stockage ?",
-          "answer": "Les coûts varient fortement selon la forme du toit et le choix des composants. Les subventions réduisent considérablement la charge financière."
-        },
-        {
-          "question": "Quels sont les coûts des installations complètes de 5 kWc et 10 kWc avec stockage ?",
-          "answer": "Les coûts sont principalement influencés par la capacité de la batterie. Un stockage d'électricité augmente considérablement l'autoconsommation dans le ménage."
         },
         {
           "question": "La location d'une installation complète est-elle une alternative ?",
@@ -221,18 +181,6 @@
           "highlight": "Plan for storage costs not just for the battery, but also consider the suitable hybrid inverter."
         },
         {
-          "heading": "5 kWp and 10 kWp with Battery: Comparing Complete System Costs",
-          "content": [
-            "The optimal costs for a PV system with a battery depend on your household's electricity needs. Smaller systems suit couples, while larger ones are ideal for families.",
-            "The right storage allows profitable use of generated electricity even outside sunny hours."
-          ],
-          "bullets": [
-            "5 kWp complete system: For 1–2 people, compact and targeted",
-            "10 kWp complete system: For families, higher self-consumption"
-          ],
-          "highlight": "Setup and incentive programs significantly reduce your financial hurdles."
-        },
-        {
           "heading": "Incentives Significantly Reduce Your Net Investment",
           "content": [
             "Government incentives markedly lower the expenses for a PV system in Switzerland. The combination of direct incentives and tax deductions improves the net calculation considerably.",
@@ -266,14 +214,6 @@
         {
           "question": "What repair costs can arise?",
           "answer": "Ongoing costs depend on regular maintenance. Early cost comparison with specialized firms helps estimate future expenses."
-        },
-        {
-          "question": "What does a 5 kWp complete system without battery cost?",
-          "answer": "Costs vary greatly depending on roof type and component choice. Incentives significantly reduce the financial effort."
-        },
-        {
-          "question": "What do 5 kWp and 10 kWp complete systems with battery cost?",
-          "answer": "Costs are significantly influenced by battery capacity. A power storage greatly increases household self-consumption."
         },
         {
           "question": "Is renting a complete system an alternative?",
@@ -314,18 +254,6 @@
           "highlight": "Pianificate i costi dell'accumulo tenendo conto non solo della batteria, ma anche dell'inverter ibrido adeguato."
         },
         {
-          "heading": "5 kWp e 10 kWp con accumulo: Confronto costi degli impianti completi",
-          "content": [
-            "I costi ottimali per un impianto fotovoltaico con accumulo dipendono dal fabbisogno elettrico della tua abitazione. I sistemi più piccoli sono adatti per le coppie, mentre quelli più grandi ai nuclei familiari.",
-            "Un accumulo adeguato consente l'uso redditizio dell'energia generata anche al di fuori delle ore di sole."
-          ],
-          "bullets": [
-            "Impianto completo da 5 kWp: Per 1-2 persone, compatto e mirato",
-            "Impianto completo da 10 kWp: Per famiglie, maggiore autoconsumo"
-          ],
-          "highlight": "L'installazione e i programmi di incentivazione riducono notevolmente le tue barriere finanziarie."
-        },
-        {
           "heading": "Gli incentivi riducono sensibilmente l'investimento netto",
           "content": [
             "Gli incentivi statali riducono notevolmente le spese per un impianto fotovoltaico in Svizzera. La combinazione tra incentivi diretti e deduzioni fiscali migliora significativamente il calcolo netto.",
@@ -359,14 +287,6 @@
         {
           "question": "Quali costi di riparazione possono sorgere?",
           "answer": "I costi correnti dipendono dalla manutenzione regolare. Un confronto dei costi anticipato con specialisti aiuta nella stima delle spese future."
-        },
-        {
-          "question": "Qual è il costo di un impianto completo da 5 kWp senza accumulo?",
-          "answer": "I costi variano molto in base alla forma del tetto e alla scelta dei componenti. Gli incentivi riducono significativamente l'onere finanziario."
-        },
-        {
-          "question": "Quali sono i costi degli impianti completi da 5 kWp e 10 kWp con accumulo?",
-          "answer": "I costi sono influenzati principalmente dalla capacità della batteria. Un accumulo aumenta notevolmente l'autoconsumo domestico."
         },
         {
           "question": "Il noleggio di un impianto completo è un'alternativa?",

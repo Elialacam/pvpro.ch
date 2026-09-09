@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRight, Shield, Wrench, CheckCircle, AlertCircle } fr
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
 
 const baseMetadata: Metadata = {
   title: "Entretien photovoltaïque coûts Suisse 2026 – Combien coûte la maintenance ? | PvPro.ch",
@@ -34,11 +35,11 @@ const faqs = [
   },
   {
     question: "Combien coûte un contrat d'entretien pour une installation solaire ?",
-    answer: "De nombreux installateurs proposent des contrats d'entretien pour 150–300 CHF par an, qui comprennent une inspection annuelle et de petites réparations.",
+    answer: "Le coût d'un contrat d'entretien n'est pas couvert par nos données. Demandez un prix écrit à l'installateur.",
   },
   {
     question: "Quelle est la durée de vie d'un onduleur ?",
-    answer: "Les onduleurs durent généralement 10 à 15 ans. Un remplacement coûte entre 1'500 et 3'000 CHF selon le modèle.",
+    answer: "La durée de vie et le coût de remplacement d'un onduleur ne sont pas couverts par nos données. Demandez ces informations à l'installateur.",
   },
   {
     question: "Perds-je la garantie si je fais l'entretien moi-même ?",
@@ -63,27 +64,19 @@ const prestations = [
   { title: "Contrôle du toit", text: "Lors de l'inspection annuelle, le toit autour du montage doit également être contrôlé — pour l'étanchéité et la stabilité de la sous-construction." },
 ];
 
-const couts = [
-  { prestation: "Inspection annuelle (sans nettoyage)", cout: "100–200 CHF" },
-  { prestation: "Nettoyage des modules", cout: "100–300 CHF selon la taille" },
-  { prestation: "Remplacement onduleur (après 10–15 ans)", cout: "1'500–3'000 CHF" },
-  { prestation: "Réparation petits dommages", cout: "200–500 CHF" },
-  { prestation: "Coûts annuels totaux (moyenne)", cout: "150–300 CHF/an", highlight: true },
-];
-
 const frequences = [
   { mesure: "Contrôle visuel", frequence: "2x par an (recommandé)" },
   { mesure: "Inspection professionnelle", frequence: "1x par an" },
   { mesure: "Nettoyage des modules", frequence: "Selon besoins, min. 1x par an" },
   { mesure: "Contrôle onduleur", frequence: "1x par an" },
   { mesure: "Contrôle électrique", frequence: "Tous les 2–3 ans" },
-  { mesure: "Remplacement onduleur", frequence: "Après 10–15 ans" },
+  { mesure: "Remplacement onduleur", frequence: "Selon l'état et les indications du fabricant" },
 ];
 
 const garanties = [
-  { komp: 'Modules', text: '25–30 ans de garantie de performance (min. 80% de la puissance nominale)' },
-  { komp: 'Onduleur', text: '5–12 ans de garantie fabricant, prolongeable' },
-  { komp: 'Montage', text: "Dépend de l'installateur, typiquement 5–10 ans" },
+  { komp: 'Modules', text: `${formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'ans', 'fr')} de durée de vie, avec ${ECONOMIC_FACTS.performanceWarranty.percent}% de performance après ${ECONOMIC_FACTS.performanceWarranty.afterYears} ans` },
+  { komp: 'Onduleur', text: 'Garantie selon le fabricant' },
+  { komp: 'Montage', text: "Garantie selon l'installateur" },
 ];
 
 export default function EntretienPhotovoltaiqueCoutsPage() {
@@ -107,14 +100,13 @@ export default function EntretienPhotovoltaiqueCoutsPage() {
               Entretien d&apos;une installation photovoltaïque en Suisse — Coûts et déroulement
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Une installation photovoltaïque nécessite peu d&apos;entretien — mais pas aucun. Celui qui contrôle et entretient régulièrement son installation garantit la pleine puissance pendant toute la durée de vie de 25 à 30 ans. Cette page explique ce que comprend l&apos;entretien, ce qu&apos;il coûte et à quelle fréquence l&apos;installation doit être contrôlée.
+               Une installation photovoltaïque nécessite peu d&apos;entretien, mais pas aucun. Un contrôle régulier aide à préserver son fonctionnement pendant toute sa durée de vie.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: '150–300 CHF', sub: "coûts d'entretien typiques par an", note: "incl. inspection et petit nettoyage" },
               { val: '1x par an', sub: "inspection recommandée", note: "professionnelle par une entreprise spécialisée" },
-              { val: '25–30 ans', sub: "durée de vie avec bon entretien", note: "avec garantie de performance des fabricants" },
+               { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'ans', 'fr'), sub: "durée de vie des modules", note: SOURCE_NOTES.fr },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -136,18 +128,17 @@ export default function EntretienPhotovoltaiqueCoutsPage() {
               Pourquoi l&apos;entretien est-il important ?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Une installation négligée produit moins d&apos;électricité — souvent sans que le propriétaire s&apos;en aperçoive. Des modules encrassés, des connexions desserrées ou un onduleur vieillissant peuvent réduire la production de 10–20%.
+               Une installation négligée peut produire moins d&apos;électricité sans que le propriétaire s&apos;en aperçoive.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              Un entretien régulier protège votre investissement et garantit que l&apos;installation fonctionne toujours à un niveau optimal — pendant toute la durée de vie de 25 à 30 ans.
+               Un entretien régulier protège votre investissement et aide l&apos;installation à fonctionner correctement.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { icon: <AlertCircle className="w-5 h-5" />, label: 'Installation non entretenue', val: '−10–20% de rendement', color: 'bg-red-50 border-red-200 text-red-700' },
-              { icon: <CheckCircle className="w-5 h-5" />, label: 'Installation entretenue', val: '100% de performance', color: 'bg-green-50 border-green-200 text-green-700' },
-              { icon: <Shield className="w-5 h-5" />, label: 'Protection garantie', val: '25–30 ans', color: 'bg-blue-50 border-blue-200 text-blue-700' },
-              { icon: <Wrench className="w-5 h-5" />, label: "Coûts d'entretien", val: 'dès 150 CHF/an', color: 'bg-orange-50 border-orange-200 text-orange-700' },
+               { icon: <AlertCircle className="w-5 h-5" />, label: 'Installation non entretenue', val: 'Risque de baisse de production', color: 'bg-red-50 border-red-200 text-red-700' },
+               { icon: <CheckCircle className="w-5 h-5" />, label: 'Installation entretenue', val: 'Contrôle du fonctionnement', color: 'bg-green-50 border-green-200 text-green-700' },
+               { icon: <Shield className="w-5 h-5" />, label: 'Durée des modules', val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'ans', 'fr'), color: 'bg-blue-50 border-blue-200 text-blue-700' },
             ].map(item => (
               <div key={item.label} className={`rounded-2xl p-5 border ${item.color} flex flex-col items-center text-center gap-2`}>
                 {item.icon}
@@ -179,31 +170,6 @@ export default function EntretienPhotovoltaiqueCoutsPage() {
 
         {/* ── Coûts & Fréquences ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div>
-            <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Aperçu des coûts</p>
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-5">Combien coûte l&apos;entretien en Suisse ?</h2>
-            <p className="text-gray-600 text-sm leading-relaxed mb-5">
-              Sur toute la durée de vie de 25 ans, cela représente des coûts d&apos;entretien d&apos;environ 4&apos;000–7&apos;500 CHF — un faible montant par rapport à l&apos;investissement total.
-            </p>
-            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
-                    <th className="text-left px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Prestation</th>
-                    <th className="text-right px-5 py-3.5 text-white/80 font-semibold text-xs uppercase tracking-wider">Coût</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {couts.map((row, i) => (
-                    <tr key={row.prestation} className={row.highlight ? 'bg-orange-50' : i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className={`px-5 py-3.5 text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-700'}`}>{row.prestation}</td>
-                      <td className={`px-5 py-3.5 text-right font-bold text-sm ${row.highlight ? 'text-[#fcb210]' : 'text-gray-900'}`}>{row.cout}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Intervalles d&apos;entretien</p>
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-5">À quelle fréquence l&apos;installation doit-elle être entretenue ?</h2>

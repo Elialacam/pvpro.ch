@@ -5,15 +5,20 @@ import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import WieFunktioniertInteractive from '@/components/WieFunktioniertInteractive';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
+
+const itRange = (range: { readonly min: number; readonly max: number }, unit: string) =>
+  formatRangeForLocale(range, unit, 'it');
+const storageExampleKwh = 10;
 
 const wfFaqs = [
   { question: 'Come funziona un impianto solare, spiegato semplicemente?', answer: "I moduli solari producono corrente continua dalla luce solare. Un inverter la converte in corrente alternata utilizzabile, che viene consumata direttamente in casa o immessa in rete." },
   { question: 'Qual è la differenza tra fotovoltaico e impianto solare?', answer: "Il fotovoltaico produce elettricità dalla luce. La termosolare invece produce calore (es. per l'acqua calda). Nell'uso quotidiano, «impianto solare» viene spesso usato come sinonimo di fotovoltaico." },
-  { question: 'Quanto produce un modulo solare da 800 watt al giorno?', answer: "Un sistema da 800 watt produce in estate circa 2–4 kWh al giorno. In inverno la produzione è notevolmente inferiore, poiché i giorni sono più corti e il sole è più basso." },
+  { question: 'Quanto produce un impianto solare?', answer: `Sull'Altopiano produce ${itRange(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh per kWp all’anno')}. In Ticino e Vallese produce ${itRange(ECONOMIC_FACTS.production.ticinoValaisKwhPerKwp, 'kWh per kWp all’anno')}.` },
   { question: 'Un pannello solare può far funzionare un frigorifero?', answer: "Sì, un pannello solare può far funzionare un frigorifero — ma di solito non in modo permanente da solo. Per questo è necessario un sistema più grande o un accumulo." },
   { question: 'Si può essere autonomi con il fotovoltaico?', answer: "Non completamente. Senza accumulo e in inverno, si rimane parzialmente dipendenti dall'energia di rete. Con un grande accumulo a batteria, tuttavia, si possono raggiungere gradi di autoapprovvigionamento molto elevati." },
   { question: 'Cosa produce un impianto solare in inverno?', answer: "In inverno un impianto solare produce notevolmente meno elettricità — ma non zero. I giorni più corti e gli angoli solari più bassi riducono la produzione, ma l'elettricità viene comunque generata." },
-  { question: 'Quanto dura un accumulo da 10 kWh?', answer: "Un accumulo da 10 kWh copre, a seconda del nucleo familiare, la sera e la notte. Con un consumo elevato (es. pompa di calore), si scarica più rapidamente." },
+  { question: `Quanto dura un accumulo da ${storageExampleKwh} kWh?`, answer: `Un accumulo da ${storageExampleKwh} kWh copre, a seconda del nucleo familiare, la sera e la notte. Con un consumo elevato, si scarica più rapidamente.` },
 ];
 
 export const metadata: Metadata = pageMetadata({
@@ -82,10 +87,8 @@ export default function ComeFunzionaSolarePage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
-              { val: '25–30 anni', label: 'Durata moduli' },
-              { val: '22%', label: 'Rend. max.' },
-              { val: '9–11k', label: 'kWh/anno per 10 kWp' },
-              { val: '0 CHF', label: 'Carburante necessario' },
+              { val: itRange(ECONOMIC_FACTS.moduleLifetimeYears, 'anni'), label: 'Durata moduli' },
+              { val: itRange({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh/anno'), label: 'per 10 kWp sull’Altopiano' },
             ].map((s) => (
               <div key={s.label}>
                 <p className="text-2xl sm:text-3xl font-bold text-[#fcb210]">{s.val}</p>
@@ -93,6 +96,7 @@ export default function ComeFunzionaSolarePage() {
               </div>
             ))}
           </div>
+          <p className="text-xs text-gray-500 mt-3">{SOURCE_NOTES.it}</p>
         </div>
       </section>
 

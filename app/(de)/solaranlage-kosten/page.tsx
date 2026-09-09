@@ -4,10 +4,22 @@ import CtaAnfrage from '@/components/CtaAnfrage';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
+import {
+  ECONOMIC_FACTS,
+  STORAGE_PRICE_NOTES,
+  SYSTEM_PRICE_NOTES,
+  formatChf,
+  formatRangeForLocale,
+  formatSwissNumber,
+  getSourceNote,
+} from '@/lib/facts';
+
+const tenKwpGross = formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de');
+const tenKwpNet = `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox)} CHF`;
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solaranlage Kosten Schweiz – Preise und Förderungen',
-  description: 'Was kostet eine Solaranlage in der Schweiz? Aktuelle Preise 2026: 15\'000 – 35\'000 CHF für ein Einfamilienhaus. Kosten pro kWp, Förderungen und Speicher. Kostenlose Offerten vergleichen.',
+  description: `Was kostet eine Solaranlage in der Schweiz? Eine 10-kWp-Anlage kostet brutto ${tenKwpGross}, ohne Speicher. Kosten pro kWp, Förderungen und Speicher.`,
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-kosten',
     languages: {
@@ -20,7 +32,7 @@ export const metadata: Metadata = pageMetadata({
   },
   openGraph: {
     title: 'Solaranlage Kosten Schweiz – Aktuelle Preise & Förderungen',
-    description: 'Aktuelle Preise für Solaranlagen in der Schweiz. 15\'000 – 35\'000 CHF für Einfamilienhaus nach Förderung. Alle Infos zu Kosten, kWp-Preis und Speicher.',
+    description: `Aktuelle Preise für Solaranlagen in der Schweiz. 10 kWp kosten brutto ${tenKwpGross} und nach ungefährer RU ${tenKwpNet}.`,
     url: 'https://www.pvpro.ch/solaranlage-kosten',
     type: 'article',
     locale: 'de_CH',
@@ -29,14 +41,14 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/solaranlage-kosten', locale: 'de' });
 
 const costTable = [
-  { size: '5 kWp', production: '4\'500 – 5\'000 kWh', price: '13\'000 – 18\'000 CHF', area: 'ca. 30 – 35 m²', ideal: 'Kleines Haus' },
-  { size: '8 kWp', production: '7\'500 – 8\'000 kWh', price: '18\'000 – 25\'000 CHF', area: 'ca. 50 – 55 m²', ideal: 'Einfamilienhaus' },
-  { size: '10 kWp', production: '9\'000 – 10\'000 kWh', price: '22\'000 – 30\'000 CHF', area: 'ca. 62 – 68 m²', ideal: 'Grosses EFH / MFH' },
+  { size: '5 kWp', production: `${formatSwissNumber(5 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(5 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh`, price: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[5], 'CHF', 'de'), area: `${formatSwissNumber(5 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`, ideal: 'Kleines Haus' },
+  { size: '8 kWp', production: `${formatSwissNumber(8 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(8 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh`, price: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[8], 'CHF', 'de'), area: `${formatSwissNumber(8 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`, ideal: 'Einfamilienhaus' },
+  { size: '10 kWp', production: `${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh`, price: tenKwpGross, area: `${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`, ideal: 'Grosses EFH / MFH' },
 ];
 
 const storageTable = [
-  { size: '5 kWh', price: '4\'000 – 6\'000 CHF' },
-  { size: '10 kWh', price: '7\'000 – 10\'000 CHF' },
+  { size: '5 kWh', price: formatRangeForLocale(ECONOMIC_FACTS.storageCosts.byCapacity[5], 'CHF', 'de') },
+  { size: '10 kWh', price: formatRangeForLocale(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF', 'de') },
 ];
 
 const costFactors = [
@@ -65,35 +77,35 @@ const costFactors = [
 const faqs = [
   {
     question: 'Was kostet eine Photovoltaikanlage für ein Einfamilienhaus?',
-    answer: 'Die meisten Solaranlagen für Einfamilienhäuser kosten in der Schweiz zwischen 18\'000 und 30\'000 CHF nach Abzug der Förderungen (EIV). Für eine typische Anlage von 8 bis 10 kWp ist dies der übliche Preisbereich.',
+    answer: `Eine Anlage mit 8 kWp kostet brutto ${formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[8], 'CHF', 'de')}, eine Anlage mit 10 kWp brutto ${tenKwpGross}. Die Preise gelten ohne Speicher.`,
   },
   {
     question: 'Wie viel kostet eine 10 kW Solaranlage in der Schweiz?',
-    answer: 'Eine Photovoltaikanlage mit 10 kWp kostet in der Schweiz typischerweise zwischen 22\'000 und 30\'000 CHF. Nach Abzug der Einmalvergütung (EIV) vom Bund können die Nettokosten deutlich tiefer ausfallen. Eine solche Anlage produziert ca. 9\'000 – 10\'000 kWh Strom pro Jahr.',
+    answer: `Eine Photovoltaikanlage mit 10 kWp kostet brutto ${tenKwpGross}. Nach Abzug der ungefähren RU von ${formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)} bleiben ${tenKwpNet}. Im Mittelland produziert sie ${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh Strom pro Jahr.`,
   },
   {
     question: 'Wie viel Strom produziert eine Solaranlage?',
-    answer: 'In der Schweiz produziert eine Solaranlage pro kWp Leistung etwa 900 – 1\'000 kWh Strom pro Jahr. Eine 10 kWp Anlage erzeugt also rund 9\'000 – 10\'000 kWh jährlich – das reicht oft, um einen grossen Teil des Stromverbrauchs eines Einfamilienhauses zu decken.',
+    answer: `Im Mittelland produziert eine Solaranlage ${formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh pro kWp und Jahr', 'de')}. Eine 10-kWp-Anlage erzeugt damit ${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh jährlich.`,
   },
   {
     question: 'Lohnt sich eine Solaranlage in der Schweiz?',
-    answer: 'Ja. Durch steigende Strompreise und die verfügbaren Förderungen amortisieren sich viele Anlagen in der Schweiz innerhalb von 10 bis 15 Jahren. Bei einer Lebensdauer von 25 – 30 Jahren bedeutet das jahrelanger kostenloser Strom vom eigenen Dach.',
+    answer: `Ja. Im Mittelland liegt die Amortisationszeit bei ${formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahren', 'de')}. Module halten typischerweise ${formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre', 'de')}.`,
   },
   {
     question: 'Wie viele Solarmodule braucht ein Einfamilienhaus?',
-    answer: 'Für eine typische Anlage von 8 bis 10 kWp werden in der Regel 20 bis 30 Solarmodule benötigt, abhängig von der Modulleistung (meist 400 – 450 Watt pro Modul).',
+    answer: 'Die Zahl der Module hängt von der gewünschten Anlagenleistung und der Leistung der gewählten Module ab.',
   },
   {
     question: 'Wie gross muss mein Dach für eine Solaranlage sein?',
-    answer: 'Für 1 kWp Leistung werden ungefähr 6 bis 7 m² Dachfläche benötigt. Eine 10 kWp Anlage benötigt somit ca. 60 – 70 m² geeignete Dachfläche.',
+    answer: `Für 1 kWp Leistung werden ungefähr ${formatSwissNumber(ECONOMIC_FACTS.roofAreaM2PerKwp)} m² Dachfläche benötigt. Eine 10-kWp-Anlage benötigt somit rund ${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m² geeignete Dachfläche.`,
   },
   {
     question: 'Welche Förderungen gibt es für Solaranlagen in der Schweiz?',
-    answer: 'In der Schweiz gibt es die Einmalvergütung (EIV) vom Bund. Die typischen Förderbeträge liegen bei ungefähr 300 – 400 CHF pro kWp. Zusätzlich bieten viele Kantone und Gemeinden eigene Förderprogramme. Die Investition ist zudem steuerlich absetzbar.',
+    answer: `In der Schweiz gibt es die RU vom Bund. Sie beträgt bis 30 kWp ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} pro kWp, zuzüglich Grundbeitrag. Zusätzlich bieten Kantone und Gemeinden eigene Förderprogramme.`,
   },
   {
     question: 'Was kostet eine Solaranlage mit Batteriespeicher?',
-    answer: 'Ein Batteriespeicher erhöht die Kosten der Solaranlage zusätzlich: ein 5 kWh Speicher kostet ca. 4\'000 – 6\'000 CHF, ein 10 kWh Speicher ca. 7\'000 – 10\'000 CHF. Mit Speicher erhöht sich der Eigenverbrauch des selbst produzierten Stroms deutlich.',
+    answer: `Ein 5-kWh-Speicher kostet installiert ${formatRangeForLocale(ECONOMIC_FACTS.storageCosts.byCapacity[5], 'CHF', 'de')}, ein 10-kWh-Speicher ${formatRangeForLocale(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF', 'de')}.`,
   },
 ];
 
@@ -147,13 +159,14 @@ export default function SolaranlageKostenPage() {
                 Für ein typisches Einfamilienhaus liegen die Preise meist zwischen:
               </p>
               <div className="inline-block bg-primary text-white rounded-2xl px-10 py-6 mb-8">
-                <div className="text-4xl sm:text-5xl font-bold mb-1">15'000 – 35'000 CHF</div>
-                <div className="text-primary-100 text-base">nach Abzug der Förderungen</div>
+                <div className="text-4xl sm:text-5xl font-bold mb-1">{tenKwpGross}</div>
+                <div className="text-primary-100 text-base">10 kWp brutto, ohne Speicher</div>
               </div>
               <p className="text-gray-600">
                 Eine durchschnittliche Anlage für ein Einfamilienhaus hat eine Leistung von etwa <strong>8 bis 10 kWp</strong>.
               </p>
             </div>
+            <p className="max-w-4xl mx-auto text-xs text-gray-500">{SYSTEM_PRICE_NOTES.de} {getSourceNote('de')}</p>
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="/images/asset-haus-luftbild-2.webp"
@@ -243,7 +256,7 @@ export default function SolaranlageKostenPage() {
               In der Schweiz liegen die durchschnittlichen Kosten bei:
             </p>
             <div className="bg-white rounded-2xl border-2 border-primary p-8 text-center mb-6">
-              <div className="text-4xl font-bold text-primary mb-2">1'800 – 2'800 CHF <span className="text-2xl">pro kWp</span></div>
+              <div className="text-4xl font-bold text-primary mb-2">{formatRangeForLocale(ECONOMIC_FACTS.systemCosts.perKwp, 'CHF', 'de')} <span className="text-2xl">pro kWp</span></div>
               <p className="text-gray-600 text-sm mt-2">
                 Der Preis pro kWp sinkt bei grösseren Anlagen, da Installationskosten besser verteilt werden können.
               </p>
@@ -263,22 +276,23 @@ export default function SolaranlageKostenPage() {
               Eine Photovoltaikanlage mit <strong>10 kWp Leistung</strong> kostet in der Schweiz typischerweise:
             </p>
             <div className="bg-primary-50 rounded-2xl p-8 mb-6">
-              <div className="text-4xl font-bold text-primary mb-3">22'000 – 30'000 CHF</div>
-              <p className="text-gray-700 text-sm">nach Abzug der Förderungen</p>
+              <div className="text-4xl font-bold text-primary mb-3">{tenKwpGross}</div>
+              <p className="text-gray-700 text-sm">Bruttokosten, ohne Speicher</p>
+              <p className="text-green-700 font-bold mt-3">{tenKwpNet} netto nach ungefährer RU</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 mb-6">
               <div className="flex items-start gap-3">
                 <Sun className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-gray-900 mb-1">Jährliche Stromproduktion</p>
-                  <p className="text-gray-600">Eine 10 kWp Anlage produziert in der Schweiz ungefähr <strong>9'000 – 10'000 kWh Strom pro Jahr</strong>. Das reicht oft aus, um einen grossen Teil des Stromverbrauchs eines Einfamilienhauses zu decken.</p>
+                  <p className="text-gray-600">Eine 10-kWp-Anlage produziert im Mittelland ungefähr <strong>{formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis {formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh Strom pro Jahr</strong>.</p>
                 </div>
               </div>
             </div>
             <div className="flex items-start gap-3 p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
               <CheckCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
               <p className="text-yellow-800 text-sm">
-                Für eine 10 kWp Anlage benötigen Sie ca. <strong>62 – 68 m² Dachfläche</strong> und 20 – 25 Solarmodule.
+                Für eine 10-kWp-Anlage benötigen Sie rechnerisch rund <strong>{formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m² Dachfläche</strong>.
               </p>
             </div>
           </div>
@@ -327,6 +341,7 @@ export default function SolaranlageKostenPage() {
                 </div>
               ))}
             </div>
+            <p className="text-xs text-gray-500">{STORAGE_PRICE_NOTES.de} {getSourceNote('de')}</p>
 
             <p className="text-gray-600 mb-4">
               Ein Speicher kann den Eigenverbrauch des selbst produzierten Stroms deutlich erhöhen.
@@ -390,7 +405,7 @@ export default function SolaranlageKostenPage() {
               <div className="flex items-start gap-4">
                 <PiggyBank className="w-10 h-10 text-primary flex-shrink-0" />
                 <div>
-                  <p className="text-2xl font-bold text-primary mb-1">300 – 400 CHF pro kWp</p>
+                  <p className="text-2xl font-bold text-primary mb-1">{formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} pro kWp bis 30 kWp</p>
                   <p className="text-gray-700">Typische Förderbeträge des Bundes (EIV). Die Höhe hängt von der Anlagengrösse ab.</p>
                 </div>
               </div>
@@ -404,19 +419,15 @@ export default function SolaranlageKostenPage() {
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Bruttokosten</span>
-                  <span className="font-medium">CHF 26'000</span>
+                  <span className="font-medium">{tenKwpGross}</span>
                 </div>
                 <div className="flex justify-between text-primary">
-                  <span>– Einmalvergütung EIV (ca. 350 CHF/kWp)</span>
-                  <span className="font-medium">– CHF 3'500</span>
-                </div>
-                <div className="flex justify-between text-primary">
-                  <span>– Kantonale Förderung (Beispiel)</span>
-                  <span className="font-medium">– CHF 2'000</span>
+                  <span>– RU Pronovo</span>
+                  <span className="font-medium">– {formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}</span>
                 </div>
                 <div className="border-t border-gray-200 pt-3 flex justify-between">
-                  <span className="font-semibold text-gray-900">Effektive Kosten (Beispiel)</span>
-                  <span className="font-bold text-xl text-primary">CHF 20'500</span>
+                  <span className="font-semibold text-gray-900">Nettokosten nach ungefährer RU</span>
+                  <span className="font-bold text-xl text-primary">{tenKwpNet}</span>
                 </div>
               </div>
               <p className="text-xs text-gray-400 mt-3">Richtwert. Tatsächliche Förderungen je nach Kanton und Anlagengrösse.</p>
@@ -494,7 +505,7 @@ export default function SolaranlageKostenPage() {
           <div className="max-w-2xl mx-auto bg-white rounded-2xl border border-gray-200 p-8 text-center">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Kurz gesagt</h2>
             <p className="text-gray-600 mb-4">Eine Solaranlage kostet in der Schweiz typischerweise:</p>
-            <div className="text-4xl font-bold text-primary mb-3">15'000 – 35'000 CHF</div>
+            <div className="text-4xl font-bold text-primary mb-3">{tenKwpGross}</div>
             <p className="text-gray-600 text-sm mb-6">für ein Einfamilienhaus</p>
             <p className="text-gray-500 text-sm">
               Die genauen Kosten hängen von der Dachfläche, der Anlagengrösse und den möglichen Förderungen ab.

@@ -4,6 +4,10 @@ import { ChevronRight, CheckCircle, Info, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FoerderRechner from '@/components/FoerderRechner';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatChfForLocale, formatRangeForLocale } from '@/lib/facts';
+
+const facts = ECONOMIC_FACTS;
+const frRange = (range: { min: number; max: number }, unit: string) => formatRangeForLocale(range, unit, 'fr');
 
 const baseMetadata: Metadata = {
   title: 'Subventions solaires en Suisse 2026 | PvPro.ch',
@@ -21,9 +25,9 @@ const baseMetadata: Metadata = {
 };
 
 const tableRows = [
-  { size: '5 kWp',  foerderung: "env. 1'800 CHF", gesamtkosten: "env. 13'000 CHF", effektiv: "env. 11'200 CHF" },
-  { size: '8 kWp',  foerderung: "env. 2'800 CHF", gesamtkosten: "env. 20'800 CHF", effektiv: "env. 18'000 CHF", highlight: true },
-  { size: '10 kWp', foerderung: "env. 3'500 CHF", gesamtkosten: "env. 25'000 CHF", effektiv: "env. 21'500 CHF" },
+  { size: '5 kWp', foerderung: formatChfForLocale(5 * facts.incentives.pronovoPerKwpUpTo30, 'fr'), gesamtkosten: frRange(facts.systemCosts.bySize[5], 'CHF'), effektiv: frRange({ min: facts.systemCosts.bySize[5].min - 5 * facts.incentives.pronovoPerKwpUpTo30, max: facts.systemCosts.bySize[5].max - 5 * facts.incentives.pronovoPerKwpUpTo30 }, 'CHF') },
+  { size: '8 kWp', foerderung: formatChfForLocale(8 * facts.incentives.pronovoPerKwpUpTo30, 'fr'), gesamtkosten: frRange(facts.systemCosts.bySize[8], 'CHF'), effektiv: frRange({ min: facts.systemCosts.bySize[8].min - 8 * facts.incentives.pronovoPerKwpUpTo30, max: facts.systemCosts.bySize[8].max - 8 * facts.incentives.pronovoPerKwpUpTo30 }, 'CHF'), highlight: true },
+  { size: '10 kWp', foerderung: formatChfForLocale(facts.incentives.tenKwpApprox, 'fr'), gesamtkosten: frRange(facts.systemCosts.bySize[10], 'CHF'), effektiv: frRange({ min: facts.systemCosts.bySize[10].min - facts.incentives.tenKwpApprox, max: facts.systemCosts.bySize[10].max - facts.incentives.tenKwpApprox }, 'CHF') },
 ];
 
 const processSteps = [
@@ -59,9 +63,9 @@ export default function SubventionsSolairesPage() {
               </p>
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: '300–400', unit: 'CHF/kWp', label: 'Subvention' },
-                  { value: '10–15',   unit: 'ans',      label: 'Amortissement' },
-                  { value: '30%',     unit: 'rabais',   label: 'Investissement' },
+                   { value: String(facts.incentives.pronovoPerKwpUpTo30), unit: 'CHF/kWp', label: 'Subvention' },
+                   { value: `${facts.incentives.federalSharePercent.min}–${facts.incentives.federalSharePercent.max}`, unit: '%', label: 'Part fédérale' },
+                   { value: String(facts.incentives.combinedMaxPercent), unit: '% max.', label: 'Total des aides' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <p className="text-2xl font-bold text-white">{s.value}</p>
@@ -120,7 +124,7 @@ export default function SubventionsSolairesPage() {
             <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Aperçu des subventions</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">Quel est le montant de la subvention ?</h2>
             <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-              La subvention est typiquement de <strong className="text-gray-800">300–400 CHF par kWp</strong> installé. Plus l'installation est grande, plus le montant est élevé.
+               La RU est de <strong className="text-gray-800">{formatChfForLocale(facts.incentives.pronovoPerKwpUpTo30, 'fr')} par kWp</strong> jusqu'à 30 kWp, plus une contribution de base.
             </p>
           </div>
           <div className="max-w-3xl mx-auto">
@@ -144,7 +148,7 @@ export default function SubventionsSolairesPage() {
               ))}
             </div>
             <p className="text-xs text-gray-400 text-center mt-4 flex items-center justify-center gap-1.5">
-              <Info className="w-3.5 h-3.5" />Valeurs indicatives. Le montant exact dépend de la structure de subvention actuelle et de la taille de l'installation.
+               <Info className="w-3.5 h-3.5" />{SOURCE_NOTES.fr} {SYSTEM_PRICE_NOTES.fr}
             </p>
           </div>
         </div>
@@ -201,16 +205,16 @@ export default function SubventionsSolairesPage() {
               <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Exemple de calcul</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">Exemple pour une maison individuelle</h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                De nombreuses maisons individuelles installent un système de <strong>8–10 kWp</strong>, produisant environ <strong>8'000–10'000 kWh</strong> d'électricité par an.
+                 Exemple ci-dessous pour une installation de <strong>10 kWp</strong>.
               </p>
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-gray-100">
                   <p className="text-gray-700 font-medium">Coût de l'installation solaire (10 kWp)</p>
-                  <p className="font-bold text-gray-900">CHF 25'000</p>
+                   <p className="font-bold text-gray-900">{frRange(facts.systemCosts.bySize[10], 'CHF')}</p>
                 </div>
                 <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-orange-100" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
                   <p className="text-orange-700 font-medium">Rétribution unique (RU)</p>
-                  <p className="font-bold text-[#fcb210]">− CHF 3'500</p>
+                   <p className="font-bold text-[#fcb210]">− {formatChfForLocale(facts.incentives.tenKwpApprox, 'fr')}</p>
                 </div>
                 <div className="h-px bg-gray-200" />
                 <div className="flex items-center justify-between rounded-2xl px-6 py-5 border-2 border-green-200" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
@@ -218,7 +222,7 @@ export default function SubventionsSolairesPage() {
                     <p className="font-bold text-gray-900">Investissement effectif</p>
                     <p className="text-xs text-green-600 mt-0.5">Après déduction de la subvention fédérale</p>
                   </div>
-                  <p className="font-bold text-green-700 text-2xl">CHF 21'500</p>
+                   <p className="font-bold text-green-700 text-2xl">{frRange({ min: facts.systemCosts.bySize[10].min - facts.incentives.tenKwpApprox, max: facts.systemCosts.bySize[10].max - facts.incentives.tenKwpApprox }, 'CHF')}</p>
                 </div>
               </div>
             </div>
@@ -234,7 +238,7 @@ export default function SubventionsSolairesPage() {
               <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Rentabilité</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-5">Une installation solaire est-elle rentable malgré les coûts ?</h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                Grâce aux subventions de l'État et à la hausse des prix de l'électricité, une installation solaire est rentable pour de nombreux ménages suisses. La plupart s'amortissent en <strong>10–15 ans</strong> pour une durée de vie de 25–30 ans.
+                 Grâce aux subventions de l'État et à l'autoconsommation, une installation peut être rentable. Sur le Plateau, l'amortissement indicatif est de <strong>{frRange(facts.systemPaybackYears.plateau, 'ans')}</strong>, pour une durée de vie des modules de <strong>{frRange(facts.moduleLifetimeYears, 'ans')}</strong>.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">La rentabilité effective dépend des facteurs suivants :</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

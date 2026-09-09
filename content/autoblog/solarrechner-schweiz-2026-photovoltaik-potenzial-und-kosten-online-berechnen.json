@@ -38,7 +38,7 @@
           "heading": "So funktioniert ein moderner Solarrechner: Daten und Algorithmen",
           "content": [
             "Ein leistungsfähiger Solarrechner Schweiz nutzt 3D-Modelle und präzise MeteoSchweiz-Wetterdaten. Diese erfassen die genaue Geometrie Ihres Hauses und prognostizieren die Globalstrahlung für das ganze Jahr.",
-            "Die Integration der sogenannten Sektorkopplung verbessert die Simulation. Die Software bezieht den Strombedarf von Wärmepumpen oder Elektroautos ein und prognostiziert die Wirtschaftlichkeit über 25 Jahre."
+            "Die Integration der sogenannten Sektorkopplung verbessert die Simulation. Die Software bezieht den Strombedarf von Wärmepumpen oder Elektroautos ein."
           ],
           "bullets": [
             "Wichtige Eingabewerte: Jahresstromverbrauch, Dachneigung, verfügbares Kapital",
@@ -48,7 +48,7 @@
         {
           "heading": "Resultate richtig interpretieren: Amortisation und Eigenverbrauch",
           "content": [
-            "Hauptkennzahlen beim Solarrechner Schweiz sind Amortisationszeit und Eigenverbrauchsquote. Eine Amortisationsdauer von 10 bis 15 Jahren ist realistisch. Schon ab dem ersten Tag senkt die Anlage Fixkosten.",
+            "Hauptkennzahlen beim Solarrechner Schweiz sind Amortisationszeit und Eigenverbrauchsquote.",
             "Es ist wichtig, Eigenverbrauchsquote und Autarkiegrad zu unterscheiden. Hoher Eigenverbrauch ist oft wirtschaftlicher, während Autarkiegrade die Unabhängigkeit vom Netz zeigen."
           ],
           "bullets": [
@@ -126,7 +126,7 @@
           "heading": "Comment fonctionne un calculateur solaire moderne : Données et algorithmes",
           "content": [
             "Un calculateur solaire performant Suisse utilise des modèles 3D et des données météorologiques précises de MeteoSuisse. Celles-ci capturent la géométrie exacte de votre maison et prédisent le rayonnement global toute l'année.",
-            "L'intégration du couplage sectoriel améliore la simulation. Le logiciel inclut la consommation électrique de pompes à chaleur ou de voitures électriques et prédit la rentabilité sur 25 ans."
+            "L'intégration du couplage sectoriel améliore la simulation. Le logiciel inclut la consommation électrique de pompes à chaleur ou de voitures électriques."
           ],
           "bullets": [
             "Valeurs d'entrée importantes : consommation annuelle d'énergie, pente du toit, capital disponible",
@@ -136,7 +136,7 @@
         {
           "heading": "Interpréter correctement les résultats : Amortissement et autoconsommation",
           "content": [
-            "Les principaux indicateurs d'un calculateur solaire Suisse sont le temps d'amortissement et le taux d'autoconsommation. Un amortissement sur 10 à 15 ans est réaliste. Dès le premier jour, l'installation réduit les coûts fixes.",
+            "Les principaux indicateurs d'un calculateur solaire Suisse sont le temps d'amortissement et le taux d'autoconsommation.",
             "Il est important de différencier le taux d'autoconsommation du degré d'autonomie. Une forte autoconsommation est souvent plus économique, tandis que les degrés d'autonomie montrent l'indépendance vis-à-vis du réseau."
           ],
           "bullets": [
@@ -214,7 +214,7 @@
           "heading": "How a Modern Solar Calculator Works: Data and Algorithms",
           "content": [
             "A powerful Swiss Solar Calculator uses 3D models and precise MeteoSchweiz weather data. These capture the exact geometry of your house and forecast the global radiation for the entire year.",
-            "The integration of so-called sector coupling improves the simulation. The software incorporates the electricity demand from heat pumps or electric vehicles and forecasts economic viability over 25 years."
+            "The integration of so-called sector coupling improves the simulation. The software incorporates the electricity demand from heat pumps or electric vehicles."
           ],
           "bullets": [
             "Important input values: annual electricity consumption, roof pitch, available capital",
@@ -224,7 +224,7 @@
         {
           "heading": "Correctly Interpreting Results: Amortization and Self-consumption",
           "content": [
-            "Key figures in the Swiss Solar Calculator are the amortization period and self-consumption rate. An amortization period of 10 to 15 years is realistic. Even from the first day, the system reduces fixed costs.",
+            "Key figures in the Swiss Solar Calculator are the amortization period and self-consumption rate.",
             "It is important to distinguish between self-consumption rate and degree of autonomy. High self-consumption is often more economical, while degrees of autonomy indicate independence from the grid."
           ],
           "bullets": [
@@ -302,7 +302,7 @@
           "heading": "Come funziona un moderno calcolatore solare: dati e algoritmi",
           "content": [
             "Un potente calcolatore solare Svizzera utilizza modelli 3D e accurate previsioni meteorologiche di MeteoSchweiz. Questi modelli considerano la geometria esatta della tua casa e previsione l'irradiazione solare globale per tutto l'anno.",
-            "L'integrazione del cosiddetto accoppiamento settoriale migliora la simulazione. Il software tiene conto del fabbisogno energetico di pompe di calore o auto elettriche e prevede la redditività per 25 anni."
+            "L'integrazione del cosiddetto accoppiamento settoriale migliora la simulazione. Il software tiene conto del fabbisogno energetico di pompe di calore o auto elettriche."
           ],
           "bullets": [
             "Valori di input importanti: consumo annuo di elettricità, inclinazione del tetto, capitale disponibile",
@@ -312,7 +312,7 @@
         {
           "heading": "Interpretare correttamente i risultati: ammortamento e autoconsumo",
           "content": [
-            "Le principali metriche di un calcolatore solare Svizzera sono il tempo di ammortamento e la quota di autoconsumo. Un periodo di ammortamento compreso tra 10 e 15 anni è realistico. Già dal primo giorno, l'impianto riduce i costi fissi.",
+            "Le principali metriche di un calcolatore solare Svizzera sono il tempo di ammortamento e la quota di autoconsumo.",
             "È importante distinguere tra quota di autoconsumo e grado di autonomia. Un alto autoconsumo è spesso più economico, mentre i gradi di autonomia indicano l'indipendenza dalla rete."
           ],
           "bullets": [

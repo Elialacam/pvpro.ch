@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRight, Sun, CheckCircle, Zap, Battery, Thermometer, 
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, STORAGE_PRICE_NOTES, SYSTEM_PRICE_NOTES, formatRangeForLocale, getSourceNote } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Photovoltaik Komplettlösung Schweiz 2026 – Alles aus einer Hand | PvPro.ch',
@@ -63,7 +64,7 @@ const komponenten = [
       <>
         Speichert überschüssigen Solarstrom für die Nutzung abends und nachts. Erhöht den{' '}
         <Link href="/blog/eigenverbrauch-optimieren-solar" className="text-[#fcb210] hover:underline font-medium">Eigenverbrauch</Link>{' '}
-        von ca. 30% auf bis zu 70%.{' '}
+        von {formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'de')} auf {formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'de')}.{' '}
         <Link href="/solaranlage-mit-speicher" className="text-[#fcb210] hover:underline font-medium">Mehr zum Batteriespeicher</Link>.
       </>
     ),
@@ -91,12 +92,8 @@ const komponenten = [
 ];
 
 const kostenTabelle = [
-  { komponente: 'Photovoltaikanlage 10 kWp', kosten: "22'000 – 30'000 CHF" },
-  { komponente: 'Batteriespeicher 10 kWh', kosten: "7'000 – 10'000 CHF" },
-  { komponente: 'Wärmepumpe', kosten: "15'000 – 25'000 CHF" },
-  { komponente: 'Wallbox (Ladestation)', kosten: "1'500 – 3'000 CHF" },
-  { komponente: 'Energiemanagementsystem', kosten: "1'000 – 3'000 CHF" },
-  { komponente: 'Gesamtpaket', kosten: "ca. 40'000 – 70'000 CHF", highlight: true },
+  { komponente: 'Photovoltaikanlage 10 kWp', kosten: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de'), highlight: false },
+  { komponente: 'Batteriespeicher 10 kWh', kosten: formatRangeForLocale(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF', 'de'), highlight: false },
 ];
 
 const vorteile = [
@@ -147,7 +144,7 @@ export default function PhotovoltaikKomplettloesungSchweizPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: 'Bis zu 80%', sub: 'Eigenverbrauch mit Komplettlösung', note: 'dank optimiertem Energiemanagement' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'de'), sub: 'Eigenverbrauch mit Speicher', note: 'Richtwert' },
               { val: '1 Anbieter', sub: 'für alles zuständig', note: 'von Planung bis Inbetriebnahme' },
               { val: '25+', sub: 'geprüfte Partner in der Schweiz', note: 'zertifizierte Installateure auf PvPro.ch' },
             ].map(s => (
@@ -204,7 +201,7 @@ export default function PhotovoltaikKomplettloesungSchweizPage() {
             <p className="text-gray-600 leading-relaxed">
               Der{' '}
               <Link href="/blog/eigenverbrauch-optimieren-solar" className="text-[#fcb210] hover:underline font-medium">Eigenverbrauch</Link>{' '}
-              kann auf bis zu 80% steigen, was die Amortisationszeit deutlich verkürzt. Möchten Sie Ihre persönlichen Kosten berechnen? Holen Sie jetzt{' '}
+              kann mit Speicher auf {formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'de')} steigen. Möchten Sie Ihre persönlichen Kosten berechnen? Holen Sie jetzt{' '}
               <Link href="/solaranlage-offerte-einholen" className="text-[#fcb210] hover:underline font-medium">kostenlose Offerten</Link>{' '}
               ein.
             </p>
@@ -229,7 +226,7 @@ export default function PhotovoltaikKomplettloesungSchweizPage() {
               </table>
             </div>
             <p className="text-xs text-gray-400 mt-3 italic">
-              Vor Förderungen. Individuelle Offerte von einem zertifizierten Installateur einholen.
+              {SYSTEM_PRICE_NOTES.de} {STORAGE_PRICE_NOTES.de} {getSourceNote('de')}
             </p>
           </div>
         </section>

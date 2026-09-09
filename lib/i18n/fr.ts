@@ -27,10 +27,10 @@ export const fr: TranslationKeys = {
   hero: {
     title: 'Comparer les installations solaires en Suisse',
     subtitle: 'Recevez des devis gratuits d\'installateurs certifiés',
-    description: 'Comparez gratuitement les offres d\'installations solaires d\'installateurs certifiés en Suisse. Économisez jusqu\'à 30% grâce à la comparaison.',
+    description: 'Comparez gratuitement les offres d\'installations solaires d\'installateurs certifiés en Suisse.',
     cta: 'Demander un devis gratuit maintenant',
-    free: '100% gratuit',
-    nonBinding: '100% sans engagement',
+    free: 'Gratuit',
+    nonBinding: 'Sans engagement',
     certified: 'Installateurs certifiés',
   },
   form: {
@@ -54,15 +54,15 @@ export const fr: TranslationKeys = {
       description: 'Recevez plusieurs offres d\'installateurs certifiés et choisissez la meilleure.',
     },
     save: {
-      title: 'Économisez jusqu\'à 30%',
-      description: 'En comparant plusieurs offres, vous économisez en moyenne 30% sur les coûts d\'installation.',
+      title: 'Comparez les offres',
+      description: 'Comparez plusieurs offres pour votre installation solaire.',
     },
     certified: {
       title: 'Installateurs certifiés uniquement',
       description: 'Tous nos partenaires sont certifiés et ont une expérience prouvée avec les installations solaires suisses.',
     },
     free: {
-      title: '100% gratuit et sans engagement',
+      title: 'Gratuit et sans engagement',
       description: 'Notre service est entièrement gratuit. Vous ne payez que l\'installateur de votre choix.',
     },
   },
@@ -78,7 +78,7 @@ export const fr: TranslationKeys = {
     },
     step3: {
       title: 'Comparer et économiser',
-      description: 'Choisissez la meilleure offre et économisez jusqu\'à 30%',
+      description: 'Choisissez la meilleure offre',
     },
   },
   faq: {
@@ -125,7 +125,6 @@ export const fr: TranslationKeys = {
     solarPanel: 'Panneau solaire',
     inverter: 'Onduleur',
     battery: 'Batterie de stockage',
-    sunHours: 'Heures d\'ensoleillement',
     subsidy: 'Subvention',
     quote: 'Devis',
     installation: 'Installation',
@@ -133,6 +132,6 @@ export const fr: TranslationKeys = {
   },
   meta: {
     homeTitle: 'PvPro.ch - Comparer les installations solaires en Suisse | Devis gratuits',
-    homeDescription: 'Comparez gratuitement les offres d\'installations solaires d\'installateurs certifiés en Suisse. Économisez jusqu\'à 30% grâce à la comparaison. 100% sans engagement.',
+    homeDescription: 'Comparez gratuitement les offres d\'installations solaires d\'installateurs certifiés en Suisse. Sans engagement.',
   },
 };

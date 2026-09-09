@@ -3,6 +3,10 @@ import { ChevronRight, ArrowRight, Sun, CheckCircle, Zap, Battery, Thermometer, 
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, STORAGE_PRICE_NOTES, formatRangeForLocale } from '@/lib/facts';
+
+const itRange = (range: { readonly min: number; readonly max: number }, unit: string) =>
+  formatRangeForLocale(range, unit, 'it');
 
 export const metadata: Metadata = pageMetadata({
   title: 'Soluzione completa fotovoltaico Svizzera 2026 – Tutto da un fornitore | PvPro.ch',
@@ -59,7 +63,7 @@ const componenti = [
   {
     icon: <Battery className="w-6 h-6 text-[#fcb210]" />,
     titolo: 'Accumulo a batteria',
-    testo: "Accumula l'eccesso di energia solare per l'uso serale e notturno. Aumenta l'autoconsumo da circa il 30% fino al 70%.",
+    testo: `Accumula l'eccesso di energia solare per l'uso serale e notturno. L'autoconsumo passa da ${itRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%')} a ${itRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%')}.`,
   },
   {
     icon: <Thermometer className="w-6 h-6 text-[#fcb210]" />,
@@ -79,12 +83,8 @@ const componenti = [
 ];
 
 const costi = [
-  { componente: 'Impianto fotovoltaico 10 kWp', costo: "CHF 22'000 – 30'000" },
-  { componente: 'Accumulo a batteria 10 kWh', costo: "CHF 7'000 – 10'000" },
-  { componente: 'Pompa di calore', costo: "CHF 15'000 – 25'000" },
-  { componente: 'Wallbox (stazione di ricarica)', costo: "CHF 1'500 – 3'000" },
-  { componente: 'Sistema di gestione energetica', costo: "CHF 1'000 – 3'000" },
-  { componente: 'Pacchetto totale', costo: "ca. CHF 40'000 – 70'000", highlight: true },
+  { componente: 'Impianto fotovoltaico 10 kWp', costo: itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF') },
+  { componente: 'Accumulo a batteria 10 kWh', costo: itRange(ECONOMIC_FACTS.storageCosts.byCapacity[10], 'CHF'), highlight: true },
 ];
 
 const vantaggi = [
@@ -131,7 +131,7 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { val: "Fino all'80%", sub: "Autoconsumo con soluzione completa", note: "grazie alla gestione energetica ottimizzata" },
+              { val: itRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%'), sub: "Autoconsumo con accumulo", note: SOURCE_NOTES.it },
               { val: '1 fornitore', sub: "responsabile di tutto", note: "dalla pianificazione alla messa in servizio" },
               { val: '25+', sub: "partner qualificati in Svizzera", note: "installatori certificati su PvPro.ch" },
             ].map(s => (
@@ -182,7 +182,7 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
               I costi dipendono dai componenti inclusi. Dopo la detrazione di tutti gli incentivi — rimunerazione unica, contributi cantonali per la pompa di calore — i costi si riducono notevolmente.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              L&apos;autoconsumo può salire fino all&apos;80%, il che riduce notevolmente il tempo di ammortamento. Ricevi ora{' '}
+              L&apos;autoconsumo con accumulo può arrivare a {itRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%')}. Ricevi ora{' '}
               <Link href="/it/richiedere-preventivo-solare" className="text-[#fcb210] hover:underline font-medium">preventivi gratuiti</Link>.
             </p>
           </div>
@@ -206,7 +206,7 @@ export default function SoluzioneCompletaFotovoltaicoSvizzeraPage() {
               </table>
             </div>
             <p className="text-xs text-gray-400 mt-3 italic">
-              Prima degli incentivi. Richiedere un preventivo individuale da un installatore certificato.
+              {SYSTEM_PRICE_NOTES.it} {STORAGE_PRICE_NOTES.it} {SOURCE_NOTES.it}
             </p>
           </div>
         </section>

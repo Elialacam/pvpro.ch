@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: 'Comparer les installations solaires | PvPro.ch',
     template: '%s | PvPro.ch',
   },
-  description: 'Comparez gratuitement les offres d’installateurs solaires certifiés en Suisse. Économisez jusqu’à 30 %, sans engagement.',
+  description: 'Comparez gratuitement les offres d’installateurs solaires certifiés en Suisse, sans engagement.',
   authors: [{ name: 'PvPro.ch' }],
   robots: {
     index: true,

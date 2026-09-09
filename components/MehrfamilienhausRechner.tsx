@@ -3,6 +3,14 @@
 import { useState } from 'react';
 import { Building2, ChevronDown, Zap } from 'lucide-react';
 import { useLocale } from '@/lib/LocaleContext';
+import {
+  ECONOMIC_FACTS,
+  SOURCE_NOTES,
+  SYSTEM_PRICE_NOTES,
+  calculatePronovoVariableContribution,
+  formatSwissNumber,
+  getSystemCostRange,
+} from '@/lib/facts';
 
 const STEPS_DE = [
   { wohnungen: 4,  label: '4 Wohnungen',   kwpMin: 15, kwpMax: 25 },
@@ -29,40 +37,39 @@ const STEPS_FR = [
 ];
 
 function priceRange(kwpMin: number, kwpMax: number) {
-  const lo = Math.round((kwpMin * 2000) / 1000) * 1000;
-  const hi = Math.round((kwpMax * 2500) / 1000) * 1000;
+  const lo = getSystemCostRange(kwpMin).min;
+  const hi = getSystemCostRange(kwpMax).max;
   return { lo, hi };
 }
 
 function fmt(n: number) {
-  return n.toLocaleString('de-CH');
+  return formatSwissNumber(n, 0);
 }
 
 const faqsDE = [
-  { q: 'Was kostet eine Solaranlage für ein Mehrfamilienhaus?', a: "Die Kosten liegen je nach Grösse meist zwischen 40'000 und über 150'000 CHF. Entscheidend sind die Anzahl der Wohnungen, die Dachfläche und die Leistung der Anlage. Pro kWp sinken die Kosten bei grösseren Anlagen deutlich." },
+  { q: 'Was kostet eine Solaranlage für ein Mehrfamilienhaus?', a: `Als Richtwert gelten ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.perKwp.min, 0)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.perKwp.max, 0)} CHF pro kWp, schlüsselfertig und ohne Speicher. Der Gesamtpreis hängt von der Anlagengrösse ab.` },
   { q: 'Wie wird Solarstrom im Mehrfamilienhaus berechnet?', a: 'Der Strom wird über ein internes System (ZEV) verteilt. Jede Wohnung erhält einen eigenen Zähler und zahlt nur für den tatsächlich genutzten Strom. Die Abrechnung erfolgt meist digital und transparent.' },
   { q: 'Ist ein Mehrfamilienhaus eine gute Kapitalanlage mit Photovoltaik?', a: 'Ja, da Solarstrom direkt verkauft werden kann. Eigentümer profitieren von zusätzlichen Einnahmen, niedrigeren Betriebskosten und einer Wertsteigerung der Immobilie.' },
-  { q: 'Welche Grösse sollte eine Photovoltaikanlage haben?', a: 'Die Grösse hängt vom Stromverbrauch ab. Typische Anlagen liegen zwischen 20 und 80 kWp, je nach Anzahl der Wohnungen und verfügbarer Dachfläche.' },
-  { q: 'Was bedeutet die 70%-Regel bei Photovoltaik?', a: 'Die 70%-Regel bedeutet, dass die Einspeiseleistung begrenzt wird. In modernen Anlagen wird dies meist durch intelligente Steuerung optimiert, sodass möglichst wenig Energie verloren geht.' },
+  { q: 'Welche Grösse sollte eine Photovoltaikanlage haben?', a: 'Die passende Grösse hängt vom Stromverbrauch, der Anzahl Wohnungen und der verfügbaren Dachfläche ab.' },
   { q: 'Wann lohnt sich Photovoltaik nicht?', a: 'Photovoltaik lohnt sich weniger bei stark verschatteten Dächern, sehr kleinen Dachflächen oder extrem niedrigem Stromverbrauch im Gebäude.' },
   { q: 'Wie lange reicht ein 10 kWh Speicher mit Wärmepumpe?', a: 'Ein 10-kWh-Speicher kann je nach Verbrauch mehrere Stunden Energie liefern. In Mehrfamilienhäusern wird jedoch häufig auf grössere Systeme oder direkten Verbrauch ohne Speicher gesetzt.' },
 ];
 
 const faqsIT = [
-  { q: 'Quanto costa un impianto solare per un condominio?', a: "I costi variano in base alle dimensioni, solitamente tra 40'000 e oltre 150'000 CHF. Determinanti sono il numero di appartamenti, la superficie del tetto e la potenza dell'impianto. Il costo per kWp diminuisce sensibilmente con impianti più grandi." },
+  { q: 'Quanto costa un impianto solare per un condominio?', a: `Come valore indicativo si calcolano da ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.perKwp.min, 0)} a ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.perKwp.max, 0)} CHF per kWp, chiavi in mano e senza accumulo. Il prezzo totale dipende dalle dimensioni dell'impianto.` },
   { q: 'Come viene calcolata l\'energia solare in un condominio?', a: 'L\'energia viene distribuita tramite un sistema interno (CEL – Comunità Elettrica Locale). Ogni appartamento ha un proprio contatore e paga solo per l\'energia effettivamente consumata. La fatturazione è solitamente digitale e trasparente.' },
   { q: 'Un condominio con fotovoltaico è un buon investimento?', a: 'Sì, poiché l\'energia solare può essere venduta direttamente. I proprietari beneficiano di entrate aggiuntive, costi operativi ridotti e un aumento del valore dell\'immobile.' },
-  { q: 'Quale dimensione deve avere un impianto fotovoltaico per un condominio?', a: 'Le dimensioni dipendono dal consumo di elettricità. Gli impianti tipici variano tra 20 e 80 kWp, a seconda del numero di appartamenti e della superficie del tetto disponibile.' },
+  { q: 'Quale dimensione deve avere un impianto fotovoltaico per un condominio?', a: 'Le dimensioni dipendono dal consumo di elettricità, dal numero di appartamenti e dalla superficie del tetto disponibile.' },
   { q: 'Quando il fotovoltaico non conviene?', a: 'Il fotovoltaico conviene meno con tetti molto ombreggiati, superfici del tetto molto ridotte o consumi di elettricità estremamente bassi nell\'edificio.' },
   { q: 'Come funziona la Comunità Elettrica Locale (CEL) in Svizzera?', a: 'La CEL consente ai condòmini di condividere l\'energia solare prodotta sul tetto. Dal 2023 è possibile distribuire l\'energia tra più utenti nello stesso edificio o nella stessa area, riducendo i costi di rete.' },
   { q: 'Quanto dura un accumulo da 10 kWh con pompa di calore?', a: 'Un accumulo da 10 kWh può fornire energia per diverse ore a seconda dei consumi. Nei condomini si predilige spesso l\'uso diretto senza accumulo o sistemi di accumulo più grandi.' },
 ];
 
 const faqsFR = [
-  { q: 'Combien coûte une installation solaire pour un immeuble résidentiel ?', a: "Les coûts se situent généralement entre 40'000 et plus de 150'000 CHF. Le nombre d'appartements, la surface du toit et la puissance de l'installation sont déterminants." },
+  { q: 'Combien coûte une installation solaire pour un immeuble résidentiel ?', a: `La valeur indicative est de ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.perKwp.min, 0)} à ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.perKwp.max, 0)} CHF par kWc, clés en main et sans stockage. Le prix total dépend de la taille de l'installation.` },
   { q: 'Comment l\'énergie solaire est-elle calculée dans un immeuble ?', a: 'L\'énergie est distribuée via un système interne (RCP). Chaque appartement dispose de son propre compteur et paie uniquement l\'énergie consommée.' },
   { q: 'Un immeuble avec photovoltaïque est-il un bon investissement ?', a: 'Oui, car l\'énergie solaire peut être vendue directement. Les propriétaires bénéficient de revenus supplémentaires et d\'une valorisation immobilière.' },
-  { q: 'Quelle taille pour une installation photovoltaïque dans un immeuble ?', a: 'Les installations typiques vont de 20 à 80 kWc selon le nombre d\'appartements et la surface disponible.' },
+  { q: 'Quelle taille pour une installation photovoltaïque dans un immeuble ?', a: "La taille dépend de la consommation, du nombre d'appartements et de la surface disponible." },
   { q: 'Quand le photovoltaïque n\'est-il pas rentable ?', a: 'Le photovoltaïque est moins rentable avec des toits fortement ombragés ou une très faible consommation électrique dans le bâtiment.' },
   { q: 'Comment fonctionne le RCP (Regroupement dans le Cadre du Consommateur Propre) ?', a: 'Le RCP permet aux résidents de partager l\'énergie solaire produite sur le toit. Chaque appartement a son propre compteur et profite du courant solaire.' },
   { q: 'Combien de temps dure un stockage de 10 kWh avec une pompe à chaleur ?', a: 'Un stockage de 10 kWh peut fournir de l\'énergie pendant plusieurs heures selon la consommation.' },
@@ -98,11 +105,12 @@ export default function MehrfamilienhausRechner() {
   const STEPS = locale === 'it' ? STEPS_IT : locale === 'fr' ? STEPS_FR : STEPS_DE;
   const s = STEPS[step];
   const { lo, hi } = priceRange(s.kwpMin, s.kwpMax);
-  const m2Min = s.kwpMin * 5;
-  const m2Max = s.kwpMax * 6;
-  const foerderung = Math.round(((s.kwpMin + s.kwpMax) / 2) * 360 / 500) * 500;
-  const prodMin = s.kwpMin * 900;
-  const prodMax = s.kwpMax * 1100;
+  const m2Min = Math.round(s.kwpMin * ECONOMIC_FACTS.roofAreaM2PerKwp);
+  const m2Max = Math.round(s.kwpMax * ECONOMIC_FACTS.roofAreaM2PerKwp);
+  const averageSize = (s.kwpMin + s.kwpMax) / 2;
+  const foerderung = calculatePronovoVariableContribution(averageSize);
+  const prodMin = s.kwpMin * ECONOMIC_FACTS.production.plateauKwhPerKwp.min;
+  const prodMax = s.kwpMax * ECONOMIC_FACTS.production.plateauKwhPerKwp.max;
 
   const L = {
     de: { title: 'ZEV-Rechner', header: 'Wie gross sollte die Anlage sein?', sub: 'Wählen Sie die Anzahl Wohnungen im Gebäude.', anzahl: 'Anzahl Wohnungen', groesse: 'Anlagengrösse (kWp)', empfehlung: (w: number) => `Empfehlung für ${w} Wohnungen`, size: 'Anlagengrösse', flaeche: 'Dachfläche', investition: 'Investition', produktion: 'Jahresproduktion', richtwerte: 'Richtwerte. Individuelle Offerte empfohlen.', foerderung: `EIV-Förderung: ca. ${fmt(foerderung)} CHF` },
@@ -168,6 +176,8 @@ export default function MehrfamilienhausRechner() {
             <span>{lab.richtwerte}</span>
             <span className="font-semibold text-green-600">{lab.foerderung}</span>
           </div>
+          <p className="text-xs text-gray-400 mt-2">{SOURCE_NOTES[locale as 'de' | 'it' | 'fr'] || SOURCE_NOTES.de}</p>
+          <p className="text-xs text-gray-400 mt-2">{SYSTEM_PRICE_NOTES[locale as 'de' | 'it' | 'fr'] || SYSTEM_PRICE_NOTES.de}</p>
         </div>
       </div>
     </div>

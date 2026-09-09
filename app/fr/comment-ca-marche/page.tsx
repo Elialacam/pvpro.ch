@@ -29,7 +29,7 @@ const steps = [
       'Nom, téléphone et e-mail',
       'Adresse complète de votre bien',
       'Aucun compte requis, aucune inscription',
-      '100% gratuit et sans engagement',
+  'Gratuit et sans engagement',
     ],
   },
   {
@@ -63,7 +63,7 @@ const steps = [
 const benefits = [
   { Icon: Clock,       title: 'Gain de temps',       text: "Au lieu de contacter plusieurs installateurs vous-même, PvPro.ch s'en charge — en moins de 2 minutes." },
   { Icon: ShieldCheck, title: 'Qualité certifiée',    text: "Uniquement des installateurs avec certifications valides, attestations d'assurance et références positives." },
-  { Icon: Euro,        title: 'Gratuit',              text: "Notre service est 100% gratuit pour les propriétaires. Nous nous finançons par des commissions des installateurs." },
+  { Icon: Euro,        title: 'Gratuit',              text: "Notre service est gratuit pour les propriétaires. Nous nous finançons par des commissions des installateurs." },
   { Icon: Phone,       title: 'Support personnalisé', text: 'Pour toute question, notre équipe est disponible par téléphone et e-mail.' },
 ];
 
@@ -156,7 +156,7 @@ export default function CommentCaMarchePage() {
           <h2 className="text-xl font-bold text-gray-900 mb-6">Questions fréquentes</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
-              { q: 'Le service est-il vraiment gratuit ?', a: "Oui, à 100%. Nous nous finançons par des commissions des installateurs — sans supplément pour vous." },
+              { q: 'Le service est-il vraiment gratuit ?', a: "Oui. Nous nous finançons par des commissions des installateurs — sans supplément pour vous." },
               { q: "Suis-je obligé d'accepter une offre ?", a: 'Non. Vous pouvez refuser toutes les offres sans aucune conséquence.' },
               { q: 'Combien de temps pour recevoir les devis ?', a: "En général dans les 24 à 48 heures suivant votre demande." },
               { q: 'Dans quelles zones PvPro.ch est-il actif ?', a: 'Nous sommes actifs dans toute la Suisse, dans les 26 cantons.' },

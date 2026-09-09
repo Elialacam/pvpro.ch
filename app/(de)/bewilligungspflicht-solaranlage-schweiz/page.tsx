@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: 'Was kostet ein Baugesuch für eine Solaranlage?',
-    answer: 'Die Kosten variieren je nach Gemeinde und Kanton, liegen aber üblicherweise zwischen 200 und 800 CHF. Für bewilligungsfreie Anlagen fallen keine Kosten an.',
+    answer: 'Die Kosten variieren je nach Gemeinde und Kanton. Für bewilligungsfreie Anlagen fallen keine Bewilligungskosten an.',
   },
   {
     question: 'Wer meldet die Solaranlage bei der Gemeinde?',
@@ -165,7 +165,7 @@ export default function BewilligungspflichtPage() {
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Wussten Sie?</p>
               <p className="text-gray-700 text-sm leading-relaxed">
-                In der Schweiz wurden 2024 über 50'000 neue Solaranlagen installiert — der Grossteil davon bewilligungsfrei. Mit der richtigen Planung und einem erfahrenen Installateur ist der Weg zur eigenen Solaranlage unkompliziert.
+                Mit der richtigen Planung und einem erfahrenen Installateur ist der Weg zur eigenen Solaranlage unkompliziert.
               </p>
             </div>
           </div>
@@ -260,7 +260,7 @@ export default function BewilligungspflichtPage() {
             <div className="space-y-3">
               {[
                 { step: '1', title: 'Meldung einreichen', text: 'Installateur reicht die Meldung bei der Gemeinde ein — oft digital.', color: 'bg-[#fcb210]' },
-                { step: '2', title: 'Wartefrist (10–30 Tage)', text: 'Die Gemeinde prüft die Meldung. Keine Antwort = Genehmigt.', color: 'bg-blue-500' },
+                { step: '2', title: 'Wartefrist', text: 'Die Gemeinde prüft die Meldung. Keine Antwort = Genehmigt.', color: 'bg-blue-500' },
                 { step: '3', title: 'Anlage montieren', text: 'Nach der Frist oder ausdrücklicher Genehmigung beginnt die Installation.', color: 'bg-green-500' },
                 { step: '4', title: 'EIV beantragen', text: 'Die Einmalvergütung wird bei Pronovo registriert — oft durch den Installateur.', color: 'bg-purple-500' },
               ].map(s => (

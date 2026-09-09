@@ -5,8 +5,8 @@
     "de": {
       "slug": "solaranlage-offerten-sparen",
       "locale": "de",
-      "title": "Solaranlage-Offerten vergleichen und bis zu 30% sparen",
-      "metaDescription": "Erfahren Sie, wie Sie Solaranlage-Offerten vergleichen, um bis zu 30% zu sparen, indem Sie die Kosten pro kWp analysieren und Angebote von Swissolar-Fachbetrieben prüfen.",
+      "title": "Solaranlage-Offerten vergleichen",
+      "metaDescription": "Erfahren Sie, wie Sie Solaranlage-Offerten vergleichen, indem Sie die Kosten pro kWp analysieren und Angebote von Swissolar-Fachbetrieben prüfen.",
       "image": "/images/blog/solaranlage-offerten-vergleichen.jpg",
       "date": "8. September 2026",
       "readMin": 8,
@@ -16,14 +16,14 @@
         {
           "heading": "Welcher Solar-Typ sind Sie?",
           "content": [
-            "Drei Solartypen sind besonders relevant: Selbstversorger mit Speicher, Rendite-Optimierer und Einsteiger mit kompakten Lösungen. Analysieren Sie Ihr Verbrauchsverhalten genau, um Fehlkäufe zu vermeiden und die passende Systemgröße zu wählen."
+            "Drei Solartypen sind besonders relevant: Selbstversorger mit Speicher, Rendite-Optimierer und Einsteiger mit kompakten Lösungen. Analysieren Sie Ihr Verbrauchsverhalten genau, um Fehlkäufe zu vermeiden und die passende Systemgrösse zu wählen."
           ],
           "bullets": [
             "Selbstversorger mit Speicher: Reduzieren Sie Netzstrom durch Planung nach Ihrem Tagesprofil.",
             "Rendite-Optimierer: Maximieren Sie die Dachnutzung und sichern Sie Fördergelder.",
             "Einsteiger: Beginnen Sie mit einer Balkon-Solaranlage für kleinere Haushalte."
           ],
-          "highlight": "Planen Sie die Anschaffung wie einen Maßanzug und nutzen Sie geprüfte Fachbetriebe zur passenden Auslegung."
+          "highlight": "Planen Sie die Anschaffung wie einen Massanzug und nutzen Sie geprüfte Fachbetriebe zur passenden Auslegung."
         },
         {
           "heading": "Solarofferten in 5 Schritten anfordern",
@@ -43,7 +43,7 @@
         {
           "heading": "Kosten und Preisvergleich: Schweizer Marktpreise verstehen",
           "content": [
-            "Die Ausgaben für Photovoltaikanlagen in der Schweiz werden von verschiedenen Faktoren bestimmt. Anlagengröße, regionale Handwerkerstruktur und internationale Marktakteure beeinflussen die Kosten.",
+            "Die Ausgaben für Photovoltaikanlagen in der Schweiz werden von verschiedenen Faktoren bestimmt. Anlagengrösse, lokale Handwerkerstruktur und internationale Marktakteure beeinflussen die Kosten.",
             "Förderungen können Anschaffungskosten erheblich senken. Der genaue Förderbetrag hängt vom jeweiligen Kanton ab."
           ],
           "highlight": "Ein ungebundener Vergleich liefert Transparenz und spart Zeit."
@@ -104,8 +104,8 @@
     "fr": {
       "slug": "offres-solaires-economies",
       "locale": "fr",
-      "title": "Comparer les offres de systèmes solaires et économiser jusqu'à 30%",
-      "metaDescription": "Découvrez comment comparer les offres de systèmes solaires pour économiser jusqu'à 30% en analysant les coûts par kWp et en examinant les propositions d'entreprises certifiées Swissolar.",
+      "title": "Comparer les offres de systèmes solaires",
+      "metaDescription": "Découvrez comment comparer les offres de systèmes solaires en analysant les coûts par kWp et en examinant les propositions d'entreprises certifiées Swissolar.",
       "image": "/images/blog/solaranlage-offerten-vergleichen.jpg",
       "date": "8 septembre 2026",
       "readMin": 8,
@@ -203,8 +203,8 @@
     "en": {
       "slug": "solar-quotes-savings",
       "locale": "en",
-      "title": "Compare Solar System Quotes and Save up to 30%",
-      "metaDescription": "Learn how to compare solar system quotes to save up to 30% by analyzing the cost per kWp and reviewing offers from Swissolar-certified professionals.",
+      "title": "Compare Solar System Quotes",
+      "metaDescription": "Learn how to compare solar system quotes by analyzing the cost per kWp and reviewing offers from Swissolar-certified professionals.",
       "image": "/images/blog/solaranlage-offerten-vergleichen.jpg",
       "date": "September 8, 2026",
       "readMin": 8,
@@ -302,8 +302,8 @@
     "it": {
       "slug": "offerte-solari-risparmio",
       "locale": "it",
-      "title": "Confronta le offerte per impianti solari e risparmia fino al 30%",
-      "metaDescription": "Scopri come confrontare le offerte per impianti solari per risparmiare fino al 30%, analizzando i costi per kWp e valutando le proposte dei professionisti Swissolar.",
+      "title": "Confronta le offerte per impianti solari",
+      "metaDescription": "Scopri come confrontare le offerte per impianti solari, analizzando i costi per kWp e valutando le proposte dei professionisti Swissolar.",
       "image": "/images/blog/solaranlage-offerten-vergleichen.jpg",
       "date": "8 settembre 2026",
       "readMin": 8,

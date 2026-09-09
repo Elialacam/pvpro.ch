@@ -6,7 +6,6 @@
       "slug": "photovoltaik-steuerabzug-schweiz",
       "locale": "de",
       "title": "Photovoltaik Steuerabzug Schweiz: So sparen Sie 2026 bei Ihrer Solaranlage",
-      "metaDescription": "Sparen Sie 2026 Tausende Franken! Erfahren Sie alles zum Photovoltaik Steuerabzug in der Schweiz und wie Sie Kosten über 3 Jahre verteilen. Fehler vermeiden!",
       "image": "/images/blog/photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage.jpg",
       "date": "18. August 2026",
       "readMin": 15,
@@ -29,15 +28,7 @@
           "heading": "Steuerabzug bei Neubau vs. bestehender Liegenschaft",
           "content": [
             "Die Unterscheidung zwischen Neubau und bestehender Liegenschaft ist entscheidend für den Steuerabzug. Bei Neubauten sind die Kosten innerhalb der ersten fünf Jahre meist nicht abziehbar, da diese als wertvermehrende Anlagekosten gelten."
-          ],
-          "highlight": "Denken Sie an die 5-Jahres-Regel: Erst danach gelten die Kosten als energetische Sanierung und sind abziehbar."
-        },
-        {
-          "heading": "Kostenverteilung über 3 Jahre: Die Progressionsbremse nutzen",
-          "content": [
-            "Ein wesentlicher Finanzvorteil ist die Verteilung der Kosten über drei Steuerperioden. Dies senkt die Steuerlast durch die Glättung des Einkommens unter die Progressionsgrenzen und erhöht die Gesamtersparnis."
-          ],
-          "highlight": "Vermeiden Sie die Progressionsfalle durch gezielte Verteilung der Kosten über mehrere Jahre."
+          ]
         },
         {
           "heading": "Anleitung: So deklarieren Sie die Solaranlage korrekt",
@@ -67,10 +58,6 @@
       "relatedSlugs": [],
       "faqs": [
         {
-          "question": "Wie viel Steuern kann ich mit einer Photovoltaikanlage in der Schweiz sparen?",
-          "answer": "Sie können in der Regel zwischen 15 und 30 Prozent der Nettoinvestitionskosten über die Einkommenssteuer zurückerhalten, abhängig von Ihrem steuerbaren Einkommen und Wohnkanton."
-        },
-        {
           "question": "Kann ich die Solaranlage auch bei einem Neubau von den Steuern abziehen?",
           "answer": "Bei Neubauten überwiegen in den ersten fünf Jahren die wertvermehrenden Kosten, weshalb der direkte Abzug meist nicht möglich ist. Erst danach werden die Kosten als energetische Sanierung anerkannt."
         },
@@ -84,7 +71,6 @@
       "slug": "deduction-fiscale-photovoltaique",
       "locale": "fr",
       "title": "Déduction fiscale pour photovoltaïque en Suisse: Économisez en 2026 sur votre installation solaire",
-      "metaDescription": "Économisez des milliers de francs en 2026! Découvrez tout sur la déduction fiscale pour le photovoltaïque en Suisse et comment répartir les coûts sur 3 ans. Évitez les erreurs!",
       "image": "/images/blog/photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage.jpg",
       "date": "18 août 2026",
       "readMin": 15,
@@ -107,15 +93,7 @@
           "heading": "Déduction fiscale pour nouvelle construction vs propriété existante",
           "content": [
             "La distinction entre une nouvelle construction et une propriété existante est cruciale pour la déduction fiscale. Pour les nouvelles constructions, les coûts ne sont généralement pas déductibles durant les cinq premières années, car ils sont considérés comme des coûts d'investissement à valeur ajoutée."
-          ],
-          "highlight": "Pensez à la règle des 5 ans : ce n'est qu'ensuite que les coûts sont considérés comme une rénovation énergétique et sont déductibles."
-        },
-        {
-          "heading": "Répartition des coûts sur 3 ans: Utilisez le frein à la progression",
-          "content": [
-            "Un avantage financier essentiel est la répartition des coûts sur trois périodes fiscales. Cela réduit la charge fiscale en lissant le revenu sous les seuils de progression et augmente les économies globales."
-          ],
-          "highlight": "Évitez le piège de la progression en répartissant judicieusement les coûts sur plusieurs années."
+          ]
         },
         {
           "heading": "Guide : Comment déclarer correctement l'installation solaire",
@@ -145,10 +123,6 @@
       "relatedSlugs": [],
       "faqs": [
         {
-          "question": "Combien d'impôts puis-je économiser avec une installation photovoltaïque en Suisse?",
-          "answer": "Vous pouvez généralement récupérer entre 15 et 30 % des coûts nets d'investissement via l'impôt sur le revenu, selon votre revenu imposable et votre canton de résidence."
-        },
-        {
           "question": "Puis-je également déduire fiscalement l'installation solaire pour une nouvelle construction?",
           "answer": "Pour les nouvelles constructions, les coûts d'investissement à valeur ajoutée prédominent durant les cinq premières années, rendant la déduction directe généralement impossible. Ce n'est qu'ensuite que les coûts sont reconnus comme rénovation énergétique."
         },
@@ -162,7 +136,6 @@
       "slug": "solar-tax-deduction",
       "locale": "en",
       "title": "Solar Tax Deduction Switzerland: How to Save on Your Solar System in 2026",
-      "metaDescription": "Save thousands of francs in 2026! Learn all about the solar tax deduction in Switzerland and how to spread costs over 3 years. Avoid mistakes!",
       "image": "/images/blog/photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage.jpg",
       "date": "August 18, 2026",
       "readMin": 15,
@@ -185,15 +158,7 @@
           "heading": "Tax Deduction for New Builds vs. Existing Properties",
           "content": [
             "The distinction between new builds and existing properties is crucial for tax deduction. For new builds, the costs are generally not deductible within the first five years, as they are considered value-enhancing investments."
-          ],
-          "highlight": "Remember the 5-year rule: Only after this period the costs are considered energy renovations and are deductible."
-        },
-        {
-          "heading": "Spreading Costs Over 3 Years: Using the Progressive Rate Advantage",
-          "content": [
-            "A key financial benefit is spreading the costs over three tax periods. This reduces the tax burden by smoothing the income below progressive thresholds and increasing total savings."
-          ],
-          "highlight": "Avoid the progression trap by strategically spreading costs over several years."
+          ]
         },
         {
           "heading": "Guide: How to Properly Declare Your Solar System",
@@ -223,10 +188,6 @@
       "relatedSlugs": [],
       "faqs": [
         {
-          "question": "How much tax can I save with a solar system in Switzerland?",
-          "answer": "You can typically recover between 15 and 30 percent of the net investment costs through income tax, depending on your taxable income and the canton you live in."
-        },
-        {
           "question": "Can I deduct the solar system from taxes for new builds?",
           "answer": "For new builds, value-enhancing costs dominate in the first five years, which is why direct deduction is usually not possible. Costs are only recognized as energy renovation after this period."
         },
@@ -240,7 +201,6 @@
       "slug": "detrazione-fiscale-fotovoltaico",
       "locale": "it",
       "title": "Detrazione fiscale per il fotovoltaico in Svizzera: Ecco come risparmiare nel 2026 con il tuo impianto solare",
-      "metaDescription": "Risparmia migliaia di franchi nel 2026! Scopri tutto sulla detrazione fiscale per il fotovoltaico in Svizzera e come distribuire i costi su 3 anni. Evita errori!",
       "image": "/images/blog/photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage.jpg",
       "date": "18 agosto 2026",
       "readMin": 15,
@@ -263,15 +223,7 @@
           "heading": "Detrazione fiscale per nuova costruzione vs. proprietà esistente",
           "content": [
             "La distinzione tra nuova costruzione e proprietà esistente è fondamentale per la detrazione fiscale. Nei nuovi edifici, i costi nei primi cinque anni di solito non sono deducibili, poiché considerati costi di investimento che aumentano il valore."
-          ],
-          "highlight": "Ricorda la regola dei 5 anni: solo dopo questo periodo i costi sono considerati come riqualificazione energetica e sono deducibili."
-        },
-        {
-          "heading": "Distribuzione dei costi su 3 anni: Utilizzare il freno alla progressione",
-          "content": [
-            "Un vantaggio finanziario significativo è la distribuzione dei costi su tre periodi fiscali. Questo riduce l'onere fiscale attraverso la livellazione del reddito al di sotto delle soglie di progressione e massimizza il risparmio totale."
-          ],
-          "highlight": "Evita la trappola della progressione distribuendo miratamente i costi su più anni."
+          ]
         },
         {
           "heading": "Guida: Dichiarare correttamente l'impianto solare",
@@ -300,10 +252,6 @@
       "formUrl": "/it/richiesta",
       "relatedSlugs": [],
       "faqs": [
-        {
-          "question": "Quanto posso risparmiare in tasse con un impianto fotovoltaico in Svizzera?",
-          "answer": "In genere, puoi recuperare tra il 15 e il 30 percento dei costi netti di investimento attraverso l'imposta sul reddito, a seconda del tuo reddito imponibile e del cantone di residenza."
-        },
         {
           "question": "Posso dedurre dalle tasse l'impianto solare anche in caso di una nuova costruzione?",
           "answer": "Nei nuovi edifici, nei primi cinque anni i costi che aumentano il valore prevalgono, quindi la detrazione diretta solitamente non è possibile. Solo successivamente questi costi sono riconosciuti come riqualificazione energetica."

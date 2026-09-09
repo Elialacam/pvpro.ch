@@ -8,27 +8,27 @@ import { getFormUrl } from '@/lib/i18n/formUrls';
 const defaultsByLocale = {
   de: {
     title: 'Jetzt kostenlose Offerten erhalten',
-    subtitle: 'Vergleichen Sie bis zu 3 Angebote von geprüften Schweizer Solarteuren. 100% kostenlos, unverbindlich und ohne Werbeanrufe.',
+    subtitle: 'Vergleichen Sie bis zu 3 Angebote von geprüften Schweizer Solarteuren. Kostenlos, unverbindlich und ohne Werbeanrufe.',
     ctaText: 'Kostenlose Offerte anfordern',
-    badges: ['100% Kostenlos', 'Unverbindlich', 'Keine Werbeanrufe'],
+    badges: ['Kostenlos', 'Unverbindlich', 'Keine Werbeanrufe'],
   },
   fr: {
     title: 'Obtenez des devis gratuits maintenant',
-    subtitle: "Comparez jusqu'à 3 offres d'installateurs solaires suisses certifiés. 100% gratuit, sans engagement et sans démarchage.",
+    subtitle: "Comparez jusqu'à 3 offres d'installateurs solaires suisses certifiés. Gratuit, sans engagement et sans démarchage.",
     ctaText: 'Demander un devis gratuit',
-    badges: ['100% Gratuit', 'Sans engagement', 'Pas de démarchage'],
+    badges: ['Gratuit', 'Sans engagement', 'Pas de démarchage'],
   },
   en: {
     title: 'Get free quotes now',
-    subtitle: 'Compare up to 3 offers from certified Swiss solar installers. 100% free, no obligation and no cold calls.',
+    subtitle: 'Compare up to 3 offers from certified Swiss solar installers. Free, no obligation and no cold calls.',
     ctaText: 'Request a free quote',
-    badges: ['100% Free', 'No obligation', 'No cold calls'],
+    badges: ['Free', 'No obligation', 'No cold calls'],
   },
   it: {
     title: 'Ottieni preventivi gratuiti ora',
-    subtitle: 'Confronta fino a 3 offerte di installatori solari certificati del Ticino. 100% gratuito, senza impegno e senza chiamate commerciali.',
+    subtitle: 'Confronta fino a 3 offerte di installatori solari certificati del Ticino. Gratuito, senza impegno e senza chiamate commerciali.',
     ctaText: 'Richiedi preventivo gratuito',
-    badges: ['100% Gratuito', 'Senza impegno', 'Nessuna chiamata'],
+    badges: ['Gratuito', 'Senza impegno', 'Nessuna chiamata'],
   },
 } as const;
 

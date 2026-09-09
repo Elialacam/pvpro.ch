@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ChevronRight, ArrowRight, Zap, CheckCircle, XCircle } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
 import FaqSchema from '@/components/FaqSchema';
 
 const baseMetadata: Metadata = {
@@ -42,7 +43,7 @@ const faqs = [
   },
   {
     question: "Quels panneaux durent le plus longtemps ?",
-    answer: "Tous les panneaux cristallins de haute qualité ont une garantie de performance de 25 à 30 ans. Le choix du fabricant est souvent plus important que la technologie.",
+    answer: `La durée de vie indicative des modules est de ${formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'ans', 'fr')}. Le choix du fabricant est souvent plus important que la technologie.`,
   },
   {
     question: "Peut-on combiner différents types de panneaux sur le même toit ?",
@@ -179,7 +180,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
             {[
               { val: '22%', sub: 'rendement max. monocristallin', note: 'meilleure valeur en conditions standard' },
               { val: '4 types', sub: 'en comparaison directe', note: 'mono, poly, couche mince, bifacial' },
-              { val: '25–30 ans', sub: 'durée de vie de tous les types', note: 'avec garantie de performance' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'ans', 'fr'), sub: 'durée de vie des modules', note: 'valeur indicative' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -187,6 +188,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
                 <p className="text-gray-500 text-xs mt-1">{s.note}</p>
               </div>
             ))}
+            <p className="text-xs text-white/50 sm:col-span-3">{SOURCE_NOTES.fr}</p>
           </div>
         </div>
       </section>

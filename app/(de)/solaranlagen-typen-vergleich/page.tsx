@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ChevronRight, ArrowRight, Zap, CheckCircle, XCircle } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
+import { ECONOMIC_FACTS, formatRangeForLocale, getSourceNote } from '@/lib/facts';
 import FaqSchema from '@/components/FaqSchema';
 
 export const metadata: Metadata = pageMetadata({
@@ -42,7 +43,7 @@ const faqs = [
   },
   {
     question: 'Welche Module halten am längsten?',
-    answer: 'Alle hochwertigen kristallinen Module haben eine Leistungsgarantie von 25–30 Jahren. Die Wahl des Herstellers ist oft wichtiger als die Technologie.',
+    answer: `Hochwertige kristalline Module haben eine typische Lebensdauer von ${formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahren', 'de')}. Die Wahl des Herstellers ist oft wichtiger als die Technologie.`,
   },
   {
     question: 'Kann ich verschiedene Modultypen auf demselben Dach kombinieren?',
@@ -181,7 +182,7 @@ export default function SolaranlagenTypenVergleichPage() {
             {[
               { val: '22%', sub: 'maximaler Wirkungsgrad monokristallin', note: 'bester Wert unter Standardbedingungen' },
               { val: '4 Typen', sub: 'im direkten Vergleich', note: 'mono, poly, Dünnschicht, bifazial' },
-              { val: '25–30 Jahre', sub: 'Lebensdauer aller Typen', note: 'mit Leistungsgarantie der Hersteller' },
+              { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre', 'de'), sub: 'Lebensdauer aller Typen', note: 'Richtwert für Module' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -190,6 +191,7 @@ export default function SolaranlagenTypenVergleichPage() {
               </div>
             ))}
           </div>
+          <p className="mt-4 text-xs text-white/50">{getSourceNote('de')}</p>
         </div>
       </section>
 

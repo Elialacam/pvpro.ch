@@ -27,9 +27,9 @@ export const en: TranslationKeys = {
   hero: {
     title: 'Compare Solar Systems in Switzerland',
     subtitle: 'Get free quotes from certified installers',
-    description: 'Compare solar system offers from certified installers in Switzerland for free. Save up to 30% by comparing.',
+    description: 'Compare solar system offers from certified installers in Switzerland for free.',
     cta: 'Request a Free Quote Now',
-    free: '100% Free',
+    free: 'Free',
     nonBinding: 'No Obligation',
     certified: 'Certified Installers',
   },
@@ -54,15 +54,15 @@ export const en: TranslationKeys = {
       description: 'Receive multiple offers from certified installers and choose the best one.',
     },
     save: {
-      title: 'Save Up to 30%',
-      description: 'By comparing multiple offers, you will save an average of 30% on installation costs.',
+      title: 'Compare quotes',
+      description: 'Compare multiple quotes for your solar system.',
     },
     certified: {
       title: 'Only Certified Installers',
       description: 'All our partners are certified and have proven experience with Swiss solar systems.',
     },
     free: {
-      title: '100% Free and No Obligation',
+      title: 'Free and No Obligation',
       description: 'Our service is completely free. You only pay the installer you choose.',
     },
   },
@@ -78,7 +78,7 @@ export const en: TranslationKeys = {
     },
     step3: {
       title: 'Compare and Save',
-      description: 'Choose the best offer and save up to 30%',
+      description: 'Choose the best offer',
     },
   },
   faq: {
@@ -125,7 +125,6 @@ export const en: TranslationKeys = {
     solarPanel: 'Solar Panel',
     inverter: 'Inverter',
     battery: 'Battery Storage',
-    sunHours: 'Sun Hours',
     subsidy: 'Subsidy',
     quote: 'Quote',
     installation: 'Installation',
@@ -133,6 +132,6 @@ export const en: TranslationKeys = {
   },
   meta: {
     homeTitle: 'PvPro.ch - Compare Solar Systems in Switzerland | Free Quotes',
-    homeDescription: 'Compare solar system offers from certified installers in Switzerland for free. Save up to 30% by comparing. No obligation.',
+    homeDescription: 'Compare solar system offers from certified installers in Switzerland for free. No obligation.',
   },
 };

@@ -126,14 +126,13 @@ export default function DemanderOffrePanneauSolairePage() {
             <p className="text-gray-400 text-lg leading-relaxed">
               Celui qui veut acheter une installation solaire ne devrait jamais signer la première offre. En Suisse, les{' '}
               <Link href="/fr/cout-installation-solaire" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">coûts</Link>{' '}
-              pour la même installation peuvent varier de plusieurs milliers de francs selon l&apos;installateur. PvPro.ch vous permet d&apos;obtenir gratuitement jusqu&apos;à 3 offres d&apos;installateurs locaux certifiés — en moins de 2 minutes.
+               pour la même installation peuvent varier selon l&apos;installateur. PvPro.ch vous permet d&apos;obtenir gratuitement jusqu&apos;à 3 offres d&apos;installateurs locaux certifiés — en moins de 2 minutes.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { val: 'Gratuit', sub: 'sans risque, sans cache', note: 'entièrement gratuit pour les propriétaires' },
               { val: '24–48 heures', sub: "jusqu'à la première offre", note: 'réponse rapide des installateurs locaux' },
-              { val: "Jusqu'à 4'000 CHF", sub: 'économie possible par comparaison', note: 'selon la taille de l\'installation' },
             ].map(s => (
               <div key={s.val} className="rounded-2xl p-5 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <p className="text-xl font-bold text-white mb-0.5">{s.val}</p>
@@ -155,32 +154,11 @@ export default function DemanderOffrePanneauSolairePage() {
               Pourquoi demander plusieurs offres ?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-5">
-              De nombreux propriétaires en Suisse font la même erreur : ils ne consultent qu&apos;un seul installateur et acceptent la première offre. Ce que la plupart ignorent, c&apos;est que pour exactement la même installation — mêmes modules, même onduleur, même puissance — les prix entre différents installateurs peuvent varier jusqu&apos;à 4&apos;000 francs.
+               De nombreux propriétaires en Suisse font la même erreur : ils ne consultent qu&apos;un seul installateur et acceptent la première offre. Pour exactement la même installation, les prix peuvent varier selon l&apos;entreprise.
             </p>
             <p className="text-gray-600 leading-relaxed">
               La raison est simple : les installateurs calculent différemment, ont des conditions d&apos;achat et des marges variables. Qui compare, gagne.
             </p>
-          </div>
-          <div>
-            <div className="rounded-2xl p-8" style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
-              <p className="text-white/60 text-xs font-bold uppercase tracking-widest mb-5">Exemple — installation 10 kWc</p>
-              <div className="space-y-4">
-                {[
-                  { label: 'Installateur A', price: "29'500 CHF", highlight: false },
-                  { label: 'Installateur B', price: "26'800 CHF", highlight: false },
-                  { label: 'Installateur C (le moins cher)', price: "25'600 CHF", highlight: true },
-                ].map(r => (
-                  <div key={r.label} className={`flex justify-between items-center rounded-xl px-5 py-3 ${r.highlight ? 'bg-orange-500/20 border border-orange-500/30' : 'bg-white/5'}`}>
-                    <span className={`text-sm font-medium ${r.highlight ? 'text-orange-300' : 'text-white/70'}`}>{r.label}</span>
-                    <span className={`font-bold ${r.highlight ? 'text-orange-400' : 'text-white'}`}>{r.price}</span>
-                  </div>
-                ))}
-                <div className="border-t border-white/10 pt-4 flex justify-between items-center">
-                  <span className="text-white/60 text-sm">Économie par comparaison</span>
-                  <span className="text-green-400 font-bold">jusqu&apos;à 3&apos;900 CHF</span>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
