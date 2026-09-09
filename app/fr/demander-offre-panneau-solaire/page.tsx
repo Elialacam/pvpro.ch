@@ -2,10 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, FileText, Clock, Coins } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
-  title: "Demander une offre panneau solaire Suisse 2026 – Gratuit & sans engagement | PVPro.ch",
+const baseMetadata: Metadata = {
+  title: "Demander une offre panneau solaire Suisse 2026 – Gratuit & sans engagement | PvPro.ch",
   description: "Demandez des offres gratuites pour votre installation solaire en Suisse. Jusqu'à 3 devis d'installateurs certifiés dans votre canton. Comparez et économisez.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/demander-offre-panneau-solaire',
@@ -23,13 +24,13 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/demander-offre-panneau-solaire',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PVPro',
+    siteName: 'PvPro.ch',
   },
 };
 
 const faqs = [
   {
-    question: "Combien d'offres vais-je recevoir via PVPro.ch ?",
+    question: "Combien d'offres vais-je recevoir via PvPro.ch ?",
     answer: "Vous recevez jusqu'à 3 offres personnalisées d'installateurs certifiés de votre canton. Vous disposez ainsi d'une base de comparaison immédiate.",
   },
   {
@@ -42,11 +43,11 @@ const faqs = [
   },
   {
     question: "Vais-je recevoir des appels publicitaires après ma demande ?",
-    answer: "Non. PVPro.ch garantit que vous ne recevrez pas d'appels publicitaires indésirables. Seuls les installateurs qui vous envoient une offre prendront contact avec vous.",
+    answer: "Non. PvPro.ch garantit que vous ne recevrez pas d'appels publicitaires indésirables. Seuls les installateurs qui vous envoient une offre prendront contact avec vous.",
   },
   {
     question: "Puis-je aussi demander des offres pour un immeuble locatif ?",
-    answer: "Oui. PVPro.ch transmet des offres pour tous les types de bâtiments — maisons individuelles, immeubles locatifs et bâtiments commerciaux.",
+    answer: "Oui. PvPro.ch transmet des offres pour tous les types de bâtiments — maisons individuelles, immeubles locatifs et bâtiments commerciaux.",
   },
   {
     question: "Que se passe-t-il si aucune offre ne me convient ?",
@@ -125,7 +126,7 @@ export default function DemanderOffrePanneauSolairePage() {
             <p className="text-gray-400 text-lg leading-relaxed">
               Celui qui veut acheter une installation solaire ne devrait jamais signer la première offre. En Suisse, les{' '}
               <Link href="/fr/cout-installation-solaire" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">coûts</Link>{' '}
-              pour la même installation peuvent varier de plusieurs milliers de francs selon l&apos;installateur. PVPro.ch vous permet d&apos;obtenir gratuitement jusqu&apos;à 3 offres d&apos;installateurs locaux certifiés — en moins de 2 minutes.
+              pour la même installation peuvent varier de plusieurs milliers de francs selon l&apos;installateur. PvPro.ch vous permet d&apos;obtenir gratuitement jusqu&apos;à 3 offres d&apos;installateurs locaux certifiés — en moins de 2 minutes.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -191,7 +192,7 @@ export default function DemanderOffrePanneauSolairePage() {
               Comment est-il simple de demander des offres ?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Autrefois, demander des offres signifiait : chercher soi-même, appeler, prendre des rendez-vous, attendre. Avec PVPro.ch, c&apos;est fait en 3 étapes :
+              Autrefois, demander des offres signifiait : chercher soi-même, appeler, prendre des rendez-vous, attendre. Avec PvPro.ch, c&apos;est fait en 3 étapes :
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -219,7 +220,7 @@ export default function DemanderOffrePanneauSolairePage() {
         {/* ── Que contient une bonne offre ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Offre panneau solaire Suisse" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Offre panneau solaire Suisse" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Liste de contrôle</p>
@@ -247,7 +248,7 @@ export default function DemanderOffrePanneauSolairePage() {
             </ul>
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="text-orange-800 text-sm leading-relaxed">
-                <strong>Conseil :</strong> Si une offre ne contient pas ces points, posez des questions — ou demandez une offre via PVPro.ch auprès d&apos;un de nos partenaires certifiés.
+                <strong>Conseil :</strong> Si une offre ne contient pas ces points, posez des questions — ou demandez une offre via PvPro.ch auprès d&apos;un de nos partenaires certifiés.
               </p>
             </div>
           </div>
@@ -284,7 +285,7 @@ export default function DemanderOffrePanneauSolairePage() {
               Pour quels types de bâtiments puis-je demander des offres ?
             </h2>
             <p className="text-gray-600 max-w-xl mx-auto leading-relaxed">
-              Via PVPro.ch vous pouvez demander des offres pour tous les types de bâtiments :
+              Via PvPro.ch vous pouvez demander des offres pour tous les types de bâtiments :
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -378,3 +379,5 @@ export default function DemanderOffrePanneauSolairePage() {
     </main>
   );
 }
+
+export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/demander-offre-panneau-solaire', locale: 'fr' });

@@ -2,10 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Sun, CheckCircle2, Home, Ruler, Cpu, Wrench, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
 
-export const metadata: Metadata = {
-  title: 'Solaranlage Einfamilienhaus Schweiz: Kosten, Grösse und Vorteile | PVPro.ch',
+export const metadata: Metadata = pageMetadata({
+  title: 'Solaranlage Einfamilienhaus Schweiz: Kosten, Grösse und Vorteile | PvPro.ch',
   description: 'Was kostet eine Solaranlage für ein Einfamilienhaus in der Schweiz? Preise, Grösse, Förderung und Tipps einfach erklärt. Jetzt Angebote vergleichen.',
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-einfamilienhaus',
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/solaranlage-einfamilienhaus',
     },
   },
-};
+}, { path: '/solaranlage-einfamilienhaus', locale: 'de' });
 
 const costRows = [
   { size: 'Kleine Anlage (6–8 kWp)', price: "ca. 20'000 – 25'000 CHF", highlight: false },
@@ -146,7 +147,7 @@ export default function SolaranlageEinfamilienhausPage() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-installateur-dach-1.webp" alt="Solaranlage Einfamilienhaus Schweiz" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" />
+            <Image src="/images/asset-installateur-dach-1.webp" alt="Solaranlage Einfamilienhaus Schweiz" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" loading="lazy"/>
           </div>
         </section>
 
@@ -181,7 +182,7 @@ export default function SolaranlageEinfamilienhausPage() {
               ))}
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <Image src="/images/asset-haus-luftbild-1.webp" alt="Einfamilienhaus mit Solaranlage" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-haus-luftbild-1.webp" alt="Einfamilienhaus mit Solaranlage" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
             </div>
           </div>
         </section>
@@ -189,7 +190,7 @@ export default function SolaranlageEinfamilienhausPage() {
         {/* ── Lohnt sich ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Solaranlage Beratung" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Solaranlage Beratung" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" loading="lazy"/>
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Wirtschaftlichkeit</p>
@@ -358,7 +359,7 @@ export default function SolaranlageEinfamilienhausPage() {
             Angebote vergleichen und Kosten optimieren
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Die Preise für Solaranlagen unterscheiden sich stark je nach Anbieter. Über PVPro erhalten Sie kostenlos bis zu 3 Offerten von geprüften Installateuren in Ihrem Kanton.
+            Die Preise für Solaranlagen unterscheiden sich stark je nach Anbieter. Über PvPro.ch erhalten Sie kostenlos bis zu 3 Offerten von geprüften Installateuren in Ihrem Kanton.
           </p>
           <Link
             href="/anfrage"

@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Shield, Wrench, CheckCircle, AlertCircle } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
-  title: 'Solar Panel Maintenance Costs Switzerland 2026 – What Does Maintenance Cost? | PVPro.ch',
-  description: 'How much does solar panel maintenance cost in Switzerland? Cleaning, inspection, repair — all costs at a glance. Find out more at PVPro.ch.',
+export const metadata: Metadata = pageMetadata({
+  title: 'Solar Panel Maintenance Costs Switzerland 2026 – What Does Maintenance Cost? | PvPro.ch',
+  description: 'How much does solar panel maintenance cost in Switzerland? Cleaning, inspection, repair — all costs at a glance. Find out more at PvPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-panel-maintenance-costs',
     languages: {
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/en/solar-panel-maintenance-costs',
     type: 'website',
     locale: 'en_CH',
-    siteName: 'PVPro',
+    siteName: 'PvPro.ch',
   },
-};
+}, { path: '/en/solar-panel-maintenance-costs', locale: 'en' });
 
 const faqs = [
   {
@@ -49,7 +50,7 @@ const faqs = [
   },
   {
     question: 'Who can carry out maintenance on my solar system?',
-    answer: 'Certified Swiss installers offer maintenance services. PVPro.ch also connects you with service partners for existing systems on request.',
+    answer: 'Certified Swiss installers offer maintenance services. PvPro.ch also connects you with service partners for existing systems on request.',
   },
 ];
 

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import { getCityBySlug } from '@/lib/cities';
 import { cityContents, CityContent } from '@/lib/city-content';
 import { notFound } from 'next/navigation';
@@ -11,11 +12,11 @@ const citySlug = 'uri';
 
 export async function generateMetadata(): Promise<Metadata> {
   const city = getCityBySlug(citySlug);
-  if (!city) return { title: 'Stadt nicht gefunden' };
-  return {
-    title: `Solaranlage ${city.name} ${city.canton} - Offerten vergleichen | PV Pro`,
+  if (!city) return pageMetadata({ title: 'Stadt nicht gefunden' }, { path: '/solaranlage-uri', locale: 'de' });
+  return pageMetadata({
+    title: `Solaranlage ${city.name} ${city.canton} - Offerten vergleichen | PvPro.ch`,
     description: `Solaranlage in ${city.name}: Jetzt bis zu 3 Offerten von geprüften Solarteuren vergleichen. Sichern Sie sich Förderungen in ${city.name}. Unverbindlich & Kostenlos.`,
-  };
+  }, { path: '/solaranlage-uri', locale: 'de' });
 }
 
 export default function CityPage() {

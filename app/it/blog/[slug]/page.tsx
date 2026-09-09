@@ -2,6 +2,11 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getBlogArticle, getBlogArticleSlugs } from '@/lib/blogArticles';
 import BlogArticlePage from '@/components/BlogArticlePage';
+import { pageMetadata } from '@/lib/pageMetadata';
+import { getAutoArticleLocaleSlugs } from '@/lib/autoBlog';
+import { autoBlogPath, autoBlogByLegacySlug, getAutoBlogSlugRecord } from '@/lib/autoBlogSlugs';
+import { articleAlternates } from '@/lib/articleSeoRoutes';
+import { articleMetaDescription, articleSeoTitle } from '@/lib/blogUtils';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -31,36 +36,30 @@ function resolveSlug(slug: string): string {
 }
 
 export async function generateStaticParams() {
-  const deSlugs = getBlogArticleSlugs().map(slug => ({ slug }));
+  const deSlugs = getBlogArticleSlugs().filter(slug => !autoBlogByLegacySlug[slug] && !Object.values(itSlugToDeSlug).includes(slug)).map(slug => ({ slug }));
+  const autoSlugs = getAutoArticleLocaleSlugs('it').map(slug => ({ slug }));
   const itSlugs = Object.keys(itSlugToDeSlug).map(slug => ({ slug }));
-  return [...deSlugs, ...itSlugs];
+  return [...deSlugs, ...autoSlugs, ...itSlugs];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const deSlug = resolveSlug(slug);
+  const auto = getAutoBlogSlugRecord(slug, 'it');
+  const deSlug = auto?.legacySlug ?? resolveSlug(slug);
   const article = getBlogArticle(deSlug, 'it');
   if (!article) return {};
-  return {
-    title: `${article.title} | PVPro.ch`,
-    description: article.metaDescription,
-    alternates: {
-      canonical: `https://www.pvpro.ch/it/blog/${deSlug}`,
-      languages: {
-        'de-CH': `https://www.pvpro.ch/blog/${deSlug}`,
-        'fr-CH': `https://www.pvpro.ch/fr/blog/${deSlug}`,
-        'en-CH': `https://www.pvpro.ch/en/blog/${deSlug}`,
-        'it-CH': `https://www.pvpro.ch/it/blog/${deSlug}`,
-        'x-default': `https://www.pvpro.ch/blog/${deSlug}`,
-      },
-    },
-  };
+  return pageMetadata({
+    title: articleSeoTitle(article),
+    description: articleMetaDescription(article.metaDescription, article.locale, article.slug),
+    authors: [{ name: 'Elia Alacam' }],
+    alternates: articleAlternates(slug, 'it'),
+  }, { path: auto ? autoBlogPath(auto, 'it') : `/it/blog/${slug}`, locale: 'it', type: 'article' });
 }
 
 export default async function BlogPostItPage({ params }: Props) {
   const { slug } = await params;
-  const deSlug = resolveSlug(slug);
+  const deSlug = getAutoBlogSlugRecord(slug, 'it')?.legacySlug ?? resolveSlug(slug);
   const article = getBlogArticle(deSlug, 'it');
   if (!article) notFound();
-  return <BlogArticlePage article={article} blogBase="/it/blog" homeHref="/it" />;
+  return <BlogArticlePage article={article} blogBase="/it/blog" homeHref="/it" canonicalPath={getAutoBlogSlugRecord(slug, 'it') ? autoBlogPath(getAutoBlogSlugRecord(slug, 'it')!, 'it') : `/it/blog/${slug}`} />;
 }

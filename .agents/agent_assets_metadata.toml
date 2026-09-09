@@ -1,0 +1,30 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "dMAxJsChnV4M-qy8clRBE"
+uri = "file://reports/pvpro-route-title-report.html"
+type = "text"
+title = "Elenco completo route e nuovi title"
+description = "334 route DE/IT/FR/EN con il title SEO finale di ciascuna."
+logical_id = "6a773212-d5af-4b6d-a61c-93eeee81cd46"
+content_hash = "sha256:d8314ee7275954791ee13397bb1523108113dd52046ec1a9e9acdc5d37b8b737"
+size = 55046
+mtime_ms = 1788867851437
+storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:f53d4855-3247-438a-938a-8b3ba4e73521/6a773212-d5af-4b6d-a61c-93eeee81cd46/74ddf59e-670e-4e2f-af58-35988a359013"
+storage_version_token = "1788867852203346"
+content_type = "text/html"
+
+[[outputs]]
+id = "rqgeB_lVTadWp3w2id_42"
+uri = "file://seo-metadata-report.md"
+type = "text"
+title = "Elenco completo metadata SEO"
+description = "Tutte le 330 pagine indicizzabili con title e meta description finali, raggruppate per lingua."
+logical_id = "f557ffe0-5bee-4f8c-9d16-762f18a70d96"
+content_hash = "sha256:a5ab82c00a22e822e6df51e426c9aacb71316ec6ae5007110a3c8b2d667db382"
+size = 67917
+mtime_ms = 1788884064945
+storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:f53d4855-3247-438a-938a-8b3ba4e73521/f557ffe0-5bee-4f8c-9d16-762f18a70d96/040ed0e0-6a2b-476b-a3b7-31d5a4176b60"
+storage_version_token = "1788884119881355"
+content_type = "text/markdown"

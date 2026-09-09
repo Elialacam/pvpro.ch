@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Note legali',
-  description: 'Note legali e informazioni giuridiche relative a PVPro.',
-};
+  description: 'Note legali e informazioni giuridiche relative a PvPro.ch.',
+}, { path: '/it/note-legali', locale: 'it' });
 
 export default function NoteLegaliPage() {
   return (

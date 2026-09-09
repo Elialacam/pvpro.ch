@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText, Clock } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
-  title: 'Processo installazione fotovoltaico Svizzera 2026 – Fasi, durata & costi | PVPro.ch',
-  description: "Come funziona l'installazione di un impianto fotovoltaico in Svizzera? Fasi, durata, costi e cosa bisogna sapere — tutto spiegato da PVPro.ch.",
+export const metadata: Metadata = pageMetadata({
+  title: 'Processo installazione fotovoltaico Svizzera 2026 – Fasi, durata & costi | PvPro.ch',
+  description: "Come funziona l'installazione di un impianto fotovoltaico in Svizzera? Fasi, durata, costi e cosa bisogna sapere — tutto spiegato da PvPro.ch.",
   alternates: {
     canonical: 'https://www.pvpro.ch/it/processo-installazione-fotovoltaico-svizzera',
     languages: {
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/it/processo-installazione-fotovoltaico-svizzera',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PVPro',
+    siteName: 'PvPro.ch',
   },
-};
+}, { path: '/it/processo-installazione-fotovoltaico-svizzera', locale: 'it' });
 
 const faqs = [
   {
@@ -221,7 +222,7 @@ export default function ProcessoInstallazionePhotovoltaicoPage() {
             <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">Prestazioni dell&apos;installatore</p>
             <h2 className="text-xl font-bold text-white mb-5">Cosa fa un buon installatore?</h2>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Un installatore professionale gestisce l&apos;intero processo per te. PVPro.ch mette in contatto solo con installatori che svolgono tutti questi passaggi in modo affidabile.
+              Un installatore professionale gestisce l&apos;intero processo per te. PvPro.ch mette in contatto solo con installatori che svolgono tutti questi passaggi in modo affidabile.
             </p>
             <ul className="space-y-3">
               {[

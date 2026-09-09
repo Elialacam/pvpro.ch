@@ -6,45 +6,12 @@ import PageTransition from "@/components/PageTransition";
 import { LocaleProvider } from "@/lib/LocaleContext";
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://www.pvpro.ch',
-    languages: {
-      'de-CH': 'https://www.pvpro.ch',
-      'fr-CH': 'https://www.pvpro.ch/fr',
-      'en-CH': 'https://www.pvpro.ch/en',
-      'it-CH': 'https://www.pvpro.ch/it',
-      'x-default': 'https://www.pvpro.ch',
-    },
-  },
   title: {
-    default: 'PV Pro - Solaranlagen in der Schweiz vergleichen | Kostenlose Offerten',
-    template: '%s | PV Pro',
+    default: 'Solaranlagen vergleichen | PvPro.ch',
+    template: '%s | PvPro.ch',
   },
-  description: "Vergleichen Sie kostenlos bis zu 3 geprüfte Offerten für Ihre Solaranlage. Ein Netzwerk aus über 25 qualifizierten Schweizer Fachbetrieben mit über 20 Jahren Erfahrung – zuverlässig, transparent und unverbindlich.",
-  keywords: ['Solaranlage', 'Photovoltaik', 'Solar Schweiz', 'Solaranlage Kosten', 'Solarteur', 'Solaranlage vergleichen'],
-  authors: [{ name: 'PV Pro' }],
-  openGraph: {
-    type: 'website',
-    locale: 'de_CH',
-    url: 'https://www.pvpro.ch',
-    siteName: 'PV Pro',
-    title: 'PV Pro - Solaranlagen in der Schweiz vergleichen',
-    description: "Vergleichen Sie kostenlos bis zu 3 geprüfte Offerten für Ihre Solaranlage. Ein Netzwerk aus über 25 qualifizierten Schweizer Fachbetrieben mit über 20 Jahren Erfahrung – zuverlässig, transparent und unverbindlich.",
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1203,
-        height: 735,
-        alt: 'PV Pro - Solaranlagen Schweiz',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'PV Pro - Solaranlagen in der Schweiz vergleichen',
-    description: "Vergleichen Sie kostenlos bis zu 3 geprüfte Offerten für Ihre Solaranlage. Ein Netzwerk aus über 25 qualifizierten Schweizer Fachbetrieben mit über 20 Jahren Erfahrung – zuverlässig, transparent und unverbindlich.",
-    images: ['/og-image.jpg'],
-  },
+  description: "Vergleichen Sie kostenlos bis zu 3 geprüfte Offerten für Ihre Solaranlage von qualifizierten Schweizer Fachbetrieben – transparent und unverbindlich.",
+  authors: [{ name: 'PvPro.ch' }],
   robots: {
     index: true,
     follow: true,
@@ -76,8 +43,8 @@ export default function GermanLayout({
             "@context": "https://schema.org",
             "@type": "WebSite",
             "url": "https://www.pvpro.ch",
-            "name": "PV Pro",
-            "alternateName": "PVPro",
+            "name": "PvPro.ch",
+            "alternateName": "PvPro.ch",
             "description": "Vergleichsplattform für Solaranlagen in der Schweiz",
             "inLanguage": "de-CH",
             "potentialAction": {

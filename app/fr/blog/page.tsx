@@ -6,9 +6,10 @@ import { getAutoBlogCards } from '@/lib/autoBlog';
 import PlzWidget from '@/components/PlzWidget';
 import { Calendar, Clock, ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
-  title: 'Blog & Guides | PVPro.ch – Énergie solaire en Suisse',
+const baseMetadata: Metadata = {
+  title: 'Blog solaire Suisse',
   description: 'Guides actuels, actualités et conseils sur les installations solaires, les subventions et le photovoltaïque en Suisse.',
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/blog',
@@ -35,7 +36,7 @@ export default function BlogFrPage() {
         </nav>
 
         <div className="mb-10">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-4">PVPro Blog</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-4">PvPro.ch Blog</h1>
           <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
             Guides, actualités et conseils sur l'énergie solaire, les subventions photovoltaïques et l'énergie durable en Suisse.
           </p>
@@ -58,7 +59,7 @@ export default function BlogFrPage() {
                 <Link key={post.slug} href={post.href ?? `/fr/blog/${post.slug}`}
                   className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
                   <div className="relative h-48 overflow-hidden bg-gray-100">
-                    <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: getImageFocus(post.image) }} sizes="(max-width: 640px) 100vw, 50vw" />
+                    <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: getImageFocus(post.image) }} sizes="(max-width: 640px) 100vw, 50vw" loading="lazy"/>
                     <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-xs font-semibold text-gray-700 px-2.5 py-1 rounded-full">{post.tag}</span>
                   </div>
                   <div className="p-5 flex flex-col flex-1">
@@ -92,3 +93,5 @@ export default function BlogFrPage() {
     </main>
   );
 }
+
+export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/blog', locale: 'fr' });

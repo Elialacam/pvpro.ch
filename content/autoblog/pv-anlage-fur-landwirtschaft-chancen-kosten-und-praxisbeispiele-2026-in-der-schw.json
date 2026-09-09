@@ -3,11 +3,11 @@
   "createdAt": "2026-09-01T10:15:54.079Z",
   "articles": {
     "de": {
-      "slug": "pv-anlage-fur-landwirtschaft-chancen-kosten-und-praxisbeispiele-2026-in-der-schw",
+      "slug": "photovoltaik-landwirtschaft-schweiz",
       "locale": "de",
       "title": "PV-Anlage für Landwirtschaft: Chancen, Kosten und Praxisbeispiele 2026 in der Schweiz",
       "metaDescription": "Planen Sie Ihre PV-Anlage für die Landwirtschaft 2026 in der Schweiz. Senken Sie Betriebskosten, profitieren Sie von Förderungen und sichern Sie Ihre Zukunft.",
-      "image": "/images/autoblog/pv-anlage-fur-landwirtschaft-chancen-kosten-und-praxisbeispiele-2026-in-der-schw.jpg",
+      "image": "/images/blog/pv-anlage-fur-landwirtschaft-chancen-kosten-und-praxisbeispiele-2026-in-der-schw.jpg",
       "date": "1. September 2026",
       "readMin": 15,
       "tag": "Ratgeber",
@@ -80,11 +80,11 @@
       ]
     },
     "fr": {
-      "slug": "pv-anlage-fur-landwirtschaft-chancen-kosten-und-praxisbeispiele-2026-in-der-schw",
+      "slug": "photovoltaique-agriculture-suisse",
       "locale": "fr",
       "title": "Installation photovoltaïque pour l'agriculture: Opportunités, coûts et exemples pratiques 2026 en Suisse",
       "metaDescription": "Planifiez votre installation photovoltaïque pour l'agriculture en 2026 en Suisse. Réduisez vos coûts d'exploitation, bénéficiez des subventions et assurez votre avenir.",
-      "image": "/images/autoblog/pv-anlage-fur-landwirtschaft-chancen-kosten-und-praxisbeispiele-2026-in-der-schw.jpg",
+      "image": "/images/blog/pv-anlage-fur-landwirtschaft-chancen-kosten-und-praxisbeispiele-2026-in-der-schw.jpg",
       "date": "1 septembre 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -157,11 +157,11 @@
       ]
     },
     "en": {
-      "slug": "pv-anlage-fur-landwirtschaft-chancen-kosten-und-praxisbeispiele-2026-in-der-schw",
+      "slug": "agricultural-solar-system",
       "locale": "en",
       "title": "Solar System for Agriculture: Opportunities, Costs, and Practical Examples 2026 in Switzerland",
       "metaDescription": "Plan your solar system for agriculture in Switzerland in 2026. Reduce operating costs, benefit from subsidies, and secure your future.",
-      "image": "/images/autoblog/pv-anlage-fur-landwirtschaft-chancen-kosten-und-praxisbeispiele-2026-in-der-schw.jpg",
+      "image": "/images/blog/pv-anlage-fur-landwirtschaft-chancen-kosten-und-praxisbeispiele-2026-in-der-schw.jpg",
       "date": "September 1, 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -234,11 +234,11 @@
       ]
     },
     "it": {
-      "slug": "pv-anlage-fur-landwirtschaft-chancen-kosten-und-praxisbeispiele-2026-in-der-schw",
+      "slug": "fotovoltaico-agricoltura-svizzera",
       "locale": "it",
       "title": "Impianto fotovoltaico per l'agricoltura: Opportunità, costi ed esempi pratici 2026 in Svizzera",
       "metaDescription": "Pianifica il tuo impianto fotovoltaico per l'agricoltura 2026 in Svizzera. Riduci i costi operativi, approfitta dei sussidi e garantisci il tuo futuro.",
-      "image": "/images/autoblog/pv-anlage-fur-landwirtschaft-chancen-kosten-und-praxisbeispiele-2026-in-der-schw.jpg",
+      "image": "/images/blog/pv-anlage-fur-landwirtschaft-chancen-kosten-und-praxisbeispiele-2026-in-der-schw.jpg",
       "date": "1 settembre 2026",
       "readMin": 15,
       "tag": "Guida",
@@ -310,5 +310,11 @@
         }
       ]
     }
+  },
+  "localeSlugs": {
+    "de": "photovoltaik-landwirtschaft-schweiz",
+    "it": "fotovoltaico-agricoltura-svizzera",
+    "fr": "photovoltaique-agriculture-suisse",
+    "en": "agricultural-solar-system"
   }
 }

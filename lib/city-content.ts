@@ -101,10 +101,10 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'Familie Meier', location: 'Schwamendingen', systemSize: '6.5 kWp', cost: 'CHF 13\'500', savings: 'CHF 2\'200/J', payback: '8 J', quote: 'Endlich ist unsere Anlage installiert – die Offerten-Vergleich via PVPro hat uns CHF 3\'000 gespart.' },
+      { name: 'Familie Meier', location: 'Schwamendingen', systemSize: '6.5 kWp', cost: 'CHF 13\'500', savings: 'CHF 2\'200/J', payback: '8 J', quote: 'Endlich ist unsere Anlage installiert – die Offerten-Vergleich via PvPro.ch hat uns CHF 3\'000 gespart.' },
     ],
     faqs: [
-      { question: 'Gilt im Kanton Zürich eine Solarpflicht?', answer: 'Ja. Seit 2023 sind Neubauten und Dachsanierungen über 300 m² im Kanton Zürich verpflichtet, eine Photovoltaikanlage zu installieren. PVPro hilft Ihnen, schnell die richtigen Fachbetriebe zu finden.' },
+      { question: 'Gilt im Kanton Zürich eine Solarpflicht?', answer: 'Ja. Seit 2023 sind Neubauten und Dachsanierungen über 300 m² im Kanton Zürich verpflichtet, eine Photovoltaikanlage zu installieren. PvPro.ch hilft Ihnen, schnell die richtigen Fachbetriebe zu finden.' },
       { question: 'Welche Förderung erhalte ich in Zürich 2026?', answer: 'Sie erhalten die bundesweite Einmalvergütung (EIV) via Pronovo, ergänzt durch den kantonalen Steuerabzug – die Anlage ist in ZH als Liegenschaftsunterhalt zu 100% absetzbar. Das senkt die Nettokosten erheblich.' },
       { question: 'Wie hoch ist der Strompreis in Zürich, und was spare ich?', answer: 'Zürich hat mit rund 28–34 Rp./kWh einen der höchsten Strompreise der Deutschschweiz. Eine 5-kWp-Anlage erzeugt im Schnitt 5\'000 kWh/Jahr – Ersparnis: bis zu CHF 1\'700 jährlich.' },
       { question: 'Was bringen Lokale Elektrizitätsgemeinschaften (LEG) in Zürich?', answer: 'Ab 2026 dürfen Sie Ihren überschüssigen Solarstrom direkt an Nachbarn im Quartier verkaufen. Die Netzgebühren reduzieren sich um 30–40%. Besonders lohnend in dichten Zürcher Wohngebieten.' },
@@ -113,7 +113,7 @@ export const cityContents: Record<string, CityContent> = {
     testimonial: {
       initials: 'BM',
       name: 'Beat Müller',
-      quote: 'Dank PVPro habe ich drei Offerten verglichen und die beste Firma in Schwamendingen gefunden. Die Anlage läuft seit einem Jahr perfekt – die Stromrechnung ist um 70% gesunken.',
+      quote: 'Dank PvPro.ch habe ich drei Offerten verglichen und die beste Firma in Schwamendingen gefunden. Die Anlage läuft seit einem Jahr perfekt – die Stromrechnung ist um 70% gesunken.',
     },
   },
 
@@ -162,19 +162,19 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'Familie Wassmer', location: 'Köniz', systemSize: '7 kWp', cost: 'CHF 12\'800', savings: 'CHF 2\'100/J', payback: '8 J', quote: 'PVPro hat uns die ganze Bürokratie abgenommen – von der Förderung bis zum Installateurvergleich.' },
+      { name: 'Familie Wassmer', location: 'Köniz', systemSize: '7 kWp', cost: 'CHF 12\'800', savings: 'CHF 2\'100/J', payback: '8 J', quote: 'PvPro.ch hat uns die ganze Bürokratie abgenommen – von der Förderung bis zum Installateurvergleich.' },
     ],
     faqs: [
       { question: 'Welche kantonalen Förderungen gibt es in Bern 2026?', answer: 'Neben der bundesweiten Einmalvergütung (EIV) bietet das Kantonale Gebäudeprogramm Bern bis zu CHF 1\'500 Zusatzbeitrag. Batteriespeicher können separat mit bis zu CHF 800 gefördert werden.' },
       { question: 'Lohnt sich Solar in Bern auch im Winter?', answer: 'Ja. Mit 1\'694 Sonnenstunden und modernen bifazialen Modulen produzieren Berner Anlagen auch im Winter sinnvoll Strom. Besonders Anlagen auf steilen Süddächern profitieren vom Winterstrombonus.' },
       { question: 'Gilt im Kanton Bern eine Solarpflicht?', answer: 'Bern plant eine Solarpflicht für Neubauten ab 2026. Für bestehende Gebäude gibt es noch keine Pflicht, aber bei Dachsanierungen wird der Einbau von Solarmodulen mit Fördermitteln attraktiv incentiviert.' },
-      { question: 'Wie finde ich einen seriösen Solarinstallateur in Bern?', answer: 'PVPro arbeitet ausschliesslich mit geprüften Fachbetrieben zusammen, die Qualitätsnachweise und lokale Referenzen haben. Über unser Vergleichssystem erhalten Sie bis zu 3 Offerten aus dem Kanton.' },
+      { question: 'Wie finde ich einen seriösen Solarinstallateur in Bern?', answer: 'PvPro.ch arbeitet ausschliesslich mit geprüften Fachbetrieben zusammen, die Qualitätsnachweise und lokale Referenzen haben. Über unser Vergleichssystem erhalten Sie bis zu 3 Offerten aus dem Kanton.' },
       { question: 'Was kostet eine Solaranlage in Bern wirklich?', answer: 'Eine typische 5-kWp-Anlage kostet in Bern zwischen CHF 10\'000 und CHF 13\'000. Nach EIV und kantonalem Beitrag reduziert sich die Nettobelastung auf CHF 7\'000–9\'500 – mit Steuerabzug noch weniger.' },
     ],
     testimonial: {
       initials: 'KW',
       name: 'Katharina Wenger',
-      quote: 'Ich war skeptisch, ob sich Solar in Bern lohnt. Der PVPro-Offerten-Vergleich hat mich überzeugt: Drei Angebote, ein klarer Sieger, und heute produziere ich mehr als ich verbrauche.',
+      quote: 'Ich war skeptisch, ob sich Solar in Bern lohnt. Der PvPro.ch-Offerten-Vergleich hat mich überzeugt: Drei Angebote, ein klarer Sieger, und heute produziere ich mehr als ich verbrauche.',
     },
   },
 
@@ -223,7 +223,7 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'T. Brunner', location: 'Riehen', systemSize: '5.5 kWp', cost: 'CHF 11\'500', savings: 'CHF 1\'900/J', payback: '8 J', quote: 'Die städtische Förderung hat den Unterschied gemacht. PVPro hat mir die drei besten Installateure direkt in Riehen gezeigt.' },
+      { name: 'T. Brunner', location: 'Riehen', systemSize: '5.5 kWp', cost: 'CHF 11\'500', savings: 'CHF 1\'900/J', payback: '8 J', quote: 'Die städtische Förderung hat den Unterschied gemacht. PvPro.ch hat mir die drei besten Installateure direkt in Riehen gezeigt.' },
     ],
     faqs: [
       { question: 'Gibt es in Basel-Stadt spezielle Stadtförderungen für Solar?', answer: 'Ja. Basel-Stadt bietet neben der EIV des Bundes kommunale Förderbeiträge bis CHF 2\'000 für neue Photovoltaikanlagen. Diese sind nicht antragspflichtig, sondern werden nach Installation gemeldet.' },
@@ -235,7 +235,7 @@ export const cityContents: Record<string, CityContent> = {
     testimonial: {
       initials: 'TB',
       name: 'Thomas Brunner',
-      quote: 'Ich dachte, in der Stadt gibt es wenig Möglichkeiten. Aber das Solarkataster hat gezeigt: mein Dach in Riehen ist top geeignet. PVPro hat mir in zwei Tagen drei Offerten geliefert.',
+      quote: 'Ich dachte, in der Stadt gibt es wenig Möglichkeiten. Aber das Solarkataster hat gezeigt: mein Dach in Riehen ist top geeignet. PvPro.ch hat mir in zwei Tagen drei Offerten geliefert.',
     },
   },
 
@@ -283,7 +283,7 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'H. Furrer', location: 'Littau', systemSize: '8 kWp', cost: 'CHF 14\'000', savings: 'CHF 2\'400/J', payback: '9 J', quote: 'Luzerner Installateure kennen unsere Dächer. PVPro hat mir in einer Woche drei Offerten vom Fachmann gebracht.' },
+      { name: 'H. Furrer', location: 'Littau', systemSize: '8 kWp', cost: 'CHF 14\'000', savings: 'CHF 2\'400/J', payback: '9 J', quote: 'Luzerner Installateure kennen unsere Dächer. PvPro.ch hat mir in einer Woche drei Offerten vom Fachmann gebracht.' },
     ],
     faqs: [
       { question: 'Wie viel Sonne scheint in Luzern wirklich?', answer: 'Luzern verzeichnet im Jahresmittel 1\'598 Sonnenstunden. Das liegt im soliden Mittelfeld der Schweiz. Eine typische 5-kWp-Anlage produziert im Kanton Luzern rund 4\'800–5\'200 kWh pro Jahr.' },
@@ -295,7 +295,7 @@ export const cityContents: Record<string, CityContent> = {
     testimonial: {
       initials: 'HF',
       name: 'Hans-Peter Furrer',
-      quote: 'Als Luzerner dachte ich, mein Alpendach sei zu kompliziert. Pustekuchen – der PVPro-Installateur kannte genau die lokalen Regeln und hatte die Anlage in zwei Tagen montiert.',
+      quote: 'Als Luzerner dachte ich, mein Alpendach sei zu kompliziert. Pustekuchen – der PvPro.ch-Installateur kannte genau die lokalen Regeln und hatte die Anlage in zwei Tagen montiert.',
     },
   },
 
@@ -343,7 +343,7 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'W. Keller', location: 'Weinfelden', systemSize: '10 kWp', cost: 'CHF 17\'000', savings: 'CHF 2\'800/J', payback: '8 J', quote: 'Auf meiner Scheune produziere ich jetzt mehr Strom als mein Betrieb verbraucht. PVPro hat mir genau den richtigen Spezialisten für landwirtschaftliche Anlagen vermittelt.' },
+      { name: 'W. Keller', location: 'Weinfelden', systemSize: '10 kWp', cost: 'CHF 17\'000', savings: 'CHF 2\'800/J', payback: '8 J', quote: 'Auf meiner Scheune produziere ich jetzt mehr Strom als mein Betrieb verbraucht. PvPro.ch hat mir genau den richtigen Spezialisten für landwirtschaftliche Anlagen vermittelt.' },
     ],
     faqs: [
       { question: 'Lohnt sich Solar für einen Thurgauer Landwirtschaftsbetrieb?', answer: 'Absolut. Grosse Dachflächen, günstigere Installationskosten und der Agri-PV-Bonus des Kantons machen landwirtschaftliche Solaranlagen im Thurgau besonders rentabel. ROI oft unter 7 Jahren.' },
@@ -355,7 +355,7 @@ export const cityContents: Record<string, CityContent> = {
     testimonial: {
       initials: 'WK',
       name: 'Werner Keller',
-      quote: 'Mein Thurgauer Hof hat seit letztem Jahr eine 10-kWp-Anlage auf der Scheune. Ich speise sogar noch ins Netz ein. PVPro hat mir genau den richtigen Agri-PV-Spezialisten gefunden.',
+      quote: 'Mein Thurgauer Hof hat seit letztem Jahr eine 10-kWp-Anlage auf der Scheune. Ich speise sogar noch ins Netz ein. PvPro.ch hat mir genau den richtigen Agri-PV-Spezialisten gefunden.',
     },
   },
 
@@ -403,19 +403,19 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'M. Hartmann', location: 'Gossau', systemSize: '6 kWp', cost: 'CHF 11\'500', savings: 'CHF 1\'700/J', payback: '10 J', quote: 'Ich war unsicher wegen des Klimas in St. Gallen. PVPro hat mir erklärt, dass moderne Module auch bei grauem Himmel gut funktionieren.' },
+      { name: 'M. Hartmann', location: 'Gossau', systemSize: '6 kWp', cost: 'CHF 11\'500', savings: 'CHF 1\'700/J', payback: '10 J', quote: 'Ich war unsicher wegen des Klimas in St. Gallen. PvPro.ch hat mir erklärt, dass moderne Module auch bei grauem Himmel gut funktionieren.' },
     ],
     faqs: [
       { question: 'Lohnt sich Solar wirklich in St. Gallen mit weniger Sonne?', answer: 'Ja. Moderne Halbzellenmodule produzieren auch bei diffusem Licht effizient. Zudem sind Bundesförderung und Steuerabzug unabhängig von der Sonnenscheindauer – die Wirtschaftlichkeit ist in SG trotzdem gut.' },
       { question: 'Welche Unterschiede gibt es zwischen dem Rheintal und dem Hinterland?', answer: 'Das Rheintal (Rorschach, Altstätten) hat 10–15% mehr Sonneneinstrahlung als das Appenzellerland. Wenn Sie im Rheintal wohnen, liegen Ihre Erträge auf Niveau anderer Schweizer Mittellandkantone.' },
       { question: 'Welche Förderungen gelten im Kanton St. Gallen?', answer: 'Neben der nationalen EIV bietet der Kanton St. Gallen einen eigenen Förderbeitrag. Kombiniert mit dem vollständigen Steuerabzug als Liegenschaftsunterhalt ist die effektive Investitionskosten-Reduktion erheblich.' },
-      { question: 'Gibt es in St. Gallen genügend qualifizierte Installateure?', answer: 'Ja. PVPro arbeitet mit zertifizierten Fachbetrieben in der gesamten Ostschweiz zusammen. Ob in der Stadt St. Gallen, im Rheintal oder im Toggenburg – wir vermitteln lokale Experten.' },
+      { question: 'Gibt es in St. Gallen genügend qualifizierte Installateure?', answer: 'Ja. PvPro.ch arbeitet mit zertifizierten Fachbetrieben in der gesamten Ostschweiz zusammen. Ob in der Stadt St. Gallen, im Rheintal oder im Toggenburg – wir vermitteln lokale Experten.' },
       { question: 'Wie hoch ist die Einspeisevergütung in St. Gallen?', answer: 'Die Einspeisevergütung richtet sich nach dem jeweiligen Netzbetreiber. In SG sind es typisch 8–12 Rp./kWh für den eingespeisten Überschuss. Eigenverbrauch rechnet sich mit 28–32 Rp./kWh immer besser.' },
     ],
     testimonial: {
       initials: 'MH',
       name: 'Markus Hartmann',
-      quote: 'In Gossau dachte ich, Solar lohne sich nicht. Doch nach dem PVPro-Vergleich war ich überrascht: drei gute Angebote, ein fairer Preis, und jetzt spare ich jeden Monat auf der Stromrechnung.',
+      quote: 'In Gossau dachte ich, Solar lohne sich nicht. Doch nach dem PvPro.ch-Vergleich war ich überrascht: drei gute Angebote, ein fairer Preis, und jetzt spare ich jeden Monat auf der Stromrechnung.',
     },
   },
 
@@ -475,7 +475,7 @@ export const cityContents: Record<string, CityContent> = {
     testimonial: {
       initials: 'JM',
       name: 'Josef Marty',
-      quote: 'Als Schwyzer schätze ich Unabhängigkeit. Mit der Solaranlage auf meinem Haus in Brunnen bin ich jetzt auch beim Strom nicht mehr auf externe Anbieter angewiesen. PVPro hat mir den besten Installateur vermittelt.',
+      quote: 'Als Schwyzer schätze ich Unabhängigkeit. Mit der Solaranlage auf meinem Haus in Brunnen bin ich jetzt auch beim Strom nicht mehr auf externe Anbieter angewiesen. PvPro.ch hat mir den besten Installateur vermittelt.',
     },
   },
 
@@ -528,14 +528,14 @@ export const cityContents: Record<string, CityContent> = {
     faqs: [
       { question: 'Lohnt sich Solar in den Urner Bergen wirklich?', answer: 'Ja. Gebäude an Südhängen im Urner Reusstal und in Seitentälern erzielen teils bessere Erträge als im Mittelland. Die Bundesförderung gilt unabhängig vom Kanton.' },
       { question: 'Welche Förderungen gibt es im Kanton Uri?', answer: 'Neben der EIV des Bundes bietet Uri eigene kantonale Beiträge. Ergänzend ist die Anlage als Liegenschaftsunterhalt steuerlich absetzbar.' },
-      { question: 'Gibt es genug Solarinstallateure in Uri?', answer: 'PVPro arbeitet mit zertifizierten Betrieben aus der gesamten Innerschweiz zusammen, die auch Projekte in Uri regelmässig ausführen. Die Anreise ist für unsere Partner kein Problem.' },
+      { question: 'Gibt es genug Solarinstallateure in Uri?', answer: 'PvPro.ch arbeitet mit zertifizierten Betrieben aus der gesamten Innerschweiz zusammen, die auch Projekte in Uri regelmässig ausführen. Die Anreise ist für unsere Partner kein Problem.' },
       { question: 'Was passiert mit dem Strom, wenn ich nicht zuhause bin?', answer: 'Nicht selbst verbrauchter Strom wird automatisch ins lokale Netz eingespeist, und Sie erhalten eine Vergütung vom Netzbetreiber (typisch 8–14 Rp./kWh). Ein Heimspeicher erhöht den Eigenverbrauch.' },
       { question: 'Kann ich in Uri auch als Mietpartei Solar nutzen?', answer: 'Mieter können über Modelle wie Mietersolaranlagen oder LEG-Gemeinschaften teilnehmen. In kleinen Urner Gemeinden sind solche Gemeinschaftslösungen besonders attraktiv.' },
     ],
     testimonial: {
       initials: 'RA',
       name: 'Ruth Arnold',
-      quote: 'Unser Haus in Altdorf steht an einem Südhang – ideale Bedingungen. PVPro hat mir innerhalb einer Woche zwei Angebote gebracht, wir haben das beste genommen. Jetzt produzieren wir mehr als wir verbrauchen.',
+      quote: 'Unser Haus in Altdorf steht an einem Südhang – ideale Bedingungen. PvPro.ch hat mir innerhalb einer Woche zwei Angebote gebracht, wir haben das beste genommen. Jetzt produzieren wir mehr als wir verbrauchen.',
     },
   },
 
@@ -583,7 +583,7 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'C. Nägeli', location: 'Neuhausen am Rheinfall', systemSize: '5.5 kWp', cost: 'CHF 11\'000', savings: 'CHF 1\'850/J', payback: '8 J', quote: 'Der Rheinfall macht Strom – jetzt mache ich es auch. PVPro hat mir drei lokale Angebote in einer Woche gebracht.' },
+      { name: 'C. Nägeli', location: 'Neuhausen am Rheinfall', systemSize: '5.5 kWp', cost: 'CHF 11\'000', savings: 'CHF 1\'850/J', payback: '8 J', quote: 'Der Rheinfall macht Strom – jetzt mache ich es auch. PvPro.ch hat mir drei lokale Angebote in einer Woche gebracht.' },
     ],
     faqs: [
       { question: 'Wie viel Sonne gibt es in Schaffhausen pro Jahr?', answer: 'Schaffhausen hat im Jahresmittel rund 1\'644 Sonnenstunden. Die Stadtcanton und das Rheintal haben oft mehr. Eine 5-kWp-Anlage produziert dort typischerweise 5\'000–5\'400 kWh/Jahr.' },
@@ -595,7 +595,7 @@ export const cityContents: Record<string, CityContent> = {
     testimonial: {
       initials: 'CN',
       name: 'Claudia Nägeli',
-      quote: 'Wir wohnen mit Blick auf den Rheinfall – und jetzt produzieren wir selbst Energie. PVPro war schnell, unkompliziert und hat uns wirklich gute Angebote von lokalen Betrieben vermittelt.',
+      quote: 'Wir wohnen mit Blick auf den Rheinfall – und jetzt produzieren wir selbst Energie. PvPro.ch war schnell, unkompliziert und hat uns wirklich gute Angebote von lokalen Betrieben vermittelt.',
     },
   },
 
@@ -643,7 +643,7 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'E. Grob', location: 'Herisau', systemSize: '7 kWp', cost: 'CHF 12\'500', savings: 'CHF 2\'100/J', payback: '8 J', quote: 'Unser Appenzeller Dach war wie gemacht dafür. PVPro hat uns ohne viel Aufwand mit dem richtigen Installateur zusammengebracht.' },
+      { name: 'E. Grob', location: 'Herisau', systemSize: '7 kWp', cost: 'CHF 12\'500', savings: 'CHF 2\'100/J', payback: '8 J', quote: 'Unser Appenzeller Dach war wie gemacht dafür. PvPro.ch hat uns ohne viel Aufwand mit dem richtigen Installateur zusammengebracht.' },
     ],
     faqs: [
       { question: 'Eignen sich Appenzeller Haustypen gut für Solar?', answer: 'Ja. Die charakteristischen grossen Satteldächer mit Südausrichtung sind nahezu ideal für Photovoltaik. Viele Appenzeller Häuser haben Dachflächen für 8–15 kWp.' },
@@ -655,7 +655,7 @@ export const cityContents: Record<string, CityContent> = {
     testimonial: {
       initials: 'EG',
       name: 'Ernst Grob',
-      quote: 'In Herisau sind wir bodenständig. Solar ist keine Modewelle – es ist Vernunft. PVPro hat mir drei Angebote von Ostschweizer Betrieben gebracht, alle seriös. Jetzt läuft die Anlage seit zwei Jahren ohne Probleme.',
+      quote: 'In Herisau sind wir bodenständig. Solar ist keine Modewelle – es ist Vernunft. PvPro.ch hat mir drei Angebote von Ostschweizer Betrieben gebracht, alle seriös. Jetzt läuft die Anlage seit zwei Jahren ohne Probleme.',
     },
   },
 
@@ -703,19 +703,19 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'A. Caviezel', location: 'Chur', systemSize: '8 kWp', cost: 'CHF 14\'000', savings: 'CHF 2\'500/J', payback: '7 J', quote: 'Auf 650m in Chur produziere ich mehr als gedacht. Der Höhenbonus und die tolle Beratung über PVPro haben den Unterschied gemacht.' },
+      { name: 'A. Caviezel', location: 'Chur', systemSize: '8 kWp', cost: 'CHF 14\'000', savings: 'CHF 2\'500/J', payback: '7 J', quote: 'Auf 650m in Chur produziere ich mehr als gedacht. Der Höhenbonus und die tolle Beratung über PvPro.ch haben den Unterschied gemacht.' },
     ],
     faqs: [
       { question: 'Warum produzieren Anlagen in Graubünden mehr Strom als im Mittelland?', answer: 'In höheren Lagen filtert die Atmosphäre weniger UV- und Globalstrahlung. Zudem ist der Himmel in den Bergen oft klarer. Pro 1\'000m Höhe steigt der Ertrag um etwa 5–10%.' },
       { question: 'Wie funktioniert der Höhenbonus bei der EIV in Graubünden?', answer: 'Pronovo (Bundesförderbehörde) zahlt für Anlagen in Berggebieten einen Zusatzbetrag zur EIV. Anlagen ab 500m ü.M. und auf steilen Flächen erhalten bis zu 15% mehr Förderung.' },
       { question: 'Können Chalets und Ferienwohnungen in Graubünden Solar nutzen?', answer: 'Ja, sofern sie an das öffentliche Netz angeschlossen sind. Überschuss wird eingespeist, auch wenn Sie nicht permanent vor Ort sind. Ein Heimspeicher erhöht den Eigenverbrauch deutlich.' },
       { question: 'Sind alpine Solaranlagen schneefest?', answer: 'Ja. Moderne Module sind für Schneelast gemäss Schweizer Normen ausgelegt. Steilere Neigungswinkel (ab 45°) lassen den Schnee besser abrutschen. Der Schnee auf dem Boden reflektiert zusätzlich Licht.' },
-      { question: 'Welche Installateure kennen alpine Projekte in Graubünden?', answer: 'PVPro vermittelt zertifizierte Betriebe, die regelmässig in Berglagen installieren. Von Chur über Davos bis ins Engadin – unsere Partner kennen alpine Konstruktionsanforderungen genau.' },
+      { question: 'Welche Installateure kennen alpine Projekte in Graubünden?', answer: 'PvPro.ch vermittelt zertifizierte Betriebe, die regelmässig in Berglagen installieren. Von Chur über Davos bis ins Engadin – unsere Partner kennen alpine Konstruktionsanforderungen genau.' },
     ],
     testimonial: {
       initials: 'AC',
       name: 'Andrea Caviezel',
-      quote: 'Chur ist sonnig, und auf meinem Dach macht die Höhe den Unterschied. Dank PVPro und einem guten Bündner Installateur produziere ich 20% mehr als anfangs geschätzt – das war eine Überraschung.',
+      quote: 'Chur ist sonnig, und auf meinem Dach macht die Höhe den Unterschied. Dank PvPro.ch und einem guten Bündner Installateur produziere ich 20% mehr als anfangs geschätzt – das war eine Überraschung.',
     },
   },
 
@@ -763,19 +763,19 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'U. Freuler', location: 'Glarus', systemSize: '6.5 kWp', cost: 'CHF 11\'500', savings: 'CHF 1\'950/J', payback: '9 J', quote: 'Im Linthtal mit dem Südhang war Solar für mich klar. PVPro hat mir schnell die richtigen Partner in der Ostschweiz gezeigt.' },
+      { name: 'U. Freuler', location: 'Glarus', systemSize: '6.5 kWp', cost: 'CHF 11\'500', savings: 'CHF 1\'950/J', payback: '9 J', quote: 'Im Linthtal mit dem Südhang war Solar für mich klar. PvPro.ch hat mir schnell die richtigen Partner in der Ostschweiz gezeigt.' },
     ],
     faqs: [
       { question: 'Lohnt sich Solar im Kanton Glarus?', answer: 'Ja, besonders für Gebäude mit Südexposition im Linthtal. Mit 1\'605 Sonnenstunden, Bundesförderung und kantonalen Beiträgen rechnet sich eine Anlage in 8–10 Jahren.' },
       { question: 'Welche Förderungen gibt es im Kanton Glarus?', answer: 'Hauseigentümer erhalten die EIV des Bundes via Pronovo sowie einen kantonalen Förderbeitrag. Ergänzend ist die Solaranlage als Liegenschaftsunterhalt steuerlich absetzbar.' },
-      { question: 'Gibt es genügend Solarinstallateure für Glarus?', answer: 'PVPro vermittelt zertifizierte Betriebe aus der gesamten Ostschweiz und Innerschweiz, die regelmässig auch in Glarus installieren. Lokale Kenntnisse sind bei unseren Partnern Standard.' },
+      { question: 'Gibt es genügend Solarinstallateure für Glarus?', answer: 'PvPro.ch vermittelt zertifizierte Betriebe aus der gesamten Ostschweiz und Innerschweiz, die regelmässig auch in Glarus installieren. Lokale Kenntnisse sind bei unseren Partnern Standard.' },
       { question: 'Können alte Textilfabrikdächer in Glarus für Solar genutzt werden?', answer: 'Ja, wenn die Statik stimmt. Viele Glarner Industriegebäude haben starke Stahlbetonkonstruktionen, die problemlos Solaranlagen tragen. Eine Statikprüfung gehört zum Standard-Projekt.' },
       { question: 'Was sind LEG-Gemeinschaften und gibt es diese in Glarus?', answer: 'Lokale Elektrizitätsgemeinschaften (LEG) erlauben es Nachbarn, Solarstrom gemeinsam zu nutzen. In Glarus, wo Gemeinschaftssinn gross geschrieben wird, gibt es erste LEG-Pilotprojekte.' },
     ],
     testimonial: {
       initials: 'UF',
       name: 'Urs Freuler',
-      quote: 'Glarus ist klein, aber wir sind vorwärts. Die Solaranlage auf meinem Haus im Linthtal war die beste Investition seit Jahren. Über PVPro war alles unkompliziert und professionell.',
+      quote: 'Glarus ist klein, aber wir sind vorwärts. Die Solaranlage auf meinem Haus im Linthtal war die beste Investition seit Jahren. Über PvPro.ch war alles unkompliziert und professionell.',
     },
   },
 
@@ -823,7 +823,7 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'A. Weber', location: 'Baar', systemSize: '10 kWp + Speicher', cost: 'CHF 28\'000', savings: 'CHF 4\'100/J', payback: '7 J', quote: 'In Zug machen wir alles richtig – auch Solar. PVPro hat mir die besten Premiuminstallateure für mein Indach-System in Baar vermittelt.' },
+      { name: 'A. Weber', location: 'Baar', systemSize: '10 kWp + Speicher', cost: 'CHF 28\'000', savings: 'CHF 4\'100/J', payback: '7 J', quote: 'In Zug machen wir alles richtig – auch Solar. PvPro.ch hat mir die besten Premiuminstallateure für mein Indach-System in Baar vermittelt.' },
     ],
     faqs: [
       { question: 'Warum entscheiden sich Zuger Eigentümer oft für Indach-Solar?', answer: 'Indach-Systeme integrieren sich nahtlos ins Dach und wirken ästhetisch hochwertig. In Zug, wo Immobilienwerte hoch sind, steigert ein elegantes Solarsystem den Marktwert der Liegenschaft.' },
@@ -835,7 +835,7 @@ export const cityContents: Record<string, CityContent> = {
     testimonial: {
       initials: 'AW',
       name: 'Adrian Weber',
-      quote: 'In Baar wollte ich das Beste. Über PVPro habe ich einen Premium-Installateur für mein 10-kWp-Indach-System gefunden. Die Anlage sieht aus wie ein normales Dach, produziert aber top Leistung.',
+      quote: 'In Baar wollte ich das Beste. Über PvPro.ch habe ich einen Premium-Installateur für mein 10-kWp-Indach-System gefunden. Die Anlage sieht aus wie ein normales Dach, produziert aber top Leistung.',
     },
   },
 
@@ -883,19 +883,19 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'M. Etlin', location: 'Stans', systemSize: '7 kWp', cost: 'CHF 12\'500', savings: 'CHF 2\'200/J', payback: '8 J', quote: 'Am Vierwaldstättersee ist die Sonne ein Geschenk – jetzt nutze ich sie auch. PVPro hat die beste Firma in Stans für mich gefunden.' },
+      { name: 'M. Etlin', location: 'Stans', systemSize: '7 kWp', cost: 'CHF 12\'500', savings: 'CHF 2\'200/J', payback: '8 J', quote: 'Am Vierwaldstättersee ist die Sonne ein Geschenk – jetzt nutze ich sie auch. PvPro.ch hat die beste Firma in Stans für mich gefunden.' },
     ],
     faqs: [
       { question: 'Wie viel Sonne gibt es in Unterwalden?', answer: 'Unterwalden (OW/NW) verzeichnet 1\'739 Sonnenstunden pro Jahr, deutlich mehr als das Mittelland. Die Seelage sorgt für wenig Nebel und mehr effektive Sonnennutzung.' },
       { question: 'Welche Förderungen gelten in Obwalden und Nidwalden?', answer: 'Beide Halbkantone bieten neben der EIV des Bundes eigene kantonale Förderbeiträge. Die Solaranlage ist steuerlich als Liegenschaftsunterhalt absetzbar.' },
-      { question: 'Gibt es genug Solarinstallateure im Kanton?', answer: 'PVPro vermittelt Fachbetriebe aus der Innerschweiz, die regelmässig in Nidwalden und Obwalden arbeiten. Qualität und lokale Erfahrung sind bei unseren Partnern gesichert.' },
+      { question: 'Gibt es genug Solarinstallateure im Kanton?', answer: 'PvPro.ch vermittelt Fachbetriebe aus der Innerschweiz, die regelmässig in Nidwalden und Obwalden arbeiten. Qualität und lokale Erfahrung sind bei unseren Partnern gesichert.' },
       { question: 'Beeinflusst die Nähe zum See die Solaranlage?', answer: 'Positiv. Das Seeklima reduziert Frost und Nebel. Zudem reflektiert der See die Sonnenstrahlung auf südseitige Häuser, was den Ertrag leicht erhöht.' },
       { question: 'Kann ich in Unterwalden meinen Strom ins Netz einspeisen?', answer: 'Ja. Die lokalen Energieversorger in OW und NW nehmen überschüssigen Solarstrom ins Netz auf und vergüten ihn. Die Vergütung liegt typisch bei 8–13 Rp./kWh.' },
     ],
     testimonial: {
       initials: 'ME',
       name: 'Marie-Louise Etlin',
-      quote: 'Der Vierwaldstättersee und die Berge sind unser täglich Brot in Stans – jetzt kommt die Sonne noch dazu. Mit PVPro war die Anlage in sechs Wochen installiert und läuft perfekt.',
+      quote: 'Der Vierwaldstättersee und die Berge sind unser täglich Brot in Stans – jetzt kommt die Sonne noch dazu. Mit PvPro.ch war die Anlage in sechs Wochen installiert und läuft perfekt.',
     },
   },
 
@@ -943,19 +943,19 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'P. Leuenberger', location: 'Olten', systemSize: '6 kWp', cost: 'CHF 11\'500', savings: 'CHF 1\'950/J', payback: '8 J', quote: 'Als Solothurner Ingenieur schätze ich Präzision. PVPro hat mir drei präzise Angebote geliefert – das beste war klar erkennbar.' },
+      { name: 'P. Leuenberger', location: 'Olten', systemSize: '6 kWp', cost: 'CHF 11\'500', savings: 'CHF 1\'950/J', payback: '8 J', quote: 'Als Solothurner Ingenieur schätze ich Präzision. PvPro.ch hat mir drei präzise Angebote geliefert – das beste war klar erkennbar.' },
     ],
     faqs: [
       { question: 'Was macht Solothurn zu einem guten Solar-Kanton?', answer: 'Das milde Aareklima mit wenig Nebel, 1\'631 Sonnenstunden und ein kantonales Gebäudeprogramm machen Solothurn zu einem attraktiven Solar-Standort mit solidem ROI.' },
       { question: 'Welche Förderungen gibt es im Kanton Solothurn?', answer: 'Sie erhalten die bundesweite EIV plus kantonale Gebäudeprogramm-Beiträge. Zusätzlich ist die Anlage als Liegenschaftsunterhalt steuerlich absetzbar, was die Nettoinvestition deutlich senkt.' },
       { question: 'Gibt es in Solothurn eine Solarpflicht?', answer: 'Solothurn plant, bei umfassenden Dachsanierungen eine Solarpflicht einzuführen. Aktuell ist dies noch nicht bindend, aber die Fördermittel machen einen freiwilligen Einbau finanziell sehr attraktiv.' },
-      { question: 'Wie finde ich den besten Installateur im Kanton Solothurn?', answer: 'PVPro vermittelt geprüfte Fachbetriebe im Raum Solothurn, Grenchen, Olten und Balsthal. Alle Partner haben Referenzprojekte im Kanton und werden von uns auf Qualität geprüft.' },
+      { question: 'Wie finde ich den besten Installateur im Kanton Solothurn?', answer: 'PvPro.ch vermittelt geprüfte Fachbetriebe im Raum Solothurn, Grenchen, Olten und Balsthal. Alle Partner haben Referenzprojekte im Kanton und werden von uns auf Qualität geprüft.' },
       { question: 'Lohnt sich Solar auch für Mehrfamilienhäuser in Solothurn?', answer: 'Ja. Über Gemeinschaftsanlagen (ZEV – Zusammenschluss zum Eigenverbrauch) können alle Mieter von der gemeinsamen Solaranlage profitieren. Besonders bei Mehrfamilienhäusern mit grossen Dachflächen sehr rentabel.' },
     ],
     testimonial: {
       initials: 'PL',
       name: 'Peter Leuenberger',
-      quote: 'Ich bin Ingenieur in Olten und wollte alles genau analysieren. Die drei PVPro-Offerten waren klar und vergleichbar. Am Ende habe ich die beste Anlage zu einem fairen Preis bekommen – so soll es sein.',
+      quote: 'Ich bin Ingenieur in Olten und wollte alles genau analysieren. Die drei PvPro.ch-Offerten waren klar und vergleichbar. Am Ende habe ich die beste Anlage zu einem fairen Preis bekommen – so soll es sein.',
     },
   },
 
@@ -1003,19 +1003,19 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'S. Müller', location: 'Baden', systemSize: '7.5 kWp', cost: 'CHF 12\'500', savings: 'CHF 2\'300/J', payback: '8 J', quote: 'Früher hat das KKW hier Strom gemacht – jetzt mein Dach. PVPro hat mir schnell die besten Aargauer Installateure vermittelt.' },
+      { name: 'S. Müller', location: 'Baden', systemSize: '7.5 kWp', cost: 'CHF 12\'500', savings: 'CHF 2\'300/J', payback: '8 J', quote: 'Früher hat das KKW hier Strom gemacht – jetzt mein Dach. PvPro.ch hat mir schnell die besten Aargauer Installateure vermittelt.' },
     ],
     faqs: [
       { question: 'Warum ist Aargau ein attraktiver Solar-Kanton?', answer: 'Hohe Eigenheimquote, günstigere Installationskosten als in städtischen Kantonen, 1\'605 Sonnenstunden und ein starkes kantonales Energieprogramm machen Aargau zu einem der besten Solar-Standorte der Deutschschweiz.' },
       { question: 'Welche Förderungen gibt es im Kanton Aargau?', answer: 'Hauseigentümer erhalten die bundesweite EIV plus das kantonale Aargauer Energieprogramm (bis CHF 1\'500 für 5 kWp). Zusätzlich sind alle Kosten als Liegenschaftsunterhalt absetzbar.' },
       { question: 'Gilt im Aargau eine Solarpflicht für Neubauten?', answer: 'Ab 2026 plant der Kanton Aargau eine schrittweise Einführung der Solarpflicht für Neubauten. Bei Bestandsbauten gibt es noch keine Pflicht, aber starke Anreize.' },
-      { question: 'Wie viele Solarinstallateure gibt es im Aargau?', answer: 'Der Aargau hat eine der dichtesten Installateurlandschaften der Deutschschweiz. PVPro vermittelt geprüfte Betriebe in der gesamten Fläche des Kantons, von Baden bis Aarau und Zofingen.' },
+      { question: 'Wie viele Solarinstallateure gibt es im Aargau?', answer: 'Der Aargau hat eine der dichtesten Installateurlandschaften der Deutschschweiz. PvPro.ch vermittelt geprüfte Betriebe in der gesamten Fläche des Kantons, von Baden bis Aarau und Zofingen.' },
       { question: 'Lohnt sich Solar mit einem Elektroauto im Aargau?', answer: 'Sehr. Mit einer 8-kWp-Anlage, Heimspeicher und Wallbox können Sie Ihr Elektroauto tagsüber nahezu kostenfrei laden. Die Gesamtrendite verbessert sich erheblich gegenüber Solar ohne EV.' },
     ],
     testimonial: {
       initials: 'SM',
       name: 'Sandra Müller',
-      quote: 'Baden liegt im Energieland Aargau – früher Kernkraft, heute Solar auf meinem Dach. PVPro war unkompliziert: in drei Tagen drei Angebote, klarer Vergleich, schnelle Entscheidung. Perfekt.',
+      quote: 'Baden liegt im Energieland Aargau – früher Kernkraft, heute Solar auf meinem Dach. PvPro.ch war unkompliziert: in drei Tagen drei Angebote, klarer Vergleich, schnelle Entscheidung. Perfekt.',
     },
   },
 
@@ -1063,10 +1063,10 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'I. Rochat', location: 'Carouge', systemSize: '6 kWc', cost: "CHF 14'500", savings: "CHF 2'400/an", payback: '8 ans', quote: "Le bonus SIG a fait toute la différence. PVPro m'a trouvé un excellent installateur genevois en quelques jours." },
+      { name: 'I. Rochat', location: 'Carouge', systemSize: '6 kWc', cost: "CHF 14'500", savings: "CHF 2'400/an", payback: '8 ans', quote: "Le bonus SIG a fait toute la différence. PvPro.ch m'a trouvé un excellent installateur genevois en quelques jours." },
     ],
     faqs: [
-      { question: "Quelle est l'obligation solaire à Genève ?", answer: "Depuis 2022, toute rénovation de toiture importante sur un bâtiment à Genève impose l'installation de panneaux photovoltaïques. PVPro vous connecte avec des installateurs certifiés qui gèrent les démarches administratives." },
+      { question: "Quelle est l'obligation solaire à Genève ?", answer: "Depuis 2022, toute rénovation de toiture importante sur un bâtiment à Genève impose l'installation de panneaux photovoltaïques. PvPro.ch vous connecte avec des installateurs certifiés qui gèrent les démarches administratives." },
       { question: "Comment fonctionne le programme SIG Prime Énergie ?", answer: "Les SIG offrent une prime de 25% supplémentaire sur le coût de l'installation solaire, cumulable avec la rétribution unique fédérale (Pronovo). C'est le programme cantonal le plus généreux de Suisse romande." },
       { question: "Quel est le tarif de rachat du surplus à Genève ?", answer: "Les SIG rachètent votre surplus à environ 10–14 ct./kWh selon le tarif trimestriel. L'autoconsommation reste bien plus rentable à 30–35 ct./kWh économisés." },
       { question: "Peut-on installer du solaire sur un immeuble en PPE à Genève ?", answer: "Oui. Via un ZEV (Zusammenschluss zum Eigenverbrauch) ou un modèle de communauté locale, tous les propriétaires d'un immeuble peuvent partager une installation solaire et bénéficier des subventions." },
@@ -1075,7 +1075,7 @@ export const cityContents: Record<string, CityContent> = {
     testimonial: {
       initials: 'IR',
       name: 'Isabelle Rochat',
-      quote: "À Carouge, j'hésitais entre plusieurs installateurs. PVPro m'a envoyé trois offres comparables en une semaine. Avec le bonus SIG, mon installation a coûté 28% de moins que prévu. Je recommande vivement.",
+      quote: "À Carouge, j'hésitais entre plusieurs installateurs. PvPro.ch m'a envoyé trois offres comparables en une semaine. Avec le bonus SIG, mon installation a coûté 28% de moins que prévu. Je recommande vivement.",
     },
   },
 
@@ -1123,7 +1123,7 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'M. Pittet', location: 'Lausanne', systemSize: '7 kWc', cost: "CHF 14'000", savings: "CHF 2'300/an", payback: '8 ans', quote: "À Lausanne, les toits sont parfaits pour le solaire. PVPro m'a mis en contact avec un excellent installateur vaudois en 48h." },
+      { name: 'M. Pittet', location: 'Lausanne', systemSize: '7 kWc', cost: "CHF 14'000", savings: "CHF 2'300/an", payback: '8 ans', quote: "À Lausanne, les toits sont parfaits pour le solaire. PvPro.ch m'a mis en contact avec un excellent installateur vaudois en 48h." },
     ],
     faqs: [
       { question: "Quelles subventions pour le solaire dans le Canton de Vaud ?", answer: "Vous bénéficiez de la rétribution unique fédérale (Pronovo) cumulée avec le programme cantonal vaudois. Les panneaux solaires sont intégralement déductibles comme entretien immobilier." },
@@ -1135,7 +1135,7 @@ export const cityContents: Record<string, CityContent> = {
     testimonial: {
       initials: 'MP',
       name: 'Marc-André Pittet',
-      quote: "Lausanne est une ville innovante — mon toit devait l'être aussi. PVPro m'a permis de comparer trois offres sérieuses en une semaine. L'installation s'est faite sans accroc et je produis plus que prévu.",
+      quote: "Lausanne est une ville innovante — mon toit devait l'être aussi. PvPro.ch m'a permis de comparer trois offres sérieuses en une semaine. L'installation s'est faite sans accroc et je produis plus que prévu.",
     },
   },
 
@@ -1183,7 +1183,7 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'J. Michelet', location: 'Sion', systemSize: '8 kWc', cost: "CHF 14'500", savings: "CHF 2'800/an", payback: '7 ans', quote: "À Sion, le soleil est notre richesse depuis toujours. PVPro m'a aidé à la transformer en énergie propre avec une installation parfaite." },
+      { name: 'J. Michelet', location: 'Sion', systemSize: '8 kWc', cost: "CHF 14'500", savings: "CHF 2'800/an", payback: '7 ans', quote: "À Sion, le soleil est notre richesse depuis toujours. PvPro.ch m'a aidé à la transformer en énergie propre avec une installation parfaite." },
     ],
     faqs: [
       { question: "Pourquoi le Valais est-il si avantageux pour le solaire ?", answer: "Le Valais combine 1'849 h de soleil, une irradiance alpine record, un programme cantonal parmi les plus généreux de Suisse et des installateurs alpins très expérimentés. Le ROI est de 6 à 8 ans." },
@@ -1195,7 +1195,7 @@ export const cityContents: Record<string, CityContent> = {
     testimonial: {
       initials: 'JM',
       name: 'Jean-Pierre Michelet',
-      quote: "En Valais, on vit avec le soleil depuis toujours. Grâce à PVPro, j'ai trouvé un installateur de confiance à Sion qui a dimensionné mon installation parfaitement. Aujourd'hui je produis plus que je consomme.",
+      quote: "En Valais, on vit avec le soleil depuis toujours. Grâce à PvPro.ch, j'ai trouvé un installateur de confiance à Sion qui a dimensionné mon installation parfaitement. Aujourd'hui je produis plus que je consomme.",
     },
   },
 
@@ -1243,7 +1243,7 @@ export const cityContents: Record<string, CityContent> = {
       ],
     },
     caseStudies: [
-      { name: 'M. Bernasconi', location: 'Lugano', systemSize: '7 kWp', cost: "CHF 12'500", savings: "CHF 2'800/anno", payback: '5 anni', quote: 'A Lugano il sole è un capitale. Grazie a PVPro ho trovato l\'installatore giusto in 48 ore – ora produco abbondanza ogni giorno.' },
+      { name: 'M. Bernasconi', location: 'Lugano', systemSize: '7 kWp', cost: "CHF 12'500", savings: "CHF 2'800/anno", payback: '5 anni', quote: 'A Lugano il sole è un capitale. Grazie a PvPro.ch ho trovato l\'installatore giusto in 48 ore – ora produco abbondanza ogni giorno.' },
     ],
     faqs: [
       { question: "Quali incentivi fotovoltaici sono disponibili in Ticino nel 2026?", answer: "Esistono tre livelli: 1) La rimunerazione unica federale (Pronovo) può coprire fino al 30% dei costi di un impianto di riferimento. 2) Il Cantone Ticino può offrire ulteriori contributi FER, soggetti a requisiti di ammissibilità. 3) Alcuni comuni offrono incentivi propri che variano per località. Gli importi definitivi dipendono dalle caratteristiche dell'impianto e dalle normative vigenti — verificate sempre le fonti ufficiali." },
@@ -1256,7 +1256,7 @@ export const cityContents: Record<string, CityContent> = {
     testimonial: {
       initials: 'MB',
       name: 'Marco Bernasconi',
-      quote: "A Lugano il sole splende 2'000 ore l'anno – è una ricchezza che stavo sprecando. Da quando ho installato il mio impianto tramite PVPro, la bolletta elettrica è quasi a zero. In 5 anni sarà già ammortizzato.",
+      quote: "A Lugano il sole splende 2'000 ore l'anno – è una ricchezza che stavo sprecando. Da quando ho installato il mio impianto tramite PvPro.ch, la bolletta elettrica è quasi a zero. In 5 anni sarà già ammortizzato.",
     },
   },
 
@@ -1312,7 +1312,7 @@ export const cityContents: Record<string, CityContent> = {
         cost: "CHF 16'000",
         savings: "CHF 2'400/Jahr",
         payback: '10 Jahre',
-        quote: "In Düdingen läuft vieles über Empfehlung – PVPro hat mir drei lokale Installateure vermittelt, die alle den Kanton Freiburg sehr gut kennen. Die Offerten lagen nahe beieinander, die Qualität war überzeugend.",
+        quote: "In Düdingen läuft vieles über Empfehlung – PvPro.ch hat mir drei lokale Installateure vermittelt, die alle den Kanton Freiburg sehr gut kennen. Die Offerten lagen nahe beieinander, die Qualität war überzeugend.",
       },
     ],
     faqs: [
@@ -1320,7 +1320,7 @@ export const cityContents: Record<string, CityContent> = {
       { question: 'Wie viele Sonnenstunden hat der Kanton Freiburg?', answer: "Der Kanton Freiburg liegt im Mittelland und verzeichnet rund 1'694 Sonnenstunden pro Jahr. Eine 8 kWp Anlage produziert damit ca. 7'200–7'800 kWh jährlich." },
       { question: 'Benötige ich im Kanton Freiburg eine Baugenehmigung für eine Solaranlage?', answer: 'Im Kanton Freiburg genügt für Dachflächenanlagen an bestehenden Gebäuden in den meisten Gemeinden eine einfache Meldung. Nur bei geschützten Ortsbildern oder denkmalgeschützten Gebäuden ist eine Bewilligung nötig.' },
       { question: 'Lohnt sich Agri-PV im Kanton Freiburg?', answer: "Ja. Gerade im Greyerzerland und im Broyebezirk kombinieren Landwirtschaftsbetriebe Solar mit Viehwirtschaft oder Ackerbau. Spezielle Bundesförderprogramme für Agri-PV-Pilot­projekte sind verfügbar." },
-      { question: 'Wie finde ich einen guten Solarinstallateur in Freiburg?', answer: 'PVPro vermittelt ausschliesslich zertifizierte Installateure mit Referenzen im Kanton Freiburg. Stellen Sie eine unverbindliche Anfrage und erhalten Sie innerhalb von 48 Stunden bis zu 3 Vergleichsofferten.' },
+      { question: 'Wie finde ich einen guten Solarinstallateur in Freiburg?', answer: 'PvPro.ch vermittelt ausschliesslich zertifizierte Installateure mit Referenzen im Kanton Freiburg. Stellen Sie eine unverbindliche Anfrage und erhalten Sie innerhalb von 48 Stunden bis zu 3 Vergleichsofferten.' },
     ],
     testimonial: {
       initials: 'FL',
@@ -1381,7 +1381,7 @@ export const cityContents: Record<string, CityContent> = {
         cost: "CHF 17'500",
         savings: "CHF 2'600/Jahr",
         payback: '9 Jahre',
-        quote: "Wir wohnten in Nidau und haben über PVPro drei Offerten aus dem Raum Biel erhalten. Der ausgewählte Installateur kannte die Anforderungen der Stadt Biel in- und auswendig – alles lief reibungslos.",
+        quote: "Wir wohnten in Nidau und haben über PvPro.ch drei Offerten aus dem Raum Biel erhalten. Der ausgewählte Installateur kannte die Anforderungen der Stadt Biel in- und auswendig – alles lief reibungslos.",
       },
     ],
     faqs: [
@@ -1519,7 +1519,7 @@ export const cityContents: Record<string, CityContent> = {
         cost: "CHF 14'500",
         savings: "CHF 2'100/an",
         payback: '10 ans',
-        quote: "À Romont, nos toits ont une exposition sud parfaite. PVPro nous a mis en contact avec un installateur qui connaît bien les procédures fribourgeoises. L'installation a été impeccable et les aides ont allégé la facture.",
+        quote: "À Romont, nos toits ont une exposition sud parfaite. PvPro.ch nous a mis en contact avec un installateur qui connaît bien les procédures fribourgeoises. L'installation a été impeccable et les aides ont allégé la facture.",
       },
     ],
     faqs: [
@@ -1527,7 +1527,7 @@ export const cityContents: Record<string, CityContent> = {
       { question: "Combien d'heures d'ensoleillement à Fribourg ?", answer: "Le Canton de Fribourg enregistre environ 1'694 heures de soleil par an. Une installation de 8 kWc produit entre 7'000 et 7'800 kWh annuellement." },
       { question: 'Faut-il un permis de construire pour une installation solaire à Fribourg ?', answer: "Dans le Canton de Fribourg, une simple notification suffit pour les installations sur toiture existante hors périmètre protégé. Les autorités traitent les dossiers solaires de manière prioritaire." },
       { question: "Qu'est-ce que l'agri-PV dans le district de la Gruyère ?", answer: "L'agri-PV combine panneaux solaires et activité agricole sur le même terrain. Dans le Gruyère, des exploitations utilisent des structures en hauteur au-dessus de pâturages ou de cultures, avec des subventions pilotes spécifiques." },
-      { question: 'Comment trouver un installateur solaire certifié à Fribourg ?', answer: "PVPro travaille exclusivement avec des installateurs certifiés OFEN actifs dans le Canton de Fribourg. Faites une demande gratuite et recevez jusqu'à 3 offres comparatives en 48h." },
+      { question: 'Comment trouver un installateur solaire certifié à Fribourg ?', answer: "PvPro.ch travaille exclusivement avec des installateurs certifiés OFEN actifs dans le Canton de Fribourg. Faites une demande gratuite et recevez jusqu'à 3 offres comparatives en 48h." },
     ],
     testimonial: {
       initials: 'CP',
@@ -1588,7 +1588,7 @@ export const cityContents: Record<string, CityContent> = {
         cost: "CHF 15'500",
         savings: "CHF 2'400/an",
         payback: '9 ans',
-        quote: "À Bienne, les démarches ont été très rapides. PVPro m'a mis en relation avec un installateur local qui connaissait parfaitement les aides disponibles. L'installation est en service depuis 6 mois et les économies sont au rendez-vous.",
+        quote: "À Bienne, les démarches ont été très rapides. PvPro.ch m'a mis en relation avec un installateur local qui connaissait parfaitement les aides disponibles. L'installation est en service depuis 6 mois et les économies sont au rendez-vous.",
       },
     ],
     faqs: [
@@ -1596,12 +1596,12 @@ export const cityContents: Record<string, CityContent> = {
       { question: "Combien d'heures de soleil à Bienne ?", answer: "Bienne bénéficie d'environ 1'750 heures d'ensoleillement par an, grâce à son microclimat lacustre. Une installation de 8 kWc produit entre 7'500 et 8'000 kWh annuellement." },
       { question: 'Faut-il un permis de construire à Bienne pour une installation solaire ?', answer: "En règle générale, une simple notification suffit pour les toitures existantes à Bienne. Le service de l'urbanisme traite les dossiers solaires en priorité dans le cadre de la politique énergie de la ville." },
       { question: "Bienne est-elle une Cité de l'énergie ?", answer: "Oui. Bienne est lauréate du label «Cité de l'énergie» pour son exemplarité en matière de politique énergétique. Cela se traduit par des procédures simplifiées et un accompagnement actif des propriétaires." },
-      { question: 'Comment trouver un bon installateur solaire à Bienne ?', answer: "PVPro collabore avec des installateurs certifiés actifs dans le canton biennoise. Faites une demande gratuite et recevez jusqu'à 3 offres comparatives en 48h, avec un accompagnement personnalisé." },
+      { question: 'Comment trouver un bon installateur solaire à Bienne ?', answer: "PvPro.ch collabore avec des installateurs certifiés actifs dans le canton biennoise. Faites une demande gratuite et recevez jusqu'à 3 offres comparatives en 48h, avec un accompagnement personnalisé." },
     ],
     testimonial: {
       initials: 'MC',
       name: 'Marc Chételat',
-      quote: "Bienne est une ville dynamique qui soutient vraiment les projets solaires. Entre les aides fédérales, cantonales et municipales, j'ai réduit mon investissement de près de 30%. L'installateur trouvé via PVPro était excellent et connaissait bien le canton.",
+      quote: "Bienne est une ville dynamique qui soutient vraiment les projets solaires. Entre les aides fédérales, cantonales et municipales, j'ai réduit mon investissement de près de 30%. L'installateur trouvé via PvPro.ch était excellent et connaissait bien le canton.",
     },
   },
 

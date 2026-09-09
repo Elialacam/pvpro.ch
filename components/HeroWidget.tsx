@@ -1,35 +1,117 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLocale } from '@/lib/LocaleContext';
 import { getFormUrl } from '@/lib/i18n/formUrls';
 
-const MIN = 500;
+const MIN = 100;
 const MAX = 1500;
+const STEP = 20;
+const DEFAULT = 100;
+const MIN_SAVINGS_RATE = 0.4;
+const MAX_SAVINGS_RATE = 0.7;
 
-const labels: Record<string, { question: string; cta: string; savings: string; per: string; month: string }> = {
-  de: { question: 'Wie hoch ist Ihre monatliche Stromrechnung?', cta: 'Jetzt sparen', savings: 'Geschätzte Ersparnis', per: '/Jahr', month: '/Monat' },
-  fr: { question: 'Quel est votre facture mensuelle d\'énergie?', cta: 'Réduire maintenant', savings: 'Économies estimées', per: '/an', month: '/mois' },
-  en: { question: 'What is your monthly energy bill?', cta: "Let's cut it", savings: 'Estimated savings', per: '/year', month: '/month' },
-  it: { question: 'A quanto ammonta la tua bolletta mensile?', cta: 'Riducila ora', savings: 'Risparmio stimato', per: '/anno', month: '/mese' },
+const labels: Record<string, {
+  question: string;
+  cta: string;
+  annualCost: string;
+  savings: string;
+  perYear: string;
+  month: string;
+  note: string;
+}> = {
+  de: {
+    question: 'Wie hoch ist Ihre monatliche Stromrechnung?',
+    cta: 'Jetzt sparen',
+    annualCost: 'Jährliche Stromkosten',
+    savings: 'Mögliche Ersparnis',
+    perYear: 'pro Jahr',
+    month: '/Monat',
+    note: 'Richtwert. Abhängig von Dach, Eigenverbrauch und Stromtarif. Mit einem Batteriespeicher fällt die Ersparnis höher aus.',
+  },
+  fr: {
+    question: 'Quel est le montant de votre facture mensuelle d’électricité ?',
+    cta: 'Réduire maintenant',
+    annualCost: 'Coût annuel de l’électricité',
+    savings: 'Économies possibles',
+    perYear: 'par an',
+    month: '/mois',
+    note: "Valeur indicative. Dépend du toit, de l'autoconsommation et du tarif d'électricité. Avec une batterie, l'économie est plus élevée.",
+  },
+  en: {
+    question: 'What is your monthly electricity bill?',
+    cta: "Let's cut it",
+    annualCost: 'Annual electricity cost',
+    savings: 'Potential savings',
+    perYear: 'per year',
+    month: '/month',
+    note: 'Indicative value. Depends on your roof, self-consumption and electricity tariff. With a battery the saving is higher.',
+  },
+  it: {
+    question: 'A quanto ammonta la tua bolletta elettrica mensile?',
+    cta: 'Riducila ora',
+    annualCost: 'Costo annuo dell’elettricità',
+    savings: 'Risparmio possibile',
+    perYear: 'all’anno',
+    month: '/mese',
+    note: "Valore indicativo. Dipende dal tetto, dall'autoconsumo e dalla tariffa elettrica. Con una batteria il risparmio è maggiore.",
+  },
 };
+
+function formatSwissNumber(value: number): string {
+  return Math.round(value).toLocaleString('de-CH').replace(/\u2019/g, "'");
+}
 
 export default function HeroWidget() {
   const locale = useLocale();
   const t = labels[locale] || labels.de;
   const pathname = usePathname();
   const formUrl = getFormUrl(pathname);
-  const [value, setValue] = useState(900);
+  const [value, setValue] = useState(DEFAULT);
+  const userInteracted = useRef(false);
+
+  useEffect(() => {
+    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!isDesktop || prefersReducedMotion) return;
+
+    let animationFrame: number;
+    let startTime: number | null = null;
+    const startDelay = 700;
+    const duration = 3200;
+    const targetValue = 300;
+
+    const animate = (timestamp: number) => {
+      if (userInteracted.current) return;
+      if (startTime === null) startTime = timestamp;
+
+      const elapsed = timestamp - startTime;
+      if (elapsed < startDelay) {
+        animationFrame = requestAnimationFrame(animate);
+        return;
+      }
+
+      const progress = Math.min((elapsed - startDelay) / duration, 1);
+      const easedProgress = 0.5 - Math.cos(progress * Math.PI) / 2;
+      setValue(MIN + (targetValue - MIN) * easedProgress);
+
+      if (progress < 1) animationFrame = requestAnimationFrame(animate);
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
+  }, []);
 
   const pct = ((value - MIN) / (MAX - MIN)) * 100;
-  const saving = Math.round((value * 12 * 0.6) / 100) * 100;
-  const savingFormatted = saving >= 1000
-    ? `${Math.floor(saving / 1000)}'${String(saving % 1000).padStart(3, '0')}`
-    : String(saving);
+  const annualCost = value * 12;
+  const minimumSavings = Math.min(annualCost, annualCost * MIN_SAVINGS_RATE);
+  const maximumSavings = Math.min(annualCost, annualCost * MAX_SAVINGS_RATE);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    userInteracted.current = true;
     setValue(Number(e.target.value));
   }, []);
 
@@ -52,7 +134,7 @@ export default function HeroWidget() {
       {/* Amount */}
       <div className="flex items-baseline gap-2">
         <span className="text-[52px] font-bold text-gray-900 leading-none tabular-nums tracking-tight">
-          {value}
+          {formatSwissNumber(value)}
         </span>
         <span className="text-base font-semibold text-gray-400 mb-1">CHF{t.month}</span>
       </div>
@@ -75,9 +157,12 @@ export default function HeroWidget() {
             type="range"
             min={MIN}
             max={MAX}
-            step={10}
+            step={STEP}
             value={value}
             onChange={handleChange}
+            onPointerDown={() => {
+              userInteracted.current = true;
+            }}
             className="energy-slider absolute w-full opacity-0 cursor-pointer"
             style={{ top: '-9px', height: '24px' }}
           />
@@ -97,14 +182,18 @@ export default function HeroWidget() {
         </div>
       </div>
 
-      {/* Savings row */}
-      <div className="flex items-center justify-between pt-1 border-t border-gray-100">
-        <div>
-          <p className="text-[11px] text-gray-400 font-semibold uppercase tracking-wider mb-1">{t.savings}</p>
-          <p className="text-2xl font-bold text-[#fcb210] tabular-nums leading-none">
-            CHF {savingFormatted}
-            <span className="text-sm font-semibold text-orange-300 ml-1">{t.per}</span>
+      {/* Annual cost and savings */}
+      <div className="flex items-start justify-between gap-3 pt-1 border-t border-gray-100">
+        <div className="min-w-0">
+          <p className="text-[11px] text-gray-400 font-semibold uppercase tracking-wider mb-1">
+            {t.annualCost}: CHF {formatSwissNumber(annualCost)}
           </p>
+          <p className="text-[11px] text-gray-400 font-semibold uppercase tracking-wider mb-1">{t.savings}:</p>
+          <p className="text-xl font-bold text-[#fcb210] tabular-nums leading-tight">
+            CHF {formatSwissNumber(minimumSavings)}–{formatSwissNumber(maximumSavings)}
+            <span className="text-sm font-semibold text-orange-300 ml-1">{t.perYear}</span>
+          </p>
+          <p className="mt-2 text-[10px] leading-snug text-gray-400">{t.note}</p>
         </div>
         <div
           className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0"

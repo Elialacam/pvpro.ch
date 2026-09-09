@@ -22,7 +22,7 @@ const teamContent: Record<Locale, {
       { value: '3',    label: 'Offerten, kostenlos' },
       { value: '100%', label: 'Unverbindlich' },
     ],
-    imageAlt: 'PVPro Team – Schweizer Solarexperten',
+    imageAlt: 'PvPro.ch Team – Schweizer Solarexperten',
   },
   fr: {
     eyebrow: 'Notre réseau',
@@ -34,7 +34,7 @@ const teamContent: Record<Locale, {
       { value: '3',    label: 'Devis gratuits' },
       { value: '100%', label: 'Sans engagement' },
     ],
-    imageAlt: 'Équipe PVPro – Experts solaires en Suisse',
+    imageAlt: 'Équipe PvPro.ch – Experts solaires en Suisse',
   },
   en: {
     eyebrow: 'Our Network',
@@ -46,7 +46,7 @@ const teamContent: Record<Locale, {
       { value: '3',    label: 'Free Quotes' },
       { value: '100%', label: 'No Obligation' },
     ],
-    imageAlt: 'PVPro Team – Swiss Solar Experts',
+    imageAlt: 'PvPro.ch Team – Swiss Solar Experts',
   },
   it: {
     eyebrow: 'Il nostro network',
@@ -58,7 +58,7 @@ const teamContent: Record<Locale, {
       { value: '3',    label: 'Preventivi gratuiti' },
       { value: '100%', label: 'Senza impegno' },
     ],
-    imageAlt: 'Team PVPro – Esperti solari in Ticino',
+    imageAlt: 'Team PvPro.ch – Esperti solari in Ticino',
     image: '/team-ticino.webp',
   },
 };
@@ -105,6 +105,7 @@ export default function TeamSection() {
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy"
             />
           </div>
         </div>

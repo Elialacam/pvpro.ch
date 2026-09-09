@@ -1,22 +1,13 @@
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import CtaAnfrage from '@/components/CtaAnfrage';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Solaranlage Kosten Schweiz 2026 – Was kostet eine Solaranlage? | PVPro',
+export const metadata: Metadata = pageMetadata({
+  title: 'Solaranlage Kosten Schweiz – Preise und Förderungen',
   description: 'Was kostet eine Solaranlage in der Schweiz? Aktuelle Preise 2026: 15\'000 – 35\'000 CHF für ein Einfamilienhaus. Kosten pro kWp, Förderungen und Speicher. Kostenlose Offerten vergleichen.',
-  keywords: [
-    'Solaranlage Kosten Schweiz',
-    'Was kostet eine Solaranlage',
-    'Photovoltaik Kosten Schweiz',
-    'Solaranlage Preis Einfamilienhaus',
-    'PV Anlage Kosten kWp',
-    '10 kW Solaranlage Kosten',
-    'Solaranlage mit Speicher Kosten',
-    'Solaranlage Förderung Schweiz',
-  ],
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-kosten',
     languages: {
@@ -28,14 +19,14 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Solaranlage Kosten Schweiz 2025 – Aktuelle Preise & Förderungen',
+    title: 'Solaranlage Kosten Schweiz – Aktuelle Preise & Förderungen',
     description: 'Aktuelle Preise für Solaranlagen in der Schweiz. 15\'000 – 35\'000 CHF für Einfamilienhaus nach Förderung. Alle Infos zu Kosten, kWp-Preis und Speicher.',
     url: 'https://www.pvpro.ch/solaranlage-kosten',
     type: 'article',
     locale: 'de_CH',
-    siteName: 'PVPro',
+    siteName: 'PvPro.ch',
   },
-};
+}, { path: '/solaranlage-kosten', locale: 'de' });
 
 const costTable = [
   { size: '5 kWp', production: '4\'500 – 5\'000 kWh', price: '13\'000 – 18\'000 CHF', area: 'ca. 30 – 35 m²', ideal: 'Kleines Haus' },
@@ -118,8 +109,8 @@ export default function SolaranlageKostenPage() {
             "@type": "Article",
             "headline": "Was kostet eine Solaranlage in der Schweiz? Aktuelle Preise 2026",
             "description": "Aktuelle Kosten für Solaranlagen in der Schweiz. 5–10 kWp Anlagen, Kosten pro kWp, Förderungen und Batteriespeicher.",
-            "author": { "@type": "Organization", "name": "PVPro" },
-            "publisher": { "@type": "Organization", "name": "PVPro", "url": "https://www.pvpro.ch" },
+            "author": { "@type": "Organization", "name": "PvPro.ch" },
+            "publisher": { "@type": "Organization", "name": "PvPro.ch", "url": "https://www.pvpro.ch" },
             "datePublished": "2025-01-01",
             "dateModified": new Date().toISOString().split('T')[0],
           })
@@ -169,6 +160,7 @@ export default function SolaranlageKostenPage() {
                 alt="Solaranlage auf Schweizer Einfamilienhaus – Luftaufnahme"
                 width={700}
                 height={500}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="w-full h-auto object-cover"
                 priority
               />

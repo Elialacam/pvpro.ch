@@ -2,11 +2,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, Wrench, Clock, Sun } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
-  title: 'Solaranlage installieren lassen Schweiz 2026 – Anbieter & Kosten | PVPro.ch',
-  description: 'Solaranlage installieren lassen in der Schweiz: Finden Sie zertifizierte Anbieter in Ihrem Kanton. Kostenlose Offerten vergleichen und bis zu 30% sparen mit PVPro.ch.',
+export const metadata: Metadata = pageMetadata({
+  title: 'Solaranlage installieren lassen Schweiz 2026 – Anbieter & Kosten | PvPro.ch',
+  description: 'Solaranlage installieren lassen in der Schweiz: Finden Sie zertifizierte Anbieter in Ihrem Kanton. Kostenlose Offerten vergleichen und bis zu 30% sparen mit PvPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-installieren-schweiz',
     languages: {
@@ -23,9 +24,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/solaranlage-installieren-schweiz',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro',
+    siteName: 'PvPro.ch',
   },
-};
+}, { path: '/solaranlage-installieren-schweiz', locale: 'de' });
 
 const faqs = [
   {
@@ -50,7 +51,7 @@ const faqs = [
   },
   {
     question: 'Wie finde ich den besten Installateur in meinem Kanton?',
-    answer: 'PVPro.ch vermittelt Ihnen kostenlos bis zu 3 zertifizierte Installateure aus Ihrem Kanton — so können Sie Preise und Leistungen direkt vergleichen.',
+    answer: 'PvPro.ch vermittelt Ihnen kostenlos bis zu 3 zertifizierte Installateure aus Ihrem Kanton — so können Sie Preise und Leistungen direkt vergleichen.',
   },
 ];
 
@@ -124,7 +125,7 @@ export default function SolaranlageInstallierenPage() {
               Solaranlage installieren lassen in der Schweiz
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Eine Solaranlage ist eine langfristige Investition. Wer sie installieren lässt, sollte den richtigen Fachbetrieb wählen — denn Qualität, Preis und Service variieren stark. PVPro.ch verbindet Sie kostenlos mit geprüften Schweizer Installateuren aus Ihrem Kanton.
+              Eine Solaranlage ist eine langfristige Investition. Wer sie installieren lässt, sollte den richtigen Fachbetrieb wählen — denn Qualität, Preis und Service variieren stark. PvPro.ch verbindet Sie kostenlos mit geprüften Schweizer Installateuren aus Ihrem Kanton.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -221,7 +222,7 @@ export default function SolaranlageInstallierenPage() {
             </div>
           </div>
           <div>
-            <Image src="/images/asset-installateur-dach-2.webp" alt="Solaranlage Installation Schweiz" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" />
+            <Image src="/images/asset-installateur-dach-2.webp" alt="Solaranlage Installation Schweiz" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" loading="lazy"/>
           </div>
         </section>
 
@@ -288,12 +289,12 @@ export default function SolaranlageInstallierenPage() {
             </ul>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
               <p className="text-gray-700 text-sm leading-relaxed">
-                <strong>PVPro.ch prüft all diese Kriterien im Voraus</strong> — Sie erhalten nur Offerten von Betrieben, die unsere Standards erfüllen.
+                <strong>PvPro.ch prüft all diese Kriterien im Voraus</strong> — Sie erhalten nur Offerten von Betrieben, die unsere Standards erfüllen.
               </p>
             </div>
           </div>
           <div>
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Installateur wählen Schweiz" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Installateur wählen Schweiz" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Tipp</p>
               <p className="text-gray-700 text-sm leading-relaxed">

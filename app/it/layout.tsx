@@ -5,45 +5,12 @@ import PageTransition from "@/components/PageTransition";
 import { LocaleProvider } from "@/lib/LocaleContext";
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://www.pvpro.ch/it',
-    languages: {
-      'de-CH': 'https://www.pvpro.ch',
-      'fr-CH': 'https://www.pvpro.ch/fr',
-      'en-CH': 'https://www.pvpro.ch/en',
-      'it-CH': 'https://www.pvpro.ch/it',
-      'x-default': 'https://www.pvpro.ch',
-    },
-  },
   title: {
-    default: 'PV Pro - Confronta impianti fotovoltaici in Ticino | Preventivi gratuiti',
-    template: '%s | PV Pro',
+    default: 'Confronta impianti fotovoltaici in Ticino | PvPro.ch',
+    template: '%s | PvPro.ch',
   },
   description: 'Confronta gratuitamente le offerte di impianti fotovoltaici da installatori certificati in Ticino. Risparmia fino al 30% con il confronto. 100% senza impegno.',
-  keywords: ['Impianto solare', 'Fotovoltaico', 'Solare Ticino', 'Costi impianto solare', 'Installatore solare', 'Confronta impianti solari'],
-  authors: [{ name: 'PV Pro' }],
-  openGraph: {
-    type: 'website',
-    locale: 'it_CH',
-    url: 'https://www.pvpro.ch/it',
-    siteName: 'PV Pro',
-    title: 'PV Pro - Confronta impianti fotovoltaici in Ticino',
-    description: 'Confronta gratuitamente diverse offerte di impianti fotovoltaici da installatori certificati del Ticino. Risparmia fino al 30%.',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'PV Pro - Impianti Fotovoltaici Ticino',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'PV Pro - Confronta impianti fotovoltaici in Ticino',
-    description: 'Confronta gratuitamente le offerte di impianti fotovoltaici. Risparmia fino al 30%.',
-    images: ['/og-image.jpg'],
-  },
+  authors: [{ name: 'PvPro.ch' }],
   robots: {
     index: true,
     follow: true,
@@ -73,7 +40,7 @@ export default function ItalianLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "PV Pro",
+            "name": "PvPro.ch",
             "url": "https://www.pvpro.ch",
             "logo": "https://www.pvpro.ch/logo-pvpro.png",
             "sameAs": [
@@ -98,8 +65,8 @@ export default function ItalianLayout({
             "@context": "https://schema.org",
             "@type": "WebSite",
             "url": "https://www.pvpro.ch/it",
-            "name": "PV Pro",
-            "alternateName": "PVPro",
+            "name": "PvPro.ch",
+            "alternateName": "PvPro.ch",
             "description": "Piattaforma di confronto per impianti fotovoltaici in Ticino",
             "inLanguage": "it-CH",
             "potentialAction": {

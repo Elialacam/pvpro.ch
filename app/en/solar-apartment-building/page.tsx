@@ -2,10 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Sun, CheckCircle2, TrendingUp, Users, Building2, Zap, ArrowRight, BarChart3 } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import MehrfamilienhausRechner, { MehrfamilienhausFaq } from '@/components/MehrfamilienhausRechner';
 
-export const metadata: Metadata = {
-  title: 'Solar installation for apartment buildings Switzerland: costs, ZEC and profitability | PVPro.ch',
+export const metadata: Metadata = pageMetadata({
+  title: 'Solar installation for apartment buildings Switzerland: costs, ZEC and profitability | PvPro.ch',
   description: 'How much does a solar installation for an apartment building cost? Costs, ZEC, size and profitability for multiple residential units in Switzerland.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-apartment-building',
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/solaranlage-mehrfamilienhaus',
     },
   },
-};
+}, { path: '/en/solar-apartment-building', locale: 'en' });
 
 const costRows = [
   { size: 'Small installation (15–30 kWp)',   price: "approx. CHF 40,000 – 80,000", highlight: false },
@@ -133,7 +134,7 @@ export default function SolarApartmentBuildingPage() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-haus-luftbild-3.webp" alt="Apartment building with solar installation" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" />
+            <Image src="/images/asset-haus-luftbild-3.webp" alt="Apartment building with solar installation" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" loading="lazy"/>
           </div>
         </section>
 
@@ -190,7 +191,7 @@ export default function SolarApartmentBuildingPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <Image src="/images/asset-installateur-dach-5.webp" alt="Solar installation apartment building" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-installateur-dach-5.webp" alt="Solar installation apartment building" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
             </div>
           </div>
         </section>
@@ -270,7 +271,7 @@ export default function SolarApartmentBuildingPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <Image src="/images/asset-haus-solar-ev-1.webp" alt="Apartment building solar investment" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-haus-solar-ev-1.webp" alt="Apartment building solar investment" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
             </div>
           </div>
         </section>
@@ -317,7 +318,7 @@ export default function SolarApartmentBuildingPage() {
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <Image src="/images/asset-beratung-indoor-3.webp" alt="Solar planning for apartment building" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-beratung-indoor-3.webp" alt="Solar planning for apartment building" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
             </div>
           </div>
         </section>
@@ -338,7 +339,7 @@ export default function SolarApartmentBuildingPage() {
             Compare offers and plan your installation optimally
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Every building is different and requires an individual solution. Via PVPro you compare multiple offers for free and find the best solution for your building.
+            Every building is different and requires an individual solution. Via PvPro.ch you compare multiple offers for free and find the best solution for your building.
           </p>
           <Link
             href="/en/request"

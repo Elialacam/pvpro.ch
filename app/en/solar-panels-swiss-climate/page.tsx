@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
-  title: 'Solar Panels & Swiss Climate 2026 – Which System Fits? | PVPro.ch',
+export const metadata: Metadata = pageMetadata({
+  title: 'Solar Panels & Swiss Climate 2026 – Which System Fits? | PvPro.ch',
   description: 'Which solar panels are suited for the Swiss climate? Snow, cold, fog — we explain what really matters and which modules work best in Switzerland.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-panels-swiss-climate',
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/en/solar-panels-swiss-climate',
     type: 'website',
     locale: 'en_CH',
-    siteName: 'PVPro',
+    siteName: 'PvPro.ch',
   },
-};
+}, { path: '/en/solar-panels-swiss-climate', locale: 'en' });
 
 const faqs = [
   {

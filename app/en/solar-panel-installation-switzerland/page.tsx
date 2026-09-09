@@ -2,11 +2,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, Wrench, Clock, Sun } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
-  title: 'Solar Panel Installation Switzerland 2026 – Providers & Costs | PVPro.ch',
-  description: 'Solar panel installation in Switzerland: find certified providers in your canton. Compare free quotes and save up to 30% with PVPro.ch.',
+export const metadata: Metadata = pageMetadata({
+  title: 'Solar Panel Installation Switzerland 2026 – Providers & Costs | PvPro.ch',
+  description: 'Solar panel installation in Switzerland: find certified providers in your canton. Compare free quotes and save up to 30% with PvPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-panel-installation-switzerland',
     languages: {
@@ -23,9 +24,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/en/solar-panel-installation-switzerland',
     type: 'website',
     locale: 'en_US',
-    siteName: 'PVPro',
+    siteName: 'PvPro.ch',
   },
-};
+}, { path: '/en/solar-panel-installation-switzerland', locale: 'en' });
 
 const faqs = [
   {
@@ -50,7 +51,7 @@ const faqs = [
   },
   {
     question: 'How do I find the best installer in my canton?',
-    answer: 'PVPro.ch connects you free of charge with up to 3 certified installers from your canton — so you can directly compare prices and services.',
+    answer: 'PvPro.ch connects you free of charge with up to 3 certified installers from your canton — so you can directly compare prices and services.',
   },
 ];
 
@@ -124,7 +125,7 @@ export default function SolarPanelInstallationSwitzerlandPage() {
               Get solar panels installed in Switzerland
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              A solar system is a long-term investment. Choosing the right company matters — because quality, price and service vary enormously. PVPro.ch connects you free of charge with verified Swiss installers from your canton.
+              A solar system is a long-term investment. Choosing the right company matters — because quality, price and service vary enormously. PvPro.ch connects you free of charge with verified Swiss installers from your canton.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -221,7 +222,7 @@ export default function SolarPanelInstallationSwitzerlandPage() {
             </div>
           </div>
           <div>
-            <Image src="/images/asset-installateur-dach-2.webp" alt="Solar installation Switzerland" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" />
+            <Image src="/images/asset-installateur-dach-2.webp" alt="Solar installation Switzerland" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" loading="lazy"/>
           </div>
         </section>
 
@@ -288,12 +289,12 @@ export default function SolarPanelInstallationSwitzerlandPage() {
             </ul>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
               <p className="text-gray-700 text-sm leading-relaxed">
-                <strong>PVPro.ch checks all these criteria in advance</strong> — you only receive quotes from companies that meet our standards.
+                <strong>PvPro.ch checks all these criteria in advance</strong> — you only receive quotes from companies that meet our standards.
               </p>
             </div>
           </div>
           <div>
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Choose installer Switzerland" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Choose installer Switzerland" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Tip</p>
               <p className="text-gray-700 text-sm leading-relaxed">

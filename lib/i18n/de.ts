@@ -46,7 +46,7 @@ export const de = {
     error: 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.',
   },
   usp: {
-    title: 'Warum PVPro?',
+    title: 'Warum PvPro.ch?',
     compare: {
       title: 'Bis zu 3 Offerten vergleichen',
       description: 'Erhalten Sie mehrere Angebote von geprüften Solarteure und wählen Sie das beste aus.',
@@ -92,7 +92,7 @@ export const de = {
     terms: 'AGB',
     legal: 'Rechtliches',
     followUs: 'Folgen Sie uns',
-    copyright: '© 2024 PVPro. Alle Rechte vorbehalten.',
+    copyright: '© 2024 PvPro.ch. Alle Rechte vorbehalten.',
   },
   testimonials: {
     title: 'Das sagen unsere Kunden',
@@ -130,7 +130,7 @@ export const de = {
     costs: 'Kosten',
   },
   meta: {
-    homeTitle: 'PVPro - Solaranlagen in der Schweiz vergleichen | Kostenlose Offerten',
+    homeTitle: 'PvPro.ch - Solaranlagen in der Schweiz vergleichen | Kostenlose Offerten',
     homeDescription: 'Vergleichen Sie kostenlos Solaranlagen-Angebote von geprüften Installateuren in der Schweiz. Bis zu 30% sparen durch Angebotsvergleich. 100% unverbindlich.',
   },
 };

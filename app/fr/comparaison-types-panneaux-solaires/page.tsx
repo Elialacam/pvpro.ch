@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Zap, CheckCircle, XCircle } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
-  title: 'Comparaison types panneaux solaires Suisse 2026 – Lequel me convient ? | PVPro.ch',
+const baseMetadata: Metadata = {
+  title: 'Comparaison types panneaux solaires Suisse 2026 – Lequel me convient ? | PvPro.ch',
   description: "Comparaison des différents types d'installations solaires en Suisse : monocristallin, polycristallin, couche mince, bifacial. Quelles sont les différences et lequel vaut la peine ?",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/comparaison-types-panneaux-solaires',
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/comparaison-types-panneaux-solaires',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PVPro',
+    siteName: 'PvPro.ch',
   },
 };
 
@@ -292,7 +293,7 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
             <p className="text-gray-600 leading-relaxed">
               En pratique, un{' '}
               <Link href="/fr/installer-panneau-solaire-suisse" className="text-[#fcb210] hover:underline font-medium">installateur certifié</Link>{' '}
-              recommande le type de module adapté après inspection de votre toit. PVPro.ch met en relation avec des{' '}
+              recommande le type de module adapté après inspection de votre toit. PvPro.ch met en relation avec des{' '}
               <Link href="/fr/comparateur-photovoltaique-suisse" className="text-[#fcb210] hover:underline font-medium">fournisseurs</Link>{' '}
               qui connaissent toutes les technologies et conseillent de manière neutre.
             </p>
@@ -384,3 +385,5 @@ export default function ComparaisonTypesPanneauxSolairesPage() {
     </main>
   );
 }
+
+export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/comparaison-types-panneaux-solaires', locale: 'fr' });

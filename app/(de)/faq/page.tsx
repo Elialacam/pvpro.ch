@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FAQ from '@/components/FAQ';
 import FaqSchema from '@/components/FaqSchema';
 import { faqContent } from '@/lib/faqData';
 
-export const metadata: Metadata = {
-  title: 'FAQ – Häufig gestellte Fragen | PVPro.ch',
+export const metadata: Metadata = pageMetadata({
+  title: 'FAQ – Häufig gestellte Fragen | PvPro.ch',
   description: 'Antworten auf die häufigsten Fragen zu Solaranlagen in der Schweiz: Kosten, Förderungen, Installation und mehr.',
   alternates: {
     canonical: 'https://www.pvpro.ch/faq',
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/faq',
     },
   },
-};
+}, { path: '/faq', locale: 'de' });
 
 export default function FAQPage() {
   return (

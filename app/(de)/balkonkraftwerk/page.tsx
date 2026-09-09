@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
-  title: 'Balkonkraftwerk Schweiz – Mini-Solaranlage für den Balkon | PVPro.ch',
+export const metadata: Metadata = pageMetadata({
+  title: 'Balkonkraftwerk Schweiz – Mini-Solaranlage für den Balkon | PvPro.ch',
   description: 'Balkonkraftwerk in der Schweiz: Kosten, Anmeldung, rechtliche Grundlagen und Tipps für Mieter und Eigentümer. Strom selbst erzeugen ohne Dach.',
-};
+}, { path: '/balkonkraftwerk', locale: 'de' });
 
 export default function BalkonkraftwerkPage() {
   return (

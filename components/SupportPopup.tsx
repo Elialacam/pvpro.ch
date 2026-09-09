@@ -130,9 +130,11 @@ export default function SupportPopup() {
               <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-white/20 shadow-lg">
                 <Image
                   src="/images/support-agent.webp"
-                  alt="PVPro Support"
+                  alt="PvPro.ch Support"
                   width={80}
                   height={80}
+                  sizes="80px"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
               </div>

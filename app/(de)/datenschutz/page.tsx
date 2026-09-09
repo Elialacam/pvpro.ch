@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Datenschutzerklärung',
-  description: 'Datenschutzerklärung von PVPro - Informationen zum Umgang mit Ihren personenbezogenen Daten.',
-};
+  description: 'Datenschutzerklärung von PvPro.ch - Informationen zum Umgang mit Ihren personenbezogenen Daten.',
+}, { path: '/datenschutz', locale: 'de' });
 
 export default function DatenschutzPage() {
   return (

@@ -2,10 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, FileText, Clock, Coins } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = {
-  title: 'Get Solar Panel Quotes Switzerland 2026 – Free & No Obligation | PVPro.ch',
+export const metadata: Metadata = pageMetadata({
+  title: 'Get Solar Panel Quotes Switzerland 2026 – Free & No Obligation | PvPro.ch',
   description: 'Request free solar panel quotes in Switzerland. Up to 3 quotes from certified installers in your canton. Compare and save.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/get-solar-panel-quotes',
@@ -23,13 +24,13 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/en/get-solar-panel-quotes',
     type: 'website',
     locale: 'en_US',
-    siteName: 'PVPro',
+    siteName: 'PvPro.ch',
   },
-};
+}, { path: '/en/get-solar-panel-quotes', locale: 'en' });
 
 const faqs = [
   {
-    question: 'How many quotes will I receive through PVPro.ch?',
+    question: 'How many quotes will I receive through PvPro.ch?',
     answer: 'You receive up to 3 tailored quotes from certified installers in your canton. This gives you an immediate basis for comparison.',
   },
   {
@@ -42,11 +43,11 @@ const faqs = [
   },
   {
     question: 'Will I receive unsolicited calls after my request?',
-    answer: 'No. PVPro.ch guarantees you will not receive unwanted advertising calls. Only the installers who send you a quote will contact you.',
+    answer: 'No. PvPro.ch guarantees you will not receive unwanted advertising calls. Only the installers who send you a quote will contact you.',
   },
   {
     question: 'Can I also request quotes for an apartment building?',
-    answer: 'Yes. PVPro.ch handles quotes for all building types — single-family homes, apartment buildings and commercial properties.',
+    answer: 'Yes. PvPro.ch handles quotes for all building types — single-family homes, apartment buildings and commercial properties.',
   },
   {
     question: 'What happens if none of the quotes suits me?',
@@ -101,7 +102,7 @@ export default function GetSolarPanelQuotesPage() {
             <p className="text-gray-400 text-lg leading-relaxed">
               Anyone buying a solar system should never sign the first quote. In Switzerland, the{' '}
               <Link href="/en/solar-panel-costs" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">costs</Link>{' '}
-              for the exact same system can vary by several thousand francs between different installers. PVPro.ch lets you get up to 3 free quotes from certified local installers — in under 2 minutes.
+              for the exact same system can vary by several thousand francs between different installers. PvPro.ch lets you get up to 3 free quotes from certified local installers — in under 2 minutes.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -161,7 +162,7 @@ export default function GetSolarPanelQuotesPage() {
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">In 3 steps</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">How simple is it to request quotes?</h2>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              In the past, getting quotes meant searching yourself, calling, making appointments, waiting. With PVPro.ch it is done in 3 steps:
+              In the past, getting quotes meant searching yourself, calling, making appointments, waiting. With PvPro.ch it is done in 3 steps:
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -189,7 +190,7 @@ export default function GetSolarPanelQuotesPage() {
         {/* ── Quote contents ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Solar panel quote Switzerland" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Solar panel quote Switzerland" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Checklist</p>
@@ -209,7 +210,7 @@ export default function GetSolarPanelQuotesPage() {
             </ul>
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="text-orange-800 text-sm leading-relaxed">
-                <strong>Tip:</strong> If a quote does not contain these points, ask questions — or request a quote through PVPro.ch from one of our certified partners.
+                <strong>Tip:</strong> If a quote does not contain these points, ask questions — or request a quote through PvPro.ch from one of our certified partners.
               </p>
             </div>
           </div>
@@ -241,7 +242,7 @@ export default function GetSolarPanelQuotesPage() {
           <div className="text-center mb-10">
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">All building types</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">For which building types can I request quotes?</h2>
-            <p className="text-gray-600 max-w-xl mx-auto leading-relaxed">Through PVPro.ch you can request quotes for all building types:</p>
+            <p className="text-gray-600 max-w-xl mx-auto leading-relaxed">Through PvPro.ch you can request quotes for all building types:</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {buildingTypes.map(b => (

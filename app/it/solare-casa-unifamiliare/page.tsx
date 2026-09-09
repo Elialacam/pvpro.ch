@@ -2,10 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Sun, CheckCircle2, Home, Ruler, Cpu, Wrench, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
 
-export const metadata: Metadata = {
-  title: 'Impianto solare casa unifamiliare Svizzera: costi, dimensioni e vantaggi | PVPro.ch',
+export const metadata: Metadata = pageMetadata({
+  title: 'Impianto solare casa unifamiliare Svizzera: costi, dimensioni e vantaggi | PvPro.ch',
   description: 'Quanto costa un impianto solare per una casa unifamiliare in Svizzera? Prezzi, dimensioni, incentivi e consigli spiegati semplicemente. Confronta le offerte ora.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/solare-casa-unifamiliare',
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/solaranlage-einfamilienhaus',
     },
   },
-};
+}, { path: '/it/solare-casa-unifamiliare', locale: 'it' });
 
 const costRows = [
   { size: 'Impianto piccolo (6–8 kWp)',  price: "ca. 20'000 – 25'000 CHF", highlight: false },
@@ -146,7 +147,7 @@ export default function SolareCasaUnifamiliarePage() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-installateur-dach-1.webp" alt="Impianto solare casa unifamiliare Svizzera" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" />
+            <Image src="/images/asset-installateur-dach-1.webp" alt="Impianto solare casa unifamiliare Svizzera" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" loading="lazy"/>
           </div>
         </section>
 
@@ -181,7 +182,7 @@ export default function SolareCasaUnifamiliarePage() {
               ))}
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <Image src="/images/asset-haus-luftbild-1.webp" alt="Casa unifamiliare con impianto solare" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
+              <Image src="/images/asset-haus-luftbild-1.webp" alt="Casa unifamiliare con impianto solare" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
             </div>
           </div>
         </section>
@@ -189,7 +190,7 @@ export default function SolareCasaUnifamiliarePage() {
         {/* ── Conviene? ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Consulenza impianto solare" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" />
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Consulenza impianto solare" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" loading="lazy"/>
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Redditività</p>
@@ -337,7 +338,7 @@ export default function SolareCasaUnifamiliarePage() {
             Confronta le offerte e ottimizza i costi
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            I prezzi degli impianti solari variano notevolmente a seconda del fornitore. Tramite PVPro ricevete gratuitamente fino a 3 preventivi da installatori certificati nel vostro Cantone.
+            I prezzi degli impianti solari variano notevolmente a seconda del fornitore. Tramite PvPro.ch ricevete gratuitamente fino a 3 preventivi da installatori certificati nel vostro Cantone.
           </p>
           <Link
             href="/it/richiesta"

@@ -10,12 +10,12 @@ const facebookUrl  = 'https://www.facebook.com/pvpro.ch/';
 
 const footerContent: Record<string, {
   description: string;
-  copyright: string;
+  copyright: { before: string; after: string };
   columns: { title: string; links: { label: string; href: string }[] }[];
 }> = {
   de: {
-    description: 'PVPro.ch ist eine unabhängige Schweizer Plattform, die Immobilienbesitzer mit geprüften Photovoltaik-Installateuren verbindet.',
-    copyright: '© 2026 PVPro. Alle Rechte vorbehalten.',
+    description: 'PvPro.ch ist eine unabhängige Schweizer Plattform, die Immobilienbesitzer mit geprüften Photovoltaik-Installateuren verbindet.',
+    copyright: { before: '© 2026 PvPro.ch — ein Projekt von', after: 'Alle Rechte vorbehalten.' },
     columns: [
       {
         title: 'Ressourcen',
@@ -25,7 +25,6 @@ const footerContent: Record<string, {
           { label: 'Förderungen',                 href: '/foerderungen' },
           { label: 'Solaranlage Kosten',          href: '/solaranlage-kosten' },
           { label: 'Solaranlage Steuerabzug 2026', href: '/blog/solaranlage-steuerabzug-schweiz-2026' },
-          { label: 'FAQ',                         href: '/faq' },
         ],
       },
       {
@@ -43,6 +42,7 @@ const footerContent: Record<string, {
         links: [
           { label: 'Über uns',            href: '/ueber-uns' },
           { label: 'Wie es funktioniert', href: '/wie-es-funktioniert' },
+          { label: 'FAQ',                  href: '/faq' },
           { label: 'Datenschutz',         href: '/datenschutz' },
           { label: 'Impressum',           href: '/impressum' },
         ],
@@ -50,8 +50,8 @@ const footerContent: Record<string, {
     ],
   },
   fr: {
-    description: "PVPro.ch est une plateforme suisse indépendante qui met en relation les propriétaires avec des installateurs photovoltaïques certifiés.",
-    copyright: '© 2026 PVPro. Tous droits réservés.',
+    description: "PvPro.ch est une plateforme suisse indépendante qui met en relation les propriétaires avec des installateurs photovoltaïques certifiés.",
+    copyright: { before: '© 2026 PvPro.ch — un projet de', after: 'Tous droits réservés.' },
     columns: [
       {
         title: 'Ressources',
@@ -61,7 +61,6 @@ const footerContent: Record<string, {
           { label: 'Subventions',                   href: '/fr/subventions-solaires' },
           { label: "Coût installation solaire",     href: '/fr/cout-installation-solaire' },
           { label: 'Déduction fiscale solaire 2026', href: '/fr/blog/deduction-fiscale-panneau-solaire-suisse-2026' },
-          { label: 'FAQ',                           href: '/fr/faq' },
         ],
       },
       {
@@ -79,6 +78,7 @@ const footerContent: Record<string, {
         links: [
           { label: 'À propos de nous',          href: '/fr/a-propos' },
           { label: 'Comment ça marche',         href: '/fr/comment-ca-marche' },
+          { label: 'FAQ',                       href: '/fr/faq' },
           { label: 'Protection des données',    href: '/fr/protection-des-donnees' },
           { label: 'Mentions légales',          href: '/fr/mentions-legales' },
         ],
@@ -86,8 +86,8 @@ const footerContent: Record<string, {
     ],
   },
   en: {
-    description: 'PVPro.ch is an independent Swiss platform connecting homeowners with certified photovoltaic installers.',
-    copyright: '© 2026 PVPro. All rights reserved.',
+    description: 'PvPro.ch is an independent Swiss platform connecting homeowners with certified photovoltaic installers.',
+    copyright: { before: '© 2026 PvPro.ch — a project by', after: 'All rights reserved.' },
     columns: [
       {
         title: 'Resources',
@@ -97,7 +97,6 @@ const footerContent: Record<string, {
           { label: 'Subsidies',                  href: '/en/solar-subsidies' },
           { label: 'Solar system costs',         href: '/en/solar-panel-costs' },
           { label: 'Solar Tax Deduction 2026',   href: '/en/blog/solar-panel-tax-deduction-switzerland-2026' },
-          { label: 'FAQ',                        href: '/en/faq' },
         ],
       },
       {
@@ -115,6 +114,7 @@ const footerContent: Record<string, {
         links: [
           { label: 'About us',        href: '/en/about-us' },
           { label: 'How it works',    href: '/en/how-it-works' },
+          { label: 'FAQ',             href: '/en/faq' },
           { label: 'Privacy policy',  href: '/en/privacy' },
           { label: 'Legal notice',    href: '/en/imprint' },
         ],
@@ -122,8 +122,8 @@ const footerContent: Record<string, {
     ],
   },
   it: {
-    description: 'PVPro.ch è una piattaforma svizzera indipendente che mette in contatto i proprietari immobiliari con installatori fotovoltaici certificati.',
-    copyright: '© 2026 PVPro. Tutti i diritti riservati.',
+    description: 'PvPro.ch è una piattaforma svizzera indipendente che mette in contatto i proprietari immobiliari con installatori fotovoltaici certificati.',
+    copyright: { before: '© 2026 PvPro.ch — un progetto di', after: 'Tutti i diritti riservati.' },
     columns: [
       {
         title: 'Risorse',
@@ -133,7 +133,6 @@ const footerContent: Record<string, {
           { label: 'Sovvenzioni',                 href: '/it/incentivi-solari' },
           { label: 'Costi impianto solare',       href: '/it/costi-impianto-solare' },
           { label: 'Detrazione fiscale solare 2026', href: '/it/blog/detrazione-fiscale-impianto-solare-svizzera-2026' },
-          { label: 'FAQ',                         href: '/it/faq' },
         ],
       },
       {
@@ -151,6 +150,7 @@ const footerContent: Record<string, {
         links: [
           { label: 'Chi siamo',         href: '/it/chi-siamo' },
           { label: 'Come funziona',     href: '/it/come-funziona' },
+          { label: 'FAQ',               href: '/it/faq' },
           { label: 'Privacy',           href: '/it/protezione-dati' },
           { label: 'Note legali',       href: '/it/note-legali' },
         ],
@@ -170,18 +170,20 @@ export default function Footer() {
 
   return (
     <footer className="bg-white text-gray-900 border-t border-gray-200">
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-16 lg:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 xl:gap-16 py-16 lg:py-20">
 
           {/* Col 1 — Brand */}
           <div className="flex flex-col gap-6 lg:pr-4">
             <Link href={homeHref}>
               <Image
                 src="/logo-pvpro.png"
-                alt="PVPro.ch"
+                alt="PvPro.ch"
                 width={130}
                 height={36}
+                sizes="440px"
+                loading="lazy"
                 className="h-32 w-auto -my-10 -ml-3"
               />
             </Link>
@@ -246,7 +248,18 @@ export default function Footer() {
           className="flex items-center justify-center py-6 text-xs text-gray-500"
           style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}
         >
-          <p>{content.copyright}</p>
+          <p className="text-center">
+            {content.copyright.before}{' '}
+            <a
+              href="https://nobamedia.com"
+              target="_blank"
+              rel="noopener"
+              className="text-gray-800 hover:text-primary transition-colors duration-150"
+            >
+              NOBA Media
+            </a>
+            . {content.copyright.after}
+          </p>
         </div>
 
       </div>

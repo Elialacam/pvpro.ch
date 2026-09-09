@@ -2,10 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight, Battery, Sun, Home, Zap, CheckCircle, ArrowRight, TrendingUp } from 'lucide-react';
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
 
-export const metadata: Metadata = {
-  title: 'Solar installation with battery storage: costs, benefits and how it works | PVPro.ch',
+export const metadata: Metadata = pageMetadata({
+  title: 'Solar installation with battery storage: costs, benefits and how it works | PvPro.ch',
   description: 'How does a solar installation with battery storage work? Costs, benefits, storage size and self-consumption in Switzerland explained simply.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-with-battery',
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
       'x-default': 'https://www.pvpro.ch/solaranlage-mit-speicher',
     },
   },
-};
+}, { path: '/en/solar-with-battery', locale: 'en' });
 
 const benefits = [
   { icon: TrendingUp, title: 'Less electricity purchased', text: 'You buy significantly less electricity from your energy supplier — day after day.' },
@@ -40,7 +41,7 @@ export default function SolarWithBatteryPage() {
       {/* ── HERO ── */}
       <section className="relative pt-28 pb-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
         <div className="absolute inset-0 opacity-20">
-          <Image src="/images/batteriespeicher-weiss-modern.webp" alt="Solar installation with battery storage" fill className="object-cover" priority />
+          <Image src="/images/batteriespeicher-weiss-modern.webp" alt="Solar installation with battery storage" fill sizes="100vw" className="object-cover" priority />
         </div>
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-gray-500 mb-10">
@@ -137,7 +138,7 @@ export default function SolarWithBatteryPage() {
             </div>
 
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/hero-family-solar.webp" alt="Solar installation with battery storage" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/hero-family-solar.webp" alt="Solar installation with battery storage" width={700} height={500} sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -207,7 +208,7 @@ export default function SolarWithBatteryPage() {
             </div>
 
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solaranlage-tessin-villa-palmen.webp" alt="Solar panels on a villa with palm trees in Ticino" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/solaranlage-tessin-villa-palmen.webp" alt="Solar panels on a villa with palm trees in Ticino" width={700} height={500} sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -239,7 +240,7 @@ export default function SolarWithBatteryPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solaranlage-flachdach-basel-rhein.webp" alt="Flat-roof solar installation in Basel by the Rhine" width={700} height={500} className="w-full h-auto object-cover" />
+              <Image src="/images/solaranlage-flachdach-basel-rhein.webp" alt="Flat-roof solar installation in Basel by the Rhine" width={700} height={500} sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" className="w-full h-auto object-cover" />
             </div>
             <div>
               <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Electricity production</p>

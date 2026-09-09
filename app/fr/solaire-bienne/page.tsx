@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import { getCityBySlug } from '@/lib/cities';
 import { cityContents } from '@/lib/city-content';
 import { notFound } from 'next/navigation';
@@ -9,8 +10,8 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 
 const citySlug = 'bienne';
 
-export const metadata: Metadata = {
-  title: 'Installation solaire Biel/Bienne – Comparez 3 offres 2026 | PVPro',
+const baseMetadata: Metadata = {
+  title: 'Installation solaire Biel/Bienne – Comparez 3 offres 2026 | PvPro.ch',
   description: "Panneaux solaires à Bienne : comparez jusqu'à 3 offres certifiées. Triple subvention : RU fédérale + Canton de Berne + fonds énergie municipal. Gratuit & sans engagement.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/solaire-bienne',
@@ -28,3 +29,5 @@ export default function CityPage() {
   const content = cityContents[citySlug] || cityContents['geneve'];
   return <UniqueCityPage city={city} content={content} accentColor="blue" />;
 }
+
+export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/solaire-bienne', locale: 'fr' });

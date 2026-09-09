@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/pageMetadata';
 import SolarCalculator from '@/components/SolarCalculator';
 import CtaAnfrage from '@/components/CtaAnfrage';
 import Link from 'next/link';
@@ -7,19 +8,9 @@ import {
   Sun, Home, Battery, ArrowRight, ChevronRight, AlertCircle,
 } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Solarrechner Schweiz 2026 – Kosten & Ertrag berechnen | PVPro',
+export const metadata: Metadata = pageMetadata({
+  title: 'Solarrechner Schweiz 2026 – Kosten & Ertrag berechnen | PvPro.ch',
   description: 'Kostenloser Solarrechner für die Schweiz. Berechnen Sie in 30 Sekunden Kosten, Ertrag und Amortisation Ihrer Solaranlage. Mit Förderungen, Eigenverbrauch und Richtwerten für 2026.',
-  keywords: [
-    'Solarrechner Schweiz',
-    'Photovoltaik Rechner',
-    'PV Rechner Schweiz',
-    'Solaranlage berechnen',
-    'Photovoltaik Ertrag berechnen',
-    'Solarstrom Rechner',
-    'Eigenverbrauch berechnen',
-    'Solaranlage Kosten Rechner',
-  ],
   alternates: {
     canonical: 'https://www.pvpro.ch/solarrechner',
     languages: {
@@ -36,9 +27,9 @@ export const metadata: Metadata = {
     url: 'https://www.pvpro.ch/solarrechner',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PVPro',
+    siteName: 'PvPro.ch',
   },
-};
+}, { path: '/solarrechner', locale: 'de' });
 
 const faqs = [
   {
@@ -180,7 +171,7 @@ export default function SolarrechnerPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebApplication',
-            name: 'PVPro Solarrechner',
+            name: 'PvPro.ch Solarrechner',
             description: 'Kostenloser Solarrechner für die Schweiz',
             url: 'https://www.pvpro.ch/solarrechner',
             applicationCategory: 'Calculator',
