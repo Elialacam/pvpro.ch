@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Star, Check, MapPin } from 'lucide-react';
+import { Star, MapPin } from 'lucide-react';
 import Image from 'next/image';
 import { useLocale } from '@/lib/LocaleContext';
 import { reviewBase, reviewTexts, reviewLabels } from './testimonialsData';
@@ -78,11 +78,8 @@ export default function Testimonials() {
               <div className="flip-card-inner relative h-full w-full">
                 {/* Front — review */}
                 <article className="flip-card-face absolute inset-0 flex flex-col rounded-2xl border border-[#fcb210]/45 bg-white p-6 shadow-[0_14px_35px_rgba(83,70,35,0.08)] transition-shadow duration-300 group-hover:shadow-[0_20px_45px_rgba(252,178,16,0.18)]">
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center mb-4">
                     <Stars />
-                    <span className="inline-flex items-center gap-1 rounded-full bg-[#fff8df] px-2.5 py-1 text-[10px] font-semibold text-gray-500">
-                      <Check size={12} strokeWidth={3} color="#fcb210" /> {labels.googleReview}
-                    </span>
                   </div>
                   <p className="text-lg font-bold leading-[1.25] text-gray-900">"{review.quote}"</p>
                   <p className="mt-3 line-clamp-3 text-sm leading-6 text-gray-500">{review.detail}</p>

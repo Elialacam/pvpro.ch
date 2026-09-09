@@ -40,7 +40,7 @@ export const reviewTexts: Record<'de' | 'fr' | 'en' | 'it', ReviewText[]> = {
     {
       quote: 'Wirklich drei Offerten – und ich konnte selber vergleichen.',
       detail: 'Ich hatte erwartet, dass man mich einfach an eine einzige Firma weiterreicht. Es waren tatsächlich drei unabhängige Angebote mit unterschiedlichen Preisen. Erst dadurch habe ich gemerkt, wie gross die Unterschiede sein können.',
-      location: 'Wohnhaus, Ticino',
+      location: 'Wohnhaus, Frauenfeld',
     },
     {
       quote: "War skeptisch gegenüber Vergleichsportalen – am Ende über 4'000 Franken gespart.",
@@ -72,7 +72,7 @@ export const reviewTexts: Record<'de' | 'fr' | 'en' | 'it', ReviewText[]> = {
     {
       quote: "Vraiment trois devis – et j'ai pu comparer moi-même.",
       detail: "Je m'attendais à être simplement redirigée vers une seule entreprise. Il y avait bel et bien trois offres indépendantes avec des prix différents. C'est là que j'ai réalisé à quel point les écarts peuvent être importants.",
-      location: 'Maison d\'habitation, Tessin',
+      location: 'Maison d\'habitation, Frauenfeld',
     },
     {
       quote: "J'étais sceptique envers les comparateurs – au final, plus de 4'000 francs économisés.",
@@ -104,7 +104,7 @@ export const reviewTexts: Record<'de' | 'fr' | 'en' | 'it', ReviewText[]> = {
     {
       quote: "Really three quotes – and I could compare them myself.",
       detail: "I expected to simply be passed on to a single company. There were actually three independent offers with different prices. Only then did I realise how big the differences can be.",
-      location: 'Residential house, Ticino',
+      location: 'Residential house, Frauenfeld',
     },
     {
       quote: "Was sceptical about comparison portals – ended up saving over 4,000 francs.",
@@ -136,7 +136,7 @@ export const reviewTexts: Record<'de' | 'fr' | 'en' | 'it', ReviewText[]> = {
     {
       quote: 'Davvero tre preventivi – e ho potuto confrontarli da sola.',
       detail: 'Mi aspettavo di essere semplicemente indirizzata a un\'unica azienda. Invece erano davvero tre offerte indipendenti con prezzi diversi. Solo così ho capito quanto possono essere grandi le differenze.',
-      location: 'Casa d\'abitazione, Ticino',
+      location: 'Casa d\'abitazione, Frauenfeld',
     },
     {
       quote: "Ero scettico sui portali di confronto – alla fine ho risparmiato oltre 4'000 franchi.",
@@ -151,9 +151,9 @@ export const reviewTexts: Record<'de' | 'fr' | 'en' | 'it', ReviewText[]> = {
   ],
 };
 
-export const reviewLabels: Record<'de' | 'fr' | 'en' | 'it', { customer: string; googleReview: string; realized: string; photoAlt: string }> = {
-  de: { customer: 'Solar-Kunde', googleReview: 'Google-Rezension', realized: 'Realisierte Solaranlage', photoAlt: 'Solaranlage von' },
-  fr: { customer: 'Client solaire', googleReview: 'Avis Google', realized: 'Installation solaire réalisée', photoAlt: 'Installation solaire de' },
-  en: { customer: 'Solar customer', googleReview: 'Google review', realized: 'Completed solar installation', photoAlt: 'Solar installation of' },
-  it: { customer: 'Cliente solare', googleReview: 'Recensione Google', realized: 'Impianto solare realizzato', photoAlt: 'Impianto solare di' },
+export const reviewLabels: Record<'de' | 'fr' | 'en' | 'it', { customer: string; realized: string; photoAlt: string }> = {
+  de: { customer: 'Solar-Kunde', realized: 'Realisierte Solaranlage', photoAlt: 'Solaranlage von' },
+  fr: { customer: 'Client solaire', realized: 'Installation solaire réalisée', photoAlt: 'Installation solaire de' },
+  en: { customer: 'Solar customer', realized: 'Completed solar installation', photoAlt: 'Solar installation of' },
+  it: { customer: 'Cliente solare', realized: 'Impianto solare realizzato', photoAlt: 'Impianto solare di' },
 };

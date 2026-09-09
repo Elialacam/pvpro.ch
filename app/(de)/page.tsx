@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero';
 import ClientLogos from '@/components/ClientLogos';
 import HowItWorks from '@/components/HowItWorks';
+import Testimonials from '@/components/Testimonials';
 import TeamSection from '@/components/TeamSection';
 import SwissMap from '@/components/SwissMapLazy';
 import BlogSection from '@/components/BlogSection';
@@ -28,6 +29,7 @@ export default function HomePage() {
       <ClientLogos label="Unsere Partner-Installateure" />
       <TeamSection />
       <SwissMap />
+      <Testimonials />
 
       {/* Cities Section - Internal Linking */}
       <section className="section-padding bg-white">

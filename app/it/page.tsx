@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero';
 import ClientLogos from '@/components/ClientLogos';
 import HowItWorks from '@/components/HowItWorks';
+import Testimonials from '@/components/Testimonials';
 import SwissMap from '@/components/SwissMapLazy';
 import TeamSection from '@/components/TeamSection';
 import BlogSection from '@/components/BlogSection';
@@ -57,6 +58,7 @@ export default function ItalianHomePage() {
       <ClientLogos label="I nostri installatori partner" />
       <TeamSection />
       <SwissMap />
+      <Testimonials />
 
       <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">
