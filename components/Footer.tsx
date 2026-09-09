@@ -10,12 +10,12 @@ const facebookUrl  = 'https://www.facebook.com/pvpro.ch/';
 
 const footerContent: Record<string, {
   description: string;
-  copyright: string;
+  copyright: { before: string; after: string };
   columns: { title: string; links: { label: string; href: string }[] }[];
 }> = {
   de: {
     description: 'PvPro.ch ist eine unabhängige Schweizer Plattform, die Immobilienbesitzer mit geprüften Photovoltaik-Installateuren verbindet.',
-    copyright: '© 2026 PvPro.ch. Alle Rechte vorbehalten.',
+    copyright: { before: '© 2026 PvPro.ch — ein Projekt von', after: 'Alle Rechte vorbehalten.' },
     columns: [
       {
         title: 'Ressourcen',
@@ -51,7 +51,7 @@ const footerContent: Record<string, {
   },
   fr: {
     description: "PvPro.ch est une plateforme suisse indépendante qui met en relation les propriétaires avec des installateurs photovoltaïques certifiés.",
-    copyright: '© 2026 PvPro.ch. Tous droits réservés.',
+    copyright: { before: '© 2026 PvPro.ch — un projet de', after: 'Tous droits réservés.' },
     columns: [
       {
         title: 'Ressources',
@@ -87,7 +87,7 @@ const footerContent: Record<string, {
   },
   en: {
     description: 'PvPro.ch is an independent Swiss platform connecting homeowners with certified photovoltaic installers.',
-    copyright: '© 2026 PvPro.ch. All rights reserved.',
+    copyright: { before: '© 2026 PvPro.ch — a project by', after: 'All rights reserved.' },
     columns: [
       {
         title: 'Resources',
@@ -123,7 +123,7 @@ const footerContent: Record<string, {
   },
   it: {
     description: 'PvPro.ch è una piattaforma svizzera indipendente che mette in contatto i proprietari immobiliari con installatori fotovoltaici certificati.',
-    copyright: '© 2026 PvPro.ch. Tutti i diritti riservati.',
+    copyright: { before: '© 2026 PvPro.ch — un progetto di', after: 'Tutti i diritti riservati.' },
     columns: [
       {
         title: 'Risorse',
@@ -170,9 +170,9 @@ export default function Footer() {
 
   return (
     <footer className="bg-white text-gray-900 border-t border-gray-200">
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-16 lg:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 xl:gap-16 py-16 lg:py-20">
 
           {/* Col 1 — Brand */}
           <div className="flex flex-col gap-6 lg:pr-4">
@@ -248,7 +248,18 @@ export default function Footer() {
           className="flex items-center justify-center py-6 text-xs text-gray-500"
           style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}
         >
-          <p>{content.copyright}</p>
+          <p className="text-center">
+            {content.copyright.before}{' '}
+            <a
+              href="https://nobamedia.com"
+              target="_blank"
+              rel="noopener"
+              className="text-gray-800 hover:text-primary transition-colors duration-150"
+            >
+              NOBA Media
+            </a>
+            . {content.copyright.after}
+          </p>
         </div>
 
       </div>
