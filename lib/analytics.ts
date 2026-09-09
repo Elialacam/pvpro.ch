@@ -1,5 +1,5 @@
 /**
- * Google Analytics 4 + GTM Tracking for PvPro.ch
+ * Google Analytics 4 + GTM Tracking for PVPro.com
  *
  * This module handles all analytics tracking including:
  * - Multi-step form tracking

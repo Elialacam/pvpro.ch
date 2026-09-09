@@ -48,7 +48,7 @@ export const it: TranslationKeys = {
     error: 'Si è verificato un errore. Riprova.',
   },
   usp: {
-    title: 'Perché PvPro.ch?',
+    title: 'Perché PVPro?',
     compare: {
       title: 'Fino a 3 preventivi da confrontare',
       description: 'Ricevi diverse offerte da installatori certificati e scegli la migliore.',
@@ -94,7 +94,7 @@ export const it: TranslationKeys = {
     terms: 'Termini',
     legal: 'Legale',
     followUs: 'Seguici',
-    copyright: '© 2024 PvPro.ch. Tutti i diritti riservati.',
+    copyright: '© 2024 PVPro. Tutti i diritti riservati.',
   },
   testimonials: {
     title: 'Cosa dicono i nostri clienti',
@@ -132,7 +132,7 @@ export const it: TranslationKeys = {
     costs: 'Costi',
   },
   meta: {
-    homeTitle: 'PvPro.ch - Confronta impianti fotovoltaici in Ticino | Preventivi gratuiti',
+    homeTitle: 'PVPro - Confronta impianti fotovoltaici in Ticino | Preventivi gratuiti',
     homeDescription: 'Confronta gratuitamente le offerte di impianti fotovoltaici da installatori certificati in Ticino. Risparmia fino al 30% con il confronto. 100% senza impegno.',
   },
 };

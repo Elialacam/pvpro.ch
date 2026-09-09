@@ -58,7 +58,7 @@ export default function TrackingScripts() {
           {delayed && (
             <Script
               id="meta-pixel"
-              strategy="lazyOnload"
+              strategy="afterInteractive"
               dangerouslySetInnerHTML={{
                 __html: `
                   !function(f,b,e,v,n,t,s)
@@ -77,12 +77,12 @@ export default function TrackingScripts() {
           )}
           <Script
             id="google-ads-tag"
-            strategy="lazyOnload"
+            strategy="afterInteractive"
             src="https://www.googletagmanager.com/gtag/js?id=AW-17901154625"
           />
           <Script
             id="google-ads-config"
-            strategy="lazyOnload"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
@@ -94,7 +94,7 @@ export default function TrackingScripts() {
           />
           <Script
             id="openai-ads-pixel"
-            strategy="lazyOnload"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
                 (function(w,d,s,u){
@@ -119,12 +119,12 @@ export default function TrackingScripts() {
         <>
           <Script
             id="ga4-tag"
-            strategy="lazyOnload"
+            strategy="afterInteractive"
             src="https://www.googletagmanager.com/gtag/js?id=G-ZE1BS0ZGK9"
           />
           <Script
             id="ga4-config"
-            strategy="lazyOnload"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
@@ -137,7 +137,7 @@ export default function TrackingScripts() {
           {delayed && (
             <Script
               id="clarity-script"
-              strategy="lazyOnload"
+              strategy="afterInteractive"
               dangerouslySetInnerHTML={{
                 __html: `
                   (function(c,l,a,r,i,t,y){

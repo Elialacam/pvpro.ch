@@ -1,9 +1,8 @@
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 
-const baseMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Mentions légales',
-  description: 'Mentions légales et informations juridiques concernant PvPro.ch.',
+  description: 'Mentions légales et informations juridiques concernant PVPro.',
 };
 
 export default function MentionsLegalesPage() {
@@ -83,5 +82,3 @@ export default function MentionsLegalesPage() {
     </section>
   );
 }
-
-export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/mentions-legales', locale: 'fr' });

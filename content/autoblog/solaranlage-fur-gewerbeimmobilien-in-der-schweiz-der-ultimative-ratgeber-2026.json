@@ -3,11 +3,11 @@
   "createdAt": "2026-08-29T10:12:47.715Z",
   "articles": {
     "de": {
-      "slug": "solaranlage-gewerbeimmobilien",
+      "slug": "solaranlage-fur-gewerbeimmobilien-in-der-schweiz-der-ultimative-ratgeber-2026",
       "locale": "de",
       "title": "Solaranlage für Gewerbeimmobilien in der Schweiz: Der ultimative Ratgeber 2026",
       "metaDescription": "Erfahren Sie, wie eine Solaranlage für Gewerbeimmobilien Ihre Energiekosten senkt. Entdecken Sie alle Förderungen und Sparoptionen in der Schweiz.",
-      "image": "/images/blog/solaranlage-fur-gewerbeimmobilien-in-der-schweiz-der-ultimative-ratgeber-2026.jpg",
+      "image": "/images/autoblog/solaranlage-fur-gewerbeimmobilien-in-der-schweiz-der-ultimative-ratgeber-2026.jpg",
       "date": "29. August 2026",
       "readMin": 15,
       "tag": "Ratgeber",
@@ -102,11 +102,11 @@
       ]
     },
     "fr": {
-      "slug": "installation-solaire-immobilier-commercial",
+      "slug": "solaranlage-fur-gewerbeimmobilien-in-der-schweiz-der-ultimative-ratgeber-2026",
       "locale": "fr",
       "title": "Installation solaire pour les immeubles commerciaux en Suisse : Le guide ultime 2026",
       "metaDescription": "Découvrez comment une installation solaire pour les immeubles commerciaux peut réduire vos coûts énergétiques. Explorez toutes les subventions et options d'économie en Suisse.",
-      "image": "/images/blog/solaranlage-fur-gewerbeimmobilien-in-der-schweiz-der-ultimative-ratgeber-2026.jpg",
+      "image": "/images/autoblog/solaranlage-fur-gewerbeimmobilien-in-der-schweiz-der-ultimative-ratgeber-2026.jpg",
       "date": "29 août 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -201,11 +201,11 @@
       ]
     },
     "en": {
-      "slug": "commercial-property-solar",
+      "slug": "solaranlage-fur-gewerbeimmobilien-in-der-schweiz-der-ultimative-ratgeber-2026",
       "locale": "en",
       "title": "Solar Systems for Commercial Properties in Switzerland: The Ultimate Guide 2026",
       "metaDescription": "Learn how a solar system for commercial properties reduces your energy costs. Discover all the subsidies and savings options in Switzerland.",
-      "image": "/images/blog/solaranlage-fur-gewerbeimmobilien-in-der-schweiz-der-ultimative-ratgeber-2026.jpg",
+      "image": "/images/autoblog/solaranlage-fur-gewerbeimmobilien-in-der-schweiz-der-ultimative-ratgeber-2026.jpg",
       "date": "August 29, 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -300,11 +300,11 @@
       ]
     },
     "it": {
-      "slug": "impianti-solari-immobili-commerciali",
+      "slug": "solaranlage-fur-gewerbeimmobilien-in-der-schweiz-der-ultimative-ratgeber-2026",
       "locale": "it",
       "title": "Impianti solari per immobili commerciali in Svizzera: La guida definitiva 2026",
       "metaDescription": "Scopri come un impianto solare per immobili commerciali può ridurre i tuoi costi energetici. Scopri tutti i sussidi e le opzioni di risparmio in Svizzera.",
-      "image": "/images/blog/solaranlage-fur-gewerbeimmobilien-in-der-schweiz-der-ultimative-ratgeber-2026.jpg",
+      "image": "/images/autoblog/solaranlage-fur-gewerbeimmobilien-in-der-schweiz-der-ultimative-ratgeber-2026.jpg",
       "date": "29 agosto 2026",
       "readMin": 15,
       "tag": "Guida",
@@ -398,11 +398,5 @@
         }
       ]
     }
-  },
-  "localeSlugs": {
-    "de": "solaranlage-gewerbeimmobilien",
-    "it": "impianti-solari-immobili-commerciali",
-    "fr": "installation-solaire-immobilier-commercial",
-    "en": "commercial-property-solar"
   }
 }

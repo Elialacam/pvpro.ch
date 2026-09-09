@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import WieFunktioniertInteractive from '@/components/WieFunktioniertInteractive';
 import FaqSchema from '@/components/FaqSchema';
 
@@ -16,8 +15,8 @@ const wfFaqs = [
   { question: 'Combien de temps dure un stockage de 10 kWh ?', answer: "Un stockage de 10 kWh couvre, selon le foyer, la soirée et la nuit. Avec une consommation élevée (par ex. pompe à chaleur), il se décharge plus rapidement." },
 ];
 
-const baseMetadata: Metadata = {
-  title: "Comment fonctionne une installation solaire ? Expliqué simplement (Suisse) | PvPro.ch",
+export const metadata: Metadata = {
+  title: "Comment fonctionne une installation solaire ? Expliqué simplement (Suisse) | PVPro.ch",
   description: "Comment fonctionne une installation solaire ? Explication simple avec exemples, production d'électricité et réponses aux questions fréquentes sur le photovoltaïque.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/fonctionnement-solaire',
@@ -71,7 +70,7 @@ export default function FonctionnementSolairePage() {
               </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden self-center shadow-2xl mb-8">
-              <Image src="/images/wie-funktioniert-solaranlage.webp" alt="Comment fonctionne une installation solaire – illustration avec soleil, modules solaires, onduleur, stockage et électricité domestique" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-auto block" priority />
+              <Image src="/images/wie-funktioniert-solaranlage.webp" alt="Comment fonctionne une installation solaire – illustration avec soleil, modules solaires, onduleur, stockage et électricité domestique" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-auto block" />
             </div>
           </div>
         </div>
@@ -170,5 +169,3 @@ export default function FonctionnementSolairePage() {
     </main>
   );
 }
-
-export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/fonctionnement-solaire', locale: 'fr' });

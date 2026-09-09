@@ -1,11 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-const baseMetadata: Metadata = {
-  title: 'Subventions solaires Canton de Zurich 2026 – RU, obligation solaire & contributions | PvPro.ch',
+export const metadata: Metadata = {
+  title: 'Subventions solaires Canton de Zurich 2026 – RU, obligation solaire & contributions | PVPro.ch',
   description: "Quelles subventions existent pour les installations solaires dans le Canton de Zurich 2026 ? RU, contributions cantonales, obligation solaire et comment demander l'aide. Informez-vous.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/subventions-solaires-canton-zurich',
@@ -23,7 +22,7 @@ const baseMetadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/subventions-solaires-canton-zurich',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PvPro.ch',
+    siteName: 'PVPro',
   },
 };
 
@@ -330,5 +329,3 @@ export default function SubventionsSolairesCantonsZurichPage() {
     </main>
   );
 }
-
-export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/subventions-solaires-canton-zurich', locale: 'fr' });

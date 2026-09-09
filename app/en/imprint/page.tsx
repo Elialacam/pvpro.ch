@@ -1,10 +1,9 @@
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = pageMetadata({
+export const metadata: Metadata = {
   title: 'Imprint',
-  description: 'Imprint and legal information for PvPro.ch.',
-}, { path: '/en/imprint', locale: 'en' });
+  description: 'Imprint and legal information for PVPro.',
+};
 
 export default function ImprintPage() {
   return (

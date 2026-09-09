@@ -3,11 +3,11 @@
   "createdAt": "2026-08-30T10:11:04.791Z",
   "articles": {
     "de": {
-      "slug": "solaranlage-gewerbeplanung-fuenf-schritte",
+      "slug": "gewerbe-photovoltaik-planung-in-5-schritten-zur-solaranlage-fur-ihr-unternehmen-",
       "locale": "de",
       "title": "Gewerbe Photovoltaik Planung: In 5 Schritten zur Solaranlage für Ihr Unternehmen",
       "metaDescription": "Vermeiden Sie teure Fehler bei der Gewerbe Photovoltaik Planung 2026: Mit unserem Leitfaden sichern Sie Fördergelder und maximieren Ihre Rendite.",
-      "image": "/images/blog/gewerbe-photovoltaik-planung-in-5-schritten-zur-solaranlage-fur-ihr-unternehmen-.jpg",
+      "image": "/images/autoblog/gewerbe-photovoltaik-planung-in-5-schritten-zur-solaranlage-fur-ihr-unternehmen-.jpg",
       "date": "30. August 2026",
       "readMin": 15,
       "tag": "Ratgeber",
@@ -83,11 +83,11 @@
       ]
     },
     "fr": {
-      "slug": "planification-solaire-entreprises-cinq-etapes",
+      "slug": "gewerbe-photovoltaik-planung-in-5-schritten-zur-solaranlage-fur-ihr-unternehmen-",
       "locale": "fr",
       "title": "Planification Photovoltaïque pour les Entreprises : 5 Étapes vers votre Installation Solaire",
       "metaDescription": "Évitez les erreurs coûteuses dans la planification photovoltaïque pour les entreprises en 2026: Avec notre guide, assurez-vous d'obtenir des subventions et maximisez votre rendement.",
-      "image": "/images/blog/gewerbe-photovoltaik-planung-in-5-schritten-zur-solaranlage-fur-ihr-unternehmen-.jpg",
+      "image": "/images/autoblog/gewerbe-photovoltaik-planung-in-5-schritten-zur-solaranlage-fur-ihr-unternehmen-.jpg",
       "date": "30 août 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -163,11 +163,11 @@
       ]
     },
     "en": {
-      "slug": "commercial-solar-planning-steps",
+      "slug": "gewerbe-photovoltaik-planung-in-5-schritten-zur-solaranlage-fur-ihr-unternehmen-",
       "locale": "en",
       "title": "Commercial Photovoltaic Planning: 5 Steps to a Solar System for Your Business",
       "metaDescription": "Avoid costly mistakes in commercial photovoltaic planning 2026: Our guide helps secure subsidies and maximize your return on investment.",
-      "image": "/images/blog/gewerbe-photovoltaik-planung-in-5-schritten-zur-solaranlage-fur-ihr-unternehmen-.jpg",
+      "image": "/images/autoblog/gewerbe-photovoltaik-planung-in-5-schritten-zur-solaranlage-fur-ihr-unternehmen-.jpg",
       "date": "August 30, 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -243,11 +243,11 @@
       ]
     },
     "it": {
-      "slug": "pianificazione-solare-aziendale-cinque-passi",
+      "slug": "gewerbe-photovoltaik-planung-in-5-schritten-zur-solaranlage-fur-ihr-unternehmen-",
       "locale": "it",
       "title": "Pianificazione del Fotovoltaico Aziendale: In 5 Passi verso l'Impianto Solare per la Vostra Impresa",
       "metaDescription": "Evitate errori costosi nella pianificazione del fotovoltaico aziendale 2026: con la nostra guida ottenete sovvenzioni e massimizzate il vostro rendimento.",
-      "image": "/images/blog/gewerbe-photovoltaik-planung-in-5-schritten-zur-solaranlage-fur-ihr-unternehmen-.jpg",
+      "image": "/images/autoblog/gewerbe-photovoltaik-planung-in-5-schritten-zur-solaranlage-fur-ihr-unternehmen-.jpg",
       "date": "30 agosto 2026",
       "readMin": 15,
       "tag": "Guida",
@@ -322,11 +322,5 @@
         }
       ]
     }
-  },
-  "localeSlugs": {
-    "de": "solaranlage-gewerbeplanung-fuenf-schritte",
-    "it": "pianificazione-solare-aziendale-cinque-passi",
-    "fr": "planification-solaire-entreprises-cinq-etapes",
-    "en": "commercial-solar-planning-steps"
   }
 }

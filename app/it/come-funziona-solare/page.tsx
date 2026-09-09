@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import WieFunktioniertInteractive from '@/components/WieFunktioniertInteractive';
 import FaqSchema from '@/components/FaqSchema';
 
@@ -16,8 +15,8 @@ const wfFaqs = [
   { question: 'Quanto dura un accumulo da 10 kWh?', answer: "Un accumulo da 10 kWh copre, a seconda del nucleo familiare, la sera e la notte. Con un consumo elevato (es. pompa di calore), si scarica più rapidamente." },
 ];
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Come funziona un impianto solare? Spiegato semplicemente (Svizzera) | PvPro.ch',
+export const metadata: Metadata = {
+  title: 'Come funziona un impianto solare? Spiegato semplicemente (Svizzera) | PVPro.ch',
   description: 'Come funziona un impianto solare? Spiegazione semplice con esempi, produzione di energia e risposte alle domande frequenti sul fotovoltaico.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/come-funziona-solare',
@@ -29,7 +28,7 @@ export const metadata: Metadata = pageMetadata({
       'x-default': 'https://www.pvpro.ch/wie-funktioniert',
     },
   },
-}, { path: '/it/come-funziona-solare', locale: 'it' });
+};
 
 export default function ComeFunzionaSolarePage() {
   return (
@@ -71,7 +70,7 @@ export default function ComeFunzionaSolarePage() {
               </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden self-center shadow-2xl mb-8">
-              <Image src="/images/wie-funktioniert-solaranlage.webp" alt="Come funziona un impianto solare – illustrazione con sole, moduli solari, inverter, accumulo ed elettricità domestica" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-auto block" priority />
+              <Image src="/images/wie-funktioniert-solaranlage.webp" alt="Come funziona un impianto solare – illustrazione con sole, moduli solari, inverter, accumulo ed elettricità domestica" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-auto block" />
             </div>
           </div>
         </div>

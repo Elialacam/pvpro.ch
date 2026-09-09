@@ -146,13 +146,12 @@ export default function Hero() {
           {mounted.has(i) && (
             <Image
               src={src}
-              alt="PvPro.ch Solaranlage"
+              alt="PVPro Solaranlage"
               fill
               priority={i === 0}
               quality={i === 0 ? 75 : 70}
               className="object-cover object-center"
               sizes="100vw"
-              loading={i === 0 ? 'eager' : 'lazy'}
               onLoad={() => markLoaded(i)}
             />
           )}
@@ -201,6 +200,24 @@ export default function Hero() {
           ))}
         </div>
 
+        {/* Trustpilot badge */}
+        <a
+          href="https://it.trustpilot.com/review/pvpro.ch"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 sm:mt-4 inline-block rounded-xl px-2.5 py-1.5"
+          style={{ background: 'rgba(255,255,255,0.88)' }}
+        >
+          <img
+            src="/images/trustpilot-badge.png"
+            alt="Trustpilot 5 Sterne"
+            width={120}
+            height={65}
+            loading="eager"
+            decoding="async"
+            className="w-20 sm:w-28"
+          />
+        </a>
       </div>
 
       {/* Premium widget — bottom right */}

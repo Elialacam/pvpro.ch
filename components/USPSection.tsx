@@ -46,7 +46,7 @@ export default function USPSection({ lang = 'de' }: USPSectionProps) {
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-4">
-            {t(lang, 'Warum PvPro.ch?', 'Pourquoi PvPro.ch ?', 'Perché PvPro.ch?')}
+            {t(lang, 'Warum PVPro?', 'Pourquoi PVPro ?', 'Perché PVPro?')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {t(lang,

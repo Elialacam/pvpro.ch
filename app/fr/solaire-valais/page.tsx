@@ -8,7 +8,6 @@ import { getCityBySlug } from '@/lib/cities';
 import { cityContents, CityContent } from '@/lib/city-content';
 import { notFound } from 'next/navigation';
 import UniqueCityPage from '@/components/UniqueCityPage';
-import { pageMetadata } from '@/lib/pageMetadata';
 
 
 // This is a template for the city pages.
@@ -17,11 +16,11 @@ const citySlug = 'valais';
 
 export async function generateMetadata(): Promise<Metadata> {
   const city = getCityBySlug(citySlug);
-  if (!city) return pageMetadata({ title: 'Ville introuvable' }, { path: '/fr/solaire-valais', locale: 'fr' });
-  return pageMetadata({
-    title: `Installation solaire ${city.name} ${city.canton} – Comparer les devis`,
-    description: `Installation solaire à ${city.name} : comparez gratuitement jusqu’à 3 devis d’installateurs certifiés et découvrez les subventions disponibles.`,
-  }, { path: '/fr/solaire-valais', locale: 'fr' });
+  if (!city) return { title: 'Stadt nicht gefunden' };
+  return {
+    title: `Solaranlage ${city.name} ${city.canton} - Offerten vergleichen | PV Pro`,
+    description: `Solaranlage in ${city.name}: Jetzt bis zu 3 Offerten von geprüften Solarteuren vergleichen. Sichern Sie sich Förderungen in ${city.name}. Unverbindlich & Kostenlos.`,
+  };
 }
 
 export default function CityPage() {

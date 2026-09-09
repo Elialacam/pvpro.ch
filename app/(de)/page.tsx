@@ -11,18 +11,56 @@ import { cities } from '@/lib/cities';
 import { MapPin } from 'lucide-react';
 
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 import { faqContent } from '@/lib/faqData';
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Solar-Offerten vergleichen: 3 geprüfte Betriebe | PvPro.ch',
-  description: 'Vergleichen Sie kostenlos bis zu drei Offerten von geprüften Schweizer Solarbetrieben für Ihre Solaranlage.',
-}, { path: '/', locale: 'de' });
+export const metadata: Metadata = {
+  title: 'PV Pro - Solaranlagen in der Schweiz vergleichen | Kostenlose Offerten',
+  description: 'Vergleichen Sie kostenlos bis zu 3 geprüfte Offerten für Ihre Solaranlage. Ein Netzwerk aus über 25 qualifizierten Schweizer Fachbetrieben mit über 20 Jahren Erfahrung – zuverlässig, transparent und unverbindlich.',
+};
 
 export default function HomePage() {
   return (
     <>
+
+      {/* Service Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Solar Installation",
+            "provider": {
+              "@type": "Electrician",
+              "name": "Solar Installation City"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "City"
+            }
+          })
+        }}
+      />
+
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.pvpro.ch"
+              }
+            ]
+          })
+        }}
+      />
 
       <Hero />
       <HowItWorks />

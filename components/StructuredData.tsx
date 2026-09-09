@@ -3,15 +3,15 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": "https://www.pvpro.ch/#organization",
-    "name": "PvPro.ch",
-    "alternateName": "PvPro.ch",
+    "name": "PVPro",
+    "alternateName": "Solar Heim",
     "url": "https://www.pvpro.ch",
     "logo": "https://www.pvpro.ch/logo-pvpro.png",
     "image": [
       "https://www.pvpro.ch/logo-pvpro.png",
       "https://www.pvpro.ch/og-image.jpg"
     ],
-    "description": "PvPro.ch ist die führende Vergleichsplattform für Solaranlagen in der Schweiz. Wir vermitteln kostenlos Angebote geprüfter Solarteure.",
+    "description": "PVPro ist die führende Vergleichsplattform für Solaranlagen in der Schweiz. Wir vermitteln kostenlos Angebote von geprüften Solarteu ren und helfen Hausbesitzern, bis zu 30% zu sparen.",
     "telephone": "+41762703887",
     "email": "anfrage@pvpro.ch",
     "address": {

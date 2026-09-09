@@ -128,10 +128,6 @@ export default function SwitzerlandMap() {
       });
 
       const infoWindow = new g.maps.InfoWindow();
-      g.maps.event.addListener(infoWindow, 'domready', () => {
-        document.querySelector<HTMLButtonElement>('.map-info-window__close')
-          ?.addEventListener('click', () => infoWindow.close(), { once: true });
-      });
 
       cities.forEach((city, i) => {
         const name = city.name[locale as 'de' | 'fr' | 'en'] || city.name.de;
@@ -155,17 +151,13 @@ export default function SwitzerlandMap() {
         marker.addListener('mouseout', () => marker.setAnimation(null));
         marker.addListener('click', () => {
           infoWindow.setContent(
-            `<div class="map-info-window">
-               <button type="button" class="map-info-window__close" aria-label="Schliessen">×</button>
-               <div class="map-info-window__eyebrow">${t.badge}</div>
-               <div class="map-info-window__heading">
-                 <span>${name}</span>
-                 <span class="map-info-window__crest">
-                   <img src="/images/cantons/${(city as any).canton.toLowerCase()}.png" alt="${(city as any).canton}" />
-                 </span>
+            `<div style="font-family:inherit;padding:2px 0;max-width:180px">
+               <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
+                 <span style="font-weight:700;font-size:14px;color:#1F2937">${name}</span>
+                 <img src="/images/cantons/${(city as any).canton.toLowerCase()}.png" alt="${(city as any).canton}" style="height:18px;width:auto" />
                </div>
-               <div class="map-info-window__copy">${t.popup}</div>
-               <a href="${t.formHref}" class="map-info-window__cta">${t.cta}</a>
+               <div style="color:#374151;font-size:12px;line-height:1.4;margin-bottom:8px">${t.popup}</div>
+               <a href="${t.formHref}" style="display:inline-block;background:#fcb210;color:#fff;font-weight:600;font-size:13px;padding:6px 12px;border-radius:8px;text-decoration:none">${t.cta}</a>
              </div>`
           );
           infoWindow.open({ map, anchor: marker });

@@ -2,11 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight, CheckCircle, Info, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import FoerderRechner from '@/components/FoerderRechner';
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Solar Subsidies in Switzerland 2026 | PvPro.ch',
+export const metadata: Metadata = {
+  title: 'Solar Subsidies in Switzerland 2026 | PVPro.ch',
   description: 'One-time payment (OTP), cantonal programmes and tax deductions for photovoltaic installations in Switzerland. Calculate your subsidy now.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-subsidies',
@@ -18,7 +17,7 @@ export const metadata: Metadata = pageMetadata({
       'x-default': 'https://www.pvpro.ch/foerderungen',
     },
   },
-}, { path: '/en/solar-subsidies', locale: 'en' });
+};
 
 const tableRows = [
   { size: '5 kWp',  subsidy: "approx. CHF 1'800", total: "approx. CHF 13'000", net: "approx. CHF 11'200" },
@@ -38,7 +37,7 @@ export default function SolarSubsidiesPage() {
     <main className="min-h-screen bg-white">
       <section className="relative pt-28 pb-20 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
         <div className="absolute inset-0 opacity-20">
-          <Image src="/images/hero-solar-panels.webp" alt="Solar panel system on a house roof in Switzerland" fill sizes="100vw" className="object-cover" priority />
+          <Image src="/images/hero-solar-panels.webp" alt="Solar panel system on a house roof in Switzerland" fill className="object-cover" priority />
         </div>
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-gray-500 mb-10">
@@ -108,7 +107,7 @@ export default function SolarSubsidiesPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solardaecher-quartier-see-schweiz.webp" alt="Residential neighborhood with solar roofs by a Swiss lake" width={700} height={500} sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" className="w-full h-auto object-cover" />
+              <Image src="/images/solardaecher-quartier-see-schweiz.webp" alt="Residential neighborhood with solar roofs by a Swiss lake" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -195,7 +194,7 @@ export default function SolarSubsidiesPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/hero-family-solar.webp" alt="Detached house with solar installation" width={700} height={500} sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" className="w-full h-auto object-cover" />
+              <Image src="/images/hero-family-solar.webp" alt="Detached house with solar installation" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
             <div>
               <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Calculation example</p>
@@ -247,7 +246,7 @@ export default function SolarSubsidiesPage() {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solaranlage-flachdach-gewerbe-rhein.webp" alt="Solar panels on a commercial flat roof by the Rhine" width={700} height={500} sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" className="w-full h-auto object-cover" />
+              <Image src="/images/solaranlage-flachdach-gewerbe-rhein.webp" alt="Solar panels on a commercial flat roof by the Rhine" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>

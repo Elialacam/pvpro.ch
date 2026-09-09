@@ -2,12 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, Wrench, Clock, Sun } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Installare impianto solare Svizzera 2026 – Fornitori & Costi | PvPro.ch',
-  description: 'Installare un impianto solare in Svizzera: trova installatori certificati nel tuo Cantone. Confronta preventivi gratuiti e risparmia fino al 30% con PvPro.ch.',
+export const metadata: Metadata = {
+  title: 'Installare impianto solare Svizzera 2026 – Fornitori & Costi | PVPro.ch',
+  description: 'Installare un impianto solare in Svizzera: trova installatori certificati nel tuo Cantone. Confronta preventivi gratuiti e risparmia fino al 30% con PVPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/installare-impianto-solare-svizzera',
     languages: {
@@ -24,9 +23,9 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/it/installare-impianto-solare-svizzera',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PvPro.ch',
+    siteName: 'PVPro',
   },
-}, { path: '/it/installare-impianto-solare-svizzera', locale: 'it' });
+};
 
 const faqs = [
   {
@@ -51,7 +50,7 @@ const faqs = [
   },
   {
     question: "Come trovo il miglior installatore nel mio Cantone?",
-    answer: "PvPro.ch vi mette gratuitamente in contatto con fino a 3 installatori certificati del vostro Cantone — per confrontare direttamente prezzi e prestazioni.",
+    answer: "PVPro.ch vi mette gratuitamente in contatto con fino a 3 installatori certificati del vostro Cantone — per confrontare direttamente prezzi e prestazioni.",
   },
 ];
 
@@ -125,7 +124,7 @@ export default function InstallareImpiantoSolareSvizzeraPage() {
               Far installare un impianto solare in Svizzera
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Un impianto solare è un investimento a lungo termine. Chi lo fa installare deve scegliere l&apos;azienda giusta — perché qualità, prezzo e servizio variano molto. PvPro.ch vi mette gratuitamente in contatto con installatori svizzeri certificati del vostro Cantone.
+              Un impianto solare è un investimento a lungo termine. Chi lo fa installare deve scegliere l&apos;azienda giusta — perché qualità, prezzo e servizio variano molto. PVPro.ch vi mette gratuitamente in contatto con installatori svizzeri certificati del vostro Cantone.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -222,7 +221,7 @@ export default function InstallareImpiantoSolareSvizzeraPage() {
             </div>
           </div>
           <div>
-            <Image src="/images/asset-installateur-dach-2.webp" alt="Installazione solare Svizzera" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" loading="lazy"/>
+            <Image src="/images/asset-installateur-dach-2.webp" alt="Installazione solare Svizzera" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" />
           </div>
         </section>
 
@@ -289,12 +288,12 @@ export default function InstallareImpiantoSolareSvizzeraPage() {
             </ul>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
               <p className="text-gray-700 text-sm leading-relaxed">
-                <strong>PvPro.ch verifica tutti questi criteri in anticipo</strong> — ricevete solo preventivi da aziende che soddisfano i nostri standard.
+                <strong>PVPro.ch verifica tutti questi criteri in anticipo</strong> — ricevete solo preventivi da aziende che soddisfano i nostri standard.
               </p>
             </div>
           </div>
           <div>
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Scegliere installatore Svizzera" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Scegliere installatore Svizzera" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Consiglio</p>
               <p className="text-gray-700 text-sm leading-relaxed">

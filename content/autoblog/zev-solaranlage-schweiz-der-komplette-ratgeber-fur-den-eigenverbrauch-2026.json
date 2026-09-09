@@ -3,11 +3,11 @@
   "createdAt": "2026-08-26T10:21:35.092Z",
   "articles": {
     "de": {
-      "slug": "zev-solaranlage-eigenverbrauch",
+      "slug": "zev-solaranlage-schweiz-der-komplette-ratgeber-fur-den-eigenverbrauch-2026",
       "locale": "de",
       "title": "ZEV Solaranlage Schweiz: Der komplette Ratgeber für den Eigenverbrauch 2026",
       "metaDescription": "Planen Sie eine ZEV Solaranlage in der Schweiz? Unser Ratgeber 2026 zeigt, wie Sie Renditen maximieren, Stromkosten senken und rechtliche Hürden meistern können.",
-      "image": "/images/blog/zev-solaranlage-schweiz-der-komplette-ratgeber-fur-den-eigenverbrauch-2026.jpg",
+      "image": "/images/autoblog/zev-solaranlage-schweiz-der-komplette-ratgeber-fur-den-eigenverbrauch-2026.jpg",
       "date": "26. August 2026",
       "readMin": 15,
       "tag": "Ratgeber",
@@ -81,11 +81,11 @@
       ]
     },
     "fr": {
-      "slug": "installation-zev-autoconsommation",
+      "slug": "zev-solaranlage-schweiz-der-komplette-ratgeber-fur-den-eigenverbrauch-2026",
       "locale": "fr",
       "title": "Installation solaire ZEV en Suisse : Le guide complet pour l'autoconsommation en 2026",
       "metaDescription": "Vous planifiez une installation solaire ZEV en Suisse ? Notre guide 2026 vous montre comment maximiser les rendements, réduire les coûts d'électricité et surmonter les obstacles juridiques.",
-      "image": "/images/blog/zev-solaranlage-schweiz-der-komplette-ratgeber-fur-den-eigenverbrauch-2026.jpg",
+      "image": "/images/autoblog/zev-solaranlage-schweiz-der-komplette-ratgeber-fur-den-eigenverbrauch-2026.jpg",
       "date": "26 août 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -159,11 +159,11 @@
       ]
     },
     "en": {
-      "slug": "zev-solar-self-consumption",
+      "slug": "zev-solaranlage-schweiz-der-komplette-ratgeber-fur-den-eigenverbrauch-2026",
       "locale": "en",
       "title": "ZEV Solar System Switzerland: The Complete Guide for Self-Consumption 2026",
       "metaDescription": "Planning a ZEV solar system in Switzerland? Our 2026 guide shows you how to maximize returns, reduce electricity costs, and overcome legal hurdles.",
-      "image": "/images/blog/zev-solaranlage-schweiz-der-komplette-ratgeber-fur-den-eigenverbrauch-2026.jpg",
+      "image": "/images/autoblog/zev-solaranlage-schweiz-der-komplette-ratgeber-fur-den-eigenverbrauch-2026.jpg",
       "date": "August 26, 2026",
       "readMin": 15,
       "tag": "Guide",
@@ -237,11 +237,11 @@
       ]
     },
     "it": {
-      "slug": "impianto-zev-autoconsumo",
+      "slug": "zev-solaranlage-schweiz-der-komplette-ratgeber-fur-den-eigenverbrauch-2026",
       "locale": "it",
       "title": "ZEV Impianto Solare Svizzera: La guida completa per l'autoconsumo 2026",
       "metaDescription": "State pianificando un impianto solare ZEV in Svizzera? La nostra guida 2026 mostra come massimizzare i rendimenti, ridurre i costi dell'elettricità e superare le sfide legali.",
-      "image": "/images/blog/zev-solaranlage-schweiz-der-komplette-ratgeber-fur-den-eigenverbrauch-2026.jpg",
+      "image": "/images/autoblog/zev-solaranlage-schweiz-der-komplette-ratgeber-fur-den-eigenverbrauch-2026.jpg",
       "date": "26 agosto 2026",
       "readMin": 15,
       "tag": "Guida",
@@ -314,11 +314,5 @@
         }
       ]
     }
-  },
-  "localeSlugs": {
-    "de": "zev-solaranlage-eigenverbrauch",
-    "it": "impianto-zev-autoconsumo",
-    "fr": "installation-zev-autoconsommation",
-    "en": "zev-solar-self-consumption"
   }
 }

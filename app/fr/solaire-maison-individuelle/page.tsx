@@ -2,11 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Sun, CheckCircle2, Home, Ruler, Cpu, Wrench, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
 
-const baseMetadata: Metadata = {
-  title: 'Installation solaire maison individuelle Suisse : coûts, taille et avantages | PvPro.ch',
+export const metadata: Metadata = {
+  title: 'Installation solaire maison individuelle Suisse : coûts, taille et avantages | PVPro.ch',
   description: 'Combien coûte une installation solaire pour une maison individuelle en Suisse ? Prix, taille, subventions et conseils expliqués simplement. Comparez les offres maintenant.',
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/solaire-maison-individuelle',
@@ -147,7 +146,7 @@ export default function SolaireMaisonIndividuellePage() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-installateur-dach-1.webp" alt="Installation solaire maison individuelle Suisse" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" loading="lazy"/>
+            <Image src="/images/asset-installateur-dach-1.webp" alt="Installation solaire maison individuelle Suisse" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" />
           </div>
         </section>
 
@@ -182,7 +181,7 @@ export default function SolaireMaisonIndividuellePage() {
               ))}
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg">
-              <Image src="/images/asset-haus-luftbild-1.webp" alt="Maison individuelle avec installation solaire" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
+              <Image src="/images/asset-haus-luftbild-1.webp" alt="Maison individuelle avec installation solaire" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
             </div>
           </div>
         </section>
@@ -190,7 +189,7 @@ export default function SolaireMaisonIndividuellePage() {
         {/* ── Lohnt sich ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Conseil installation solaire" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" loading="lazy"/>
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Conseil installation solaire" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-80 object-cover" />
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Rentabilité</p>
@@ -338,7 +337,7 @@ export default function SolaireMaisonIndividuellePage() {
             Comparer les offres et optimiser les coûts
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Les prix des installations solaires varient considérablement selon les prestataires. Via PvPro.ch, obtenez gratuitement jusqu'à 3 devis d'installateurs certifiés dans votre canton.
+            Les prix des installations solaires varient considérablement selon les prestataires. Via PVPro, obtenez gratuitement jusqu'à 3 devis d'installateurs certifiés dans votre canton.
           </p>
           <Link
             href="/fr/demande"
@@ -353,5 +352,3 @@ export default function SolaireMaisonIndividuellePage() {
     </main>
   );
 }
-
-export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/solaire-maison-individuelle', locale: 'fr' });

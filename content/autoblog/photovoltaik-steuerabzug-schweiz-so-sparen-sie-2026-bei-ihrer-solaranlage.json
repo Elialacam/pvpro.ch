@@ -3,11 +3,11 @@
   "createdAt": "2026-08-18T10:45:56.091Z",
   "articles": {
     "de": {
-      "slug": "photovoltaik-steuerabzug-schweiz",
+      "slug": "photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage",
       "locale": "de",
       "title": "Photovoltaik Steuerabzug Schweiz: So sparen Sie 2026 bei Ihrer Solaranlage",
       "metaDescription": "Sparen Sie 2026 Tausende Franken! Erfahren Sie alles zum Photovoltaik Steuerabzug in der Schweiz und wie Sie Kosten über 3 Jahre verteilen. Fehler vermeiden!",
-      "image": "/images/blog/photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage.jpg",
+      "image": "/images/autoblog/photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage.jpg",
       "date": "18. August 2026",
       "readMin": 15,
       "tag": "Finanzen",
@@ -81,11 +81,11 @@
       ]
     },
     "fr": {
-      "slug": "deduction-fiscale-photovoltaique",
+      "slug": "photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage",
       "locale": "fr",
       "title": "Déduction fiscale pour photovoltaïque en Suisse: Économisez en 2026 sur votre installation solaire",
       "metaDescription": "Économisez des milliers de francs en 2026! Découvrez tout sur la déduction fiscale pour le photovoltaïque en Suisse et comment répartir les coûts sur 3 ans. Évitez les erreurs!",
-      "image": "/images/blog/photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage.jpg",
+      "image": "/images/autoblog/photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage.jpg",
       "date": "18 août 2026",
       "readMin": 15,
       "tag": "Finances",
@@ -159,11 +159,11 @@
       ]
     },
     "en": {
-      "slug": "solar-tax-deduction",
+      "slug": "photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage",
       "locale": "en",
       "title": "Solar Tax Deduction Switzerland: How to Save on Your Solar System in 2026",
       "metaDescription": "Save thousands of francs in 2026! Learn all about the solar tax deduction in Switzerland and how to spread costs over 3 years. Avoid mistakes!",
-      "image": "/images/blog/photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage.jpg",
+      "image": "/images/autoblog/photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage.jpg",
       "date": "August 18, 2026",
       "readMin": 15,
       "tag": "Finance",
@@ -237,11 +237,11 @@
       ]
     },
     "it": {
-      "slug": "detrazione-fiscale-fotovoltaico",
+      "slug": "photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage",
       "locale": "it",
       "title": "Detrazione fiscale per il fotovoltaico in Svizzera: Ecco come risparmiare nel 2026 con il tuo impianto solare",
       "metaDescription": "Risparmia migliaia di franchi nel 2026! Scopri tutto sulla detrazione fiscale per il fotovoltaico in Svizzera e come distribuire i costi su 3 anni. Evita errori!",
-      "image": "/images/blog/photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage.jpg",
+      "image": "/images/autoblog/photovoltaik-steuerabzug-schweiz-so-sparen-sie-2026-bei-ihrer-solaranlage.jpg",
       "date": "18 agosto 2026",
       "readMin": 15,
       "tag": "Finanze",
@@ -314,11 +314,5 @@
         }
       ]
     }
-  },
-  "localeSlugs": {
-    "de": "photovoltaik-steuerabzug-schweiz",
-    "it": "detrazione-fiscale-fotovoltaico",
-    "fr": "deduction-fiscale-photovoltaique",
-    "en": "solar-tax-deduction"
   }
 }

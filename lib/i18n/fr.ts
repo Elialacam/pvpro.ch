@@ -48,7 +48,7 @@ export const fr: TranslationKeys = {
     error: 'Une erreur s\'est produite. Veuillez réessayer.',
   },
   usp: {
-    title: 'Pourquoi PvPro.ch?',
+    title: 'Pourquoi PVPro?',
     compare: {
       title: 'Jusqu\'à 3 devis à comparer',
       description: 'Recevez plusieurs offres d\'installateurs certifiés et choisissez la meilleure.',
@@ -94,7 +94,7 @@ export const fr: TranslationKeys = {
     terms: 'CGV',
     legal: 'Juridique',
     followUs: 'Suivez-nous',
-    copyright: '© 2024 PvPro.ch. Tous droits réservés.',
+    copyright: '© 2024 PVPro. Tous droits réservés.',
   },
   testimonials: {
     title: 'Ce que disent nos clients',
@@ -132,7 +132,7 @@ export const fr: TranslationKeys = {
     costs: 'Coûts',
   },
   meta: {
-    homeTitle: 'PvPro.ch - Comparer les installations solaires en Suisse | Devis gratuits',
+    homeTitle: 'PVPro - Comparer les installations solaires en Suisse | Devis gratuits',
     homeDescription: 'Comparez gratuitement les offres d\'installations solaires d\'installateurs certifiés en Suisse. Économisez jusqu\'à 30% grâce à la comparaison. 100% sans engagement.',
   },
 };

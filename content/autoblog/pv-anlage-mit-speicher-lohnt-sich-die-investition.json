@@ -3,11 +3,11 @@
   "createdAt": "2026-09-07T10:18:46.522Z",
   "articles": {
     "de": {
-      "slug": "pv-speicher-investition",
+      "slug": "pv-anlage-mit-speicher-lohnt-sich-die-investition",
       "locale": "de",
       "title": "PV-Anlage mit Speicher: Lohnt sich die Investition?",
       "metaDescription": "Erfahren Sie, wie sich die Kosten einer PV-Anlage mit Speicher durch Eigenverbrauch und Schweizer Förderungen amortisieren lassen. Entdecken Sie alle Optionen.",
-      "image": "/images/blog/pv-anlage-mit-speicher-lohnt-sich-die-investition.jpg",
+      "image": "/images/autoblog/pv-anlage-mit-speicher-lohnt-sich-die-investition.jpg",
       "date": "7. September 2026",
       "readMin": 8,
       "tag": "Finanzen",
@@ -96,11 +96,11 @@
       ]
     },
     "fr": {
-      "slug": "stockage-pv-rentable",
+      "slug": "pv-anlage-mit-speicher-lohnt-sich-die-investition",
       "locale": "fr",
       "title": "Installation PV avec stockage : L'investissement en vaut-il la peine ?",
       "metaDescription": "Découvrez comment amortir les coûts d'une installation PV avec stockage grâce à l'autoconsommation et aux subventions suisses. Explorez toutes les options disponibles.",
-      "image": "/images/blog/pv-anlage-mit-speicher-lohnt-sich-die-investition.jpg",
+      "image": "/images/autoblog/pv-anlage-mit-speicher-lohnt-sich-die-investition.jpg",
       "date": "7 septembre 2026",
       "readMin": 8,
       "tag": "Finances",
@@ -189,11 +189,11 @@
       ]
     },
     "en": {
-      "slug": "pv-battery-investment",
+      "slug": "pv-anlage-mit-speicher-lohnt-sich-die-investition",
       "locale": "en",
       "title": "PV System with Battery: Is the Investment Worth It?",
       "metaDescription": "Learn how the costs of a PV system with battery can be offset through self-consumption and Swiss incentives. Discover all options available.",
-      "image": "/images/blog/pv-anlage-mit-speicher-lohnt-sich-die-investition.jpg",
+      "image": "/images/autoblog/pv-anlage-mit-speicher-lohnt-sich-die-investition.jpg",
       "date": "September 7, 2026",
       "readMin": 8,
       "tag": "Finance",
@@ -282,11 +282,11 @@
       ]
     },
     "it": {
-      "slug": "accumulo-pv-conviene",
+      "slug": "pv-anlage-mit-speicher-lohnt-sich-die-investition",
       "locale": "it",
       "title": "Impianto fotovoltaico con accumulo: Vale l'investimento?",
       "metaDescription": "Scopri come i costi di un impianto fotovoltaico con accumulo possono essere ammortizzati grazie all'autoconsumo e agli incentivi svizzeri. Esplora tutte le opzioni.",
-      "image": "/images/blog/pv-anlage-mit-speicher-lohnt-sich-die-investition.jpg",
+      "image": "/images/autoblog/pv-anlage-mit-speicher-lohnt-sich-die-investition.jpg",
       "date": "7 settembre 2026",
       "readMin": 8,
       "tag": "Finanza",
@@ -374,11 +374,5 @@
         }
       ]
     }
-  },
-  "localeSlugs": {
-    "de": "pv-speicher-investition",
-    "it": "accumulo-pv-conviene",
-    "fr": "stockage-pv-rentable",
-    "en": "pv-battery-investment"
   }
 }

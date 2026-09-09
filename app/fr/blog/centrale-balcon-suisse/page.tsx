@@ -2,17 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Calendar, Clock, CheckCircle2, XCircle, ArrowRight, AlertTriangle, Zap, TrendingUp } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
-import { articleAlternates } from '@/lib/articleSeoRoutes';
-import ArticleAuthorBox from '@/components/ArticleAuthorBox';
-import ArticleStructuredData from '@/components/ArticleStructuredData';
-import { articleDates } from '@/lib/blogUtils';
 
-const baseMetadata: Metadata = {
-  title: 'Centrale solaire de balcon Suisse',
-  description: "Découvrez les règles, coûts et la rentabilité d'une centrale de balcon en Suisse face à une installation solaire complète.",
-  authors: [{ name: 'Elia Alacam' }],
-  alternates: articleAlternates('centrale-balcon-suisse', 'fr'),
+export const metadata: Metadata = {
+  title: 'Centrale solaire de balcon en Suisse : autorisée, coûts et vaut-elle vraiment la peine ? | PVPro.ch',
+  description: "Les mini-centrales solaires de balcon sont-elles autorisées en Suisse ? Coûts, règles et si une centrale de balcon vaut la peine — avec comparaison honnête à l'installation solaire.",
+  alternates: { canonical: 'https://www.pvpro.ch/fr/blog/centrale-balcon-suisse' },
 };
 
 const comparisonRows = [
@@ -36,7 +30,6 @@ const faqsFr = [
   { q: "Un gestionnaire de réseau peut-il détecter ma centrale de balcon ?", a: "Oui, par des mesures et des profils de charge, l'injection peut être détectée. Les gestionnaires de réseau peuvent mesurer les changements dans le flux électrique et identifier des profils de charge inhabituels." },
   { q: "Jusqu'à quand les centrales de balcon sont-elles autorisées ?", a: "Elles sont actuellement autorisées dans le respect de la réglementation en vigueur. Des modifications sont toutefois possibles selon l'évolution de la législation." },
 ];
-const articleDate = articleDates({ date: '17 mars 2026', locale: 'fr' });
 
 export default function CentraleBalconSuissePage() {
   return (
@@ -44,7 +37,7 @@ export default function CentraleBalconSuissePage() {
 
       {/* ── Hero avec photo ── */}
       <section className="relative bg-[#0f1f3d] pt-28 pb-16 overflow-hidden min-h-[480px] flex flex-col justify-end">
-        <Image src="/images/balkonkraftwerk-schweiz.webp" alt="Centrale solaire de balcon en Suisse – Mini-installation sur balcon avec vue sur les Alpes" fill sizes="100vw" className="object-cover object-center" priority />
+        <Image src="/images/balkonkraftwerk-schweiz.webp" alt="Centrale solaire de balcon en Suisse – Mini-installation sur balcon avec vue sur les Alpes" fill sizes="100vw" className="object-cover object-center" />
         <div className="absolute inset-0 bg-[#0f1f3d]/70" />
         <div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
@@ -60,10 +53,7 @@ export default function CentraleBalconSuissePage() {
             <div className="flex items-center gap-3 mb-5">
               <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#fcb210]/20 text-orange-400 uppercase tracking-widest">Guide</span>
               <span className="flex items-center gap-1.5 text-white/40 text-xs">
-                <Calendar className="w-3.5 h-3.5" /> <time dateTime={articleDate.publishedAt}>17 mars 2026</time>
-              </span>
-              <span className="flex items-center gap-1.5 text-white/40 text-xs">
-                Mis à jour le <time dateTime={articleDate.modifiedAt}>17 mars 2026</time>
+                <Calendar className="w-3.5 h-3.5" /> 17 mars 2026
               </span>
               <span className="flex items-center gap-1.5 text-white/40 text-xs">
                 <Clock className="w-3.5 h-3.5" /> 7 min. de lecture
@@ -286,8 +276,6 @@ export default function CentraleBalconSuissePage() {
                 ))}
               </div>
             </section>
-            <ArticleAuthorBox locale="fr" />
-            <ArticleStructuredData canonicalPath="/fr/blog/centrale-balcon-suisse" article={{ title: 'Centrale solaire de balcon en Suisse : ce qui est autorisé — et vaut-elle vraiment la peine ?', date: '17 mars 2026', locale: 'fr', image: '/images/balkonkraftwerk-schweiz.webp' }} faqs={faqsFr.map(({ q, a }) => ({ question: q, answer: a }))} />
 
           </article>
 
@@ -352,5 +340,3 @@ export default function CentraleBalconSuissePage() {
     </main>
   );
 }
-
-export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/blog/centrale-balcon-suisse', locale: 'fr', type: 'article' });

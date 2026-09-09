@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Shield, Wrench, CheckCircle, AlertCircle } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Photovoltaik Wartung Kosten Schweiz 2026 – Was kostet die Wartung? | PvPro.ch',
-  description: 'Was kostet die Wartung einer Photovoltaikanlage in der Schweiz? Reinigung, Inspektion, Reparatur — alle Kosten im Überblick. Jetzt informieren auf PvPro.ch.',
+export const metadata: Metadata = {
+  title: 'Photovoltaik Wartung Kosten Schweiz 2026 – Was kostet die Wartung? | PVPro.ch',
+  description: 'Was kostet die Wartung einer Photovoltaikanlage in der Schweiz? Reinigung, Inspektion, Reparatur — alle Kosten im Überblick. Jetzt informieren auf PVPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/photovoltaik-wartung-kosten',
     languages: {
@@ -23,9 +22,9 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/photovoltaik-wartung-kosten',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PvPro.ch',
+    siteName: 'PVPro',
   },
-}, { path: '/photovoltaik-wartung-kosten', locale: 'de' });
+};
 
 const faqs = [
   {
@@ -50,7 +49,7 @@ const faqs = [
   },
   {
     question: 'Wer kann die Wartung meiner Solaranlage übernehmen?',
-    answer: 'Zertifizierte Schweizer Installateure bieten Wartungsservices an. PvPro.ch vermittelt auf Anfrage auch Servicepartner für bestehende Anlagen.',
+    answer: 'Zertifizierte Schweizer Installateure bieten Wartungsservices an. PVPro.ch vermittelt auf Anfrage auch Servicepartner für bestehende Anlagen.',
   },
 ];
 

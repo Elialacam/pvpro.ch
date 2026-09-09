@@ -1,11 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Zap, CheckCircle, XCircle } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Confronto tipi impianti solari Svizzera 2026 – Quale fa per me? | PvPro.ch',
+export const metadata: Metadata = {
+  title: 'Confronto tipi impianti solari Svizzera 2026 – Quale fa per me? | PVPro.ch',
   description: "Confronto dei diversi tipi di impianti fotovoltaici in Svizzera: monocristallino, policristallino, film sottile, bifacciale. Quali sono le differenze e quale conviene?",
   alternates: {
     canonical: 'https://www.pvpro.ch/it/confronto-tipi-impianti-solari',
@@ -23,9 +22,9 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/it/confronto-tipi-impianti-solari',
     type: 'website',
     locale: 'it_CH',
-    siteName: 'PvPro.ch',
+    siteName: 'PVPro',
   },
-}, { path: '/it/confronto-tipi-impianti-solari', locale: 'it' });
+};
 
 const faqs = [
   {
@@ -293,7 +292,7 @@ export default function ConfrontoTipiImpiantiSolariPage() {
             <p className="text-gray-600 leading-relaxed">
               In pratica un{' '}
               <Link href="/it/installare-impianto-solare-svizzera" className="text-[#fcb210] hover:underline font-medium">installatore certificato</Link>{' '}
-              consiglia il tipo di modulo giusto dopo aver ispezionato il tuo tetto. PvPro.ch mette in contatto con{' '}
+              consiglia il tipo di modulo giusto dopo aver ispezionato il tuo tetto. PVPro.ch mette in contatto con{' '}
               <Link href="/it/comparatore-fotovoltaico-svizzera" className="text-[#fcb210] hover:underline font-medium">fornitori</Link>{' '}
               che conoscono tutte le tecnologie e danno consulenza neutrale.
             </p>

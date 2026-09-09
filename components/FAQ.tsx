@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 import { useLocale } from '@/lib/LocaleContext';
 import { faqContent, FAQItem } from '@/lib/faqData';
 
@@ -11,6 +13,11 @@ export default function FAQ({ items }: FAQProps) {
   const locale = useLocale();
   const content = faqContent[locale] || faqContent.de;
   const faqItems = items || content.faqs;
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   const eyebrows: Record<string, string> = { de: 'Häufige Fragen', fr: 'Questions fréquentes', en: 'Common Questions', it: 'Domande frequenti' };
 
@@ -25,20 +32,32 @@ export default function FAQ({ items }: FAQProps) {
         )}
         <div className="space-y-4">
           {faqItems.map((item, index) => (
-            <details
+            <div
               key={index}
-              className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm"
+              className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm"
             >
-              <summary className="flex cursor-pointer list-none select-none items-center justify-between px-6 py-4 text-left text-sm font-semibold text-gray-900">
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
+              >
                 <span className="font-sans font-semibold tracking-tight text-gray-900 pr-8">
                   {item.question}
                 </span>
-                <span className="ml-4 flex-shrink-0 text-lg text-[#fcb210] transition-transform duration-200 group-open:rotate-45">+</span>
-              </summary>
-              <div className="border-t border-gray-50 px-6 pb-5 text-sm leading-relaxed text-gray-600">
-                <p className="pt-4">{item.answer}</p>
-              </div>
-            </details>
+                <ChevronDown
+                  className={`w-6 h-6 text-primary flex-shrink-0 transition-transform duration-200 ${
+                    openIndex === index ? 'transform rotate-180' : ''
+                  }`}
+                />
+              </button>
+
+              {openIndex === index && (
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 leading-relaxed">
+                    {item.answer}
+                  </p>
+                </div>
+              )}
+            </div>
           ))}
         </div>
 

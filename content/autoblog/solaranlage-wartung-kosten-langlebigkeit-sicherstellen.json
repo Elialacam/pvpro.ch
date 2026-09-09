@@ -3,11 +3,11 @@
   "createdAt": "2026-09-05T10:04:50.474Z",
   "articles": {
     "de": {
-      "slug": "solaranlage-wartungskosten",
+      "slug": "solaranlage-wartung-kosten-langlebigkeit-sicherstellen",
       "locale": "de",
       "title": "Solaranlage Wartungskosten: Langlebigkeit sicherstellen",
       "metaDescription": "Alles zu Solaranlage Wartungskosten: Mit regelmässiger Inspektion Erträge sichern, Garantie und Versicherungsschutz erhalten. Offerten von Profis vergleichen.",
-      "image": "/images/blog/solaranlage-wartung-kosten-langlebigkeit-sicherstellen.jpg",
+      "image": "/images/autoblog/solaranlage-wartung-kosten-langlebigkeit-sicherstellen.jpg",
       "date": "5. September 2026",
       "readMin": 8,
       "tag": "Ratgeber",
@@ -80,11 +80,11 @@
       ]
     },
     "fr": {
-      "slug": "cout-maintenance-installation-solaire",
+      "slug": "solaranlage-wartung-kosten-langlebigkeit-sicherstellen",
       "locale": "fr",
       "title": "Coûts de maintenance des installations solaires : Assurer la longévité",
       "metaDescription": "Tout sur les coûts de maintenance des installations solaires : Garantir les revenus grâce à des inspections régulières, conserver la garantie et la protection d’assurance. Comparez les offres des professionnels.",
-      "image": "/images/blog/solaranlage-wartung-kosten-langlebigkeit-sicherstellen.jpg",
+      "image": "/images/autoblog/solaranlage-wartung-kosten-langlebigkeit-sicherstellen.jpg",
       "date": "5 septembre 2026",
       "readMin": 8,
       "tag": "Guide",
@@ -157,11 +157,11 @@
       ]
     },
     "en": {
-      "slug": "solar-system-maintenance",
+      "slug": "solaranlage-wartung-kosten-langlebigkeit-sicherstellen",
       "locale": "en",
       "title": "Solar System Maintenance Costs: Ensuring Longevity",
       "metaDescription": "All about solar system maintenance costs: Secure returns with regular inspections, maintain warranty and insurance coverage. Compare quotes from professionals.",
-      "image": "/images/blog/solaranlage-wartung-kosten-langlebigkeit-sicherstellen.jpg",
+      "image": "/images/autoblog/solaranlage-wartung-kosten-langlebigkeit-sicherstellen.jpg",
       "date": "September 5, 2026",
       "readMin": 8,
       "tag": "Guide",
@@ -234,11 +234,11 @@
       ]
     },
     "it": {
-      "slug": "costi-manutenzione-impianti-solari",
+      "slug": "solaranlage-wartung-kosten-langlebigkeit-sicherstellen",
       "locale": "it",
       "title": "Costi di manutenzione degli impianti solari: Garantire la longevità",
       "metaDescription": "Tutto sui costi di manutenzione degli impianti solari: Assicurare i rendimenti con ispezioni regolari, mantenere la garanzia e la copertura assicurativa. Confrontare le offerte da professionisti.",
-      "image": "/images/blog/solaranlage-wartung-kosten-langlebigkeit-sicherstellen.jpg",
+      "image": "/images/autoblog/solaranlage-wartung-kosten-langlebigkeit-sicherstellen.jpg",
       "date": "5 settembre 2026",
       "readMin": 8,
       "tag": "Guida",
@@ -310,11 +310,5 @@
         }
       ]
     }
-  },
-  "localeSlugs": {
-    "de": "solaranlage-wartungskosten",
-    "it": "costi-manutenzione-impianti-solari",
-    "fr": "cout-maintenance-installation-solaire",
-    "en": "solar-system-maintenance"
   }
 }

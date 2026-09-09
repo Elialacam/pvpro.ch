@@ -12,9 +12,9 @@ export interface ReviewBase {
 }
 
 export const reviewBase: ReviewBase[] = [
-  { name: 'Markus B., Wil SG', kWp: '30 kWp', photo: '/images/projects/project1.webp' },
-  { name: 'Sandra K., Bülach ZH', kWp: '13 kWp', photo: '/images/projects/project2.webp' },
-  { name: 'Peter H., Chur GR', kWp: '25 kWp', photo: '/images/projects/project3.webp' },
+  { name: 'Markus B., Wil SG', kWp: '30 kWp', photo: '/images/projects/project1.png' },
+  { name: 'Sandra K., Bülach ZH', kWp: '13 kWp', photo: '/images/projects/project2.png' },
+  { name: 'Peter H., Chur GR', kWp: '25 kWp', photo: '/images/projects/project3.png' },
   { name: 'Nadia F., Frauenfeld TG', kWp: '12 kWp', photo: '/images/projects/project4.jpg' },
   { name: 'Thomas R., Olten SO', kWp: '13 kWp', photo: '/images/projects/project5.jpg' },
   { name: 'Claudia W., Luzern', kWp: '20 kWp', photo: '/images/projects/project6.jpg', photoPosition: '72% 50%' },
@@ -40,7 +40,7 @@ export const reviewTexts: Record<'de' | 'fr' | 'en' | 'it', ReviewText[]> = {
     {
       quote: 'Wirklich drei Offerten – und ich konnte selber vergleichen.',
       detail: 'Ich hatte erwartet, dass man mich einfach an eine einzige Firma weiterreicht. Es waren tatsächlich drei unabhängige Angebote mit unterschiedlichen Preisen. Erst dadurch habe ich gemerkt, wie gross die Unterschiede sein können.',
-      location: 'Wohnhaus, Frauenfeld',
+      location: 'Wohnhaus, Ticino',
     },
     {
       quote: "War skeptisch gegenüber Vergleichsportalen – am Ende über 4'000 Franken gespart.",
@@ -72,7 +72,7 @@ export const reviewTexts: Record<'de' | 'fr' | 'en' | 'it', ReviewText[]> = {
     {
       quote: "Vraiment trois devis – et j'ai pu comparer moi-même.",
       detail: "Je m'attendais à être simplement redirigée vers une seule entreprise. Il y avait bel et bien trois offres indépendantes avec des prix différents. C'est là que j'ai réalisé à quel point les écarts peuvent être importants.",
-      location: 'Maison d\'habitation, Frauenfeld',
+      location: 'Maison d\'habitation, Tessin',
     },
     {
       quote: "J'étais sceptique envers les comparateurs – au final, plus de 4'000 francs économisés.",
@@ -104,7 +104,7 @@ export const reviewTexts: Record<'de' | 'fr' | 'en' | 'it', ReviewText[]> = {
     {
       quote: "Really three quotes – and I could compare them myself.",
       detail: "I expected to simply be passed on to a single company. There were actually three independent offers with different prices. Only then did I realise how big the differences can be.",
-      location: 'Residential house, Frauenfeld',
+      location: 'Residential house, Ticino',
     },
     {
       quote: "Was sceptical about comparison portals – ended up saving over 4,000 francs.",
@@ -136,7 +136,7 @@ export const reviewTexts: Record<'de' | 'fr' | 'en' | 'it', ReviewText[]> = {
     {
       quote: 'Davvero tre preventivi – e ho potuto confrontarli da sola.',
       detail: 'Mi aspettavo di essere semplicemente indirizzata a un\'unica azienda. Invece erano davvero tre offerte indipendenti con prezzi diversi. Solo così ho capito quanto possono essere grandi le differenze.',
-      location: 'Casa d\'abitazione, Frauenfeld',
+      location: 'Casa d\'abitazione, Ticino',
     },
     {
       quote: "Ero scettico sui portali di confronto – alla fine ho risparmiato oltre 4'000 franchi.",
@@ -151,9 +151,9 @@ export const reviewTexts: Record<'de' | 'fr' | 'en' | 'it', ReviewText[]> = {
   ],
 };
 
-export const reviewLabels: Record<'de' | 'fr' | 'en' | 'it', { customer: string; realized: string; photoAlt: string }> = {
-  de: { customer: 'Solar-Kunde', realized: 'Realisierte Solaranlage', photoAlt: 'Solaranlage von' },
-  fr: { customer: 'Client solaire', realized: 'Installation solaire réalisée', photoAlt: 'Installation solaire de' },
-  en: { customer: 'Solar customer', realized: 'Completed solar installation', photoAlt: 'Solar installation of' },
-  it: { customer: 'Cliente solare', realized: 'Impianto solare realizzato', photoAlt: 'Impianto solare di' },
+export const reviewLabels: Record<'de' | 'fr' | 'en' | 'it', { customer: string; googleReview: string; realized: string; photoAlt: string }> = {
+  de: { customer: 'Solar-Kunde', googleReview: 'Google-Rezension', realized: 'Realisierte Solaranlage', photoAlt: 'Solaranlage von' },
+  fr: { customer: 'Client solaire', googleReview: 'Avis Google', realized: 'Installation solaire réalisée', photoAlt: 'Installation solaire de' },
+  en: { customer: 'Solar customer', googleReview: 'Google review', realized: 'Completed solar installation', photoAlt: 'Solar installation of' },
+  it: { customer: 'Cliente solare', googleReview: 'Recensione Google', realized: 'Impianto solare realizzato', photoAlt: 'Impianto solare di' },
 };

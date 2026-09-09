@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import WieFunktioniertInteractive from '@/components/WieFunktioniertInteractive';
 import FaqSchema from '@/components/FaqSchema';
 
@@ -16,8 +15,8 @@ const wfFaqs = [
   { question: 'Wie lange reicht ein 10 kWh Speicher?', answer: 'Ein 10-kWh-Speicher deckt je nach Haushalt den Abend und die Nacht ab. Bei hohem Verbrauch (z.B. Wärmepumpe) wird er schneller entladen.' },
 ];
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Wie funktioniert eine Solaranlage? Einfach erklärt (Schweiz) | PvPro.ch',
+export const metadata: Metadata = {
+  title: 'Wie funktioniert eine Solaranlage? Einfach erklärt (Schweiz) | PVPro.ch',
   description: 'Wie funktioniert eine Solaranlage? Einfache Erklärung mit Beispielen, Stromproduktion und Antworten auf häufige Fragen zur Photovoltaik.',
   alternates: {
     canonical: 'https://www.pvpro.ch/wie-funktioniert',
@@ -29,7 +28,7 @@ export const metadata: Metadata = pageMetadata({
       'x-default': 'https://www.pvpro.ch/wie-funktioniert',
     },
   },
-}, { path: '/wie-funktioniert', locale: 'de' });
+};
 
 export default function WieFunktioniertPage() {
   return (
@@ -75,7 +74,7 @@ export default function WieFunktioniertPage() {
 
             {/* Hero image */}
             <div className="relative rounded-3xl overflow-hidden self-center shadow-2xl mb-8">
-              <Image src="/images/wie-funktioniert-solaranlage.webp" alt="Wie funktioniert eine Solaranlage – Illustration mit Sonne, Solarmodulen, Wechselrichter, Speicher und Hausstrom" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-auto block" priority />
+              <Image src="/images/wie-funktioniert-solaranlage.webp" alt="Wie funktioniert eine Solaranlage – Illustration mit Sonne, Solarmodulen, Wechselrichter, Speicher und Hausstrom" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-auto block" />
             </div>
           </div>
         </div>

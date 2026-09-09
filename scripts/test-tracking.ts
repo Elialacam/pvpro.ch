@@ -1,7 +1,7 @@
 #!/usr/bin/env npx tsx
 
 /**
- * Test Conversion Tracking for PvPro.ch
+ * Test Conversion Tracking for PVPro.ch
  *
  * This script tests all tracking events end-to-end:
  * 1. Checks if GA4 and GTM are installed

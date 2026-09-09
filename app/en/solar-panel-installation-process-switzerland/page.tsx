@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText, Clock } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Solar Panel Installation Process Switzerland 2026 – Steps, Duration & Costs | PvPro.ch',
-  description: 'How does solar panel installation work in Switzerland? Steps, duration, costs and what to watch out for — all explained by PvPro.ch.',
+export const metadata: Metadata = {
+  title: 'Solar Panel Installation Process Switzerland 2026 – Steps, Duration & Costs | PVPro.ch',
+  description: 'How does solar panel installation work in Switzerland? Steps, duration, costs and what to watch out for — all explained by PVPro.ch.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-panel-installation-process-switzerland',
     languages: {
@@ -23,9 +22,9 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/en/solar-panel-installation-process-switzerland',
     type: 'website',
     locale: 'en_CH',
-    siteName: 'PvPro.ch',
+    siteName: 'PVPro',
   },
-}, { path: '/en/solar-panel-installation-process-switzerland', locale: 'en' });
+};
 
 const faqs = [
   {
@@ -222,7 +221,7 @@ export default function SolarPanelInstallationProcessSwitzerlandPage() {
             <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">Installer services</p>
             <h2 className="text-xl font-bold text-white mb-5">What does a good installer do?</h2>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              A professional installer handles the entire process for you. PvPro.ch only connects you with installers who reliably carry out all these steps.
+              A professional installer handles the entire process for you. PVPro.ch only connects you with installers who reliably carry out all these steps.
             </p>
             <ul className="space-y-3">
               {[

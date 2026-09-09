@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Shield, Wrench, CheckCircle, AlertCircle } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-const baseMetadata: Metadata = {
-  title: "Entretien photovoltaïque coûts Suisse 2026 – Combien coûte la maintenance ? | PvPro.ch",
-  description: "Combien coûte l'entretien d'une installation photovoltaïque en Suisse ? Nettoyage, inspection, réparation — tous les coûts en un coup d'œil. Informez-vous sur PvPro.ch.",
+export const metadata: Metadata = {
+  title: "Entretien photovoltaïque coûts Suisse 2026 – Combien coûte la maintenance ? | PVPro.ch",
+  description: "Combien coûte l'entretien d'une installation photovoltaïque en Suisse ? Nettoyage, inspection, réparation — tous les coûts en un coup d'œil. Informez-vous sur PVPro.ch.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/entretien-photovoltaique-couts',
     languages: {
@@ -23,7 +22,7 @@ const baseMetadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/entretien-photovoltaique-couts',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PvPro.ch',
+    siteName: 'PVPro',
   },
 };
 
@@ -50,7 +49,7 @@ const faqs = [
   },
   {
     question: "Qui peut assurer l'entretien de mon installation solaire ?",
-    answer: "Les installateurs suisses certifiés proposent des services d'entretien. PvPro.ch met également en relation avec des partenaires de service pour les installations existantes.",
+    answer: "Les installateurs suisses certifiés proposent des services d'entretien. PVPro.ch met également en relation avec des partenaires de service pour les installations existantes.",
   },
 ];
 
@@ -341,5 +340,3 @@ export default function EntretienPhotovoltaiqueCoutsPage() {
     </main>
   );
 }
-
-export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/entretien-photovoltaique-couts', locale: 'fr' });

@@ -2,21 +2,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Calendar, Clock, CheckCircle2, XCircle, ArrowRight, AlertTriangle, Zap, TrendingUp } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import BalkonFaq from '@/components/BalkonFaq';
-import { balkonFaqs } from '@/lib/balkonFaqs';
-import ArticleAuthorBox from '@/components/ArticleAuthorBox';
-import ArticleStructuredData from '@/components/ArticleStructuredData';
-import { articleDates } from '@/lib/blogUtils';
-import { articleAlternates } from '@/lib/articleSeoRoutes';
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Balkonkraftwerk Schweiz: Regeln & Kosten',
-  description: 'Balkonkraftwerke in der Schweiz: Regeln, Kosten und ein ehrlicher Vergleich mit einer vollwertigen Solaranlage.',
-  authors: [{ name: 'Elia Alacam' }],
-  alternates: articleAlternates('balkonkraftwerk-schweiz', 'de'),
-}, { path: '/blog/balkonkraftwerk-schweiz', locale: 'de', type: 'article' });
-const articleDate = articleDates({ date: '17. März 2026', locale: 'de' });
+export const metadata: Metadata = {
+  title: 'Balkonkraftwerk Schweiz: erlaubt, Kosten und lohnt es sich wirklich? | PVPro.ch',
+  description: 'Sind Balkonkraftwerke in der Schweiz erlaubt? Kosten, Regeln und ob sich ein Balkonkraftwerk lohnt – mit ehrlichem Vergleich zur Solaranlage.',
+  alternates: { canonical: 'https://www.pvpro.ch/blog/balkonkraftwerk-schweiz' },
+};
 
 const comparisonRows = [
   { factor: 'Kosten', balkon: "300 – 1'200 CHF", solar: "20'000 – 35'000 CHF", winner: 'balkon' },
@@ -35,7 +27,7 @@ export default function BalkonkraftwerkSchweizPage() {
 
       {/* ── Hero mit Foto ── */}
       <section className="relative bg-[#0f1f3d] pt-28 pb-16 overflow-hidden min-h-[480px] flex flex-col justify-end">
-        <Image src="/images/balkonkraftwerk-schweiz.webp" alt="Balkonkraftwerk Schweiz – Mini-Solaranlage auf Balkon mit Alpenblick" fill sizes="100vw" className="object-cover object-center" priority />
+        <Image src="/images/balkonkraftwerk-schweiz.webp" alt="Balkonkraftwerk Schweiz – Mini-Solaranlage auf Balkon mit Alpenblick" fill sizes="100vw" className="object-cover object-center" />
         <div className="absolute inset-0 bg-[#0f1f3d]/70" />
         <div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
@@ -51,10 +43,7 @@ export default function BalkonkraftwerkSchweizPage() {
             <div className="flex items-center gap-3 mb-5">
               <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#fcb210]/20 text-orange-400 uppercase tracking-widest">Ratgeber</span>
               <span className="flex items-center gap-1.5 text-white/40 text-xs">
-                <Calendar className="w-3.5 h-3.5" /> <time dateTime={articleDate.publishedAt}>17. März 2026</time>
-              </span>
-              <span className="flex items-center gap-1.5 text-white/40 text-xs">
-                Aktualisiert am <time dateTime={articleDate.modifiedAt}>17. März 2026</time>
+                <Calendar className="w-3.5 h-3.5" /> 17. März 2026
               </span>
               <span className="flex items-center gap-1.5 text-white/40 text-xs">
                 <Clock className="w-3.5 h-3.5" /> 7 Min. Lesezeit
@@ -268,8 +257,6 @@ export default function BalkonkraftwerkSchweizPage() {
               </h2>
               <BalkonFaq />
             </section>
-            <ArticleAuthorBox locale="de" />
-            <ArticleStructuredData canonicalPath="/blog/balkonkraftwerk-schweiz" article={{ title: 'Balkonkraftwerk Schweiz: Was ist erlaubt — und lohnt es sich wirklich?', date: '17. März 2026', locale: 'de', image: '/images/balkonkraftwerk-schweiz.webp' }} faqs={balkonFaqs.map(({ q, a }) => ({ question: q, answer: a }))} />
 
           </article>
 

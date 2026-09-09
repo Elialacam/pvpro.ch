@@ -3,16 +3,16 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 
-const LOGOS: { src: string; alt: string }[] = [
-  { src: '/clients/client-01.webp', alt: 'Solion' },
-  { src: '/clients/client-02.webp', alt: 'SolGal Sagl' },
-  { src: '/clients/client-03.webp', alt: 'Elektrobedarf' },
-  { src: '/clients/client-04.webp', alt: 'Ecosol Swiss' },
-  { src: '/clients/client-05.webp', alt: 'Smart Solar Systems GmbH' },
-  { src: '/clients/client-06.webp', alt: 'AlpenEnergie' },
-  { src: '/clients/client-07.webp', alt: 'Megawatt Solar' },
-  { src: '/clients/client-08.webp', alt: 'SP Smart Electronics GmbH' },
-  { src: '/clients/client-09.webp', alt: 'PuraSol' },
+const LOGOS: { src: string; alt: string; href?: string }[] = [
+  { src: '/clients/client-01.webp', alt: 'Solion', href: 'https://solion.ch/' },
+  { src: '/clients/client-02.webp', alt: 'SolGal Sagl', href: 'https://solgal.ch/' },
+  { src: '/clients/client-03.webp', alt: 'Elektrobedarf', href: 'https://www.elektrobedarf.ch/' },
+  { src: '/clients/client-04.webp', alt: 'Ecosol Swiss', href: 'https://ecosolswiss.ch/' },
+  { src: '/clients/client-05.webp', alt: 'Smart Solar Systems GmbH', href: 'https://www.smart-solar-systems.ch/' },
+  { src: '/clients/client-06.webp', alt: 'AlpenEnergie', href: 'https://alpen-energie.ch/' },
+  { src: '/clients/client-07.webp', alt: 'Megawatt Solar', href: 'https://www.megawattsolar.ch/' },
+  { src: '/clients/client-08.webp', alt: 'SP Smart Electronics GmbH', href: 'https://spsmart.ch/' },
+  { src: '/clients/client-09.webp', alt: 'PuraSol', href: 'https://purasol.ch/' },
 ];
 
 const NORMAL_SPEED = 40; // px per second
@@ -105,20 +105,35 @@ export default function ClientLogos({ label }: { label?: string }) {
           {[0, 1].map((copy) => (
             <div key={copy} className="flex items-center" aria-hidden={copy === 1}>
               {LOGOS.map((logo) => {
-                return (
-                  <div
-                    key={`${copy}-${logo.src}`}
-                    className="mx-8 sm:mx-11 flex h-11 sm:h-14 w-24 sm:w-28 shrink-0 items-center justify-center"
-                  >
+                const img = (
                   <Image
                     src={logo.src}
                     alt={copy === 0 ? logo.alt : ''}
                     width={320}
                     height={80}
                     sizes="112px"
-                    loading="lazy"
                     className="h-full w-full object-contain grayscale opacity-55 transition-all duration-300 hover:grayscale-0 hover:opacity-100"
                   />
+                );
+                return (
+                  <div
+                    key={`${copy}-${logo.src}`}
+                    className="mx-8 sm:mx-11 flex h-11 sm:h-14 w-24 sm:w-28 shrink-0 items-center justify-center"
+                  >
+                    {logo.href ? (
+                      <a
+                        href={logo.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={logo.alt}
+                        tabIndex={copy === 0 ? 0 : -1}
+                        className="flex h-full w-full items-center justify-center"
+                      >
+                        {img}
+                      </a>
+                    ) : (
+                      img
+                    )}
                   </div>
                 );
               })}

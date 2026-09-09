@@ -2,11 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Sun, Zap, TrendingDown, CheckCircle2, Home, Ruler, Award, Wrench } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import PhotovoltaikFaq from '@/components/PhotovoltaikFaq';
 
-const baseMetadata: Metadata = {
-  title: 'Coût photovoltaïque par m² Suisse : prix, exemples et calcul | PvPro.ch',
+export const metadata: Metadata = {
+  title: 'Coût photovoltaïque par m² Suisse : prix, exemples et calcul | PVPro.ch',
   description: 'Combien coûte le photovoltaïque par m² en Suisse ? Prix, exemples et coûts par kWp expliqués simplement. Comparez les offres maintenant.',
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/cout-pv-par-m2',
@@ -130,7 +129,7 @@ export default function CoutPVParM2Page() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-panel-closeup-1.webp" alt="Panneaux solaires Suisse" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
+            <Image src="/images/asset-panel-closeup-1.webp" alt="Panneaux solaires Suisse" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
           </div>
         </section>
 
@@ -155,7 +154,7 @@ export default function CoutPVParM2Page() {
         {/* ── Example ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-haus-luftbild-2.webp" alt="Maison individuelle avec installation solaire" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
+            <Image src="/images/asset-haus-luftbild-2.webp" alt="Maison individuelle avec installation solaire" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Exemple de calcul</p>
@@ -261,7 +260,7 @@ export default function CoutPVParM2Page() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-beratung-indoor-1.webp" alt="Conseil installation solaire Suisse" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
+            <Image src="/images/asset-beratung-indoor-1.webp" alt="Conseil installation solaire Suisse" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
           </div>
         </section>
 
@@ -281,7 +280,7 @@ export default function CoutPVParM2Page() {
             Comparer les offres et calculer précisément les coûts
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            Le coût par m² n'est qu'une estimation approximative. Via PvPro.ch, obtenez gratuitement des devis d'installateurs certifiés — calculés précisément pour votre maison.
+            Le coût par m² n'est qu'une estimation approximative. Via PVPro, obtenez gratuitement des devis d'installateurs certifiés — calculés précisément pour votre maison.
           </p>
           <Link
             href="/fr/demande"
@@ -296,5 +295,3 @@ export default function CoutPVParM2Page() {
     </main>
   );
 }
-
-export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/cout-pv-par-m2', locale: 'fr' });

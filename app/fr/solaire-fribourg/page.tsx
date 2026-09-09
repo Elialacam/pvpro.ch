@@ -2,7 +2,6 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import { getCityBySlug } from '@/lib/cities';
 import { cityContents } from '@/lib/city-content';
 import { notFound } from 'next/navigation';
@@ -10,8 +9,8 @@ import UniqueCityPage from '@/components/UniqueCityPage';
 
 const citySlug = 'fribourg';
 
-const baseMetadata: Metadata = {
-  title: 'Installation solaire Canton de Fribourg – Comparez 3 offres 2026 | PvPro.ch',
+export const metadata: Metadata = {
+  title: 'Installation solaire Canton de Fribourg – Comparez 3 offres 2026 | PVPro',
   description: "Panneau solaire à Fribourg : comparez jusqu'à 3 offres d'installateurs certifiés. Subventions RU fédérale + aide cantonale fribourgeoise. Gratuit & sans engagement.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/solaire-fribourg',
@@ -29,5 +28,3 @@ export default function CityPage() {
   const content = cityContents[citySlug] || cityContents['geneve'];
   return <UniqueCityPage city={city} content={content} accentColor="blue" />;
 }
-
-export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/solaire-fribourg', locale: 'fr' });

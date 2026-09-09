@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "node scripts/patch-next-sorted-routes.js",
-    "generate:image-focus": "node scripts/compute-image-focus.js",
-    "audit:seo-metadata": "node scripts/audit-seo-metadata.js"
+    "generate:image-focus": "node scripts/compute-image-focus.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

@@ -108,10 +108,6 @@ export default function TicinoMap() {
       });
 
       const infoWindow = new g.maps.InfoWindow();
-      g.maps.event.addListener(infoWindow, 'domready', () => {
-        document.querySelector<HTMLButtonElement>('.map-info-window__close')
-          ?.addEventListener('click', () => infoWindow.close(), { once: true });
-      });
 
       cities.forEach((city, i) => {
         const marker = new g.maps.Marker({
@@ -134,15 +130,10 @@ export default function TicinoMap() {
         marker.addListener('mouseout', () => marker.setAnimation(null));
         marker.addListener('click', () => {
           infoWindow.setContent(
-            `<div class="map-info-window">
-               <button type="button" class="map-info-window__close" aria-label="Chiudi">×</button>
-               <div class="map-info-window__eyebrow">Canton Ticino</div>
-               <div class="map-info-window__heading">
-                 <span>${city.name}</span>
-                 <span class="map-info-window__solar-dot"></span>
-               </div>
-               <div class="map-info-window__copy">${city.tagline}. Confronta gratuitamente fino a 3 preventivi di installatori verificati.</div>
-               <a href="/it/richiesta" class="map-info-window__cta">Richiedi preventivi →</a>
+            `<div style="font-family:inherit;padding:4px 2px;min-width:190px">
+               <div style="font-weight:700;font-size:15px;color:#1F2937;margin-bottom:2px">${city.name}</div>
+               <div style="color:#374151;font-size:12px;margin-bottom:10px">${city.tagline}</div>
+               <a href="/it/richiesta" style="display:inline-block;background:#fcb210;color:#fff;font-weight:600;font-size:13px;padding:8px 14px;border-radius:8px;text-decoration:none">Richiedi preventivo →</a>
              </div>`
           );
           infoWindow.open({ map, anchor: marker });

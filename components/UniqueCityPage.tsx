@@ -6,7 +6,6 @@ import { CityContent } from '@/lib/city-content';
 import Link from 'next/link';
 import USPSection from '@/components/USPSection';
 import FAQ from '@/components/FAQ';
-import FaqSchema from '@/components/FaqSchema';
 import RelatedCities from '@/components/RelatedCities';
 import { Sun, MapPin, TrendingUp, CheckCircle, Zap, Euro, Award } from 'lucide-react';
 import Image from 'next/image';
@@ -230,9 +229,9 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 </ul>
                 <p className="font-sans font-bold text-gray-900">
                   {t(lang,
-                    'PvPro.ch hilft Ihnen, sich bei Förderungen, Kantonen und Offerten zurechtzufinden und verbindet Sie mit Fachpartnern, die auf dem neuesten Stand von 2026 sind.',
-                    "PvPro.ch vous aide à naviguer parmi les aides, cantons et offres et vous met en contact avec des partenaires certifiés à jour en 2026.",
-                    'PvPro.ch ti aiuta a navigare tra incentivi, cantoni e offerte, connettendoti con installatori qualificati aggiornati sulle normative 2026.'
+                    'PVPro.ch hilft Ihnen, sich bei Förderungen, Kantonen und Offerten zurechtzufinden und verbindet Sie mit Fachpartnern, die auf dem neuesten Stand von 2026 sind.',
+                    "PVPro.ch vous aide à naviguer parmi les aides, cantons et offres et vous met en contact avec des partenaires certifiés à jour en 2026.",
+                    'PVPro.ch ti aiuta a navigare tra incentivi, cantoni e offerte, connettendoti con installatori qualificati aggiornati sulle normative 2026.'
                   )}
                 </p>
               </div>
@@ -378,9 +377,8 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             src={content.image}
             alt={t(lang, `Solaranlage Installation ${city.name}`, `Installation solaire ${city.name}`, `Impianto fotovoltaico ${city.name}`)}
             fill
-            sizes="100vw"
-            loading="lazy"
             className="object-cover opacity-30"
+            priority={false}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/75 to-gray-900/90"></div>
         </div>
@@ -470,8 +468,36 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
 
       <USPSection lang={lang} />
 
+      {/* Testimonial - UNIQUE */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom max-w-4xl">
+          <div className="card bg-white shadow-lg">
+            <div className="flex items-start gap-4">
+              <div className={`w-16 h-16 bg-${accentColor}-600 rounded-full flex items-center justify-center flex-shrink-0`}>
+                <span className="text-2xl font-sans font-semibold tracking-tight text-white">{content.testimonial.initials}</span>
+              </div>
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
+                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-4 italic text-lg">
+                  "{content.testimonial.quote}"
+                </p>
+                <div>
+                  <div className="font-sans font-semibold tracking-tight text-gray-900">{content.testimonial.name}</div>
+                  <div className="text-sm text-gray-600">{city.name}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <FAQ items={content.faqs} />
-      <FaqSchema faqs={content.faqs} />
 
       <RelatedCities currentCitySlug={content.slug} currentCanton={city.canton} lang={lang} />
 

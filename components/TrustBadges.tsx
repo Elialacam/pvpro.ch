@@ -1,17 +1,6 @@
-'use client';
-
 import Image from 'next/image';
-import { useLocale } from '@/lib/LocaleContext';
-
-const trustpilotAlt: Record<string, string> = {
-  de: 'Trustpilot – Kundenbewertungen',
-  fr: 'Trustpilot – Avis clients',
-  en: 'Trustpilot – Customer reviews',
-  it: 'Trustpilot – Recensioni dei clienti',
-};
 
 export default function TrustBadges() {
-  const locale = useLocale();
   const badges = [
     {
       image: '/images/badge-tuv-cert.webp',
@@ -59,8 +48,6 @@ export default function TrustBadges() {
                   alt={badge.title}
                   width={150}
                   height={150}
-                  sizes="(max-width: 768px) 128px, 144px"
-                  loading="lazy"
                   className="w-32 h-32 md:w-36 md:h-36 object-contain"
                 />
               </div>
@@ -98,8 +85,6 @@ export default function TrustBadges() {
               alt="Proven Expert - 100% Empfehlungen"
               width={120}
               height={60}
-              sizes="96px"
-              loading="lazy"
               className="h-12 w-auto"
             />
             <Image
@@ -107,17 +92,13 @@ export default function TrustBadges() {
               alt="Swiss Quality - Schweizer Qualität"
               width={60}
               height={60}
-              sizes="48px"
-              loading="lazy"
               className="h-12 w-auto"
             />
             <Image
               src="/images/logos/trustpilot.svg"
-              alt={trustpilotAlt[locale] || trustpilotAlt.de}
+              alt="Trustpilot - Kundenbewertungen"
               width={120}
               height={30}
-              sizes="128px"
-              loading="lazy"
               className="h-8 w-auto"
             />
           </div>

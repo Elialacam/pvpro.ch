@@ -1,5 +1,5 @@
 /**
- * Previously generated blog articles retained as local content.
+ * Auto-generated blog articles (AutoSEO webhook → GitHub commit).
  *
  * Each file in content/autoblog/<slug>.json contains one article in all
  * 4 locales. These are merged with the hand-written articles in
@@ -12,18 +12,9 @@ import fs from 'fs';
 import path from 'path';
 import type { BlogArticle } from './blogArticles';
 import type { BlogPost } from './blogPosts';
-import { autoBlogPath, getAutoBlogSlugRecord, type BlogLocale } from './autoBlogSlugs';
-import { articleMetaDescription } from './blogUtils';
-
-function autoSeoTitle(article: BlogArticle): string {
-  // Generated-content slugs are localized, editorial route names. They remain
-  // short enough for the fixed metadata suffix and keep every route distinct.
-  return article.seoTitle ?? article.slug.replace(/pvpro/gi, '').replace(/-+/g, ' ').trim();
-}
 
 export interface AutoBlogFile {
   slug: string;
-  localeSlugs?: Record<BlogLocale, string>;
   createdAt: string; // ISO date
   articles: Record<'de' | 'fr' | 'en' | 'it', BlogArticle>;
 }
@@ -59,39 +50,22 @@ export function getAutoBlogFiles(): AutoBlogFile[] {
 }
 
 export function getAutoArticle(slug: string, locale: string): BlogArticle | undefined {
-  const canonical = getAutoBlogSlugRecord(slug, locale as BlogLocale);
-  const file = getAutoBlogFiles().find((f) => f.slug === (canonical?.legacySlug ?? slug));
+  const file = getAutoBlogFiles().find((f) => f.slug === slug);
   if (!file) return undefined;
-  const article = file.articles[locale as BlogLocale];
-  if (!article) return undefined;
-  return {
-    ...article,
-    seoTitle: autoSeoTitle(article),
-    metaDescription: articleMetaDescription(article.metaDescription, article.locale, article.slug),
-    slug: file.localeSlugs?.[locale as BlogLocale] ?? canonical?.slugs[locale as BlogLocale] ?? article.slug,
-    publishedAt: file.createdAt,
-    modifiedAt: file.createdAt,
-  };
+  return file.articles[locale as 'de' | 'fr' | 'en' | 'it'];
 }
 
 export function getAutoSlugs(): string[] {
   return getAutoBlogFiles().map((f) => f.slug);
 }
 
-/** Canonical static-route params for generated content in one locale. */
-export function getAutoArticleLocaleSlugs(locale: BlogLocale): string[] {
-  return getAutoBlogFiles()
-    .map((file) => file.localeSlugs?.[locale] ?? getAutoBlogSlugRecord(file.slug)?.slugs[locale])
-    .filter((slug): slug is string => !!slug);
-}
-
 /** Card metadata for the blog listing pages, per locale. */
 export function getAutoBlogCards(locale: 'de' | 'fr' | 'en' | 'it'): BlogPost[] {
   const authors: Record<string, string> = {
-    de: 'PvPro.ch Redaktion',
-    fr: 'PvPro.ch Rédaction',
-    en: 'PvPro.ch Editorial',
-    it: 'Redazione PvPro.ch',
+    de: 'PVPro Redaktion',
+    fr: 'PVPro Rédaction',
+    en: 'PVPro Editorial',
+    it: 'Redazione PVPro',
   };
   return getAutoBlogFiles()
     .map((f) => {
@@ -99,19 +73,15 @@ export function getAutoBlogCards(locale: 'de' | 'fr' | 'en' | 'it'): BlogPost[] 
       if (!a) return null;
       const base = locale === 'de' ? '/blog' : `/${locale}/blog`;
       return {
-        slug: f.localeSlugs?.[locale] ?? getAutoBlogSlugRecord(f.slug)?.slugs[locale] ?? f.slug,
+        slug: f.slug,
         title: a.title,
-        excerpt: articleMetaDescription(a.metaDescription, a.locale, a.slug),
+        excerpt: a.metaDescription,
         image: a.image,
         author: authors[locale],
         date: a.date,
-        readMin: (() => {
-          // Keep card and article reading time based on the same visible editorial content.
-          const { articleReadingMinutes } = require('./blogUtils') as typeof import('./blogUtils');
-          return articleReadingMinutes({ ...a, publishedAt: f.createdAt, modifiedAt: f.createdAt });
-        })(),
+        readMin: a.readMin,
         tag: a.tag,
-        href: getAutoBlogSlugRecord(f.slug) ? autoBlogPath(getAutoBlogSlugRecord(f.slug)!, locale) : `${base}/${f.slug}`,
+        href: `${base}/${f.slug}`,
       } as BlogPost;
     })
     .filter((c): c is BlogPost => !!c);

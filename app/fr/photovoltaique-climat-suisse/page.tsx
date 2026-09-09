@@ -1,11 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Sun, CheckCircle, FileText } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-const baseMetadata: Metadata = {
-  title: 'Photovoltaïque et climat suisse 2026 – Quelle installation choisir ? | PvPro.ch',
+export const metadata: Metadata = {
+  title: 'Photovoltaïque et climat suisse 2026 – Quelle installation choisir ? | PVPro.ch',
   description: "Quels panneaux photovoltaïques conviennent au climat suisse ? Neige, froid, brouillard — nous expliquons ce qui compte vraiment et quels modules fonctionnent le mieux en Suisse.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/photovoltaique-climat-suisse',
@@ -23,7 +22,7 @@ const baseMetadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/photovoltaique-climat-suisse',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PvPro.ch',
+    siteName: 'PVPro',
   },
 };
 
@@ -327,5 +326,3 @@ export default function PhotovoltaiquClimatSuissePage() {
     </main>
   );
 }
-
-export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/photovoltaique-climat-suisse', locale: 'fr' });

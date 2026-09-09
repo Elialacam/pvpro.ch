@@ -185,9 +185,8 @@ export async function POST(request: NextRequest) {
     const validName = name.length >= 2 && name.length <= 100
     const validEmail = email.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     const validPhone = /^41\d{9}$/.test(normalizedPhone)
-    const installerSharingConsent = body.installer_sharing_consent === true
 
-    if (!validName || !validEmail || !validPhone || !installerSharingConsent) {
+    if (!validName || !validEmail || !validPhone) {
       return NextResponse.json({ error: 'Invalid contact data' }, { status: 400 })
     }
 
@@ -208,7 +207,6 @@ export async function POST(request: NextRequest) {
     const nameParts = name.trim().split(/\s+/).filter(Boolean)
     const firstName = nameParts[0]
     const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : undefined
-    const installerSharingConsentAt = new Date().toISOString()
 
     // Save to LeadSync before sending the Meta conversion.
     const [leadsyncRes] = await Promise.all([
@@ -218,18 +216,7 @@ export async function POST(request: NextRequest) {
           'Content-Type': 'application/json',
           'x-api-key': 'f528ee7621a5c97665efd7561ac35a3ae0ab10eb4eef03b1',
         },
-        body: JSON.stringify({
-          name,
-          phone,
-          email,
-          address,
-          ...(zip_code ? { zip_code } : {}),
-          utm_source: utm_source || 'organic',
-          ...(source ? { source } : {}),
-          ...(fbclid ? { fbclid } : {}),
-          installer_sharing_consent: true,
-          installer_sharing_consent_at: installerSharingConsentAt,
-        }),
+        body: JSON.stringify({ name, phone, email, address, ...(zip_code ? { zip_code } : {}), utm_source: utm_source || 'organic', ...(source ? { source } : {}), ...(fbclid ? { fbclid } : {}) }),
       }),
       marketingConsent && eventId
         ? sendOpenAIConversion({

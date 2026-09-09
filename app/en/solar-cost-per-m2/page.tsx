@@ -2,11 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Sun, Zap, TrendingDown, CheckCircle2, Home, Ruler, Award, Wrench } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import PhotovoltaikFaq from '@/components/PhotovoltaikFaq';
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Solar cost per m² Switzerland: prices, examples and calculation | PvPro.ch',
+export const metadata: Metadata = {
+  title: 'Solar cost per m² Switzerland: prices, examples and calculation | PVPro.ch',
   description: 'How much does solar cost per m² in Switzerland? Prices, examples and costs per kWp explained simply. Compare offers now.',
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-cost-per-m2',
@@ -18,7 +17,7 @@ export const metadata: Metadata = pageMetadata({
       'x-default': 'https://www.pvpro.ch/photovoltaik-kosten-pro-m2',
     },
   },
-}, { path: '/en/solar-cost-per-m2', locale: 'en' });
+};
 
 const priceRows = [
   { label: 'Basic installation',     range: 'approx. 200 – 250 CHF', color: '#6b7280', highlight: false },
@@ -130,7 +129,7 @@ export default function SolarCostPerM2Page() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-panel-closeup-1.webp" alt="Solar panels Switzerland" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
+            <Image src="/images/asset-panel-closeup-1.webp" alt="Solar panels Switzerland" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
           </div>
         </section>
 
@@ -155,7 +154,7 @@ export default function SolarCostPerM2Page() {
         {/* ── Example ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-haus-luftbild-2.webp" alt="Detached house with solar installation" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
+            <Image src="/images/asset-haus-luftbild-2.webp" alt="Detached house with solar installation" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Calculation example</p>
@@ -261,7 +260,7 @@ export default function SolarCostPerM2Page() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md">
-            <Image src="/images/asset-beratung-indoor-1.webp" alt="Solar consultation Switzerland" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" loading="lazy"/>
+            <Image src="/images/asset-beratung-indoor-1.webp" alt="Solar consultation Switzerland" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover" />
           </div>
         </section>
 
@@ -281,7 +280,7 @@ export default function SolarCostPerM2Page() {
             Compare offers and calculate costs accurately
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-            The cost per m² is only a rough guide. Via PvPro.ch you get free quotes from certified installers — accurately calculated for your home.
+            The cost per m² is only a rough guide. Via PVPro you get free quotes from certified installers — accurately calculated for your home.
           </p>
           <Link
             href="/en/request"

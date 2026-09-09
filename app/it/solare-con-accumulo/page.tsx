@@ -2,11 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight, Battery, Sun, Home, Zap, CheckCircle, ArrowRight, TrendingUp } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import { SpeicherGroesse, SpeicherFAQ } from '@/components/SpeicherVergleich';
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Impianto solare con accumulo: costi, vantaggi e funzionamento | PvPro.ch',
+export const metadata: Metadata = {
+  title: 'Impianto solare con accumulo: costi, vantaggi e funzionamento | PVPro.ch',
   description: 'Come funziona un impianto solare con accumulo a batteria? Costi, vantaggi, dimensionamento e autoconsumo in Svizzera spiegati semplicemente.',
   alternates: {
     canonical: 'https://www.pvpro.ch/it/solare-con-accumulo',
@@ -18,7 +17,7 @@ export const metadata: Metadata = pageMetadata({
       'x-default': 'https://www.pvpro.ch/solaranlage-mit-speicher',
     },
   },
-}, { path: '/it/solare-con-accumulo', locale: 'it' });
+};
 
 const vantaggi = [
   { icon: TrendingUp, title: 'Meno elettricità acquistata', text: 'Acquistate molto meno elettricità dal fornitore — giorno dopo giorno.' },
@@ -41,7 +40,7 @@ export default function SolareConAccumuloPage() {
       {/* ── HERO ── */}
       <section className="relative pt-28 pb-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1117 0%, #1a2236 100%)' }}>
         <div className="absolute inset-0 opacity-20">
-          <Image src="/images/batteriespeicher-weiss-modern.webp" alt="Impianto solare con accumulo" fill sizes="100vw" className="object-cover" priority />
+          <Image src="/images/batteriespeicher-weiss-modern.webp" alt="Impianto solare con accumulo" fill className="object-cover" priority />
         </div>
         <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <nav className="flex items-center gap-1.5 text-sm text-gray-500 mb-10">
@@ -138,7 +137,7 @@ export default function SolareConAccumuloPage() {
             </div>
 
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/hero-family-solar.webp" alt="Impianto solare con accumulo a batteria" width={700} height={500} sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" className="w-full h-auto object-cover" />
+              <Image src="/images/hero-family-solar.webp" alt="Impianto solare con accumulo a batteria" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -208,7 +207,7 @@ export default function SolareConAccumuloPage() {
             </div>
 
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solaranlage-tessin-villa-palmen.webp" alt="Pannelli solari su una villa con palme in Ticino" width={700} height={500} sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" className="w-full h-auto object-cover" />
+              <Image src="/images/solaranlage-tessin-villa-palmen.webp" alt="Pannelli solari su una villa con palme in Ticino" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -240,7 +239,7 @@ export default function SolareConAccumuloPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <Image src="/images/solaranlage-flachdach-basel-rhein.webp" alt="Impianto fotovoltaico su tetto piano a Basilea lungo il Reno" width={700} height={500} sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" className="w-full h-auto object-cover" />
+              <Image src="/images/solaranlage-flachdach-basel-rhein.webp" alt="Impianto fotovoltaico su tetto piano a Basilea lungo il Reno" width={700} height={500} className="w-full h-auto object-cover" />
             </div>
             <div>
               <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Produzione di elettricità</p>

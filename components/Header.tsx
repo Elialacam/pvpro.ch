@@ -78,13 +78,13 @@ function getNavItems(locale: string): NavItem[] {
       },
       {
         label: 'Über uns',
-        category: 'ÜBER PvPro.ch',
+        category: 'ÜBER PVPRO',
         title: 'Unternehmen',
         description: 'Mission · Team · Kontakt',
         viewAllHref: '/ueber-uns',
         viewAllLabel: 'Alle anzeigen',
         items: [
-          { icon: <Sun className="w-5 h-5" />, title: 'Unser Ansatz', subtitle: 'Warum PvPro.ch?', href: '/ueber-uns' },
+          { icon: <Sun className="w-5 h-5" />, title: 'Unser Ansatz', subtitle: 'Warum PVPro?', href: '/ueber-uns' },
           { icon: <Users className="w-5 h-5" />, title: 'Team', subtitle: 'Unsere Experten', href: '/ueber-uns' },
           { icon: <Mail className="w-5 h-5" />, title: 'Kontakt', subtitle: 'Schreiben Sie uns', href: '/anfrage' },
           { icon: <HelpCircle className="w-5 h-5" />, title: 'FAQ', subtitle: 'Häufige Fragen', href: '/faq' },
@@ -137,13 +137,13 @@ function getNavItems(locale: string): NavItem[] {
       },
       {
         label: 'À propos',
-        category: 'À PROPOS DE PvPro.ch',
+        category: 'À PROPOS DE PVPRO',
         title: 'Entreprise',
         description: 'Mission · Équipe · Contact',
         viewAllHref: '/fr/a-propos',
         viewAllLabel: 'Voir tout',
         items: [
-          { icon: <Sun className="w-5 h-5" />, title: 'Notre approche', subtitle: 'Pourquoi PvPro.ch?', href: '/fr/a-propos' },
+          { icon: <Sun className="w-5 h-5" />, title: 'Notre approche', subtitle: 'Pourquoi PVPro?', href: '/fr/a-propos' },
           { icon: <Users className="w-5 h-5" />, title: 'Équipe', subtitle: 'Nos experts', href: '/fr/a-propos' },
           { icon: <Mail className="w-5 h-5" />, title: 'Contact', subtitle: 'Écrivez-nous', href: '/fr/demande' },
           { icon: <HelpCircle className="w-5 h-5" />, title: 'FAQ', subtitle: 'Questions fréquentes', href: '/fr/faq' },
@@ -196,13 +196,13 @@ function getNavItems(locale: string): NavItem[] {
       },
       {
         label: 'About us',
-        category: 'ABOUT PvPro.ch',
+        category: 'ABOUT PVPRO',
         title: 'Company',
         description: 'Mission · Team · Contact',
         viewAllHref: '/en/about-us',
         viewAllLabel: 'View all',
         items: [
-          { icon: <Sun className="w-5 h-5" />, title: 'Our approach', subtitle: 'Why PvPro.ch?', href: '/en/about-us' },
+          { icon: <Sun className="w-5 h-5" />, title: 'Our approach', subtitle: 'Why PVPro?', href: '/en/about-us' },
           { icon: <Users className="w-5 h-5" />, title: 'Team', subtitle: 'Our experts', href: '/en/about-us' },
           { icon: <Mail className="w-5 h-5" />, title: 'Contact', subtitle: 'Write to us', href: '/en/request' },
           { icon: <HelpCircle className="w-5 h-5" />, title: 'FAQ', subtitle: 'Common questions', href: '/en/faq' },
@@ -255,13 +255,13 @@ function getNavItems(locale: string): NavItem[] {
       },
       {
         label: 'Chi siamo',
-        category: 'CHI È PvPro.ch',
+        category: 'CHI È PVPRO',
         title: 'Azienda',
         description: 'Missione · Team · Contatto',
         viewAllHref: '/it/chi-siamo',
         viewAllLabel: 'Vedi tutto',
         items: [
-          { icon: <Sun className="w-5 h-5" />, title: 'Il nostro approccio', subtitle: 'Perché PvPro.ch?', href: '/it/chi-siamo' },
+          { icon: <Sun className="w-5 h-5" />, title: 'Il nostro approccio', subtitle: 'Perché PVPro?', href: '/it/chi-siamo' },
           { icon: <Users className="w-5 h-5" />, title: 'Team', subtitle: 'I nostri esperti', href: '/it/chi-siamo' },
           { icon: <Mail className="w-5 h-5" />, title: 'Contatto', subtitle: 'Scrivici', href: '/it/richiesta' },
           { icon: <HelpCircle className="w-5 h-5" />, title: 'FAQ', subtitle: 'Domande frequenti', href: '/it/faq' },
@@ -339,6 +339,8 @@ export default function Header() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
+  const THANK_YOU_PATHS = ['/danke', '/en/thank-you', '/fr/merci', '/it/grazie'];
+
   const isHome = HOME_PATHS.includes(pathname);
   const transparent = isHome && !scrolled;
   const navItems = getNavItems(locale);
@@ -365,6 +367,8 @@ export default function Header() {
   const homeHref = homeLinks[locale] || '/';
   const formUrl = getFormUrl(pathname);
 
+  if (THANK_YOU_PATHS.includes(pathname)) return null;
+
   return (
     <header
       ref={headerRef}
@@ -381,11 +385,9 @@ export default function Header() {
           <Link href={homeHref} className="flex-shrink-0 z-10">
             <Image
               src="/logo-pvpro.png"
-              alt="PvPro.ch"
+              alt="PVPro.ch"
               width={220}
               height={64}
-              sizes="440px"
-              loading="lazy"
               className="h-28 sm:h-32 w-auto -my-8"
             />
           </Link>

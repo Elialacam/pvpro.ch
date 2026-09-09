@@ -2,12 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, Wrench, Clock, Sun } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-const baseMetadata: Metadata = {
-  title: "Faire installer des panneaux solaires en Suisse 2026 – Fournisseurs & Coûts | PvPro.ch",
-  description: "Faire installer une installation solaire en Suisse : trouvez des installateurs certifiés dans votre canton. Comparez des offres gratuites et économisez jusqu'à 30% avec PvPro.ch.",
+export const metadata: Metadata = {
+  title: "Faire installer des panneaux solaires en Suisse 2026 – Fournisseurs & Coûts | PVPro.ch",
+  description: "Faire installer une installation solaire en Suisse : trouvez des installateurs certifiés dans votre canton. Comparez des offres gratuites et économisez jusqu'à 30% avec PVPro.ch.",
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/installer-panneau-solaire-suisse',
     languages: {
@@ -24,7 +23,7 @@ const baseMetadata: Metadata = {
     url: 'https://www.pvpro.ch/fr/installer-panneau-solaire-suisse',
     type: 'website',
     locale: 'fr_CH',
-    siteName: 'PvPro.ch',
+    siteName: 'PVPro',
   },
 };
 
@@ -51,7 +50,7 @@ const faqs = [
   },
   {
     question: "Comment trouver le meilleur installateur dans mon canton ?",
-    answer: "PvPro.ch vous met gratuitement en contact avec jusqu'à 3 installateurs certifiés de votre canton — pour que vous puissiez comparer directement les prix et les prestations.",
+    answer: "PVPro.ch vous met gratuitement en contact avec jusqu'à 3 installateurs certifiés de votre canton — pour que vous puissiez comparer directement les prix et les prestations.",
   },
 ];
 
@@ -125,7 +124,7 @@ export default function InstallerPanneauSolaireSuissePage() {
               Faire installer des panneaux solaires en Suisse
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Une installation solaire est un investissement à long terme. Qui la fait installer doit choisir le bon prestataire — car la qualité, le prix et le service varient fortement. PvPro.ch vous met gratuitement en contact avec des installateurs suisses certifiés de votre canton.
+              Une installation solaire est un investissement à long terme. Qui la fait installer doit choisir le bon prestataire — car la qualité, le prix et le service varient fortement. PVPro.ch vous met gratuitement en contact avec des installateurs suisses certifiés de votre canton.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -222,7 +221,7 @@ export default function InstallerPanneauSolaireSuissePage() {
             </div>
           </div>
           <div>
-            <Image src="/images/asset-installateur-dach-2.webp" alt="Installation solaire Suisse" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" loading="lazy"/>
+            <Image src="/images/asset-installateur-dach-2.webp" alt="Installation solaire Suisse" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" />
           </div>
         </section>
 
@@ -289,12 +288,12 @@ export default function InstallerPanneauSolaireSuissePage() {
             </ul>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
               <p className="text-gray-700 text-sm leading-relaxed">
-                <strong>PvPro.ch vérifie tous ces critères à l&apos;avance</strong> — vous ne recevez que des offres d&apos;entreprises qui respectent nos standards.
+                <strong>PVPro.ch vérifie tous ces critères à l&apos;avance</strong> — vous ne recevez que des offres d&apos;entreprises qui respectent nos standards.
               </p>
             </div>
           </div>
           <div>
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Choisir installateur Suisse" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Choisir installateur Suisse" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Conseil</p>
               <p className="text-gray-700 text-sm leading-relaxed">
@@ -378,5 +377,3 @@ export default function InstallerPanneauSolaireSuissePage() {
     </main>
   );
 }
-
-export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/installer-panneau-solaire-suisse', locale: 'fr' });

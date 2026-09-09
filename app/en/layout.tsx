@@ -5,12 +5,45 @@ import PageTransition from "@/components/PageTransition";
 import { LocaleProvider } from "@/lib/LocaleContext";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://www.pvpro.ch/en',
+    languages: {
+      'de-CH': 'https://www.pvpro.ch',
+      'fr-CH': 'https://www.pvpro.ch/fr',
+      'en-CH': 'https://www.pvpro.ch/en',
+      'it-CH': 'https://www.pvpro.ch/it',
+      'x-default': 'https://www.pvpro.ch',
+    },
+  },
   title: {
-    default: 'Compare solar systems in Switzerland | PvPro.ch',
-    template: '%s | PvPro.ch',
+    default: 'PV Pro - Compare Solar Systems in Switzerland | Free Quotes',
+    template: '%s | PV Pro',
   },
   description: 'Compare solar system offers from certified installers in Switzerland for free. Save up to 30% by comparing. No obligation.',
-  authors: [{ name: 'PvPro.ch' }],
+  keywords: ['Solar system', 'Photovoltaic', 'Solar Switzerland', 'Solar system costs', 'Solar installer', 'Compare solar systems'],
+  authors: [{ name: 'PV Pro' }],
+  openGraph: {
+    type: 'website',
+    locale: 'en_CH',
+    url: 'https://www.pvpro.ch/en',
+    siteName: 'PV Pro',
+    title: 'PV Pro - Compare Solar Systems in Switzerland',
+    description: 'Compare multiple solar system offers from certified Swiss installers for free. Save up to 30%.',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'PV Pro - Solar Systems Switzerland',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PV Pro - Compare Solar Systems in Switzerland',
+    description: 'Compare solar system offers for free. Save up to 30%.',
+    images: ['/og-image.jpg'],
+  },
   robots: {
     index: true,
     follow: true,
@@ -40,7 +73,7 @@ export default function EnglishLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "PvPro.ch",
+            "name": "PV Pro",
             "url": "https://www.pvpro.ch",
             "logo": "https://www.pvpro.ch/logo-pvpro.png",
             "sameAs": [
@@ -65,8 +98,8 @@ export default function EnglishLayout({
             "@context": "https://schema.org",
             "@type": "WebSite",
             "url": "https://www.pvpro.ch/en",
-            "name": "PvPro.ch",
-            "alternateName": "PvPro.ch",
+            "name": "PV Pro",
+            "alternateName": "PVPro",
             "description": "Comparison platform for solar systems in Switzerland",
             "inLanguage": "en-CH",
             "potentialAction": {

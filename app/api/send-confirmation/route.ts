@@ -63,9 +63,9 @@ export async function POST(request: NextRequest) {
     };
 
     const { data, error } = await resend.emails.send({
-      from: fromEmail || 'PvPro.ch <anfrage@pvpro.ch>',
+      from: fromEmail || 'PVPro <anfrage@pvpro.ch>',
       to: [email],
-      subject: 'Vielen Dank für Ihre Anfrage – PvPro.ch',
+      subject: 'Vielen Dank für Ihre Anfrage – PVPro.ch',
       html: `
         <!DOCTYPE html>
         <html>
@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
                   <!-- Header -->
                   <tr>
                     <td style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 30px 40px; text-align: center;">
-                      <h1 style="color: #c8a415; font-size: 28px; margin: 0; font-weight: bold;">PvPro.ch</h1>
+                      <h1 style="color: #c8a415; font-size: 28px; margin: 0; font-weight: bold;">PVPro.ch</h1>
                       <p style="color: #ffffff; font-size: 14px; margin: 8px 0 0 0; opacity: 0.8;">Ihr Solar-Vergleichsportal für die Schweiz</p>
                     </td>
                   </tr>
@@ -92,7 +92,7 @@ export async function POST(request: NextRequest) {
                     <td style="padding: 40px 40px 20px 40px;">
                       <h2 style="color: #1a1a2e; font-size: 22px; margin: 0 0 16px 0;">Guten Tag ${firstName} ${lastName},</h2>
                       <p style="color: #555555; font-size: 16px; line-height: 1.6; margin: 0;">
-                        Vielen Dank für Ihre Anfrage auf PvPro.ch! Wir haben Ihre Daten erhalten und werden uns in Kürze bei Ihnen melden.
+                        Vielen Dank für Ihre Anfrage auf PVPro.ch! Wir haben Ihre Daten erhalten und werden uns in Kürze bei Ihnen melden.
                       </p>
                     </td>
                   </tr>
@@ -175,10 +175,10 @@ export async function POST(request: NextRequest) {
                   <!-- Footer -->
                   <tr>
                     <td style="background-color: #1a1a2e; padding: 24px 40px; text-align: center;">
-                      <p style="color: #c8a415; font-size: 14px; font-weight: bold; margin: 0 0 8px 0;">PvPro.ch</p>
+                      <p style="color: #c8a415; font-size: 14px; font-weight: bold; margin: 0 0 8px 0;">PVPro.ch</p>
                       <p style="color: #aaaaaa; font-size: 12px; margin: 0; line-height: 1.6;">
                         Diese E-Mail wurde automatisch generiert.<br>
-                        © ${new Date().getFullYear()} PvPro.ch – Alle Rechte vorbehalten.
+                        © ${new Date().getFullYear()} PVPro.ch – Alle Rechte vorbehalten.
                       </p>
                     </td>
                   </tr>

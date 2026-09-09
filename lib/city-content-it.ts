@@ -140,7 +140,7 @@ export const cityContentsIT: Record<string, CityContent> = {
     testimonial: {
       initials: 'FB',
       name: 'Franco Bernasconi',
-      quote: 'Lugano offre le condizioni perfette per l\'energia solare. Il nostro impianto produce molto più di quanto avessimo previsto. Con PvPro.ch abbiamo ricevuto tre eccellenti offerte e abbiamo scelto quella migliore. Un servizio veramente consigliato!'
+      quote: 'Lugano offre le condizioni perfette per l\'energia solare. Il nostro impianto produce molto più di quanto avessimo previsto. Con PVPro abbiamo ricevuto tre eccellenti offerte e abbiamo scelto quella migliore. Un servizio veramente consigliato!'
     }
   }
 };

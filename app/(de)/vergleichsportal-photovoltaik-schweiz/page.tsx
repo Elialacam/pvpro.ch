@@ -2,12 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, Star, BarChart2, Users } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Vergleichsportal Photovoltaik Schweiz 2026 – Anbieter vergleichen & sparen | PvPro.ch',
-  description: 'Vergleichen Sie Photovoltaik Anbieter in der Schweiz kostenlos. PvPro.ch ist das führende Schweizer Vergleichsportal für Solaranlagen – bis zu 3 Offerten von zertifizierten Installateuren.',
+export const metadata: Metadata = {
+  title: 'Vergleichsportal Photovoltaik Schweiz 2026 – Anbieter vergleichen & sparen | PVPro.ch',
+  description: 'Vergleichen Sie Photovoltaik Anbieter in der Schweiz kostenlos. PVPro.ch ist das führende Schweizer Vergleichsportal für Solaranlagen – bis zu 3 Offerten von zertifizierten Installateuren.',
   alternates: {
     canonical: 'https://www.pvpro.ch/vergleichsportal-photovoltaik-schweiz',
     languages: {
@@ -24,13 +23,13 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/vergleichsportal-photovoltaik-schweiz',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PvPro.ch',
+    siteName: 'PVPro',
   },
-}, { path: '/vergleichsportal-photovoltaik-schweiz', locale: 'de' });
+};
 
 const faqs = [
   {
-    question: 'Ist PvPro.ch wirklich kostenlos?',
+    question: 'Ist PVPro.ch wirklich kostenlos?',
     answer: 'Ja, für Hausbesitzer ist der Service vollständig kostenlos und unverbindlich. Wir finanzieren uns über eine Vermittlungsgebühr, die die Installateure bezahlen — nicht Sie.',
   },
   {
@@ -38,11 +37,11 @@ const faqs = [
     answer: 'Sie erhalten bis zu 3 massgeschneiderte Offerten von geprüften lokalen Installateuren. So haben Sie direkt eine Vergleichsbasis.',
   },
   {
-    question: 'Wer sind die Installateure im PvPro.ch-Netzwerk?',
+    question: 'Wer sind die Installateure im PVPro-Netzwerk?',
     answer: 'Wir arbeiten mit über 25 geprüften Schweizer Fachbetrieben zusammen. Jeder Installateur wird vor der Aufnahme ins Netzwerk geprüft.',
   },
   {
-    question: 'Kann ich PvPro.ch auch für ein Mehrfamilienhaus nutzen?',
+    question: 'Kann ich PVPro.ch auch für ein Mehrfamilienhaus nutzen?',
     answer: 'Ja, wir vermitteln Offerten für Einfamilienhäuser, Mehrfamilienhäuser und Gewerbegebäude in der ganzen Schweiz.',
   },
   {
@@ -111,7 +110,7 @@ export default function VergleichsportalPage() {
               Vergleichsportal für Photovoltaik Anlagen in der Schweiz
             </h1>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Wer in der Schweiz eine Solaranlage installieren möchte, steht vor einer grossen Frage: Welcher Anbieter ist der richtige? Die Preise variieren stark, die Qualität noch mehr. PvPro.ch ist das unabhängige Schweizer Vergleichsportal, das Hausbesitzer mit{' '}
+              Wer in der Schweiz eine Solaranlage installieren möchte, steht vor einer grossen Frage: Welcher Anbieter ist der richtige? Die Preise variieren stark, die Qualität noch mehr. PVPro.ch ist das unabhängige Schweizer Vergleichsportal, das Hausbesitzer mit{' '}
               <Link href="/anfrage" className="text-orange-400 hover:text-orange-300 underline underline-offset-2">zertifizierten lokalen Installateuren</Link>{' '}
               verbindet — kostenlos und unverbindlich.
             </p>
@@ -162,7 +161,7 @@ export default function VergleichsportalPage() {
             </ul>
           </div>
           <div className="rounded-3xl overflow-hidden">
-            <Image src="/images/asset-beratung-indoor-2.webp" alt="Vergleich Photovoltaik Anbieter Schweiz" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" loading="lazy"/>
+            <Image src="/images/asset-beratung-indoor-2.webp" alt="Vergleich Photovoltaik Anbieter Schweiz" width={2048} height={2048} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl" />
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mt-4">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Wussten Sie?</p>
               <p className="text-gray-700 text-sm leading-relaxed">
@@ -172,15 +171,15 @@ export default function VergleichsportalPage() {
           </div>
         </section>
 
-        {/* ── Wie funktioniert PvPro.ch ── */}
+        {/* ── Wie funktioniert PVPro ── */}
         <section>
           <div className="text-center mb-12">
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">So einfach geht's</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              Wie funktioniert PvPro.ch als Vergleichsportal?
+              Wie funktioniert PVPro.ch als Vergleichsportal?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              PvPro.ch ist kein gewöhnliches Verzeichnis. Wir prüfen jeden Installateur in unserem Netzwerk und vermitteln nur zertifizierte Fachbetriebe aus Ihrem Kanton.
+              PVPro.ch ist kein gewöhnliches Verzeichnis. Wir prüfen jeden Installateur in unserem Netzwerk und vermitteln nur zertifizierte Fachbetriebe aus Ihrem Kanton.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -216,7 +215,7 @@ export default function VergleichsportalPage() {
         {/* ── Welche Anbieter empfehlenswert ── */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="rounded-3xl overflow-hidden">
-            <Image src="/images/asset-installateur-dach-2.webp" alt="Zertifizierter Photovoltaik Installateur Schweiz" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" loading="lazy"/>
+            <Image src="/images/asset-installateur-dach-2.webp" alt="Zertifizierter Photovoltaik Installateur Schweiz" width={1600} height={1600} sizes="(max-width: 1024px) 100vw, 640px" className="w-full h-72 object-cover rounded-3xl object-top" />
           </div>
           <div>
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Qualitätskriterien</p>
@@ -246,7 +245,7 @@ export default function VergleichsportalPage() {
             </ul>
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="text-orange-800 text-sm leading-relaxed">
-                <strong>PvPro.ch prüft all diese Kriterien für Sie</strong> und vermittelt nur Betriebe, die unsere Standards erfüllen.
+                <strong>PVPro.ch prüft all diese Kriterien für Sie</strong> und vermittelt nur Betriebe, die unsere Standards erfüllen.
               </p>
             </div>
           </div>
@@ -257,7 +256,7 @@ export default function VergleichsportalPage() {
           <div className="text-center mb-10">
             <p className="text-xs font-bold text-[#fcb210] uppercase tracking-widest mb-3">Der Unterschied</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-              Was unterscheidet PvPro.ch von anderen Vergleichsportalen?
+              Was unterscheidet PVPro.ch von anderen Vergleichsportalen?
             </h2>
           </div>
           <div className="max-w-3xl mx-auto overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
@@ -265,7 +264,7 @@ export default function VergleichsportalPage() {
               <thead>
                 <tr style={{ background: 'linear-gradient(135deg, #0d1117, #1a2236)' }}>
                   <th className="text-left px-6 py-4 text-white/60 font-semibold w-2/5"></th>
-                  <th className="px-6 py-4 text-white font-bold text-center">PvPro.ch</th>
+                  <th className="px-6 py-4 text-white font-bold text-center">PVPro.ch</th>
                   <th className="px-6 py-4 text-white/60 font-semibold text-center">Andere Portale</th>
                 </tr>
               </thead>

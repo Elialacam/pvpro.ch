@@ -2,11 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight, Users, Shield, Star, MapPin, Phone, Mail } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Über uns | PvPro.ch',
-  description: 'Erfahren Sie mehr über PvPro.ch – die unabhängige Schweizer Plattform, die Hausbesitzer mit geprüften Photovoltaik-Installateuren verbindet.',
+export const metadata: Metadata = {
+  title: 'Über uns – PVPro.ch | Schweizer Solaranlage-Vergleichsplattform',
+  description: 'Erfahren Sie mehr über PVPro.ch – die unabhängige Schweizer Plattform, die Hausbesitzer mit geprüften Photovoltaik-Installateuren verbindet.',
   alternates: {
     canonical: 'https://www.pvpro.ch/ueber-uns',
     languages: {
@@ -17,7 +16,7 @@ export const metadata: Metadata = pageMetadata({
       'x-default': 'https://www.pvpro.ch/ueber-uns',
     },
   },
-}, { path: '/ueber-uns', locale: 'de' });
+};
 
 const values = [
   {
@@ -63,7 +62,7 @@ export default function UeberUnsPage() {
               Die unabhängige Schweizer Solar­plattform
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              PvPro.ch wurde mit einer klaren Mission gegründet: Schweizer Hausbesitzer dabei zu unterstützen, die beste Solaranlage zum besten Preis zu finden — einfach, transparent und kostenlos.
+              PVPro.ch wurde mit einer klaren Mission gegründet: Schweizer Hausbesitzer dabei zu unterstützen, die beste Solaranlage zum besten Preis zu finden — einfach, transparent und kostenlos.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
               In einem Markt, der oft undurchsichtig und schwer vergleichbar ist, schaffen wir Klarheit. Wir verbinden Sie mit bis zu 3 geprüften Installateuren aus Ihrem Kanton und lassen die Angebote für sich sprechen.
@@ -72,10 +71,9 @@ export default function UeberUnsPage() {
           <div className="rounded-2xl overflow-hidden shadow-xl">
             <Image
               src="/team-new.webp"
-              alt="Das PvPro.ch Team"
+              alt="Das PVPro Team"
               width={800}
               height={500}
-              sizes="(max-width: 768px) 100vw, 50vw"
               className="w-full h-auto object-cover"
               priority
             />
@@ -100,7 +98,7 @@ export default function UeberUnsPage() {
               Wir machen Solarenergie zugänglich für alle
             </h2>
             <p className="text-gray-500 text-lg leading-relaxed">
-              Der Wechsel zu Solarenergie ist eine der besten Investitionen, die ein Hausbesitzer tätigen kann. Aber der Weg dorthin ist oft kompliziert. PvPro.ch macht diesen Schritt einfach, schnell und sicher.
+              Der Wechsel zu Solarenergie ist eine der besten Investitionen, die ein Hausbesitzer tätigen kann. Aber der Weg dorthin ist oft kompliziert. PVPro macht diesen Schritt einfach, schnell und sicher.
             </p>
           </div>
 
@@ -128,8 +126,6 @@ export default function UeberUnsPage() {
               alt="Familie mit Solaranlage"
               width={800}
               height={500}
-              sizes="(max-width: 768px) 100vw, 50vw"
-              loading="lazy"
               className="w-full h-auto object-cover"
             />
           </div>

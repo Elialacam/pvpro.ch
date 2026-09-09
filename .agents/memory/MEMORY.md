@@ -4,7 +4,5 @@
 - [Lead submission flow](lead-flow.md) — slead.ch == LeadSync; all forms route via /api/anfrage; Web3Forms removed, never reintroduce.
 - [Blog image focal points](blog-image-focus.md) — object-position per image auto-computed via sharp attention; regen with `npm run generate:image-focus` when blog images change.
 - [Vercel lockfile registry](vercel-lockfile-registry.md) — npm installs on Replit can write package-firewall.replit.local URLs into package-lock.json, breaking Vercel builds; scrub before pushing.
+- [AutoSEO blog pipeline](autoseo-blog-pipeline.md) — auto articles are JSON in content/autoblog merged via blogArticles getters; publishing = atomic GitHub commit; secrets live in Vercel.
 - [Wording ban: "region"](wording-region-ban.md) — the word regione/région/Region/region must NEVER appear in user-facing site text; use Cantone/canton/Kanton or neutral zone/Gebiet/area.
-- [PvPro.ch brand convention](brand-convention.md) — user-facing brand is always “PvPro.ch”; SEO titles end once with “ | PvPro.ch”.
-- [Blog editorial dates](blog-editorial-dates.md) — never invent article update dates; when no real edit date exists, dateModified equals datePublished.
-- [Language selector fallbacks](language-selector-fallbacks.md) — use exact SEO equivalents when available; missing translations fall back to locale homes only in the UI, never in hreflang.

@@ -1,11 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Zap, CheckCircle, XCircle } from 'lucide-react';
 import { Metadata } from 'next';
-import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Solaranlagen Typen Vergleich Schweiz 2026 – Welche passt zu mir? | PvPro.ch',
+export const metadata: Metadata = {
+  title: 'Solaranlagen Typen Vergleich Schweiz 2026 – Welche passt zu mir? | PVPro.ch',
   description: 'Vergleich der verschiedenen Solaranlagen Typen in der Schweiz: monokristallin, polykristallin, Dünnschicht, bifazial. Was sind die Unterschiede und welche lohnt sich?',
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlagen-typen-vergleich',
@@ -23,9 +22,9 @@ export const metadata: Metadata = pageMetadata({
     url: 'https://www.pvpro.ch/solaranlagen-typen-vergleich',
     type: 'website',
     locale: 'de_CH',
-    siteName: 'PvPro.ch',
+    siteName: 'PVPro',
   },
-}, { path: '/solaranlagen-typen-vergleich', locale: 'de' });
+};
 
 const faqs = [
   {
@@ -297,7 +296,7 @@ export default function SolaranlagenTypenVergleichPage() {
             <p className="text-gray-600 leading-relaxed">
               In der Praxis empfiehlt ein zertifizierter{' '}
               <Link href="/solaranlage-installieren-schweiz" className="text-[#fcb210] hover:underline font-medium">Installateur</Link>{' '}
-              den richtigen Modultyp nach Besichtigung Ihres Dachs. PvPro.ch vermittelt{' '}
+              den richtigen Modultyp nach Besichtigung Ihres Dachs. PVPro.ch vermittelt{' '}
               <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#fcb210] hover:underline font-medium">Anbieter</Link>,
               die alle Technologien kennen und neutral beraten.
             </p>
