@@ -21,7 +21,7 @@ const roofArea = (kwp: number) => formatRangeForLocale(
 
 const baseMetadata: Metadata = {
   title: 'Coût installation solaire Suisse 2026 – Combien coûte une installation ? | PvPro.ch',
-  description: `Combien coûte une installation solaire en Suisse ? Prix 2026 : ${frRange(facts.systemCosts.bySize[10], 'CHF')} pour 10 kWp. Coûts par kWp, subventions et stockage.`,
+  description: `Combien coûte une installation solaire en Suisse ? Prix 2026 : ${frRange(facts.systemCosts.bySize[10], 'CHF')} pour 10 kWp. Coûts par kWp, subventions et stockage. Comparez des offres gratuitement.`,
   alternates: {
     canonical: 'https://www.pvpro.ch/fr/cout-installation-solaire',
     languages: {

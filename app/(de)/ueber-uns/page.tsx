@@ -140,7 +140,7 @@ export default function UeberUnsPage() {
             </h2>
             <div className="flex flex-col gap-5">
               {[
-    { title: 'Kostenloser Service', text: 'Unser Service ist für Hausbesitzer kostenlos. Wir finanzieren uns ausschliesslich durch Provisionen der Installateure — ohne Aufpreis für Sie.' },
+                { title: 'Kostenloser Service', text: 'Unser Service ist 100% kostenlos für Hausbesitzer. Wir finanzieren uns ausschliesslich durch Provisionen der Installateure — ohne Aufpreis für Sie.' },
                 { title: 'Keine Verpflichtungen', text: 'Sie entscheiden, ob und welches Angebot Sie annehmen. Kein Druck, keine Mindestbestellmenge, keine Vertragsstrafe.' },
                 { title: 'Geprüfte Qualität', text: 'Wir prüfen jeden Installateur vor der Aufnahme ins Netzwerk. Zertifikate, Referenzen, Versicherungsnachweis und Kundenbewertungen sind Pflicht.' },
               ].map((item) => (

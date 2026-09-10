@@ -27,7 +27,7 @@ export const de = {
     subtitle: 'Kostenlos Offerten von geprüften Installateuren erhalten',
     description: 'Vergleichen Sie kostenlos Solaranlagen-Angebote von geprüften Installateuren in der Schweiz.',
     cta: 'Jetzt kostenlose Offerte anfordern',
-    free: 'Kostenlos',
+    free: '100% kostenlos',
     nonBinding: 'Unverbindlich',
     certified: 'Geprüfte Solarteure',
   },
@@ -60,7 +60,7 @@ export const de = {
       description: 'Alle Partner sind zertifiziert und haben nachgewiesene Erfahrung mit Schweizer Solaranlagen.',
     },
     free: {
-      title: 'Kostenlos & unverbindlich',
+      title: '100% kostenlos & unverbindlich',
       description: 'Unser Service ist komplett kostenlos. Sie zahlen nur den Solarteur Ihrer Wahl.',
     },
   },

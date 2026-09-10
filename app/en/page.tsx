@@ -43,7 +43,7 @@ export default function EnglishHomePage() {
     },
     {
       question: 'Is PvPro.ch service really free?',
-    answer: 'Yes, our service is free and non-binding for you. We are financed through commissions from our partner installers. You pay nothing for the referral and still receive the same prices as if you contacted the installer directly.',
+      answer: 'Yes, our service is 100% free and non-binding for you. We are financed through commissions from our partner installers. You pay nothing for the referral and still receive the same prices as if you contacted the installer directly.',
     },
   ];
 

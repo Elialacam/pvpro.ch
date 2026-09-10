@@ -109,7 +109,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung für 5 kWp' },
         { name: 'Kanton ZH – Zusatzbonus', amount: 'Gemäss aktuellem Programm', description: 'Für steile oder denkmalgeschützte Flächen' },
-        { name: 'Steuerabzug ZH', amount: 'Gemäss aktuellem Programm', description: 'Solaranlage vollständig als Unterhaltskosten absetzbar' },
+        { name: 'Steuerabzug ZH', amount: '100%', description: 'Solaranlage vollständig als Unterhaltskosten absetzbar – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -117,7 +117,7 @@ export const cityContents: Record<string, CityContent> = {
     ],
     faqs: [
       { question: 'Gilt im Kanton Zürich eine Solarpflicht?', answer: 'Kosten, Ertrag und Wirtschaftlichkeit in Zürich hängen von Gebäude, Dimensionierung und Eigenverbrauch ab.' },
-      { question: 'Welche Förderung erhalte ich in Zürich 2026?', answer: 'Kosten, Ertrag und Wirtschaftlichkeit in Zürich hängen von Gebäude, Dimensionierung und Eigenverbrauch ab.' },
+      { question: 'Welche Förderung erhalte ich in Zürich 2026?', answer: 'Bei bestehenden Gebäuden, nicht bei Neubauten, ist die Solaranlage in ZH als Liegenschaftsunterhalt zu 100% vom steuerbaren Einkommen absetzbar; massgebend sind die abzugsfähigen Kosten nach Abzug von Förderbeiträgen.' },
       { question: 'Wie hoch ist der Strompreis in Zürich, und was spare ich?', answer: 'Kosten, Ertrag und Wirtschaftlichkeit in Zürich hängen von Gebäude, Dimensionierung und Eigenverbrauch ab.' },
       { question: 'Was bringen Lokale Elektrizitätsgemeinschaften (LEG) in Zürich?', answer: 'Kosten, Ertrag und Wirtschaftlichkeit in Zürich hängen von Gebäude, Dimensionierung und Eigenverbrauch ab.' },
       { question: 'Wie lange dauert die Installation in Zürich?', answer: 'Vom Auftrag bis zur Inbetriebnahme vergehen typischerweise 6–10 Wochen. Die Bewilligung ist bei Wohnhäusern im Kanton Zürich in der Regel meldepflichtig, jedoch nicht bewilligungspflichtig.' },
@@ -170,7 +170,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung 5 kWp' },
         { name: 'BE Gebäudeprogramm', amount: 'Gemäss aktuellem Programm', description: 'Kantonaler Investitionsbeitrag' },
-        { name: 'Steuerabzug BE', amount: 'Gemäss aktuellem Programm', description: 'Anlagekosten als Unterhalt absetzbar' },
+        { name: 'Steuerabzug BE', amount: '100%', description: 'Anlagekosten als Unterhalt absetzbar – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -231,7 +231,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung 5 kWp' },
         { name: 'BS Stadtförderung', amount: 'Gemäss aktuellem Programm', description: 'Kommunaler Zusatzbeitrag' },
-        { name: 'Steuerabzug BS/BL', amount: 'Gemäss aktuellem Programm', description: 'Vollständig als Liegenschaftsunterhalt absetzbar' },
+        { name: 'Steuerabzug BS/BL', amount: '100%', description: 'Vollständig als Liegenschaftsunterhalt absetzbar – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -257,7 +257,7 @@ export const cityContents: Record<string, CityContent> = {
     image: '/images/asset-haus-alpen-1.webp',
     heroHeadline: 'Solaranlage in Luzern',
     heroSubheadline: 'Zentralschweizer Nachhaltigkeit – von Tourismus bis Eigenheim',
-    heroDescription: 'Luzern bietet günstige lokale Bedingungen für Photovoltaik.',
+    heroDescription: 'Holen Sie jetzt Ihre kostenlose Vergleichsofferte.',
     whySolarTitle: 'Warum Luzern auf Solar setzt',
     whySolarIntro: 'Von der Seepromenade bis zu den Voralpentälern: Luzerner Hausbesitzer profitieren von idealen Dachflächen und dem Bekenntnis des Kantons zur Energiewende.',
     whySolarReasons: [
@@ -291,7 +291,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung 5 kWp' },
         { name: 'Kanton LU Gebäudeprogramm', amount: 'Gemäss aktuellem Programm', description: 'Kantonaler Zusatzbeitrag PV' },
-        { name: 'Steuerabzug LU', amount: 'Gemäss aktuellem Programm', description: 'Anlagekosten absetzbar' },
+        { name: 'Steuerabzug LU', amount: '100%', description: 'Anlagekosten absetzbar – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -411,7 +411,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung 5 kWp' },
         { name: 'SG Förderprogramm', amount: 'Gemäss aktuellem Programm', description: 'Kantonaler Investitionsbeitrag' },
-        { name: 'Steuerabzug SG', amount: 'Gemäss aktuellem Programm', description: 'Vollständig absetzbar' },
+        { name: 'Steuerabzug SG', amount: '100%', description: 'Vollständig absetzbar – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -471,7 +471,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung 5 kWp' },
         { name: 'SZ Förderbeitrag', amount: 'Gemäss aktuellem Programm', description: 'Kantonaler Beitrag' },
-        { name: 'Steuerabzug SZ', amount: 'Gemäss aktuellem Programm', description: 'Vorteilhaft wegen tiefer Steuern' },
+        { name: 'Steuerabzug SZ', amount: '100%', description: 'Vorteilhaft wegen tiefer Steuern – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen absetzbar; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -531,7 +531,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung 5 kWp' },
         { name: 'UR Kantonsbeitrag', amount: 'Gemäss aktuellem Programm', description: 'Kantonaler Zusatzbeitrag' },
-        { name: 'Steuerabzug UR', amount: 'Gemäss aktuellem Programm', description: 'Anlagekosten absetzbar' },
+        { name: 'Steuerabzug UR', amount: '100%', description: 'Anlagekosten absetzbar – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -591,7 +591,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung 5 kWp' },
         { name: 'SH Förderbeitrag', amount: 'Gemäss aktuellem Programm', description: 'Kantonaler Investitionsbeitrag' },
-        { name: 'Steuerabzug SH', amount: 'Gemäss aktuellem Programm', description: 'Anlagekosten absetzbar' },
+        { name: 'Steuerabzug SH', amount: '100%', description: 'Anlagekosten absetzbar – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -651,7 +651,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung 5 kWp' },
         { name: 'AI/AR Förderbeitrag', amount: 'Gemäss aktuellem Programm', description: 'Kantonaler Zusatzbeitrag' },
-        { name: 'Steuerabzug AI/AR', amount: 'Gemäss aktuellem Programm', description: 'Anlage steuerlich absetzbar' },
+        { name: 'Steuerabzug AI/AR', amount: '100%', description: 'Anlage steuerlich absetzbar – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -711,7 +711,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung + Höhenbonus' },
         { name: 'GR Förderprogramm', amount: 'Gemäss aktuellem Programm', description: 'Kantonaler Investitionsbeitrag' },
-        { name: 'Steuerabzug GR', amount: 'Gemäss aktuellem Programm', description: 'Anlagekosten als Unterhalt absetzbar' },
+        { name: 'Steuerabzug GR', amount: '100%', description: 'Anlagekosten als Unterhalt absetzbar – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -771,7 +771,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung 5 kWp' },
         { name: 'GL Förderbeitrag', amount: 'Gemäss aktuellem Programm', description: 'Kantonaler Zuschuss' },
-        { name: 'Steuerabzug GL', amount: 'Gemäss aktuellem Programm', description: 'Anlagekosten absetzbar' },
+        { name: 'Steuerabzug GL', amount: '100%', description: 'Anlagekosten absetzbar – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -831,7 +831,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung 5 kWp' },
         { name: 'ZG Förderbeitrag', amount: 'Gemäss aktuellem Programm', description: 'Kantonaler Investitionsbeitrag' },
-        { name: 'Steuerabzug ZG', amount: 'Gemäss aktuellem Programm', description: 'Besonders wirksam dank tiefer Tarife' },
+        { name: 'Steuerabzug ZG', amount: '100%', description: 'Besonders wirksam dank tiefer Tarife – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen absetzbar; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -891,7 +891,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung 5 kWp' },
         { name: 'OW/NW Förderbeitrag', amount: 'Gemäss aktuellem Programm', description: 'Kantonaler Investitionszuschuss' },
-        { name: 'Steuerabzug OW/NW', amount: 'Gemäss aktuellem Programm', description: 'Anlagekosten absetzbar' },
+        { name: 'Steuerabzug OW/NW', amount: '100%', description: 'Anlagekosten absetzbar – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -951,7 +951,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung 5 kWp' },
         { name: 'SO Gebäudeprogramm', amount: 'Gemäss aktuellem Programm', description: 'Kantonaler Zusatzbeitrag PV' },
-        { name: 'Steuerabzug SO', amount: 'Gemäss aktuellem Programm', description: 'Vollständig als Unterhalt absetzbar' },
+        { name: 'Steuerabzug SO', amount: '100%', description: 'Vollständig als Unterhalt absetzbar – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -1011,7 +1011,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo EIV (Bund)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalvergütung 5 kWp' },
         { name: 'AG Energieprogramm', amount: 'Gemäss aktuellem Programm', description: 'Kantonaler Förderbeitrag PV' },
-        { name: 'Steuerabzug AG', amount: 'Gemäss aktuellem Programm', description: 'Vollständig als Unterhalt absetzbar' },
+        { name: 'Steuerabzug AG', amount: '100%', description: 'Vollständig als Unterhalt absetzbar – bei bestehenden Gebäuden, nicht bei Neubauten, vom steuerbaren Einkommen; abzugsfähige Kosten nach Abzug von Förderbeiträgen' },
       ],
     },
     caseStudies: [
@@ -1037,7 +1037,7 @@ export const cityContents: Record<string, CityContent> = {
     image: '/images/asset-beratung-indoor-1.webp',
     heroHeadline: 'Installation Solaire à Genève',
     heroSubheadline: 'La Cité Internationale en tête du solaire suisse',
-    heroDescription: "Genève bénéficie d’un climat local favorable au photovoltaïque.",
+    heroDescription: "Demandez 3 offres gratuites maintenant.",
     whySolarTitle: "Pourquoi Genève est un champion du solaire",
     whySolarIntro: "Genève bénéficie d’un climat local favorable au photovoltaïque.",
     whySolarReasons: [
@@ -1071,7 +1071,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo RU (Confédération)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF par kWc`, description: 'Rétribution unique 5 kWc' },
         { name: 'SIG Prime Énergie', amount: 'Selon le programme en vigueur', description: 'Bonus genevois exclusif' },
-        { name: "Déduction fiscale GE", amount: 'Selon le programme en vigueur', description: "Déductible comme entretien immobilier" },
+        { name: "Déduction fiscale GE", amount: '100%', description: "Déductible comme entretien immobilier du revenu imposable pour les bâtiments existants, pas les constructions neuves; coûts éligibles après déduction des subventions" },
       ],
     },
     caseStudies: [
@@ -1131,7 +1131,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo RU (Confédération)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF par kWc`, description: 'Rétribution unique 5 kWc' },
         { name: 'Programme cantonal VD', amount: 'Selon le programme en vigueur', description: "Subvention cantonale photovoltaïque" },
-        { name: "Déduction fiscale VD", amount: 'Selon le programme en vigueur', description: "Déductible en entretien immobilier" },
+        { name: "Déduction fiscale VD", amount: '100%', description: "Déductible en entretien immobilier du revenu imposable pour les bâtiments existants, pas les constructions neuves; coûts éligibles après déduction des subventions" },
       ],
     },
     caseStudies: [
@@ -1191,7 +1191,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo RU (Confédération)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF par kWc`, description: 'Rétribution unique 5 kWc' },
         { name: 'Programme cantonal VS', amount: 'Selon le programme en vigueur', description: "Parmi les plus élevés de Suisse romande" },
-        { name: "Déduction fiscale VS", amount: 'Selon le programme en vigueur', description: "Déductible en entretien immobilier" },
+        { name: "Déduction fiscale VS", amount: '100%', description: "Déductible en entretien immobilier du revenu imposable pour les bâtiments existants, pas les constructions neuves; coûts éligibles après déduction des subventions" },
       ],
     },
     caseStudies: [
@@ -1251,7 +1251,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Pronovo RU (Confederazione)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF per kWp`, description: 'Rimunerazione unica 5 kWp' },
         { name: 'Cantone Ticino – DFE', amount: 'Secondo il programma vigente', description: 'Contributo cantonale fotovoltaico' },
-        { name: 'Deduzione fiscale TI', amount: 'Secondo il programma vigente', description: 'Deducibile come manutenzione immobiliare' },
+        { name: 'Deduzione fiscale TI', amount: '100%', description: 'Deducibile come manutenzione immobiliare dal reddito imponibile per edifici esistenti, non per nuove costruzioni; costi ammissibili al netto degli incentivi' },
       ],
     },
     caseStudies: [
@@ -1313,7 +1313,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Bundesförderung EIV (Pronovo)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalige Bundesvergütung für Anlagen ab 2 kWp – gilt kantonsübergreifend.' },
         { name: 'Kantonsförderung Freiburg', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Zusatzbeitrag des Kantons Freiburg für Wohneigentümer – kann mit dem EIV kombiniert werden.' },
-        { name: 'Steuerliche Absetzbarkeit', amount: 'Gemäss aktuellem Programm', description: 'Alle Freiburger Gemeinden akzeptieren Solaranlagen als Unterhaltskosten – voll vom steuerbaren Einkommen absetzbar.' },
+        { name: 'Steuerliche Absetzbarkeit', amount: '100 % der Kosten', description: 'Alle Freiburger Gemeinden akzeptieren Solaranlagen als Unterhaltskosten – voll vom steuerbaren Einkommen absetzbar; bei bestehenden Gebäuden, nicht bei Neubauten, und für abzugsfähige Kosten nach Abzug von Förderbeiträgen.' },
       ],
     },
     caseStudies: [
@@ -1451,7 +1451,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Bundesförderung EIV (Pronovo)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF pro kWp`, description: 'Einmalige Vergütung für alle Anlagen ab 2 kWp in der ganzen Schweiz.' },
         { name: 'Kanton Wallis – Kantonsbeitrag', amount: 'Gemäss aktuellem Programm', description: 'Einer der höchsten kantonalen Zusatzbeiträge der Schweiz – besonders für Anlagen über 10 kWp.' },
-        { name: 'Steuerliche Absetzbarkeit', amount: 'Gemäss aktuellem Programm', description: 'Solarinvestitionen sind im Kanton Wallis als Unterhaltskosten vollumfänglich abzugsfähig.' },
+        { name: 'Steuerliche Absetzbarkeit', amount: '100 % der Kosten', description: 'Solarinvestitionen sind im Kanton Wallis als Unterhaltskosten vollumfänglich vom steuerbaren Einkommen abzugsfähig; bei bestehenden Gebäuden, nicht bei Neubauten, und für abzugsfähige Kosten nach Abzug von Förderbeiträgen.' },
       ],
     },
     caseStudies: [
@@ -1520,7 +1520,7 @@ export const cityContents: Record<string, CityContent> = {
       programs: [
         { name: 'Rétribution unique fédérale (Pronovo)', amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF par kWc`, description: 'Subvention fédérale unique pour toute installation dès 2 kWc.' },
         { name: 'Contribution cantonale Fribourg', amount: 'Selon le programme en vigueur', description: "Aide cantonale complémentaire cumulable avec la rétribution fédérale." },
-        { name: 'Déductibilité fiscale', amount: 'Selon le programme en vigueur', description: "Les installations solaires sont déductibles comme frais d'entretien dans toutes les communes fribourgeoises." },
+        { name: 'Déductibilité fiscale', amount: '100 % des coûts', description: "Les installations solaires sont déductibles comme frais d'entretien du revenu imposable dans toutes les communes fribourgeoises, pour les bâtiments existants et non les constructions neuves; coûts éligibles après déduction des subventions." },
       ],
     },
     caseStudies: [

@@ -43,7 +43,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Ist der Service von PvPro.ch wirklich kostenlos?',
-        answer: 'Ja, unser Service ist kostenlos und unverbindlich für Sie. Wir finanzieren uns durch Provisionen von unseren Partner-Installateuren. Sie zahlen für die Vermittlung nichts und erhalten dennoch die gleichen Preise wie bei direkter Anfrage beim Solarteur.',
+        answer: 'Ja, unser Service ist zu 100% kostenlos und unverbindlich für Sie. Wir finanzieren uns durch Provisionen von unseren Partner-Installateuren. Sie zahlen für die Vermittlung nichts und erhalten dennoch die gleichen Preise wie bei direkter Anfrage beim Solarteur.',
       },
     ],
   },
@@ -75,7 +75,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Le service de PvPro.ch est-il vraiment gratuit?',
-        answer: "Oui, notre service est gratuit et sans engagement pour vous. Nous nous finançons par des commissions de nos installateurs partenaires. Vous ne payez rien pour l'intermédiation et recevez néanmoins les mêmes prix qu'en cas de demande directe auprès de l'installateur.",
+        answer: "Oui, notre service est à 100% gratuit et sans engagement pour vous. Nous nous finançons par des commissions de nos installateurs partenaires. Vous ne payez rien pour l'intermédiation et recevez néanmoins les mêmes prix qu'en cas de demande directe auprès de l'installateur.",
       },
     ],
   },
@@ -107,7 +107,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Is PvPro.ch service really free?',
-        answer: 'Yes, our service is free and non-binding for you. We are financed through commissions from our partner installers. You pay nothing for the referral and still receive the same prices as if you contacted the installer directly.',
+        answer: 'Yes, our service is 100% free and non-binding for you. We are financed through commissions from our partner installers. You pay nothing for the referral and still receive the same prices as if you contacted the installer directly.',
       },
     ],
   },
@@ -139,7 +139,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Il servizio di PvPro.ch è davvero gratuito?',
-        answer: "Sì, il nostro servizio è gratuito e non vincolante per te. Ci finanziamo tramite commissioni dai nostri installatori partner. Non paghi nulla per l'intermediazione e ricevi comunque gli stessi prezzi come se contattassi direttamente l'installatore.",
+        answer: "Sì, il nostro servizio è al 100% gratuito e non vincolante per te. Ci finanziamo tramite commissioni dai nostri installatori partner. Non paghi nulla per l'intermediazione e ricevi comunque gli stessi prezzi come se contattassi direttamente l'installatore.",
       },
     ],
   },

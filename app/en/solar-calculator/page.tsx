@@ -213,7 +213,7 @@ export default function SolarCalculatorPage() {
               <div className="flex flex-wrap gap-3">
                 <div className="flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-2 rounded-full">
                   <CheckCircle className="w-4 h-4 text-[#fcb210]" />
-              <span className="text-white/80 text-sm">Free</span>
+                  <span className="text-white/80 text-sm">100% free</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-2 rounded-full">
                   <CheckCircle className="w-4 h-4 text-[#fcb210]" />

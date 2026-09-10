@@ -8,3 +8,4 @@
 - [PvPro.ch brand convention](brand-convention.md) — user-facing brand is always “PvPro.ch”; SEO titles end once with “ | PvPro.ch”.
 - [Blog editorial dates](blog-editorial-dates.md) — never invent article update dates; when no real edit date exists, dateModified equals datePublished.
 - [Language selector fallbacks](language-selector-fallbacks.md) — use exact SEO equivalents when available; missing translations fall back to locale homes only in the UI, never in hreflang.
+- [Approved service and tax claims](approved-claims.md) — free/100% free is valid for homeowners; tax deduction means taxable income on existing buildings, not new builds.

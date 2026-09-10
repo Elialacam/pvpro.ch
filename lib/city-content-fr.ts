@@ -24,7 +24,7 @@ export const cityContentsFR: Record<string, CityContent> = {
     image: '/images/asset-haus-luftbild-2.webp',
     heroHeadline: 'Installation Solaire Genève',
     heroSubheadline: 'Profitez des conditions solaires locales',
-    heroDescription: 'Les coûts, la production et la rentabilité à Genève dépendent du bâtiment, du dimensionnement et de l’autoconsommation.',
+    heroDescription: 'Comparez gratuitement les offres d\'installateurs locaux certifiés.',
 
     whySolarTitle: 'Pourquoi Genève est-elle idéale pour l\'énergie solaire?',
     whySolarIntro: 'Genève bénéficie d’un climat local favorable au photovoltaïque.',

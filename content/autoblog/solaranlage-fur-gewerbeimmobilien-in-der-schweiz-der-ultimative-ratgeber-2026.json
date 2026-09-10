@@ -77,6 +77,10 @@
       "formUrl": "/anfrage",
       "relatedSlugs": [],
       "faqs": [
+        {
+          "question": "Welche steuerlichen Vorteile haben Unternehmen bei der Installation einer PV-Anlage?",
+          "answer": "Bei bestehenden Gebäuden können 100 Prozent der förderberechtigten Investitionskosten nach Abzug von Subventionen vom steuerbaren Einkommen abgezogen werden. Dies gilt nicht für Neubauten; kantonale Unterschiede bleiben vorbehalten."
+        }
       ]
     },
     "fr": {
@@ -154,6 +158,10 @@
       "formUrl": "/fr/demande",
       "relatedSlugs": [],
       "faqs": [
+        {
+          "question": "Quels avantages fiscaux les entreprises ont-elles lors de l'installation d'une installation PV?",
+          "answer": "Pour les bâtiments existants, 100 % des coûts d'investissement éligibles nets de subventions peuvent être déduits du revenu imposable. Cela ne s'applique pas aux constructions neuves; des différences cantonales subsistent."
+        }
       ]
     },
     "en": {
@@ -231,6 +239,10 @@
       "formUrl": "/en/request",
       "relatedSlugs": [],
       "faqs": [
+        {
+          "question": "What tax benefits do companies have when installing a PV system?",
+          "answer": "For existing buildings, 100 percent of eligible investment costs net of subsidies can be deducted from taxable income. This does not apply to new builds; cantonal differences remain."
+        }
       ]
     },
     "it": {
@@ -307,6 +319,10 @@
       "formUrl": "/it/richiesta",
       "relatedSlugs": [],
       "faqs": [
+        {
+          "question": "Quali vantaggi fiscali hanno le aziende nell'installazione di un impianto fotovoltaico?",
+          "answer": "Per gli edifici esistenti, il 100% dei costi d'investimento ammissibili al netto degli incentivi può essere dedotto dal reddito imponibile. Ciò non vale per le nuove costruzioni; restano differenze cantonali."
+        }
       ]
     }
   },

@@ -9,7 +9,7 @@ import { ECONOMIC_FACTS, SOURCE_NOTES, STORAGE_PRICE_NOTES, SYSTEM_PRICE_NOTES, 
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar Panel Costs Switzerland 2026 – What does a solar installation cost? | PvPro.ch',
-  description: `How much does a solar installation cost in Switzerland? A 10 kWp system costs ${formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')}. Costs per kWp, subsidies and storage.`,
+  description: `How much does a solar installation cost in Switzerland? A 10 kWp system costs ${formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')}. Costs per kWp, subsidies and storage. Compare offers free of charge.`,
   alternates: {
     canonical: 'https://www.pvpro.ch/en/solar-panel-costs',
     languages: {

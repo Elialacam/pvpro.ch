@@ -29,7 +29,7 @@ export const fr: TranslationKeys = {
     subtitle: 'Recevez des devis gratuits d\'installateurs certifiés',
     description: 'Comparez gratuitement les offres d\'installations solaires d\'installateurs certifiés en Suisse.',
     cta: 'Demander un devis gratuit maintenant',
-    free: 'Gratuit',
+    free: '100% gratuit',
     nonBinding: 'Sans engagement',
     certified: 'Installateurs certifiés',
   },
@@ -62,7 +62,7 @@ export const fr: TranslationKeys = {
       description: 'Tous nos partenaires sont certifiés et ont une expérience prouvée avec les installations solaires suisses.',
     },
     free: {
-      title: 'Gratuit et sans engagement',
+      title: '100% gratuit et sans engagement',
       description: 'Notre service est entièrement gratuit. Vous ne payez que l\'installateur de votre choix.',
     },
   },

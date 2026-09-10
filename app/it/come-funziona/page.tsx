@@ -29,7 +29,7 @@ const steps = [
       'Nome, telefono ed e-mail',
       'Indirizzo completo del tuo immobile',
       'Nessun account o registrazione richiesta',
-      'Completamente gratuito e senza impegno',
+      '100% gratuito e senza impegno',
     ],
   },
   {
@@ -63,7 +63,7 @@ const steps = [
 const benefits = [
   { Icon: Clock,       title: 'Risparmio di tempo',      text: 'Invece di contattare tu stesso più installatori, PvPro.ch lo fa per te — in meno di 2 minuti.' },
   { Icon: ShieldCheck, title: 'Qualità certificata',      text: 'Solo installatori con certificazioni valide, attestazioni assicurative e referenze positive.' },
-  { Icon: Euro,        title: 'Gratuito',                 text: 'Il nostro servizio è completamente gratuito per i proprietari. Ci finanziamo con commissioni degli installatori.' },
+  { Icon: Euro,        title: 'Gratuito',                 text: 'Il nostro servizio è 100% gratuito per i proprietari. Ci finanziamo con commissioni degli installatori.' },
   { Icon: Phone,       title: 'Supporto personalizzato',  text: 'Per qualsiasi domanda, il nostro team è disponibile per telefono ed e-mail.' },
 ];
 
@@ -156,7 +156,7 @@ export default function ComeFunzionaPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-6">Domande frequenti</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
-              { q: 'Il servizio è davvero gratuito?', a: "Sì, completamente. Ci finanziamo con commissioni degli installatori — senza costi aggiuntivi per te." },
+              { q: 'Il servizio è davvero gratuito?', a: "Sì, al 100%. Ci finanziamo con commissioni degli installatori — senza costi aggiuntivi per te." },
               { q: "Sono obbligato ad accettare un'offerta?", a: 'No. Puoi rifiutare tutti i preventivi senza alcuna conseguenza.' },
               { q: 'Quanto tempo per ricevere i preventivi?', a: 'Di solito entro 24–48 ore dalla tua richiesta.' },
               { q: 'In quali zone opera PvPro.ch?', a: 'Siamo attivi in tutta la Svizzera, in tutti i 26 cantoni.' },

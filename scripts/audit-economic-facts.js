@@ -40,6 +40,38 @@ const sensitiveUnsupported = new RegExp(
 const orphanBrandFragment = /(?:^|[.!?]\s+)ch\b/i;
 const technicalEfficiency = /(?:rendement|rendimento|efficien|Wirkungsgrad)[^%\n]*\d[\d.,\s–-]*\s*%|\d[\d.,\s–-]*\s*%[^.\n]*(?:rendement|rendimento|efficien|Wirkungsgrad)/i;
 
+// The comparison service is genuinely free for homeowners. Mask only its
+// approved percentage, never the whole line: unrelated savings still fail.
+function withoutApprovedServicePercentage(text) {
+  let result = text.replace(/\b100\s*%\s*(kostenlos|gratuit[eo]?|free)\b/gi, (match, word, offset) => {
+    const after = text.slice(offset + match.length);
+    const product = /^\s*(?:(?:solar|home|solare|solaire)\s+)?(?:electricity|power|energy|products?|panels?|batter(?:y|ies)|Strom|Energie|Produkte?|Module?|Batterie|électricité|énergie|produits?|panneaux|batteries?|elettricità|energia|prodotti?|pannelli)\b/i;
+    if (product.test(after)) return match;
+    const precedingClause = text.slice(0, offset).split(/["'`\n.!?<>]/).pop() || '';
+    const productSubject = /\b(?:electricity|power|energy|products?|panels?|batter(?:y|ies)|installations?|systems?|Strom|Energie|Produkte?|Module?|Batterie|Anlage[n]?|électricité|énergie|produits?|panneaux|batteries?|elettricità|energia|prodotti?|pannelli|impiant[oi])\b/i;
+    if (productSubject.test(precedingClause)) return match;
+    const standaloneBadge = /^\s*(?:$|["'`,;.!?\])<]|(?:(?:und|&)\s+unverbindlich|et\s+sans\s+engagement|and\s+no\s+obligation|e\s+senza\s+impegno)\b)/i;
+    const serviceContext = /\b(?:service|servizio|vergleich\w*|offert\w*|devis|quotes?|preventiv\w*|hausbesitzer|homeowners?|propriétaires?|proprietari)\b/i;
+    return standaloneBadge.test(after) || serviceContext.test(text) ? word : match;
+  });
+  // A free-service FAQ can put the percentage in a separate affirmative answer.
+  if (/(?:Service|service|servizio)[^?]*\b(?:kostenlos|gratuito|gratuit|free)\b[^?]*\?/i.test(result)) {
+    result = result.replace(/((?:Ja,\s*zu|Yes,|Oui,\s*à|Sì,\s*al)\s*)100\s*%/gi, '$1vollständig');
+  }
+  // Tax percentages are allowed only with all three explicit qualifications.
+  // Remove just the deduction percentage, leaving other amounts/percentages
+  // on the same line available to the economic scanner.
+  const existing = /bestehend\w*\s+Gebäude|bâtiments?\s+existants?|existing\s+buildings?|edifici\s+esistenti/i;
+  const excludesNew = /nicht(?:\s+für|\s+bei)?\s+Neubauten|(?:pas|pas\s+pour|pas\s+aux|pas\s+les)\s+(?:les\s+)?constructions\s+neuves|(?:not\s+for|not\s+apply\s+to)\s+new\s+builds|(?:non\s+per|non\s+vale\s+per)\s+(?:le\s+)?nuove\s+costruzioni/i;
+  const taxableIncome = /steuerbaren\s+Einkommen|revenu\s+imposable|taxable\s+income|reddito\s+imponibile/i;
+  if (existing.test(result) && excludesNew.test(result) && taxableIncome.test(result)) {
+    result = result
+      .replace(/\b100\s*%(?=\s*(?:der\s+(?:förderberechtigten\s+)?Kosten|des\s+coûts|of\s+eligible\s+(?:investment\s+)?costs|dei\s+costi|vom\s+steuerbaren\s+Einkommen))/gi, 'vollständig')
+      .replace(/(\bamount:\s*['"])100\s*%/g, '$1vollständig');
+  }
+  return result;
+}
+
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
     const file = path.join(dir, entry.name);
@@ -68,7 +100,7 @@ function addViolation(file, line, text) {
 function quotedEconomicLiteral(line) {
   const quoted = /(["'`])((?:\\.|(?!\1).)*)\1/g;
   return [...line.matchAll(quoted)].some(match => {
-    const withoutFactExpressions = match[2].replace(/\$\{[^{}]*\}/g, ' ');
+    const withoutFactExpressions = withoutApprovedServicePercentage(match[2].replace(/\$\{[^{}]*\}/g, ' '));
     return economic.test(withoutFactExpressions) && /\b\d+(?:[.,]\d+)?\b/.test(withoutFactExpressions);
   });
 }
@@ -95,7 +127,7 @@ function scanJsonObjects(value, file, lines) {
       const immediateParts = Object.values(value)
         .filter(part => typeof part === 'string' || typeof part === 'number')
         .map(String);
-      const combined = immediateParts.join(' ');
+      const combined = withoutApprovedServicePercentage(immediateParts.join(' '));
       if (economic.test(combined) && /\b\d+(?:[.,]\d+)?\b/.test(combined)) {
         const numericPart = immediateParts.find(part => /\b\d+(?:[.,]\d+)?\b/.test(part)) ?? immediateParts[0] ?? '';
         const lineIndex = lines.findIndex(line => numericPart && line.includes(numericPart));
@@ -113,7 +145,7 @@ for (const file of files) {
     // A facts import/use is intentionally not a violation; the value must be
     // rendered from the imported object, not copied into a string.
     // Ignore numeric values in JSX attributes (for example Tailwind colours).
-    const visible = line.replace(/<[^>]*>/g, ' ');
+    const visible = withoutApprovedServicePercentage(line.replace(/<[^>]*>/g, ' '));
     const numbers = [...visible.matchAll(/\b\d+(?:[.,]\d+)?\b/g)];
     const hasDirectNumber = numbers.length > 0;
     const isSensitiveUnsupportedClaim = sensitiveUnsupported.test(visible);
@@ -135,7 +167,7 @@ for (const file of files) {
       line.includes('<')
       &&
       jsxTextWithoutFactExpression !== line
-      && economic.test(jsxTextWithoutFactExpression.replace(/<[^>]*>/g, ' '))
+      && economic.test(withoutApprovedServicePercentage(jsxTextWithoutFactExpression.replace(/<[^>]*>/g, ' ')))
       && /\b\d+(?:[.,]\d+)?\b/.test(jsxTextWithoutFactExpression)
     );
     if (
@@ -171,6 +203,36 @@ function jsonTraversalDetectsOrphan(fixture) {
 }
 
 const regressionChecks = [
+  {
+    ok: ['100% kostenlos', '100% gratuito', '100 % gratuit', '100% free']
+      .every(text => !economic.test(withoutApprovedServicePercentage(text))),
+    name: 'approved free comparison-service percentages',
+  },
+  {
+    ok: economic.test(withoutApprovedServicePercentage('100% free comparison; save 30%'))
+      && economic.test(withoutApprovedServicePercentage('100% gratuito; costo 9’999 CHF')),
+    name: 'free service never exempts other economic literals',
+  },
+  {
+    ok: [
+      '100% free electricity', 'Our service provides 100% free solar panels',
+      '100% kostenlos Strom', '100% gratuit électricité', '100% gratuito energia',
+      '100% free products', '100% free home battery',
+      'Solar panels are 100% free.', 'The home battery is 100% free.',
+      'Electricity is 100% free.', 'The installation is 100% free.',
+    ].every(text => economic.test(withoutApprovedServicePercentage(text))),
+    name: 'free electricity and products are not approved service claims',
+  },
+  {
+    ok: !economic.test(withoutApprovedServicePercentage("q: 'Is the service really free?', a: 'Yes, 100%.'"))
+      && economic.test(withoutApprovedServicePercentage("q: 'Is the service really free?', a: 'Yes, 100%. Save 30%.'")),
+    name: 'paired free FAQ exempts only its affirmative percentage',
+  },
+  {
+    ok: !economic.test(withoutApprovedServicePercentage('Existing buildings: 100% of eligible costs net of subsidies deductible from taxable income; not for new builds'))
+      && economic.test(withoutApprovedServicePercentage('Existing buildings: 100% of eligible costs net of subsidies deductible from taxable income; not for new builds. Guaranteed savings 100%.')),
+    name: 'qualified tax deduction never exempts a neighboring savings claim',
+  },
   {
     ok: orphanBrandFragment.test('Valid sentence. ch offers a service.'),
     name: 'sentence-internal orphan brand fragment',

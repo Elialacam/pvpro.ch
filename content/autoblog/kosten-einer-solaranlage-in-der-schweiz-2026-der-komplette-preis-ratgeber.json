@@ -43,7 +43,8 @@
             "Die Einmalvergütung von Pronovo und kantonale Steuervergünstigungen beschleunigen die Amortisation Ihrer Anlage erheblich."
           ],
           "bullets": [
-            "Lokale Förderprogramme reduzieren zusätzlich die Kosten."
+            "Lokale Förderprogramme reduzieren zusätzlich die Kosten.",
+            "Bei bestehenden Gebäuden können die förderberechtigten Kosten nach Abzug von Subventionen zu 100% vom steuerbaren Einkommen abgezogen werden; dies gilt nicht für Neubauten und kantonale Unterschiede bleiben vorbehalten."
           ],
           "highlight": "Nutzen Sie alle verfügbaren Förderungen, um Ihre Investitionskosten zu minimieren."
         },
@@ -62,6 +63,10 @@
       "formUrl": "/anfrage",
       "relatedSlugs": [],
       "faqs": [
+        {
+          "question": "Kann ich die Kosten für meine Solaranlage komplett von den Steuern abziehen?",
+          "answer": "Bei bestehenden Gebäuden können Sie in fast allen Kantonen die förderberechtigten Kosten nach Abzug von Subventionen zu 100% vom steuerbaren Einkommen abziehen. Dies gilt nicht für Neubauten; kantonale Unterschiede bleiben vorbehalten."
+        },
         {
           "question": "Lohnt sich eine Solaranlage finanziell auch ohne Speicher?",
           "answer": "Ja, eine Solaranlage ist oft auch ohne Speicher rentabel, wenn der Eigenverbrauch tagsüber optimiert wird. Ein Speicher erhöht die Unabhängigkeit, ist aber nicht zwingend nötig."
@@ -109,7 +114,8 @@
             "La subvention unique de Pronovo et les réductions fiscales cantonales accélèrent considérablement l'amortissement de votre installation."
           ],
           "bullets": [
-            "Les programmes de subventions locales réduisent encore les coûts."
+            "Les programmes de subventions locales réduisent encore les coûts.",
+            "Pour les bâtiments existants, 100% des coûts éligibles nets de subventions peuvent être déduits du revenu imposable; cela ne s'applique pas aux constructions neuves et des différences cantonales subsistent."
           ],
           "highlight": "Profitez de toutes les subventions disponibles pour minimiser vos coûts d'investissement."
         },
@@ -128,6 +134,10 @@
       "formUrl": "/fr/demande",
       "relatedSlugs": [],
       "faqs": [
+        {
+          "question": "Puis-je déduire entièrement les coûts de mon installation solaire des impôts ?",
+          "answer": "Pour les bâtiments existants, dans presque tous les cantons, vous pouvez déduire 100% des coûts éligibles nets de subventions du revenu imposable. Cela ne s'applique pas aux constructions neuves; des différences cantonales subsistent."
+        },
         {
           "question": "Une installation solaire est-elle rentable financièrement même sans stockage ?",
           "answer": "Oui, une installation solaire est souvent rentable même sans stockage, si la consommation propre est optimisée pendant la journée. Un stockage augmente l'indépendance, mais n'est pas impératif."
@@ -175,7 +185,8 @@
             "The one-time payment from Pronovo and cantonal tax reductions significantly accelerate the amortization of your system."
           ],
           "bullets": [
-            "Local incentive programs further reduce costs."
+            "Local incentive programs further reduce costs.",
+            "For existing buildings, 100% of eligible costs net of subsidies can be deducted from taxable income; this does not apply to new builds, and cantonal differences remain."
           ],
           "highlight": "Take advantage of all available incentives to minimize your investment costs."
         },
@@ -194,6 +205,10 @@
       "formUrl": "/en/request",
       "relatedSlugs": [],
       "faqs": [
+        {
+          "question": "Can I completely deduct the costs of my solar system from taxes?",
+          "answer": "For existing buildings, in almost all cantons you can deduct 100% of eligible costs net of subsidies from taxable income. This does not apply to new builds; cantonal differences remain."
+        },
         {
           "question": "Is a solar system financially worthwhile even without storage?",
           "answer": "Yes, a solar system is often profitable even without storage if daytime self-consumption is optimized. A storage unit increases independence but is not essential."
@@ -241,7 +256,8 @@
             "Il contributo una tantum di Pronovo e le agevolazioni fiscali cantonali accelerano notevolmente l'ammortamento del tuo impianto."
           ],
           "bullets": [
-            "Programmi di incentivi locali riducono ulteriormente i costi."
+            "Programmi di incentivi locali riducono ulteriormente i costi.",
+            "Per gli edifici esistenti, il 100% dei costi ammissibili al netto degli incentivi può essere dedotto dal reddito imponibile; ciò non vale per le nuove costruzioni e restano differenze cantonali."
           ],
           "highlight": "Sfrutta tutti gli incentivi disponibili per minimizzare i costi del tuo investimento."
         },
@@ -260,6 +276,10 @@
       "formUrl": "/it/richiesta",
       "relatedSlugs": [],
       "faqs": [
+        {
+          "question": "Posso detrarre completamente dalle imposte i costi del mio impianto solare?",
+          "answer": "Per gli edifici esistenti, in quasi tutti i Cantoni puoi detrarre il 100% dei costi ammissibili al netto degli incentivi dal reddito imponibile. Ciò non vale per le nuove costruzioni; restano differenze cantonali."
+        },
         {
           "question": "Conviene finanziariamente un impianto solare anche senza accumulo?",
           "answer": "Sì, un impianto solare è spesso redditizio anche senza accumulo se l'autoconsumo diurno è ottimizzato. Un sistema di accumulo aumenta l'indipendenza, ma non è strettamente necessario."

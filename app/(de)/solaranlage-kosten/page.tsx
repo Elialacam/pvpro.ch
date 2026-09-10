@@ -19,7 +19,7 @@ const tenKwpNet = `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solaranlage Kosten Schweiz – Preise und Förderungen',
-  description: `Was kostet eine Solaranlage in der Schweiz? Eine 10-kWp-Anlage kostet brutto ${tenKwpGross}, ohne Speicher. Kosten pro kWp, Förderungen und Speicher.`,
+  description: `Was kostet eine Solaranlage in der Schweiz? Eine 10-kWp-Anlage kostet brutto ${tenKwpGross}, ohne Speicher. Kosten pro kWp, Förderungen und Speicher. Kostenlose Offerten vergleichen.`,
   alternates: {
     canonical: 'https://www.pvpro.ch/solaranlage-kosten',
     languages: {

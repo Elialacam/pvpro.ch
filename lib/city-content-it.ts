@@ -24,7 +24,7 @@ export const cityContentsIT: Record<string, CityContent> = {
     image: '/images/asset-haus-luftbild-2.webp',
     heroHeadline: 'Impianto Fotovoltaico Lugano Ticino',
     heroSubheadline: 'Approfitta delle condizioni solari locali',
-    heroDescription: 'Costi, produzione e redditività in Lugano dipendono dall’edificio, dal dimensionamento e dall’autoconsumo.',
+    heroDescription: 'Confronta gratuitamente le offerte di installatori locali certificati.',
 
     whySolarTitle: 'Perché Lugano è ideale per l\'energia solare?',
     whySolarIntro: 'Lugano beneficia di un clima locale favorevole al fotovoltaico.',

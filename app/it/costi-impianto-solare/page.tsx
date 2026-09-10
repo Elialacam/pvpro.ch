@@ -22,7 +22,7 @@ const exampleKwp = 10;
 
 export const metadata: Metadata = pageMetadata({
   title: 'Costi impianto solare Svizzera 2026 – Quanto costa un impianto fotovoltaico? | PvPro.ch',
-  description: `Quanto costa un impianto solare in Svizzera? Prezzi 2026: ${itRange(cost10, 'CHF')} per 10 kWp, senza accumulo. Costi per kWp, incentivi e accumulo.`,
+  description: `Quanto costa un impianto solare in Svizzera? Prezzi 2026: ${itRange(cost10, 'CHF')} per 10 kWp, senza accumulo. Costi per kWp, incentivi e accumulo. Confronta offerte gratuitamente.`,
   alternates: {
     canonical: 'https://www.pvpro.ch/it/costi-impianto-solare',
     languages: {

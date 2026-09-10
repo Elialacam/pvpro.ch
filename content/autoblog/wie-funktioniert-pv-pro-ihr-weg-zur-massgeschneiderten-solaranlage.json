@@ -73,6 +73,10 @@
       "relatedSlugs": [],
       "faqs": [
         {
+          "question": "Ist die Nutzung von PvPro.ch wirklich zu 100% kostenlos?",
+          "answer": "Ja, die Nutzung unserer Plattform ist absolut kostenlos. Wir finanzieren uns über Vermittlungsgebühren, die von unseren Partnerbetrieben gezahlt werden."
+        },
+        {
           "question": "Wie viele Offerten erhalte ich nach meiner Anfrage?",
           "answer": "Sie erhalten in der Regel bis zu drei massgeschneiderte Offerten, was Ihnen einen guten Preis-Leistungs-Vergleich ermöglicht."
         },
@@ -160,6 +164,10 @@
       "formUrl": "/fr/demande",
       "relatedSlugs": [],
       "faqs": [
+        {
+          "question": "L'utilisation de PvPro.ch est-elle vraiment 100 % gratuite ?",
+          "answer": "Oui, l'utilisation de notre plateforme est absolument gratuite. Nous nous finançons par des frais de courtage payés par nos partenaires."
+        },
         {
           "question": "Combien d'offres reçois-je après ma demande ?",
           "answer": "Vous recevez généralement jusqu'à trois offres sur mesure, ce qui vous permet de faire une bonne comparaison qualité-prix."
@@ -249,6 +257,10 @@
       "relatedSlugs": [],
       "faqs": [
         {
+          "question": "Is using PvPro.ch really 100% free?",
+          "answer": "Yes, using our platform is absolutely free. We are financed through referral fees paid by our partner companies."
+        },
+        {
           "question": "How many offers will I receive after my inquiry?",
           "answer": "You will usually receive up to three customized offers, allowing for a good price-performance comparison."
         },
@@ -336,6 +348,10 @@
       "formUrl": "/it/richiesta",
       "relatedSlugs": [],
       "faqs": [
+        {
+          "question": "L'utilizzo di PvPro.ch è davvero al 100% gratuito?",
+          "answer": "Sì, l'utilizzo della nostra piattaforma è assolutamente gratuito. Ci finanziamo tramite commissioni di intermediazione pagate dalle nostre aziende partner."
+        },
         {
           "question": "Quante offerte ricevo dopo la mia richiesta?",
           "answer": "Di solito ricevi fino a tre offerte su misura, il che ti consente un buon confronto qualità-prezzo."

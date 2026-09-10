@@ -29,7 +29,7 @@ export const en: TranslationKeys = {
     subtitle: 'Get free quotes from certified installers',
     description: 'Compare solar system offers from certified installers in Switzerland for free.',
     cta: 'Request a Free Quote Now',
-    free: 'Free',
+    free: '100% Free',
     nonBinding: 'No Obligation',
     certified: 'Certified Installers',
   },
@@ -62,7 +62,7 @@ export const en: TranslationKeys = {
       description: 'All our partners are certified and have proven experience with Swiss solar systems.',
     },
     free: {
-      title: 'Free and No Obligation',
+      title: '100% Free and No Obligation',
       description: 'Our service is completely free. You only pay the installer you choose.',
     },
   },

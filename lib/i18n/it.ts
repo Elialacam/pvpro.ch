@@ -29,7 +29,7 @@ export const it: TranslationKeys = {
     subtitle: 'Ricevi preventivi gratuiti da installatori certificati',
     description: 'Confronta gratuitamente le offerte di impianti fotovoltaici da installatori certificati in Ticino.',
     cta: 'Richiedi ora un preventivo gratuito',
-    free: 'Gratuito',
+    free: '100% gratuito',
     nonBinding: 'Senza impegno',
     certified: 'Installatori certificati',
   },
@@ -62,7 +62,7 @@ export const it: TranslationKeys = {
       description: 'Tutti i nostri partner sono certificati e hanno esperienza comprovata con impianti fotovoltaici in Ticino.',
     },
     free: {
-      title: 'Gratuito e senza impegno',
+      title: '100% gratuito e senza impegno',
       description: 'Il nostro servizio è completamente gratuito. Paghi solo l\'installatore che scegli.',
     },
   },
