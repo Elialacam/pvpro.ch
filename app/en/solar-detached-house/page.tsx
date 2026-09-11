@@ -4,7 +4,7 @@ import { ChevronRight, Sun, CheckCircle2, Home, Ruler, Cpu, Wrench, ArrowRight }
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
-import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatChfForLocale, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar installation for detached houses Switzerland: costs, size and benefits | PvPro.ch',
@@ -32,8 +32,6 @@ const exampleRows = [
   { label: 'Roof area',       value: `${ECONOMIC_FACTS.roofAreaM2PerKwp * 10} m²`, highlight: false },
   { label: 'Output',          value: '10 kWp',                    highlight: false },
   { label: 'Gross costs', value: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en'), highlight: false },
-  { label: 'OTP subsidy', value: formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en'), highlight: false },
-  { label: 'Net costs after OTP', value: formatRangeForLocale({ min: getSystemCostRange(10).min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: getSystemCostRange(10).max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF', 'en'), highlight: true },
 ];
 
 const factors = [
@@ -133,7 +131,7 @@ export default function SolarDetachedHousePage() {
             <p className="text-gray-500 leading-relaxed mb-6">
                A 10 kWp system needs about {ECONOMIC_FACTS.roofAreaM2PerKwp * 10} m² and costs{' '}
                <strong className="text-gray-800">{formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')}</strong>.
-              After subsidies and tax deductions, the effective price can be significantly lower.
+              Gross costs are an orientation; subsidies and tax deductions are assessed separately for each project.
             </p>
             <div className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
               <div className="grid grid-cols-2 bg-gray-50 px-5 py-3 text-xs font-bold text-gray-400 uppercase tracking-wider">
@@ -200,7 +198,7 @@ export default function SolarDetachedHousePage() {
               Is a solar installation for a detached house worth it?
             </h2>
             <p className="text-gray-500 leading-relaxed mb-6">
-              Yes, in most cases a photovoltaic installation is worthwhile in the long run. Through self-consumption and subsidies, the system pays for itself over the years.
+              Yes, in most cases a photovoltaic installation is worthwhile in the long run. Through self-consumption and electricity savings, the system pays for itself over the years.
             </p>
             <div className="space-y-3">
               {benefits.map((b) => (
@@ -222,11 +220,13 @@ export default function SolarDetachedHousePage() {
                 Subsidies for solar installations in Switzerland
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
-                 For a 10 kWp system, the federal subsidy is approximately <strong className="text-gray-800">{formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en')}</strong>.
+                 The one-time payment is calculated individually by Pronovo. Additional cantonal subsidies and tax deductions may apply.
+                 {' '}
+                 <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-[#fcb210] hover:underline">Check current conditions with Pronovo →</a>
               </p>
               <div className="space-y-3">
                 {[
-                   `One-time payment (OTP): ${formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')}/kWp up to 30 kWp, plus a base contribution`,
+                  'One-time payment (OTP): individual amount calculated by Pronovo',
                   "Additional cantonal subsidy programmes",
                   "Tax deductions at federal level",
                 ].map((item) => (
@@ -243,10 +243,9 @@ export default function SolarDetachedHousePage() {
             <div className="space-y-3">
               {[
                  { label: 'Investment (10 kWp)', value: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en'), color: 'text-gray-800', highlight: false },
-                 { label: 'Federal OTP subsidy', value: `– ${formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en')}`, color: 'text-green-600', highlight: false },
                 { label: 'Cantonal subsidy',      value: 'varies',                 color: 'text-green-600',  highlight: false },
                 { label: 'Tax deductions',        value: 'varies',                 color: 'text-green-600',  highlight: false },
-                 { label: 'Net costs after OTP', value: formatRangeForLocale({ min: getSystemCostRange(10).min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: getSystemCostRange(10).max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF', 'en'), color: 'text-[#fcb210]', highlight: true },
+                 { label: 'OTP amount', value: 'calculated by Pronovo', color: 'text-[#fcb210]', highlight: true },
               ].map((row) => (
                 <div key={row.label} className={`flex justify-between items-center px-5 py-3.5 rounded-xl ${row.highlight ? 'bg-orange-50 border border-orange-100' : 'bg-white border border-gray-100'}`}>
                   <span className={`text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>

@@ -8,7 +8,6 @@ import {
   ECONOMIC_FACTS,
   SOURCE_NOTES,
   SYSTEM_PRICE_NOTES,
-  calculatePronovoVariableContribution,
   formatSwissNumber,
   getSystemCostRange,
 } from '@/lib/facts';
@@ -40,8 +39,7 @@ function calcResult(base: number, waerme: boolean, ev: boolean) {
   const m2Max = Math.round(kwpMax * ECONOMIC_FACTS.roofAreaM2PerKwp);
   const priceMin = getSystemCostRange(kwpMin).min;
   const priceMax = getSystemCostRange(kwpMax).max;
-  const foerderung = calculatePronovoVariableContribution((kwpMin + kwpMax) / 2);
-  return { kwpMin, kwpMax, m2Min, m2Max, priceMin, priceMax, foerderung, total };
+  return { kwpMin, kwpMax, m2Min, m2Max, priceMin, priceMax, total };
 }
 
 function fmt(n: number) {
@@ -121,9 +119,9 @@ export default function EinfamilienhausRechner() {
   const r = calcResult(base, waerme, ev);
 
   const labels = {
-    de: { header: 'Wie gross sollte Ihre Anlage sein?', sub: 'Wählen Sie Ihren Jahresverbrauch und Optionen.', verbrauch: 'Jahresverbrauch', zusatz: 'Zusätzliche Verbraucher', waerme: 'Wärmepumpe', wSub: "+2'500 kWh/Jahr", evLabel: 'Elektroauto', evSub: "+2'000 kWh/Jahr", empfehlung: 'Empfehlung für Ihren Haushalt', gesamtverbrauch: 'Gesamtverbrauch', groesse: 'Anlagengrösse', flaeche: 'Dachfläche', investition: 'Investition', foerderung: 'Förderung EIV', richtwerte: 'Richtwerte. Für eine genaue Berechnung empfehlen wir eine kostenlose Offerte.' },
-    it: { header: 'Quanto deve essere grande il tuo impianto?', sub: 'Scegli il tuo consumo annuo e le opzioni.', verbrauch: 'Consumo annuo', zusatz: 'Consumi aggiuntivi', waerme: 'Pompa di calore', wSub: "+2'500 kWh/anno", evLabel: 'Auto elettrica', evSub: "+2'000 kWh/anno", empfehlung: 'Raccomandazione per la tua casa', gesamtverbrauch: 'Consumo totale', groesse: 'Dimensione impianto', flaeche: 'Superficie tetto', investition: 'Investimento', foerderung: 'Incentivo EIV', richtwerte: 'Valori indicativi. Per un calcolo preciso ti consigliamo un preventivo gratuito.' },
-    fr: { header: 'Quelle taille pour votre installation ?', sub: 'Choisissez votre consommation annuelle et les options.', verbrauch: 'Consommation annuelle', zusatz: 'Consommateurs supplémentaires', waerme: 'Pompe à chaleur', wSub: "+2'500 kWh/an", evLabel: 'Voiture électrique', evSub: "+2'000 kWh/an", empfehlung: 'Recommandation pour votre ménage', gesamtverbrauch: 'Consommation totale', groesse: 'Taille installation', flaeche: 'Surface toiture', investition: 'Investissement', foerderung: 'Subvention EIV', richtwerte: 'Valeurs indicatives. Pour un calcul précis, nous recommandons un devis gratuit.' },
+    de: { header: 'Wie gross sollte Ihre Anlage sein?', sub: 'Wählen Sie Ihren Jahresverbrauch und Optionen.', verbrauch: 'Jahresverbrauch', zusatz: 'Zusätzliche Verbraucher', waerme: 'Wärmepumpe', wSub: "+2'500 kWh/Jahr", evLabel: 'Elektroauto', evSub: "+2'000 kWh/Jahr", empfehlung: 'Empfehlung für Ihren Haushalt', gesamtverbrauch: 'Gesamtverbrauch', groesse: 'Anlagengrösse', flaeche: 'Dachfläche', investition: 'Bruttokosten', richtwerte: 'Richtwerte. Die Einmalvergütung wird individuell durch Pronovo berechnet.' },
+    it: { header: 'Quanto deve essere grande il tuo impianto?', sub: 'Scegli il tuo consumo annuo e le opzioni.', verbrauch: 'Consumo annuo', zusatz: 'Consumi aggiuntivi', waerme: 'Pompa di calore', wSub: "+2'500 kWh/anno", evLabel: 'Auto elettrica', evSub: "+2'000 kWh/anno", empfehlung: 'Raccomandazione per la tua casa', gesamtverbrauch: 'Consumo totale', groesse: 'Dimensione impianto', flaeche: 'Superficie tetto', investition: 'Costi lordi', richtwerte: 'Valori indicativi. La rimunerazione unica viene calcolata individualmente da Pronovo.' },
+    fr: { header: 'Quelle taille pour votre installation ?', sub: 'Choisissez votre consommation annuelle et les options.', verbrauch: 'Consommation annuelle', zusatz: 'Consommateurs supplémentaires', waerme: 'Pompe à chaleur', wSub: "+2'500 kWh/an", evLabel: 'Voiture électrique', evSub: "+2'000 kWh/an", empfehlung: 'Recommandation pour votre ménage', gesamtverbrauch: 'Consommation totale', groesse: 'Taille installation', flaeche: 'Surface toiture', investition: 'Coûts bruts', richtwerte: 'Valeurs indicatives. La rétribution unique est calculée individuellement par Pronovo.' },
   };
   const L = labels[locale as 'de' | 'it' | 'fr'] || labels.de;
 
@@ -189,7 +187,6 @@ export default function EinfamilienhausRechner() {
               { label: L.groesse, value: `${r.kwpMin}–${r.kwpMax} kWp`, accent: true },
               { label: L.flaeche, value: `${r.m2Min}–${r.m2Max} m²`, accent: false },
               { label: L.investition, value: `${fmt(r.priceMin)}–${fmt(r.priceMax)} CHF`, accent: false },
-              { label: L.foerderung, value: `ca. ${fmt(r.foerderung)} CHF`, accent: false },
             ].map((item) => (
               <div key={item.label} className={`rounded-xl p-3 text-center ${item.accent ? 'bg-[#fcb210] text-white' : 'bg-white border border-orange-100'}`}>
                 <p className={`text-xs font-bold uppercase tracking-wide mb-1 ${item.accent ? 'text-orange-100' : 'text-gray-400'}`}>{item.label}</p>

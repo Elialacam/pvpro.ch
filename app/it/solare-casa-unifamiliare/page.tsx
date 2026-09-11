@@ -4,7 +4,7 @@ import { ChevronRight, Sun, CheckCircle2, Home, Ruler, Cpu, Wrench, ArrowRight }
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
-import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatChf, formatRangeForLocale, formatSwissNumber } from '@/lib/facts';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatRangeForLocale, formatSwissNumber } from '@/lib/facts';
 
 const itRange = (range: { readonly min: number; readonly max: number }, unit: string) =>
   formatRangeForLocale(range, unit, 'it');
@@ -34,8 +34,6 @@ const exampleRows = [
   { label: 'Superficie tetto', value: `${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`, highlight: false },
   { label: 'Potenza', value: `${Object.keys(ECONOMIC_FACTS.systemCosts.bySize)[2]} kWp`, highlight: false },
   { label: 'Costi lordi', value: itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF'), highlight: false },
-  { label: 'Incentivo RU', value: formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox), highlight: false },
-  { label: 'Costi netti dopo la RU', value: itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF'), highlight: true },
 ];
 
 const factors = [
@@ -220,11 +218,13 @@ export default function SolareCasaUnifamiliarePage() {
                 Incentivi per impianti solari in Svizzera
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
-                Per un impianto da 10 kWp, la RU è di circa <strong className="text-gray-800">{formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}</strong>.
+                La rimunerazione unica viene calcolata individualmente da Pronovo. Per requisiti e importi aggiornati, verifica le informazioni ufficiali.
+                {' '}
+                <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-[#fcb210] hover:underline">Verifica su Pronovo →</a>
               </p>
               <div className="space-y-3">
                 {[
-                  `RU federale: ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)}/kWp fino a 30 kWp`,
+                  "RU federale: importo individuale calcolato da Pronovo",
                   "Ulteriori programmi di incentivi cantonali",
                   "Deduzioni fiscali a livello federale",
                 ].map((item) => (
@@ -241,10 +241,9 @@ export default function SolareCasaUnifamiliarePage() {
             <div className="space-y-3">
               {[
                 { label: 'Investimento lordo (10 kWp)', value: itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF'), color: 'text-gray-800', highlight: false },
-                { label: 'Incentivo federale RU', value: `– ${formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}`, color: 'text-green-600', highlight: false },
                 { label: 'Incentivo cantonale',    value: 'variabile',              color: 'text-green-600',  highlight: false },
                 { label: 'Deduzioni fiscali',      value: 'variabile',              color: 'text-green-600',  highlight: false },
-                { label: 'Costi netti dopo la RU', value: itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF'), color: 'text-[#fcb210]', highlight: true },
+                { label: 'Importo RU', value: 'calcolato da Pronovo', color: 'text-[#fcb210]', highlight: true },
               ].map((row) => (
                 <div key={row.label} className={`flex justify-between items-center px-5 py-3.5 rounded-xl ${row.highlight ? 'bg-orange-50 border border-orange-100' : 'bg-white border border-gray-100'}`}>
                   <span className={`text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>

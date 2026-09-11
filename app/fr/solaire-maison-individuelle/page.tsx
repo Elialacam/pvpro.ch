@@ -4,11 +4,10 @@ import { ChevronRight, Sun, CheckCircle2, Home, Ruler, Cpu, Wrench, ArrowRight }
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
-import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatChfForLocale, formatRangeForLocale } from '@/lib/facts';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatRangeForLocale } from '@/lib/facts';
 
 const facts = ECONOMIC_FACTS;
 const frRange = (range: { min: number; max: number }, unit: string) => formatRangeForLocale(range, unit, 'fr');
-const netTen = { min: facts.systemCosts.bySize[10].min - facts.incentives.tenKwpApprox, max: facts.systemCosts.bySize[10].max - facts.incentives.tenKwpApprox };
 
 const baseMetadata: Metadata = {
   title: 'Installation solaire maison individuelle Suisse : coûts, taille et avantages | PvPro.ch',
@@ -36,8 +35,6 @@ const exampleRows = [
   { label: 'Surface de toit', value: `${10 * facts.roofAreaM2PerKwp} m²`, highlight: false },
   { label: 'Puissance',         value: '10 kWp',                       highlight: false },
   { label: 'Coût brut', value: frRange(facts.systemCosts.bySize[10], 'CHF'), highlight: false },
-  { label: 'Subvention RU', value: formatChfForLocale(facts.incentives.tenKwpApprox, 'fr'), highlight: false },
-  { label: 'Coût net après RU', value: frRange(netTen, 'CHF'), highlight: true },
 ];
 
 const factors = [
@@ -137,7 +134,7 @@ export default function SolaireMaisonIndividuellePage() {
             <p className="text-gray-500 leading-relaxed mb-6">
                Pour une installation de 10 kWp avec environ {10 * facts.roofAreaM2PerKwp} m² de surface de toit, le coût brut est de{' '}
                <strong className="text-gray-800">{frRange(facts.systemCosts.bySize[10], 'CHF')}</strong>.
-              Après subventions et déductions fiscales, le prix effectif peut être nettement inférieur.
+              Les coûts bruts sont un repère; les subventions et déductions fiscales sont évaluées séparément pour chaque projet.
             </p>
             <div className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
               <div className="grid grid-cols-2 bg-gray-50 px-5 py-3 text-xs font-bold text-gray-400 uppercase tracking-wider">
@@ -202,7 +199,7 @@ export default function SolaireMaisonIndividuellePage() {
               Une installation solaire pour maison individuelle vaut-elle la peine ?
             </h2>
             <p className="text-gray-500 leading-relaxed mb-6">
-              Oui, dans la plupart des cas, une installation photovoltaïque est rentable à long terme. Grâce à l'autoconsommation et aux subventions, l'installation s'amortit au fil des années.
+              Oui, dans la plupart des cas, une installation photovoltaïque est rentable à long terme. Grâce à l'autoconsommation et aux économies d'électricité, l'installation s'amortit au fil des années.
             </p>
             <div className="space-y-3">
               {benefits.map((b) => (
@@ -224,11 +221,13 @@ export default function SolaireMaisonIndividuellePage() {
                 Subventions pour installations solaires en Suisse
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
-                Pour une installation de 10 kWp, la subvention fédérale correspond à environ <strong className="text-gray-800">{formatChfForLocale(facts.incentives.tenKwpApprox, 'fr')}</strong>. S&apos;y ajoutent des subventions cantonales et des déductions fiscales.
+                La rétribution unique est calculée individuellement par Pronovo. Des subventions cantonales et des déductions fiscales peuvent s&apos;y ajouter.
+                {' '}
+                <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-[#fcb210] hover:underline">Vérifier les conditions auprès de Pronovo →</a>
               </p>
               <div className="space-y-3">
                 {[
-                   `Rémunération unique (RU) fédérale : ${formatChfForLocale(facts.incentives.pronovoPerKwpUpTo30, 'fr')}/kWp jusqu'à 30 kWp`,
+                  'Rémunération unique (RU): montant individuel calculé par Pronovo',
                   "Programmes de subventions cantonaux supplémentaires",
                   "Déductions fiscales au niveau fédéral",
                 ].map((item) => (
@@ -245,10 +244,9 @@ export default function SolaireMaisonIndividuellePage() {
             <div className="space-y-3">
               {[
                  { label: 'Investissement (10 kWp)', value: frRange(facts.systemCosts.bySize[10], 'CHF'), color: 'text-gray-800', highlight: false },
-                 { label: 'Subvention fédérale RU', value: `– ${formatChfForLocale(facts.incentives.tenKwpApprox, 'fr')}`, color: 'text-green-600', highlight: false },
                 { label: 'Subvention cantonale',    value: 'variable',              color: 'text-green-600',  highlight: false },
                 { label: 'Déductions fiscales',     value: 'variable',              color: 'text-green-600',  highlight: false },
-                 { label: 'Coût net après RU', value: frRange(netTen, 'CHF'), color: 'text-[#fcb210]', highlight: true },
+                 { label: 'Montant RU', value: 'calculé par Pronovo', color: 'text-[#fcb210]', highlight: true },
               ].map((row) => (
                 <div key={row.label} className={`flex justify-between items-center px-5 py-3.5 rounded-xl ${row.highlight ? 'bg-orange-50 border border-orange-100' : 'bg-white border border-gray-100'}`}>
                   <span className={`text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>

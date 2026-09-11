@@ -25,15 +25,6 @@ export const ECONOMIC_FACTS = {
     retrofitHybridInverter: { min: 1_500, max: 3_000 },
     paybackYears: { min: 10, max: 14 },
   },
-  incentives: {
-    pronovoPerKwpUpTo30: 360,
-    pronovoPerKwpOver30: 300,
-    tenKwpApprox: 3_600,
-    federalSharePercent: { min: 15, max: 20 },
-    combinedMaxPercent: 40,
-    zurichStoragePerKwh: 500,
-    zurichStorageMaximum: 15_000,
-  },
   production: {
     plateauKwhPerKwp: { min: 950, max: 1_000 },
     ticinoValaisKwhPerKwp: { min: 1_050, max: 1_100 },
@@ -134,21 +125,6 @@ export function getSystemCostRange(kwp: number): NumericRange {
     min: Math.round(kwp * ECONOMIC_FACTS.systemCosts.perKwp.min),
     max: Math.round(kwp * ECONOMIC_FACTS.systemCosts.perKwp.max),
   };
-}
-
-export function getPronovoRate(kwp: number): number {
-  return kwp <= 30
-    ? ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30
-    : ECONOMIC_FACTS.incentives.pronovoPerKwpOver30;
-}
-
-export function calculatePronovoVariableContribution(kwp: number): number {
-  const lowerTierKwp = Math.min(Math.max(kwp, 0), 30);
-  const upperTierKwp = Math.max(kwp - 30, 0);
-  return Math.round(
-    lowerTierKwp * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30
-    + upperTierKwp * ECONOMIC_FACTS.incentives.pronovoPerKwpOver30,
-  );
 }
 
 export function calculateAnnualSolarValueRange(

@@ -63,7 +63,7 @@ const faqs = [
   },
   {
     question: 'Was ist die Bundesförderung (EIV)?',
-    answer: `Die RU beträgt bis 30 kWp ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} pro kWp, zuzüglich Grundbeitrag. Bundes-, Kantons- und Gemeindebeiträge können zusammen bis ${ECONOMIC_FACTS.incentives.combinedMaxPercent}% erreichen.`,
+    answer: 'Die Einmalvergütung wird von Pronovo individuell anhand der Anlage und der geltenden Voraussetzungen berechnet. Aktuelle Bedingungen und Beträge finden Sie auf pronovo.ch.',
   },
   {
     question: 'Was ist die typische Amortisationszeit in der Schweiz?',
@@ -90,8 +90,6 @@ const systemSizes = [
     flaeche: `${formatSwissNumber(6 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`,
     jahresertrag: `${formatSwissNumber(6 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(6 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh`,
     kosten: formatRangeForLocale(getSystemCostRange(6), 'CHF', 'de'),
-    foerderung: formatChf(6 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30),
-    nettokosten: `${formatSwissNumber(getSystemCostRange(6).min - 6 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} bis ${formatSwissNumber(getSystemCostRange(6).max - 6 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} CHF`,
     amort: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahre', 'de'),
     haushalt: '2 Personen / Wohnung',
     color: 'border-blue-200 bg-blue-50',
@@ -103,8 +101,6 @@ const systemSizes = [
     flaeche: `${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`,
     jahresertrag: `${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh`,
     kosten: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de'),
-    foerderung: formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox),
-    nettokosten: `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox)} CHF`,
     amort: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahre', 'de'),
     haushalt: '3–4 Personen / EFH',
     color: 'border-[#fcb210]/30 bg-orange-50',
@@ -117,8 +113,6 @@ const systemSizes = [
     flaeche: `${formatSwissNumber(15 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`,
     jahresertrag: `${formatSwissNumber(15 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(15 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh`,
     kosten: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[15], 'CHF', 'de'),
-    foerderung: formatChf(15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30),
-    nettokosten: `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[15].min - 15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[15].max - 15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} CHF`,
     amort: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahre', 'de'),
     haushalt: 'Grossfamilie / MFH',
     color: 'border-green-200 bg-green-50',
@@ -169,7 +163,7 @@ const richtigValues = [
   { label: 'Jahresertrag pro kWp im Mittelland', value: formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh', 'de') },
   { label: 'Dachfläche pro kWp', value: `${formatSwissNumber(ECONOMIC_FACTS.roofAreaM2PerKwp)} m²` },
   { label: 'Installationskosten pro kWp', value: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.perKwp, 'CHF', 'de') },
-  { label: 'Bundesförderung RU pro kWp bis 30 kWp', value: formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30) },
+  { label: 'Bundesförderung RU', value: 'Individuell durch Pronovo berechnet' },
   { label: 'Eigenverbrauch ohne Speicher', value: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'de') },
   { label: 'Eigenverbrauch mit Speicher', value: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'de') },
   { label: 'Lebensdauer Solarmodule', value: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre', 'de') },
@@ -254,7 +248,7 @@ export default function SolarrechnerPage() {
               {[
                 { val: formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh/kWp/Jahr', 'de'), unit: '', label: 'Mittelland' },
                 { val: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahre', 'de'), unit: '', label: 'Amortisation Mittelland' },
-                { val: formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30), unit: 'pro kWp', label: 'RU bis 30 kWp' },
+                { val: 'Individuell', unit: '', label: 'RU-Betrag (Pronovo)' },
                 { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre', 'de'), unit: '', label: 'Lebensdauer Module' },
               ].map(s => (
                 <div key={s.label} className="bg-white/8 border border-white/10 rounded-2xl p-5">
@@ -274,7 +268,7 @@ export default function SolarrechnerPage() {
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Ihr persönliches Solarpotenzial</h2>
             <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
-              Geben Sie Ihre verfügbare Dachfläche (ca.) und Ihren jährlichen Stromverbrauch ein. Der Rechner basiert auf Schweizer Durchschnittswerten und EIV-Förderung.
+              Geben Sie Ihre verfügbare Dachfläche (ca.) und Ihren jährlichen Stromverbrauch ein. Der Rechner basiert auf Schweizer Durchschnittswerten und zeigt Bruttokosten vor einer individuellen EIV-Berechnung.
             </p>
           </div>
           <div className="max-w-xl mx-auto">
@@ -328,12 +322,8 @@ export default function SolarrechnerPage() {
                     <span className="font-semibold text-gray-800">{s.kosten}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-500">EIV-Förderung</span>
-                    <span className="font-semibold text-green-600">− {s.foerderung}</span>
-                  </div>
-                  <div className="flex justify-between border-t border-gray-200 pt-2.5 mt-1">
-                    <span className="text-gray-700 font-semibold">Nettokosten</span>
-                    <span className="font-bold text-gray-900">{s.nettokosten}</span>
+                    <span className="text-gray-500">EIV-Betrag</span>
+                    <span className="font-semibold text-gray-600">durch Pronovo berechnet</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-500">Amortisation</span>

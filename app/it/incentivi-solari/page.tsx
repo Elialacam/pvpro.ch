@@ -4,7 +4,7 @@ import { ChevronRight, CheckCircle, Info, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FoerderRechner from '@/components/FoerderRechner';
-import { ECONOMIC_FACTS, SOURCE_NOTES, formatChf, formatRangeForLocale } from '@/lib/facts';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
 
 const itRange = (range: { readonly min: number; readonly max: number }, unit: string) =>
   formatRangeForLocale(range, unit, 'it');
@@ -25,9 +25,9 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/it/incentivi-solari', locale: 'it' });
 
 const tableRows = [
-  { size: '5 kWp', incentivo: formatChf(5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30), totale: itRange(ECONOMIC_FACTS.systemCosts.bySize[5], 'CHF'), netto: itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[5].min - 5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, max: ECONOMIC_FACTS.systemCosts.bySize[5].max - 5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30 }, 'CHF') },
-  { size: '8 kWp', incentivo: formatChf(8 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30), totale: itRange(ECONOMIC_FACTS.systemCosts.bySize[8], 'CHF'), netto: itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[8].min - 8 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, max: ECONOMIC_FACTS.systemCosts.bySize[8].max - 8 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30 }, 'CHF'), highlight: true },
-  { size: '10 kWp', incentivo: formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox), totale: itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF'), netto: itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF') },
+  { size: '5 kWp', totale: itRange(ECONOMIC_FACTS.systemCosts.bySize[5], 'CHF') },
+  { size: '8 kWp', totale: itRange(ECONOMIC_FACTS.systemCosts.bySize[8], 'CHF'), highlight: true },
+  { size: '10 kWp', totale: itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF') },
 ];
 
 const processSteps = [
@@ -63,9 +63,9 @@ export default function IncentiviSolariPage() {
               </p>
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: String(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30), unit: 'CHF/kWp', label: 'RU fino a 30 kWp' },
+                  { value: 'Individuale', unit: '', label: 'Calcolato da Pronovo' },
                   { value: itRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'anni'), unit: '', label: 'Ammortamento Altopiano' },
-                  { value: itRange(ECONOMIC_FACTS.incentives.federalSharePercent, '%'), unit: '', label: 'Quota federale' },
+                  { value: itRange(ECONOMIC_FACTS.moduleLifetimeYears, 'anni'), unit: '', label: 'Durata moduli' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <p className="text-2xl font-bold text-white">{s.value}</p>
@@ -124,26 +124,26 @@ export default function IncentiviSolariPage() {
             <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Panoramica incentivi</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">A quanto ammonta l'incentivo?</h2>
             <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-              La RU è di <strong className="text-gray-800">{formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} per kWp fino a 30 kWp</strong>, più il contributo base.
+              L’importo della RU dipende tra l’altro dalla data di messa in esercizio, dalla potenza, dal tipo di impianto e dagli eventuali bonus. Pronovo lo calcola individualmente.
+              {' '}
+              <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-[#fcb210] hover:underline">Verifica su Pronovo →</a>
             </p>
           </div>
           <div className="max-w-3xl mx-auto">
             <div className="rounded-3xl overflow-hidden shadow-xl border border-gray-100">
-              <div className="grid grid-cols-4 gap-0" style={{ background: 'linear-gradient(135deg, #1a2236, #0d1117)' }}>
-                {['Dimensione impianto', 'Incentivo (RU)', 'Costo totale', 'Costo netto'].map(h => (
+               <div className="grid grid-cols-2 gap-0" style={{ background: 'linear-gradient(135deg, #1a2236, #0d1117)' }}>
+                 {['Dimensione impianto', 'Costi lordi'].map(h => (
                   <div key={h} className="px-5 py-4 text-xs font-bold text-gray-400 uppercase tracking-widest">{h}</div>
                 ))}
               </div>
               {tableRows.map((row) => (
-                <div key={row.size} className={`grid grid-cols-4 gap-0 border-t ${row.highlight ? 'border-orange-100' : 'border-gray-100'}`}
+                 <div key={row.size} className={`grid grid-cols-2 gap-0 border-t ${row.highlight ? 'border-orange-100' : 'border-gray-100'}`}
                   style={row.highlight ? { background: 'linear-gradient(135deg, #fff7ed, #fff5eb)' } : { background: '#fff' }}>
                   <div className="px-5 py-5 font-bold text-gray-900 flex items-center gap-2">
                     {row.highlight && <span className="text-[10px] bg-orange-500 text-white font-bold px-1.5 py-0.5 rounded-full uppercase">Popolare</span>}
                     {row.size}
                   </div>
-                  <div className="px-5 py-5 font-bold text-[#fcb210]">{row.incentivo}</div>
                   <div className="px-5 py-5 text-gray-600">{row.totale}</div>
-                  <div className="px-5 py-5 font-bold text-green-600">{row.netto}</div>
                 </div>
               ))}
             </div>
@@ -212,18 +212,10 @@ export default function IncentiviSolariPage() {
                   <p className="text-gray-700 font-medium">Costo impianto solare (10 kWp)</p>
                   <p className="font-bold text-gray-900">{itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF')}</p>
                 </div>
-                <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-orange-100" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-                  <p className="text-orange-700 font-medium">Rimunerazione unica (RU)</p>
-                  <p className="font-bold text-[#fcb210]">− {formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}</p>
-                </div>
-                <div className="h-px bg-gray-200" />
-                <div className="flex items-center justify-between rounded-2xl px-6 py-5 border-2 border-green-200" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
-                  <div>
-                    <p className="font-bold text-gray-900">Investimento effettivo</p>
-                    <p className="text-xs text-green-600 mt-0.5">Dopo deduzione del contributo federale</p>
-                  </div>
-                  <p className="font-bold text-green-700 text-2xl">{itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF')}</p>
-                </div>
+                 <div className="rounded-2xl px-6 py-4 border border-orange-100 bg-orange-50">
+                   <p className="text-orange-700 font-medium">Importo RU</p>
+                   <p className="text-sm text-gray-600 mt-1">Calcolato per l’impianto specifico da <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-[#fcb210] hover:underline">Pronovo</a>.</p>
+                 </div>
               </div>
             </div>
           </div>

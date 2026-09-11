@@ -29,7 +29,7 @@ export default function EnglishHomePage() {
     },
     {
       question: 'Are there subsidies for solar systems in Switzerland?',
-      answer: `Yes! Switzerland offers various subsidies: the federal share is ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', 'en')} of investment costs without storage. Additionally, there are cantonal and municipal incentive programs, plus tax deductions. Our partner installers help you apply for all available subsidies.`,
+      answer: 'Yes. Switzerland offers federal, cantonal and municipal support programmes, as well as possible tax deductions. Eligibility and the individual federal payment are calculated according to the installation by Pronovo. See pronovo.ch for current conditions.',
     },
     {
       question: 'How long does a solar system installation take?',

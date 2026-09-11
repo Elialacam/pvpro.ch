@@ -4,7 +4,7 @@ import { ChevronRight, CheckCircle, ArrowRight, Wrench, Clock, Sun } from 'lucid
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
-import { ECONOMIC_FACTS, SYSTEM_PRICE_NOTES, formatChf, formatRangeForLocale, getSourceNote } from '@/lib/facts';
+import { ECONOMIC_FACTS, SYSTEM_PRICE_NOTES, formatRangeForLocale, getSourceNote } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solaranlage installieren lassen Schweiz 2026 – Anbieter & Kosten | PvPro.ch',
@@ -262,7 +262,8 @@ export default function SolaranlageInstallierenPage() {
             <p className="text-orange-800 text-sm leading-relaxed">
               Nach Abzug der Bundesförderung (<Link href="/foerderungen" className="text-[#fcb210] hover:underline font-medium">Einmalvergütung EIV</Link>) reduzieren sich die{' '}
               <Link href="/solaranlage-kosten" className="text-[#fcb210] hover:underline font-medium">Kosten</Link>{' '}
-              um {formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} pro kWp bis 30 kWp, zuzüglich Grundbeitrag. Durch den{' '}
+              um einen individuell durch Pronovo berechneten Betrag. Die aktuellen Bedingungen finden Sie auf{' '}
+              <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-[#fcb210] hover:underline">pronovo.ch</a>. Durch den{' '}
               <Link href="/vergleichsportal-photovoltaik-schweiz" className="text-[#fcb210] hover:underline font-medium">Vergleich mehrerer Offerten</Link>{' '}
               können Sie Preise und Leistungen direkt prüfen.
             </p>

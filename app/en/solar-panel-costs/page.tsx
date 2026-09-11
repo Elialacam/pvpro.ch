@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
 import FaqSchema from '@/components/FaqSchema';
-import { ECONOMIC_FACTS, SOURCE_NOTES, STORAGE_PRICE_NOTES, SYSTEM_PRICE_NOTES, formatChfForLocale, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
+import { ECONOMIC_FACTS, SOURCE_NOTES, STORAGE_PRICE_NOTES, SYSTEM_PRICE_NOTES, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar Panel Costs Switzerland 2026 – What does a solar installation cost? | PvPro.ch',
@@ -91,7 +91,7 @@ const faqs = [
   },
   {
     question: 'What subsidies are available for solar installations in Switzerland?',
-    answer: `Pronovo pays ${formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')} per kWp up to 30 kWp, plus a base contribution. Cantonal and municipal support may also apply.`,
+    answer: 'The federal one-time payment is calculated individually by Pronovo. Cantonal and municipal support may also apply. Check pronovo.ch for current conditions.',
   },
   {
     question: 'What does a solar installation with battery storage cost?',
@@ -378,8 +378,9 @@ export default function SolarPanelCostsPage() {
               <div className="flex items-start gap-4">
                 <PiggyBank className="w-10 h-10 text-primary flex-shrink-0" />
                 <div>
-                   <p className="text-2xl font-bold text-primary mb-1">{formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')} per kWp</p>
-                  <p className="text-gray-700">Typical federal subsidy amounts (OTP). The level depends on the system size.</p>
+                    <p className="text-2xl font-bold text-primary mb-1">Calculated individually</p>
+                   <p className="text-gray-700">Pronovo determines the federal one-time payment based on the installation and applicable conditions.</p>
+                   <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-sm font-semibold text-primary hover:underline">Check current amount with Pronovo →</a>
                 </div>
               </div>
             </div>
@@ -394,16 +395,12 @@ export default function SolarPanelCostsPage() {
                   <span className="text-gray-600">Gross cost</span>
                    <span className="font-medium">{formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')}</span>
                 </div>
-                <div className="flex justify-between text-primary">
-                   <span>– One-time payment OTP</span>
-                   <span className="font-medium">– {formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en')}</span>
-                </div>
-                <div className="border-t border-gray-200 pt-3 flex justify-between">
-                  <span className="font-semibold text-gray-900">Effective cost (example)</span>
-                   <span className="font-bold text-xl text-primary">{formatRangeForLocale({ min: getSystemCostRange(10).min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: getSystemCostRange(10).max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF', 'en')}</span>
+                 <div className="border-t border-gray-200 pt-3 flex justify-between">
+                   <span className="font-semibold text-gray-900">OTP amount</span>
+                    <span className="font-bold text-primary">Calculated by Pronovo</span>
                 </div>
               </div>
-              <p className="text-xs text-gray-400 mt-3">Reference value. Actual subsidies vary by canton and system size.</p>
+               <p className="text-xs text-gray-400 mt-3">Gross-cost reference. The actual OTP amount is calculated by Pronovo for each installation.</p>
             </div>
           </div>
         </div>

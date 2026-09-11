@@ -8,7 +8,7 @@ import {
   Sun, Home, Battery, ArrowRight, ChevronRight, AlertCircle,
 } from 'lucide-react';
 import FaqSchema from '@/components/FaqSchema';
-import { ECONOMIC_FACTS, ELECTRICITY_TARIFF_NOTES, SOURCE_NOTES, STORAGE_PRICE_NOTES, SYSTEM_PRICE_NOTES, calculateAnnualSolarValueRange, formatChfForLocale, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
+import { ECONOMIC_FACTS, ELECTRICITY_TARIFF_NOTES, SOURCE_NOTES, STORAGE_PRICE_NOTES, SYSTEM_PRICE_NOTES, calculateAnnualSolarValueRange, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
 
 const facts = ECONOMIC_FACTS;
 const frRange = (range: { min: number; max: number }, unit: string) => formatRangeForLocale(range, unit, 'fr');
@@ -64,7 +64,7 @@ const faqs = [
   },
   {
     question: 'Qu\'est-ce que la rétribution unique (RU) ?',
-    answer: `La RU est de ${formatChfForLocale(facts.incentives.pronovoPerKwpUpTo30, 'fr')} par kWp jusqu'à 30 kWp, plus une contribution de base. Le total des aides fédérales, cantonales et communales peut atteindre ${facts.incentives.combinedMaxPercent}%.`,
+    answer: 'La RU est calculée individuellement par Pronovo selon l’installation et les conditions applicables. Consultez pronovo.ch pour les exigences et montants actuels.',
   },
   {
     question: 'Quelle est la durée d\'amortissement typique en Suisse ?',
@@ -91,8 +91,6 @@ const systemSizes = [
     flaeche: `${6 * facts.roofAreaM2PerKwp} m²`,
     jahresertrag: frRange({ min: 6 * facts.production.plateauKwhPerKwp.min, max: 6 * facts.production.plateauKwhPerKwp.max }, 'kWh'),
     kosten: frRange(getSystemCostRange(6), 'CHF'),
-    foerderung: formatChfForLocale(6 * facts.incentives.pronovoPerKwpUpTo30, 'fr'),
-    nettokosten: frRange({ min: getSystemCostRange(6).min - 6 * facts.incentives.pronovoPerKwpUpTo30, max: getSystemCostRange(6).max - 6 * facts.incentives.pronovoPerKwpUpTo30 }, 'CHF'),
     amort: frRange(facts.systemPaybackYears.plateau, 'ans'),
     haushalt: '2 personnes / appartement',
     color: 'border-blue-200 bg-blue-50',
@@ -104,8 +102,6 @@ const systemSizes = [
     flaeche: `${10 * facts.roofAreaM2PerKwp} m²`,
     jahresertrag: frRange({ min: 10 * facts.production.plateauKwhPerKwp.min, max: 10 * facts.production.plateauKwhPerKwp.max }, 'kWh'),
     kosten: frRange(facts.systemCosts.bySize[10], 'CHF'),
-    foerderung: formatChfForLocale(facts.incentives.tenKwpApprox, 'fr'),
-    nettokosten: frRange({ min: facts.systemCosts.bySize[10].min - facts.incentives.tenKwpApprox, max: facts.systemCosts.bySize[10].max - facts.incentives.tenKwpApprox }, 'CHF'),
     amort: frRange(facts.systemPaybackYears.plateau, 'ans'),
     haushalt: '3–4 personnes / maison individuelle',
     color: 'border-[#fcb210]/30 bg-orange-50',
@@ -118,8 +114,6 @@ const systemSizes = [
     flaeche: `${15 * facts.roofAreaM2PerKwp} m²`,
     jahresertrag: frRange({ min: 15 * facts.production.plateauKwhPerKwp.min, max: 15 * facts.production.plateauKwhPerKwp.max }, 'kWh'),
     kosten: frRange(facts.systemCosts.bySize[15], 'CHF'),
-    foerderung: formatChfForLocale(15 * facts.incentives.pronovoPerKwpUpTo30, 'fr'),
-    nettokosten: frRange({ min: facts.systemCosts.bySize[15].min - 15 * facts.incentives.pronovoPerKwpUpTo30, max: facts.systemCosts.bySize[15].max - 15 * facts.incentives.pronovoPerKwpUpTo30 }, 'CHF'),
     amort: frRange(facts.systemPaybackYears.plateau, 'ans'),
     haushalt: 'Grande famille / immeuble',
     color: 'border-green-200 bg-green-50',
@@ -170,7 +164,7 @@ const richtigValues = [
   { label: 'Rendement annuel par kWp sur le Plateau', value: frRange(facts.production.plateauKwhPerKwp, 'kWh') },
   { label: 'Surface de toit par kWp', value: `${facts.roofAreaM2PerKwp.toLocaleString('fr-CH')} m²` },
   { label: "Coûts d'installation par kWp", value: frRange(facts.systemCosts.perKwp, 'CHF') },
-  { label: 'Subvention fédérale RU par kWp', value: formatChfForLocale(facts.incentives.pronovoPerKwpUpTo30, 'fr') },
+  { label: 'Montant RU fédérale', value: 'Calculé individuellement par Pronovo' },
   { label: 'Autoconsommation sans stockage', value: frRange(facts.selfConsumptionPercent.withoutStorage, '%') },
   { label: 'Autoconsommation avec stockage', value: frRange(facts.selfConsumptionPercent.withStorage, '%') },
   { label: 'Durée de vie des modules solaires', value: frRange(facts.moduleLifetimeYears, 'ans') },
@@ -239,7 +233,7 @@ export default function CalculateurSolairePage() {
               {[
                  { val: frRange(facts.production.plateauKwhPerKwp, ''), unit: 'kWh/kWp/an', label: 'Plateau' },
                  { val: frRange(facts.systemPaybackYears.plateau, ''), unit: 'ans', label: 'Amortissement Plateau' },
-                 { val: String(facts.incentives.pronovoPerKwpUpTo30), unit: 'CHF/kWp', label: 'Subvention fédérale RU' },
+                 { val: 'Individuel', unit: '', label: 'Montant RU (Pronovo)' },
                  { val: frRange(facts.moduleLifetimeYears, ''), unit: 'ans', label: 'Durée de vie modules' },
               ].map(s => (
                 <div key={s.label} className="bg-white/8 border border-white/10 rounded-2xl p-5">
@@ -259,7 +253,7 @@ export default function CalculateurSolairePage() {
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Votre potentiel solaire personnalisé</h2>
             <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
-              Entrez votre surface de toit disponible et votre consommation annuelle d'électricité. Le calculateur est basé sur des valeurs moyennes suisses et la subvention RU.
+              Entrez votre surface de toit disponible et votre consommation annuelle d'électricité. Le calculateur est basé sur des valeurs moyennes suisses et affiche les coûts bruts avant le calcul individuel de la RU.
             </p>
           </div>
           <div className="max-w-xl mx-auto">
@@ -313,12 +307,8 @@ export default function CalculateurSolairePage() {
                     <span className="font-semibold text-gray-800">{s.kosten}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-500">Subvention RU</span>
-                    <span className="font-semibold text-green-600">− {s.foerderung}</span>
-                  </div>
-                  <div className="flex justify-between border-t border-gray-200 pt-2.5 mt-1">
-                    <span className="text-gray-700 font-semibold">Coût net</span>
-                    <span className="font-bold text-gray-900">{s.nettokosten}</span>
+                    <span className="text-gray-500">Montant RU</span>
+                    <span className="font-semibold text-gray-600">calculé par Pronovo</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-500">Amortissement</span>
@@ -538,7 +528,7 @@ export default function CalculateurSolairePage() {
             {[
               { icon: Calculator, title: 'Calcul instantané', desc: "Obtenez en quelques secondes une première estimation pour votre installation solaire — sans inscription." },
               { icon: Zap, title: 'Calculer le rendement', desc: "Voyez combien d'électricité votre toit peut produire annuellement — selon votre canton." },
-              { icon: PiggyBank, title: 'Comprendre les coûts', desc: 'Estimation réaliste avec subvention RU basée sur les prix actuels du marché suisse.' },
+              { icon: PiggyBank, title: 'Comprendre les coûts', desc: 'Estimation réaliste des coûts bruts basée sur les prix actuels du marché suisse.' },
               { icon: TrendingUp, title: "Planifier l'amortissement", desc: `Situez votre projet par rapport à la durée indicative de ${frRange(facts.systemPaybackYears.plateau, 'ans')} sur le Plateau.` },
             ].map(b => (
               <div key={b.title} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">

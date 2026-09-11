@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { ChevronRight, CheckCircle, ArrowRight, Wrench, Clock, Sun } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
-import { ECONOMIC_FACTS, SOURCE_NOTES, formatChfForLocale, formatRangeForLocale } from '@/lib/facts';
+import { ECONOMIC_FACTS, SOURCE_NOTES, formatRangeForLocale } from '@/lib/facts';
 import FaqSchema from '@/components/FaqSchema';
 
 const baseMetadata: Metadata = {
@@ -261,7 +261,8 @@ export default function InstallerPanneauSolaireSuissePage() {
             <p className="text-orange-800 text-sm leading-relaxed">
               Après déduction de la subvention fédérale (<Link href="/fr/subventions-solaires" className="text-[#fcb210] hover:underline font-medium">rétribution unique RU</Link>), les{' '}
               <Link href="/fr/cout-installation-solaire" className="text-[#fcb210] hover:underline font-medium">coûts</Link>{' '}
-              se réduisent de {formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'fr')} par kWp jusqu&apos;à 30 kWp, plus une contribution de base. En{' '}
+              peuvent être réduits par une rétribution unique calculée individuellement par Pronovo. En{' '}
+              <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-[#fcb210] hover:underline">vérifiant les conditions actuelles auprès de Pronovo</a>,{' '}
               <Link href="/fr/comparateur-photovoltaique-suisse" className="text-[#fcb210] hover:underline font-medium">comparant plusieurs offres</Link>{' '}
               vous pouvez économiser en plus plusieurs milliers de francs.
             </p>

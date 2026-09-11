@@ -7,7 +7,6 @@ import FoerderRechner from '@/components/FoerderRechner';
 import {
   ECONOMIC_FACTS,
   SYSTEM_PRICE_NOTES,
-  formatChf,
   formatRangeForLocale,
   formatSwissNumber,
   getSourceNote,
@@ -31,14 +30,9 @@ export const metadata: Metadata = pageMetadata({
 
 const tableRows = [5, 8, 10].map((size) => {
   const costs = getSystemCostRange(size);
-  const subsidy = size === 10
-    ? ECONOMIC_FACTS.incentives.tenKwpApprox
-    : size * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30;
   return {
     size: `${size} kWp`,
-    foerderung: `ca. ${formatChf(subsidy)}`,
     gesamtkosten: formatRangeForLocale(costs, 'CHF', 'de'),
-    effektiv: `${formatSwissNumber(costs.min - subsidy)} bis ${formatSwissNumber(costs.max - subsidy)} CHF`,
     highlight: size === 8,
   };
 });
@@ -103,9 +97,9 @@ export default function FoerderungenPage() {
               {/* Key stats */}
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30), unit: 'CHF/kWp', label: 'Förderung bis 30 kWp' },
+                  { value: 'Individuell', unit: '', label: 'Berechnung durch Pronovo' },
                   { value: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'Jahre', 'de'), unit: '', label: 'Amortisation' },
-                  { value: formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', 'de'), unit: '', label: 'Bundesanteil' },
+                  { value: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'Jahre', 'de'), unit: '', label: 'Modullebensdauer' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <p className="text-2xl font-bold text-white">{s.value}</p>
@@ -188,31 +182,31 @@ export default function FoerderungenPage() {
               Wie hoch ist die Förderung?
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-              Die RU beträgt bis 30 kWp <strong className="text-gray-800">{formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} pro kWp</strong>, zuzüglich Grundbeitrag.
+              Die Höhe der EIV hängt unter anderem von Inbetriebnahmedatum, Leistung, Anlagentyp und anwendbaren Boni ab. Den aktuellen Betrag berechnet Pronovo individuell.
+              {' '}
+              <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-[#fcb210] hover:underline">EIV bei Pronovo prüfen →</a>
             </p>
           </div>
 
           <div className="max-w-3xl mx-auto">
             {/* Table */}
             <div className="rounded-3xl overflow-hidden shadow-xl border border-gray-100">
-              <div className="grid grid-cols-4 gap-0" style={{ background: 'linear-gradient(135deg, #1a2236, #0d1117)' }}>
-                {['Anlagengrösse', 'Förderung (EIV)', 'Gesamtkosten', 'Effektiv'].map(h => (
+              <div className="grid grid-cols-2 gap-0" style={{ background: 'linear-gradient(135deg, #1a2236, #0d1117)' }}>
+                {['Anlagengrösse', 'Bruttokosten'].map(h => (
                   <div key={h} className="px-5 py-4 text-xs font-bold text-gray-400 uppercase tracking-widest">{h}</div>
                 ))}
               </div>
               {tableRows.map((row) => (
                 <div
                   key={row.size}
-                  className={`grid grid-cols-4 gap-0 border-t transition-colors ${row.highlight ? 'border-orange-100' : 'border-gray-100'}`}
+                   className={`grid grid-cols-2 gap-0 border-t transition-colors ${row.highlight ? 'border-orange-100' : 'border-gray-100'}`}
                   style={row.highlight ? { background: 'linear-gradient(135deg, #fff7ed, #fff5eb)' } : { background: '#fff' }}
                 >
                   <div className="px-5 py-5 font-bold text-gray-900 flex items-center gap-2">
                     {row.highlight && <span className="text-[10px] bg-orange-500 text-white font-bold px-1.5 py-0.5 rounded-full uppercase">Beliebt</span>}
                     {row.size}
                   </div>
-                  <div className="px-5 py-5 font-bold text-[#fcb210]">{row.foerderung}</div>
                   <div className="px-5 py-5 text-gray-600">{row.gesamtkosten}</div>
-                  <div className="px-5 py-5 font-bold text-green-600">{row.effektiv}</div>
                 </div>
               ))}
             </div>
@@ -255,18 +249,10 @@ export default function FoerderungenPage() {
                   <p className="text-gray-700 font-medium">Kosten der Solaranlage (10 kWp)</p>
                   <p className="font-bold text-gray-900">{formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de')}</p>
                 </div>
-                <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-orange-100" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-                  <p className="text-orange-700 font-medium">Einmalvergütung (EIV)</p>
-                  <p className="font-bold text-[#fcb210]">− {formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}</p>
-                </div>
-                <div className="h-px bg-gray-200" />
-                <div className="flex items-center justify-between rounded-2xl px-6 py-5 border-2 border-green-200" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
-                  <div>
-                    <p className="font-bold text-gray-900">Effektive Investition</p>
-                    <p className="text-xs text-green-600 mt-0.5">Nach Abzug der Bundesförderung</p>
-                  </div>
-                  <p className="font-bold text-green-700 text-2xl">{formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox)} bis {formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox)} CHF</p>
-                </div>
+                 <div className="rounded-2xl px-6 py-4 border border-orange-100 bg-orange-50">
+                   <p className="text-orange-700 font-medium">EIV-Betrag</p>
+                   <p className="text-sm text-gray-600 mt-1">Wird für die konkrete Anlage durch <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-[#fcb210] hover:underline">Pronovo berechnet</a>.</p>
+                 </div>
               </div>
             </div>
           </div>

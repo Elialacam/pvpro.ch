@@ -8,14 +8,12 @@ import {
   ECONOMIC_FACTS,
   STORAGE_PRICE_NOTES,
   SYSTEM_PRICE_NOTES,
-  formatChf,
   formatRangeForLocale,
   formatSwissNumber,
   getSourceNote,
 } from '@/lib/facts';
 
 const tenKwpGross = formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de');
-const tenKwpNet = `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox)} CHF`;
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solaranlage Kosten Schweiz – Preise und Förderungen',
@@ -32,7 +30,7 @@ export const metadata: Metadata = pageMetadata({
   },
   openGraph: {
     title: 'Solaranlage Kosten Schweiz – Aktuelle Preise & Förderungen',
-    description: `Aktuelle Preise für Solaranlagen in der Schweiz. 10 kWp kosten brutto ${tenKwpGross} und nach ungefährer RU ${tenKwpNet}.`,
+    description: `Aktuelle Preise für Solaranlagen in der Schweiz. 10 kWp kosten brutto ${tenKwpGross}; die EIV wird individuell durch Pronovo berechnet.`,
     url: 'https://www.pvpro.ch/solaranlage-kosten',
     type: 'article',
     locale: 'de_CH',
@@ -81,7 +79,7 @@ const faqs = [
   },
   {
     question: 'Wie viel kostet eine 10 kW Solaranlage in der Schweiz?',
-    answer: `Eine Photovoltaikanlage mit 10 kWp kostet brutto ${tenKwpGross}. Nach Abzug der ungefähren RU von ${formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)} bleiben ${tenKwpNet}. Im Mittelland produziert sie ${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh Strom pro Jahr.`,
+     answer: `Eine Photovoltaikanlage mit 10 kWp kostet brutto ${tenKwpGross}. Die EIV wird individuell durch Pronovo berechnet. Im Mittelland produziert sie ${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min)} bis ${formatSwissNumber(10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max)} kWh Strom pro Jahr.`,
   },
   {
     question: 'Wie viel Strom produziert eine Solaranlage?',
@@ -101,7 +99,7 @@ const faqs = [
   },
   {
     question: 'Welche Förderungen gibt es für Solaranlagen in der Schweiz?',
-    answer: `In der Schweiz gibt es die RU vom Bund. Sie beträgt bis 30 kWp ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} pro kWp, zuzüglich Grundbeitrag. Zusätzlich bieten Kantone und Gemeinden eigene Förderprogramme.`,
+     answer: 'In der Schweiz gibt es die Einmalvergütung (EIV) des Bundes. Pronovo berechnet den individuellen Betrag anhand der konkreten Anlage und der geltenden Voraussetzungen. Zusätzlich bieten Kantone und Gemeinden eigene Förderprogramme.',
   },
   {
     question: 'Was kostet eine Solaranlage mit Batteriespeicher?',
@@ -278,7 +276,7 @@ export default function SolaranlageKostenPage() {
             <div className="bg-primary-50 rounded-2xl p-8 mb-6">
               <div className="text-4xl font-bold text-primary mb-3">{tenKwpGross}</div>
               <p className="text-gray-700 text-sm">Bruttokosten, ohne Speicher</p>
-              <p className="text-green-700 font-bold mt-3">{tenKwpNet} netto nach ungefährer RU</p>
+              <p className="text-gray-600 mt-3">Ohne Förderabzug. Den individuellen EIV-Beitrag mit dem aktuellen Pronovo-Rechner ermitteln.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 mb-6">
               <div className="flex items-start gap-3">
@@ -405,8 +403,9 @@ export default function SolaranlageKostenPage() {
               <div className="flex items-start gap-4">
                 <PiggyBank className="w-10 h-10 text-primary flex-shrink-0" />
                 <div>
-                  <p className="text-2xl font-bold text-primary mb-1">{formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} pro kWp bis 30 kWp</p>
-                  <p className="text-gray-700">Typische Förderbeträge des Bundes (EIV). Die Höhe hängt von der Anlagengrösse ab.</p>
+                   <p className="text-2xl font-bold text-primary mb-1">Individuelle Berechnung</p>
+                   <p className="text-gray-700">Pronovo berechnet den EIV-Betrag anhand der Anlage und der geltenden Voraussetzungen.</p>
+                   <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-sm font-semibold text-primary hover:underline">Aktuellen Betrag bei Pronovo prüfen →</a>
                 </div>
               </div>
             </div>
@@ -421,16 +420,12 @@ export default function SolaranlageKostenPage() {
                   <span className="text-gray-600">Bruttokosten</span>
                   <span className="font-medium">{tenKwpGross}</span>
                 </div>
-                <div className="flex justify-between text-primary">
-                  <span>– RU Pronovo</span>
-                  <span className="font-medium">– {formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}</span>
-                </div>
                 <div className="border-t border-gray-200 pt-3 flex justify-between">
-                  <span className="font-semibold text-gray-900">Nettokosten nach ungefährer RU</span>
-                  <span className="font-bold text-xl text-primary">{tenKwpNet}</span>
+                   <span className="font-semibold text-gray-900">EIV-Betrag</span>
+                   <span className="font-bold text-primary">durch Pronovo berechnet</span>
                 </div>
               </div>
-              <p className="text-xs text-gray-400 mt-3">Richtwert. Tatsächliche Förderungen je nach Kanton und Anlagengrösse.</p>
+               <p className="text-xs text-gray-400 mt-3">Bruttokosten-Richtwert. Der tatsächliche EIV-Betrag wird für jede Anlage durch Pronovo berechnet.</p>
             </div>
           </div>
         </div>

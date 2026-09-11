@@ -12,8 +12,8 @@ function factRange(range: NumericRange, locale: FactsLocale): string {
 }
 
 const afterFederalSubsidy5kw = {
-  min: ECONOMIC_FACTS.systemCosts.bySize[5].min - 5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30,
-  max: ECONOMIC_FACTS.systemCosts.bySize[5].max - 5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30,
+  min: ECONOMIC_FACTS.systemCosts.bySize[5].min,
+  max: ECONOMIC_FACTS.systemCosts.bySize[5].max,
 };
 
 
@@ -65,7 +65,7 @@ export const cityContentsIT: Record<string, CityContent> = {
       programs: [
         {
           name: 'Rimunerazione Unica Federale (RU)',
-          amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF per kWp`,
+          amount: 'Secondo il modello di calcolo Pronovo vigente',
           description: 'Costi, produzione e redditività in Lugano dipendono dall’edificio, dal dimensionamento e dall’autoconsumo.'
         },
         {

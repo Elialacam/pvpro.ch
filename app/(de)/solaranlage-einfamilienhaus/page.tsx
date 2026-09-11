@@ -4,7 +4,7 @@ import { ChevronRight, Sun, CheckCircle2, Home, Ruler, Cpu, Wrench, ArrowRight }
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import EinfamilienhausRechner, { EinfamilienhausFaq } from '@/components/EinfamilienhausRechner';
-import { ECONOMIC_FACTS, SYSTEM_PRICE_NOTES, formatChf, formatRangeForLocale, formatSwissNumber, getSourceNote } from '@/lib/facts';
+import { ECONOMIC_FACTS, SYSTEM_PRICE_NOTES, formatRangeForLocale, formatSwissNumber, getSourceNote } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solaranlage Einfamilienhaus Schweiz: Kosten, Grösse und Vorteile | PvPro.ch',
@@ -27,12 +27,10 @@ const costRows = [
   { size: 'Grössere Anlage (10–15 kWp)', price: `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[15].max)} CHF`, highlight: false },
 ];
 
-const exampleRows = [
+const exampleRows: { label: string; value: string; highlight?: boolean }[] = [
   { label: 'Dachfläche', value: `${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²` },
   { label: 'Leistung', value: '10 kWp' },
   { label: 'Bruttokosten', value: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de') },
-  { label: 'Förderung RU', value: `ca. ${formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}` },
-  { label: 'Nettokosten nach ungefährer RU', value: `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox)} CHF`, highlight: true },
 ];
 
 const factors = [
@@ -133,7 +131,7 @@ export default function SolaranlageEinfamilienhausPage() {
             <p className="text-gray-500 leading-relaxed mb-6">
               Für eine typische 10-kWp-Anlage mit rund {formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m² Dachfläche sind Investitionen von{' '}
               <strong className="text-gray-800">{formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de')}</strong> realistisch.
-              Nach Förderungen und Steuerabzügen kann der effektive Preis deutlich tiefer liegen.
+               Die Bruttokosten dienen als Richtwert; Förderungen und Steuerabzüge werden separat und individuell beurteilt.
             </p>
             <div className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
               <div className="grid grid-cols-2 bg-gray-50 px-5 py-3 text-xs font-bold text-gray-400 uppercase tracking-wider">
@@ -200,7 +198,7 @@ export default function SolaranlageEinfamilienhausPage() {
               Lohnt sich eine Solaranlage für ein Einfamilienhaus?
             </h2>
             <p className="text-gray-500 leading-relaxed mb-6">
-              Ja, in den meisten Fällen lohnt sich eine Photovoltaikanlage langfristig. Durch Eigenverbrauch und Förderungen amortisiert sich die Anlage über die Jahre.
+               Ja, in den meisten Fällen lohnt sich eine Photovoltaikanlage langfristig. Durch Eigenverbrauch und Einsparungen amortisiert sich die Anlage über die Jahre.
             </p>
             <p className="text-gray-500 text-sm leading-relaxed mb-4">
               <Link href="/blog/lohnt-sich-solaranlage-schweiz-2026" className="text-[#fcb210] hover:underline font-medium">Lohnt sich Solar für Ihr Haus?</Link>
@@ -231,11 +229,13 @@ export default function SolaranlageEinfamilienhausPage() {
                 Förderungen für Solaranlagen in der Schweiz
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6">
-                Für eine 10-kWp-Anlage entspricht die RU ungefähr <strong className="text-gray-800">{formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}</strong>. Dazu kommen kantonale Förderungen und Steuerabzüge.
+                 Die Einmalvergütung wird für jede Anlage individuell von Pronovo berechnet. Zusätzlich können kantonale Förderungen und Steuerabzüge gelten.
+                 {' '}
+                 <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-[#fcb210] hover:underline">Aktuelle Angaben bei Pronovo prüfen →</a>
               </p>
               <div className="space-y-3">
                 {[
-                  `RU vom Bund bis 30 kWp: ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} pro kWp, zuzüglich Grundbeitrag`,
+                   'Einmalvergütung: individueller Betrag gemäss Pronovo',
                   'Zusätzliche kantonale Förderprogramme',
                   'Steuerliche Abzüge auf Bundesebene',
                 ].map((item) => (
@@ -252,10 +252,9 @@ export default function SolaranlageEinfamilienhausPage() {
             <div className="space-y-3">
               {[
                 { label: 'Bruttoinvestition (10 kWp)', value: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF', 'de'), color: 'text-gray-800' },
-                { label: 'Bundesförderung RU', value: `– ${formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox)}`, color: 'text-green-600' },
                 { label: 'Kantonale Förderung', value: 'variiert', color: 'text-green-600' },
                 { label: 'Steuerabzüge', value: 'variiert', color: 'text-green-600' },
-                { label: 'Nettokosten nach ungefährer RU', value: `${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox)} bis ${formatSwissNumber(ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox)} CHF`, color: 'text-[#fcb210]', highlight: true },
+                 { label: 'EIV-Betrag', value: 'durch Pronovo berechnet', color: 'text-[#fcb210]', highlight: true },
               ].map((row, i) => (
                 <div key={row.label} className={`flex justify-between items-center px-5 py-3.5 rounded-xl ${row.highlight ? 'bg-orange-50 border border-orange-100' : 'bg-white border border-gray-100'}`}>
                   <span className={`text-sm ${row.highlight ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>

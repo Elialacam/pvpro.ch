@@ -7,7 +7,6 @@ import {
   ECONOMIC_FACTS,
   SOURCE_NOTES,
   SYSTEM_PRICE_NOTES,
-  calculatePronovoVariableContribution,
   formatSwissNumber,
   getSystemCostRange,
 } from '@/lib/facts';
@@ -107,15 +106,13 @@ export default function MehrfamilienhausRechner() {
   const { lo, hi } = priceRange(s.kwpMin, s.kwpMax);
   const m2Min = Math.round(s.kwpMin * ECONOMIC_FACTS.roofAreaM2PerKwp);
   const m2Max = Math.round(s.kwpMax * ECONOMIC_FACTS.roofAreaM2PerKwp);
-  const averageSize = (s.kwpMin + s.kwpMax) / 2;
-  const foerderung = calculatePronovoVariableContribution(averageSize);
   const prodMin = s.kwpMin * ECONOMIC_FACTS.production.plateauKwhPerKwp.min;
   const prodMax = s.kwpMax * ECONOMIC_FACTS.production.plateauKwhPerKwp.max;
 
   const L = {
-    de: { title: 'ZEV-Rechner', header: 'Wie gross sollte die Anlage sein?', sub: 'Wählen Sie die Anzahl Wohnungen im Gebäude.', anzahl: 'Anzahl Wohnungen', groesse: 'Anlagengrösse (kWp)', empfehlung: (w: number) => `Empfehlung für ${w} Wohnungen`, size: 'Anlagengrösse', flaeche: 'Dachfläche', investition: 'Investition', produktion: 'Jahresproduktion', richtwerte: 'Richtwerte. Individuelle Offerte empfohlen.', foerderung: `EIV-Förderung: ca. ${fmt(foerderung)} CHF` },
-    it: { title: 'CEL-Calcolatore', header: 'Quanto deve essere grande l\'impianto?', sub: 'Seleziona il numero di appartamenti nell\'edificio.', anzahl: 'Numero appartamenti', groesse: 'Dimensione impianto (kWp)', empfehlung: (w: number) => `Raccomandazione per ${w} appartamenti`, size: 'Dimensione impianto', flaeche: 'Superficie tetto', investition: 'Investimento', produktion: 'Produzione annua', richtwerte: 'Valori indicativi. Preventivo individuale consigliato.', foerderung: `Incentivo EIV: ca. ${fmt(foerderung)} CHF` },
-    fr: { title: 'Calculateur RCP', header: 'Quelle taille pour l\'installation ?', sub: 'Sélectionnez le nombre d\'appartements dans l\'immeuble.', anzahl: 'Nombre d\'appartements', groesse: 'Taille installation (kWc)', empfehlung: (w: number) => `Recommandation pour ${w} appartements`, size: 'Taille installation', flaeche: 'Surface toiture', investition: 'Investissement', produktion: 'Production annuelle', richtwerte: 'Valeurs indicatives. Devis individuel recommandé.', foerderung: `Subvention EIV: env. ${fmt(foerderung)} CHF` },
+     de: { title: 'ZEV-Rechner', header: 'Wie gross sollte die Anlage sein?', sub: 'Wählen Sie die Anzahl Wohnungen im Gebäude.', anzahl: 'Anzahl Wohnungen', groesse: 'Anlagengrösse (kWp)', empfehlung: (w: number) => `Empfehlung für ${w} Wohnungen`, size: 'Anlagengrösse', flaeche: 'Dachfläche', investition: 'Bruttokosten', produktion: 'Jahresproduktion', richtwerte: 'Richtwerte. Individuelle Offerte empfohlen; die Einmalvergütung wird durch Pronovo berechnet.' },
+     it: { title: 'CEL-Calcolatore', header: 'Quanto deve essere grande l\'impianto?', sub: 'Seleziona il numero di appartamenti nell\'edificio.', anzahl: 'Numero appartamenti', groesse: 'Dimensione impianto (kWp)', empfehlung: (w: number) => `Raccomandazione per ${w} appartamenti`, size: 'Dimensione impianto', flaeche: 'Superficie tetto', investition: 'Costi lordi', produktion: 'Produzione annua', richtwerte: 'Valori indicativi. Preventivo individuale consigliato; la rimunerazione unica viene calcolata da Pronovo.' },
+     fr: { title: 'Calculateur RCP', header: 'Quelle taille pour l\'installation ?', sub: 'Sélectionnez le nombre d\'appartements dans l\'immeuble.', anzahl: 'Nombre d\'appartements', groesse: 'Taille installation (kWc)', empfehlung: (w: number) => `Recommandation pour ${w} appartements`, size: 'Taille installation', flaeche: 'Surface toiture', investition: 'Coûts bruts', produktion: 'Production annuelle', richtwerte: 'Valeurs indicatives. Devis individuel recommandé; la rétribution unique est calculée par Pronovo.' },
   };
   const lab = L[locale as 'de' | 'it' | 'fr'] || L.de;
 
@@ -174,7 +171,6 @@ export default function MehrfamilienhausRechner() {
           </div>
           <div className="mt-4 flex items-center justify-between text-xs text-gray-400">
             <span>{lab.richtwerte}</span>
-            <span className="font-semibold text-green-600">{lab.foerderung}</span>
           </div>
           <p className="text-xs text-gray-400 mt-2">{SOURCE_NOTES[locale as 'de' | 'it' | 'fr'] || SOURCE_NOTES.de}</p>
           <p className="text-xs text-gray-400 mt-2">{SYSTEM_PRICE_NOTES[locale as 'de' | 'it' | 'fr'] || SYSTEM_PRICE_NOTES.de}</p>

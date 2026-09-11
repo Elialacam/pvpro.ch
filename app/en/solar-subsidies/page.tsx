@@ -4,7 +4,7 @@ import { ChevronRight, CheckCircle, Info, ArrowRight } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FoerderRechner from '@/components/FoerderRechner';
-import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatChfForLocale, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar Subsidies in Switzerland 2026 | PvPro.ch',
@@ -22,9 +22,9 @@ export const metadata: Metadata = pageMetadata({
 }, { path: '/en/solar-subsidies', locale: 'en' });
 
 const tableRows = [
-  { size: '5 kWp',  subsidy: formatChfForLocale(5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en'), total: formatRangeForLocale(getSystemCostRange(5), 'CHF', 'en') },
-  { size: '8 kWp',  subsidy: formatChfForLocale(8 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en'), total: formatRangeForLocale(getSystemCostRange(8), 'CHF', 'en'), highlight: true },
-  { size: '10 kWp', subsidy: formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en'), total: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en') },
+  { size: '5 kWp', total: formatRangeForLocale(getSystemCostRange(5), 'CHF', 'en') },
+  { size: '8 kWp', total: formatRangeForLocale(getSystemCostRange(8), 'CHF', 'en'), highlight: true },
+  { size: '10 kWp', total: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en') },
 ];
 
 const processSteps = [
@@ -60,9 +60,9 @@ export default function SolarSubsidiesPage() {
               </p>
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: String(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30), unit: 'CHF/kWp', label: 'Subsidy' },
+                  { value: 'Individual', unit: '', label: 'Calculated by Pronovo' },
                   { value: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en'), unit: '', label: 'Payback on the Plateau' },
-                  { value: formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', 'en'), unit: '', label: 'Federal share' },
+                  { value: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en'), unit: '', label: 'Module lifespan' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <p className="text-2xl font-bold text-white">{s.value}</p>
@@ -121,24 +121,25 @@ export default function SolarSubsidiesPage() {
             <p className="text-sm font-semibold text-[#fcb210] uppercase tracking-widest mb-3">Subsidy overview</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">How much is the subsidy?</h2>
             <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-              Pronovo pays <strong className="text-gray-800">{formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')} per kWp</strong> up to 30 kWp, plus a base contribution.
+              The OTP amount depends on commissioning date, system size, system type and any applicable bonuses. Pronovo calculates it for each installation.
+              {' '}
+              <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-[#fcb210] hover:underline">Check with Pronovo →</a>
             </p>
           </div>
           <div className="max-w-3xl mx-auto">
             <div className="rounded-3xl overflow-hidden shadow-xl border border-gray-100">
-              <div className="grid grid-cols-4 gap-0" style={{ background: 'linear-gradient(135deg, #1a2236, #0d1117)' }}>
-                {['System size', 'Subsidy (OTP)', 'Gross cost'].map(h => (
+               <div className="grid grid-cols-2 gap-0" style={{ background: 'linear-gradient(135deg, #1a2236, #0d1117)' }}>
+                 {['System size', 'Gross cost'].map(h => (
                   <div key={h} className="px-5 py-4 text-xs font-bold text-gray-400 uppercase tracking-widest">{h}</div>
                 ))}
               </div>
               {tableRows.map((row) => (
-                <div key={row.size} className={`grid grid-cols-3 gap-0 border-t ${row.highlight ? 'border-orange-100' : 'border-gray-100'}`}
+                 <div key={row.size} className={`grid grid-cols-2 gap-0 border-t ${row.highlight ? 'border-orange-100' : 'border-gray-100'}`}
                   style={row.highlight ? { background: 'linear-gradient(135deg, #fff7ed, #fff5eb)' } : { background: '#fff' }}>
                   <div className="px-5 py-5 font-bold text-gray-900 flex items-center gap-2">
                     {row.highlight && <span className="text-[10px] bg-orange-500 text-white font-bold px-1.5 py-0.5 rounded-full uppercase">Popular</span>}
                     {row.size}
                   </div>
-                  <div className="px-5 py-5 font-bold text-[#fcb210]">{row.subsidy}</div>
                   <div className="px-5 py-5 text-gray-600">{row.total}</div>
                 </div>
               ))}
@@ -208,18 +209,10 @@ export default function SolarSubsidiesPage() {
                   <p className="text-gray-700 font-medium">Solar installation cost (10 kWp)</p>
                    <p className="font-bold text-gray-900">{formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')}</p>
                 </div>
-                <div className="flex items-center justify-between rounded-2xl px-6 py-4 border border-orange-100" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-                  <p className="text-orange-700 font-medium">One-time payment (OTP)</p>
-                   <p className="font-bold text-[#fcb210]">− {formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en')}</p>
-                </div>
-                <div className="h-px bg-gray-200" />
-                <div className="flex items-center justify-between rounded-2xl px-6 py-5 border-2 border-green-200" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
-                  <div>
-                    <p className="font-bold text-gray-900">Effective investment</p>
-                    <p className="text-xs text-green-600 mt-0.5">After deducting the federal subsidy</p>
-                  </div>
-                   <p className="font-bold text-green-700 text-2xl">{formatRangeForLocale({ min: getSystemCostRange(10).min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: getSystemCostRange(10).max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF', 'en')}</p>
-                </div>
+                 <div className="rounded-2xl px-6 py-4 border border-orange-100 bg-orange-50">
+                   <p className="text-orange-700 font-medium">OTP amount</p>
+                   <p className="text-sm text-gray-600 mt-1">Calculated for the specific installation by <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-[#fcb210] hover:underline">Pronovo</a>.</p>
+                 </div>
               </div>
             </div>
           </div>

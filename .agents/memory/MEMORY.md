@@ -10,3 +10,4 @@
 - [Language selector fallbacks](language-selector-fallbacks.md) — use exact SEO equivalents when available; missing translations fall back to locale homes only in the UI, never in hreflang.
 - [Approved service and tax claims](approved-claims.md) — free/100% free is valid for homeowners; tax deduction means taxable income on existing buildings, not new builds.
 - [Canton content boundaries](canton-content-boundaries.md) — expanded coverage uses neutral guidance; do not copy another Canton's local financial or installer claims.
+- [Incentive calculation boundaries](incentive-calculation-boundaries.md) — prefer gross estimates and official calculation over incomplete subsidy formulas; cumulative aid needs programme-specific evidence.

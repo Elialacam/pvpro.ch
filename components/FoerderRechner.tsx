@@ -6,7 +6,6 @@ import { Zap } from 'lucide-react';
 import {
   SOURCE_NOTES,
   SYSTEM_PRICE_NOTES,
-  calculatePronovoVariableContribution,
   formatSwissNumber,
   getSystemCostRange,
 } from '@/lib/facts';
@@ -14,51 +13,35 @@ import {
 const translations = {
   de: {
     title: 'Förderrechner',
-    subtitle: 'Berechnen Sie Ihre geschätzte Einmalvergütung',
+    subtitle: 'Orientierung für die Bruttokosten',
     systemSizeLabel: 'Anlagengrösse',
-    estimatedLabel: 'Geschätzte Förderung',
-    totalCostsLabel: 'Gesamtkosten',
-    subsidyLabel: 'Förderung',
-    effectiveLabel: 'Effektiv',
-    coveragePrefix: 'Förderung deckt',
-    coverageSuffix: '% der Kosten',
-    disclaimer: 'Die Einmalvergütung enthält zusätzlich einen Grundbeitrag.',
+    estimatedLabel: 'Bruttopreis',
+    pronovoLink: 'Förderbeitrag bei Pronovo berechnen →',
+    disclaimer: 'Die Bruttokosten enthalten keine automatisch abgezogene Förderung.',
   },
   fr: {
     title: 'Calculateur de subvention',
-    subtitle: 'Calculez votre rétribution unique estimée',
+    subtitle: 'Repère pour les coûts bruts',
     systemSizeLabel: "Taille de l'installation",
-    estimatedLabel: 'Subvention estimée',
-    totalCostsLabel: 'Coûts totaux',
-    subsidyLabel: 'Subvention',
-    effectiveLabel: 'Net',
-    coveragePrefix: 'La subvention couvre',
-    coverageSuffix: '% des coûts',
-    disclaimer: 'La rétribution unique comprend aussi une contribution de base.',
+    estimatedLabel: 'Prix brut',
+    pronovoLink: 'L’aide est calculée par Pronovo →',
+    disclaimer: 'Les coûts bruts n’intègrent aucune déduction automatique de subvention.',
   },
   en: {
     title: 'Subsidy Calculator',
-    subtitle: 'Calculate your estimated one-time payment',
+    subtitle: 'Gross-cost orientation',
     systemSizeLabel: 'System size',
-    estimatedLabel: 'Estimated subsidy',
-    totalCostsLabel: 'Total costs',
-    subsidyLabel: 'Subsidy',
-    effectiveLabel: 'Net',
-    coveragePrefix: 'Subsidy covers',
-    coverageSuffix: '% of costs',
-    disclaimer: 'The one-time payment also includes a basic contribution.',
+    estimatedLabel: 'Gross price',
+    pronovoLink: 'Incentive calculated by Pronovo →',
+    disclaimer: 'Gross costs do not include an automatic subsidy deduction.',
   },
   it: {
     title: 'Calcolatore incentivi',
-    subtitle: 'Calcola la tua remunerazione unica stimata',
+    subtitle: 'Indicazione dei costi lordi',
     systemSizeLabel: 'Dimensione impianto',
-    estimatedLabel: 'Incentivo stimato',
-    totalCostsLabel: 'Costi totali',
-    subsidyLabel: 'Incentivo',
-    effectiveLabel: 'Netto',
-    coveragePrefix: "L'incentivo copre il",
-    coverageSuffix: '% dei costi',
-    disclaimer: 'La rimunerazione unica comprende anche un contributo di base.',
+    estimatedLabel: 'Prezzo lordo',
+    pronovoLink: 'L’incentivo viene calcolato da Pronovo →',
+    disclaimer: 'I costi lordi non includono alcuna deduzione automatica dell’incentivo.',
   },
 } as const;
 
@@ -76,13 +59,7 @@ export default function FoerderRechner() {
 
   const [kwp, setKwp] = useState(8);
 
-  const foerderung = calculatePronovoVariableContribution(kwp);
   const gesamtkosten = getSystemCostRange(kwp);
-  const nachFoerderung = {
-    min: Math.max(0, gesamtkosten.min - foerderung),
-    max: Math.max(0, gesamtkosten.max - foerderung),
-  };
-  const prozent = Math.round((foerderung / gesamtkosten.max) * 100);
 
   return (
     <div className="rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
@@ -104,7 +81,7 @@ export default function FoerderRechner() {
           </div>
           <div className="text-right">
             <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">{tx.estimatedLabel}</p>
-            <p className="text-3xl font-bold text-[#fcb210]">CHF {formatSwissNumber(foerderung, 0)}</p>
+            <p className="text-3xl font-bold text-[#fcb210]">CHF {formatSwissNumber(gesamtkosten.min, 0)}–{formatSwissNumber(gesamtkosten.max, 0)}</p>
           </div>
         </div>
 
@@ -123,32 +100,15 @@ export default function FoerderRechner() {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
-          <div className="rounded-2xl p-4 text-center" style={{ background: '#f9fafb' }}>
-            <p className="text-xs text-gray-400 mb-1">{tx.totalCostsLabel}</p>
-            <p className="font-bold text-gray-800 text-lg">CHF {formatSwissNumber(gesamtkosten.min, 0)}–{formatSwissNumber(gesamtkosten.max, 0)}</p>
-          </div>
-          <div className="rounded-2xl p-4 text-center" style={{ background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
-            <p className="text-xs text-orange-400 font-semibold mb-1">{tx.subsidyLabel}</p>
-            <p className="font-bold text-[#fcb210] text-lg">− CHF {formatSwissNumber(foerderung, 0)}</p>
-          </div>
-          <div className="rounded-2xl p-4 text-center" style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)' }}>
-            <p className="text-xs text-green-500 font-semibold mb-1">{tx.effectiveLabel}</p>
-            <p className="font-bold text-green-700 text-lg">CHF {formatSwissNumber(nachFoerderung.min, 0)}–{formatSwissNumber(nachFoerderung.max, 0)}</p>
-          </div>
-        </div>
-
-        <div className="mt-6">
-          <div className="flex justify-between text-xs text-gray-500 mb-1.5">
-            <span>{tx.coveragePrefix} {prozent}{tx.coverageSuffix}</span>
-            <span>{prozent}%</span>
-          </div>
-          <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-            <div
-              className="h-full rounded-full transition-all duration-500"
-              style={{ width: `${prozent}%`, background: 'linear-gradient(to right, #ffc812, #fcb210)' }}
-            />
-          </div>
+        <div className="mt-6 text-center">
+          <a
+            href="https://pronovo.ch/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm font-semibold text-[#fcb210] hover:underline"
+          >
+            {tx.pronovoLink}
+          </a>
         </div>
 
         <p className="text-xs text-gray-400 mt-4 text-center">{tx.disclaimer}</p>

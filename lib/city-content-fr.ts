@@ -12,8 +12,8 @@ function factRange(range: NumericRange, locale: FactsLocale): string {
 }
 
 const afterFederalSubsidy5kw = {
-  min: ECONOMIC_FACTS.systemCosts.bySize[5].min - 5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30,
-  max: ECONOMIC_FACTS.systemCosts.bySize[5].max - 5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30,
+  min: ECONOMIC_FACTS.systemCosts.bySize[5].min,
+  max: ECONOMIC_FACTS.systemCosts.bySize[5].max,
 };
 
 
@@ -65,7 +65,7 @@ export const cityContentsFR: Record<string, CityContent> = {
       programs: [
         {
           name: 'Rétribution Unique Fédérale (RU)',
-          amount: `${formatSwissNumber(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 0)} CHF par kWc`,
+          amount: 'Selon le modèle de calcul Pronovo en vigueur',
           description: 'Les coûts, la production et la rentabilité à Genève dépendent du bâtiment, du dimensionnement et de l’autoconsommation.'
         },
         {

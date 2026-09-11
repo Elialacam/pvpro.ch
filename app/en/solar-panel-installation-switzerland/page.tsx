@@ -4,7 +4,7 @@ import { ChevronRight, CheckCircle, ArrowRight, Wrench, Clock, Sun } from 'lucid
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import FaqSchema from '@/components/FaqSchema';
-import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatChfForLocale, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Solar Panel Installation Switzerland 2026 – Providers & Costs | PvPro.ch',
@@ -262,7 +262,8 @@ export default function SolarPanelInstallationSwitzerlandPage() {
             <p className="text-orange-800 text-sm leading-relaxed">
               After deducting the federal subsidy (<Link href="/en/solar-subsidies" className="text-[#fcb210] hover:underline font-medium">one-time remuneration OUR</Link>), the{' '}
               <Link href="/en/solar-panel-costs" className="text-[#fcb210] hover:underline font-medium">costs</Link>{' '}
-               are reduced by {formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')} per kWp up to 30 kWp, plus the base contribution. By{' '}
+               may be reduced by an individually calculated one-time payment from Pronovo. By{' '}
+               <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-[#fcb210] hover:underline">checking current eligibility with Pronovo</a>,{' '}
               <Link href="/en/solar-comparison-portal-switzerland" className="text-[#fcb210] hover:underline font-medium">comparing multiple quotes</Link>{' '}
               you can save several thousand francs more.
             </p>

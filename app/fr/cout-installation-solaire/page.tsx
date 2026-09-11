@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
 import FaqSchema from '@/components/FaqSchema';
-import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, STORAGE_PRICE_NOTES, formatChfForLocale, formatRangeForLocale } from '@/lib/facts';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, STORAGE_PRICE_NOTES, formatRangeForLocale } from '@/lib/facts';
 
 const facts = ECONOMIC_FACTS;
 const frRange = (range: { min: number; max: number }, unit: string) => formatRangeForLocale(range, unit, 'fr');
@@ -83,7 +83,7 @@ const faqs = [
   },
   {
     question: "Combien coûte une installation solaire de 10 kW en Suisse ?",
-    answer: `Une installation photovoltaïque de 10 kWp coûte ${frRange(facts.systemCosts.bySize[10], 'CHF')}. La RU est d'environ ${formatChfForLocale(facts.incentives.tenKwpApprox, 'fr')}. Sur le Plateau, elle produit ${frRange(annualProduction(10), 'kWh')} par an.`,
+    answer: `Une installation photovoltaïque de 10 kWp coûte ${frRange(facts.systemCosts.bySize[10], 'CHF')}. La RU est calculée individuellement par Pronovo. Sur le Plateau, elle produit ${frRange(annualProduction(10), 'kWh')} par an.`,
   },
   {
     question: "Quelle quantité d'électricité produit une installation solaire ?",
@@ -103,7 +103,7 @@ const faqs = [
   },
   {
     question: "Quelles subventions existent pour les installations solaires en Suisse ?",
-    answer: `La RU Pronovo est de ${formatChfForLocale(facts.incentives.pronovoPerKwpUpTo30, 'fr')} par kWp jusqu'à 30 kWp, plus une contribution de base.`,
+    answer: 'La rétribution unique (RU) est calculée individuellement par Pronovo selon l’installation et les conditions applicables. Consultez pronovo.ch pour les informations actuelles.',
   },
   {
     question: "Combien coûte une installation solaire avec stockage par batterie ?",
@@ -393,8 +393,9 @@ export default function CoutInstallationSolairePage() {
               <div className="flex items-start gap-4">
                 <PiggyBank className="w-10 h-10 text-primary flex-shrink-0" />
                 <div>
-                   <p className="text-2xl font-bold text-primary mb-1">{formatChfForLocale(facts.incentives.pronovoPerKwpUpTo30, 'fr')} par kWp</p>
-                  <p className="text-gray-700">Montants de subvention typiques de la Confédération (RU). Le montant dépend de la taille de l'installation.</p>
+                   <p className="text-2xl font-bold text-primary mb-1">Calcul individuel</p>
+                   <p className="text-gray-700">Pronovo calcule le montant de la RU selon l’installation et les conditions applicables.</p>
+                   <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-sm font-semibold text-primary hover:underline">Vérifier le montant auprès de Pronovo →</a>
                 </div>
               </div>
             </div>
@@ -409,16 +410,12 @@ export default function CoutInstallationSolairePage() {
                   <span className="text-gray-600">Coût brut</span>
                    <span className="font-medium">{frRange(facts.systemCosts.bySize[10], 'CHF')}</span>
                 </div>
-                <div className="flex justify-between text-primary">
-                   <span>– Rétribution unique RU</span>
-                   <span className="font-medium">– {formatChfForLocale(facts.incentives.tenKwpApprox, 'fr')}</span>
-                </div>
                 <div className="border-t border-gray-200 pt-3 flex justify-between">
-                  <span className="font-semibold text-gray-900">Coût effectif (exemple)</span>
-                   <span className="font-bold text-xl text-primary">{frRange({ min: facts.systemCosts.bySize[10].min - facts.incentives.tenKwpApprox, max: facts.systemCosts.bySize[10].max - facts.incentives.tenKwpApprox }, 'CHF')}</span>
+                   <span className="font-semibold text-gray-900">Montant RU</span>
+                    <span className="font-bold text-primary">calculé par Pronovo</span>
                 </div>
               </div>
-              <p className="text-xs text-gray-400 mt-3">Valeur indicative. Subventions réelles selon le canton et la taille de l'installation.</p>
+               <p className="text-xs text-gray-400 mt-3">Référence de coûts bruts. Le montant réel de la RU est calculé par Pronovo pour chaque installation.</p>
             </div>
           </div>
         </div>

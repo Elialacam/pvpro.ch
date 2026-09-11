@@ -265,7 +265,8 @@ export default function InstallareImpiantoSolareSvizzeraPage() {
             <p className="text-orange-800 text-sm leading-relaxed">
               Dopo la detrazione del sussidio federale (<Link href="/it/incentivi-solari" className="text-[#fcb210] hover:underline font-medium">rimunerazione unica RU</Link>), i{' '}
               <Link href="/it/costi-impianto-solare" className="text-[#fcb210] hover:underline font-medium">costi</Link>{' '}
-              si riducono di {ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30} CHF per kWp fino a 30 kWp, più il contributo base. Confrontando{' '}
+              possono beneficiare di una rimunerazione unica calcolata individualmente da Pronovo. Verifica le condizioni su{' '}
+              <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-[#fcb210] hover:underline">pronovo.ch</a>. Confrontando{' '}
               <Link href="/it/comparatore-fotovoltaico-svizzera" className="text-[#fcb210] hover:underline font-medium">più preventivi</Link>{' '}
               potete risparmiare ulteriormente migliaia di franchi.
             </p>

@@ -8,7 +8,7 @@ import {
   Sun, Home, Battery, ArrowRight, ChevronRight, AlertCircle,
 } from 'lucide-react';
 import FaqSchema from '@/components/FaqSchema';
-import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, calculateAnnualSolarValueRange, formatChfForLocale, formatRangeForLocale, formatSwissNumber, getSystemCostRange } from '@/lib/facts';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, calculateAnnualSolarValueRange, formatRangeForLocale, formatSwissNumber, getSystemCostRange } from '@/lib/facts';
 
 const annualValue10Kwp = {
   min: calculateAnnualSolarValueRange(
@@ -55,7 +55,7 @@ const faqs = [
   },
   {
     question: 'What is the one-time payment (OTP) subsidy?',
-    answer: `Pronovo pays ${formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')} per kWp up to 30 kWp, plus a base contribution. The federal share is ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', 'en')} without storage.`,
+    answer: 'The federal one-time payment is calculated individually by Pronovo based on the installation and applicable conditions. Check pronovo.ch for current eligibility and amounts.',
   },
   {
     question: 'What is the typical payback period in Switzerland?',
@@ -82,8 +82,6 @@ const systemSizes = [
     flaeche: `${formatSwissNumber(6 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`,
     jahresertrag: formatRangeForLocale({ min: 6 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 6 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh', 'en'),
     kosten: formatRangeForLocale(getSystemCostRange(6), 'CHF', 'en'),
-    foerderung: formatChfForLocale(6 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en'),
-    nettokosten: formatRangeForLocale({ min: getSystemCostRange(6).min - 6 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, max: getSystemCostRange(6).max - 6 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30 }, 'CHF', 'en'),
     amort: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en'),
     haushalt: '2 people / apartment',
     color: 'border-blue-200 bg-blue-50',
@@ -95,8 +93,6 @@ const systemSizes = [
     flaeche: `${formatSwissNumber(10 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`,
     jahresertrag: formatRangeForLocale({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh', 'en'),
     kosten: formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en'),
-    foerderung: formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en'),
-    nettokosten: formatRangeForLocale({ min: getSystemCostRange(10).min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: getSystemCostRange(10).max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF', 'en'),
     amort: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en'),
     haushalt: '3–4 people / detached house',
     color: 'border-[#fcb210]/30 bg-orange-50',
@@ -109,8 +105,6 @@ const systemSizes = [
     flaeche: `${formatSwissNumber(15 * ECONOMIC_FACTS.roofAreaM2PerKwp)} m²`,
     jahresertrag: formatRangeForLocale({ min: 15 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 15 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh', 'en'),
     kosten: formatRangeForLocale(getSystemCostRange(15), 'CHF', 'en'),
-    foerderung: formatChfForLocale(15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en'),
-    nettokosten: formatRangeForLocale({ min: getSystemCostRange(15).min - 15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, max: getSystemCostRange(15).max - 15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30 }, 'CHF', 'en'),
     amort: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en'),
     haushalt: 'Large family / apartment building',
     color: 'border-green-200 bg-green-50',
@@ -161,7 +155,7 @@ const richtigValues = [
   { label: 'Annual yield per kWp on the Plateau', value: formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh', 'en') },
   { label: 'Roof area per kWp', value: `${ECONOMIC_FACTS.roofAreaM2PerKwp} m²` },
   { label: 'Installation cost per kWp', value: formatRangeForLocale(ECONOMIC_FACTS.systemCosts.perKwp, 'CHF', 'en') },
-  { label: 'Federal OTP subsidy per kWp', value: formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en') },
+  { label: 'Federal OTP subsidy', value: 'Calculated individually by Pronovo' },
   { label: 'Self-consumption without storage', value: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%', 'en') },
   { label: 'Self-consumption with storage', value: formatRangeForLocale(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%', 'en') },
   { label: 'Solar module lifespan', value: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en') },
@@ -230,7 +224,7 @@ export default function SolarCalculatorPage() {
               {[
                 { val: formatRangeForLocale(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh/kWp/year', 'en'), unit: '', label: 'Swiss Plateau' },
                 { val: formatRangeForLocale(ECONOMIC_FACTS.systemPaybackYears.plateau, 'years', 'en'), unit: '', label: 'Payback on the Plateau' },
-                { val: formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en'), unit: '/kWp', label: 'Federal OTP subsidy' },
+                { val: 'Individual', unit: '', label: 'Federal OTP amount (Pronovo)' },
                 { val: formatRangeForLocale(ECONOMIC_FACTS.moduleLifetimeYears, 'years', 'en'), unit: '', label: 'Module lifespan' },
               ].map(s => (
                 <div key={s.label} className="bg-white/8 border border-white/10 rounded-2xl p-5">
@@ -250,7 +244,7 @@ export default function SolarCalculatorPage() {
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Your personal solar potential</h2>
             <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
-              Enter your available roof area (approximately) and your annual electricity consumption. The calculator is based on Swiss average values and the OTP subsidy.
+               Enter your available roof area (approximately) and your annual electricity consumption. The calculator is based on Swiss average values and shows gross costs before any subsidy.
             </p>
           </div>
           <div className="max-w-xl mx-auto">
@@ -304,13 +298,9 @@ export default function SolarCalculatorPage() {
                     <span className="font-semibold text-gray-800">{s.kosten}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-500">OTP subsidy</span>
-                    <span className="font-semibold text-green-600">− {s.foerderung}</span>
-                  </div>
-                  <div className="flex justify-between border-t border-gray-200 pt-2.5 mt-1">
-                    <span className="text-gray-700 font-semibold">Net cost</span>
-                    <span className="font-bold text-gray-900">{s.nettokosten}</span>
-                  </div>
+                     <span className="text-gray-500">Subsidy</span>
+                     <span className="font-semibold text-gray-600">Calculated by Pronovo</span>
+                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-500">Payback period</span>
                     <span className="font-semibold text-gray-800">{s.amort}</span>

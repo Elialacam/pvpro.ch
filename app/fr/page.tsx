@@ -29,7 +29,7 @@ export default function FrenchHomePage() {
     },
     {
       question: 'Existe-t-il des subventions pour les installations solaires en Suisse?',
-      answer: `Oui. La Rétribution Unique couvre une part fédérale indicative de ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', 'fr')}. Le total des aides fédérales, cantonales et communales peut atteindre ${ECONOMIC_FACTS.incentives.combinedMaxPercent}%.`,
+      answer: 'Oui. La Suisse propose des programmes de soutien fédéraux, cantonaux et communaux ainsi que d’éventuelles déductions fiscales. L’éligibilité et le montant individuel de la rétribution fédérale sont calculés par Pronovo. Consultez pronovo.ch pour les conditions actuelles.',
     },
     {
       question: 'Combien de temps faut-il pour installer une installation solaire?',

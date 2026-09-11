@@ -31,7 +31,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Gibt es Förderungen für Solaranlagen in der Schweiz?',
-        answer: `Die Einmalvergütung des Bundes entspricht ohne Speicher ungefähr ${ECONOMIC_FACTS.incentives.federalSharePercent.min} bis ${ECONOMIC_FACTS.incentives.federalSharePercent.max}% der Investition. Zusammen mit kantonalen und kommunalen Beiträgen sind bis zu ${ECONOMIC_FACTS.incentives.combinedMaxPercent}% möglich.`,
+        answer: 'Die Einmalvergütung des Bundes wird von Pronovo anhand von Datum der Inbetriebnahme, Anlagengrösse, Anlagentyp und anwendbaren Boni berechnet. Die aktuellen Voraussetzungen und den individuellen Betrag finden Sie auf pronovo.ch.',
       },
       {
         question: 'Wie lange dauert die Installation einer Solaranlage?',
@@ -63,7 +63,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Existe-t-il des subventions pour les installations solaires en Suisse?',
-        answer: `Sans stockage, la rétribution unique fédérale représente environ ${ECONOMIC_FACTS.incentives.federalSharePercent.min} à ${ECONOMIC_FACTS.incentives.federalSharePercent.max}% de l'investissement. Avec les aides cantonales et communales, le total peut atteindre ${ECONOMIC_FACTS.incentives.combinedMaxPercent}%.`,
+        answer: 'La rétribution unique fédérale est calculée par Pronovo selon la date de mise en service, la taille et le type de l’installation ainsi que les éventuels bonus. Consultez pronovo.ch pour les conditions actuelles et le montant individuel.',
       },
       {
         question: "Combien de temps faut-il pour installer une installation solaire?",
@@ -95,7 +95,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Are there subsidies for solar systems in Switzerland?',
-        answer: `Without storage, the federal one-time payment represents about ${ECONOMIC_FACTS.incentives.federalSharePercent.min} to ${ECONOMIC_FACTS.incentives.federalSharePercent.max}% of the investment. Together with cantonal and municipal contributions, the total can reach ${ECONOMIC_FACTS.incentives.combinedMaxPercent}%.`,
+        answer: 'The federal one-time payment is calculated by Pronovo based on commissioning date, system size, system type and any applicable bonuses. Check pronovo.ch for current eligibility and the individual amount.',
       },
       {
         question: 'How long does a solar system installation take?',
@@ -127,7 +127,7 @@ export const faqContent: Record<Locale, FAQLocaleContent> = {
       },
       {
         question: 'Esistono sovvenzioni per gli impianti solari in Ticino?',
-        answer: `Senza accumulo, la rimunerazione unica federale corrisponde a circa il ${ECONOMIC_FACTS.incentives.federalSharePercent.min}–${ECONOMIC_FACTS.incentives.federalSharePercent.max}% dell'investimento. Con i contributi cantonali e comunali, il totale può arrivare al ${ECONOMIC_FACTS.incentives.combinedMaxPercent}%.`,
+        answer: 'La rimunerazione unica federale viene calcolata da Pronovo in base alla data di messa in esercizio, alle dimensioni e al tipo di impianto e agli eventuali bonus applicabili. Per condizioni attuali e importo individuale consultare pronovo.ch.',
       },
       {
         question: "Quanto tempo richiede l'installazione di un impianto solare?",

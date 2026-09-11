@@ -10,14 +10,12 @@ import {
   SOURCE_NOTES,
   SYSTEM_PRICE_NOTES,
   STORAGE_PRICE_NOTES,
-  formatChf,
   formatRangeForLocale,
 } from '@/lib/facts';
 
 const itRange = (range: { readonly min: number; readonly max: number }, unit: string) =>
   formatRangeForLocale(range, unit, 'it');
 const cost10 = ECONOMIC_FACTS.systemCosts.bySize[10];
-const ru10 = ECONOMIC_FACTS.incentives.tenKwpApprox;
 const exampleKwp = 10;
 
 export const metadata: Metadata = pageMetadata({
@@ -84,7 +82,7 @@ const faqs = [
   },
   {
     question: 'Quanto costa un impianto solare da 10 kW in Svizzera?',
-    answer: `Un impianto fotovoltaico da 10 kWp costa ${itRange(cost10, 'CHF')}. La RU è di circa ${formatChf(ru10)}. Sull'Altopiano produce ${itRange({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh')} all'anno.`,
+     answer: `Un impianto fotovoltaico da 10 kWp costa ${itRange(cost10, 'CHF')}. La RU viene calcolata individualmente da Pronovo. Sull'Altopiano produce ${itRange({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh')} all'anno.`,
   },
   {
     question: 'Quanta elettricità produce un impianto solare?',
@@ -104,7 +102,7 @@ const faqs = [
   },
   {
     question: 'Quali incentivi esistono per gli impianti solari in Svizzera?',
-    answer: `La RU Pronovo è di ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} per kWp fino a 30 kWp e ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpOver30)} oltre, più il contributo base.`,
+    answer: 'La rimunerazione unica (RU) viene calcolata individualmente da Pronovo in base all’impianto e alle condizioni applicabili. Per requisiti e importi attuali consultare pronovo.ch.',
   },
   {
     question: 'Quanto costa un impianto solare con accumulo a batteria?',
@@ -396,8 +394,9 @@ export default function CostiImpiantoSolarePage() {
               <div className="flex items-start gap-4">
                 <PiggyBank className="w-10 h-10 text-primary flex-shrink-0" />
                 <div>
-                  <p className="text-2xl font-bold text-primary mb-1">{formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} per kWp fino a 30 kWp</p>
-                  <p className="text-gray-700">Importi di incentivo tipici della Confederazione (RU). L'importo dipende dalla dimensione dell'impianto.</p>
+                   <p className="text-2xl font-bold text-primary mb-1">Calcolo individuale</p>
+                  <p className="text-gray-700">Pronovo calcola l’importo della RU in base all’impianto e alle condizioni applicabili.</p>
+                  <a href="https://pronovo.ch/" target="_blank" rel="noreferrer" className="text-sm font-semibold text-primary hover:underline">Verifica l’importo con Pronovo →</a>
                 </div>
               </div>
             </div>
@@ -412,16 +411,12 @@ export default function CostiImpiantoSolarePage() {
                   <span className="text-gray-600">Costo lordo</span>
                   <span className="font-medium">{itRange(cost10, 'CHF')}</span>
                 </div>
-                <div className="flex justify-between text-primary">
-                  <span>– Rimunerazione unica RU</span>
-                  <span className="font-medium">– {formatChf(ru10)}</span>
-                </div>
                 <div className="border-t border-gray-200 pt-3 flex justify-between">
-                  <span className="font-semibold text-gray-900">Costo effettivo (esempio)</span>
-                  <span className="font-bold text-xl text-primary">{itRange({ min: cost10.min - ru10, max: cost10.max - ru10 }, 'CHF')}</span>
+                   <span className="font-semibold text-gray-900">Importo RU</span>
+                   <span className="font-bold text-primary">calcolato da Pronovo</span>
                 </div>
               </div>
-              <p className="text-xs text-gray-400 mt-3">{SOURCE_NOTES.it}</p>
+               <p className="text-xs text-gray-400 mt-3">Riferimento dei costi lordi. L’importo effettivo della RU viene calcolato da Pronovo per ogni impianto.</p>
             </div>
           </div>
         </div>

@@ -2,13 +2,12 @@
 
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { Calculator, Zap, TrendingUp, PiggyBank, Sun, Gift } from 'lucide-react';
+import { Calculator, Zap, TrendingUp, PiggyBank, Sun } from 'lucide-react';
 import {
   ECONOMIC_FACTS,
   SOURCE_NOTES,
   SYSTEM_PRICE_NOTES,
   calculateAnnualSolarValueRange,
-  calculatePronovoVariableContribution,
   formatSwissNumber,
   getSystemCostRange,
 } from '@/lib/facts';
@@ -27,9 +26,8 @@ const translations = {
     resultsTitle: 'Ihre Ergebnisse',
     systemSizeLabel: 'Anlagengrösse',
     annualProdLabel: 'Jährliche Produktion',
-    costBeforeLabel: 'Kosten vor Förderung',
-    incentiveLabel: 'EIV-Leistungsbeitrag',
-    costAfterLabel: 'Kosten nach Leistungsbeitrag',
+    costBeforeLabel: 'Bruttokosten vor Förderung',
+    pronovoLink: 'Förderbetrag durch Pronovo berechnen →',
     annualSavingsLabel: 'Jährliche Einsparung',
     paybackLabel: 'Richtwert Amortisation (Mittelland)',
     paybackUnit: 'Jahre',
@@ -50,9 +48,8 @@ const translations = {
     resultsTitle: 'Vos résultats',
     systemSizeLabel: "Taille de l'installation",
     annualProdLabel: 'Production annuelle',
-    costBeforeLabel: 'Coûts avant subvention',
-    incentiveLabel: 'Contribution proportionnelle RU',
-    costAfterLabel: 'Coûts après contribution proportionnelle',
+    costBeforeLabel: 'Coûts bruts avant subvention',
+    pronovoLink: 'Calculer l’aide avec Pronovo →',
     annualSavingsLabel: 'Économies annuelles',
     paybackLabel: "Repère d'amortissement (Plateau)",
     paybackUnit: 'ans',
@@ -73,9 +70,8 @@ const translations = {
     resultsTitle: 'Your results',
     systemSizeLabel: 'System size',
     annualProdLabel: 'Annual production',
-    costBeforeLabel: 'Costs before subsidy',
-    incentiveLabel: 'Variable OTP contribution',
-    costAfterLabel: 'Costs after variable contribution',
+    costBeforeLabel: 'Gross costs before subsidy',
+    pronovoLink: 'Calculate the incentive with Pronovo →',
     annualSavingsLabel: 'Annual savings',
     paybackLabel: 'Payback benchmark (Plateau)',
     paybackUnit: 'years',
@@ -96,9 +92,8 @@ const translations = {
     resultsTitle: 'I tuoi risultati',
     systemSizeLabel: 'Dimensione impianto',
     annualProdLabel: 'Produzione annua',
-    costBeforeLabel: "Costi prima dell'incentivo",
-    incentiveLabel: 'Contributo proporzionale RU',
-    costAfterLabel: 'Costi dopo contributo proporzionale',
+    costBeforeLabel: "Costi lordi prima dell'incentivo",
+    pronovoLink: 'Calcola l’incentivo con Pronovo →',
     annualSavingsLabel: 'Risparmio annuo',
     paybackLabel: 'Riferimento ammortamento (Altopiano)',
     paybackUnit: 'anni',
@@ -131,9 +126,6 @@ export default function SolarCalculator() {
     annualProduction: number;
     costBeforeMin: number;
     costBeforeMax: number;
-    incentive: number;
-    costAfterMin: number;
-    costAfterMax: number;
     savingsMin: number;
     savingsMax: number;
     paybackMin: number;
@@ -144,9 +136,6 @@ export default function SolarCalculator() {
     const systemSize = Math.round((roofSize / ECONOMIC_FACTS.roofAreaM2PerKwp) * 10) / 10;
     const annualProduction = Math.round(systemSize * ECONOMIC_FACTS.production.plateauKwhPerKwp.min);
     const costs = getSystemCostRange(systemSize);
-    const incentive = calculatePronovoVariableContribution(systemSize);
-    const costAfterMin = Math.max(0, costs.min - incentive);
-    const costAfterMax = Math.max(0, costs.max - incentive);
     const savings = calculateAnnualSolarValueRange(annualProduction, consumption);
     const paybackMin = ECONOMIC_FACTS.systemPaybackYears.plateau.min;
     const paybackMax = ECONOMIC_FACTS.systemPaybackYears.plateau.max;
@@ -155,9 +144,6 @@ export default function SolarCalculator() {
       annualProduction,
       costBeforeMin: costs.min,
       costBeforeMax: costs.max,
-      incentive,
-      costAfterMin,
-      costAfterMax,
       savingsMin: savings.min,
       savingsMax: savings.max,
       paybackMin,
@@ -236,17 +222,17 @@ export default function SolarCalculator() {
               <span className="text-gray-700">{tx.costBeforeLabel}</span>
               <span className="font-sans font-semibold tracking-tight text-gray-900">{fmt(results.costBeforeMin)}–{fmt(results.costBeforeMax)} CHF</span>
             </div>
-            <div className="flex justify-between items-center">
-              <div className="flex items-center gap-1.5">
-                <Gift className="w-4 h-4 text-green-600" />
-                <span className="text-gray-700">{tx.incentiveLabel}</span>
-              </div>
-              <span className="font-sans font-semibold tracking-tight text-green-600">− {fmt(results.incentive)} CHF</span>
-            </div>
-            <div className="flex justify-between items-center pt-2 border-t border-gray-200">
-              <span className="font-sans font-semibold tracking-tight text-gray-900">{tx.costAfterLabel}</span>
-              <span className="font-sans font-semibold tracking-tight text-primary text-lg">{fmt(results.costAfterMin)}–{fmt(results.costAfterMax)} CHF</span>
-            </div>
+             <div className="pt-2 border-t border-gray-200">
+               <a
+                 href="https://pronovo.ch/"
+                 target="_blank"
+                 rel="noreferrer"
+                 className="text-sm font-semibold text-primary hover:underline"
+               >
+                 {tx.pronovoLink}
+               </a>
+               <p className="text-xs text-gray-500 mt-1">{tx.disclaimer}</p>
+             </div>
           </div>
 
           <div className="bg-gray-50 rounded-xl p-6 space-y-4">

@@ -1,5 +1,6 @@
 import { cantonAreas, CantonLocale, CantonArea } from '@/lib/cantons';
 import { CityContent } from '@/lib/city-content';
+import { getCantonAuditPage } from '@/lib/canton-audit';
 
 const IMAGE = '/images/asset-haus-luftbild-2.webp';
 
@@ -163,7 +164,10 @@ function copyFor(locale: CantonLocale, name: string): LocalizedCopy {
 }
 
 export function getCantonContent(area: CantonArea, locale: CantonLocale): CityContent {
-  const copy = copyFor(locale, area.names[locale]);
+  const audit = getCantonAuditPage(area.id, locale);
+  const copy = audit
+    ? { ...audit.content, reasons: audit.content.whySolarReasons }
+    : copyFor(locale, area.names[locale]);
 
   return {
     slug: area.id,
@@ -175,6 +179,7 @@ export function getCantonContent(area: CantonArea, locale: CantonLocale): CityCo
     whySolarIntro: copy.whySolarIntro,
     whySolarReasons: copy.reasons,
     faqs: copy.faqs,
+    audit,
   };
 }
 

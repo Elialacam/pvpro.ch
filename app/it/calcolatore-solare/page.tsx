@@ -8,7 +8,7 @@ import {
   Sun, Home, Battery, ArrowRight, ChevronRight, AlertCircle,
 } from 'lucide-react';
 import FaqSchema from '@/components/FaqSchema';
-import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, STORAGE_PRICE_NOTES, formatChf, formatRangeForLocale } from '@/lib/facts';
+import { ECONOMIC_FACTS, SOURCE_NOTES, SYSTEM_PRICE_NOTES, STORAGE_PRICE_NOTES, formatRangeForLocale } from '@/lib/facts';
 
 const itRange = (range: { readonly min: number; readonly max: number }, unit: string) =>
   formatRangeForLocale(range, unit, 'it');
@@ -47,7 +47,7 @@ const faqs = [
   },
   {
     question: "Cos'è la rimunerazione unica (RU)?",
-    answer: `La RU Pronovo è di ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30)} per kWp fino a 30 kWp e ${formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpOver30)} oltre, più il contributo base.`,
+    answer: 'La rimunerazione unica viene calcolata individualmente da Pronovo in base all’impianto e alle condizioni applicabili. Per requisiti e importi attuali consultare pronovo.ch.',
   },
   {
     question: 'Qual è il periodo di ammortamento tipico in Svizzera?',
@@ -74,8 +74,6 @@ const systemSizes = [
     flaeche: `${5 * ECONOMIC_FACTS.roofAreaM2PerKwp} m²`,
     jahresertrag: itRange({ min: 5 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 5 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh'),
     kosten: itRange(ECONOMIC_FACTS.systemCosts.bySize[5], 'CHF'),
-    foerderung: formatChf(5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30),
-    nettokosten: itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[5].min - 5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, max: ECONOMIC_FACTS.systemCosts.bySize[5].max - 5 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30 }, 'CHF'),
     amort: itRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'anni'),
     haushalt: '2 persone / appartamento',
     color: 'border-blue-200 bg-blue-50',
@@ -87,8 +85,6 @@ const systemSizes = [
     flaeche: `${10 * ECONOMIC_FACTS.roofAreaM2PerKwp} m²`,
     jahresertrag: itRange({ min: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 10 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh'),
     kosten: itRange(ECONOMIC_FACTS.systemCosts.bySize[10], 'CHF'),
-    foerderung: formatChf(ECONOMIC_FACTS.incentives.tenKwpApprox),
-    nettokosten: itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[10].min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: ECONOMIC_FACTS.systemCosts.bySize[10].max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF'),
     amort: itRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'anni'),
     haushalt: '3–4 persone / casa unifamiliare',
     color: 'border-[#fcb210]/30 bg-orange-50',
@@ -101,8 +97,6 @@ const systemSizes = [
     flaeche: `${15 * ECONOMIC_FACTS.roofAreaM2PerKwp} m²`,
     jahresertrag: itRange({ min: 15 * ECONOMIC_FACTS.production.plateauKwhPerKwp.min, max: 15 * ECONOMIC_FACTS.production.plateauKwhPerKwp.max }, 'kWh'),
     kosten: itRange(ECONOMIC_FACTS.systemCosts.bySize[15], 'CHF'),
-    foerderung: formatChf(15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30),
-    nettokosten: itRange({ min: ECONOMIC_FACTS.systemCosts.bySize[15].min - 15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, max: ECONOMIC_FACTS.systemCosts.bySize[15].max - 15 * ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30 }, 'CHF'),
     amort: itRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'anni'),
     haushalt: 'Grande famiglia / condominio',
     color: 'border-green-200 bg-green-50',
@@ -153,7 +147,7 @@ const richtigValues = [
   { label: 'Rendimento annuo per kWp (Altopiano)', value: itRange(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh') },
   { label: 'Superficie tetto per kWp', value: `${ECONOMIC_FACTS.roofAreaM2PerKwp} m²` },
   { label: 'Costi di installazione per kWp', value: itRange(ECONOMIC_FACTS.systemCosts.perKwp, 'CHF') },
-  { label: 'RU per kWp fino a 30 kWp', value: formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30) },
+  { label: 'Importo RU', value: 'Calcolato individualmente da Pronovo' },
   { label: 'Autoconsumo senza accumulo', value: itRange(ECONOMIC_FACTS.selfConsumptionPercent.withoutStorage, '%') },
   { label: 'Autoconsumo con accumulo', value: itRange(ECONOMIC_FACTS.selfConsumptionPercent.withStorage, '%') },
   { label: 'Durata dei moduli', value: itRange(ECONOMIC_FACTS.moduleLifetimeYears, 'anni') },
@@ -222,7 +216,7 @@ export default function CalcolatoreSolarePage() {
               {[
                 { val: itRange(ECONOMIC_FACTS.production.plateauKwhPerKwp, 'kWh/kWp/anno'), unit: '', label: 'Valore indicativo Altopiano' },
                 { val: itRange(ECONOMIC_FACTS.systemPaybackYears.plateau, 'anni'), unit: '', label: 'Ammortamento Altopiano' },
-                { val: formatChf(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30), unit: '/kWp', label: 'RU fino a 30 kWp' },
+                { val: 'Individuale', unit: '', label: 'Importo RU (Pronovo)' },
                 { val: itRange(ECONOMIC_FACTS.moduleLifetimeYears, 'anni'), unit: '', label: 'Durata moduli' },
               ].map(s => (
                 <div key={s.label} className="bg-white/8 border border-white/10 rounded-2xl p-5">
@@ -296,12 +290,8 @@ export default function CalcolatoreSolarePage() {
                     <span className="font-semibold text-gray-800">{s.kosten}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-500">Incentivo RU</span>
-                    <span className="font-semibold text-green-600">− {s.foerderung}</span>
-                  </div>
-                  <div className="flex justify-between border-t border-gray-200 pt-2.5 mt-1">
-                    <span className="text-gray-700 font-semibold">Costo netto</span>
-                    <span className="font-bold text-gray-900">{s.nettokosten}</span>
+                    <span className="text-gray-500">Importo RU</span>
+                    <span className="font-semibold text-gray-600">calcolato da Pronovo</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-500">Ammortamento</span>
