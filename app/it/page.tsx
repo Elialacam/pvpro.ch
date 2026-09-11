@@ -11,37 +11,7 @@ import FaqSchema from '@/components/FaqSchema';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import { faqContent } from '@/lib/faqData';
-import Link from 'next/link';
-import { MapPin } from 'lucide-react';
-import { cities } from '@/lib/cities';
-
-const italianCantonNames: Record<string, string> = {
-  zurich: 'Zurigo',
-  basel: 'Basilea',
-  bern: 'Berna',
-  geneve: 'Ginevra',
-  vaud: 'Vaud',
-  thurgau: 'Turgovia',
-  luzern: 'Lucerna',
-  'st-gallen': 'San Gallo',
-  ticino: 'Ticino',
-  schwyz: 'Svitto',
-  valais: 'Vallese',
-  uri: 'Uri',
-  schaffhausen: 'Sciaffusa',
-  appenzell: 'Appenzello',
-  graubunden: 'Grigioni',
-  glarus: 'Glarona',
-  zug: 'Zugo',
-  unterwalden: 'Untervaldo',
-  solothurn: 'Soletta',
-  aargau: 'Argovia',
-  freiburg: 'Friburgo',
-  biel: 'Bienne',
-  wallis: 'Vallese',
-  fribourg: 'Friburgo',
-  bienne: 'Bienne',
-};
+import CantonGrid from '@/components/CantonGrid';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Preventivi fotovoltaico: 3 ditte verificate | PvPro.ch',
@@ -67,37 +37,11 @@ export default function ItalianHomePage() {
               Impianti fotovoltaici nei Cantoni svizzeri
             </h2>
             <p className="text-xl text-gray-600">
-              Ti mettiamo in contatto con installatori qualificati in tutta la Svizzera
+              Troviamo installatori verificati in tutta la Svizzera
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {cities.map((city) => {
-              const href = city.language === 'fr'
-                ? `/fr/solaire-${city.slug}`
-                : city.language === 'it'
-                  ? `/it/fotovoltaico-${city.slug}`
-                  : `/solaranlage-${city.slug}`;
-
-              return (
-                <Link
-                  key={city.slug}
-                  href={href}
-                  className="group flex items-center gap-2 p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary-50 transition-all duration-200 cursor-pointer"
-                >
-                  <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                  <div className="flex-1 min-w-0">
-                    <div className="font-sans font-bold text-gray-900 group-hover:text-primary transition-colors truncate">
-                      {italianCantonNames[city.slug] || city.name}
-                    </div>
-                    <div className="text-xs text-gray-500">
-                      {city.canton}
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          <CantonGrid locale="it" />
         </div>
       </section>
 

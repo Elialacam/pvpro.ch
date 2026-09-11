@@ -1,0 +1,95 @@
+Lavora solo sulla struttura cantonale. Non modificare testi, title o meta description delle pagine cantonali già esistenti.
+
+## 1. Griglia homepage
+
+Mostra 25 aree cantonali, 5x5 su desktop e responsive su mobile:
+
+Aargau, Appenzell Ausserrhoden, Appenzell Innerrhoden, Basel, Bern, Freiburg, Genf, Glarus, Graubünden, Jura, Luzern, Neuenburg, Nidwalden, Obwalden, Schaffhausen, Schwyz, Solothurn, St. Gallen, Tessin, Thurgau, Uri, Waadt, Wallis, Zug, Zürich.
+
+Basel rappresenta BS + BL insieme.
+
+Rimuovi i doppioni Freiburg/Fribourg, Wallis/Valais e Biel/Bienne. Le pagine Biel/Bienne restano online ma fuori dalla griglia.
+
+Usa i nomi corretti nella lingua della pagina.
+
+Sottotitoli:
+DE: "Wir vermitteln geprüfte Solarteure in der ganzen Schweiz"
+IT: "Troviamo installatori verificati in tutta la Svizzera"
+FR: "Nous trouvons des installateurs certifiés dans toute la Suisse"
+EN: "We connect you with certified installers across Switzerland"
+
+## 2. Pagine cantonali
+
+Obiettivo: 25 aree × 4 lingue = 100 pagine.
+
+Crea tutte le combinazioni mancanti riutilizzando il template cantonale esistente e traducendolo correttamente.
+
+Non inventare dati locali, incentivi, prezzi, statistiche, testimonianze o claim.
+
+Slug nuove pagine:
+DE `/solaranlage-[kanton]`
+FR `/fr/solaire-[canton]`
+IT `/it/fotovoltaico-[cantone]`
+EN `/en/solar-panels-[canton]`
+
+Non cambiare gli URL già esistenti, salvo Appenzell e Unterwalden.
+
+## 3. Appenzell e Unterwalden
+
+Crea:
+
+`/solaranlage-appenzell-ausserrhoden`
+`/solaranlage-appenzell-innerrhoden`
+
+Redirect 301:
+`/solaranlage-appenzell` → `/solaranlage-appenzell-ausserrhoden`
+
+Crea:
+
+`/solaranlage-obwalden`
+`/solaranlage-nidwalden`
+
+Redirect 301:
+`/solaranlage-unterwalden` → `/solaranlage-obwalden`
+
+Aggiorna i link interni direttamente ai nuovi URL.
+
+## 4. Jura e Neuchâtel
+
+Devono esistere in DE, FR, IT ed EN.
+
+## 5. Hreflang
+
+Collega le quattro versioni di ogni area con:
+
+`de-CH`
+`fr-CH`
+`it-CH`
+`en-CH`
+`x-default` → versione DE
+
+Gli hreflang devono essere reciproci e includere anche la pagina stessa.
+
+Non puntare a URL 404 o redirect.
+
+Per Biel/Bienne collega solo DE e FR.
+
+Applica la stessa logica alle pagine incentivi di Zürich dove esistono versioni equivalenti.
+
+## 6. Sitemap
+
+Aggiungi tutte le nuove pagine cantonali alla sitemap.
+
+## 7. Regole
+
+Non modificare contenuti, sezioni, title o meta description delle pagine cantonali già esistenti.
+
+Non fare altre ottimizzazioni non richieste.
+
+Alla fine dimmi solo:
+
+* quante nuove pagine hai creato per lingua
+* quali redirect 301 hai creato
+* eventuali problemi trovati
+* conferma che sitemap e hreflang sono aggiornati
+* conferma che la build funziona

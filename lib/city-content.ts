@@ -28,16 +28,16 @@ export interface CityContent {
     title: string;
     description: string;
   }[];
-  cityFactsTitle: string;
-  cityFactsParagraphs: string[];
-  pricing: {
+  cityFactsTitle?: string;
+  cityFactsParagraphs?: string[];
+  pricing?: {
     min: number;
     max: number;
     typical5kw: { min: number; max: number };
     afterSubsidy5kw: { min: number; max: number };
     roiYears: string;
   };
-  incentives: {
+  incentives?: {
     title: string;
     description: string;
     programs: {
@@ -46,7 +46,7 @@ export interface CityContent {
       description: string;
     }[];
   };
-  caseStudies: {
+  caseStudies?: {
     name: string;
     location: string;
     systemSize: string;
@@ -59,7 +59,7 @@ export interface CityContent {
     question: string;
     answer: string;
   }[];
-  testimonial: {
+  testimonial?: {
     initials: string;
     name: string;
     quote: string;

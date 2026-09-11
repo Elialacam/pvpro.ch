@@ -49,6 +49,8 @@ export default function RelatedCities({ currentCitySlug, currentCanton, lang = '
             } else if (city.language === 'it') {
               href = `/it/fotovoltaico-${city.slug}`;
             }
+            if (href === '/solaranlage-appenzell') href = '/solaranlage-appenzell-ausserrhoden';
+            if (href === '/solaranlage-unterwalden') href = '/solaranlage-obwalden';
 
             return (
               <Link

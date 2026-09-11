@@ -21,6 +21,8 @@ const nextConfig = {
   allowedDevOrigins: ['127.0.0.1', 'f53d4855-3247-438a-938a-8b3ba4e73521-00-d7ywm99h5osn.spock.replit.dev'],
   async redirects() {
     return [
+      { source: '/solaranlage-appenzell', destination: '/solaranlage-appenzell-ausserrhoden', statusCode: 301 },
+      { source: '/solaranlage-unterwalden', destination: '/solaranlage-obwalden', statusCode: 301 },
       // 301: old PNG content images → new WebP (converted in image optimization pass)
       { source: '/images/aurora-energy-batteriespeicher.png',      destination: '/images/aurora-energy-batteriespeicher.webp',      permanent: true },
       { source: '/images/batteriespeicher-weiss-modern.png',       destination: '/images/batteriespeicher-weiss-modern.webp',       permanent: true },

@@ -21,21 +21,34 @@ interface UniqueCityPageProps {
   city: City;
   content: CityContent;
   accentColor?: 'orange' | 'blue' | 'purple' | 'green' | 'red';
+  /**
+   * Canton pages without verified local data use the same layout while
+   * omitting the template's city-specific claims. The default remains the
+   * original city-page rendering.
+   */
+  suppressUnsupportedClaims?: boolean;
 }
 
-function t(lang: string, de: string, fr: string, it: string) {
+function t(lang: string, de: string, fr: string, it: string, en: string = de) {
   if (lang === 'fr') return fr;
   if (lang === 'it') return it;
+  if (lang === 'en') return en;
   return de;
 }
 
 function getFormUrl(lang: string) {
   if (lang === 'fr') return '/fr/demande';
   if (lang === 'it') return '/it/richiesta';
+  if (lang === 'en') return '/en/request';
   return '/anfrage';
 }
 
-export default function UniqueCityPage({ city, content, accentColor = 'orange' }: UniqueCityPageProps) {
+export default function UniqueCityPage({
+  city,
+  content,
+  accentColor = 'orange',
+  suppressUnsupportedClaims = false,
+}: UniqueCityPageProps) {
   const lang = city.language;
   const factsLocale = lang === 'fr' || lang === 'it' || lang === 'en' ? lang : 'de';
   const systemCost = ECONOMIC_FACTS.systemCosts.bySize[5];
@@ -101,6 +114,15 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
 
   const theme = colors[accentColor];
   const formUrl = getFormUrl(lang);
+  const mapCountry = suppressUnsupportedClaims
+    ? lang === 'fr'
+      ? 'Suisse'
+      : lang === 'it'
+        ? 'Svizzera'
+        : lang === 'en'
+          ? 'Switzerland'
+          : 'Schweiz'
+    : 'Schweiz';
 
   return (
     <>
@@ -118,37 +140,37 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             </p>
 
             {/* City-specific Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto">
+            {!suppressUnsupportedClaims && <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto">
               <div className="bg-white rounded-xl p-6 shadow-md">
                 <div className="text-3xl font-sans font-semibold tracking-tight text-green-600 mb-2">{paybackText}</div>
-                <div className="text-sm text-gray-600">{t(lang, 'Jahre Amortisation', "Ans d'amortissement", 'Anni di ammortamento')}</div>
-                <div className="text-xs text-gray-500 mt-1">{t(lang, 'Schneller ROI', 'Retour rapide', 'ROI rapido')}</div>
+                <div className="text-sm text-gray-600">{t(lang, 'Jahre Amortisation', "Ans d'amortissement", 'Anni di ammortamento', 'Payback period')}</div>
+                <div className="text-xs text-gray-500 mt-1">{t(lang, 'Schneller ROI', 'Retour rapide', 'ROI rapido', 'Faster ROI')}</div>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-md">
                 <div className="text-3xl font-sans font-semibold tracking-tight text-primary mb-2">{formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}</div>
-                <div className="text-sm text-gray-600">{t(lang, 'Bundesförderung möglich', 'Aide fédérale possible', 'Incentivo federale possibile')}</div>
-                <div className="text-xs text-gray-500 mt-1">{t(lang, 'Bund + Kanton', 'Confédération + Canton', 'Confederazione + Cantone')}</div>
+                <div className="text-sm text-gray-600">{t(lang, 'Bundesförderung möglich', 'Aide fédérale possible', 'Incentivo federale possibile', 'Federal support may be available')}</div>
+                <div className="text-xs text-gray-500 mt-1">{t(lang, 'Bund + Kanton', 'Confédération + Canton', 'Confederazione + Cantone', 'Federal + cantonal')}</div>
               </div>
-            </div>
-            <p className="mb-8 text-xs text-gray-500">{getSourceNote(factsLocale)}</p>
+            </div>}
+            {!suppressUnsupportedClaims && <p className="mb-8 text-xs text-gray-500">{getSourceNote(factsLocale)}</p>}
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            {!suppressUnsupportedClaims && <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700 font-medium">{t(lang, 'Geprüfte Fachbetriebe', 'Installateurs certifiés', 'Ditte certificate')}</span>
+                <span className="text-gray-700 font-medium">{t(lang, 'Geprüfte Fachbetriebe', 'Installateurs certifiés', 'Ditte certificate', 'Verified installers')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700 font-medium">{t(lang, 'Lokale Solarteure', 'Installateurs locaux', 'Installatori locali')}</span>
+                <span className="text-gray-700 font-medium">{t(lang, 'Lokale Solarteure', 'Installateurs locaux', 'Installatori locali', 'Local installers')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700 font-medium">{t(lang, 'Bis zu 3 Offerten', "Jusqu'à 3 offres", 'Fino a 3 preventivi')}</span>
+                <span className="text-gray-700 font-medium">{t(lang, 'Bis zu 3 Offerten', "Jusqu'à 3 offres", 'Fino a 3 preventivi', 'Up to 3 quotes')}</span>
               </div>
-            </div>
+            </div>}
 
             <Link href={formUrl} className="btn-primary text-lg px-8 py-4 inline-block">
-              {t(lang, 'Jetzt kostenlose Offerte anfordern', 'Demander une offre gratuite', 'Richiedi preventivo gratuito')}
+              {t(lang, 'Jetzt kostenlose Offerte anfordern', 'Demander une offre gratuite', 'Richiedi preventivo gratuito', 'Request a free quote')}
             </Link>
           </div>
         </div>
@@ -184,7 +206,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
       </section>
 
       {/* Incentives Section */}
-      <section className="section-padding bg-white">
+      {!suppressUnsupportedClaims && <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -192,7 +214,8 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 {t(lang,
                   'Solarförderung in der Schweiz: So funktioniert es wirklich',
                   "Aides solaires en Suisse: comment ça marche vraiment",
-                  "Incentivi fotovoltaico in Svizzera: Come Funzionano"
+                  "Incentivi fotovoltaico in Svizzera: Come Funzionano",
+                  'Solar support in Switzerland: how it works'
                 )}
               </h2>
               <div className="prose prose-lg text-gray-600 space-y-4">
@@ -200,7 +223,8 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                   {t(lang,
                     'In der Schweiz wird die Installation einer Photovoltaikanlage durch offizielle Bundesförderprogramme unterstützt, die die Investitionskosten deutlich senken.',
                     "En Suisse, l'installation de panneaux photovoltaïques est soutenue par des programmes fédéraux qui réduisent significativement les coûts.",
-                    "In Svizzera, l'installazione di un impianto fotovoltaico è supportata da programmi di incentivi federali che riducono i costi iniziali."
+                    "In Svizzera, l'installazione di un impianto fotovoltaico è supportata da programmi di incentivi federali che riducono i costi iniziali.",
+                    'In Switzerland, photovoltaic installations are supported by official federal programmes that can reduce initial investment costs.'
                   )}
                 </p>
                 <ul className="space-y-2">
@@ -209,7 +233,8 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                     <span>{t(lang,
                       `Abdeckung von ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)} der Investitionskosten ohne Speicher`,
                       `Couverture de ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)} des coûts d'investissement sans stockage`,
-                      `Copertura dal ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)} dei costi di investimento senza accumulo`
+                      `Copertura dal ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)} dei costi di investimento senza accumulo`,
+                      `Coverage of ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)} of investment costs without storage`
                     )}</span>
                   </li>
                   <li className="flex gap-2">
@@ -217,7 +242,8 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                     <span>{t(lang,
                       'Einmalvergütung (EIV) nach Inbetriebnahme',
                       'Rétribution unique (RU) versée après la mise en service',
-                      'Rimunerazione unica (RU) pagata dopo la messa in servizio'
+                      'Rimunerazione unica (RU) pagata dopo la messa in servizio',
+                      'One-off remuneration (EIV) after commissioning'
                     )}</span>
                   </li>
                   <li className="flex gap-2">
@@ -225,7 +251,8 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                     <span>{t(lang,
                       'Mögliche kantonale Zusatzförderung',
                       'Aides cantonales possibles selon situation',
-                      'Eventuali contributi cantonali aggiuntivi'
+                      'Eventuali contributi cantonali aggiuntivi',
+                      'Possible additional cantonal support'
                     )}</span>
                   </li>
                 </ul>
@@ -233,7 +260,8 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                   {t(lang,
                     'PvPro.ch hilft Ihnen, sich bei Förderungen, Kantonen und Offerten zurechtzufinden und verbindet Sie mit Fachpartnern, die auf dem neuesten Stand von 2026 sind.',
                     "PvPro.ch vous aide à naviguer parmi les aides, cantons et offres et vous met en contact avec des partenaires certifiés à jour en 2026.",
-                    'PvPro.ch ti aiuta a navigare tra incentivi, cantoni e offerte, connettendoti con installatori qualificati aggiornati sulle normative 2026.'
+                    'PvPro.ch ti aiuta a navigare tra incentivi, cantoni e offerte, connettendoti con installatori qualificati aggiornati sulle normative 2026.',
+                    'PvPro.ch helps you navigate support, cantonal requirements and quotes, connecting you with qualified partners familiar with current rules.'
                   )}
                 </p>
               </div>
@@ -244,40 +272,43 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 <Zap className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-3xl font-sans font-semibold tracking-tight text-gray-900 mb-4 relative">
-                {t(lang, 'Förderung 2026', 'Aides 2026', 'Incentivi 2026')}
+                 {t(lang, 'Förderung 2026', 'Aides 2026', 'Incentivi 2026', 'Support in 2026')}
               </h3>
               <div className="space-y-4 relative">
                 <p className="text-lg text-gray-600 font-medium">
                    {t(lang,
                      `Die Bundesförderung deckt ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}`,
                      `L’aide fédérale couvre ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}`,
-                     `L’incentivo federale copre dal ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}`
+                     `L’incentivo federale copre dal ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}`,
+                     `Federal support covers ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}`
                    )}
                 </p>
                 <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-sans font-semibold tracking-tight text-sm">
-                  {t(lang, 'Pronovo-EIV verfügbar', 'Pronovo RU disponible', 'Pronovo EIV Disponibile')}
+                   {t(lang, 'Pronovo-EIV verfügbar', 'Pronovo RU disponible', 'Pronovo EIV Disponibile', 'Pronovo EIV available')}
                 </div>
                 <p className="text-sm text-gray-500">
                   {t(lang,
                     'Bundesförderung für Neuanlagen für das gesamte Jahr 2026 garantiert.',
                     "Subvention fédérale pour nouvelles installations garantie pour toute l'année 2026.",
-                    'Incentivi federali per nuovi impianti garantiti per tutto il 2026.'
+                     'Incentivi federali per nuovi impianti garantiti per tutto il 2026.',
+                     'Federal support for new installations guaranteed throughout 2026.'
                   )}
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* Pricing Section - UNIQUE */}
-      <section className="section-padding bg-gray-50">
+      {!suppressUnsupportedClaims && <section className="section-padding bg-gray-50">
         <div className="container-custom max-w-6xl">
           <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-12 text-center">
             {t(lang,
-              `Solaranlage Kosten in ${city.name}`,
-              `Coût d'une installation solaire à ${city.name}`,
-              `Costi impianto fotovoltaico a ${city.name}`
+               `Solaranlage Kosten in ${city.name}`,
+               `Coût d'une installation solaire à ${city.name}`,
+               `Costi impianto fotovoltaico a ${city.name}`,
+               `Solar installation costs in ${city.name}`
             )}
           </h2>
 
@@ -285,15 +316,15 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             <div className="card bg-white">
               <div className="flex items-center gap-3 mb-4">
                 <Euro className="w-8 h-8 text-primary" />
-                <h3 className="text-2xl font-sans font-semibold tracking-tight text-gray-900">
-                  {t(lang, 'Investitionskosten', "Coûts d'investissement", 'Costi di investimento')}
+                   <h3 className="text-2xl font-sans font-semibold tracking-tight text-gray-900">
+                   {t(lang, 'Investitionskosten', "Coûts d'investissement", 'Costi di investimento', 'Investment costs')}
                 </h3>
               </div>
               <div className="space-y-4">
                 <div>
                   <div className="flex justify-between items-baseline mb-2">
                     <span className="text-gray-600">
-                      {t(lang, '5 kWp Anlage (typisch)', 'Installation 5 kWc (typique)', 'Impianto 5 kWp (tipico)')}
+                       {t(lang, '5 kWp Anlage (typisch)', 'Installation 5 kWc (typique)', 'Impianto 5 kWp (tipico)', '5 kWp installation (typical)')}
                     </span>
                     <span className="text-2xl font-sans font-semibold tracking-tight text-gray-900">
                       {formatRangeForLocale(systemCost, 'CHF', factsLocale)}
@@ -306,7 +337,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 <div>
                   <div className="flex justify-between items-baseline mb-2">
                     <span className="text-gray-600">
-                      {t(lang, 'Richtwerte', 'Valeurs indicatives', 'Valori indicativi')}
+                       {t(lang, 'Richtwerte', 'Valeurs indicatives', 'Valori indicativi', 'Indicative values')}
                     </span>
                     <span className="text-sm text-gray-600 text-right max-w-[18rem]">
                       {getSourceNote(factsLocale)}
@@ -320,10 +351,10 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                 <div className="pt-4 border-t">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-700 font-sans font-bold">
-                      {t(lang, 'Amortisation', 'Amortissement', 'Ammortamento')}
+                       {t(lang, 'Amortisation', 'Amortissement', 'Ammortamento', 'Payback period')}
                     </span>
                     <span className="text-xl font-sans font-semibold tracking-tight text-primary">
-                       {paybackText} {t(lang, 'Jahre', 'ans', 'anni')}
+                       {paybackText} {t(lang, 'Jahre', 'ans', 'anni', 'years')}
                     </span>
                   </div>
                 </div>
@@ -334,7 +365,7 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               <div className="flex items-center gap-3 mb-4">
                 <Zap className={`w-8 h-8 ${theme.icon}`} />
                 <h3 className="text-2xl font-sans font-semibold tracking-tight text-gray-900">
-                  {t(lang, `${city.name}-Vorteil`, `Avantage ${city.name}`, `Vantaggio ${city.name}`)}
+                   {t(lang, `${city.name}-Vorteil`, `Avantage ${city.name}`, `Vantaggio ${city.name}`, `${city.name} advantage`)}
                 </h3>
               </div>
               <div className="space-y-4">
@@ -342,10 +373,10 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                   <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-sans font-semibold tracking-tight text-gray-900">
-                       {t(lang, 'Kosten vergleichen', 'Comparer les coûts', 'Confrontare i costi')}
+                        {t(lang, 'Kosten vergleichen', 'Comparer les coûts', 'Confrontare i costi', 'Compare costs')}
                     </div>
                     <div className="text-sm text-gray-600">
-                      {t(lang, 'Durch Offerten-Vergleich', 'En comparant les offres', 'Confrontando i preventivi')}
+                       {t(lang, 'Durch Offerten-Vergleich', 'En comparant les offres', 'Confrontando i preventivi', 'By comparing quotes')}
                     </div>
                   </div>
                 </div>
@@ -353,10 +384,10 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                   <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-sans font-semibold tracking-tight text-gray-900">
-                      {t(lang, 'Lokale Förderung', 'Subventions locales', 'Sussidi locali')}
+                       {t(lang, 'Lokale Förderung', 'Subventions locales', 'Sussidi locali', 'Local support')}
                     </div>
                     <div className="text-sm text-gray-600">
-                      {t(lang, `Kanton ${city.canton} Programme`, `Programmes Canton ${city.canton}`, `Programmi Canton ${city.canton}`)}
+                       {t(lang, `Kanton ${city.canton} Programme`, `Programmes Canton ${city.canton}`, `Programmi Canton ${city.canton}`, `Canton ${city.canton} programmes`)}
                     </div>
                   </div>
                 </div>
@@ -364,10 +395,10 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
                   <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-sans font-semibold tracking-tight text-gray-900">
-                      {t(lang, 'Erfahrene Installateure', 'Installateurs expérimentés', 'Installatori esperti')}
+                       {t(lang, 'Erfahrene Installateure', 'Installateurs expérimentés', 'Installatori esperti', 'Experienced installers')}
                     </div>
                     <div className="text-sm text-gray-600">
-                      {t(lang, `Geprüfte Betriebe in ${city.name}`, `Entreprises certifiées à ${city.name}`, `Ditte certificate a ${city.name}`)}
+                       {t(lang, `Geprüfte Betriebe in ${city.name}`, `Entreprises certifiées à ${city.name}`, `Ditte certificate a ${city.name}`, `Verified businesses in ${city.name}`)}
                     </div>
                   </div>
                 </div>
@@ -375,14 +406,14 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             </div>
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* Unique Canton Image Section */}
-      <section className="relative section-padding bg-gray-900 overflow-hidden">
+      {!suppressUnsupportedClaims && <section className="relative section-padding bg-gray-900 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
+           <Image
             src={content.image}
-            alt={t(lang, `Solaranlage Installation ${city.name}`, `Installation solaire ${city.name}`, `Impianto fotovoltaico ${city.name}`)}
+             alt={t(lang, `Solaranlage Installation ${city.name}`, `Installation solaire ${city.name}`, `Impianto fotovoltaico ${city.name}`, `Solar installation ${city.name}`)}
             fill
             sizes="100vw"
             loading="lazy"
@@ -397,65 +428,83 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
               {t(lang,
                 `Professionelle Installation in ${city.name}`,
                 `Installation professionnelle à ${city.name}`,
-                `Installazione professionale a ${city.name}`
+                `Installazione professionale a ${city.name}`,
+                `Professional installation in ${city.name}`
               )}
             </h2>
             <p className="text-xl text-white mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
               {t(lang,
                 `Erfahrene Solarteure aus dem Kanton ${city.canton} installieren Ihre massgeschneiderte Anlage`,
                 `Des installateurs expérimentés du canton ${city.canton} réalisent votre installation sur mesure`,
-                `Installatori esperti a ${city.name} installano il tuo impianto su misura`
+                `Installatori esperti a ${city.name} installano il tuo impianto su misura`,
+                `Experienced installers in canton ${city.canton} create your tailored system`
               )}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                 <div className="text-4xl font-sans font-semibold tracking-tight text-white mb-2 drop-shadow-lg">{formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}</div>
                 <div className="text-sm text-white/90 font-medium">
-                  {t(lang, 'Bundesförderung', 'Aide fédérale', 'Incentivo federale')}
+                   {t(lang, 'Bundesförderung', 'Aide fédérale', 'Incentivo federale', 'Federal support')}
                 </div>
               </div>
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                  <div className="text-4xl font-sans font-semibold tracking-tight text-white mb-2 drop-shadow-lg">{paybackText}</div>
                 <div className="text-sm text-white/90 font-medium">
-                  {t(lang, 'Jahre ROI', 'Ans ROI', 'Anni ROI')}
+                   {t(lang, 'Jahre ROI', 'Ans ROI', 'Anni ROI', 'Years to ROI')}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* Google Maps */}
       <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-sans font-semibold tracking-tight text-gray-900 mb-3">
-              {t(lang,
-                `Solarteure in ${city.name} und Umgebung`,
-                `Installateurs solaires à ${city.name} et alentours`,
-                `Installatori a ${city.name} e dintorni`
-              )}
+              {suppressUnsupportedClaims
+                ? t(lang,
+                  `Solarprojekte: ${city.name}`,
+                  `Projets solaires : ${city.name}`,
+                  `Progetti solari: ${city.name}`,
+                  `Solar projects: ${city.name}`
+                )
+                : t(lang,
+                  `Solarteure in ${city.name} und Umgebung`,
+                  `Installateurs solaires à ${city.name} et alentours`,
+                  `Installatori a ${city.name} e dintorni`,
+                  `Solar installers in and around ${city.name}`
+                )}
             </h2>
             <p className="text-gray-600">
-              {t(lang,
-                `Unser Netzwerk umfasst geprüfte Fachbetriebe in der gesamten Kanton ${city.canton}`,
-                `Notre réseau comprend des entreprises certifiées dans toute le canton ${city.canton}`,
-                `La nostra rete comprende ditte certificate in tutto il Canton ${city.canton}`
-              )}
+              {suppressUnsupportedClaims
+                ? t(lang,
+                  `Informationen zu Solarprojekten in ${city.name}.`,
+                  `Informations sur les projets solaires liés à ${city.name}.`,
+                  `Informazioni sui progetti solari legati a ${city.name}.`,
+                  `Information about solar projects related to ${city.name}.`
+                )
+                : t(lang,
+                  `Unser Netzwerk umfasst geprüfte Fachbetriebe in der gesamten Kanton ${city.canton}`,
+                  `Notre réseau comprend des entreprises certifiées dans toute le canton ${city.canton}`,
+                  `La nostra rete comprende ditte certificate in tutto il Canton ${city.canton}`,
+                  `Our network includes solar professionals across canton ${city.canton}`
+                )}
             </p>
           </div>
 
           <div className="relative rounded-2xl overflow-hidden shadow-xl h-[500px]">
             {mounted && (
               <iframe
-                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDQF_fL_qx_1QZVlvJFNRl5ETBhjcJOFAE&q=${encodeURIComponent(city.name + ', Schweiz')}&zoom=10`}
+                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDQF_fL_qx_1QZVlvJFNRl5ETBhjcJOFAE&q=${encodeURIComponent(city.name + ', ' + mapCountry)}&zoom=10`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title={t(lang, `Karte von ${city.name}`, `Carte de ${city.name}`, `Mappa di ${city.name}`)}
+                title={t(lang, `Karte von ${city.name}`, `Carte de ${city.name}`, `Mappa di ${city.name}`, `Map of ${city.name}`)}
               />
             )}
             <div className="absolute bottom-6 left-6 bg-white px-6 py-3 rounded-lg shadow-lg">
@@ -468,12 +517,12 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
         </div>
       </section>
 
-      <USPSection lang={lang} />
+      {!suppressUnsupportedClaims && <USPSection lang={lang} />}
 
-      <FAQ items={content.faqs} />
+      <FAQ items={content.faqs} notes={!suppressUnsupportedClaims} />
       <FaqSchema faqs={content.faqs} />
 
-      <RelatedCities currentCitySlug={content.slug} currentCanton={city.canton} lang={lang} />
+      {!suppressUnsupportedClaims && <RelatedCities currentCitySlug={content.slug} currentCanton={city.canton} lang={lang} />}
 
       {/* Final CTA */}
       <section className={`section-padding bg-gradient-to-r ${theme.cta} text-white`}>
@@ -482,21 +531,30 @@ export default function UniqueCityPage({ city, content, accentColor = 'orange' }
             {t(lang,
               `Starten Sie jetzt Ihr Solarprojekt in ${city.name}!`,
               `Lancez votre projet solaire à ${city.name} maintenant !`,
-              `Inizia ora il tuo progetto solare in ${city.name}!`
+              `Inizia ora il tuo progetto solare in ${city.name}!`,
+              `Start your solar project in ${city.name} now!`
             )}
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            {t(lang,
-              'Kostenlos, unverbindlich und in nur 2 Minuten',
-              'Gratuit, sans engagement et en seulement 2 minutes',
-              'Gratuito, senza impegno e in soli 2 minuti'
-            )}
+            {suppressUnsupportedClaims
+              ? t(lang,
+                'Informieren Sie sich unverbindlich über Ihr Solarprojekt.',
+                'Informez-vous sans engagement sur votre projet solaire.',
+                'Informati senza impegno sul tuo progetto solare.',
+                'Learn about your solar project with no obligation.'
+              )
+              : t(lang,
+                'Kostenlos, unverbindlich und in nur 2 Minuten',
+                'Gratuit, sans engagement et en seulement 2 minutes',
+                'Gratuito, senza impegno e in soli 2 minuti',
+                'Free, with no obligation and in just 2 minutes'
+              )}
           </p>
           <Link
             href={formUrl}
             className={`bg-white ${theme.ctaButton} hover:bg-gray-100 font-sans font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl inline-block`}
           >
-            {t(lang, 'Jetzt Offerte anfordern', 'Demander une offre', 'Richiedi preventivi')}
+            {t(lang, 'Jetzt Offerte anfordern', 'Demander une offre', 'Richiedi preventivi', 'Request quotes now')}
           </Link>
         </div>
       </section>

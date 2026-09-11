@@ -7,9 +7,7 @@ import SwissMap from '@/components/SwissMapLazy';
 import BlogSection from '@/components/BlogSection';
 import CtaAnfrage from '@/components/CtaAnfrage';
 import FAQ from '@/components/FAQ';
-import { cities } from '@/lib/cities';
-import Link from 'next/link';
-import { MapPin } from 'lucide-react';
+import CantonGrid from '@/components/CantonGrid';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
 import { ECONOMIC_FACTS, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
@@ -81,39 +79,11 @@ export default function EnglishHomePage() {
               Solar Systems Across Switzerland
             </h2>
             <p className="text-xl text-gray-600">
-              We connect you with installers in all major Swiss cities
+              We connect you with certified installers across Switzerland
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {cities.map((city) => {
-              let href = '';
-              if (city.language === 'fr') {
-                href = `/fr/solaire-${city.slug}`;
-              } else if (city.language === 'it') {
-                href = `/it/fotovoltaico-${city.slug}`;
-              } else {
-                href = `/solaranlage-${city.slug}`;
-              }
-              return (
-                <Link
-                  key={city.slug}
-                  href={href}
-                  className="group flex items-center gap-2 p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary-50 transition-all duration-200 cursor-pointer"
-                >
-                  <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                  <div className="flex-1 min-w-0">
-                    <div className="font-sans font-bold text-gray-900 group-hover:text-primary transition-colors truncate">
-                      {city.name}
-                    </div>
-                    <div className="text-xs text-gray-500">
-                      {city.canton}
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          <CantonGrid locale="en" />
         </div>
       </section>
 

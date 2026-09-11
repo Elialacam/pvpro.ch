@@ -1,4 +1,4 @@
-import { cities } from './cities';
+import { cantonAreas } from './cantons';
 
 export type SeoLocale = 'de' | 'it' | 'fr' | 'en';
 export type SeoRouteGroup = {
@@ -40,14 +40,12 @@ export const staticSeoRouteGroups: SeoRouteGroup[] = [
   four('/datenschutz', '/fr/protection-des-donnees', '/en/privacy', '/it/protezione-dati', .3),
   four('/impressum', '/fr/mentions-legales', '/en/imprint', '/it/note-legali', .3),
   { paths: { de: '/bewilligungspflicht-solaranlage-schweiz' }, priority: .8 },
-  { paths: { fr: '/fr/solaire-geneve' }, priority: .8, changeFrequency: 'weekly' },
-  { paths: { fr: '/fr/solaire-vaud' }, priority: .8, changeFrequency: 'weekly' },
-  { paths: { it: '/it/fotovoltaico-ticino' }, priority: .9, changeFrequency: 'weekly' },
-  { paths: { de: '/solaranlage-freiburg', fr: '/fr/solaire-fribourg' }, priority: .8, changeFrequency: 'weekly' },
+  ...cantonAreas.map(area => ({
+    paths: area.paths,
+    priority: .8,
+    changeFrequency: 'weekly' as const,
+  })),
   { paths: { de: '/solaranlage-biel', fr: '/fr/solaire-bienne' }, priority: .8, changeFrequency: 'weekly' },
-  { paths: { de: '/solaranlage-wallis', fr: '/fr/solaire-valais' }, priority: .8, changeFrequency: 'weekly' },
-  ...cities.filter(city => city.language === 'de' && !['freiburg', 'biel', 'wallis'].includes(city.slug))
-    .map(city => ({ paths: { de: `/solaranlage-${city.slug}` }, priority: .8, changeFrequency: 'weekly' as const })),
 ];
 
 const byPath = new Map<string, SeoRouteGroup>();

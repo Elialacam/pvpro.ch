@@ -6,9 +6,7 @@ import TeamSection from '@/components/TeamSection';
 import SwissMap from '@/components/SwissMapLazy';
 import BlogSection from '@/components/BlogSection';
 import CtaAnfrage from '@/components/CtaAnfrage';
-import Link from 'next/link';
-import { cities } from '@/lib/cities';
-import { MapPin } from 'lucide-react';
+import CantonGrid from '@/components/CantonGrid';
 
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
@@ -39,40 +37,11 @@ export default function HomePage() {
               Solaranlagen in der ganzen Schweiz
             </h2>
             <p className="text-xl text-gray-600">
-              Wir vermitteln Solarteure in allen grösseren Schweizer Städten
+              Wir vermitteln geprüfte Solarteure in der ganzen Schweiz
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {cities.map((city) => {
-              let href = '';
-              if (city.language === 'fr') {
-                href = `/fr/solaire-${city.slug}`;
-              } else if (city.language === 'it') {
-                href = `/it/fotovoltaico-${city.slug}`;
-              } else {
-                href = `/solaranlage-${city.slug}`;
-              }
-              
-              return (
-                <Link
-                  key={city.slug}
-                  href={href}
-                  className="group flex items-center gap-2 p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary-50 transition-all duration-200 cursor-pointer"
-                >
-                  <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                  <div className="flex-1 min-w-0">
-                    <div className="font-sans font-bold text-gray-900 group-hover:text-primary transition-colors truncate">
-                      {city.name}
-                    </div>
-                    <div className="text-xs text-gray-500">
-                      {city.canton}
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          <CantonGrid locale="de" />
         </div>
       </section>
 
