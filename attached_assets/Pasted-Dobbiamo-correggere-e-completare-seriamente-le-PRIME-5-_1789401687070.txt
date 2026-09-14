@@ -1,0 +1,831 @@
+Dobbiamo correggere e completare seriamente le PRIME 5 pagine cantonali tedesche di PvPro.ch già presenti nel progetto:
+
+/solaranlage-aargau
+/solaranlage-appenzell-ausserrhoden
+/solaranlage-appenzell-innerrhoden
+/solaranlage-basel
+/solaranlage-bern
+
+IMPORTANTE: questo NON è un lavoro di semplice restyling e NON devi sintetizzare il materiale in poche card.
+
+Le versioni attuali sono troppo corte e soprattutto troppo simili tra loro. Voglio trasformarle in 5 vere pagine informative cantonali, ricche di dati verificati, utili sia all'utente sia a Google/AI, mantenendo però una buona conversione.
+
+========================================
+0. PRIMA DI MODIFICARE
+========================================
+
+Prima ispeziona:
+
+- le 5 pagine attuali
+- i componenti condivisi che utilizzano
+- eventuali file tipo lib/facts.ts / canton config / data files
+- CTA, FAQ, source cards e mappe già esistenti
+
+NON creare duplicazioni inutili se esiste già una struttura dati riutilizzabile.
+
+Se le 5 pagine utilizzano un componente comune, mantieni un'architettura condivisa ma introduci componenti/variant specifici per i blocchi cantonali.
+
+L'obiettivo è:
+
+- stesso brand PvPro
+- stesso header/footer/font/colori/base spacing
+- ma contenuto e almeno 1–2 moduli visuali realmente diversi per ogni Cantone
+
+NON pubblicare/deployare.
+NON modificare le altre 20 pagine cantonali.
+NON toccare canonical, hreflang, sitemap, redirect o routing già funzionanti.
+NON cambiare header/footer globali.
+NON modificare altre lingue in questo passaggio.
+
+========================================
+1. REGOLA FONDAMENTALE SUL CONTENUTO
+========================================
+
+NON riassumere i dati qui sotto in 3 card.
+
+Ogni pagina deve diventare una risorsa completa ma leggibile.
+
+Target indicativo di testo editoriale visibile, FAQ incluse ma esclusi menu/footer:
+
+- Aargau: 1'000–1'300 parole
+- Appenzell Ausserrhoden: 1'050–1'350 parole
+- Appenzell Innerrhoden: 900–1'150 parole
+- Basel: 1'300–1'650 parole, perché tratta due Cantoni
+- Bern: 1'100–1'400 parole
+
+NON allungare artificialmente.
+Ogni paragrafo deve aggiungere un'informazione concreta.
+
+Scrittura:
+- tedesco svizzero professionale e naturale
+- usare "ss", non "ß"
+- frasi brevi
+- niente AI-slop
+- niente parole da brochure
+- niente ripetizioni SEO
+- niente frasi tipo "Die Zukunft der Energie beginnt jetzt"
+- niente statistiche inventate
+- niente testimonial inventati
+- niente percentuali di risparmio generiche
+- niente ROI inventati
+- niente "führende Vergleichsplattform"
+- niente "bis zu 45 % Förderung" generico
+- niente "Bundesförderung garantiert"
+
+Quando una regola cambia nel 2027, separare chiaramente:
+"gilt 2026" vs. "gilt ab 2027".
+
+Quando un incentivo vale solo in combinazione con una ristrutturazione, NON presentarlo come incentivo PV generale.
+
+========================================
+2. STRUTTURA COMUNE MINIMA
+========================================
+
+Tutte le pagine devono avere, adattandole al Cantone:
+
+1. Hero
+2. "Das Wichtigste auf einen Blick"
+3. blocco cantonale visualmente unico
+4. regole / obblighi applicabili
+5. Förderungen 2026
+6. Bewilligung / Meldeverfahren
+7. Kosten & Planung
+8. "Für wen lohnt sich eine Solaranlage hier besonders?"
+9. PvPro: come funziona in 3 step
+10. FAQ locali
+11. Quellen / Stand der Informationen
+12. CTA finale
+
+CTA principale:
+"Bis zu 3 Solarofferten vergleichen"
+
+Microcopy:
+"Kostenlos · Unverbindlich · Passende Fachbetriebe"
+
+Usare "geprüfte Fachbetriebe" solo se questa formulazione è già supportata dal processo operativo esistente del sito.
+
+Inserire CTA:
+- hero
+- dopo il blocco Förderungen/Kosten
+- finale
+
+Non mettere CTA ogni due sezioni.
+
+La sezione "Kosten" NON deve inventare prezzi cantonali.
+Spiegare che il prezzo dipende da:
+- Dachfläche
+- Leistung
+- Dachart
+- Gerüst
+- Elektroarbeiten
+- Speicher
+- Eigenverbrauch
+- Installateur
+
+Poi CTA per confrontare offerte.
+
+========================================
+3. FONTI
+========================================
+
+Ogni pagina deve avere in fondo un blocco piccolo e pulito:
+
+"Quellen & Stand"
+
+con:
+- 3–6 fonti primarie ufficiali
+- nome dell'autorità
+- link "Offizielle Quelle"
+- Stand: September 2026
+
+NON mostrare URL lunghi in chiaro.
+
+Se esiste già il componente "Offizielle Quelle öffnen", riutilizzarlo.
+
+I numeri importanti devono essere associati alla loro fonte nei data/config del progetto, non inseriti senza provenienza.
+
+========================================
+4. AARGAU
+========================================
+
+ROUTE:
+/solaranlage-aargau
+
+TITLE:
+Solaranlage Aargau 2026: Pflicht & Förderung | PvPro.ch
+
+META:
+Photovoltaik im Aargau: Solarpflicht bei Neubauten, Förderung, Meldeverfahren und Regeln für Dach und Fassade im Jahr 2026.
+
+H1:
+Solaranlage im Aargau: Solarpflicht, Förderung und Bewilligung 2026
+
+HERO:
+Spiegare in 2–3 frasi:
+- Aargau ha regole precise per i nuovi edifici
+- dal 2026 anche molte Fassadenanlagen possono usare il Meldeverfahren
+- oltre alla EIV esistono programmi cantonali collegati a consulenza e risanamento energetico
+- CTA
+
+QUICK FACTS:
+Non i soliti 3 dati generici.
+Usare:
+- >300 m²: soglia rilevante per la Solarpflicht dei nuovi edifici
+- 20 %: superficie minima prevista dalla regola quando applicabile
+- 30 Tage: attesa dopo una normale Solar-Meldung prima dell'inizio lavori, se non arriva una comunicazione contraria
+- CHF 350: contributo cantonale alla "Grobberatung Eigenstrom", con partecipazione cliente da CHF 150
+
+BLOCCO VISUALE UNICO AARGAU:
+Creare un mini decision tree:
+
+"Gilt die Solarpflicht für meinen Neubau?"
+
+Visuale semplice, non un form.
+
+Percorso:
+Neubau?
+→ Nein: keine allgemeine Neubau-Solarpflicht aus §26a
+→ Ja
+→ Einfamilienhaus SIA Gebäudekategorie II?
+→ Ja: Ausnahme gemäss aktueller kantonaler Solar-Broschüre
+→ Nein
+→ anrechenbare Gebäudefläche >300 m²?
+→ Ja: Solaranlage grundsätzlich erforderlich
+→ Nein: diese Pflicht greift nicht
+
+Sotto:
+se la Pflicht si applica, PV/Solarthermie devono coprire almeno il 20% della anrechenbaren Gebäudefläche.
+
+Spiegare anche le eccezioni:
+- Orts-/Landschaftsschutz
+- wirtschaftliche Unverhältnismässigkeit
+- il Cantone considera tra i criteri anche ammortamento entro 25 anni e rendimento minimo previsto.
+
+SEZIONE:
+"Was bedeutet die Aargauer Solarpflicht konkret?"
+
+Spiegare in linguaggio normale:
+- riguarda nuovi edifici
+- >300 m²
+- tetto o facciata
+- 20 %
+- non confondere con obbligo universale per ogni casa esistente
+
+SEZIONE:
+"Förderung im Aargau 2026"
+
+Distinguere:
+
+A) Bund
+- EIV/Pronovo
+- importo dipende da impianto e condizioni federali
+
+B) Grobberatung Eigenstrom
+- Kanton CHF 350
+- Kundenbeteiligung ab CHF 150
+- comprende PV, Eigenverbrauch, Speicherung, E-Mobilität, Stromverbrauch
+
+C) Bonus Gebäudehülle + PV
+Nel Förderprogramm 2026 esistono bonus quando isolamento e PV vengono realizzati insieme:
+- Flachdach mit Begrünung: +CHF 20/m²
+- Schrägdach Aufdach: +CHF 30/m²
+- Schrägdach Indach oder Fassade: +CHF 100/m²
+
+Specificare chiaramente:
+NON è una sovvenzione PV standalone; è collegata alla misura di Wärmedämmung.
+
+BLOCCO:
+"Bewilligung oder Meldung?"
+
+Usare un piccolo flow visivo:
+- genügend angepasste Anlage → Meldeverfahren
+- geschütztes Gebäude / sensible Zone / requisiti non soddisfatti → Baubewilligung
+- dal 1.1.2026 anche Fassadenanlagen sufficientemente adattate possono usare il Meldeverfahren
+- invio via EVEN
+- normalmente lavori solo dopo 30 giorni dalla ricezione della Meldung, salvo risposta contraria
+
+FAQ AARGAU:
+almeno 5:
+1. Gilt im Aargau eine Solarpflicht?
+2. Sind Einfamilienhäuser betroffen?
+3. Wie gross muss die Solaranlage bei einem betroffenen Neubau sein?
+4. Braucht eine PV-Anlage eine Baubewilligung?
+5. Welche Förderung gibt es 2026?
+6. Gibt es einen Bonus bei Dachsanierung und Photovoltaik?
+
+FONTI:
+Kanton Aargau:
+- Solarbroschüre 2026
+- Vorschriften und Energievollzug
+- Förderprogramm 2026
+
+========================================
+5. APPENZELL AUSSERRHODEN
+========================================
+
+ROUTE:
+/solaranlage-appenzell-ausserrhoden
+
+TITLE:
+Solaranlage Appenzell Ausserrhoden: Förderung 2026/27 | PvPro.ch
+
+META:
+PV-Förderung in Appenzell Ausserrhoden: 50 % Zusatz zur EIV 2026, Übergangsregel und neue Winterstrom-Förderung ab 2027.
+
+H1:
+Solaranlage in Appenzell Ausserrhoden: Förderung 2026 und neue Regeln ab 2027
+
+La pagina attuale contiene già dati buoni.
+NON cancellarli.
+Ampliala.
+
+HERO:
+Il punto forte deve essere:
+AR è uno dei casi particolari perché nel 2026 esiste ancora un contributo cantonale aggiuntivo alla EIV e dal 2027 il sistema cambia verso Winterstrom.
+
+QUICK FACTS:
+- max. 50 % der definitiven EIV per impianti messi in servizio dal 1.9.2025
+- max. CHF 100'000 per Vorhaben
+- mindestens 2 kWp
+- Gesuch 2026: nach Inbetriebnahme + rechtskräftiger Pronovo-Verfügung
+
+BLOCCO VISUALE UNICO:
+Timeline orizzontale/verticale:
+
+"2026 → Übergang → ab 2027"
+
+2026:
+- aktuelles kM-21
+- max 50% der definitiven EIV
+- Antrag nach Abschluss
+
+Übergang:
+- Anlagen mit Inbetriebnahme 1.1.2022–31.12.2026
+- wenn weder winterstromoptimiert noch mit Wärmedämmung kombiniert:
+  Gesuch noch bis Ende 2027 möglich
+
+Ab 2027:
+- Förderung gezielt für Winterstrom
+- Modulneigung ≥75°
+- kantonaler Zuschlag von CHF 300/kW zum nationalen Neigungswinkelbonus
+- Kombination PV + Wärmedämmung: CHF 90–150/m² je nach Bauteil/Neigung
+- Gesuch zwingend vor Baubeginn
+
+SEZIONE:
+"Wer erhält den kantonalen Beitrag 2026?"
+
+Spiegare:
+- netzgekoppelt
+- ab 2 kWp
+- neue Anlagen / Erweiterungen
+- definitive EIV notwendig
+- reine Ersatz-/Sanierungsfälle non eligible
+- HEIV-Anlagen ohne Eigenverbrauch ausgeschlossen
+- PV-Auktionsanlagen ausgeschlossen
+- Höhenbonus wird kantonal nicht zusätzlich erhöht
+
+SEZIONE:
+"Warum richtet AR die Förderung auf Winterstrom aus?"
+
+Qui usare DATI CANTONALI REALI:
+
+- 2024: rund 80 GWh erneuerbare Stromproduktion im Kanton
+- entspricht rund 24 % des kantonalen Stromverbrauchs
+- 77 % dieser erneuerbaren Stromproduktion stammten aus Sonnenenergie
+- Ende 2024 waren erst rund 10 % der geeigneten Dächer und Fassaden mit PV belegt
+- kantonales Ziel: mindestens 40 % des Stromverbrauchs bis 2035 durch erneuerbare Energien aus dem Kanton
+
+Inserire questi dati in un blocco statistiche diverso dal quick facts iniziale.
+
+Spiegare anche:
+il Cantone stima che dachlastige Anlagen producano circa tre quarti dell'energia nel Sommerhalbjahr; steilere Anlagen spostano più produzione verso l'inverno.
+
+NON trasformare questo in promesse economiche.
+
+SEZIONE:
+"2026 planen oder auf 2027 ausrichten?"
+
+Spiegazione pratica:
+- normale Dachanlage 2026
+- steile Fassade / winteroptimierte Anlage
+- combinazione con isolamento
+- importanza della data di Inbetriebnahme e del momento della domanda
+
+FAQ:
+1. Wie hoch ist der kantonale PV-Beitrag 2026?
+2. Wann muss ich das Gesuch einreichen?
+3. Welche Anlagen sind ausgeschlossen?
+4. Was ändert sich am 1. Januar 2027?
+5. Was bedeutet Modulneigung ≥75°?
+6. Wie funktioniert die Übergangsfrist bis Ende 2027?
+
+FONTI:
+- Kanton AR kM-21 Photovoltaikanlage
+- Kantonale Förderung AR
+- Energie- und Stromverbrauch AR
+- Energiekonzept 2026–2035
+
+========================================
+6. APPENZELL INNERRHODEN
+========================================
+
+ROUTE:
+/solaranlage-appenzell-innerrhoden
+
+TITLE:
+Solaranlage Appenzell Innerrhoden: Förderung & Regeln | PvPro.ch
+
+META:
+Photovoltaik in Appenzell Innerrhoden: EIV des Bundes, Solarberatung für CHF 100, Eigenstrompflicht bei Neubauten und Bewilligung.
+
+H1:
+Solaranlage in Appenzell Innerrhoden: Förderung, Beratung und Bewilligung
+
+Questa pagina NON deve fingere che AI abbia lo stesso incentivo di AR.
+
+HERO:
+Spiegare subito:
+- PV viene principalmente sostenuto tramite EIV federale
+- il Cantone sostiene in modo concreto la consulenza
+- Neubauten devono produrre una parte della propria elettricità
+
+BLOCCO VISUALE UNICO AI:
+Tre colonne grandi, più editoriali delle solite card:
+
+"1. Bundesförderung"
+"2. CHF 100 Solarberatung"
+"3. Melde- oder Bewilligungsverfahren"
+
+A) Bundesförderung:
+- Photovoltaik tramite EIV del Bund
+- processo tramite Pronovo
+
+B) Solarberatung:
+- Impulsberatung Solarenergie
+- Kundenbeteiligung CHF 100
+- eseguita dal Verein Energie AR/AI
+- se combinata contemporaneamente con Impulsberatung "erneuerbar heizen": Solarberatung kostenlos
+
+C) Verfahren:
+- genügend angepasste Dachanlage in Bau-/Landwirtschaftszone → Meldepflicht
+- altri casi → Bewilligung
+
+SEZIONE:
+"Eigenstrom bei Neubauten"
+
+Spiegare:
+- dal diritto energetico AI in vigore dal 1.4.2020, nei nuovi edifici una parte dell'elettricità deve essere autoprodotta, ad esempio con PV
+- vale anche per determinati ampliamenti/Aufstockungen sopra le soglie applicabili
+- non esiste Ersatzabgabe
+- non è possibile compensare l'obbligo su un altro edificio
+- anche edifici Minergie devono rispettare l'obbligo
+
+Non inventare una quantità in kW se non già presente nel dataset verificato.
+
+SEZIONE:
+"Brauche ich eine Baubewilligung?"
+
+Spiegare chiaramente:
+Meldepflicht:
+- genügend angepasste Solaranlage
+- auf Dach
+- Bau- oder Landwirtschaftszone
+
+Bewilligung:
+- nicht auf Dach
+- nicht genügend angepasst
+- Schutzobjekt
+- Schutzzone / Ortsbildschutz / Landschaftsschutz
+
+SEZIONE:
+"Warum die Beratung hier wichtiger ist als ein erfundener Kantonsbonus"
+
+Non usare esattamente questo titolo se suona polemico.
+Usare qualcosa come:
+"Förderung richtig einordnen"
+
+Spiegare che:
+- EIV = Bund
+- CHF100 = Beratung, non contributo all'impianto
+- altre misure cantonali sull'edificio non devono essere presentate come PV-Beitrag se non lo sono
+
+FAQ:
+1. Gibt es in Appenzell Innerrhoden einen kantonalen PV-Beitrag?
+2. Was kostet die Solarberatung?
+3. Wann ist die Beratung kostenlos?
+4. Müssen Neubauten eigenen Strom produzieren?
+5. Brauche ich eine Baubewilligung?
+6. Wer zahlt die EIV?
+
+FONTI:
+- Nationale Förderung AI
+- Kantonale Förderung AI
+- Energievollzug AI
+- Solaranlagen / Baugesuch AI
+
+========================================
+7. BASEL
+========================================
+
+ROUTE:
+/solaranlage-basel
+
+TITLE:
+Solaranlage Basel 2026: Basel-Stadt vs. Baselland | PvPro.ch
+
+META:
+Photovoltaik in Basel: Förderung, Bewilligung und Solarpflicht unterscheiden sich zwischen Basel-Stadt und Basel-Landschaft deutlich.
+
+H1:
+Solaranlage in Basel: Basel-Stadt und Basel-Landschaft im Vergleich
+
+QUESTA DEVE ESSERE LA PAGINA VISIVAMENTE PIÙ DIVERSA DELLE CINQUE.
+
+Non trattare "Basel" come se fosse un solo Cantone.
+
+HERO:
+2 frasi che dicano chiaramente:
+"Bei Solarprojekten in Basel entscheidet die Kantonsgrenze. Basel-Stadt und Basel-Landschaft haben 2026 unterschiedliche Förderprogramme und Verfahren."
+
+CTA.
+
+BLOCCO VISUALE UNICO:
+Grande confronto a due colonne:
+
+BASEL-STADT | BASEL-LANDSCHAFT
+
+Righe:
+PV-Förderung
+Sanierung + PV
+Bewilligung
+Solarpflicht / politischer Stand
+Besonderheit 2026
+
+================================
+BASEL-STADT
+================================
+
+Spiegare:
+
+1. Federale:
+- Photovoltaik wird grundsätzlich durch den Bund / EIV gefördert
+
+2. Aktion "Solarkraftwerk Basel":
+Per proprietari che fanno una energetische Dach-/Fassadensanierung e contemporaneamente installano PV.
+
+Contribution:
+- saniertes Dach: CHF 50/m²
+- dove sulla superficie risanata vengono installati moduli PV: CHF 100/m²
+- sanierte Fassade: CHF 70/m²
+- con PV sulla superficie: CHF 140/m²
+
+Chiarire:
+questi sono contributi legati alla SANIERUNG + PV.
+Non presentarli come CHF 100/140 di sovvenzione PV standalone.
+
+Per Dachanlagen:
+- la misura richiede generalmente 90% della superficie con buona/migliore idoneità secondo Solarkataster o il potenziale tecnicamente realizzabile coperto da PV, secondo il programma ufficiale.
+
+Gesuch vor Baubeginn.
+
+3. Bewilligung:
+Meldeverfahren possibile per impianti sufficientemente adattati in determinate zone.
+Schutzzone / Denkmal ecc. → Baubewilligung.
+
+4. Solaroffensive:
+Creare un box chiaramente etichettato:
+
+"Geplant – noch nicht geltendes Recht"
+
+Stato settembre 2026:
+- Regierungsrat ha approvato il progetto rivisto
+- lo ha trasmesso al Grossen Rat
+- proposta: estensione dell'obbligo PV agli edifici esistenti
+- transizione prevista: 15 anni
+- anche nuovi incentivi / procedure semplificate previsti
+
+MA:
+NON scrivere che questo obbligo per edifici esistenti è già in vigore.
+
+Dato interessante:
+il Cantone stima che il potenziale su tetti e facciate potrebbe coprire circa il 40% dell'attuale fabbisogno elettrico cantonale.
+
+================================
+BASEL-LANDSCHAFT
+================================
+
+1. Bonus PV + Wärmedämmung dal 2026:
+- Dach: +CHF 40/m² Modulfläche
+- Fassade: +CHF 120/m² Modulfläche
+
+È un bonus solo in combinazione con la Wärmedämmung prevista dal programma.
+
+2. Limiti:
+- max CHF 100'000 per Gesuch
+- contributo della misura max 50% degli investimenti specifici ammessi
+- Gesuche per le nuove misure dal 12.1.2026
+
+3. Solar-Initiative:
+Creare un box:
+"Keine neue allgemeine Nachrüstpflicht aus der Solar-Initiative"
+
+- votazione 8.3.2026
+- respinta con 67.6% Nein
+- quindi NON presentare l'obbligo proposto dall'iniziativa come diritto vigente
+
+4. Bundesförderung:
+EIV/Pronovo rimane rilevante per l'impianto PV stesso.
+
+BLOCCO VISUALE:
+Oltre alla comparazione iniziale, creare una sezione:
+"Welche Basel-Regel gilt für mich?"
+con due grandi pulsanti/card NON cliccabili:
+- Liegenschaft in Basel-Stadt
+- Liegenschaft in Basel-Landschaft
+
+sotto ognuna 3 passaggi pratici.
+
+FAQ BASEL:
+1. Gibt es in Basel eine kantonale PV-Förderung?
+2. Was ist der Unterschied zwischen Basel-Stadt und Basel-Landschaft?
+3. Ist die Solaroffensive in Basel-Stadt bereits Gesetz?
+4. Wie funktioniert "Solarkraftwerk Basel"?
+5. Wie hoch ist der PV-Bonus im Baselbiet 2026?
+6. Hat Basel-Landschaft eine allgemeine Solarpflicht für bestehende Häuser?
+7. Wann brauche ich in Basel-Stadt eine Baubewilligung?
+
+FONTI:
+BS:
+- Aktion Solarkraftwerk Basel
+- Solaranlagen / Bewilligungsverfahren
+- Solaroffensive / aktueller Stand
+
+BL:
+- Baselbieter Energiepaket 2026
+- Übersicht Förderbeiträge
+- offizielles Abstimmungsergebnis Solar-Initiative
+
+========================================
+8. BERN
+========================================
+
+ROUTE:
+/solaranlage-bern
+
+TITLE:
+Solaranlage Bern: neue Solarpflicht 2026 | PvPro.ch
+
+META:
+Seit 2026 gelten im Kanton Bern neue Solarregeln für Neubauten, Erweiterungen, Dachsanierungen und grössere Parkplätze.
+
+H1:
+Solaranlage im Kanton Bern: Was sich seit 2026 geändert hat
+
+HERO:
+Questa pagina deve sembrare un vero "2026 regulatory update".
+
+BLOCCO VISUALE UNICO:
+Timeline/checklist:
+
+"Seit 1. Januar 2026"
+
+con:
+- Neubauten
+- Erweiterungen
+- Dachsanierungen
+- Parkplätze
+
+SEZIONE:
+"Neubauten und Erweiterungen"
+
+Dati:
+- almeno 10% della anrechenbaren Gebäudefläche deve essere equipaggiato per uso solare
+- per geeignete Dachflächen, la Verordnung prevede grundsätzlich Ausstattung su almeno 60% della Bruttofläche
+- il minimo richiesto può essere realizzato anche su Fassaden o altre Dachflächen
+
+Piccoli edifici residenziali:
+- fino a 300 m² esiste una Sonderregel: almeno energia solare sufficiente a coprire metà del Normbedarf
+- non semplificare questa regola in "60% di ogni tetto"
+
+Esenzione:
+- edifici con aGF <50 m² possono essere esenti se contemporaneamente non hanno una geeignete Einzeldachfläche ≥50 m²
+
+SEZIONE:
+"Dachsanierung: Meldepflicht ist nicht automatisch Solarpflicht"
+
+Questa frase deve essere molto visibile.
+
+Definizione umfassende Dachsanierung:
+- almeno 50% della Bruttofläche della copertura interessata da sostituzione Eindeckung/Abdichtung
+
+- Dachflächen <20 m² sono escluse dalla Meldepflicht
+- Meldung via sistema cantonale/eBau
+- per progetti baubewilligungsfrei: almeno 7 Arbeitstage prima dell'inizio
+- la Meldung deve documentare l'idoneità solare e i costi stimati
+
+Importante:
+NON trasformare questa Meldepflicht in una frase tipo:
+"Bei jeder Dachsanierung muss PV installiert werden."
+Sarebbe falso.
+
+SEZIONE:
+"Neue Regeln für grössere Parkplätze"
+
+Separata perché è una peculiarità Bern 2026.
+
+- nuovi parcheggi all'aperto da almeno 80 posti, accessibili al pubblico e bewirtschaftet: solaraktive Überdachung se adatti
+- nuovi P+R all'aperto >50 posti: stesso principio
+- superficie adatta: almeno 50% deve essere coperta da solaraktive Überdachung
+- esistono eccezioni
+- gli P+R esistenti hanno regole specifiche fino al 2035
+
+Questo blocco può essere più piccolo perché PvPro è principalmente residenziale, ma è un ottimo dato locale/AI.
+
+SEZIONE:
+"Bewilligung einer Solaranlage"
+
+- per impianti baubewilligungsfrei esiste comunque Meldepflicht
+- Meldung spätestens 7 Arbeitstage vor Baubeginn
+- Baudenkmal / Schutzinteressen possono rendere necessario un permesso
+
+SEZIONE:
+"Förderung im Kanton Bern"
+
+NON inventare un "kantonaler PV-Zuschuss" generico.
+
+Distinguere:
+- EIV Bund / Pronovo
+- KLEIV / GREIV dove appropriato
+- eventuali incentivi di Gebäudeprogramm devono essere descritti solo se riguardano davvero la misura citata
+- non ripristinare il vecchio claim "Gesamtförderung bis 35%" senza una base ufficiale specifica
+
+FAQ:
+1. Gilt im Kanton Bern seit 2026 eine Solarpflicht?
+2. Wie viel Dachfläche muss bei einem Neubau genutzt werden?
+3. Bedeutet eine Dachsanierung automatisch, dass ich PV installieren muss?
+4. Wann gilt eine Dachsanierung als "umfassend"?
+5. Wann muss ich die Meldung einreichen?
+6. Welche Regeln gelten für grosse Parkplätze?
+7. Welche PV-Förderung gibt es im Kanton Bern?
+
+FONTI:
+- Kanton Bern Solarenergie / Solarpflicht 2026
+- Kantonales Energiegesetz Art. 39a–39e
+- Kantonale Energieverordnung Art. 19a–19h
+- Vollzugshilfe Solarausstattungspflicht Januar 2026
+
+========================================
+9. PVPRO-BLOCK SU TUTTE LE 5 PAGINE
+========================================
+
+Aggiungi un blocco breve, non enorme:
+
+"So funktioniert der Vergleich über PvPro.ch"
+
+1. Anfrage senden
+Kurz Angaben zu Gebäude und Solarprojekt machen.
+
+2. Passende Fachbetriebe
+Wir prüfen die Anfrage und vermitteln sie an bis zu drei passende Anbieter.
+
+3. Offerten vergleichen
+Leistungen, Anlage und Preis in Ruhe vergleichen.
+
+CTA:
+"Solarofferten vergleichen"
+
+NON aggiungere statistiche aziendali non verificate.
+
+========================================
+10. FAQ + STRUCTURED DATA
+========================================
+
+Le FAQ devono essere veramente diverse per Cantone come specificato sopra.
+
+Assicurati che:
+- domanda + risposta siano presenti nell'HTML
+- eventuale FAQPage structured data corrisponda ESATTAMENTE al testo visibile
+- niente schema duplicato
+- niente FAQ invisibili solo per Google
+
+========================================
+11. DESIGN
+========================================
+
+NON fare cinque siti diversi.
+
+Mantieni:
+- brand
+- tipografia
+- palette
+- max-width
+- CTA
+- border radius
+- spacing system
+
+Ma ogni pagina deve avere almeno un modulo distintivo:
+
+Aargau:
+decision tree Solarpflicht + flow Bewilligung
+
+Appenzell Ausserrhoden:
+timeline 2026 → 2027 + statistik block
+
+Appenzell Innerrhoden:
+3-pillar Beratung/Bund/Bewilligung layout
+
+Basel:
+BS-vs-BL split comparison, chiaramente la più diversa
+
+Bern:
+2026 regulatory timeline/checklist + Dachsanierung explainer
+
+NON limitarti a cambiare icone dentro le stesse tre card.
+
+Usa componenti riutilizzabili con variants dove ha senso.
+
+========================================
+12. MAPPA
+========================================
+
+Non rimuovere la mappa esistente solo per cambiare qualcosa.
+
+Mantienila se funziona già.
+
+Puoi adattare titolo/sottotitolo alla pagina ma non spendere tempo a rifarla.
+
+========================================
+13. QA FINALE OBBLIGATORIO
+========================================
+
+Dopo le modifiche:
+
+1. build del progetto
+2. verifica HTTP 200 delle 5 route
+3. controlla che non ci siano errori console evidenti
+4. verifica responsive desktop/mobile
+5. conta approssimativamente le parole di ciascuna pagina
+6. verifica che ogni pagina abbia almeno un modulo visualmente diverso
+7. verifica che nessuno dei claim vietati sia presente:
+   - 45% Förderung generico
+   - führende Vergleichsplattform
+   - garantierte Bundesförderung
+   - ROI fisso inventato
+   - testimonial inventati
+8. controlla che Basel distingua SEMPRE BS da BL
+9. controlla che Bern distingua Dachsanierungs-Meldepflicht da Installationspflicht
+10. controlla che AI non presenti la CHF 100 Solarberatung come contributo all'impianto
+11. controlla che i bonus Aargau/BS/BL legati alla ristrutturazione non vengano presentati come contributo PV standalone
+
+NON pubblicare.
+
+Alla fine rispondimi SOLO con:
+
+- file modificati
+- parole circa per ognuna delle 5 pagine
+- moduli unici creati per ogni Cantone
+- fonti ufficiali inserite
+- risultato build
+- eventuali problemi reali rimasti
+
+Non fare una lunga spiegazione del lavoro svolto.

@@ -1,0 +1,33 @@
+'use client';
+
+import Link from 'next/link';
+import type { ReactNode } from 'react';
+import FaqSchema from '@/components/FaqSchema';
+import type { CantonGuide } from '@/lib/canton-guides/types';
+import GuideModule from '@/components/canton-guides/GuideModule';
+
+interface CantonGuidePageProps {
+  guide: CantonGuide;
+  mapSection: ReactNode;
+}
+
+function OfferCta({ final = false }: { final?: boolean }) {
+  return <section className={final ? 'section-padding bg-primary text-white' : 'py-12'}>
+    <div className={`container-custom text-center ${final ? '' : 'rounded-2xl bg-primary-50 py-10'}`}>
+      <h2 className="font-sans text-2xl font-bold sm:text-3xl">{final ? 'Ihr Solarprojekt konkret planen' : 'Offerten auf gleicher Grundlage vergleichen'}</h2>
+      <p className="mt-2 text-sm opacity-80">Kostenlos · Unverbindlich · Passende Fachbetriebe</p>
+      <Link href="/anfrage" className={`mt-6 inline-block rounded-lg px-7 py-3 font-sans font-bold text-gray-950 transition-opacity hover:opacity-90 ${final ? 'bg-white' : 'bg-primary'}`}>Bis zu 3 Solarofferten vergleichen</Link>
+    </div>
+  </section>;
+}
+
+export default function CantonGuidePage({ guide, mapSection }: CantonGuidePageProps) {
+  const sourceLabel = (ids: string[]) => ids.length ? <small className="mt-3 block text-xs text-gray-400">Quellen: {ids.map((id, index) => <a key={id} href={`#quelle-${id}`} aria-label={`Quelle ${id}`} className="ml-1 underline hover:text-primary">{guide.sources.findIndex(source => source.id === id) + 1}{index < ids.length - 1 ? ',' : ''}</a>)}</small> : null;
+  return <article data-canton-guide={guide.id}><section className="section-padding bg-gradient-to-br from-primary-50 via-yellow-50 to-white"><div className="container-custom max-w-4xl text-center"><p className="mb-4 text-sm font-bold uppercase tracking-widest text-primary">Kantonale Informationen · Stand September 2026</p><h1 className="font-sans text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">{guide.h1}</h1><div className="mx-auto mt-6 max-w-3xl space-y-4 text-lg leading-relaxed text-gray-700">{guide.intro.map(p => <p key={p}>{p}</p>)}</div><OfferCta /></div></section>
+    <section className="section-padding bg-white"><div className="container-custom max-w-6xl"><h2 className="font-sans text-3xl font-bold text-gray-900">Das Wichtigste auf einen Blick</h2><div className="mt-7 grid gap-px overflow-hidden rounded-2xl border border-gray-200 bg-gray-200 sm:grid-cols-2 lg:grid-cols-4">{guide.quickFacts.map(f => <div key={f.label} className="bg-white p-5"><p className="font-sans text-2xl font-bold text-primary">{f.value}</p><p className="mt-1 text-sm font-medium text-gray-700">{f.label}</p><small className="mt-2 block text-gray-400">{sourceLabel(f.sourceIds)}</small></div>)}</div></div></section>
+    <nav aria-label="Inhalt dieser Seite" className="sticky top-16 sm:top-[72px] z-10 border-y border-gray-200 bg-white/95 py-3 backdrop-blur"><div className="container-custom flex gap-5 overflow-x-auto text-sm font-semibold text-primary">{guide.sections.map(s => <a key={s.id} href={`#${s.id}`} className="whitespace-nowrap hover:underline">{s.title}</a>)}</div></nav>
+    {guide.sections.map((section, index) => <div key={section.id}><section id={section.id} className={`${index % 2 ? 'section-padding bg-gray-50' : 'section-padding bg-white'} scroll-mt-28`}><div className="container-custom max-w-4xl"><h2 className="font-sans text-3xl font-bold tracking-tight text-gray-900">{section.title}</h2><div className="mt-5 space-y-4 leading-relaxed text-gray-700">{section.paragraphs.map(p => <p key={p}>{p}</p>)}</div>{section.bullets && <ul className="mt-5 space-y-2 border-l-2 border-primary pl-5 text-gray-700">{section.bullets.map(b => <li key={b}>{b}</li>)}</ul>}{section.notice && <aside className={`mt-6 rounded-xl border p-5 ${section.notice.status === 'future' ? 'border-amber-300 bg-amber-50' : 'border-primary/20 bg-primary/5'}`}><h3 className="font-sans font-bold text-gray-900">{section.notice.title}</h3><p className="mt-2 text-gray-700">{section.notice.text}</p></aside>}{section.module && <div className="mt-7"><GuideModule module={section.module} sourceLinks={sourceLabel} /></div>}{sourceLabel(section.sourceIds)}</div></section>{/kosten/i.test(section.title) && <OfferCta />}</div>)}
+    <section className="section-padding bg-white"><div className="container-custom max-w-4xl"><h2 className="font-sans text-3xl font-bold text-gray-900">So funktioniert der Vergleich über PvPro.ch</h2><ol className="mt-7 grid gap-6 md:grid-cols-3"><li><b>1. Anfrage senden</b><p className="mt-2 text-gray-600">Kurz Angaben zu Gebäude und Solarprojekt machen.</p></li><li><b>2. Passende Fachbetriebe</b><p className="mt-2 text-gray-600">Wir prüfen die Anfrage und vermitteln sie an bis zu drei passende Anbieter.</p></li><li><b>3. Offerten vergleichen</b><p className="mt-2 text-gray-600">Leistungen, Anlage und Preis in Ruhe vergleichen.</p></li></ol><Link href="/anfrage" className="mt-7 inline-block text-sm font-bold text-primary hover:underline">Solarofferten vergleichen</Link></div></section>
+    {mapSection}<section className="section-padding bg-gray-50"><div className="container-custom max-w-4xl"><h2 className="font-sans text-3xl font-bold text-gray-900">Häufige Fragen</h2><dl className="mt-7 divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-white px-6">{guide.faqs.map(f => <div key={f.question} className="py-6"><dt data-faq-question className="font-sans text-lg font-bold text-gray-900">{f.question}</dt><dd className="mt-3 leading-relaxed text-gray-700"><span data-faq-answer>{f.answer}</span></dd>{sourceLabel(f.sourceIds)}</div>)}</dl></div></section>
+    <section className="section-padding bg-white"><div className="container-custom max-w-4xl"><h2 className="font-sans text-2xl font-bold text-gray-900">Quellen &amp; Stand</h2><p className="mt-2 text-sm text-gray-600">Stand: September 2026</p><ul className="mt-5 divide-y divide-gray-200 rounded-xl border border-gray-200 px-5">{guide.sources.map(s => <li id={`quelle-${s.id}`} key={s.id} className="flex scroll-mt-28 flex-wrap items-center justify-between gap-3 py-4 text-sm"><span><b className="text-gray-900">{s.authority}</b><span className="text-gray-600"> · {s.title}</span></span><a href={s.url} target="_blank" rel="noreferrer" className="font-bold text-primary hover:underline">Offizielle Quelle</a></li>)}</ul></div></section><OfferCta final /><FaqSchema faqs={guide.faqs} /></article>;
+}

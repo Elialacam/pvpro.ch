@@ -1,0 +1,17 @@
+import { guide as aargau } from './aargau';
+import { guide as ausserrhoden } from './appenzell-ausserrhoden';
+import { guide as innerrhoden } from './appenzell-innerrhoden';
+import { guide as basel } from './basel';
+import { guide as bern } from './bern';
+import type { CantonGuide } from './types';
+
+export const cantonGuides: CantonGuide[] = [aargau, ausserrhoden, innerrhoden, basel, bern];
+
+/** Deliberately limited to the five commissioned German-language guides. */
+export function getCantonGuide(slug: string, language: string): CantonGuide | undefined {
+  return language === 'de' ? cantonGuides.find(guide => guide.id === slug) : undefined;
+}
+
+export function getCantonGuideByPath(path: string, language: string): CantonGuide | undefined {
+  return language === 'de' ? cantonGuides.find(guide => guide.path === path) : undefined;
+}

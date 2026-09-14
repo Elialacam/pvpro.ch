@@ -17,6 +17,8 @@ import FaqSchema from '@/components/FaqSchema';
 import RelatedCities from '@/components/RelatedCities';
 import { Sun, MapPin, TrendingUp, CheckCircle, Zap, Euro, Award } from 'lucide-react';
 import Image from 'next/image';
+import CantonGuidePage from '@/components/CantonGuidePage';
+import { getCantonGuide } from '@/lib/canton-guides';
 
 interface UniqueCityPageProps {
   city: City;
@@ -127,6 +129,37 @@ export default function UniqueCityPage({
           ? 'Switzerland'
           : 'Schweiz'
     : 'Schweiz';
+  const guide = lang === 'de' ? getCantonGuide(city.slug, lang) : undefined;
+  const mapSection = (
+    <section className="section-padding bg-white">
+      <div className="container-custom max-w-6xl">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl font-sans font-semibold tracking-tight text-gray-900 mb-3">
+            {guide
+              ? `Solarprojekt in ${city.name}`
+              : suppressUnsupportedClaims
+              ? t(lang, `Solarprojekte: ${city.name}`, `Projets solaires : ${city.name}`, `Progetti solari: ${city.name}`, `Solar projects: ${city.name}`)
+              : t(lang, `Solarteure in ${city.name} und Umgebung`, `Installateurs solaires à ${city.name} et alentours`, `Installatori a ${city.name} e dintorni`, `Solar installers in and around ${city.name}`)}
+          </h2>
+          <p className="text-gray-600">
+            {guide
+              ? `Karte und Orientierung für Ihr Solarprojekt in ${city.name}.`
+              : suppressUnsupportedClaims
+              ? t(lang, `Informationen zu Solarprojekten in ${city.name}.`, `Informations sur les projets solaires liés à ${city.name}.`, `Informazioni sui progetti solari legati a ${city.name}.`, `Information about solar projects related to ${city.name}.`)
+              : t(lang, `Unser Netzwerk umfasst geprüfte Fachbetriebe in der gesamten Kanton ${city.canton}`, `Notre réseau comprend des entreprises certifiées dans toute le canton ${city.canton}`, `La nostra rete comprende ditte certificate in tutto il Canton ${city.canton}`, `Our network includes solar professionals across canton ${city.canton}`)}
+          </p>
+        </div>
+        <div className="relative rounded-2xl overflow-hidden shadow-xl h-[500px]">
+          {mounted && (
+            <iframe src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDQF_fL_qx_1QZVlvJFNRl5ETBhjcJOFAE&q=${encodeURIComponent(city.name + ', ' + mapCountry)}&zoom=10`} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title={t(lang, `Karte von ${city.name}`, `Carte de ${city.name}`, `Mappa di ${city.name}`, `Map of ${city.name}`)} />
+          )}
+          <div className="absolute bottom-6 left-6 bg-white px-6 py-3 rounded-lg shadow-lg"><div className="flex items-center gap-2"><MapPin className={`w-5 h-5 ${theme.icon}`} /><span className="font-sans font-bold text-gray-900 text-lg">{city.name}, {city.canton}</span></div></div>
+        </div>
+      </div>
+    </section>
+  );
+
+  if (guide) return <CantonGuidePage guide={guide} mapSection={mapSection} />;
 
   return (
     <>
@@ -533,64 +566,7 @@ export default function UniqueCityPage({
         </div>
       </section>}
 
-      {/* Google Maps */}
-      <section className="section-padding bg-white">
-        <div className="container-custom max-w-6xl">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-sans font-semibold tracking-tight text-gray-900 mb-3">
-              {suppressUnsupportedClaims
-                ? t(lang,
-                  `Solarprojekte: ${city.name}`,
-                  `Projets solaires : ${city.name}`,
-                  `Progetti solari: ${city.name}`,
-                  `Solar projects: ${city.name}`
-                )
-                : t(lang,
-                  `Solarteure in ${city.name} und Umgebung`,
-                  `Installateurs solaires à ${city.name} et alentours`,
-                  `Installatori a ${city.name} e dintorni`,
-                  `Solar installers in and around ${city.name}`
-                )}
-            </h2>
-            <p className="text-gray-600">
-              {suppressUnsupportedClaims
-                ? t(lang,
-                  `Informationen zu Solarprojekten in ${city.name}.`,
-                  `Informations sur les projets solaires liés à ${city.name}.`,
-                  `Informazioni sui progetti solari legati a ${city.name}.`,
-                  `Information about solar projects related to ${city.name}.`
-                )
-                : t(lang,
-                  `Unser Netzwerk umfasst geprüfte Fachbetriebe in der gesamten Kanton ${city.canton}`,
-                  `Notre réseau comprend des entreprises certifiées dans toute le canton ${city.canton}`,
-                  `La nostra rete comprende ditte certificate in tutto il Canton ${city.canton}`,
-                  `Our network includes solar professionals across canton ${city.canton}`
-                )}
-            </p>
-          </div>
-
-          <div className="relative rounded-2xl overflow-hidden shadow-xl h-[500px]">
-            {mounted && (
-              <iframe
-                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDQF_fL_qx_1QZVlvJFNRl5ETBhjcJOFAE&q=${encodeURIComponent(city.name + ', ' + mapCountry)}&zoom=10`}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title={t(lang, `Karte von ${city.name}`, `Carte de ${city.name}`, `Mappa di ${city.name}`, `Map of ${city.name}`)}
-              />
-            )}
-            <div className="absolute bottom-6 left-6 bg-white px-6 py-3 rounded-lg shadow-lg">
-              <div className="flex items-center gap-2">
-                <MapPin className={`w-5 h-5 ${theme.icon}`} />
-                <span className="font-sans font-bold text-gray-900 text-lg">{city.name}, {city.canton}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {mapSection}
 
        {showGenericClaims && <USPSection lang={lang} />}
 

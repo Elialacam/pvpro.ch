@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { cities } from '@/lib/cities';
 import { seoRouteGroup } from '@/lib/seoRoutes';
+import { getCantonGuideByPath } from '@/lib/canton-guides';
 
 const SITE_URL = 'https://www.pvpro.ch';
 
@@ -256,8 +257,9 @@ export function pageMetadata(
   const canonicalPath = normalizePath(path);
   const url = canonicalPath === '/' ? SITE_URL : `${SITE_URL}${canonicalPath}`;
   const canton = cantonMetadata(canonicalPath, locale);
-  const title = brandedTitle(canton?.title || editorialTitles[canonicalPath] || titleText(metadata.title));
-  const description = (canton?.description || editorialDescriptions[canonicalPath] || (typeof metadata.description === 'string' ? metadata.description : ''))
+  const guide = getCantonGuideByPath(canonicalPath, locale);
+  const title = brandedTitle(guide?.title || canton?.title || editorialTitles[canonicalPath] || titleText(metadata.title));
+  const description = (guide?.description || canton?.description || editorialDescriptions[canonicalPath] || (typeof metadata.description === 'string' ? metadata.description : ''))
     .replace(/PV\s*Pro(?:\.ch)?/gi, 'PvPro.ch')
     .replace(/\s+/g, ' ')
     .trim();
