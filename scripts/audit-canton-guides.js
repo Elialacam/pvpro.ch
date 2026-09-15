@@ -54,7 +54,7 @@ for (const guide of cantonGuides) {
   checkSources(guide);
   for (const source of guide.sources) assert.match(source.url, /^https:\/\//);
   const html = renderToStaticMarkup(React.createElement(GuidePage, { guide, mapSection: null }));
-  const text = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, ' ').replace(/&[^;]+;/g, ' ');
+  const text = html.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/g, '').replace(/<[^>]+>/g, ' ').replace(/&[^;]+;/g, ' ');
   assert.ok(!/ß|führende Vergleichsplattform|garantierte Bundesförderung|Bundesförderung garantiert|\bregion(?:en)?\b/i.test(text), `${guide.id}: forbidden wording`);
   assert.equal((html.match(/"@type":"FAQPage"/g) || []).length, 1, `${guide.id}: duplicate FAQ schema`);
   assert.equal((html.match(/>Bis zu 3 Solarofferten vergleichen<\/a>/g) || []).length, 3, `${guide.id}: three main CTA links`);

@@ -1,0 +1,883 @@
+Lavora SOLO sulle prime 5 guide cantonali tedesche già create:
+
+/solaranlage-aargau
+/solaranlage-appenzell-ausserrhoden
+/solaranlage-appenzell-innerrhoden
+/solaranlage-basel
+/solaranlage-bern
+
+Questo è un passaggio EDITORIALE + UX/UI.
+
+NON dobbiamo rifare la ricerca.
+NON dobbiamo accorciare aggressivamente le pagine.
+NON dobbiamo eliminare dati verificati.
+NON dobbiamo trasformarle in landing page commerciali corte.
+
+La base fattuale attuale è buona.
+
+Il problema da risolvere è questo:
+
+1. il linguaggio è troppo tecnico per un proprietario di casa normale;
+2. molte sezioni sembrano documentazione amministrativa;
+3. hero e blocchi testuali sono visivamente troppo monotoni;
+4. le informazioni importanti richiedono troppo sforzo per essere trovate;
+5. la navigazione orizzontale interna mostra una brutta scrollbar;
+6. le cinque pagine devono mantenere più personalità visiva tra loro.
+
+OBIETTIVO FINALE:
+
+Un proprietario che non sa nulla di fotovoltaico deve poter capire la pagina senza conoscere termini energetici o legislativi.
+
+Allo stesso tempo dobbiamo mantenere:
+- tutti i dati importanti;
+- tutte le fonti ufficiali;
+- la profondità SEO;
+- le informazioni utili alle AI;
+- le peculiarità di ogni Cantone;
+- le FAQ;
+- i moduli unici già creati.
+
+Non ottimizzare per un numero di parole.
+Ottimizza per:
+"molte informazioni, poco sforzo per capirle".
+
+==================================================
+1. NON TOCCARE QUESTE COSE
+==================================================
+
+Non modificare:
+
+- canonical
+- hreflang
+- sitemap
+- redirect
+- routing
+- URL
+- lingue diverse dal tedesco
+- altre pagine cantonali
+- header/footer globali
+- dati verificati
+- fonti
+- numeri ufficiali
+- FAQ schema già corretto, salvo modificare il testo necessario per farlo corrispondere alle FAQ visibili
+
+NON pubblicare/deployare.
+
+==================================================
+2. REGOLA EDITORIALE PRINCIPALE
+==================================================
+
+Riscrivi il testo visibile delle 5 pagine in Schweizer Hochdeutsch semplice e naturale.
+
+Target:
+un proprietario di casa senza conoscenze tecniche deve capire quasi tutto alla prima lettura.
+
+Livello linguistico indicativo: B1/B2.
+
+Frasi brevi.
+Paragrafi brevi.
+Una sola idea principale per paragrafo.
+
+NON eliminare una regola solo perché è tecnica.
+SPIEGALA.
+
+Schema da usare:
+
+PRIMA:
+spiegazione semplice.
+
+DOPO, solo se serve:
+termine ufficiale tra parentesi.
+
+Esempi:
+
+NON:
+"Die rechtkräftige Pronovo-Verfügung zur EIV muss vorliegen."
+
+MEGLIO:
+"Bevor der Kanton den Beitrag auszahlt, brauchen Sie den definitiven Förderentscheid von Pronovo."
+
+Se utile:
+"... den definitiven Förderentscheid von Pronovo (rechtkräftige Pronovo-Verfügung)."
+
+---
+
+NON:
+"anrechenbare Gebäudefläche"
+
+come prima espressione.
+
+MEGLIO:
+"die für die Berechnung massgebende Gebäudefläche"
+
+e solo se necessario:
+"(offiziell: anrechenbare Gebäudefläche)"
+
+---
+
+NON:
+"solaraktive Überdachung"
+
+MEGLIO:
+"eine Überdachung mit Solarmodulen"
+
+---
+
+NON:
+"P+R-Anlage"
+
+alla prima menzione.
+
+MEGLIO:
+"Park-and-Ride-Anlage (P+R)"
+
+---
+
+NON:
+"KLEIV / GREIV"
+
+senza spiegazione.
+
+MEGLIO:
+"Die Förderung des Bundes läuft über Pronovo. Für kleinere Anlagen gilt die Einmalvergütung für kleine Photovoltaikanlagen (KLEIV), für grössere Anlagen die entsprechende Förderung für Grossanlagen (GREIV)."
+
+Dopo la prima spiegazione si possono usare gli acronimi.
+
+---
+
+NON:
+"Meldeverfahren"
+
+senza spiegazione.
+
+MEGLIO:
+"In vielen Fällen genügt eine Meldung an die Behörde, statt eines vollständigen Baugesuchs."
+
+Poi:
+"(Meldeverfahren)"
+
+---
+
+NON:
+"Eigenstromerzeugung"
+
+se si può dire:
+"einen Teil des Stroms selbst produzieren"
+
+---
+
+NON:
+"Inbetriebnahme"
+
+se si può dire:
+"ab dem Zeitpunkt, an dem die Anlage in Betrieb geht"
+
+Mantieni però i termini ufficiali quando hanno valore giuridico.
+
+==================================================
+3. STRUTTURA DEL TESTO: RISPOSTA PRIMA, DETTAGLIO DOPO
+==================================================
+
+Ogni H2 importante deve iniziare con 1–2 frasi che rispondano SUBITO alla domanda.
+
+Solo dopo arriva la spiegazione.
+
+Esempio Bern:
+
+H2:
+"Dachsanierung: Muss ich automatisch eine Solaranlage installieren?"
+
+Prima frase grande / lead:
+"Nein. Eine umfassende Dachsanierung löst im Kanton Bern eine Meldepflicht aus – aber nicht automatisch eine Pflicht, eine PV-Anlage zu installieren."
+
+Poi:
+
+Kurz gesagt:
+- Als umfassend gilt: mindestens 50 % der Dachfläche werden erneuert.
+- Dachflächen unter 20 m² sind von dieser Meldung ausgenommen.
+- Bei bewilligungsfreien Arbeiten muss die Meldung spätestens 7 Arbeitstage vor Baubeginn erfolgen.
+
+Poi eventualmente 1–2 paragrafi con il dettaglio.
+
+Applica questo principio alle altre sezioni.
+
+L'utente deve poter leggere solo:
+- H2
+- frase iniziale
+- numeri / bullet
+
+e capire già l'80% della pagina.
+
+==================================================
+4. NON TAGLIARE I DATI, TAGLIA LE RIPETIZIONI
+==================================================
+
+Non voglio riportare le pagine a 600–700 parole.
+
+Mantieni praticamente tutti i fatti che aggiungono valore.
+
+Puoi eliminare:
+- ripetizioni;
+- introduzioni inutili;
+- frasi che ripetono un dato già mostrato subito sopra;
+- linguaggio burocratico;
+- conclusioni ovvie.
+
+Indicativamente il testo totale può diminuire del 10–20%, ma NON è un obiettivo.
+
+Se una pagina resta lunga perché ha molte informazioni realmente utili, va bene.
+
+==================================================
+5. NUOVO DESIGN HERO
+==================================================
+
+Le hero attuali sono troppo simili e sembrano una pagina informativa istituzionale.
+
+Ridisegnale.
+
+DESKTOP:
+usa una hero a 2 colonne, circa 60/40.
+
+SINISTRA:
+- piccolo eyebrow:
+  "Kantonale Informationen · Stand September 2026"
+- H1
+- massimo 2 brevi paragrafi / 3–4 righe totali
+- CTA primaria:
+  "Bis zu 3 Solarofferten vergleichen"
+- microcopy:
+  "Kostenlos · Unverbindlich · Passende Fachbetriebe"
+
+DESTRA:
+un modulo visuale specifico del Cantone con i 3–4 dati più importanti.
+
+Niente fotografie stock.
+Niente illustrazioni AI.
+Usa dati reali.
+
+MOBILE:
+colonne una sotto l'altra.
+
+Riduci il grande spazio verticale inutile della hero attuale.
+
+==================================================
+6. HERO SPECIFICA PER OGNI CANTONE
+==================================================
+
+AARGAU
+
+A destra:
+mini "Solarpflicht-Check"
+
+>300 m²
+Relevante Schwelle bei bestimmten Neubauten
+
+20 %
+Mindestfläche, wenn die Pflicht greift
+
+30 Tage
+Frist beim Meldeverfahren
+
+CHF 350
+Kantonsbeitrag zur Eigenstromberatung
+
+H1 semplice:
+"Solaranlage im Aargau: Was 2026 für Eigentümer gilt"
+
+Non mettere quattro termini tecnici nell'H1.
+
+---
+
+APPENZELL AUSSERRHODEN
+
+A destra:
+mini timeline visiva
+
+2026
+Bis zu 50 % der definitiven Bundesförderung zusätzlich
+
+→
+
+2027
+Förderung stärker auf Winterstrom ausgerichtet
+
+sotto:
+≥75°
+CHF 300/kW
+Gesuch künftig vor Baubeginn
+
+H1:
+"Solaranlage in Appenzell Ausserrhoden: Förderung 2026 und Änderungen ab 2027"
+
+---
+
+APPENZELL INNERRHODEN
+
+A destra:
+grande dato:
+
+CHF 100
+Solarberatung
+
+sotto:
+"Kostenlos, wenn sie gleichzeitig mit der Beratung «erneuerbar heizen» durchgeführt wird."
+
+poi due mini punti:
+Bundesförderung über Pronovo
+Neubauten müssen einen Teil des Stroms selbst produzieren
+
+H1:
+"Solaranlage in Appenzell Innerrhoden: Förderung, Beratung und Bewilligung"
+
+---
+
+BASEL
+
+La hero deve essere chiaramente diversa.
+
+A destra crea un mini split:
+
+BASEL-STADT
+Sanierung + PV:
+bis CHF 100/m² Dach
+bis CHF 140/m² Fassade
+
+BASEL-LANDSCHAFT
+PV-Bonus bei Dämmung:
+CHF 40/m² Dach
+CHF 120/m² Fassade
+
+Sotto:
+"Die Regeln unterscheiden sich je nach Kanton deutlich."
+
+H1:
+"Solaranlage in Basel: Basel-Stadt oder Basel-Landschaft?"
+
+Sottotitolo:
+"Welche Förderung und welche Regeln gelten, hängt davon ab, auf welcher Seite der Kantonsgrenze Ihre Liegenschaft liegt."
+
+---
+
+BERN
+
+A destra:
+"Neu seit 2026"
+
+10 %
+Mindestanteil bei bestimmten Neubauten
+
+60 %
+gut geeignete Dachfläche
+
+7 Arbeitstage
+Frist bei vielen bewilligungsfreien Meldungen
+
+Dachsanierung
+Meldepflicht ≠ automatische PV-Pflicht
+
+H1:
+"Solaranlage im Kanton Bern: Die neuen Regeln seit 2026"
+
+==================================================
+7. "DAS WICHTIGSTE AUF EINEN BLICK"
+==================================================
+
+Heute wirkt dieser Block teilweise wie eine zweite Hero.
+
+Wenn die wichtigsten Zahlen bereits in der Hero gezeigt werden, NICHT einfach noch einmal exakt dieselben vier Karten darunter wiederholen.
+
+Entweder:
+
+A) Hero enthält die wichtigsten Daten und der separate Block entfällt;
+
+oder
+
+B) "Das Wichtigste auf einen Blick" enthält andere praktische Antworten.
+
+Keine Dopplungen.
+
+==================================================
+8. DESIGN DER TEXTSEKTIONEN
+==================================================
+
+Das aktuelle Muster:
+
+H2
+3–4 graue Absätze
+nächster H2
+3–4 graue Absätze
+
+ist zu monoton.
+
+Neue Regel:
+
+Jede Hauptsektion bekommt eine klare visuelle Hierarchie.
+
+Standardaufbau:
+
+H2
+
+kurze direkte Antwort / Lead
+(max. 2 Sätze)
+
+danach je nach Inhalt:
+
+- 3–5 Bulletpoints
+ODER
+- kleine Fact Cards
+ODER
+- 2-Spalten "Was gilt / Was bedeutet das?"
+ODER
+- Timeline
+ODER
+- Decision Tree
+ODER
+- Tabelle, wenn ein echter Vergleich sinnvoll ist
+
+Danach maximal 1–2 kurze erklärende Absätze.
+
+Nicht aus jedem Satz eine Card machen.
+Nicht überdesignen.
+
+Ziel:
+weniger "Textwand", mehr scanbare Information.
+
+==================================================
+9. "KURZ GESAGT" / "WAS BEDEUTET DAS FÜR SIE?"
+==================================================
+
+Nutze an sinnvollen Stellen kleine Summary-Boxen.
+
+Maximal 2–3 pro Seite.
+
+Beispiele:
+
+"Kurze Antwort"
+
+"Wichtig für Hauseigentümer"
+
+"Was bedeutet das praktisch?"
+
+"Nicht verwechseln"
+
+Diese Boxen sollen echte Verständnisprobleme lösen, nicht dekorativ sein.
+
+BERN:
+sehr wichtig für:
+"Meldepflicht ist nicht automatisch Solarpflicht."
+
+AI:
+sehr wichtig für:
+"CHF 100 sind die Kosten der Beratung, nicht der Förderbeitrag für die PV-Anlage."
+
+BASEL:
+sehr wichtig für:
+"Die Solaroffensive von Basel-Stadt ist noch nicht geltendes Recht."
+
+AARGAU:
+sehr wichtig für:
+"Die >300-m²-Regel bedeutet nicht, dass jedes bestehende Einfamilienhaus eine Solarpflicht hat."
+
+AR:
+sehr wichtig für:
+"2026 und 2027 gelten unterschiedliche Förderlogiken."
+
+==================================================
+10. EINZIGARTIGE MODULE BEIBEHALTEN UND VERBESSERN
+==================================================
+
+AARGAU:
+Decision Tree behalten.
+
+Aber:
+- Texte kürzer;
+- grössere Fragen;
+- einfache Ja/Nein-Beschriftungen;
+- keine Gesetzessprache innerhalb der Cards.
+
+AR:
+2026→2027 Timeline behalten.
+
+Die Statistiksektion ist sehr wertvoll.
+Behalten:
+- rund 80 GWh
+- rund 24 %
+- 77 %
+- rund 10 %
+- mind. 40 %
+- etwa drei Viertel
+
+Aber unter der Statistik:
+nur 2–3 Sätze Erklärung.
+
+AI:
+Drei-Säulen-Modul behalten:
+- Bundesförderung
+- Beratung
+- Meldung/Bewilligung
+
+Text innerhalb der drei Spalten deutlich vereinfachen.
+
+BASEL:
+Vergleich BS vs. BL unbedingt behalten.
+
+Das ist eines der stärksten Elemente aller fünf Seiten.
+
+Tabelle vereinfachen:
+kurze Texte.
+Keine Absätze in Tabellenzellen.
+
+Zeilen:
+PV-Förderung
+Sanierung + PV
+Bewilligung
+Solarpflicht
+Besonderheit 2026
+
+BERN:
+Dachsanierungs-Modul behalten.
+Das dunkle "Wichtig"-Panel funktioniert gut.
+
+Aber die vier Schritte rechts einfacher schreiben.
+
+==================================================
+11. GEMEINSAME INFORMATIONEN NICHT KÜNSTLICH UMSCHREIBEN
+==================================================
+
+Es ist KEIN Problem, wenn gemeinsame Elemente gleich bleiben:
+
+- PvPro-Prozess
+- CTA
+- "Kostenlos · Unverbindlich"
+- generelle Pronovo-Basisinformationen
+
+Diese Teile sind Boilerplate.
+
+Nicht sinnlos Synonyme erfinden, nur um Google vorzugaukeln, alles sei unterschiedlich.
+
+Wichtig ist:
+Der redaktionelle Hauptinhalt jeder Kantonsseite muss einzigartig bleiben.
+
+Das ist bereits der Fall und muss so bleiben.
+
+==================================================
+12. KOSTEN-SEKTION VERBESSERN
+==================================================
+
+Die heutigen "Kosten und Planung: acht Faktoren"-Abschnitte wirken trocken.
+
+Mach daraus einen scanbaren Block.
+
+H2:
+"Was kostet eine Solaranlage hier?"
+
+Lead:
+"Der Kanton veröffentlicht keinen festen PV-Preis. Entscheidend sind vor allem Dach, Anlagengrösse und gewünschte Ausstattung."
+
+Dann 6–8 kompakte Faktoren in 2 Spalten:
+
+- Dachfläche und Dachform
+- Leistung der Anlage
+- Gerüst
+- Elektroarbeiten
+- Batteriespeicher
+- Eigenverbrauch
+- Wechselrichter
+- Installateur / Leistungsumfang
+
+Danach:
+
+"Der sinnvollste Vergleich ist deshalb nicht ein pauschaler Online-Preis, sondern mehrere Offerten für dasselbe Projekt."
+
+CTA.
+
+Keine erfundenen lokalen Preisranges einbauen.
+
+==================================================
+13. PVPRO-PROZESS
+==================================================
+
+Behalten, aber visuell etwas besser darstellen.
+
+3 horizontale Schritte auf Desktop,
+vertikal auf Mobile.
+
+1
+Projekt beschreiben
+
+2
+Bis zu 3 passende Fachbetriebe
+
+3
+Offerten vergleichen
+
+Wenig Text.
+
+==================================================
+14. FAQ
+==================================================
+
+FAQ behalten.
+
+Die Antworten aber ebenfalls vereinfachen.
+
+Antworten idealerweise 2–4 Sätze.
+
+Erste Zeile muss die Frage direkt beantworten.
+
+Beispiel:
+
+Frage:
+"Bedeutet eine Dachsanierung in Bern automatisch, dass ich PV installieren muss?"
+
+Antwort:
+"Nein. Seit 2026 muss eine umfassende Dachsanierung gemeldet werden, aber die Meldung ist nicht automatisch eine Installationspflicht. Ob eine Solaranlage sinnvoll oder vorgeschrieben ist, hängt vom konkreten Projekt und den gesetzlichen Voraussetzungen ab."
+
+Erst danach ggf. Details.
+
+==================================================
+15. QUELLEN
+==================================================
+
+Quellen & Stand unbedingt behalten.
+
+Das stärkt Vertrauen und AI-Zitierbarkeit.
+
+Aber visuell dezenter und sauber.
+
+Format:
+
+Kanton Bern
+Solarpflicht ab 2026
+[Offizielle Quelle]
+
+Kanton Bern
+Energieverordnung
+[Offizielle Quelle]
+
+Keine langen sichtbaren URLs.
+
+==================================================
+16. DIE HÄSSLICHE HORIZONTALE SCROLLBAR ENTFERNEN
+==================================================
+
+Unter dem oberen Faktenbereich gibt es aktuell eine horizontale interne Seitennavigation mit sichtbarer Scrollbar.
+
+Das muss weg.
+
+Auf DESKTOP:
+
+- KEIN horizontal scrollender Container
+- KEINE sichtbare Scrollbar
+- die Anchor-Links als saubere kleine Pills/Links darstellen
+- `display:flex`
+- `flex-wrap:wrap`
+- zentriert oder linksbündig passend zum Content
+- vernünftiger gap
+- niemals `overflow-x:auto` auf Desktop
+
+Auf MOBILE:
+
+bevorzugt ebenfalls `flex-wrap`.
+
+Nur wenn horizontaler Swipe wirklich notwendig ist:
+- darf overflow-x:auto verwendet werden
+- Scrollbar vollständig visuell ausblenden
+- `scrollbar-width: none`
+- `-ms-overflow-style: none`
+- `::-webkit-scrollbar { display: none; }`
+
+NICHT als Hack `body { overflow-x:hidden }` setzen.
+
+Wenn es irgendwo echtes horizontales Overflow gibt, Ursache beheben.
+
+Am Ende auf 390px, 768px, 1024px und 1440px prüfen:
+keine horizontale Browser-Scrollbar.
+
+==================================================
+17. TYPOGRAFIE UND BREITEN
+==================================================
+
+Fliesstext soll nicht über die ganze Contentbreite laufen.
+
+Für normale Textabschnitte:
+max-width ungefähr 760–820px.
+
+Vergleichstabellen, Decision Trees und grosse Module dürfen breiter sein.
+
+Absätze:
+line-height ca. 1.6–1.7.
+
+Zwischen Absätzen genug Abstand.
+
+H2 klar stärker als Fliesstext.
+
+Quellenangaben dürfen kleiner sein, aber nicht unlesbar.
+
+==================================================
+18. ABWECHSLUNG DER SEKTIONSHINTERGRÜNDE
+==================================================
+
+Heute wechseln grosse graue/weisse Flächen, aber der Inhalt sieht trotzdem ähnlich aus.
+
+Verwende Hintergrundfarben sparsam:
+
+- weiss
+- sehr helles neutrales Grau
+- sehr helles PvPro-Creme
+
+Keine starken Farbflächen ausser CTA / wichtige Hinweise.
+
+Nicht jede Sektion braucht einen eigenen Hintergrund.
+
+==================================================
+19. KEINE NEUEN CLAIMS
+==================================================
+
+Nicht neu einführen:
+
+- "führende Vergleichsplattform"
+- "bis zu 45 % Förderung"
+- pauschale "bis zu 30 % sparen"
+- fixe Amortisationszeiten
+- erfundene lokale Preise
+- erfundene Testimonials
+- "garantierte Förderung"
+- unbelegte Installateurzahlen
+
+Bestehende verbotene Claims ebenfalls entfernen, falls noch vorhanden.
+
+==================================================
+20. SEO / AI-LESBARKEIT
+==================================================
+
+Jede Seite soll weiterhin viele klar extrahierbare Fakten enthalten.
+
+Darum:
+
+- klare H2-Fragen
+- direkte Antworten
+- konkrete Zahlen
+- lokale Begriffe
+- Datum / Stand
+- Quellen
+- FAQ
+- Unterschiede und Ausnahmen
+- keine unnötigen Fülltexte
+
+Wichtige Zahlen niemals nur in Grafiken darstellen.
+Sie müssen auch als echter HTML-Text vorhanden sein.
+
+Keine Information nur per Hover sichtbar machen.
+
+==================================================
+21. SEITENSPEZIFISCHE REDAKTION
+==================================================
+
+AARGAU:
+Schwerpunkt:
+- Solarpflicht verstehen
+- >300 m²
+- 20 %
+- Meldeverfahren
+- Beratung / Sanierungsbonus
+
+Der Leser soll nach 30 Sekunden wissen:
+"Bin ich von der Pflicht betroffen?"
+
+---
+
+APPENZELL AUSSERRHODEN:
+Schwerpunkt:
+- welche Förderung gilt 2026?
+- wann kann ich noch ein Gesuch stellen?
+- was ändert sich 2027?
+- warum Winterstrom?
+
+Der Leser soll nach 30 Sekunden wissen:
+"Wenn ich jetzt plane, welches Regime betrifft mich?"
+
+---
+
+APPENZELL INNERRHODEN:
+Schwerpunkt:
+- keine erfundene kantonale PV-Subvention
+- Bundesförderung
+- CHF-100-Beratung
+- Eigenstrompflicht Neubau
+- Meldung/Bewilligung
+
+Der Leser soll klar unterscheiden können:
+"Förderung" vs. "Beratung".
+
+---
+
+BASEL:
+Schwerpunkt:
+"BS oder BL?"
+
+Der Leser muss sehr schnell erkennen:
+Welche Hälfte der Seite betrifft meine Liegenschaft?
+
+BS und BL visuell konsequent trennen.
+
+---
+
+BERN:
+Schwerpunkt:
+neue Regeln seit 1.1.2026.
+
+Vor allem:
+- Neubauten
+- Erweiterungen
+- Dachsanierung
+- Parkplätze
+- Meldung
+
+Der wichtigste Verständnisgewinn:
+"Dachsanierungsmeldung ist nicht automatisch PV-Pflicht."
+
+==================================================
+22. QA NACH DER ÄNDERUNG
+==================================================
+
+Nach Abschluss:
+
+1. Build ausführen.
+2. Alle fünf Seiten müssen HTTP 200 liefern.
+3. Desktop 1440px prüfen.
+4. Laptop 1024px prüfen.
+5. Tablet 768px prüfen.
+6. Mobile 390px prüfen.
+7. Keine horizontale Browser-Scrollbar.
+8. Keine sichtbare Scrollbar bei der Anchor-Navigation.
+9. Alle CTA funktionieren.
+10. Alle offiziellen Quellenlinks funktionieren.
+11. Keine Inhalte abgeschnitten.
+12. Alle wichtigen Zahlen aus der aktuellen Version weiterhin vorhanden.
+13. Keine unbelegten neuen Zahlen hinzufügen.
+14. Jede Seite muss weiterhin mindestens ein visuell einzigartiges kantonales Modul besitzen.
+15. Basel-Stadt und Basel-Landschaft niemals vermischen.
+16. Bern: Meldepflicht niemals als automatische PV-Pflicht darstellen.
+17. AI: CHF 100 niemals als PV-Anlagenförderung darstellen.
+18. AR: 2026 und 2027 sauber trennen.
+19. Aargau: >300-m²-Regel nicht als allgemeine Pflicht für alle Häuser formulieren.
+
+KEINE Veröffentlichung durchführen.
+
+==================================================
+23. ANTWORT AN MICH
+==================================================
+
+Nach dem fertigen Durchlauf antworte nur mit:
+
+- geänderte Dateien
+- welche Textbereiche vereinfacht wurden
+- welche UI-Komponenten geändert wurden
+- Bestätigung, dass keine wichtigen Fakten entfernt wurden
+- Bestätigung, dass die horizontale Scrollbar entfernt wurde
+- QA-Ergebnis für 390 / 768 / 1024 / 1440px
+- Build PASS/FAIL
+- echte verbleibende Probleme
+
+Keine lange Zusammenfassung.
