@@ -2,13 +2,14 @@
 """Snapshot/compare built page content and SEO across the five-guide expansion."""
 import glob
 import json
+import os
 import sys
 from html.parser import HTMLParser
 
-BASELINE = "/tmp/next-canton-baseline.json"
+BASELINE = os.environ.get("GUIDE_SCOPE_BASELINE", "/tmp/next-canton-baseline.json")
 ALLOWED = {
     f"solaranlage-{canton}.html"
-    for canton in ("freiburg", "genf", "glarus", "graubunden", "jura")
+    for canton in os.environ.get("GUIDE_SCOPE_IDS", "freiburg,genf,glarus,graubunden,jura").split(",")
 }
 
 

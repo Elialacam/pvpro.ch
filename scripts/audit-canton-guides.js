@@ -34,8 +34,13 @@ const expected = {
   glarus: ['inclination-check'],
   graubunden: ['funding-selector'],
   jura: ['funding-status'],
+  luzern: ['roof-duty-check'],
+  neuenburg: ['battery-eligibility'],
+  nidwalden: ['own-power-steps', 'comparison'],
+  obwalden: ['winter-angle'],
+  schaffhausen: ['solar-law-timeline'],
 };
-assert.equal(cantonGuides.length, 10);
+assert.equal(cantonGuides.length, 15);
 const report = [];
 for (const guide of cantonGuides) {
   assert.equal(getCantonGuide(guide.id, 'de'), guide);
@@ -81,4 +86,4 @@ for (const area of cantonAreas) {
   }
 }
 console.table(report);
-console.log('PASS: ten commissioned DE routes; exact metadata; sourced content; distinct modules; three main CTAs; one FAQ schema per guide.');
+console.log('PASS: fifteen commissioned DE routes; exact metadata; sourced content; distinct modules; three main CTAs; one FAQ schema per guide.');

@@ -42,6 +42,7 @@ function anchorLabel(id: string, title: string) {
 }
 
 export default function CantonGuidePage({ guide, mapSection }: CantonGuidePageProps) {
+  const isDossierGuide = ['luzern', 'neuenburg', 'nidwalden', 'obwalden', 'schaffhausen'].includes(guide.id);
   const hasRefinedProcess = ['freiburg', 'genf', 'glarus', 'graubunden', 'jura'].includes(guide.id);
   const sourceLabel = (ids: string[]) => {
     if (!ids.length) return null;
@@ -53,7 +54,7 @@ export default function CantonGuidePage({ guide, mapSection }: CantonGuidePagePr
   };
 
   return (
-    <article data-canton-guide={guide.id}>
+    <article data-canton-guide={guide.id} className={isDossierGuide ? 'dossier-guide' : undefined}>
       <GuideStyles />
       <GuideHero guide={guide} />
 
@@ -77,7 +78,7 @@ export default function CantonGuidePage({ guide, mapSection }: CantonGuidePagePr
 
                 {bullets.length > 0 && (
                   <ul className={isCosts ? 'guide-cost-grid' : 'guide-bullets'}>
-                    {bullets.map(bullet => isCosts ? <span key={bullet}>{bullet}</span> : <li key={bullet}>{bullet}</li>)}
+                    {bullets.map(bullet => isCosts && !isDossierGuide ? <span key={bullet}>{bullet}</span> : <li key={bullet}>{bullet}</li>)}
                   </ul>
                 )}
 
@@ -102,12 +103,12 @@ export default function CantonGuidePage({ guide, mapSection }: CantonGuidePagePr
                 {sourceLabel(section.sourceIds)}
               </div>
             </section>
-            {isCosts && <OfferCta />}
+            {(isDossierGuide ? section.id === guide.ctaAfterSection : isCosts) && <OfferCta />}
           </div>
         );
       })}
 
-      {hasRefinedProcess ? <NextGuideProcess /> : (
+      {isDossierGuide ? null : hasRefinedProcess ? <NextGuideProcess /> : (
         <section className="guide-process">
           <div className="container-custom">
             <h2>So funktioniert der Vergleich über PvPro.ch</h2>
@@ -120,7 +121,7 @@ export default function CantonGuidePage({ guide, mapSection }: CantonGuidePagePr
         </section>
       )}
 
-      {mapSection}
+      {isDossierGuide ? <div className="dossier-guide-map">{mapSection}</div> : mapSection}
 
       <section className="guide-faq">
         <div className="container-custom">
@@ -135,10 +136,12 @@ export default function CantonGuidePage({ guide, mapSection }: CantonGuidePagePr
         </div>
       </section>
 
+      {isDossierGuide && <OfferCta final />}
+
       <section className="guide-sources">
         <div className="container-custom">
           <h2>Quellen &amp; Stand</h2>
-          <p className="guide-answer-first">Stand: September 2026</p>
+          <p className="guide-answer-first">{isDossierGuide ? 'Stand: 15. September 2026' : 'Stand: September 2026'}</p>
           <ul>{guide.sources.map(source => (
             <li id={`quelle-${source.id}`} key={source.id} className="scroll-mt-24">
               <span><b>{source.authority}</b><span>{source.title}</span></span>
@@ -148,7 +151,7 @@ export default function CantonGuidePage({ guide, mapSection }: CantonGuidePagePr
         </div>
       </section>
 
-      <OfferCta final />
+      {!isDossierGuide && <OfferCta final />}
       <FaqSchema faqs={guide.faqs} />
     </article>
   );

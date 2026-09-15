@@ -1,4 +1,4 @@
-export type CantonGuideId = 'aargau' | 'appenzell-ausserrhoden' | 'appenzell-innerrhoden' | 'basel' | 'bern' | 'freiburg' | 'genf' | 'glarus' | 'graubunden' | 'jura';
+export type CantonGuideId = 'aargau' | 'appenzell-ausserrhoden' | 'appenzell-innerrhoden' | 'basel' | 'bern' | 'freiburg' | 'genf' | 'glarus' | 'graubunden' | 'jura' | 'luzern' | 'neuenburg' | 'nidwalden' | 'obwalden' | 'schaffhausen';
 
 export interface GuideSource {
   id: string;
@@ -8,7 +8,7 @@ export interface GuideSource {
 }
 
 export interface GuideModule {
-  kind: 'decision-tree' | 'process-flow' | 'timeline' | 'statistics' | 'pillars' | 'comparison' | 'jurisdiction-steps' | 'regulatory-checklist' | 'roof-explainer' | 'project-check' | 'obligation-triggers' | 'inclination-check' | 'funding-selector' | 'funding-status';
+  kind: 'decision-tree' | 'process-flow' | 'timeline' | 'statistics' | 'pillars' | 'comparison' | 'jurisdiction-steps' | 'regulatory-checklist' | 'roof-explainer' | 'project-check' | 'obligation-triggers' | 'inclination-check' | 'funding-selector' | 'funding-status' | 'roof-duty-check' | 'battery-eligibility' | 'own-power-steps' | 'winter-angle' | 'solar-law-timeline';
   title: string;
   intro?: string;
   items: { title: string; text: string; detail?: string; value?: string; sourceIds: string[] }[];
@@ -36,6 +36,7 @@ export interface CantonGuide {
   intro: string[];
   quickFacts: { value: string; label: string; sourceIds: string[] }[];
   sections: GuideSection[];
+  ctaAfterSection?: string;
   faqs: { question: string; answer: string; sourceIds: string[] }[];
   sources: GuideSource[];
 }

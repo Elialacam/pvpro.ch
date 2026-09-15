@@ -37,6 +37,17 @@ const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOM
       assert.equal(faq.schema.length, 1, `${id}: one FAQPage schema`);
       assert.deepEqual(faq.schema[0].mainEntity.map(item => item.name), faq.questions);
       assert.deepEqual(faq.schema[0].mainEntity.map(item => item.acceptedAnswer.text), faq.answers);
+      const isDossier = await article.evaluate(element => element.classList.contains('dossier-guide'));
+      if (isDossier) {
+        assert.equal(faq.questions.length, 5, `${id}: exactly five dossier FAQs`);
+        assert.ok(await article.evaluate(element => {
+          const middle = element.querySelector('.guide-cta-band');
+          const final = element.querySelector('.guide-final');
+          return middle?.previousElementSibling?.querySelector('[data-guide-module]') &&
+            final?.previousElementSibling?.classList.contains('guide-faq') &&
+            final?.nextElementSibling?.classList.contains('guide-sources');
+        }), `${id}: dossier CTA positions`);
+      }
       for (const answer of await article.locator('[data-faq-answer]').all()) assert.ok(await answer.isVisible());
       const words = await article.evaluate(element => {
         const copy = element.cloneNode(true);
@@ -55,6 +66,12 @@ const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOM
       for (const width of widths) {
         await page.setViewportSize({ width, height: 1000 });
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${id}: ${width}px horizontal overflow`);
+        if (isDossier) {
+          const clippedText = await article.evaluate(element => [...element.querySelectorAll('h1,h2,h3,h4,p,dt,dd,strong,span,a')]
+            .filter(el => el.getBoundingClientRect().width && el.scrollWidth > el.clientWidth + 2 && getComputedStyle(el).display !== 'inline')
+            .map(el => el.textContent.slice(0, 90)));
+          assert.deepEqual(clippedText, [], `${id}: ${width}px clipped text`);
+        }
         if (width === 1440 && !process.env.GUIDE_TEST_IDS) {
           assert.ok(await article.locator('.guide-hero-lead').evaluate(el => el.getBoundingClientRect().height <= parseFloat(getComputedStyle(el).lineHeight) * 4.1), `${id}: compact desktop hero lead`);
         }
@@ -83,10 +100,12 @@ const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOM
           await radios.first().focus();
           await page.keyboard.press('Space');
         }
+        const captureStyle = await page.addStyleTag({ content: 'header { visibility: hidden !important; }' });
         for (const module of await article.locator('[data-guide-module]').all()) {
           assert.ok(await module.evaluate(el => el.scrollWidth <= el.clientWidth + 1), `${id}: ${width}px module overflow`);
           await module.screenshot({ path: `/tmp/module-${id}-${width}-${await module.getAttribute('data-guide-module')}.png` });
         }
+        await captureStyle.evaluate(element => element.remove());
         await page.evaluate(() => scrollTo(0, 0));
         await page.screenshot({ path: `/tmp/editorial-${id}-${width}.png` });
       }

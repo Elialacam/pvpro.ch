@@ -8,9 +8,14 @@ import { guide as genf } from './genf';
 import { guide as glarus } from './glarus';
 import { guide as graubunden } from './graubunden';
 import { guide as jura } from './jura';
+import { guide as luzern } from './luzern';
+import { guide as neuenburg } from './neuenburg';
+import { guide as nidwalden } from './nidwalden';
+import { guide as obwalden } from './obwalden';
+import { guide as schaffhausen } from './schaffhausen';
 import type { CantonGuide } from './types';
 
-export const cantonGuides: CantonGuide[] = [aargau, ausserrhoden, innerrhoden, basel, bern, freiburg, genf, glarus, graubunden, jura];
+export const cantonGuides: CantonGuide[] = [aargau, ausserrhoden, innerrhoden, basel, bern, freiburg, genf, glarus, graubunden, jura, luzern, neuenburg, nidwalden, obwalden, schaffhausen];
 
 /** Deliberately limited to the commissioned German-language guides. */
 export function getCantonGuide(slug: string, language: string): CantonGuide | undefined {
