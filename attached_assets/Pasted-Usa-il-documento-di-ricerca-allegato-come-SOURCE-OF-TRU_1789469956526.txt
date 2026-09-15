@@ -1,0 +1,575 @@
+Usa il documento di ricerca allegato come SOURCE OF TRUTH per contenuti, dati, normative, incentivi, date, importi e fonti ufficiali.
+
+NON rifare la ricerca da zero e NON inventare informazioni mancanti.
+NON aggiungere numeri, percentuali, costi, rendimenti, obblighi o incentivi che non siano supportati dal documento.
+Se un dato del documento è espresso con cautela o con condizioni, mantieni quelle condizioni anche nella pagina.
+
+==================================================
+OBIETTIVO
+==================================================
+
+Dobbiamo continuare il lavoro sulle landing page cantonali PvPro.ch.
+
+Lavora SOLO sulle pagine dalla numero 10 alla numero 15 della nostra sequenza:
+
+10. Jura
+11. Luzern
+12. Neuenburg
+13. Nidwalden
+14. Obwalden
+15. Schaffhausen
+
+Route tedesche:
+
+/solaranlage-jura
+/solaranlage-luzern
+/solaranlage-neuenburg
+/solaranlage-nidwalden
+/solaranlage-obwalden
+/solaranlage-schaffhausen
+
+Non modificare le pagine cantonali già completate.
+Non modificare altre lingue.
+Non modificare homepage, form o altre sezioni del sito.
+
+==================================================
+1. PRINCIPIO FONDAMENTALE: NON CREARE 6 PAGINE COPIA
+==================================================
+
+Le pagine devono appartenere alla stessa famiglia grafica PvPro.ch, ma NON devono sembrare lo stesso template con il nome del Cantone sostituito.
+
+Mantieni:
+- identità visiva PvPro
+- tipografia
+- colori
+- CTA
+- componenti coerenti
+- qualità generale delle precedenti pagine
+
+Ma ogni Cantone deve avere una propria personalità editoriale.
+
+Il contenuto e la struttura devono essere guidati dalle informazioni realmente importanti presenti nel documento.
+
+NON forzare su ogni pagina sempre la stessa sequenza:
+
+Hero
+4 cards
+testo
+förderung
+bewilligung
+costi
+3 step
+mappa
+FAQ
+
+Questa struttura può essere una base, ma deve essere adattata.
+
+Per ogni Cantone identifica nel documento il tema locale più distintivo e trasformalo in almeno UN modulo visivo specifico.
+
+Esempi di moduli ammessi:
+
+- timeline
+- decision tree
+- confronto tra due regimi
+- checklist
+- tabella
+- step-by-step
+- box “Was gilt für mich?”
+- flow autorizzativo
+- confronto Neubau / Bestand
+- schema incentivo federale / cantonale
+- blocco “2026 geändert”
+- condizioni sì/no
+- diagramma semplice
+
+NON creare moduli decorativi privi di utilità.
+
+==================================================
+2. LUNGHEZZA: INFORMATIVO MA NON PESANTE
+==================================================
+
+Le pagine precedenti rischiavano di diventare troppo lunghe e monotone.
+
+Questa volta NON trasformare ogni informazione del documento in un paragrafo separato.
+
+Obiettivo:
+
+informazione alta
++
+densità visiva bassa
++
+lettura facile
+
+Usa testo continuo solo quando serve spiegare qualcosa.
+
+Quando una regola può essere spiegata meglio con:
+- bullet
+- tabella
+- card
+- timeline
+- checklist
+- confronto
+
+usa quello invece di altri 2-3 paragrafi.
+
+Evita “walls of text”.
+
+Indicativamente voglio una pagina completa ma leggibile, non un articolo enciclopedico.
+
+Non eliminare però informazioni importanti solo per ridurre il numero di parole.
+
+La priorità è:
+
+1. accuratezza
+2. utilità
+3. leggibilità
+4. conversione
+5. SEO
+
+==================================================
+3. ZERO RIPETIZIONI INUTILI
+==================================================
+
+Questo punto è molto importante.
+
+NON ripetere la stessa informazione:
+
+- nel blocco “Das Wichtigste”
+- nel testo principale
+- in una card
+- nella FAQ
+- nel CTA
+
+Se una cifra importante è già evidenziata in una card, nel testo successivo puoi spiegarne il significato senza riscrivere tutto da capo.
+
+La FAQ NON deve diventare un riassunto della pagina.
+
+Le FAQ devono principalmente rispondere a dubbi specifici che un proprietario del Cantone potrebbe ancora avere DOPO aver letto la pagina.
+
+Evita anche paragrafi introduttivi generici tipo:
+
+“Photovoltaik wird immer wichtiger...”
+“Immer mehr Hausbesitzer interessieren sich...”
+“Die Energiewende schreitet voran...”
+
+Se non aggiungono informazioni concrete, toglili.
+
+==================================================
+4. HERO
+==================================================
+
+Ogni pagina deve iniziare immediatamente con il motivo per cui quella pagina è utile.
+
+H1 localizzato e concreto.
+
+Il sottotitolo deve spiegare in 2-3 frasi massimo:
+
+- cosa cambia / cosa bisogna sapere nel Cantone
+- cosa troverà l'utente nella pagina
+- perché conviene confrontare correttamente le offerte
+
+Niente introduzioni SEO artificiali.
+
+CTA primaria:
+
+“Bis zu 3 Solarofferten vergleichen”
+
+Microcopy:
+
+“Kostenlos · Unverbindlich · Passende Fachbetriebe”
+
+Non usare:
+“führende Vergleichsplattform”
+
+Non promettere:
+- risparmi garantiti
+- ROI garantito
+- percentuali di risparmio
+- sovvenzioni garantite
+
+==================================================
+5. “DAS WICHTIGSTE AUF EINEN BLICK”
+==================================================
+
+Metti 3-4 informazioni realmente forti del Cantone.
+
+NON mettere numeri solo perché sembrano belli graficamente.
+
+Ogni card deve rispondere a qualcosa che interessa realmente un proprietario, per esempio:
+
+- obbligo
+- incentivo
+- termine
+- soglia
+- procedura
+- cambiamento 2026
+
+Se il documento non contiene 4 numeri forti, usa anche testi brevi invece di inventare una quarta statistica.
+
+==================================================
+6. CONTENUTO LOCALE
+==================================================
+
+Ogni pagina deve far capire chiaramente che è stata scritta PER QUEL CANTONE.
+
+Non voglio che cambiando “Luzern” con “Schaffhausen” la pagina rimanga quasi identica.
+
+Usa soprattutto:
+
+- normativa cantonale
+- procedure cantonali
+- programmi cantonali
+- eventuali differenze comunali importanti
+- modifiche 2026
+- particolarità autorizzative
+- rapporto tra incentivo federale e cantonale
+
+Quando il documento dice che un incentivo è FEDERALE, scrivilo chiaramente.
+
+Non trasformare Pronovo/EIV in un incentivo cantonale.
+
+Quando un programma cantonale riguarda isolamento + fotovoltaico, NON descriverlo come contributo generico per qualsiasi impianto FV.
+
+Quando esistono condizioni, soglie o eccezioni, falle capire.
+
+==================================================
+7. DIFFERENZA TRA LEGGE E PROPOSTA
+==================================================
+
+Deve essere impossibile confondere:
+
+- legge già in vigore
+- modifica entrata in vigore nel 2026
+- proposta politica
+- revisione futura
+- programma temporaneo
+- misura soggetta a budget
+
+Usa formulazioni precise.
+
+Mai presentare una proposta come obbligo già attivo.
+
+==================================================
+8. COSTI E REDDITIVITÀ
+==================================================
+
+Non inventare prezzi medi.
+
+Non inventare:
+- CHF/kWp
+- periodo di ammortamento
+- ROI
+- risparmio annuale
+- aumento valore immobile
+
+se non sono supportati dal documento.
+
+La sezione economica deve essere pratica.
+
+Può spiegare quali elementi cambiano il prezzo:
+
+- dimensione dell'impianto
+- tetto
+- inclinazione
+- accessibilità
+- quadro elettrico
+- batteria
+- ponteggi
+- integrazione nel tetto
+- complessità autorizzativa
+
+e perché confrontare più offerte sulla stessa base è utile.
+
+Mantienila relativamente corta.
+
+==================================================
+9. PvPro.ch
+==================================================
+
+PvPro non deve occupare metà della pagina.
+
+Inserisci il servizio naturalmente.
+
+Messaggio corretto:
+
+L'utente invia una richiesta gratuita e non vincolante e può ricevere fino a 3 offerte adatte da aziende della propria regione.
+
+Non scrivere che tutte le aziende sono “geprüft” se questa affermazione non è supportata operativamente.
+
+Non inventare:
+- numero di clienti
+- numero di installatori
+- rating
+- percentuali di successo
+- anni di esperienza
+
+==================================================
+10. CTA
+==================================================
+
+Usa massimo 3 CTA importanti nell'intera pagina:
+
+1. hero
+2. circa metà pagina
+3. finale
+
+Non inserire un CTA dopo ogni sezione.
+
+Devono avere respiro visivo.
+
+La CTA intermedia deve arrivare dopo che l'utente ha già ricevuto valore concreto.
+
+La CTA finale può essere più forte visivamente.
+
+==================================================
+11. FAQ
+==================================================
+
+5-7 FAQ per pagina.
+
+Devono essere specifiche del Cantone.
+
+NON scrivere sei volte FAQ generiche tipo:
+
+“Lohnt sich Photovoltaik?”
+“Wie viel kostet eine Solaranlage?”
+“Brauche ich eine Batterie?”
+
+a meno che la risposta abbia davvero una particolarità locale.
+
+Preferisci domande come:
+
+- serve autorizzazione?
+- esiste obbligo per nuovi edifici?
+- cosa cambia nel 2026?
+- esistono contributi cantonali?
+- Pronovo e Cantone sono cumulabili?
+- cosa succede in caso di edificio protetto?
+- la regola vale anche per ristrutturazioni?
+
+Naturalmente adattale ai dati reali del documento.
+
+Non duplicare interi paragrafi già presenti sopra.
+
+Mantieni FAQPage JSON-LD coerente ESATTAMENTE con le FAQ visibili.
+
+Una sola FAQPage per pagina.
+
+==================================================
+12. FONTI
+==================================================
+
+Crea in fondo una sezione:
+
+“Quellen & Stand”
+
+Usa le fonti ufficiali presenti nel documento.
+
+Preferenza assoluta:
+
+1. Cantone
+2. Comune/ente pubblico competente
+3. Confederazione / BFE
+4. Pronovo
+5. utility pubblica quando il programma appartiene alla utility
+
+Evita siti commerciali come fonte primaria.
+
+Non appesantire ogni singola frase con “Quelle: ...”.
+
+Nel corpo puoi citare la fonte quando è realmente utile.
+
+La tabella finale deve rendere facile capire da dove provengono le informazioni.
+
+Indica chiaramente che le informazioni sono aggiornate allo stato riportato dal documento.
+
+==================================================
+13. SEO
+==================================================
+
+Usa title, meta description e H1 indicati o supportati dalla ricerca.
+
+Devono sembrare naturali.
+
+Evita keyword stuffing tipo:
+
+“Solaranlage Jura Photovoltaik Jura PV Anlage Jura Solar Jura”
+
+Una volta impostati correttamente:
+
+NON modificare:
+
+- canonical
+- hreflang
+- sitemap
+- redirect
+- struttura multilingua globale
+- route delle altre pagine
+
+Queste parti sono già state sistemate.
+
+==================================================
+14. MAPPA
+==================================================
+
+Mantieni il modulo mappa se fa già parte della struttura delle pagine cantonali.
+
+Non farlo diventare un elemento enorme.
+
+Deve avere funzione locale/visiva e non interrompere eccessivamente il flusso editoriale.
+
+==================================================
+15. DESIGN E UX
+==================================================
+
+Desktop e mobile devono essere entrambi curati.
+
+Controlla in particolare:
+
+- lunghezza delle righe
+- dimensioni del testo
+- spazi verticali
+- card troppo alte
+- titoli che vanno su troppe righe
+- tabelle mobile
+- timeline mobile
+- CTA mobile
+- FAQ
+- overflow orizzontali
+- padding
+
+Non comprimere il font per far entrare più testo.
+
+Preferisco meno testo visibile contemporaneamente e migliore gerarchia.
+
+==================================================
+16. COERENZA CON LE PRIME PAGINE
+==================================================
+
+Prima di implementare:
+
+ispeziona le pagine cantonali già realizzate e i componenti esistenti.
+
+RIUTILIZZA i componenti validi dove possibile.
+
+Non creare una seconda architettura parallela inutilmente.
+
+Ma non copiare ciecamente la stessa composizione.
+
+L'obiettivo è:
+
+stesso sistema
++
+pagine individuali
+
+Non:
+
+6 template completamente diversi
+
+e neppure:
+
+1 template duplicato 6 volte.
+
+==================================================
+17. NON TOCCARE ALTRO
+==================================================
+
+Scope strettissimo.
+
+NON modificare:
+
+- Aargau
+- Appenzell Ausserrhoden
+- Appenzell Innerrhoden
+- Basel
+- Bern
+- le altre pagine cantonali fuori 10-15
+- pagine francesi
+- pagine italiane
+- pagine inglesi
+- homepage
+- funnel
+- form
+- tracking
+- Pixel
+- CAPI
+- cookie
+- analytics
+- navigation
+- footer globale
+- sitemap
+- redirects
+- hreflang
+- canonical globali
+
+Se per utilizzare un componente condiviso devi modificarlo, assicurati che il rendering delle pagine esistenti rimanga invariato.
+
+==================================================
+18. QA OBBLIGATORIO
+==================================================
+
+Alla fine esegui controlli reali.
+
+Per tutte e 6 le route:
+
+- HTTP 200
+- nessun errore runtime
+- build riuscita
+- desktop rendering
+- mobile rendering
+- title corretto
+- meta description corretta
+- H1 unico
+- CTA funzionanti
+- link interni funzionanti
+- mappa funzionante
+- FAQ funzionanti
+- JSON-LD valido
+- FAQ visibili = FAQ JSON-LD
+- nessuna informazione duplicata accidentalmente
+- nessun placeholder
+- nessun testo inventato
+- nessuna fonte commerciale spacciata per fonte ufficiale
+- nessuna normativa futura presentata come vigente
+
+Controlla inoltre che le modifiche NON abbiano alterato visivamente o testualmente le pagine cantonali già completate.
+
+==================================================
+19. PRIMA DI CONSIDERARE IL TASK FINITO
+==================================================
+
+Rileggi ogni pagina come se fossi un proprietario di casa.
+
+Chiediti:
+
+1. In 15 secondi capisco cosa c'è di particolare in questo Cantone?
+2. Trovo subito le regole importanti?
+3. Capisco quali incentivi sono federali e quali cantonali?
+4. Capisco se serve autorizzazione?
+5. Ci sono parti ripetitive?
+6. Ci sono paragrafi che possono diventare una card o una checklist?
+7. La pagina sembra scritta appositamente per quel Cantone?
+8. Arrivo alla fine senza avere la sensazione di leggere un articolo infinito?
+9. Ho abbastanza fiducia da richiedere un confronto di offerte?
+
+Se una risposta è NO, correggi prima di terminare.
+
+==================================================
+20. OUTPUT FINALE
+==================================================
+
+Quando hai finito, NON pubblicare/deployare.
+
+Dammi un report breve con:
+
+- file modificati
+- route completate
+- numero approssimativo di parole per ogni pagina
+- modulo locale specifico creato per ogni Cantone
+- numero di fonti ufficiali per pagina
+- conferma build
+- conferma test desktop/mobile
+- conferma che nessun'altra pagina è stata modificata
+- eventuali problemi preesistenti trovati ma NON modificati
+
+NON fare ulteriori modifiche dopo il report.
