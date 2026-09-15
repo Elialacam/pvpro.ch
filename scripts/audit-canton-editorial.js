@@ -17,7 +17,7 @@ const headings = {
   basel: 'Solaranlage in Basel: Basel-Stadt oder Basel-Landschaft?',
   bern: 'Solaranlage im Kanton Bern: Die neuen Regeln seit 2026',
 };
-for (const guide of cantonGuides) {
+for (const guide of cantonGuides.filter(guide => headings[guide.id])) {
   const original = execFileSync('git', ['show', `HEAD:lib/canton-guides/${guide.id}.ts`], { encoding: 'utf8' });
   const compiled = ts.transpileModule(original, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
   const baselineModule = { exports: {} };

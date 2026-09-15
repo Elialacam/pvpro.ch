@@ -1,5 +1,6 @@
 import type { GuideModule as GuideModuleType } from '@/lib/canton-guides/types';
 import type { ReactNode } from 'react';
+import NextGuideModule from './NextGuideModule';
 
 interface GuideModuleProps {
   module: GuideModuleType;
@@ -59,6 +60,7 @@ function RoofExplainer({ module, sourceLinks }: GuideModuleProps) {
 }
 
 export default function GuideModule({ module, sourceLinks }: GuideModuleProps) {
+  if (['project-check', 'obligation-triggers', 'inclination-check', 'funding-selector', 'funding-status'].includes(String(module.kind))) return <NextGuideModule module={module} sourceLinks={sourceLinks} />;
   let content: ReactNode;
   if (module.kind === 'decision-tree') content = <DecisionTree module={module} sourceLinks={sourceLinks} />;
   else if (module.kind === 'process-flow') content = <ProcessFlow module={module} sourceLinks={sourceLinks} />;

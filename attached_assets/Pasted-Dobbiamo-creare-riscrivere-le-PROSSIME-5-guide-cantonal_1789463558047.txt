@@ -1,0 +1,1147 @@
+Dobbiamo creare/riscrivere le PROSSIME 5 guide cantonali tedesche di PvPro.ch:
+
+/solaranlage-freiburg
+/solaranlage-genf
+/solaranlage-glarus
+/solaranlage-graubunden
+/solaranlage-jura
+
+IMPORTANTE:
+prima di modificare qualsiasi cosa, studia ATTENTAMENTE l’implementazione attuale delle 5 guide cantonali che abbiamo appena completato e approvato:
+
+/solaranlage-aargau
+/solaranlage-appenzell-ausserrhoden
+/solaranlage-appenzell-innerrhoden
+/solaranlage-basel
+/solaranlage-bern
+
+Queste 5 pagine sono il NUOVO STANDARD VISIVO ED EDITORIALE di PvPro.
+
+NON modificarle.
+
+========================================
+1. COSA DEVI COPIARE DALLE PRIME 5
+========================================
+
+Non copiare il layout pagina-per-pagina.
+
+Devi invece capire e riutilizzare il DESIGN SYSTEM che le accomuna:
+
+- stesso header/footer
+- stessa tipografia
+- stessi max-width
+- stessa palette PvPro
+- stesso stile dei CTA
+- stesso sistema di spacing
+- stesso stile di hero moderno
+- stessi bordi/radius
+- stessa qualità delle fact cards
+- stesso stile dei box “Kurz gesagt / Wichtig”
+- stesso modo di visualizzare fonti
+- stesso blocco PvPro a 3 step
+- stessa qualità delle FAQ
+- stessa mappa cantonale
+- stesso comportamento responsive
+- stesso livello di leggibilità
+- nessuna scrollbar orizzontale visibile
+
+Studia direttamente i componenti/file delle 5 guide attuali.
+
+Se esistono già componenti come:
+- CantonGuidePage
+- GuideModule
+- hero variants
+- comparison modules
+- timeline
+- decision tree
+- fact grid
+- source block
+- CTA block
+- FAQ
+- map
+
+RIUTILIZZALI.
+
+Se serve una nuova variante visiva, aggiungila al sistema esistente invece di creare markup completamente separato.
+
+========================================
+2. COSA NON DEVI COPIARE
+========================================
+
+Le 5 nuove pagine NON devono sembrare:
+
+“Aargau con il nome sostituito da Glarus”.
+
+Non replicare sempre:
+
+Hero
+4 cards
+3 paragrafi
+3 cards
+CTA
+FAQ
+
+nello stesso identico ordine.
+
+Ogni Cantone deve avere:
+
+- una propria storia principale;
+- una hero con dati diversi;
+- almeno un modulo visivo costruito specificamente per quel Cantone;
+- struttura delle sezioni adattata alle informazioni disponibili;
+- FAQ realmente locali;
+- fonti proprie;
+- testo principale scritto da zero.
+
+È normale che restino uguali:
+- CTA PvPro;
+- processo PvPro;
+- struttura delle fonti;
+- parte generale sulla Pronovo;
+- mappe;
+- componenti comuni.
+
+NON riscrivere artificialmente questi blocchi solo per creare “testo diverso”.
+
+La parte che deve essere realmente unica è il contenuto cantonale.
+
+========================================
+3. STANDARD EDITORIALE DELLE PRIME 5
+========================================
+
+Mantieni lo standard appena raggiunto.
+
+Target:
+proprietario di casa svizzero che NON conosce il fotovoltaico.
+
+Scrivi in Schweizer Hochdeutsch naturale.
+
+Usa:
+- ss, mai ß;
+- frasi brevi;
+- paragrafi brevi;
+- prima la risposta, dopo il dettaglio;
+- linguaggio semplice;
+- termini tecnici solo quando realmente necessari.
+
+NON eliminare informazioni utili solo perché tecniche.
+
+SPIEGALE.
+
+Esempio:
+
+NON:
+“10 W/m² Energiebezugsfläche”
+
+come prima frase.
+
+MEGLIO:
+“Bei einem Neubau muss ein Teil des Stroms selbst produziert werden. Die gesetzliche Mindestleistung beträgt 10 Watt pro Quadratmeter der für die Energieberechnung massgebenden Gebäudefläche.”
+
+Poi eventualmente:
+“(Energiebezugsfläche, EBF)”.
+
+NON:
+“Meldeverfahren”
+
+senza spiegazione.
+
+MEGLIO:
+“In vielen Fällen genügt eine Meldung an die Gemeinde statt eines vollständigen Baugesuchs.”
+
+NON:
+“KLEIV/GREIV”
+
+senza spiegazione.
+
+Prima spiegare:
+“Bundesförderung über Pronovo”.
+
+Acronimi solo dopo.
+
+NON usare linguaggio burocratico se una frase normale dice la stessa cosa.
+
+========================================
+4. LUNGHEZZA
+========================================
+
+NON esiste un target rigido di parole.
+
+Non accorciare le guide solo per renderle più brevi.
+
+Devono contenere tutte le informazioni realmente utili.
+
+Ma:
+- niente filler;
+- niente introduzioni inutili;
+- niente stesso concetto ripetuto tre volte;
+- niente SEO stuffing.
+
+Principio:
+
+“MOLTE informazioni, POCO sforzo per capirle.”
+
+Una persona deve poter leggere solo:
+H1 + H2 + lead + cards/bullet
+
+e capire già circa l’80% della pagina.
+
+Chi vuole approfondire deve trovare sotto anche il dettaglio.
+
+========================================
+5. STRUTTURA VISIVA GENERALE
+========================================
+
+Usa lo stesso stile delle 5 guide approvate.
+
+Hero desktop:
+layout 2 colonne circa 60/40.
+
+Sinistra:
+- eyebrow “Kantonale Informationen · Stand September 2026”
+- H1
+- 2 brevi paragrafi
+- CTA “Bis zu 3 Solarofferten vergleichen”
+- microcopy “Kostenlos · Unverbindlich · Passende Fachbetriebe”
+
+Destra:
+MODULO SPECIFICO DEL CANTONE.
+
+Non usare foto stock.
+Non usare immagini AI decorative.
+
+Preferiamo:
+numeri,
+timeline,
+decision tree,
+comparison,
+status cards,
+diagrammi semplici.
+
+Mobile:
+stack verticale pulito.
+
+========================================
+6. FREIBURG / FRIBOURG
+========================================
+
+ROUTE:
+/solaranlage-freiburg
+
+Questa è la master page TEDESCA.
+
+Non confondere Freiburg con una generica “Solarpflicht”.
+
+Il punto centrale è:
+
+NEUBAUTEN müssen einen Teil ihres Stroms selbst produzieren.
+
+DATI VERIFICATI:
+
+- Neubauten: mindestens 10 W/m² Energiebezugsfläche Eigenstromproduktion.
+- Gesetzliche Obergrenze: maximal 30 kW müssen verlangt werden.
+- Bestimmte kleine Erweiterungen sind ausgenommen.
+- Seit 1. Januar 2026 können auch genügend angepasste Solaranlagen an Fassaden unter bestimmten Bedingungen über ein Meldeverfahren laufen.
+- Bei entsprechenden Fassadenprojekten erfolgt die Meldung grundsätzlich 30 Tage vor Baubeginn.
+- Für genügend angepasste Dach-/Fassadenanlagen kann eine Meldung statt eines vollständigen Baugesuchs möglich sein.
+- Schutzobjekte / sensible Ortsbilder können weiterhin eine Baubewilligung verlangen.
+- Die eigentliche PV-Investitionsförderung läuft grundsätzlich über den Bund / Pronovo.
+- Kantonale Gebäudeprogramme NICHT als allgemeine PV-Subvention verkaufen.
+- Baugesuche laufen im Kanton über FRIAC, wo ein ordentliches Verfahren notwendig ist.
+
+WICHTIG:
+Die Eigenstrompflicht NICHT als universelle “PV-Pflicht für alle Häuser” formulieren.
+
+H1:
+“Solaranlage im Kanton Freiburg: Was 2026 für Eigentümer gilt”
+
+Hero rechts:
+kleiner “Neubau-Check”
+
+10 W/m²
+Mindestleistung zur eigenen Stromproduktion
+
+30 kW
+maximal verlangte Leistung
+
+30 Tage
+Frist bei entsprechenden Meldungen
+
+2026
+Fassaden einfacher meldbar
+
+UNIQUE MODULE:
+“Was gilt für mein Projekt?”
+
+Decision Tree:
+
+Neubau?
+→ JA:
+Eigenstromproduktion prüfen
+→ mindestens 10 W/m²
+→ maximal 30 kW
+
+→ NEIN:
+keine allgemeine Neubau-Eigenstrompflicht aus dieser Regel
+
+Danach:
+
+Dach/Fassade genügend angepasst?
+→ JA:
+Meldeverfahren prüfen
+
+→ NEIN / Schutzobjekt:
+Baubewilligung prüfen
+
+Das Ganze visuell ähnlich hochwertig wie der Aargau Decision Tree,
+aber NICHT denselben Aufbau 1:1 kopieren.
+
+Es soll wie ein neues Modul wirken.
+
+SEKTIONEN:
+
+A. “Müssen Neubauten in Freiburg eigenen Strom produzieren?”
+
+Direkte Antwort zuerst:
+Ja, bei Neubauten gilt eine Eigenstrompflicht. In der Praxis wird sie häufig mit Photovoltaik erfüllt.
+
+Dann Details:
+10 W/m²
+max. 30 kW
+Ausnahmen für bestimmte kleine Erweiterungen
+
+B. “Meldung oder Baubewilligung?”
+
+Erkläre einfach:
+Viele angepasste Solarprojekte brauchen kein vollständiges Baugesuch.
+
+2026 besonders wichtig:
+Fassadenregel.
+
+C. “Förderung im Kanton Freiburg”
+
+Bund/Pronovo klar trennen von kantonalen Gebäudeprogrammen.
+
+Keine erfundenen Zusatzbeiträge.
+
+D. Kosten & Planung im Stil der ersten fünf.
+
+E. “Für wen ist Solar in Freiburg besonders interessant?”
+
+Zum Beispiel:
+- Neubau;
+- grössere geeignete Dachfläche;
+- Eigentümer, die Dach/Fassade ohnehin planen;
+- Eigenverbrauch mit Wärmepumpe/E-Auto.
+
+Keine erfundenen ROI-Werte.
+
+FAQ mindestens:
+- Gilt im Kanton Freiburg eine Solarpflicht?
+- Wie viel eigenen Strom muss ein Neubau produzieren?
+- Was bedeutet 10 W/m²?
+- Muss ich für PV ein Baugesuch einreichen?
+- Was hat sich 2026 bei Fassaden geändert?
+- Welche Förderung gibt es?
+- Was gilt bei einem geschützten Gebäude?
+
+OFFIZIELLE QUELLEN:
+Suche und verlinke nur diese offiziellen Quellen:
+- Etat de Fribourg: “Installations solaires / permis de construire”
+- Energiereglement Freiburg, Art. 25
+- Etat de Fribourg: “Programme de subventions en matière d’énergie”
+
+Kein Blog als Primärquelle.
+
+========================================
+7. GENF / GENÈVE
+========================================
+
+ROUTE:
+/solaranlage-genf
+
+Questa è la master page TEDESCA.
+
+Genf deve avere una pagina molto diversa da Freiburg.
+
+La storia principale:
+
+GENF gehört zu den Kantonen, in denen Solar in mehreren konkreten Situationen tatsächlich vorgeschrieben sein kann.
+
+DATI VERIFICATI:
+
+- Bei Neubauten müssen geeignete Dachflächen grundsätzlich für Solarenergie genutzt werden.
+- Eine Dachrenovation kann ebenfalls die Solarnutzungspflicht auslösen.
+- Auch bestimmte energetische Renovationen können darunterfallen.
+- Standorte mit mehr als 0,2 GWh Stromverbrauch pro Jahr müssen geeignete Dachflächen grundsätzlich bis 2030 mit PV ausstatten, soweit keine anerkannte Ausnahme greift.
+- Es gibt Ausnahmen, z.B. technische Unmöglichkeit, unverhältnismässige Wirtschaftlichkeit oder Schutzinteressen.
+- Für bestimmte bewilligungsfreie Solarprojekte wurde die Frist zur Meldung des Baustarts im Februar 2026 von 30 auf 14 Tage reduziert.
+- Genf hat 2026 ein Energie-Förderbudget von CHF 80 Mio.
+- ACHTUNG: CHF 80 Mio. ist das gesamte Energie-Förderbudget, NICHT ein PV-Fördertopf.
+- Die konkrete PV-Förderung und Gebäudeprogramme müssen getrennt erklärt werden.
+
+H1:
+“Solaranlage in Genf: Wann Photovoltaik 2026 Pflicht ist”
+
+Hero rechts:
+visuell “3 Situationen, in denen Solar relevant wird”
+
+1
+Neubau
+
+2
+Dachsanierung
+
+3
+>0,2 GWh/Jahr
+für grössere Stromverbraucher
+
+Darunter:
+14 Tage
+Meldefrist vor Baustart bei bestimmten bewilligungsfreien Projekten
+
+UNIQUE MODULE:
+“Wann wird Solar in Genf Pflicht?”
+
+Drei grosse Trigger-Cards nebeneinander:
+
+NEUBAU
+Geeignete Dachfläche grundsätzlich solar nutzen
+
+DACHSANIERUNG
+Kann die Pflicht auslösen
+
+GRÖSSERER STROMVERBRAUCHER
+>0,2 GWh/Jahr → Frist grundsätzlich bis 2030
+
+Darunter ein separates helles Panel:
+
+“Keine dieser Situationen?”
+Dann besteht nicht automatisch aufgrund dieser drei Regeln eine Pflicht. Andere Vorschriften und Schutzinteressen bleiben zu prüfen.
+
+NICHT wie einen Decision Tree von Freiburg/Aargau bauen.
+
+Genf soll visuell eher wie ein Trigger-Dashboard wirken.
+
+SEKTIONEN:
+
+A. “Wann ist Solar in Genf Pflicht?”
+
+B. “Was gilt bei einer Dachsanierung?”
+
+C. “Die 2030-Regel für grössere Stromverbraucher”
+
+Hier klar schreiben:
+für normale Einfamilienhäuser meist nicht der relevante Punkt.
+
+D. “Bewilligung und 14-Tage-Regel”
+
+E. “Förderung in Genf”
+
+Hier deutlich:
+CHF 80 Mio. = gesamtes Energieprogramm.
+Nicht “80 Mio. PV-Förderung”.
+
+F. “Welche Ausnahmen gibt es?”
+
+Kurze verständliche Cards:
+- technisch nicht möglich;
+- wirtschaftlich unverhältnismässig;
+- Schutzinteressen.
+
+FAQ:
+- Ist Photovoltaik bei einem Neubau in Genf Pflicht?
+- Was gilt bei einer Dachsanierung?
+- Muss jedes bestehende Haus PV installieren?
+- Was bedeutet die Grenze von 0,2 GWh?
+- Gibt es Ausnahmen?
+- Brauche ich eine Baubewilligung?
+- Was bedeutet die 14-Tage-Frist?
+- Sind die CHF 80 Mio. eine reine PV-Förderung?
+
+OFFIZIELLE QUELLEN:
+- République et canton de Genève: “Solaire – obligation constructions neuves et rénovations”
+- Genève: “Obligation moyens consommateurs – consommation électrique ≥0,2 GWh”
+- Genève Energie: Mitteilung vom 12.02.2026 zur 14-Tage-Frist
+- OCEN / Genève Energie: Förderprogramm 2026 / CHF 80 Mio.
+
+========================================
+8. GLARUS
+========================================
+
+ROUTE:
+/solaranlage-glarus
+
+Questa pagina deve avere una forte identità visiva.
+
+La storia principale:
+
+IN GLARUS kann eine sehr steile PV-Fläche zusätzlich kantonal gefördert werden.
+
+DATI VERIFICATI:
+
+- Kantonal: CHF 250/kWp für förderfähige PV-Anlagenteile mit mindestens 75° Neigung.
+- Maximal CHF 15’000.
+- Bedingungen des kantonalen Förderprogramms beachten.
+- Bei Neubauten gilt eine Eigenstrompflicht von 10 W/m² Energiebezugsfläche.
+- Obergrenze: 30 kWp.
+- Bei Nichterfüllung kann im gesetzlichen Kontext eine Ersatzabgabe relevant werden: CHF 2’000 pro nicht realisiertem kW.
+- PV + Solarthermie kann unter der entsprechenden Fördermassnahme einen Kombinationsbeitrag von CHF 2’000 auslösen, wenn die Bedingungen erfüllt sind und mindestens 2 kWp PV vorhanden sind.
+- Genügend angepasste Solaranlagen können je nach Fall über ein vereinfachtes Verfahren laufen.
+- Schutz-/Sonderfälle separat prüfen.
+
+H1:
+“Solaranlage in Glarus: Förderung für steile Anlagen 2026”
+
+Hero rechts:
+
+75°
+ab dieser Neigung wird es besonders interessant
+
+CHF 250/kWp
+kantonaler Beitrag
+
+CHF 15’000
+Maximalbetrag
+
+10 W/m²
+Eigenstrom bei Neubauten
+
+UNIQUE MODULE:
+“75° – lohnt sich meine steile Fläche?”
+
+Visuell eine vereinfachte Seitenansicht eines Hauses/Panels.
+
+NICHT mit einem Foto.
+
+CSS/SVG/simple diagram:
+- horizontales Dach als Referenz;
+- steiles Panel visuell bei 75°;
+- daneben die Förderwerte.
+
+Flow:
+
+PV-Fläche ≥75°?
+→ JA:
+kantonalen Neigungswinkelbeitrag prüfen
+→ CHF 250/kWp
+→ max CHF 15’000
+
+→ NEIN:
+normale Bundes-/sonstige Förderung prüfen
+
+Danach kurzer Hinweis:
+Förderfähigkeit ist von den offiziellen Bedingungen abhängig.
+
+Das soll NICHT wie ARs Timeline oder Freiburgs Decision Tree aussehen.
+
+SEKTIONEN:
+
+A. “Warum 75° in Glarus wichtig sind”
+
+B. “Wie hoch ist der kantonale Beitrag?”
+
+C. “Eigenstrompflicht bei Neubauten”
+
+Hier Ersatzabgabe erklären, aber NICHT in die Hero packen.
+In normaler Sprache erklären.
+
+D. “PV und Solarthermie kombinieren”
+
+CHF 2’000 nur unter den konkreten Programmvoraussetzungen.
+Nicht als allgemeiner PV-Bonus darstellen.
+
+E. “Meldung oder Baubewilligung?”
+
+F. Kosten & Planung.
+
+FAQ:
+- Wie hoch ist die PV-Förderung für steile Anlagen?
+- Welche Neigung brauche ich?
+- Wie hoch ist der maximale Beitrag?
+- Gilt bei Neubauten eine Eigenstrompflicht?
+- Was passiert, wenn die Eigenstrompflicht nicht erfüllt wird?
+- Kann PV mit Solarthermie kombiniert gefördert werden?
+- Brauche ich eine Baubewilligung?
+
+OFFIZIELLE QUELLEN:
+- Kanton Glarus: Energie-Förderprogramm 2026
+- Kanton Glarus: Förderbedingungen, Stand 2026
+- kantonale Energiegesetzgebung / Eigenstromerzeugung
+- Kanton Glarus: Solaranlagen / Melde- bzw. Bewilligungsverfahren
+
+========================================
+9. GRAUBÜNDEN
+========================================
+
+ROUTE:
+/solaranlage-graubunden
+
+NON cambiare lo slug.
+
+Questa può diventare una delle pagine più forti di tutto il sito.
+
+La storia principale:
+
+Graubünden hat ZWEI unterschiedliche kantonale PV-Förderwege.
+
+Sie dürfen NICHT einfach addiert werden.
+
+DATI VERIFICATI:
+
+PROGRAMM 1 – WINTERSTROM
+
+- CHF 300/kWp
+- mindestens CHF 900
+- maximal CHF 200’000
+- relevante Modulneigung: 60–90°
+- geeignete Ausrichtungen gemäss Programm: Ost bis Süd bis West
+- Globalstrahlung >1250 kWh/m²a
+- Gesuch grundsätzlich vor Baubeginn
+- Zusicherung abwarten
+
+PROGRAMM 2 – FLÄCHENPOTENZIAL
+
+- CHF 150/kWp
+- mindestens CHF 450
+- maximal CHF 50’000
+- Anlage muss die relevante Eigenbedarfs-/Leistungsschwelle um mindestens 50 % und mindestens 3 kWp übersteigen
+- rechnerischer Eigenbedarf: 20 W/m² EBF
+- geeignete Ausrichtung gemäss Programm ungefähr Nordost über Süd bis Nordwest
+- Globalstrahlung >1250 kWh/m²a
+- Gesuch grundsätzlich vor Baubeginn
+
+WICHTIG:
+
+- Die beiden kantonalen PV-Programme sind NICHT miteinander kumulierbar.
+- Andere öffentliche Beiträge dürfen zusammen die gesetzlichen Fördergrenzen nicht überschreiten.
+- Nicht einfach Pronovo + CHF300 + CHF150 + Boni addieren.
+- Bei Neubauten besteht separat eine Eigenstrompflicht: 10 W/m² EBF, max. 30 kW.
+- Es bestehen gesetzliche Ausnahmen, u.a. unter bestimmten Voraussetzungen bei Minergie und bei zu geringer Solarstrahlung.
+
+H1:
+“Solaranlage in Graubünden: Welche PV-Förderung passt zu Ihrem Projekt?”
+
+Hero rechts:
+Split-Card.
+
+WINTERSTROM
+CHF 300/kWp
+60–90°
+
+vs.
+
+FLÄCHENPOTENZIAL
+CHF 150/kWp
+für besonders grosse Flächennutzung
+
+Darunter sehr klar:
+“Nicht miteinander kombinierbar.”
+
+UNIQUE MODULE:
+“Welche Bündner Förderung passt?”
+
+Nicht dieselbe Tabelle wie Basel.
+
+Baue einen echten visuellen Selector.
+
+Start:
+“Wie ist meine Anlage geplant?”
+
+Weg A:
+sehr steil / Winterproduktion wichtig
+→ Winterstrom
+→ 60–90°
+→ CHF 300/kWp
+
+Weg B:
+grosse geeignete Fläche deutlich über Eigenbedarf
+→ Flächenpotenzial
+→ CHF 150/kWp
+
+Weg C:
+keines davon
+→ Pronovo / andere Fördermöglichkeiten prüfen
+
+Unter dem Selector:
+zwei detaillierte Programmkarten nebeneinander.
+
+WINTERSTROM
+Beitrag
+Minimum
+Maximum
+Neigung
+Ausrichtung
+Gesuch
+
+FLÄCHENPOTENZIAL
+Beitrag
+Minimum
+Maximum
+Leistungsschwelle
+Ausrichtung
+Gesuch
+
+Questa deve sembrare completamente diversa da Glarus.
+
+SEKTIONEN:
+
+A. “Zwei kantonale Programme – aber nicht gleichzeitig”
+
+B. “Winterstrom: für steile Anlagen”
+
+C. “Flächenpotenzial: wenn Sie mehr geeignete Fläche nutzen”
+
+D. “Wann muss das Gesuch eingereicht werden?”
+
+Sehr sichtbar:
+VOR BAUBEGINN.
+
+E. “Eigenstrompflicht bei Neubauten”
+
+F. Bewilligung/Planung in Graubünden
+
+G. Kosten.
+
+FAQ:
+- Wie hoch ist die Winterstrom-Förderung?
+- Welche Neigung braucht meine Anlage?
+- Was ist die Förderung für Flächenpotenzial?
+- Kann ich beide Programme kombinieren?
+- Wann muss ich das Gesuch einreichen?
+- Gilt bei Neubauten eine Eigenstrompflicht?
+- Kann ich Pronovo zusätzlich beziehen?
+- Welche Fördergrenze muss ich beachten?
+
+OFFIZIELLE QUELLEN:
+- Amt für Energie und Verkehr Graubünden: “Photovoltaikanlagen für Winterstrom”
+- AEV Graubünden: “Photovoltaikanlagen zur Nutzung des Flächenpotenzials”
+- Energiegesetz des Kantons Graubünden
+- Energieverordnung des Kantons Graubünden
+
+========================================
+10. JURA
+========================================
+
+ROUTE:
+/solaranlage-jura
+
+Questa pagina deve essere costruita attorno ad un concetto diverso da tutte le altre:
+
+DER AKTUELLE FÖRDERSTATUS.
+
+Stand September 2026 ist die zeitliche Situation besonders wichtig.
+
+DATI VERIFICATI:
+
+- Das reguläre Gebäude-Förderbudget 2026 ist laut aktueller kantonaler Information weitgehend ausgeschöpft.
+- Für die Massnahme M-01 besteht aktuell eine Warteliste.
+- Ausschliesslich bundesfinanzierte Massnahmen und noch vorhandene Mittel des Impulsprogramms müssen getrennt betrachtet werden.
+- Anfang 2026 startete das Gesamtprogramm mit CHF 3,893 Mio.
+- Davon rund CHF 1,18 Mio. kantonal und CHF 2,713 Mio. Bund.
+- Diese Jahresanfangszahl bedeutet NICHT, dass dieses Geld im September noch vollständig verfügbar ist.
+- Aktueller Status ist wichtiger als ursprüngliches Budget.
+- Bei Neubauten gilt eine Eigenstrompflicht: 10 W/m² EBF, max. 30 kW.
+- Solaranlagen können bei Einhaltung der Voraussetzungen teilweise über eine Meldung statt über ein vollständiges Baugesuch laufen.
+- Die Gemeinde entscheidet, ob ein ordentliches Verfahren erforderlich ist.
+- Wenn ein Baugesuch erforderlich ist, wird JURAC verwendet.
+- Fördergesuche für relevante Gebäudeprogramme müssen grundsätzlich vor Beginn der Arbeiten erfolgen.
+- Eine alte Jura-Webseite über kleine PV-Anlagen enthält historische Förderinformationen. DIESE NICHT für 2026 übernehmen.
+- Für aktuelle PV-Bundesförderung ausschließlich Pronovo als Bundesreferenz verwenden.
+
+H1:
+“Solaranlage im Jura: Förderung und Regeln – Stand September 2026”
+
+Hero rechts:
+kein normales 4-Zahlen-Grid.
+
+Baue einen aktuellen Status-Block:
+
+FÖRDERSTATUS
+Stand September 2026
+
+Pronovo / Bund
+→ separat verfügbar prüfen
+
+M-01
+→ Warteliste
+
+Impulsprogramm
+→ Restmittel aktuell prüfen
+
+Darunter:
+“Förderbudgets können sich ändern – vor Auftrag aktuellen Stand prüfen.”
+
+UNIQUE MODULE:
+“Förderampel Jura”
+
+Visuell hochwertig, nicht spielerisch.
+
+Status cards:
+
+GRÜN
+Bundesförderung / Pronovo
+separat prüfen
+
+ORANGE
+Impulsprogramm
+Restbudget prüfen
+
+ROT / WARTELISTE
+M-01
+aktuell Warteliste
+
+Accessibility:
+nicht nur Farbe verwenden.
+Immer Textstatus sichtbar.
+
+Stand-Datum prominent:
+“15. September 2026”
+
+Das ist eine der wenigen Seiten, bei denen das Datum Bestandteil des Inhalts sein soll.
+
+SEKTIONEN:
+
+A. “Welche Fördermittel sind aktuell noch verfügbar?”
+
+B. “Warum der aktuelle Status wichtiger ist als das Jahresbudget”
+
+Hier die CHF 3,893 Mio. erklären.
+Nicht so darstellen, als wären sie noch verfügbar.
+
+C. “Eigenstrom bei Neubauten”
+
+10 W/m²
+max. 30 kW
+
+D. “Meldung oder Baugesuch?”
+
+Einfach:
+Gemeinde prüft.
+Bei Baugesuch → JURAC.
+
+E. “Was sollte ich vor einer Bestellung prüfen?”
+
+Kurze Checklist:
+- Pronovo;
+- aktueller kantonaler Status;
+- Gemeinde;
+- allfälliger Bauprozess;
+- Fördergesuch vor Arbeiten.
+
+F. Kosten.
+
+FAQ:
+- Gibt es im Jura eine Eigenstrompflicht bei Neubauten?
+- Wie viel Eigenstrom muss ein Neubau produzieren?
+- Ist das Förderbudget 2026 noch verfügbar?
+- Was bedeutet die Warteliste bei M-01?
+- Muss ich mein Gesuch vor Baubeginn stellen?
+- Brauche ich für PV immer eine Baubewilligung?
+- Wer entscheidet über das Verfahren?
+- Was ist JURAC?
+
+OFFIZIELLE QUELLEN:
+- République et Canton du Jura: aktueller “Programme Bâtiments”
+- Jura: Ordonnance sur l’énergie, Eigenstromregel
+- Jura: offizielle Seite “Panneaux solaires / permis de construire”
+- JURAC offizielles Bauportal
+- Pronovo nur für aktuelle Bundes-PV-Förderung
+
+NICHT die historische Jura-PV-Seite als 2026-Förderquelle verwenden.
+
+========================================
+11. GEMEINSAMER PRONOVO-BLOCK
+========================================
+
+Alle 5 können einen kleinen gemeinsamen Bundesblock haben.
+
+Aber kurz halten.
+
+Zum Beispiel:
+
+“Die wichtigste bundesweite Förderung für Photovoltaik läuft über Pronovo. Die Höhe hängt unter anderem von Leistung, Anlagenart und Fördermodell ab. Kantonale Beiträge und besondere Boni müssen separat geprüft werden.”
+
+Nicht schreiben:
+
+- “30 % garantiert”
+- “Bundesförderung 2026 garantiert”
+- “bis 45 % Förderung”
+- fixe Förderquote für alle Anlagen.
+
+Keine unnötig lange Wiederholung auf jeder Seite.
+
+========================================
+12. KOSTEN
+========================================
+
+Verwende denselben modernen Kostenblock wie bei den ersten fünf.
+
+Keine erfundenen kantonalen Preisranges.
+
+Lead:
+
+“Der Kanton veröffentlicht keinen festen Preis für Solaranlagen. Entscheidend sind Dach, Anlagengrösse, Elektroarbeiten und Ausstattung.”
+
+Dann die bekannten Faktoren scanbar darstellen.
+
+CTA danach:
+“Bis zu 3 Solarofferten vergleichen”
+
+========================================
+13. PVPRO-PROZESS
+========================================
+
+Nutze exakt denselben hochwertigen gemeinsamen Block wie bei den ersten fünf.
+
+1. Projekt beschreiben
+2. Bis zu 3 passende Fachbetriebe
+3. Offerten vergleichen
+
+Hier MUSS nichts künstlich kantonal umgeschrieben werden.
+
+========================================
+14. QUELLEN & AI/SEO
+========================================
+
+Jede Seite braucht einen sichtbaren Block:
+
+“Quellen & Stand”
+
+Stand:
+September 2026
+
+Nutze 3–6 Primärquellen pro Seite.
+
+Quellen direkt an Fakten referenzieren wie bei den 5 bestehenden Guides.
+
+Wichtige Zahlen müssen als HTML-Text vorhanden sein.
+
+Nicht nur in SVG/Grafiken.
+
+Keine wesentlichen Informationen nur per Hover.
+
+Keine erfundenen Quellen.
+
+Keine Blogs als Hauptbeleg, wenn eine offizielle Kantonsquelle existiert.
+
+========================================
+15. FAQ
+========================================
+
+FAQ wie bei den ersten fünf:
+
+- lokal;
+- direkte Antwort zuerst;
+- 2–4 Sätze;
+- einfache Sprache;
+- keine generischen Fragen nur für SEO.
+
+Wenn bereits FAQPage JSON-LD verwendet wird:
+sichtbarer Text und Structured Data müssen exakt übereinstimmen.
+
+Kein doppeltes Schema erzeugen.
+
+========================================
+16. MAPPE
+========================================
+
+Mantieni il blocco mappa come nelle prime 5 guide.
+
+Corretto Cantone:
+Freiburg FR
+Genf GE
+Glarus GL
+Graubünden GR
+Jura JU
+
+Non spendere tempo a ridisegnare la mappa.
+
+========================================
+17. ANCHOR NAVIGATION
+========================================
+
+Usa lo stesso sistema corretto delle 5 nuove guide pubblicate.
+
+NESSUNA barra di scorrimento orizzontale visibile.
+
+Desktop:
+flex-wrap.
+
+Mobile:
+wrap oppure swipe con scrollbar completamente nascosta.
+
+Non usare `body { overflow-x:hidden }` per nascondere bug.
+
+Correggere la causa reale dell’overflow.
+
+========================================
+18. METADATA
+========================================
+
+Aggiorna SOLO metadata delle 5 pagine DE.
+
+Suggerimenti:
+
+FREIBURG
+Title:
+“Solaranlage Freiburg 2026: Pflicht & Bewilligung | PvPro.ch”
+
+Meta:
+“Photovoltaik im Kanton Freiburg: Eigenstrom bei Neubauten, Pronovo-Förderung und Meldeverfahren für Dach und Fassade einfach erklärt.”
+
+GENF
+Title:
+“Solaranlage Genf 2026: Solarpflicht & Förderung | PvPro.ch”
+
+Meta:
+“Photovoltaik in Genf: Wann Solar bei Neubau oder Dachsanierung Pflicht ist, welche Ausnahmen gelten und was 2026 bei Bewilligungen gilt.”
+
+GLARUS
+Title:
+“Solaranlage Glarus 2026: Förderung für steile PV | PvPro.ch”
+
+Meta:
+“Photovoltaik in Glarus: CHF 250/kWp für förderfähige steile Anlagen, Eigenstrom bei Neubauten, Bewilligung und Förderung 2026.”
+
+GRAUBÜNDEN
+Title:
+“Solaranlage Graubünden 2026: PV-Förderung | PvPro.ch”
+
+Meta:
+“Graubünden fördert Winterstrom und grosse PV-Flächennutzung unterschiedlich. Beiträge, Voraussetzungen und Gesuch 2026 einfach erklärt.”
+
+JURA
+Title:
+“Solaranlage Jura 2026: Förderung & Regeln | PvPro.ch”
+
+Meta:
+“Photovoltaik im Jura: aktueller Förderstatus September 2026, Eigenstrom bei Neubauten, Pronovo, Meldeverfahren und JURAC.”
+
+Canonical/hreflang NICHT verändern.
+
+========================================
+19. WICHTIGE VERBOTE
+========================================
+
+Nicht einführen oder beibehalten:
+
+- 45 % Förderung pauschal
+- “führende Vergleichsplattform”
+- “garantierte Förderung”
+- fixe Amortisationszeiten ohne konkrete Berechnung
+- erfundene kantonale Preise
+- erfundene Testimonials
+- erfundene Sonnenscheinstunden
+- “bis 30 % sparen” als pauschale Förderaussage
+- nicht verifizierte Installateurzahlen
+- erfundene kantonale Batteriesubventionen
+
+Keine Daten aus den ALTEN Versionen dieser fünf Seiten übernehmen, wenn sie nicht mit den oben gelieferten Research-Daten übereinstimmen.
+
+========================================
+20. WICHTIG: ALTE INHALTE ERSETZEN
+========================================
+
+Diese 5 Routes esistono già.
+
+Non sovrapporre il nuovo contenuto al vecchio.
+
+Sostituisci i vecchi testi/template cantonali con le nuove guide.
+
+Rimuovi dalle vecchie versioni:
+- vecchi fake testimonial;
+- vecchi ROI;
+- 45%;
+- vecchie Sonnenstunden se non servono;
+- “lokale Förderung” generica;
+- claim non verificati;
+- vecchie FAQ generiche.
+
+Mantieni soltanto componenti globali utili e corretti.
+
+========================================
+21. RESPONSIVE / DESIGN QA
+========================================
+
+Controlla:
+
+390 px
+768 px
+1024 px
+1440 px
+
+Su tutte e 5.
+
+Verifica:
+
+- hero leggibile;
+- nessun overflow orizzontale;
+- moduli unici responsive;
+- table/comparison adattate al mobile;
+- CTA funzionanti;
+- fonti leggibili;
+- FAQ leggibili;
+- mappa non rompe il layout;
+- nessun testo tagliato.
+
+========================================
+22. REGRESSIONE
+========================================
+
+NON modificare visivamente:
+
+Aargau
+Appenzell Ausserrhoden
+Appenzell Innerrhoden
+Basel
+Bern
+
+Se devi modificare un componente shared per supportare i nuovi variant:
+
+controlla che queste 5 pagine rimangano identiche a prima.
+
+Non rompere le altre pagine cantonali.
+
+Non modificare FR/IT/EN in questo passaggio.
+
+Non toccare:
+canonical
+hreflang
+sitemap
+redirect
+routing esistente.
+
+NON PUBBLICARE.
+
+========================================
+23. QA FINALE
+========================================
+
+Alla fine:
+
+1. build;
+2. HTTP 200 delle 5 route;
+3. nessun nuovo errore console;
+4. responsive 390/768/1024/1440;
+5. nessuna scrollbar orizzontale;
+6. verifica tutti i link alle fonti;
+7. verifica tutti i numeri;
+8. verifica che ogni pagina abbia un modulo visivo unico;
+9. verifica che nessuna delle 5 sembri un clone delle altre;
+10. verifica che il linguaggio sia comprensibile a un proprietario senza conoscenze fotovoltaiche;
+11. verifica che i fatti principali siano in HTML;
+12. verifica che i vecchi claim errati siano spariti.
+
+Alla fine rispondimi SOLO con:
+
+- file modificati;
+- struttura/modulo unico di ciascuna delle 5 guide;
+- numero approssimativo di parole per pagina;
+- fonti ufficiali usate per ogni Cantone;
+- conferma che le prime 5 guide approvate non sono cambiate;
+- QA responsive;
+- build PASS/FAIL;
+- problemi reali rimasti.
+
+Non pubblicare.

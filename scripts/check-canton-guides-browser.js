@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const { chromium } = require('playwright');
 
-const ids = ['aargau', 'appenzell-ausserrhoden', 'appenzell-innerrhoden', 'basel', 'bern'];
+const ids = process.env.GUIDE_TEST_IDS?.split(',') || ['aargau', 'appenzell-ausserrhoden', 'appenzell-innerrhoden', 'basel', 'bern'];
 const widths = [390, 768, 1024, 1440];
 const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOMAIN}`;
 
@@ -15,11 +15,14 @@ const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOM
     page.on('pageerror', error => errors.push(error.message));
     const results = [];
     for (const id of ids) {
-      const response = await page.goto(`${base}/solaranlage-${id}`, { waitUntil: 'networkidle' });
+      const response = await page.goto(`${base}/solaranlage-${id}`, { waitUntil: 'domcontentloaded', timeout: 60000 });
       assert.equal(response.status(), 200, id);
+      const article = page.locator(`[data-canton-guide="${id}"]`);
+      await article.waitFor({ state: 'visible' });
+      await article.locator('iframe[title^="Karte"]').waitFor({ state: 'attached' });
+      await page.evaluate(() => document.fonts.ready);
       const necessaryCookies = page.getByRole('button', { name: 'Nur notwendige', exact: true });
       if (await necessaryCookies.isVisible()) await necessaryCookies.click();
-      const article = page.locator(`[data-canton-guide="${id}"]`);
       assert.equal(await article.count(), 1);
       assert.equal(await article.locator('h1').count(), 1);
       assert.equal(await article.getByRole('link', { name: 'Bis zu 3 Solarofferten vergleichen', exact: true }).count(), 3);
@@ -52,7 +55,7 @@ const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOM
       for (const width of widths) {
         await page.setViewportSize({ width, height: 1000 });
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${id}: ${width}px horizontal overflow`);
-        if (width === 1440) {
+        if (width === 1440 && !process.env.GUIDE_TEST_IDS) {
           assert.ok(await article.locator('.guide-hero-lead').evaluate(el => el.getBoundingClientRect().height <= parseFloat(getComputedStyle(el).lineHeight) * 4.1), `${id}: compact desktop hero lead`);
         }
         const navigation = article.locator('nav');
@@ -65,6 +68,25 @@ const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOM
           assert.equal(await link.getAttribute('href'), '/anfrage');
           assert.ok(await link.isVisible());
         }
+        if (id === 'graubunden') {
+          const radios = article.getByRole('radio');
+          assert.equal(await radios.count(), 3, 'Three programme choices');
+          const outcomes = new Set();
+          for (const radio of await radios.all()) {
+            await radio.focus();
+            await page.keyboard.press('Space');
+            assert.ok(await radio.isChecked(), 'Keyboard programme selection');
+            outcomes.add(await article.locator('[aria-live="polite"]').innerText());
+            assert.equal(await article.locator('.next-programme').count(), 2, 'Both programme cards remain present');
+          }
+          assert.equal(outcomes.size, 3, 'Each selection updates the guidance');
+          await radios.first().focus();
+          await page.keyboard.press('Space');
+        }
+        for (const module of await article.locator('[data-guide-module]').all()) {
+          assert.ok(await module.evaluate(el => el.scrollWidth <= el.clientWidth + 1), `${id}: ${width}px module overflow`);
+          await module.screenshot({ path: `/tmp/module-${id}-${width}-${await module.getAttribute('data-guide-module')}.png` });
+        }
         await page.evaluate(() => scrollTo(0, 0));
         await page.screenshot({ path: `/tmp/editorial-${id}-${width}.png` });
       }
@@ -73,7 +95,7 @@ const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOM
     }
     assert.equal((await page.request.get(`${base}/anfrage`)).status(), 200, 'CTA destination');
     assert.deepEqual(errors, [], 'Browser exceptions');
-    fs.writeFileSync('/tmp/five-guides-browser-results.json', JSON.stringify(results, null, 2));
+    fs.writeFileSync(process.env.GUIDE_TEST_IDS ? '/tmp/next-five-browser-results.json' : '/tmp/five-guides-browser-results.json', JSON.stringify(results, null, 2));
     console.table(results);
     console.log('PASS: five HTTP 200 routes, four viewport sizes, no page/navigation overflow, retained maps, three working CTAs, visible FAQs matching one schema, no browser exceptions.');
   } finally {

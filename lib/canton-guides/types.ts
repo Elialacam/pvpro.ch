@@ -1,4 +1,4 @@
-export type CantonGuideId = 'aargau' | 'appenzell-ausserrhoden' | 'appenzell-innerrhoden' | 'basel' | 'bern';
+export type CantonGuideId = 'aargau' | 'appenzell-ausserrhoden' | 'appenzell-innerrhoden' | 'basel' | 'bern' | 'freiburg' | 'genf' | 'glarus' | 'graubunden' | 'jura';
 
 export interface GuideSource {
   id: string;
@@ -8,7 +8,7 @@ export interface GuideSource {
 }
 
 export interface GuideModule {
-  kind: 'decision-tree' | 'process-flow' | 'timeline' | 'statistics' | 'pillars' | 'comparison' | 'jurisdiction-steps' | 'regulatory-checklist' | 'roof-explainer';
+  kind: 'decision-tree' | 'process-flow' | 'timeline' | 'statistics' | 'pillars' | 'comparison' | 'jurisdiction-steps' | 'regulatory-checklist' | 'roof-explainer' | 'project-check' | 'obligation-triggers' | 'inclination-check' | 'funding-selector' | 'funding-status';
   title: string;
   intro?: string;
   items: { title: string; text: string; detail?: string; value?: string; sourceIds: string[] }[];

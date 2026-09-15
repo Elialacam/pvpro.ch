@@ -29,8 +29,13 @@ const expected = {
   'appenzell-innerrhoden': ['pillars'],
   basel: ['comparison', 'jurisdiction-steps'],
   bern: ['regulatory-checklist', 'roof-explainer'],
+  freiburg: ['project-check'],
+  genf: ['obligation-triggers'],
+  glarus: ['inclination-check'],
+  graubunden: ['funding-selector'],
+  jura: ['funding-status'],
 };
-assert.equal(cantonGuides.length, 5);
+assert.equal(cantonGuides.length, 10);
 const report = [];
 for (const guide of cantonGuides) {
   assert.equal(getCantonGuide(guide.id, 'de'), guide);
@@ -76,4 +81,4 @@ for (const area of cantonAreas) {
   }
 }
 console.table(report);
-console.log('PASS: only five DE routes; exact metadata; sourced content; distinct modules; three main CTAs; one FAQ schema per guide.');
+console.log('PASS: ten commissioned DE routes; exact metadata; sourced content; distinct modules; three main CTAs; one FAQ schema per guide.');

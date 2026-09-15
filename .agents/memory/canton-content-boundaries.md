@@ -12,4 +12,4 @@ For editorial simplification of the established guides, preserve verified facts 
 
 **Why:** The user confirmed the factual foundation and requested easier reading for homeowners, not shorter commercial landing pages or another research pass.
 
-**How to apply:** Put the practical answer before the official term. Keep eligibility exceptions, dates, source attribution and FAQ coverage when moving details out of a hero or table. Limit changes to the explicitly requested languages and Cantons.
+**How to apply:** Put the practical answer before the official term. Keep eligibility exceptions, dates, source attribution and FAQ coverage when moving details out of a hero or table. A design brief's highlighted facts are not exhaustive: retain useful verified details from its accompanying research dossier too. Limit changes to the explicitly requested languages and Cantons.
