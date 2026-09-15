@@ -13,3 +13,15 @@ For editorial simplification of the established guides, preserve verified facts 
 **Why:** The user confirmed the factual foundation and requested easier reading for homeowners, not shorter commercial landing pages or another research pass.
 
 **How to apply:** Put the practical answer before the official term. Keep eligibility exceptions, dates, source attribution and FAQ coverage when moving details out of a hero or table. A design brief's highlighted facts are not exhaustive: retain useful verified details from its accompanying research dossier too. Limit changes to the explicitly requested languages and Cantons.
+
+Technical responsive checks do not establish that an explanatory graphic is understandable.
+
+**Why:** A solar inclination graphic passed overflow checks but was rejected because abstract, clipped lines did not explain the angle, and neighbouring facts were cramped.
+
+**How to apply:** Show a recognizable panel, the horizontal reference and the actual angle arc. Inspect the complete graphic and its labels at narrow card widths, not just document-level overflow or the page's first screen.
+
+Responsive assertions must distinguish text overflow from intentionally overflowing decoration.
+
+**Why:** Connectors between cards and clipped decorative shapes can increase a container's scroll width without breaking the layout; treating all container overflow as an error gives false failures.
+
+**How to apply:** Check viewport overflow and individual text bounds, then inspect decorative elements visually rather than requiring every container's scroll width to equal its client width.

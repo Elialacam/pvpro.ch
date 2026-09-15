@@ -6,6 +6,7 @@ import FaqSchema from '@/components/FaqSchema';
 import GuideModule from '@/components/canton-guides/GuideModule';
 import GuideHero from '@/components/canton-guides/GuideHero';
 import GuideStyles from '@/components/canton-guides/GuideStyles';
+import NextGuideProcess from '@/components/canton-guides/NextGuideProcess';
 import type { CantonGuide } from '@/lib/canton-guides/types';
 
 interface CantonGuidePageProps {
@@ -41,6 +42,7 @@ function anchorLabel(id: string, title: string) {
 }
 
 export default function CantonGuidePage({ guide, mapSection }: CantonGuidePageProps) {
+  const hasRefinedProcess = ['freiburg', 'genf', 'glarus', 'graubunden', 'jura'].includes(guide.id);
   const sourceLabel = (ids: string[]) => {
     if (!ids.length) return null;
     return <small className="guide-source-links">Quellen: {ids.map((id, index) => (
@@ -105,16 +107,18 @@ export default function CantonGuidePage({ guide, mapSection }: CantonGuidePagePr
         );
       })}
 
-      <section className="guide-process">
-        <div className="container-custom">
-          <h2>So funktioniert der Vergleich über PvPro.ch</h2>
-          <ol className="guide-process-list">
-            <li><b>01</b><h3>Projekt beschreiben</h3><p>Kurz Angaben zu Gebäude und Solarprojekt machen.</p></li>
-            <li><b>02</b><h3>Bis zu 3 passende Fachbetriebe</h3><p>Wir prüfen Ihre Anfrage und leiten sie passend weiter.</p></li>
-            <li><b>03</b><h3>Offerten vergleichen</h3><p>Leistung, Anlage und Preis in Ruhe vergleichen.</p></li>
-          </ol>
-        </div>
-      </section>
+      {hasRefinedProcess ? <NextGuideProcess /> : (
+        <section className="guide-process">
+          <div className="container-custom">
+            <h2>So funktioniert der Vergleich über PvPro.ch</h2>
+            <ol className="guide-process-list">
+              <li><b>01</b><h3>Projekt beschreiben</h3><p>Kurz Angaben zu Gebäude und Solarprojekt machen.</p></li>
+              <li><b>02</b><h3>Bis zu 3 passende Fachbetriebe</h3><p>Wir prüfen Ihre Anfrage und leiten sie passend weiter.</p></li>
+              <li><b>03</b><h3>Offerten vergleichen</h3><p>Leistung, Anlage und Preis in Ruhe vergleichen.</p></li>
+            </ol>
+          </div>
+        </section>
+      )}
 
       {mapSection}
 

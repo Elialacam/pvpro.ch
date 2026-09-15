@@ -47,8 +47,24 @@ function GenfHero({ guide }: { guide: CantonGuide }) {
 function GlarusHero({ guide }: { guide: CantonGuide }) {
   const [angle, ...facts] = guide.quickFacts;
   return <div className="next-gl-hero">
-    <div className="next-gl-angle" aria-label={`${angle.value}: ${angle.label}`}><i className="next-gl-baseline" /><i className="next-gl-panel" /><strong>{angle.value}</strong><span>{angle.label}</span><FactSources guide={guide} fact={angle} /></div>
-    <div className="next-gl-rest">{facts.map(fact => <StandardFact key={fact.label} guide={guide} fact={fact} />)}</div>
+    <div className="next-gl-angle">
+      <figure className="next-gl-drawing">
+        <svg viewBox="0 0 220 190" aria-hidden="true">
+          <path d="M25 160H205" stroke="#839486" strokeWidth="2" />
+          <path d="M70 160L108.82 15.11L150 160Z" fill="#d8e3d5" />
+          <path d="M108.82 15.11L150 160" fill="none" stroke="#839486" strokeWidth="3" />
+          <g transform="translate(70 160) rotate(-75)">
+            <rect x="0" y="-12" width="150" height="24" rx="3" fill="#193e39" stroke="#f4f5ed" strokeWidth="3" />
+            <path d="M25-10V10M50-10V10M75-10V10M100-10V10M125-10V10M2 0H148" stroke="#89b1a8" strokeWidth="1.5" />
+          </g>
+          <path d="M120 160A50 50 0 0 0 82.94 111.70" fill="none" stroke="#b28a16" strokeWidth="3" />
+          <circle cx="70" cy="160" r="4" fill="#193e39" />
+        </svg>
+        <figcaption>75° zur Horizontalen</figcaption>
+      </figure>
+      <div className="next-gl-angle-copy"><strong>{angle.value}</strong><span lang="de">{angle.label.replace('Neigungswinkelbeitrag', 'Neigungswinkel\u00adbeitrag')}</span><FactSources guide={guide} fact={angle} /></div>
+    </div>
+    <div className="next-gl-rest">{facts.map(fact => <article className="next-gl-fact" key={fact.label}><strong>{fact.value}</strong><div><p>{fact.label}</p><FactSources guide={guide} fact={fact} /></div></article>)}</div>
   </div>;
 }
 
