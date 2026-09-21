@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import NextGuideModule from './NextGuideModule';
 import DossierGuideModule from './DossierGuideModule';
 import FinalGuideModule from './FinalGuideModule';
+import ClosingGuideModule from './ClosingGuideModule';
 
 interface GuideModuleProps {
   module: GuideModuleType;
@@ -62,6 +63,7 @@ function RoofExplainer({ module, sourceLinks }: GuideModuleProps) {
 }
 
 export default function GuideModule({ module, sourceLinks }: GuideModuleProps) {
+  if (['uri-transition', 'vaud-transition', 'valais-roof-check', 'valais-large-roofs', 'zug-power-choice', 'zug-renovation-bonus', 'zurich-jurisdictions', 'zurich-law-status'].includes(module.kind)) return <ClosingGuideModule module={module} sourceLinks={sourceLinks} />;
   if (['solar-cadastre-check', 'current-law-comparison', 'compliance-options', 'fer-procedure', 'efficiency-decision'].includes(module.kind)) return <FinalGuideModule module={module} sourceLinks={sourceLinks} />;
   if (['roof-duty-check', 'battery-eligibility', 'own-power-steps', 'winter-angle', 'solar-law-timeline'].includes(module.kind)) return <DossierGuideModule module={module} sourceLinks={sourceLinks} />;
   if (['project-check', 'obligation-triggers', 'inclination-check', 'funding-selector', 'funding-status'].includes(String(module.kind))) return <NextGuideModule module={module} sourceLinks={sourceLinks} />;

@@ -18,13 +18,20 @@ import { guide as solothurn } from './solothurn';
 import { guide as stGallen } from './st-gallen';
 import { guide as tessin } from './tessin';
 import { guide as thurgau } from './thurgau';
+import { guide as uri } from './uri';
+import { guide as waadt } from './waadt';
+import { guide as wallis } from './wallis';
+import { guide as zug } from './zug';
+import { guide as zurich } from './zurich';
 import type { CantonGuide } from './types';
 
-export const cantonGuides: CantonGuide[] = [aargau, ausserrhoden, innerrhoden, basel, bern, freiburg, genf, glarus, graubunden, jura, luzern, neuenburg, nidwalden, obwalden, schaffhausen, schwyz, solothurn, stGallen, tessin, thurgau];
+export const cantonGuides: CantonGuide[] = [aargau, ausserrhoden, innerrhoden, basel, bern, freiburg, genf, glarus, graubunden, jura, luzern, neuenburg, nidwalden, obwalden, schaffhausen, schwyz, solothurn, stGallen, tessin, thurgau, uri, waadt, wallis, zug, zurich];
 
 /** Deliberately limited to the commissioned German-language guides. */
 export function getCantonGuide(slug: string, language: string): CantonGuide | undefined {
-  return language === 'de' ? cantonGuides.find(guide => guide.id === slug) : undefined;
+  // The legacy city dataset uses "zuerich"; the public guide route uses "zurich".
+  const guideId = slug === 'zuerich' ? 'zurich' : slug;
+  return language === 'de' ? cantonGuides.find(guide => guide.id === guideId) : undefined;
 }
 
 export function getCantonGuideByPath(path: string, language: string): CantonGuide | undefined {

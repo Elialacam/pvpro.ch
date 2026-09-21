@@ -18,7 +18,7 @@ for (const extension of ['.ts', '.tsx']) {
   ).outputText, filename);
 }
 const { cantonGuides, getCantonGuide, getCantonGuideByPath } = require('../lib/canton-guides');
-const { finalGuideIds } = require('../lib/canton-guides/types');
+const { finalGuideIds, closingGuideIds } = require('../lib/canton-guides/types');
 const { cantonAreas } = require('../lib/cantons');
 const { pageMetadata } = require('../lib/pageMetadata');
 const React = require('react');
@@ -45,19 +45,25 @@ const expected = {
   'st-gallen': ['compliance-options'],
   tessin: ['fer-procedure'],
   thurgau: ['efficiency-decision'],
+  uri: ['uri-transition'],
+  waadt: ['vaud-transition'],
+  wallis: ['valais-roof-check', 'valais-large-roofs'],
+  zug: ['zug-power-choice', 'zug-renovation-bonus'],
+  zurich: ['zurich-jurisdictions', 'zurich-law-status'],
 };
-assert.equal(cantonGuides.length, 20);
+assert.equal(cantonGuides.length, 25);
 const report = [];
 for (const guide of cantonGuides) {
   assert.equal(getCantonGuide(guide.id, 'de'), guide);
   assert.equal(getCantonGuideByPath(guide.path, 'de'), guide);
-  const maxSources = finalGuideIds.includes(guide.id) ? 10 : 6;
+  const maxSources = guide.id === 'zurich' ? 16 : closingGuideIds.includes(guide.id) || finalGuideIds.includes(guide.id) ? 10 : 6;
   assert.ok(guide.sources.length >= 3 && guide.sources.length <= maxSources, `${guide.id}: 3–${maxSources} official sources`);
   const sources = new Set(guide.sources.map(s => s.id));
   assert.equal(sources.size, guide.sources.length);
   const ids = new Set(guide.sections.map(s => s.id));
   assert.equal(ids.size, guide.sections.length);
-  assert.ok(ids.has('kosten'), `${guide.id}: cost/planning section required`);
+  if (!closingGuideIds.includes(guide.id)) assert.ok(ids.has('kosten'), `${guide.id}: cost/planning section required`);
+  else assert.ok(guide.faqs.length >= 4 && guide.faqs.length <= 6, `${guide.id}: 4–6 dossier FAQs`);
   const modules = guide.sections.flatMap(s => s.module ? [s.module.kind] : []);
   for (const kind of expected[guide.id]) assert.ok(modules.includes(kind), `${guide.id}: missing ${kind}`);
   function checkSources(value) {
@@ -86,11 +92,15 @@ for (const guide of cantonGuides) {
 }
 for (const area of cantonAreas) {
   for (const locale of ['de', 'fr', 'it', 'en']) {
-    if (locale !== 'de' || !expected[area.id]) {
+    const commissioned = locale === 'de' ? cantonGuides.find(guide => guide.path === area.paths.de) : undefined;
+    if (!commissioned) {
       assert.equal(getCantonGuide(area.id, locale), undefined);
       assert.equal(getCantonGuideByPath(area.paths[locale], locale), undefined);
+    } else {
+      assert.equal(getCantonGuideByPath(area.paths.de, 'de'), commissioned);
+      assert.equal(getCantonGuide(area.id, 'de'), commissioned);
     }
   }
 }
 console.table(report);
-console.log('PASS: twenty commissioned DE routes; exact metadata; sourced content; distinct modules; three main CTAs; one FAQ schema per guide.');
+console.log('PASS: twenty-five commissioned DE routes; prior twenty retain planning sections; closing five have dossier modules and 4–6 FAQs; exact metadata; sourced content; three main CTAs; one FAQ schema per guide.');

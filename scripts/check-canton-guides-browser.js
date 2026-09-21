@@ -11,7 +11,13 @@ const finalCantons = {
   'st-gallen': 'St. Gallen',
   tessin: 'Tessin',
   thurgau: 'Thurgau',
+  uri: 'Uri',
+  waadt: 'Waadt',
+  wallis: 'Wallis',
+  zug: 'Zug',
+  zurich: 'Zürich',
 };
+const closingIds = new Set(['uri', 'waadt', 'wallis', 'zug', 'zurich']);
 const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOMAIN}`;
 
 (async () => {
@@ -46,7 +52,8 @@ const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOM
       assert.deepEqual(faq.schema[0].mainEntity.map(item => item.acceptedAnswer.text), faq.answers);
       const isDossier = await article.evaluate(element => element.classList.contains('dossier-guide'));
       if (isDossier) {
-        assert.equal(faq.questions.length, id === 'tessin' ? 6 : 5, `${id}: dossier FAQ count`);
+        if (closingIds.has(id)) assert.ok(faq.questions.length >= 4 && faq.questions.length <= 6, `${id}: closing dossier FAQ count`);
+        else assert.equal(faq.questions.length, id === 'tessin' ? 6 : 5, `${id}: dossier FAQ count`);
         assert.ok(await article.evaluate(element => {
           const middle = element.querySelector('.guide-cta-band');
           const final = element.querySelector('.guide-final');
@@ -136,7 +143,12 @@ const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOM
           await radios.first().focus();
           await page.keyboard.press('Space');
         }
-        const captureStyle = await page.addStyleTag({ content: 'header { visibility: hidden !important; }' });
+        const captureStyle = await page.addStyleTag({
+          content: [
+            'header.fixed.top-0.left-0.right-0.z-50 { visibility: hidden !important; }',
+            'div.fixed[class*="bottom-4"][class*="right-4"][class*="z-[9998]"] { visibility: hidden !important; }',
+          ].join('\n'),
+        });
         for (const module of await article.locator('[data-guide-module]').all()) {
           assert.ok(await module.evaluate(el => el.scrollWidth <= el.clientWidth + 1), `${id}: ${width}px module overflow`);
           await module.screenshot({ path: `/tmp/module-${id}-${width}-${await module.getAttribute('data-guide-module')}.png` });

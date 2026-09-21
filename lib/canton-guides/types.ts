@@ -1,6 +1,7 @@
-export type CantonGuideId = 'aargau' | 'appenzell-ausserrhoden' | 'appenzell-innerrhoden' | 'basel' | 'bern' | 'freiburg' | 'genf' | 'glarus' | 'graubunden' | 'jura' | 'luzern' | 'neuenburg' | 'nidwalden' | 'obwalden' | 'schaffhausen' | 'schwyz' | 'solothurn' | 'st-gallen' | 'tessin' | 'thurgau';
+export type CantonGuideId = 'aargau' | 'appenzell-ausserrhoden' | 'appenzell-innerrhoden' | 'basel' | 'bern' | 'freiburg' | 'genf' | 'glarus' | 'graubunden' | 'jura' | 'luzern' | 'neuenburg' | 'nidwalden' | 'obwalden' | 'schaffhausen' | 'schwyz' | 'solothurn' | 'st-gallen' | 'tessin' | 'thurgau' | 'uri' | 'waadt' | 'wallis' | 'zug' | 'zurich';
 
 export const finalGuideIds: readonly CantonGuideId[] = ['schwyz', 'solothurn', 'st-gallen', 'tessin', 'thurgau'];
+export const closingGuideIds: readonly CantonGuideId[] = ['uri', 'waadt', 'wallis', 'zug', 'zurich'];
 
 export interface GuideSource {
   id: string;
@@ -10,7 +11,7 @@ export interface GuideSource {
 }
 
 export interface GuideModule {
-  kind: 'decision-tree' | 'process-flow' | 'timeline' | 'statistics' | 'pillars' | 'comparison' | 'jurisdiction-steps' | 'regulatory-checklist' | 'roof-explainer' | 'project-check' | 'obligation-triggers' | 'inclination-check' | 'funding-selector' | 'funding-status' | 'roof-duty-check' | 'battery-eligibility' | 'own-power-steps' | 'winter-angle' | 'solar-law-timeline' | 'solar-cadastre-check' | 'current-law-comparison' | 'compliance-options' | 'fer-procedure' | 'efficiency-decision';
+  kind: 'decision-tree' | 'process-flow' | 'timeline' | 'statistics' | 'pillars' | 'comparison' | 'jurisdiction-steps' | 'regulatory-checklist' | 'roof-explainer' | 'project-check' | 'obligation-triggers' | 'inclination-check' | 'funding-selector' | 'funding-status' | 'roof-duty-check' | 'battery-eligibility' | 'own-power-steps' | 'winter-angle' | 'solar-law-timeline' | 'solar-cadastre-check' | 'current-law-comparison' | 'compliance-options' | 'fer-procedure' | 'efficiency-decision' | 'uri-transition' | 'vaud-transition' | 'valais-roof-check' | 'valais-large-roofs' | 'zug-power-choice' | 'zug-renovation-bonus' | 'zurich-jurisdictions' | 'zurich-law-status';
   title: string;
   intro?: string;
   items: { title: string; text: string; detail?: string; value?: string; sourceIds: string[] }[];

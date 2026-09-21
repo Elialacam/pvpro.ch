@@ -8,7 +8,7 @@ import GuideHero from '@/components/canton-guides/GuideHero';
 import GuideStyles from '@/components/canton-guides/GuideStyles';
 import NextGuideProcess from '@/components/canton-guides/NextGuideProcess';
 import type { CantonGuide } from '@/lib/canton-guides/types';
-import { finalGuideIds } from '@/lib/canton-guides/types';
+import { finalGuideIds, closingGuideIds } from '@/lib/canton-guides/types';
 
 interface CantonGuidePageProps {
   guide: CantonGuide;
@@ -43,7 +43,7 @@ function anchorLabel(id: string, title: string) {
 }
 
 export default function CantonGuidePage({ guide, mapSection }: CantonGuidePageProps) {
-  const isFinalGuide = finalGuideIds.includes(guide.id);
+  const isFinalGuide = finalGuideIds.includes(guide.id) || closingGuideIds.includes(guide.id);
   const isDossierGuide = isFinalGuide || ['luzern', 'neuenburg', 'nidwalden', 'obwalden', 'schaffhausen'].includes(guide.id);
   const hasRefinedProcess = ['freiburg', 'genf', 'glarus', 'graubunden', 'jura'].includes(guide.id);
   const sourceLabel = (ids: string[]) => {

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import type { CantonGuide } from '@/lib/canton-guides/types';
-import { finalGuideIds } from '@/lib/canton-guides/types';
+import { finalGuideIds, closingGuideIds } from '@/lib/canton-guides/types';
 import NextGuideHero from './NextGuideHero';
 import DossierGuideHero from './DossierGuideHero';
 
@@ -117,7 +117,7 @@ function HeroVisual({ guide }: GuideHeroProps) {
 }
 
 export default function GuideHero({ guide }: GuideHeroProps) {
-  if (finalGuideIds.includes(guide.id) || ['luzern', 'neuenburg', 'nidwalden', 'obwalden', 'schaffhausen'].includes(guide.id)) return <DossierGuideHero guide={guide} />;
+  if (closingGuideIds.includes(guide.id) || finalGuideIds.includes(guide.id) || ['luzern', 'neuenburg', 'nidwalden', 'obwalden', 'schaffhausen'].includes(guide.id)) return <DossierGuideHero guide={guide} />;
   if (['freiburg', 'genf', 'glarus', 'graubunden', 'jura'].includes(String(guide.id))) return <NextGuideHero guide={guide} />;
   return (
     <section className={`guide-hero guide-hero--${guide.id}`}>

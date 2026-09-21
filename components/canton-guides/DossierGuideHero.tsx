@@ -6,6 +6,11 @@ import DossierGuideStyles from './DossierGuideStyles';
 type Fact = CantonGuide['quickFacts'][number];
 
 const finalLabels: Record<string, string> = {
+  uri: 'Der Wechsel am 1. Oktober',
+  waadt: '2026 und der Ausblick auf 2027',
+  wallis: 'Neubau, Dachsanierung & Grossdach',
+  zug: 'Eigenstrom oder Ersatzabgabe',
+  zurich: 'Kanton und Stadt unterscheiden',
   schwyz: 'Solarkataster & Eigenstrom',
   solothurn: 'Was 2026 wirklich gilt',
   'st-gallen': 'Vier Wege zur Erfüllung',

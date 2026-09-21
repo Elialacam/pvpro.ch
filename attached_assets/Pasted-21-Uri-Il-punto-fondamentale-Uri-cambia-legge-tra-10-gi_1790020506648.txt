@@ -1,0 +1,879 @@
+21. Uri
+Il punto fondamentale: Uri cambia legge tra 10 giorni
+
+Qui bisogna stare molto attenti perché il 2026 è un anno di transizione.
+
+La vecchia regola cantonale introdotta nel 2023 prevedeva, per nuovi edifici da almeno 300 m², una potenza solare minima di 20 W/m² e una Ersatzabgabe di CHF 2'500 per ogni kW mancante in caso di eccezione. Ma quella disposizione era espressamente temporanea: valida dal 1° gennaio 2023 al 31 dicembre 2025. Quindi non dobbiamo assolutamente presentarla come regola cantonale vigente nel settembre 2026.
+
+Nel frattempo il diritto federale prevede dal 1° gennaio 2025 l'obbligo di utilizzare l'energia solare nei nuovi edifici con superficie computabile superiore a 300 m², salvo sistemi cantonali equivalenti o più avanzati.
+
+La parte davvero interessante per PvPro è però ciò che succede dal 1° ottobre 2026. Il Cantone conferma ufficialmente che la nuova legislazione energetica entrerà in vigore proprio quel giorno; la revisione necessaria è stata approvata dagli elettori urani l'8 marzo 2026 con il 75% dei voti.
+
+Dal 1° ottobre 2026
+
+Per i nuovi edifici con almeno 300 m² di anrechenbare Gebäudefläche, la nuova Energieverordnung richiede una potenza solare di:
+
+40 W/m² di superficie computabile dell'edificio.
+
+Per gli ampliamenti, se dopo l'ampliamento la superficie totale dell'edificio supera 300 m², la regola diventa:
+
+20 W/m² dell'intera superficie computabile dell'edificio.
+
+Gli impianti già esistenti possono essere conteggiati, purché la loro potenza non sia già utilizzata per soddisfare un altro obbligo legale.
+
+Uri introduce inoltre una regola specifica per la eingreifende Dachsanierung. Se un edificio di almeno 300 m² subisce una ristrutturazione del tetto dall'esterno che fa scattare anche le prescrizioni sulla protezione termica, deve raggiungere complessivamente 20 W/m² di superficie computabile.
+
+La potenza solare richiesta non deve comunque superare la potenza di allacciamento elettrico esistente dell'edificio. Inoltre l'obbligo può essere soddisfatto attraverso una certificazione Minergie oppure, in determinate condizioni, migliorando ulteriormente l'involucro: il limite del fabbisogno di calore QH,li deve essere ridotto di 5 kWh/(m²·anno) rispetto al requisito normale.
+
+Ersatzabgabe: attenzione
+
+Non riporterei i vecchi CHF 2'500/kW nella nuova pagina come regola 2026 futura.
+
+Quell'importo apparteneva alla disposizione temporanea scaduta il 31 dicembre 2025. La nuova disciplina dal 1° ottobre utilizza un'altra struttura, e nelle fonti ufficiali che ho verificato non ho trovato una nuova Ersatzabgabe equivalente da attribuire automaticamente al nuovo obbligo.
+
+Questa è esattamente una delle correzioni che ci avrebbe fatto sbagliare una pagina se avessimo semplicemente riciclato i dati precedenti.
+
+Permessi a Uri
+
+Uri dispone di un formulario cantonale ufficiale “Meldung einer Solaranlage”. È la Gemeindebaubehörde a ricevere la notifica e il formulario stesso determina, in base al tipo e alla posizione dell'impianto, se è sufficiente la Meldung oppure se occorre un vero Baugesuch.
+
+Non ho trovato però nelle fonti primarie consultate una scadenza cantonale unica verificabile di 20 o 30 giorni per questa specifica Meldung. Quindi sulla pagina non metterei un numero inventato. Scriverei che la procedura passa attraverso la competente autorità edilizia comunale e che va verificato l'esito del Meldeformular prima dell'inizio dei lavori.
+
+Incentivi Uri 2026
+
+Qui abbiamo materiale molto forte e realmente cantonale.
+
+Il programma energetico Uri 2026 dispone complessivamente di circa CHF 2,1 milioni, ma ovviamente questo budget finanzia diverse misure energetiche e non deve essere presentato come “2,1 milioni per il fotovoltaico”.
+
+Per il Photovoltaik für Winterstrom, su edifici esistenti, il programma prevede:
+
+CHF 1'000 di contributo base + CHF 250 per kWp, per impianti da almeno 2 kWp, con moduli inclinati tra 60° e 90°. Il contributo massimo è CHF 50'000 per impianto e il budget specifico della misura è CHF 100'000. Non vale per una nuova costruzione o per la semplice sostituzione di un impianto esistente.
+
+La domanda deve essere completa prima dell'inizio dell'installazione. Dopo la presentazione completa si può eventualmente iniziare a proprio rischio prima della decisione definitiva.
+
+Ancora più interessante: se si risana l'involucro e si realizza una facciata fotovoltaica integrata, con inclinazione 60–90°, il programma 2026 prevede CHF 400/m² di superficie risanata con PV integrato. Questa misura non è cumulabile con il bonus “Photovoltaik für Winterstrom”; il contributo minimo dell'intervento sull'involucro è CHF 3'000 e da CHF 10'000 di contributi diventa obbligatorio il GEAK Plus.
+
+Nel 2026 Uri introduce anche contributi per stazioni di ricarica bidirezionali, ma questa misura non va presentata come sovvenzione per una normale batteria domestica stazionaria. Nelle fonti ufficiali del programma 2026 non ho trovato un bonus generale per una classica home battery.
+
+Come costruirei la pagina Uri
+
+H1: Solaranlage im Kanton Uri: Neue Solarregeln ab 1. Oktober 2026
+
+Il modulo distintivo dovrebbe essere una vera timeline normativa 2026:
+
+Bis 31.12.2025 → alte Übergangsregel beendet
+
+2026 → Bundesrecht beachten
+
+Ab 01.10.2026 → neues Urner Recht
+
+e sotto:
+
+Neubau ≥300 m² → 40 W/m²
+
+Erweiterung, Gesamtfläche >300 m² → 20 W/m²
+
+Eingreifende Dachsanierung ≥300 m² → 20 W/m²
+
+Questa pagina avrebbe un motivo reale per essere diversa da tutte le altre.
+
+22. Waadt / Vaud
+Nel 2026 vale ancora la vecchia legge
+
+Il sito ufficiale del Cantone separa esplicitamente la “Législation sur l'énergie jusqu'au 31 décembre 2026” dalla nuova normativa.
+
+Fino alla fine del 2026, i nuovi edifici devono coprire almeno il 20% del proprio fabbisogno di elettricità mediante energia rinnovabile, per esempio attraverso il fotovoltaico. Non è quindi una regola del tipo 10/20/30 W per m² come in molti altri cantoni. Sono previste eccezioni se la posizione dell'edificio è sfavorevole o se la superficie del tetto è insufficiente. L'acquisto di certificati di elettricità verde non permette di soddisfare il requisito.
+
+Dal 1° gennaio 2027 cambia tutto
+
+La nuova legge energetica vodese è stata definitivamente approvata dal Grand Conseil il 3 febbraio 2026 ed entrerà in vigore il 1° gennaio 2027, insieme al relativo regolamento di applicazione.
+
+La nuova legge estenderà nettamente l'uso obbligatorio del fotovoltaico, in particolare alle nuove costruzioni e alle ristrutturazioni importanti del tetto.
+
+Qui però c'è una cosa importante per la nostra pagina: non dobbiamo inventare adesso le future soglie tecniche 2027. Al 21 settembre 2026 la legge è approvata e la data di entrata in vigore è confermata, ma i dettagli esecutivi devono essere letti nel regolamento applicabile dal 2027. Per una pagina aggiornata a settembre 2026 la soluzione corretta è spiegare cosa vale oggi e separarlo nettamente da ciò che cambierà il 1° gennaio.
+
+Permessi in Vaud
+
+Molti impianti solari possono essere esentati dal normale permis de construire, ma devono comunque essere annunciati al Comune mediante il formulario cantonale standardizzato. Gli edifici sottoposti a protezione cantonale non beneficiano automaticamente di questa semplificazione.
+
+La municipalità dispone di 30 giorni non per “approvare automaticamente” l'impianto, ma per decidere se il progetto può effettivamente essere dispensato dall'autorizzazione oppure se deve essere sottoposto alla procedura edilizia.
+
+Dal 1° gennaio 2026 la modifica dell'OAT federale semplifica inoltre il trattamento del fotovoltaico in facciata: il Cantone segnala che, se le condizioni previste sono rispettate, anche superfici superiori a 8 m² possono beneficiare della procedura semplificata.
+
+Incentivi Vaud 2026
+
+Il Programme Bâtiments vodese dispone nel 2026 di CHF 74 milioni, di cui CHF 34 milioni cantonali e CHF 40 milioni federali. Anche qui: non va scritto “74 milioni di incentivi fotovoltaici”; è un programma complessivo per la riqualificazione energetica degli edifici.
+
+Per un normale impianto PV standalone, il Cantone indica espressamente che il sostegno alla produzione fotovoltaica viene effettuato tramite la Rétribution unique di Pronovo.
+
+Ma Vaud ha un bonus cantonale molto interessante quando si combina isolamento + fotovoltaico. Nella misura M-01, per tetto/facciata con isolamento U ≤0,15, il contributo passa da CHF 70/m² a CHF 100/m² quando l'intervento è combinato con PV. La superficie PV deve coprire almeno il 50% delle superfici favorevoli interessate; il bonus cantonale è cumulabile con Pronovo e la domanda deve essere approvata prima di iniziare i lavori.
+
+Esiste poi una misura specifica per impianti fotovoltaici finanziati tramite crowdfunding: il primo progetto sovvenzionato riceve CHF 3'000 + CHF 70/kWc, i successivi CHF 70/kWc, fino a CHF 30'000. Servono almeno 30 kWc e almeno 20 finanziatori con una partecipazione minima di CHF 500 ciascuno; le PPE non sono ammesse. È però una misura specialistica, non il classico incentivo per il tetto di una villetta.
+
+Per edifici protetti/ISOS esiste invece “Solaire photovoltaïque & Patrimoine”. La versione ufficiale corrente calcola l'aiuto sul maggior costo necessario per integrare esteticamente il fotovoltaico, con un massimo di CHF 20'000 per ciascuno dei due servizi cantonali coinvolti, quindi CHF 40'000 complessivi. Non è cumulabile con il bonus solare M-01.
+
+Nelle misure ufficiali 2026 consultate non compare un incentivo cantonale generale per una normale batteria domestica. Questo è il modo corretto di formularlo: non “le batterie non sono sovvenzionate in assoluto”, perché possono esistere programmi locali, ma nessun bonus cantonale residenziale generale è emerso dal catalogo corrente.
+
+Come costruirei la pagina Vaud
+
+H1: Solaranlage im Kanton Waadt: Was 2026 gilt – und was sich 2027 ändert
+
+Il modulo unico dovrebbe essere:
+
+“Heute / ab 1. Januar 2027”
+
+con due colonne molto chiare. È il vero search intent del cantone in questo momento e rende la pagina particolarmente utile anche per le AI.
+
+23. Wallis / Valais
+
+Questa è probabilmente la guida con più sostanza normativa dei cinque.
+
+Nuova legge già pienamente vigente
+
+La nuova Energiegesetzgebung del Valais è entrata in vigore il 1° gennaio 2025.
+
+Per i nuovi edifici e gli ampliamenti, l'art. 33 della legge cantonale prescrive almeno:
+
+20 W/m² di superficie di riferimento energetico (SRE / Energiebezugsfläche),
+
+senza che venga richiesta una potenza superiore a 30 kW.
+
+È possibile soddisfare la produzione equivalente anche partecipando finanziariamente a un impianto rinnovabile situato nel Valais o in un cantone confinante, oppure tramite un raggruppamento per autoconsumo previsto dal diritto federale.
+
+Gli ampliamenti sono esentati se la nuova SRE è inferiore a 50 m², oppure se rappresenta meno del 20% della SRE dell'edificio esistente e contemporaneamente non supera 1'000 m². Esiste inoltre una disposizione specifica per edifici Minergie già dotati di fotovoltaico.
+
+La vera particolarità: rifare il tetto può far scattare l'obbligo
+
+Quando viene rimossa la copertura del tetto, anche un edificio esistente deve produrre parte dell'elettricità o del calore consumato. L'ordinanza quantifica il requisito, ancora una volta, in almeno 20 W/m² SRE, con tetto massimo di 30 kW. La superficie dell'impianto non deve però superare l'80% delle superfici di tetto la cui copertura viene rimossa.
+
+La legge contiene vere eccezioni: edificio che dopo la ristrutturazione raggiunge almeno la classe energetica globale CECB C, ristrutturazione energetica contemporanea di tutte le facciate, intervento limitato al solo lato nord del tetto oppure edificio utilizzato soltanto nella stagione estiva, come alcune costruzioni d'alpeggio.
+
+Tetti oltre 500 m²
+
+Gli edifici con superficie di tetto superiore a 500 m² devono essere attrezzati per produrre elettricità entro 25 anni dall'entrata in vigore della legge.
+
+L'obbligo riguarda le superfici con irraggiamento medio annuale superiore a 1'200 kWh/m² e non può essere imposta una potenza superiore alla capacità di allacciamento elettrico esistente.
+
+L'ordinanza precisa che per soddisfare questa disposizione occorre installare PV su almeno il 40% della superficie del tetto oppure raggiungere almeno 20 W/m² SRE.
+
+Questa è una differenza enorme rispetto a una normale pagina “Solaranlage Wallis”.
+
+Permessi
+
+Per i progetti esenti dal normale permesso di costruzione, l'annuncio deve essere effettuato all'autorità competente 30 giorni prima dell'inizio dei lavori. Impianti su beni culturali o siti naturali di importanza cantonale o nazionale restano invece soggetti a permesso.
+
+Incentivi
+
+Per il fotovoltaico ordinario il Cantone dice chiaramente che le domande di contributo devono essere presentate a Pronovo. Il Programme Bâtiments del Valais finanzia diverse altre misure di risanamento e sostituzione degli impianti, mentre eventuali aiuti comunali vanno verificati separatamente.
+
+La stessa pagina ufficiale evidenzia anche un elemento fiscale utile: secondo le direttive cantonali, i costi d'investimento pertinenti possono essere deducibili e i proventi fino a 10'000 kWh beneficiano del trattamento fiscale indicato dal Cantone. Per una pagina PvPro userei però un testo prudente e rimanderei alla direttiva fiscale, senza trasformare questo in un calcolo di “risparmio garantito”.
+
+Nelle misure cantonali ufficiali consultate non è emerso un bonus generale 2026 per una normale batteria domestica.
+
+Come costruirei Wallis
+
+H1: Solaranlage im Wallis: PV-Pflicht bei Neubau und Dachsanierung 2026
+
+Modulo principale:
+
+“Wird Ihr Dach geöffnet?”
+
+Nur kleine Reparatur → separat prüfen
+
+Dachdeckung wird entfernt → Solarpflicht prüfen
+
+20 W/m² EBF
+
+max. 30 kW
+
+max. 80% der erneuerten Dachfläche
+
+e sotto un secondo percorso:
+
+Dach >500 m² → 25-Jahres-Regel → >1'200 kWh/m² Einstrahlung → 40% Dach oder 20 W/m²
+
+Questa pagina ha abbastanza contenuto unico per essere molto forte.
+
+24. Zug
+
+Zug è più semplice, ma ha tre numeri molto chiari che possiamo trasformare in una pagina ottima.
+
+Obbligo di produzione propria
+
+Il Cantone indica ufficialmente che i nuovi edifici devono produrre una parte della propria elettricità. Anche ampliamenti e sopraelevazioni oltre la soglia di bagatella vengono trattati come Neubauten ai fini della disposizione.
+
+La potenza minima è:
+
+10 W/m² Energiebezugsfläche,
+
+e non viene mai richiesta una potenza pari o superiore a 30 kW.
+
+Ersatzabgabe
+
+Qui esiste davvero.
+
+Se il proprietario non può o non vuole realizzare l'impianto di produzione propria richiesto, deve versare al Comune:
+
+CHF 1'000 per ogni kW non installato.
+
+Il denaro è vincolato alla promozione della produzione locale di elettricità rinnovabile. È inoltre possibile soddisfare collettivamente l'obbligo tramite un ZEV. La norma è in vigore a livello regolamentare dal 1° gennaio 2023.
+
+Permessi: 20 giorni, non 30
+
+Il §44a PBG è molto chiaro: gli impianti solari che non incidono in modo rilevante sugli interessi dei vicini o sugli interessi pubblici devono essere notificati alla competente autorità comunale tramite Bauanzeige.
+
+Se entro 20 giorni dal ricevimento l'autorità non solleva obiezioni, il progetto può essere realizzato. Per impianti fuori zona edificabile il Comune inoltra la pratica alla Baudirektion. Gli impianti su monumenti culturali e naturali d'importanza cantonale o nazionale necessitano sempre di Baubewilligung.
+
+Incentivi Zug 2026
+
+Il fotovoltaico standalone non appare come incentivo cantonale generale nel programma 2026. Esiste però un ottimo bonus collegato al risanamento dell'involucro.
+
+L'isolamento di tetto o facciata riceve CHF 60/m² e, se sullo stesso elemento viene contemporaneamente installato un nuovo impianto fotovoltaico “vollflächig”, si aggiungono altri CHF 60/m² di superficie isolata.
+
+Il programma definisce “vollflächig” in modo preciso: almeno il 20% della facciata isolata oppure almeno il 50% del tetto isolato deve essere coperto da moduli fotovoltaici.
+
+Non ho trovato nel programma cantonale 2026 un incentivo generale destinato alle normali batterie domestiche. Eventuali incentivi comunali vanno tenuti separati.
+
+Come costruirei Zug
+
+H1: Solaranlage im Kanton Zug: Eigenstrompflicht, Ersatzabgabe und Förderung 2026
+
+Hero/decision tool:
+
+EBF × 10 W → erforderliche Eigenstromleistung
+
+poi:
+
+PV installieren
+
+oppure
+
+CHF 1'000 je fehlendes kW Ersatzabgabe
+
+e più sotto un box completamente diverso:
+
+“Dach dämmen + PV installieren?” → zusätzlicher Bonus CHF 60/m²
+
+È una pagina semplice ma molto concreta.
+
+25. Zürich
+
+Qui il rischio principale è mescolare Canton Zürich e Stadt Zürich. Dobbiamo separarli visivamente.
+
+Regola cantonale vigente nel 2026
+
+Per le nuove costruzioni, la regola vigente è ancora:
+
+10 W/m² Energiebezugsfläche.
+
+Per gli impianti fotovoltaici, il requisito massimo viene limitato attraverso una copertura pari al massimo al 70% della anrechenbare Gebäudefläche. Non è quindi corretto trasformare quel 70% in una generica “copertura obbligatoria del 70% del tetto” per tutti gli edifici.
+
+Possono essere conteggiati impianti presenti sullo stesso fondo o all'interno di uno ZEV, se non hanno più di otto anni. Gli ampliamenti sono esentati se la nuova EBF è inferiore a 50 m² oppure se rappresenta al massimo il 20% dell'EBF esistente e non supera contemporaneamente 1'000 m².
+
+Si può inoltre rinunciare alla produzione propria se il limite del fabbisogno energetico previsto dal §47a viene migliorato del 20%. E, a differenza di Zug, il Vollzugsordner cantonale chiarisce espressamente che Zürich non prevede una Ersatzabgabe al posto della produzione propria.
+
+ATTENZIONE: i 30 W/m² non sono ancora la regola vigente
+
+Questa è un'altra trappola importante.
+
+La proposta cantonale 6062 vuole introdurre l'obbligo di utilizzare in modo esteso i tetti idonei da almeno 300 m², sia sulle nuove costruzioni sia in caso di umfassende Dachsanierung, subordinatamente tra l'altro alla redditività del progetto.
+
+Nel 2026 il Regierungsrat ha inoltre dichiarato che l'attuale valore di 10 W/m² dovrebbe essere portato a 30 W/m². Ma nello stesso documento dice espressamente che il §10c attualmente vigente non viene modificato dalla Vorlage 6062 e descrive il passaggio a 30 W/m² come intenzione normativa. Quindi, al 21 settembre 2026, sulla pagina dobbiamo mantenere 10 W/m² come regola vigente e presentare 30 W/m² soltanto come modifica prevista/proposta.
+
+Meldeverfahren
+
+Molte installazioni solari sufficientemente adattate sui tetti possono utilizzare il Meldeverfahren. Nelle zone edificabili questo vale anche per molte installazioni in facciata su case unifamiliari e edifici fino a 11 metri; determinate installazioni libere fino a 20 m² possono anch'esse rientrare nella procedura.
+
+Se entro 30 giorni dalla conferma di ricezione da parte dell'autorità edilizia locale non viene ordinato diversamente, l'impianto può essere realizzato.
+
+Restano normalmente soggetti a Baubewilligung gli impianti in Kernzonen, nell'ambito di inventari di protezione dell'abitato o monumentale e in presenza di una denkmalpflegerische Schutzanordnung.
+
+Da agosto 2026 altri Comuni sono passati alla procedura attraverso eBaugesucheZH, quindi la pagina dovrebbe dire al proprietario di verificare quale canale utilizza concretamente il proprio Comune.
+
+Incentivi del CANTON Zürich
+
+Il programma energetico cantonale sostiene diverse misure su involucro, riscaldamento, consulenza e stoccaggio stagionale, ma nelle misure ufficiali attuali non compare un incentivo cantonale generale per un normale impianto fotovoltaico residenziale o per una normale batteria domestica. Anzi, la misura cantonale per sistemi di accumulo plurimensili/stagionali esclude espressamente i Batteriespeicher.
+
+C'è un programma 2026 per batterie nell'ambito degli aiuti agli investimenti agricoli, con un plafond cantonale di CHF 200'000 che risulta già esaurito, ma sarebbe sbagliato presentarlo come sovvenzione per le batterie delle normali abitazioni.
+
+Dal punto di vista fiscale, il Cantone ha chiarito nel 2025 che una PV, una wallbox fissa o una batteria associata alla PV possono qualificarsi come investimento energetico deducibile quando l'installazione avviene almeno un anno dopo la nuova costruzione e l'immobile è stato abitato da almeno un anno.
+
+Ma la CITTÀ di Zürich è un'altra storia
+
+Dal 1° agosto 2026, Stadt Zürich ha aumentato pesantemente i propri contributi fotovoltaici.
+
+I massimi complessivi, inclusa la quota Pronovo, sono:
+
+Misura Stadt Zürich	Importo
+Grundbeitrag PV	CHF 5'000
+fino a 30 kWp	CHF 450/kWp
+30–100 kWp	CHF 350 per ogni ulteriore kWp da 30
+oltre 100 kWp	CHF 310 per ogni ulteriore kWp da 100
+PV soggetto a permesso su edificio esistente	+ CHF 3'000
+
+Questi importi sono massimi complessivi Stadt Zürich + Pronovo, quindi non dobbiamo scrivere “CHF 5'000 + Pronovo + CHF 450/kWp” come se fossero tutti cumulabili integralmente.
+
+E dal 1° agosto 2026 la Stadt Zürich finanzia anche le batterie domestiche: CHF 1'000 di base + CHF 100/kWh. La capacità sovvenzionabile è limitata a 1,5 kWh per ogni kW di produzione rinnovabile installata e a massimo 100 kWh per batteria. Per batterie Second-Life c'è un ulteriore CHF 100/kWh. La batteria deve avere almeno 3 kWh, essere stazionaria, trovarsi dietro lo stesso allacciamento della PV ed essere integrata in un sistema di gestione energetica idoneo.
+
+Questi contributi valgono per Stadt Zürich, non per tutto il Kanton Zürich. Questo deve essere graficamente impossibile da fraintendere sulla pagina.
+
+Come costruirei Zürich
+
+H1: Solaranlage im Kanton Zürich: Pflicht, Meldeverfahren und Förderung 2026
+
+Il modulo più forte sarebbe diviso in due:
+
+Kanton Zürich
+10 W/m² heute
+30-Tage-Meldeverfahren
+keine allgemeine kantonale PV-/Batterieförderung
+
+Stadt Zürich
+PV-Förderung ab 1.8.2026
+Batterieförderung ab 1.8.2026
+
+E immediatamente sotto:
+
+“Heute geltendes Recht vs. geplante Änderung”
+
+Heute: 10 W/m²
+
+Geplant: 30 W/m² + stärkere Nutzung grosser Dächer
+
+È probabilmente la pagina che può generare più confusione se costruita male, ma anche quella in cui PvPro può aggiungere più valore se la separazione viene fatta bene.
+
+Controllo incrociato definitivo
+Cantone	Regola principale al 21.09.2026	Dachsanierung	Procedura solare	Incentivo PV cantonale utile	Batteria
+Uri	transizione; nuove regole dal 01.10.26	dal 01.10: ≥300 m² → 20 W/m²	Meldung comunale; nessun termine fisso che abbia verificato ufficialmente	Winter-PV CHF 1'000 + 250/kWp; facciata integrata CHF 400/m²	nessun bonus home battery generale verificato
+Vaud	Neubau: 20% fabbisogno elettrico rinnovabile	nuovo obbligo con legge dal 01.01.27	annuncio; Comune ha 30 giorni	isolamento+PV fino a CHF 100/m²; programmi speciali	nessun programma cantonale generale trovato
+Valais	20 W/m² SRE, max 30 kW	sì: 20 W/m² quando si rimuove copertura	annuncio 30 giorni	PV ordinario → Pronovo	nessun bonus generale trovato
+Zug	10 W/m²; mai richiesta ≥30 kW	nessun obbligo generale comparabile a VS verificato	Bauanzeige 20 giorni	isolamento+PV: +CHF 60/m²	nessun bonus cantonale generale trovato
+Zürich	10 W/m² vigente	estensione ai grandi tetti proposta, non ancora da presentare come vigente	Meldung 30 giorni	nessun PV residenziale generale cantonale; Stadt Zürich separata	Canton: no generale; Stadt Zürich: sì
+
+Questa volta non vedo un buco che giustifichi fermarci prima di Replit. I punti dove la fonte non mi permette una certezza — soprattutto il termine della Meldung Uri e i dettagli tecnici futuri Vaud 2027 — sono marcati come tali invece di riempirli a intuito.
+
+Prompt definitivo da dare a Replit
+
+Questo lo puoi incollare intero insieme al dossier sopra:
+
+Implementa esclusivamente le ultime cinque guide cantonali tedesche di PvPro:
+
+/solaranlage-uri
+/solaranlage-waadt
+/solaranlage-wallis
+/solaranlage-zug
+/solaranlage-zurich
+
+NON fare deploy e NON fare publish.
+
+Il dossier verificato fornito insieme a questo prompt è la source of truth per
+normativa, date, soglie, incentivi, procedure ed eccezioni.
+
+NON:
+- inventare dati mancanti;
+- completare per analogia regole di un cantone con quelle di un altro;
+- aggiungere ROI, costi, risparmi o percentuali non presenti nel dossier;
+- trasformare proposte legislative in diritto vigente;
+- trasformare incentivi comunali in incentivi cantonali;
+- modificare canonical, Open Graph, hreflang, sitemap o redirect;
+- modificare le guide cantonali 1–20 salvo componenti shared strettamente
+  necessari.
+
+=== PRIMA DI MODIFICARE ===
+
+Ispeziona le guide cantonali 1–20 già approvate e l'implementazione corrente,
+in particolare:
+
+lib/canton-guides/
+components/CantonGuidePage.tsx
+components/canton-guides/
+GuideHero.tsx
+GuideModule.tsx
+DossierGuideHero.tsx
+DossierGuideModule.tsx
+DossierGuideStyles.tsx
+
+o gli eventuali equivalenti dopo refactoring.
+
+Impara il design system corrente e riutilizzalo:
+- tipografia;
+- palette cream/yellow;
+- larghezza contenuti;
+- spacing;
+- CTA;
+- cards;
+- Quellen;
+- FAQ;
+- mappe;
+- responsive behaviour.
+
+Non clonare però la stessa pagina cinque volte.
+
+Ogni cantone deve avere:
+1. hero-side visual/fact module specifico;
+2. almeno un decision tool/modulo realmente cantonale;
+3. ordine delle sezioni adatto al contenuto;
+4. FAQ proprie;
+5. fonti proprie;
+6. contenuto editoriale sostanzialmente diverso.
+
+Scrivi in tedesco svizzero standard, con "ss" e non "ß".
+Target: proprietari di casa senza conoscenze tecniche di fotovoltaico.
+Dai prima la risposta pratica e poi il dettaglio normativo.
+Spiega una volta i termini tecnici.
+
+Non esiste una lunghezza obbligatoria.
+Mantieni tutta la profondità utile del dossier e rimuovi solo ripetizioni.
+Indicativamente le guide possono essere approfondite come le guide già
+approvate 11–20.
+
+=== 21. URI ===
+
+Route:
+/solaranlage-uri
+
+H1 consigliato:
+"Solaranlage im Kanton Uri: Neue Solarregeln ab 1. Oktober 2026"
+
+La pagina DEVE spiegare il cambio normativo del 2026.
+
+Non presentare come vigente la vecchia disposizione cantonale:
+- 20 W/m²;
+- Ersatzabgabe CHF 2'500/kW.
+
+Quella disposizione era valida solamente dal 01.01.2023 al 31.12.2025.
+
+Al 2026 esiste inoltre la cornice federale per i nuovi edifici >300 m².
+
+Dal 01.10.2026 entra in vigore la nuova legislazione cantonale Uri.
+
+Nuove regole dal 01.10.2026:
+- Neubau con anrechenbare Gebäudefläche >=300 m²:
+  40 W/m².
+- Erweiterung:
+  se dopo l'ampliamento la superficie complessiva supera 300 m²,
+  20 W/m² dell'intera anrechenbare Gebäudefläche.
+- Impianti esistenti possono essere conteggiati se la loro potenza non è
+  già usata per un altro obbligo legale.
+- eingreifende Dachsanierung:
+  edificio >=300 m² + ristrutturazione del tetto dall'esterno che attiva
+  requisiti di protezione termica → 20 W/m².
+- potenza richiesta mai superiore alla potenza di allacciamento elettrico
+  esistente.
+- possibile adempimento tramite Minergie.
+- possibile alternativa mediante migliore isolamento:
+  QH,li migliorato di 5 kWh/(m²*a).
+
+NON attribuire una nuova Ersatzabgabe post-01.10.2026 se il dossier non la
+conferma.
+
+Permessi:
+- esiste "Meldung einer Solaranlage" verso la Gemeindebaubehörde;
+- il formulario determina se basta la Meldung o serve Baugesuch;
+- NON inventare un termine di 20/30 giorni: non è stato confermato nel
+  dossier da una fonte primaria cantonale.
+
+Förderung Uri 2026:
+Photovoltaik für Winterstrom:
+- edificio esistente;
+- min. 2 kWp;
+- moduli 60°–90°;
+- CHF 1'000 base + CHF 250 per ulteriore kWp;
+- max CHF 50'000/impianto;
+- domanda completa prima dell'Installationsbeginn;
+- non per Neubau o semplice Anlagenersatz;
+- non cumulabile con il contributo per fassadenintegrierte PV della
+  misura Gebäudehülle.
+
+Fassadenintegrierte PV + Dämmung:
+- CHF 400/m² sanierte Fläche;
+- inclinazione 60°–90°;
+- non cumulabile con Winterstrom-PV.
+
+Non presentare la nuova promozione di bidirektionale Ladestationen come
+incentivo per una normale batteria domestica.
+
+MODULO UNICO OBBLIGATORIO:
+"Was gilt wann im Jahr 2026?"
+con timeline prima/dopo 01.10.2026 e decision tree
+Neubau / Erweiterung / Dachsanierung.
+
+=== 22. WAADT / VAUD ===
+
+Route:
+/solaranlage-waadt
+
+H1:
+"Solaranlage im Kanton Waadt: Was 2026 gilt – und was sich 2027 ändert"
+
+Separare rigidamente diritto 2026 e diritto dal 01.01.2027.
+
+VIGENTE FINO AL 31.12.2026:
+- nuove costruzioni:
+  almeno 20% del fabbisogno elettrico coperto da energia rinnovabile;
+- PV è una possibile soluzione;
+- eccezioni in caso di sito sfavorevole o superficie di tetto insufficiente;
+- acquisto di certificati di corrente verde non soddisfa il requisito.
+
+NUOVA LEGGE:
+- approvata definitivamente 03.02.2026;
+- entra in vigore 01.01.2027;
+- prevede maggiore obbligo solare per Neubauten e importanti
+  Dachsanierungen.
+
+NON inventare ora soglie tecniche/W/m² future 2027 se non presenti nel
+dossier.
+
+Permessi:
+- molti impianti possono essere esentati da permis de construire;
+- devono comunque essere annunciati al Comune con formulario;
+- il Comune dispone di 30 giorni per stabilire se serve autorizzazione;
+- edifici protetti richiedono valutazione specifica;
+- dal 01.01.2026 la normativa federale ha semplificato anche determinate
+  installazioni PV in facciata.
+
+Förderung:
+PV standalone ordinario:
+- sostegno principalmente tramite Pronovo.
+
+M-01 Dämmung + PV:
+- U <=0.20 → CHF 40/m²;
+- U <=0.15 → CHF 70/m²;
+- U <=0.15 + PV → CHF 100/m²;
+- PV almeno 50% delle superfici favorevoli interessate;
+- cumulabile con Pronovo;
+- domanda/approvazione prima di iniziare i lavori.
+
+Programma crowdfunding PV:
+- primo progetto finanziato: CHF 3'000 + CHF 70/kWc;
+- successivi: CHF 70/kWc;
+- max CHF 30'000;
+- min 30 kWc;
+- almeno 20 partecipanti da min CHF 500;
+- PPE non ammesse.
+Trattarlo come programma speciale, non incentivo EFH standard.
+
+Solaire photovoltaïque & Patrimoine:
+- per edifici/siti protetti;
+- contributo sul sovraccosto dell'integrazione speciale;
+- max CHF 20'000 per ciascuno dei due servizi = CHF 40'000 complessivi;
+- non cumulabile con bonus solaire M-01.
+
+Non affermare che esista un incentivo cantonale generale per batterie:
+non ne è stato verificato uno nelle misure 2026.
+
+MODULO UNICO:
+"2026 vs. ab 1. Januar 2027"
+con due colonne chiare.
+
+=== 23. WALLIS / VALAIS ===
+
+Route:
+/solaranlage-wallis
+
+H1:
+"Solaranlage im Wallis: PV-Pflicht bei Neubau und Dachsanierung 2026"
+
+Nuova legislazione energetica in vigore dal 01.01.2025.
+
+Neubau + Erweiterung:
+- almeno 20 W/m² Energiebezugsfläche/SRE;
+- non si richiede oltre 30 kW;
+- possibilità, alle condizioni legali, di partecipazione a un impianto
+  rinnovabile esterno nel Vallese/cantone confinante o RCP/ZEV.
+
+Eccezioni ampliamento:
+- nuova SRE <50 m²;
+oppure
+- <20% della SRE dell'edificio esistente e <=1'000 m².
+Considerare anche la specifica eccezione Minergie indicata nel dossier.
+
+Dachsanierung:
+se viene rimossa la Dachdeckung:
+- >=20 W/m² SRE;
+- max 30 kW;
+- superficie PV richiesta non oltre 80% della superficie di tetto la cui
+  copertura viene rimossa.
+
+Eccezioni Dachsanierung:
+- CECB/GEAK Gesamtklasse C dopo risanamento;
+- risanamento energetico contemporaneo di tutte le facciate;
+- viene rinnovato soltanto il lato nord;
+- edificio utilizzato solamente nella stagione estiva/alpeggio.
+
+Grossdächer >500 m²:
+- devono produrre elettricità entro 25 anni dall'entrata in vigore della legge;
+- obbligo solo per superfici con irraggiamento medio >1'200 kWh/m²/anno;
+- non può essere richiesta più potenza della Anschlussleistung esistente;
+- requisito: PV su almeno 40% del tetto OPPURE >=20 W/m² SRE.
+
+Permessi:
+- progetti esenti da normale Baubewilligung: annuncio 30 giorni prima;
+- beni culturali/siti naturali di importanza cantonale o nazionale:
+  Baubewilligung obbligatoria.
+
+Förderung:
+- PV ordinario → Pronovo;
+- non trasformare il Programme Bâtiments in una generica sovvenzione PV;
+- verificare eventuali aiuti comunali separatamente;
+- non indicare un bonus cantonale generale per batterie se non documentato.
+
+MODULO UNICO:
+"Dachsanierungs-Check Wallis"
+con percorso:
+Dachdeckung entfernt?
+→ Ausnahme?
+→ 20 W/m² / max 30 kW / 80%-Grenze.
+
+Aggiungere un secondo mini-modulo per Dach >500 m².
+
+=== 24. ZUG ===
+
+Route:
+/solaranlage-zug
+
+H1:
+"Solaranlage im Kanton Zug: Eigenstrompflicht, Ersatzabgabe und Förderung 2026"
+
+Eigenstrompflicht:
+- Neubauten e ampliamenti/sopraelevazioni non-bagatella;
+- >=10 W/m² Energiebezugsfläche;
+- non viene mai richiesta una potenza >=30 kW.
+
+Ersatzabgabe:
+- CHF 1'000 per ogni kW richiesto ma non installato;
+- versata al Comune;
+- vincolata alla produzione locale rinnovabile;
+- possibile adempimento collettivo tramite ZEV.
+
+Permessi:
+- Bauanzeige alla Gemeinde;
+- se entro 20 giorni dalla ricezione non ci sono obiezioni, si può procedere;
+- fuori Bauzone il Comune coinvolge la Baudirektion;
+- Kultur-/Naturdenkmäler cantonali/nazionali → Baubewilligung.
+
+Förderprogramm 2026:
+- Dämmung: CHF 60/m²;
+- se contemporaneamente nuova vollflächige PV:
+  ulteriore +CHF 60/m² della superficie isolata;
+- vollflächig significa almeno 20% della facciata isolata oppure almeno
+  50% del tetto isolato coperto da moduli.
+
+Non presentare questo come CHF 60/m² per qualsiasi nuovo PV standalone.
+
+Nessun incentivo cantonale generale per normale home battery verificato.
+
+MODULO UNICO:
+"PV oder Ersatzabgabe?"
+con semplice formula 10 W/m² + CHF1'000/kW mancante.
+
+Secondo modulo:
+"Dach/Fassade dämmen + PV = Zusatzbonus".
+
+=== 25. ZÜRICH ===
+
+Route:
+/solaranlage-zurich
+
+H1:
+"Solaranlage im Kanton Zürich: Pflicht, Meldeverfahren und Förderung 2026"
+
+SEPARARE VISIVAMENTE E TESTUALMENTE:
+1. KANTON ZÜRICH
+2. STADT ZÜRICH
+
+Non mischiare mai i due livelli.
+
+KANTON ZÜRICH – DIRITTO VIGENTE:
+- Neubau: >=10 W/m² Energiebezugsfläche;
+- per PV, requisito massimo limitato a una Belegung di 70% della
+  anrechenbare Gebäudefläche;
+- NON scrivere genericamente "70% del tetto obbligatorio";
+- impianti sul Grundstück / ZEV possono essere conteggiati se <=8 anni;
+- ampliamento esente se:
+  nuova EBF <50 m²;
+  oppure <=20% EBF esistente e <=1'000 m²;
+- possibile rinuncia se il Grenzwert energetico §47a viene migliorato del 20%;
+- il Canton Zürich NON ha Ersatzabgabe per questa Eigenstrompflicht.
+
+PROPOSTA / NON PRESENTARE COME DIRITTO VIGENTE:
+Vorlage 6062:
+- proposta per geeignete Dächer >=300 m²;
+- Neubau + umfassende Dachsanierung;
+- uso esteso/flächendeckend se economicamente ragionevole.
+Il Regierungsrat intende inoltre aumentare 10 W/m² a 30 W/m².
+Al 21.09.2026, però, la pagina deve mostrare:
+"10 W/m² = heute geltendes Recht"
+"30 W/m² = geplante Erhöhung"
+finché una successiva fonte ufficiale non dimostra l'entrata in vigore.
+
+Meldeverfahren:
+- molte Dachanlagen sufficientemente adattate;
+- determinate Fassadenanlagen in Bauzone;
+- freistehende Anlagen fino a 20 m² in Bauzone;
+- 30 giorni dalla conferma di ricezione del Bauamt;
+- Kernzone / Ortsbildschutz / Denkmalschutz ecc. → normalmente
+  Baubewilligung;
+- indicare che il canale concreto può essere eBaugesucheZH a seconda del Comune.
+
+KANTONALE FÖRDERUNG:
+- non indicare una sovvenzione cantonale generale per PV residenziale
+  standalone;
+- non indicare una sovvenzione cantonale generale per home battery;
+- la misura per stoccaggio stagionale esclude Batteriespeicher;
+- esiste un aiuto specifico agricolo per batterie nel 2026, già esaurito:
+  NON presentarlo come incentivo domestico.
+
+Fiscalità:
+- PV, wallbox e batteria PV possono qualificarsi come investimenti
+  energetici deducibili se installati almeno un anno dopo Neubau e se
+  l'immobile è stato abitato da almeno un anno.
+Non trasformare questa informazione in una percentuale di risparmio.
+
+STADT ZÜRICH – DAL 01.08.2026:
+ATTENZIONE: questi NON sono incentivi per tutto il cantone.
+
+PV:
+Massimi complessivi Stadt + Pronovo:
+- Grundbeitrag CHF 5'000;
+- fino 30 kWp: CHF 450/kWp;
+- 30–100 kWp: CHF 350 per ogni ulteriore kWp da 30;
+- oltre 100 kWp: CHF 310 per ogni ulteriore kWp da 100;
+- bewilligungspflichtige PV su Bestandesbau: +CHF 3'000.
+
+NON sommare nuovamente Pronovo ai massimi indicati come se fosse extra.
+
+Batteriespeicher Stadt Zürich:
+- CHF 1'000 base;
+- CHF 100/kWh;
+- max capacità sovvenzionabile: 1.5 kWh per kW di impianto rinnovabile;
+- max 100 kWh;
+- Second-Life: ulteriore CHF 100/kWh;
+- min 3 kWh;
+- stazionario;
+- stesso Hausanschluss della PV;
+- Energiemanagementsystem;
+- domanda prima dell'inizio dei lavori.
+
+MODULO UNICO:
+"Kanton Zürich oder Stadt Zürich?"
+con due colonne completamente separate.
+
+Secondo modulo:
+"Heute geltend / geplant"
+10 W/m² vs futura proposta 30 W/m² + grossi tetti.
+
+=== STRUTTURA EDITORIALE ===
+
+Per ciascuna pagina:
+- Hero con H1;
+- breve risposta pratica;
+- 4–6 facts verificati;
+- navigazione interna se coerente col design corrente;
+- 3–5 sezioni sostanziali;
+- modulo canton-specifico;
+- Förderung;
+- Bewilligung/Meldeverfahren;
+- cosa deve fare il proprietario;
+- 4–6 FAQ specifiche;
+- Quellen & Stand: "Stand: 21. September 2026";
+- CTA PvPro.
+
+Non ripetere lo stesso dato in hero, cards, body e FAQ.
+Ogni informazione deve avere una posizione principale.
+
+Usa fonti ufficiali del dossier vicino ai claim importanti.
+Non usare blog/installatori/comparatori come fonte normativa.
+
+=== FAQ / SEO / AI ===
+
+Una sola H1.
+H2/H3 semantici.
+Risposta diretta nelle prime 1–2 frasi delle sezioni.
+Numeri importanti come testo HTML, non dentro immagini.
+Contenuto essenziale crawlable e non nascosto.
+FAQ visibili e utili.
+Se esiste FAQPage schema:
+- una sola istanza;
+- deve corrispondere esattamente alle FAQ visibili;
+- niente duplicati.
+
+Non considerare FAQ schema un ranking trick.
+
+=== CTA / CLAIM ===
+
+Preserva gli stessi CTA/process/map components delle guide approvate.
+
+Puoi usare:
+"Bis zu 3 Solarofferten vergleichen"
+
+Microcopy coerente col sito.
+
+Non creare:
+- testimonianze;
+- ROI;
+- costi;
+- percentuali di risparmio;
+- "garantierte Förderung";
+- "führende Vergleichsplattform";
+- altri claim non supportati.
+
+=== REGRESSION SAFETY ===
+
+Non modificare 1–20.
+
+Se per necessità devi modificare un shared component:
+1. spiega internamente perché;
+2. mantieni backwards compatibility;
+3. regression-check guide 1–20.
+
+Non modificare:
+- altre lingue;
+- canonical;
+- OG;
+- hreflang;
+- sitemap;
+- redirect.
+
+=== RESPONSIVE QA ===
+
+Controlla almeno:
+390 px
+768 px
+1024 px
+1440 px
+
+Verifica:
+- nessun horizontal overflow;
+- cards leggibili;
+- tabelle responsive;
+- hero non troppo alto/vuoto;
+- anchor nav che wrap o scrolla correttamente;
+- CTA non tagliate;
+- mappe corrette;
+- FAQ corrette;
+- source links funzionanti.
+
+NON risolvere overflow tramite:
+body { overflow-x: hidden }
+
+Trova e correggi la causa reale.
+
+=== FINAL QA ===
+
+Verifica:
+- tutte e cinque le route restituiscono HTTP 200;
+- build completa;
+- nessun errore nuovo;
+- dati normativi corrispondenti al dossier;
+- nessuna contaminazione tra cantoni;
+- Stadt Zürich chiaramente diversa da Kanton Zürich;
+- diritto vigente chiaramente diverso da proposte future;
+- Uri distingue prima/dopo 01.10.2026;
+- Waadt distingue 2026/2027;
+- Wallis contiene Dachsanierung + >500-m²-rule;
+- Zug contiene Ersatzabgabe + 20-Tage-Bauanzeige;
+- Zürich mantiene 10 W/m² come vigente.
+
+Confronta il progetto prima/dopo e conferma che le modifiche siano limitate
+alle cinque guide e agli eventuali shared components strettamente necessari.
