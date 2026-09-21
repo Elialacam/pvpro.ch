@@ -2,6 +2,7 @@ import type { GuideModule as GuideModuleType } from '@/lib/canton-guides/types';
 import type { ReactNode } from 'react';
 import NextGuideModule from './NextGuideModule';
 import DossierGuideModule from './DossierGuideModule';
+import FinalGuideModule from './FinalGuideModule';
 
 interface GuideModuleProps {
   module: GuideModuleType;
@@ -61,6 +62,7 @@ function RoofExplainer({ module, sourceLinks }: GuideModuleProps) {
 }
 
 export default function GuideModule({ module, sourceLinks }: GuideModuleProps) {
+  if (['solar-cadastre-check', 'current-law-comparison', 'compliance-options', 'fer-procedure', 'efficiency-decision'].includes(module.kind)) return <FinalGuideModule module={module} sourceLinks={sourceLinks} />;
   if (['roof-duty-check', 'battery-eligibility', 'own-power-steps', 'winter-angle', 'solar-law-timeline'].includes(module.kind)) return <DossierGuideModule module={module} sourceLinks={sourceLinks} />;
   if (['project-check', 'obligation-triggers', 'inclination-check', 'funding-selector', 'funding-status'].includes(String(module.kind))) return <NextGuideModule module={module} sourceLinks={sourceLinks} />;
   let content: ReactNode;

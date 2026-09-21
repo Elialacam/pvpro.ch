@@ -18,6 +18,7 @@ for (const extension of ['.ts', '.tsx']) {
   ).outputText, filename);
 }
 const { cantonGuides, getCantonGuide, getCantonGuideByPath } = require('../lib/canton-guides');
+const { finalGuideIds } = require('../lib/canton-guides/types');
 const { cantonAreas } = require('../lib/cantons');
 const { pageMetadata } = require('../lib/pageMetadata');
 const React = require('react');
@@ -39,13 +40,19 @@ const expected = {
   nidwalden: ['own-power-steps', 'comparison'],
   obwalden: ['winter-angle'],
   schaffhausen: ['solar-law-timeline'],
+  schwyz: ['solar-cadastre-check'],
+  solothurn: ['current-law-comparison'],
+  'st-gallen': ['compliance-options'],
+  tessin: ['fer-procedure'],
+  thurgau: ['efficiency-decision'],
 };
-assert.equal(cantonGuides.length, 15);
+assert.equal(cantonGuides.length, 20);
 const report = [];
 for (const guide of cantonGuides) {
   assert.equal(getCantonGuide(guide.id, 'de'), guide);
   assert.equal(getCantonGuideByPath(guide.path, 'de'), guide);
-  assert.ok(guide.sources.length >= 3 && guide.sources.length <= 6, `${guide.id}: 3–6 official sources`);
+  const maxSources = finalGuideIds.includes(guide.id) ? 10 : 6;
+  assert.ok(guide.sources.length >= 3 && guide.sources.length <= maxSources, `${guide.id}: 3–${maxSources} official sources`);
   const sources = new Set(guide.sources.map(s => s.id));
   assert.equal(sources.size, guide.sources.length);
   const ids = new Set(guide.sections.map(s => s.id));
@@ -86,4 +93,4 @@ for (const area of cantonAreas) {
   }
 }
 console.table(report);
-console.log('PASS: fifteen commissioned DE routes; exact metadata; sourced content; distinct modules; three main CTAs; one FAQ schema per guide.');
+console.log('PASS: twenty commissioned DE routes; exact metadata; sourced content; distinct modules; three main CTAs; one FAQ schema per guide.');

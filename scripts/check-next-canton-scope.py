@@ -76,5 +76,7 @@ else:
     assert set(changed) <= ALLOWED, f"Out-of-scope changes: {set(changed) - ALLOWED}"
     for key in before:
         assert before[key]["seo"] == pages[key]["seo"], f"Canonical/hreflang changed: {key}"
+        if os.environ.get("GUIDE_PRESERVE_METADATA") == "1":
+            assert before[key]["meta"] == pages[key]["meta"], f"Description/Open Graph changed: {key}"
     print(f"PASS: {len(pages)} routes; only {len(changed)} permitted pages changed.")
     print("All other text, metadata, inline styles and canonical/hreflang unchanged.")

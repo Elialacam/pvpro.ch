@@ -1,4 +1,6 @@
-export type CantonGuideId = 'aargau' | 'appenzell-ausserrhoden' | 'appenzell-innerrhoden' | 'basel' | 'bern' | 'freiburg' | 'genf' | 'glarus' | 'graubunden' | 'jura' | 'luzern' | 'neuenburg' | 'nidwalden' | 'obwalden' | 'schaffhausen';
+export type CantonGuideId = 'aargau' | 'appenzell-ausserrhoden' | 'appenzell-innerrhoden' | 'basel' | 'bern' | 'freiburg' | 'genf' | 'glarus' | 'graubunden' | 'jura' | 'luzern' | 'neuenburg' | 'nidwalden' | 'obwalden' | 'schaffhausen' | 'schwyz' | 'solothurn' | 'st-gallen' | 'tessin' | 'thurgau';
+
+export const finalGuideIds: readonly CantonGuideId[] = ['schwyz', 'solothurn', 'st-gallen', 'tessin', 'thurgau'];
 
 export interface GuideSource {
   id: string;
@@ -8,7 +10,7 @@ export interface GuideSource {
 }
 
 export interface GuideModule {
-  kind: 'decision-tree' | 'process-flow' | 'timeline' | 'statistics' | 'pillars' | 'comparison' | 'jurisdiction-steps' | 'regulatory-checklist' | 'roof-explainer' | 'project-check' | 'obligation-triggers' | 'inclination-check' | 'funding-selector' | 'funding-status' | 'roof-duty-check' | 'battery-eligibility' | 'own-power-steps' | 'winter-angle' | 'solar-law-timeline';
+  kind: 'decision-tree' | 'process-flow' | 'timeline' | 'statistics' | 'pillars' | 'comparison' | 'jurisdiction-steps' | 'regulatory-checklist' | 'roof-explainer' | 'project-check' | 'obligation-triggers' | 'inclination-check' | 'funding-selector' | 'funding-status' | 'roof-duty-check' | 'battery-eligibility' | 'own-power-steps' | 'winter-angle' | 'solar-law-timeline' | 'solar-cadastre-check' | 'current-law-comparison' | 'compliance-options' | 'fer-procedure' | 'efficiency-decision';
   title: string;
   intro?: string;
   items: { title: string; text: string; detail?: string; value?: string; sourceIds: string[] }[];

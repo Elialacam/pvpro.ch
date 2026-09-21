@@ -1,0 +1,1183 @@
+DOSSIER DEFINITIVO PVPRO — CANTONI 16–20
+
+Stato della verifica: 21 settembre 2026
+
+16. Schwyz
+Cosa vale nel 2026
+
+Nel Canton Schwyz, dal 1° maggio 2022, i nuovi edifici e gli edifici sostitutivi devono produrre una parte della propria elettricità.
+
+La Energieverordnung cantonale stabilisce:
+
+10 W di potenza per ogni m² di Energiebezugsfläche (EBF)
+
+con un limite massimo: non può essere richiesta una potenza superiore a 30 kW per edificio. La soglia dei 30 kW è quindi il massimo dell’obbligo, non un limite alla dimensione dell’impianto che il proprietario può volontariamente installare.
+
+Quando non vale l’obbligo
+
+La stessa §24d kEnV prevede tre eccezioni molto concrete:
+
+edificio in una zona con Globalstrahlung inferiore a 1’120 kWh/m²/anno;
+edificio nuovo che raggiunge lo standard Minergie;
+ampliamento con nuova EBF inferiore a 50 m², oppure non superiore al 20% dell’EBF esistente e contemporaneamente non superiore a 1’000 m².
+
+Per determinare la radiazione solare, non bisogna fare una stima arbitraria: il Cantone utilizza il proprio Solarkataster/WebGIS come base giuridica per l’applicazione dell’obbligo.
+
+Ersatzabgabe
+
+Qui Schwyz è molto diverso da St. Gallen.
+
+Non è possibile pagare una Ersatzabgabe per evitare l’obbligo.
+
+La pagina ufficiale del Cantone lo specifica espressamente. Se l’edificio ricade nell’area soggetta alla Eigenstromerzeugungspflicht, la condizione deve essere soddisfatta attraverso una soluzione conforme.
+
+ZEV / produzione comune
+
+La normativa permette di soddisfare l’obbligo anche nell’ambito di un Zusammenschluss zum Eigenverbrauch (ZEV) per una sovraedificazione complessiva, purché sia presente una nuova o ampliata installazione di produzione elettrica. È quindi più corretto parlare di soluzione comune nell’ambito di un ZEV piuttosto che affermare genericamente che “basta un impianto del vicino”.
+
+Permesso o semplice notifica?
+
+Nel 2026 Schwyz dispone di una guida cantonale aggiornata specificamente per gli impianti solari.
+
+Se l’impianto soddisfa i criteri di ubicazione e integrazione, si utilizza il Meldeverfahren tramite eBau SZ, come “Baumeldung für geringfügiges Vorhaben”.
+
+La documentazione deve essere presentata almeno 20 giorni prima dell’inizio dei lavori.
+
+Se entro quei 20 giorni l’autorità non comunica che il progetto necessita di procedura semplificata/ordinaria, si può procedere.
+
+Documenti richiesti
+
+La guida cantonale indica tra gli altri:
+
+Situationsplan;
+piano/orientamento per i pompieri;
+vista del tetto con distanze;
+sezione del tetto e altezza della costruzione;
+schede tecniche e descrizione dei prodotti;
+eventualmente valutazione dell’abbagliamento;
+per alcuni impianti in facciata sopra 11 m di altezza, concetto antincendio PV.
+
+La prima autorità di riferimento è il Comune dove si trova l’impianto.
+
+Incentivi 2026
+
+Per il normale impianto fotovoltaico residenziale, il Canton Schwyz dice esplicitamente:
+
+“Solarstromanlagen / Photovoltaikanlagen werden vom Kanton nicht gefördert, jedoch vom Bund durch Pronovo.”
+
+Quindi:
+
+incentivo PV cantonale generale: no;
+incentivo federale: Pronovo;
+solarthermie: può rientrare nel programma cantonale;
+eventuali programmi comunali: da verificare Comune per Comune.
+Batterie
+
+Non va scritto semplicemente “Schwyz finanzia le batterie”.
+
+Esiste effettivamente una misura del Amt für Landwirtschaft per batterie legate all’energia sostenibile, ma riguarda il settore agricolo e attualmente il Cantone comunica che il budget disponibile è già esaurito e non vengono accettate nuove richieste. Non è quindi un bonus residenziale generalizzato per una normale casa unifamiliare.
+
+Per una normale EFH PvPro, non presenterei nessun bonus cantonale batteria.
+
+Cosa deve fare concretamente un proprietario
+Verificare se si tratta di Neubau/Ersatzneubau o di ampliamento.
+Controllare il Solarkataster cantonale.
+Calcolare l’EBF × 10 W/m², fino a massimo 30 kW.
+Verificare eventuale eccezione (<1’120 kWh/m², Minergie o piccolo ampliamento).
+Progettare l’impianto.
+Verificare con il Comune se basta il Meldeverfahren.
+Inviare la documentazione tramite eBau almeno 20 giorni prima.
+Calcolare separatamente l’incentivo federale Pronovo.
+Errori da evitare
+dire che esiste una Ersatzabgabe;
+confondere 30 kW con la dimensione massima installabile;
+dire che qualunque edificio nuovo è obbligato senza controllare il Solarkataster;
+presentare il programma batteria agricolo come bonus per tutte le abitazioni.
+H1 consigliato
+
+Solaranlage im Kanton Schwyz: Eigenstrompflicht, Solarkataster und Förderung 2026
+
+Hero facts
+10 W/m² EBF
+max. Pflicht: 30 kW
+Solarkataster entscheidet mit
+unter 1’120 kWh/m²: Ausnahme möglich
+keine Ersatzabgabe
+Meldefrist: 20 Tage
+Modulo unico
+
+“Gilt die Eigenstrompflicht für mein Gebäude?”
+
+Neubau/Ersatzneubau
+→ Solarkataster prüfen
+→ ≥1’120 kWh/m²?
+→ Minergie?
+→ Bagatellerweiterung?
+→ erforderliche Leistung = EBF × 10 W/m²
+
+FAQ
+
+Muss jeder Neubau in Schwyz eine PV-Anlage haben?
+Nein. Entscheidend sind unter anderem Standort im Solarkataster, Globalstrahlung und Ausnahmen nach §24d kEnV.
+
+Wie gross muss die Anlage sein?
+Mindestens 10 W pro m² EBF, wobei nicht mehr als 30 kW verlangt werden.
+
+Kann ich stattdessen eine Ersatzabgabe bezahlen?
+Nein.
+
+Wie früh muss ich eine Solaranlage melden?
+In der Regel mindestens 20 Tage vor Baubeginn, wenn das Meldeverfahren anwendbar ist.
+
+Fördert der Kanton Schwyz Photovoltaik?
+Normale PV-Anlagen werden kantonal nicht direkt gefördert; dafür gibt es die Bundesförderung über Pronovo.
+
+17. Solothurn
+La cosa più importante: niente falsa “PV-Pflicht 2026”
+
+Qui bisogna stare molto attenti ai documenti precedenti al 2025.
+
+La prevista revisione totale dell’Energiegesetz avrebbe introdotto nuove regole energetiche, compresa una maggiore produzione propria.
+
+Ma il 9 febbraio 2025 la revisione è stata respinta:
+
+57,52% No
+42,48% Sì
+
+Il Cantone stesso scrive: “Der Kanton Solothurn erhält kein neues Energiegesetz.”
+
+Nel 2026 la raccolta legislativa continua a riportare l’Energiegesetz del 1991, nella versione vigente dal 2015. Nel testo attualmente vigente non compare un obbligo cantonale generale di produrre 10 W/m² di elettricità nei nuovi edifici.
+
+Quindi non dobbiamo mai prendere le proposte della Totalrevision e trasformarle in diritto vigente.
+
+Cosa vale per ampliamenti e nuovi edifici
+
+L’attuale Energieverordnung contiene ancora numerosi requisiti energetici per edifici nuovi e ampliamenti; ad esempio, per il fabbisogno termico e la quota di energie non rinnovabili.
+
+Ma non c’è nel diritto attualmente pubblicato una generale Eigenstrompflicht PV equivalente a quella di SG/SZ/TI/TG.
+
+Permessi e notifica
+
+Questa parte è invece molto chiara.
+
+Gli impianti solari che secondo il diritto federale non richiedono una Baubewilligung devono essere notificati alla Baubehörde:
+
+almeno 30 giorni prima dell’inizio dei lavori.
+
+Devono essere allegati:
+
+Baubeschrieb;
+Situationsplan;
+Fassadenplan.
+
+Il Cantone mette inoltre a disposizione tramite eBauSO un flusso specifico denominato “Meldung Solaranlage”.
+
+Punto importante
+
+Non scrivere:
+
+20–30 giorni;
+circa 30 giorni;
+automaticamente approvato dopo “un certo periodo”.
+
+Scrivere semplicemente:
+
+“mindestens 30 Tage vor Baubeginn melden”.
+
+Incentivi
+
+L’attuale programma energetico cantonale finanzia misure quali isolamento, riscaldamento rinnovabile, Minergie e solarthermie.
+
+La pagina ufficiale Minergie chiarisce che un progetto Minergie può contenere PV incentivata tramite EIV federale, ma la misura di produzione elettrica stessa non viene sovvenzionata dal programma Minergie cantonale.
+
+La solarthermie, al contrario, dispone di una misura cantonale dedicata.
+
+Per il normale PV residenziale, quindi:
+
+Pronovo resta il principale strumento di incentivo diretto.
+
+Attenzione ai programmi “previsti”
+
+Sul sito del Cantone esistono ancora pagine che descrivono incentivi previsti dalla Totalrevision, ad esempio:
+
+bonus PV durante risanamento tetto/facciata;
+incentivo winterstrom;
+accumulo;
+infrastrutture bidirezionali.
+
+Sono però descritti esplicitamente come “geplante neue Fördermassnahmen” e facevano parte del quadro politico della revisione. Non vanno presentati come programma attivo generale 2026.
+
+Batterie
+
+Non ho trovato una misura cantonale generale attiva 2026 che dia un contributo diretto standard all’acquisto di una batteria domestica.
+
+C’è però un aspetto fiscale utile: il Steuerbuch cantonale considera, a determinate condizioni, gli accumuli associati a impianti rinnovabili come misura energetica/ambientale deducibile, salvo in particolare le limitazioni previste per nuove costruzioni.
+
+Per PvPro scriverei quindi:
+
+Kein allgemeiner kantonaler Batteriespeicher-Zuschuss bestätigt; steuerliche Abzugsmöglichkeiten können bei Bestandsgebäuden relevant sein.
+
+Cosa deve fare concretamente il proprietario
+Non partire dal presupposto che esista una PV-Pflicht cantonale generale.
+Verificare la situazione edilizia del proprio Comune.
+Stabilire se l’impianto rientra nella procedura senza Baubewilligung.
+In caso affermativo, fare la Meldung 30 giorni prima.
+Richiedere Pronovo.
+Verificare eventuali programmi comunali.
+In caso di batteria, verificare il trattamento fiscale invece di aspettarsi automaticamente un bonus cantonale.
+Errori da evitare
+usare la Totalrevision respinta come diritto attuale;
+dire “10 W/m² obbligatori”;
+trasformare i “geplante Förderprogramme” in incentivi disponibili;
+scrivere 20–30 giorni invece di 30;
+dire che un bonus Minergie finanzia direttamente il PV.
+H1
+
+Solaranlage im Kanton Solothurn: Was 2026 wirklich gilt
+
+Hero facts
+neue Energierevision 2025 abgelehnt
+keine allgemeine neue 10-W/m²-PV-Pflicht
+Meldung: mindestens 30 Tage vorher
+eBauSO verfügbar
+PV-Förderung primär über Pronovo
+geplante Programme ≠ geltendes Förderrecht
+Modulo unico
+
+“Was gilt – und was gilt nicht?”
+
+Gilt
+
+Meldeverfahren
+30 Tage
+Bundesförderung
+bestehendes Energiegesetz
+
+Gilt nicht
+
+verworfene PV-Pflicht
+geplante Förderboni der abgelehnten Revision
+FAQ
+
+Gibt es 2026 eine allgemeine PV-Pflicht für Neubauten in Solothurn?
+Nein, nicht aufgrund der 2025 abgelehnten Totalrevision.
+
+Wie früh muss ich meine Solaranlage melden?
+Mindestens 30 Tage vor Baubeginn.
+
+Wo erfolgt die Meldung?
+Bei der zuständigen Baubehörde; eBauSO unterstützt eine eigene Meldung Solaranlage.
+
+Gibt es kantonale PV-Fördergelder?
+Für normale PV-Anlagen ist die Bundesförderung über Pronovo zentral; kantonale Gebäudeförderprogramme betreffen andere Massnahmen.
+
+Wird eine Hausbatterie gefördert?
+Ein allgemeiner kantonaler Direktbeitrag konnte für 2026 nicht bestätigt werden; steuerliche Abzüge können bei bestehenden Gebäuden relevant sein.
+
+18. St. Gallen
+Eigenstrompflicht
+
+Qui il diritto vigente è molto chiaro.
+
+Art. 5b Energiegesetz:
+
+i nuovi edifici devono produrre una parte della propria elettricità oppure ridurre ulteriormente il fabbisogno energetico ponderato.
+
+L’Energieverordnung quantifica l’obbligo PV:
+
+10 W/m² di Energiebezugsfläche, fino a un massimo richiesto di 30 kW per edificio.
+
+La norma è in vigore dal 1° luglio 2021.
+
+Piccoli ampliamenti
+
+Sono esenti gli ampliamenti quando la nuova EBF:
+
+è inferiore a 50 m²; oppure
+non supera il 20% dell’EBF esistente e contemporaneamente non supera 1’000 m².
+Le alternative sono una caratteristica forte di St. Gallen
+
+Il proprietario non è necessariamente obbligato a mettere il PV sul proprio edificio.
+
+Il Cantone descrive le seguenti vie:
+
+produrre elettricità;
+ridurre il fabbisogno energetico di altri 5 kWh/m²/anno;
+soddisfare il requisito nell’ambito di un ZEV conforme;
+pagare una Ersatzabgabe.
+Ersatzabgabe
+
+L’importo è:
+
+CHF 2’700 per kWp della potenza che sarebbe stata richiesta.
+
+La scelta della Ersatzabgabe viene dichiarata nell’ambito del Baugesuch e riscossa insieme alle tasse edilizie.
+
+Permessi
+
+Per gli impianti sufficientemente adattati su tetti e facciate, normalmente basta la Meldung.
+
+Il Cantone precisa però che continuano a richiedere Baubewilligung, tra gli altri:
+
+impianti a terra;
+determinati impianti lungo strade;
+impianti su edifici protetti;
+situazioni in aree sensibili/protette.
+
+Il PBG stabilisce un termine di 30 giorni.
+
+Se entro 30 giorni l’autorità non comunica il rinvio alla procedura ordinaria/semplificata oppure il rifiuto, il progetto può essere eseguito.
+
+Batterie e antincendio
+
+Un’informazione pratica interessante: la guida cantonale spiega che, quando l’impianto solare è solamente soggetto a Meldung:
+
+batteria ≤100 kWh: nessuna specifica autorizzazione antincendio;
+batteria >100 kWh: serve una brandschutztechnische Bewilligung tramite il Comune/GVSG.
+
+Questo non è un incentivo, ma è un’informazione locale utile.
+
+Incentivi
+
+Per il normale PV il sito cantonale rinvia a Pronovo e suggerisce di verificare separatamente eventuali contributi comunali.
+
+Il Cantone dispone di un Sonderkredit di CHF 59 milioni per il periodo 2024–2030, ma non bisogna trasformarlo in un “bonus PV da 59 milioni”: finanzia un portafoglio di misure diverse, incluse efficienza, involucro, riscaldamento, innovazione, accumuli e sicurezza dell’approvvigionamento.
+
+Stadt St. Gallen
+
+Come esempio locale, non cantonale, la città di St. Gallen ha un proprio Energiefonds.
+
+Per un esempio pubblicato nel 2026, un impianto da 10 kWp riceve un Zusatzbeitrag comunale pari a metà del Leistungsbeitrag KLEIV del caso illustrato. Ma questo va presentato chiaramente come Stadt St. Gallen, non come Canton St. Gallen.
+
+Batterie: contributo cantonale?
+
+Non presenterei un bonus domestico cantonale generale.
+
+La notizia ufficiale del Cantone relativa agli aiuti agricoli dice che i fondi per Batteriespeicher nel settore agricolo risultano esauriti e dal 1° gennaio 2026 non vengono considerate nuove domande. È un programma specifico, non un bonus residenziale universale.
+
+Cosa deve fare il proprietario
+Calcolare EBF × 10 W/m².
+Applicare il tetto massimo di 30 kW.
+Verificare se l’ampliamento è esente.
+Decidere tra PV / maggiore efficienza / ZEV / Ersatzabgabe.
+Verificare con il Comune se basta la Meldung.
+Presentare la Meldung e attendere il termine di 30 giorni.
+Richiedere Pronovo.
+Controllare eventuale incentivo del proprio Comune.
+Errori da evitare
+dire che non esiste una Ersatzabgabe;
+confondere 30 kW con un limite di impianto;
+presentare CHF 59 milioni come fondo PV;
+presentare il contributo della città di St. Gallen come cantonale.
+H1
+
+Solaranlage im Kanton St. Gallen: Eigenstrompflicht und Ersatzabgabe 2026
+
+Hero facts
+10 W/m² EBF
+max. Pflicht 30 kW
+Ersatzabgabe CHF 2’700/kWp
+Alternative: 5 kWh/m² weniger Energiebedarf
+Meldeverfahren: 30 Tage
+kommunale Förderung separat prüfen
+Modulo unico
+
+“Vier Wege zur Erfüllung”
+
+PV
+→ Effizienzlösung
+→ ZEV
+→ Ersatzabgabe
+
+FAQ
+
+Wie gross muss die Eigenstromanlage bei einem Neubau sein?
+10 W/m² EBF, maximal 30 kW Pflicht.
+
+Kann ich statt PV eine Abgabe bezahlen?
+Ja, CHF 2’700 pro erforderlichem kWp.
+
+Kann ich die Pflicht über höhere Energieeffizienz erfüllen?
+Ja, mit einer zusätzlichen Reduktion des gewichteten Energiebedarfs um 5 kWh/m²/Jahr.
+
+Wie lange dauert das Meldeverfahren?
+30 Tage.
+
+Fördert der Kanton meine normale PV-Anlage direkt?
+Die reguläre PV-Förderung läuft primär über Pronovo; kommunale Programme sind separat zu prüfen.
+
+19. Tessin / Ticino
+
+Questa è la guida più ricca del blocco.
+
+Produzione autonoma negli edifici nuovi
+
+Art. 14 RUEn:
+
+nuovi edifici, ampliamenti e trasformazioni equiparabili a costruzione nuova devono produrre elettricità rinnovabile.
+
+La potenza richiesta è:
+
+10 W per m² di nuova superficie di riferimento energetico
+
+e non viene mai richiesta una potenza pari o superiore a 30 kW.
+
+Soluzione alternativa
+
+Se l’impianto di produzione elettrica è difficoltoso o sproporzionato, si può compensare riducendo ulteriormente di:
+
+5 kWh/m²/anno
+
+il fabbisogno energetico ponderato dell’edificio.
+
+In caso di copertura parziale dell’obbligo, anche la riduzione richiesta viene diminuita proporzionalmente.
+
+Esenzioni
+
+Non si applica, tra gli altri:
+
+ampliamento con nuova SRE <50 m²;
+ampliamento <20% della parte esistente e ≤1’000 m²;
+edifici in determinati nuclei/ISOS;
+beni culturali protetti e rispettivi perimetri.
+La famosa regola >300 m² NON va più presentata come regola 2026
+
+Art. 36 RUEn imponeva temporaneamente che, per edifici nuovi con superficie determinante superiore a 300 m², tetto o facciata fossero dotati di solare su una superficie pari al 50%.
+
+Ma il testo ufficiale dice espressamente:
+
+“Fino al 31 dicembre 2025.”
+
+Quindi nella guida 2026 deve apparire eventualmente come:
+
+“Regola transitoria scaduta il 31.12.2025”
+
+e non come obbligo attuale.
+
+Permessi
+
+Per gli impianti solari non soggetti a licenza edilizia, l’annuncio deve essere inoltrato al Municipio:
+
+almeno 30 giorni prima dell’inizio dei lavori.
+
+Documenti:
+
+nome/indirizzo proprietario;
+particella;
+planimetria 1:500 o 1:1000;
+modello pannello;
+potenza totale;
+pianta del tetto;
+sezioni.
+
+Il Municipio trasmette poi la documentazione alla SPAAS entro dieci giorni.
+
+Non confondere edilizia, FER e Pronovo
+
+Qui consiglio di spiegarlo molto chiaramente.
+
+1. Procedura edilizia
+
+Municipio / licenza o annuncio.
+
+2. FER
+
+Sistema cantonale di incentivo e gestione dell’energia immessa.
+
+3. Pronovo
+
+Sistema federale.
+
+Sono tre cose diverse.
+
+Incentivo cantonale CU-FV
+
+Il Ticino dispone effettivamente di un contributo cantonale fotovoltaico.
+
+Art. 25 RFER:
+
+per impianti messi in esercizio dal 1° aprile 2022:
+
+fino a 30 kW:
+50% della RU-CH federale di riferimento.
+
+oltre 30 kW:
+50% della RU-CH per i primi 30 kW
++
+1/3 della RU-CH per la potenza restante.
+
+Massimo:
+
+CHF 250’000.
+
+I bonus federali come bonus inclinazione, altitudine o HEIV non vengono conteggiati nel calcolo del contributo cantonale.
+
+Inoltre il totale dei sussidi cantonali non può superare il 50% dei costi d’investimento riconosciuti nelle condizioni previste dal RFER.
+
+Quando fare la notifica FER
+
+La notifica di messa in esercizio deve essere inoltrata:
+
+entro 12 mesi dall’effettivo allacciamento alla rete.
+
+Per il PV una notifica tardiva può comportare la mancata accettazione della richiesta di incentivo cantonale.
+
+Questo è importantissimo da mettere nella guida.
+
+Rmin FER 2026
+
+Dal 1° gennaio 2026 esiste una rimunerazione minima per gli impianti CU-FER sotto 150 kW.
+
+Valori 2026:
+
+<30 kW: 4.0 ct./kWh
+30–150 kW senza autoconsumo: 5.0 ct./kWh
+30–150 kW con autoconsumo: formula basata sulla quota di potenza, con 4.0 ct./kWh sulla quota sotto 30 kW e 0.0 sulla restante quota media della categoria.
+
+La Rmin entra in gioco quando il valore di ritiro AET scende sotto la soglia prevista.
+
+RCP e CLE
+
+Dal 1° gennaio 2026, gli impianti che hanno ottenuto CU-FER possono partecipare:
+
+a un Raggruppamento ai fini del consumo proprio (RCP);
+a una Comunità locale di energia elettrica (CLE).
+
+L’energia consumata internamente non deve essere venduta ad AET; l’eccedenza resta soggetta alle condizioni FER/AET.
+
+Batterie
+
+Non ho trovato nel RFER una misura standard separata per una batteria domestica associata a una normale EFH.
+
+Quindi non scriverei:
+
+“Batteriebonus Tessin”
+
+senza un programma comunale specifico.
+
+Cosa deve fare concretamente il proprietario
+Verificare se il progetto è nuovo edificio / ampliamento / trasformazione.
+Calcolare 10 W/m² SRE.
+Verificare eventuali esenzioni.
+Contattare il Municipio.
+Se basta l’annuncio, inviarlo almeno 30 giorni prima.
+Installare e allacciare.
+Gestire Pronovo.
+Gestire separatamente FER.
+Inviare la messa in esercizio FER entro 12 mesi.
+Valutare RCP/CLE se utile.
+Errori da evitare
+dire che il Ticino non ha incentivi PV cantonali;
+applicare ancora la regola >300 m² del 2025;
+confondere annuncio edilizio e FER;
+dimenticare il termine dei 12 mesi;
+inventare un bonus batteria.
+H1
+
+Solaranlage im Tessin: Förderung, Eigenstrompflicht und FER 2026
+
+Hero facts
+10 W/m² SRE
+max. Pflicht <30 kW
+CU-FV cantonale
+fino a 30 kW: 50% della RU-CH di riferimento
+Rmin FER 2026
+FER-Meldung entro 12 mesi
+Modulo unico
+
+“Drei Verfahren – nicht verwechseln”
+
+Gemeinde
+↓
+Pronovo
+↓
+FER/AET
+↓
+RCP / CLE / Einspeisung
+
+FAQ
+
+Gibt es im Tessin eine Eigenstrompflicht für Neubauten?
+Ja, grundsätzlich 10 W/m² neuer Energiebezugsfläche.
+
+Gilt die frühere 300-m²-Regel noch?
+Nein, Art. 36 war ausdrücklich bis zum 31.12.2025 befristet.
+
+Fördert der Kanton Tessin PV zusätzlich zu Pronovo?
+Ja, über den CU-FV des FER unter den gesetzlichen Bedingungen.
+
+Wie hoch ist der kantonale Beitrag?
+Bis 30 kW grundsätzlich 50% der massgebenden RU-CH; für grössere Anlagen gilt eine gestaffelte Formel.
+
+Bis wann muss die Inbetriebnahme beim FER gemeldet werden?
+Spätestens zwölf Monate nach dem Netzanschluss.
+
+Kann eine CU-FER-Anlage an einer CLE teilnehmen?
+Ja, seit 1. Januar 2026.
+
+20. Thurgau
+
+Qui correggo una cosa importante rispetto al dossier precedente.
+
+Per il normale proprietario privato: Neubau = 30 W/m²
+
+La vigente Energienutzungsverordnung stabilisce:
+
+30 W di produzione elettrica per m² di Energiebezugsfläche nei nuovi edifici.
+
+Questa è la regola centrale per la pagina PvPro.
+
+Soluzione alternativa
+
+Se viene installata meno produzione propria:
+
+meno di 15 W/m²
+
+il fabbisogno energetico per riscaldamento, acqua calda, clima e ventilazione deve essere ridotto ulteriormente di:
+
+10 kWh/m²/anno
+
+da almeno 15 a meno di 30 W/m²
+
+riduzione supplementare:
+
+5 kWh/m²/anno.
+
+Quindi Thurgau non funziona come St. Gallen: qui non c’è da presentare una Ersatzabgabe, bensì una Ersatzlösung energetica.
+
+Piccoli ampliamenti
+
+La vigente ENV esenta dall’obbligo per nuovo edificio determinati ampliamenti quando la nuova EBF:
+
+è inferiore a 50 m²; oppure
+rappresenta massimo il 20% della EBF esistente e non supera 1’000 m².
+ATTENZIONE: Dachsanierung e 85% Globalstrahlung
+
+Questa è la correzione più importante.
+
+La ENV attuale contiene effettivamente una regola secondo cui:
+
+durante Neubauten;
+tiefgreifende Umbau-/Sanierungsmassnahmen;
+umfassende Dachsanierungen;
+
+deve essere sfruttato il potenziale solare delle superfici idonee, con soglia 85% Globalstrahlung.
+
+Però questi paragrafi §4a–§4d si trovano nella sezione “Vorbildfunktion der öffentlichen Hand”.
+
+La norma riguarda quindi Cantone, Comuni e altre corporazioni/istituzioni di diritto pubblico, non va automaticamente presentata nella guida come obbligo generale già vigente per ogni proprietario privato.
+
+Questa distinzione nella precedente versione non era abbastanza chiara.
+
+Per un privato, nel diritto attualmente pubblicato la regola sicura è:
+
+Neubau → 30 W/m² EBF oppure Ersatzlösung energetica.
+
+Non scriverei invece:
+
+“Ogni proprietario privato che rifà il tetto deve utilizzare tutto il potenziale solare ≥85%”
+
+come norma vigente generale, perché la fonte attuale non supporta quella formulazione.
+
+Revisione ENG 2026
+
+Il Grosser Rat ha concluso il 2 settembre 2026 la trattazione della modifica del Gesetz über die Energienutzung.
+
+Il sito parlamentare la indica come:
+
+“Abgeschlossen” e pubblica la Schlussfassung del 02.09.2026.
+
+Tuttavia, alla data di questa verifica, la raccolta legislativa vigente continua a mostrare come diritto applicabile la versione precedente e non ho trovato nella raccolta una data ufficiale di entrata in vigore della revisione del 2 settembre.
+
+Quindi la pagina deve scrivere qualcosa del tipo:
+
+“Der Grosse Rat hat die Revision am 2. September 2026 abgeschlossen. Für Bauprojekte ist jedoch die zum Projektzeitpunkt in Kraft stehende Fassung der kantonalen Gesetzessammlung massgebend.”
+
+Non possiamo trasformare automaticamente la Schlussfassung parlamentare in norma già efficace.
+
+Permessi
+
+Per gli impianti esenti da Baubewilligung secondo il diritto federale e con superficie superiore a 35 m², la norma cantonale richiede una notifica:
+
+20 giorni prima dell’inizio lavori.
+
+Va allegata una descrizione del tipo di impianto e della sua integrazione.
+
+In Arbeitszonen basta una comunicazione su superficie e potenza nelle condizioni previste.
+
+Quindi:
+
+Thurgau = 20 giorni, non 30.
+
+Incentivi
+
+Il Cantone dispone di un Energieförderprogramm e le domande vengono gestite tramite il portale cantonale. Il diritto cantonale stabilisce inoltre che la richiesta deve essere presentata prima dell’inizio della costruzione/installazione quando si tratta di contributi del programma.
+
+Per un normale impianto PV, non presenterei un importo cantonale generico: la componente federale Pronovo resta fondamentale.
+
+Batterie
+
+Qui bisogna essere particolarmente precisi.
+
+Nel portale ufficiale è ancora accessibile un documento del Förderprogramm che descrive una misura batteria con:
+
+CHF 1’500 di Grundbeitrag;
+CHF 150/kWh;
+massimo 25% dell’investimento;
+massimo CHF 100’000.
+
+Ma il documento indicizzato è esplicitamente “Förderprogramm Energie 2021”.
+
+Non ho trovato una fonte ufficiale 2026 abbastanza chiara per garantire che questi stessi importi siano ancora quelli applicabili oggi.
+
+Quindi non darei questi numeri a Replit come fatti 2026.
+
+Scriverei invece:
+
+“Der Kanton führt ein Energieförderprogramm. Ob und zu welchen aktuellen Konditionen Batteriespeicher gefördert werden, sollte vor Projektstart direkt im kantonalen Förderportal geprüft werden.”
+
+Questo è molto meglio che rischiare di pubblicare una tariffa del 2021 come 2026.
+
+Cosa deve fare concretamente un proprietario
+Per Neubau calcolare 30 W/m² EBF.
+Se non si vuole raggiungere la piena produzione, calcolare l’Ersatzlösung energetica.
+Verificare l’esenzione per piccoli ampliamenti.
+Non applicare automaticamente le regole della “Vorbildfunktion öffentliche Hand” alla casa privata.
+Verificare con il Comune se serve Baubewilligung.
+Se rientra nella Meldepflicht >35 m², presentare la comunicazione 20 giorni prima.
+Richiedere Pronovo.
+Controllare il Förderportal cantonale prima dell’inizio lavori per eventuali misure aggiuntive.
+Errori da evitare
+10 W/m² → sbagliato, sono 30;
+30 giorni → sbagliato, la Meldepflicht cantonale indicata è 20;
+dire che il privato ha già un obbligo generale su ogni Dachsanierung basandosi su §4c;
+presentare la revisione del 2 settembre come già entrata in vigore senza prova;
+usare automaticamente il tariffario batteria 2021 come tariffario 2026.
+H1
+
+Solaranlage im Thurgau: Eigenstrompflicht und Regeln für Neubauten 2026
+
+Io cambierei quindi il vecchio H1 che metteva direttamente “Dachsanierung”, perché rischia di suggerire una norma generale privata che la legislazione vigente attuale non dimostra.
+
+Hero facts
+Neubau: 30 W/m² EBF
+<15 W/m² → -10 kWh/m²/a
+15–<30 W/m² → -5 kWh/m²/a
+kleine Erweiterungen teilweise befreit
+Meldung: 20 Tage
+Gesetzesrevision September 2026: Status prüfen
+Modulo unico
+
+“30 W oder Effizienzlösung?”
+
+30 W/m² erreicht?
+→ Ja: Vorgabe erfüllt
+
+Nein
+→ ≥15 W/m²?
+→ zusätzliche Effizienz -5 kWh/m²
+
+<15 W/m²
+→ zusätzliche Effizienz -10 kWh/m²
+
+FAQ
+
+Wie viel Eigenstrom muss ein Neubau im Thurgau erzeugen?
+30 W/m² Energiebezugsfläche.
+
+Kann ich weniger PV installieren?
+Ja, wenn der Energiebedarf gemäss Ersatzlösung zusätzlich reduziert wird.
+
+Gilt die 85%-Globalstrahlungs-Regel automatisch für jedes private Dach?
+Nicht als allgemeine Aussage aus der aktuell geltenden §4c-Regel; diese steht in der Vorbildfunktion der öffentlichen Hand.
+
+Wie früh muss eine bewilligungsfreie Solaranlage gemeldet werden?
+Bei den von §50b erfassten Anlagen 20 Tage vor Baubeginn.
+
+Ist die Energiegesetzrevision vom September 2026 schon verbindlich?
+Der Grosse Rat hat die Beratung abgeschlossen; für ein konkretes Projekt ist die tatsächlich in Kraft stehende Gesetzesfassung massgebend.
+
+Federale Basis comune — corretta per il 2026
+
+Questa parte può essere condivisa tra le cinque pagine ma non deve occupare troppo spazio.
+
+Pronovo distingue nel 2026:
+
+KLEIV: impianti sotto 100 kW;
+GREIV: da 100 kW;
+HEIV: per impianti senza autoconsumo nelle categorie previste.
+
+Il Grundbeitrag della EIV è CHF 0 dal 1° aprile 2024; il contributo dipende soprattutto dalla potenza, tipo di impianto e bonus applicabili.
+
+Per questo sulle pagine PvPro non metterei mai:
+
+“30% Förderung garantiert”
+
+o simili.
+
+Meglio:
+
+“Bundesbeitrag individuell mit dem Pronovo-Tarifrechner berechnen.”
+
+Bonus federali utili
+
+Per impianti ≥100 kW messi in esercizio dal 1° gennaio 2026 può esistere il Winterstrombonus se la produzione nel semestre invernale supera 500 kWh per kW secondo le condizioni Pronovo.
+
+Esiste inoltre il Parkflächenbonus per determinate installazioni ≥100 kW su parcheggi precedentemente scoperti, pari a CHF 250/kW.
+
+Per il target residenziale PvPro questi bonus sono secondari e non devono dominare la pagina.
+
+Matrice finale — fatti da non sbagliare
+Cantone	Neubau / Eigenstrom	Massimo	Alternativa / Ersatzabgabe	Meldefrist	PV cantonale generale	Batteria
+Schwyz	10 W/m² EBF	30 kW	Nessuna Ersatzabgabe	20 giorni	No	Nessun bonus residenziale generale verificato
+Solothurn	Nessuna nuova PV-Pflicht generale della revisione 2025	—	—	30 giorni	Non per normale PV	Nessun contributo diretto generale verificato
+St. Gallen	10 W/m² EBF	30 kW	Efficienza / ZEV / CHF 2’700/kWp	30 giorni	Pronovo; comuni separati	Nessun bonus domestico cantonale generale verificato
+Ticino	10 W/m² nuova SRE	<30 kW richiesti	-5 kWh/m² se sproporzionato	30 giorni	Sì, CU-FV/FER	Nessun bonus domestico FER separato verificato
+Thurgau	30 W/m² EBF	—	-5 o -10 kWh/m²	20 giorni per §50b	Verificare programma, Pronovo centrale	Tariffe 2026 non abbastanza confermate
+Le cinque pagine devono sembrare realmente diverse
+Schwyz
+
+Tema dominante:
+“Bin ich laut Solarkataster überhaupt verpflichtet?”
+
+Solothurn
+
+Tema dominante:
+“Was gilt nach dem Nein zum Energiegesetz wirklich?”
+
+St. Gallen
+
+Tema dominante:
+“PV, Effizienz oder Ersatzabgabe?”
+
+Ticino
+
+Tema dominante:
+“Wie funktionieren Gemeinde, Pronovo und FER zusammen?”
+
+Thurgau
+
+Tema dominante:
+“30 W/m² oder energetische Ersatzlösung?”
+
+Così non sembrano cinque pagine generate dallo stesso template.
+
+PROMPT REPLIT DEFINITIVO
+
+Questo è il prompt che userei adesso. Il dossier sopra deve accompagnarlo come source of truth.
+
+Implementa esclusivamente le cinque guide cantonali PvPro:
+
+/solaranlage-schwyz
+/solaranlage-solothurn
+/solaranlage-st-gallen
+/solaranlage-tessin
+/solaranlage-thurgau
+
+Il dossier cantonale allegato è la source of truth fattuale. Non fare ricerca autonoma per riempire eventuali buchi e non aggiungere numeri, incentivi, obblighi, termini, ROI, costi o percentuali non presenti nel dossier.
+
+1. Prima di modificare il progetto
+
+Ispeziona le guide cantonali già approvate 1–15 e l’implementazione attuale, in particolare gli equivalenti correnti di:
+
+lib/canton-guides/
+lib/canton-guides/index.ts
+lib/canton-guides/types.ts
+components/CantonGuidePage.tsx
+components/canton-guides/GuideHero.tsx
+components/canton-guides/GuideModule.tsx
+components/canton-guides/DossierGuideHero.tsx
+components/canton-guides/DossierGuideModule.tsx
+components/canton-guides/DossierGuideStyles.tsx
+
+Impara prima il design system e il pattern delle guide già approvate. Non ricreare l’architettura da zero se esistono già componenti corretti.
+
+2. Scope rigido
+
+Lavora SOLO sulle cinque route sopra.
+
+Non modificare:
+
+guide 1–15;
+altre lingue;
+canonical;
+Open Graph;
+hreflang;
+sitemap;
+redirect;
+route non coinvolte.
+
+Puoi modificare un shared component solo se indispensabile per implementare correttamente queste cinque guide. In quel caso esegui regression test sulle guide 1–15.
+
+3. Lingua e stile
+
+Scrivi in tedesco svizzero standard, non dialetto.
+
+Usa ss, non ß.
+
+Target: proprietario di casa senza conoscenze tecniche.
+
+Ogni sezione deve iniziare con una risposta pratica e comprensibile, poi spiegare il dettaglio normativo.
+
+Esempio:
+
+Kurz gesagt: Bei einem Neubau im Kanton Schwyz müssen grundsätzlich 10 W Eigenstromleistung pro m² Energiebezugsfläche eingeplant werden. Ob die Pflicht gilt, hängt unter anderem vom kantonalen Solarkataster ab.
+
+Spiega il gergo alla prima occorrenza:
+
+Energiebezugsfläche = beheizte relevante Gebäudefläche
+Meldeverfahren = Meldung statt normaler Baubewilligung
+Ersatzabgabe = Zahlung anstelle der vorgeschriebenen Eigenstromlösung
+EIV/KLEIV/GREIV = Bundesförderung über Pronovo
+
+Non semplificare fino al punto di perdere condizioni, eccezioni o scadenze.
+
+4. Le cinque pagine NON devono essere cloni
+
+Usa lo stesso linguaggio visuale PvPro, ma contenuto e gerarchia devono dipendere davvero dal cantone.
+
+Schwyz
+
+Hero focus:
+10 W/m² · Solarkataster · keine Ersatzabgabe
+
+Crea un modulo:
+“Gilt die Eigenstrompflicht für mein Gebäude?”
+
+Flow:
+Neubau/Ersatzneubau → Solarkataster → Globalstrahlung ≥1’120? → Minergie/Bagatellerweiterung? → Leistung berechnen.
+
+Spiega:
+
+10 W/m² EBF;
+max 30 kW Pflicht;
+<1’120 kWh/m² eccezione;
+Minergie;
+piccoli ampliamenti;
+nessuna Ersatzabgabe;
+Meldeverfahren 20 giorni;
+PV cantonale ordinario non incentivato, Pronovo federale.
+
+Non presentare il programma batteria agricolo come bonus per abitazioni private.
+
+Solothurn
+
+Hero focus:
+“Was gilt 2026 wirklich?”
+
+Crea un modulo a due colonne:
+
+Gilt / Gilt nicht
+
+Gilt:
+
+Meldeverfahren;
+mindestens 30 Tage vor Baubeginn;
+bestehendes Energiegesetz;
+Pronovo.
+
+Gilt nicht:
+
+allgemeine 10-W/m²-Pflicht aus der abgelehnten Totalrevision;
+geplante Förderboni der verworfenen Revision als aktuelle Förderung darstellen.
+
+Evidenzia che il voto del 09.02.2025 ha respinto la Totalrevision.
+
+Non insinuare che il Cantone abbia comunque introdotto la stessa PV-Pflicht per altra via, salvo dato esplicito nel dossier.
+
+St. Gallen
+
+Hero focus:
+10 W/m² · max 30 kW · CHF 2’700/kWp Ersatzabgabe
+
+Crea un modulo:
+“Vier Wege zur Erfüllung”
+
+Eigenstrom erzeugen
+Energiebedarf zusätzlich senken
+ZEV
+Ersatzabgabe
+
+Inserisci:
+
+10 W/m²;
+max 30 kW;
+ampliamenti <50 m² / 20%-1’000m²;
+-5 kWh/m² come alternativa;
+CHF 2’700/kWp;
+Meldeverfahren 30 giorni;
+Pronovo;
+eventuali contributi comunali solo come tali.
+
+Non presentare il Sonderkredit da CHF 59 Mio. come fondo PV.
+
+Tessin
+
+Hero focus:
+10 W/m² · CU-FV · Rmin FER 2026
+
+Crea un modulo:
+“Gemeinde, Pronovo und FER – drei verschiedene Verfahren”
+
+Flow:
+Bauprojekt → Gemeinde → Anlage/Netzanschluss → Pronovo → FER → RCP/CLE/Einspeisung.
+
+Inserisci:
+
+10 W/m² nuova SRE;
+meno di 30 kW come massimo obbligo;
+alternativa -5 kWh/m²;
+esenzioni;
+regola >300 m² scaduta il 31.12.2025;
+annuncio Municipio 30 giorni;
+documenti principali;
+CU-FV: 50% RU-CH fino a 30 kW e formula oltre 30 kW;
+max CHF 250’000;
+notifica FER entro 12 mesi dall’allacciamento;
+Rmin FER 2026: 4.0 / 5.0 ct./kWh nelle categorie previste;
+RCP e CLE dal 2026.
+
+Non inventare un bonus batteria.
+
+Thurgau
+
+Hero focus:
+30 W/m² oder Effizienzlösung
+
+Crea un modulo decisionale:
+
+30 W/m² erreicht?
+
+→ sì: requisito soddisfatto
+
+→ no ma ≥15 W/m²: -5 kWh/m²/a
+
+→ <15 W/m²: -10 kWh/m²/a
+
+Inserisci:
+
+30 W/m² per Neubauten;
+esenzioni per piccoli ampliamenti;
+Meldefrist 20 giorni per le installazioni soggette a §50b;
+revisione ENG conclusa dal Grosser Rat il 02.09.2026, ma NON presentarla come già entrata in vigore senza una fonte ufficiale d’entrata in vigore.
+
+IMPORTANTE:
+non presentare §4c “gesamtes Solarpotenzial / 85% Globalstrahlung / umfassende Dachsanierung” come obbligo generale per tutti i proprietari privati nella legislazione attualmente vigente. La disposizione verificata si trova nella sezione Vorbildfunktion der öffentlichen Hand.
+
+Non pubblicare le vecchie tariffe batteria 2021 come tariffe 2026.
+
+5. Fonti
+
+Inserisci fonti ufficiali accanto alle affermazioni più importanti e una sezione:
+
+Quellen & Stand: September 2026
+
+Non utilizzare fonti commerciali come fonte normativa.
+
+I valori numerici importanti devono rimanere testo HTML selezionabile, non immagini.
+
+6. SEO / AI
+
+Per ogni pagina:
+
+un solo H1;
+gerarchia H2/H3 logica;
+risposta diretta nelle prime 1–2 frasi della sezione;
+contenuto principale HTML crawlable;
+nessuna informazione essenziale nascosta solo in tooltip;
+4–6 FAQ realmente cantonali;
+una sola FAQPage JSON-LD e solo se corrisponde alle FAQ visibili;
+niente keyword stuffing;
+niente synonym spinning.
+
+Non ridurre arbitrariamente la lunghezza. Mantieni il livello di dettaglio necessario, eliminando solo ripetizioni.
+
+7. CTA e componenti PvPro
+
+Mantieni CTA, processo e mappa nello stile delle guide approvate.
+
+CTA principale:
+
+“Bis zu 3 Solarofferten vergleichen”
+
+Microcopy:
+
+“Kostenlos · Unverbindlich · Passende Fachbetriebe”
+
+Non usare “geprüfte Fachbetriebe” se questa affermazione non è supportata operativamente.
+
+Non aggiungere:
+
+testimonianze inventate;
+“führende Vergleichsplattform”;
+percentuali generiche di risparmio;
+ROI;
+prezzi impianto;
+“Förderung garantiert”.
+8. Responsive QA
+
+Controlla almeno:
+
+390 px;
+768 px;
+1024 px;
+1440 px.
+
+Nessun testo/tag/card deve uscire dal viewport.
+
+Anchor navigation deve:
+
+wrappare correttamente; oppure
+essere swipeable su mobile con scrollbar visivamente nascosta.
+
+NON risolvere overflow con:
+
+body { overflow-x: hidden }
+
+Trova la vera causa.
+
+9. QA funzionale
+
+Verifica:
+
+tutte e 5 le route HTTP 200;
+H1 corretto;
+hero corretto;
+modulo specifico del cantone;
+CTA funzionanti;
+mappa corretta;
+FAQ visibili;
+fonti cliccabili;
+nessun duplicate FAQ schema;
+build completata.
+
+Se esistono TypeScript error preesistenti non causati da questo lavoro, documentali senza modificare parti fuori scope.
+
+10. Controllo scope finale
+
+Confronta file/progetto prima e dopo.
+
+Conferma esplicitamente che siano cambiate solo:
+
+Schwyz
+Solothurn
+St. Gallen
+Tessin
+Thurgau
+eventuali shared components indispensabili
+
+Verifica che le guide 1–15, le altre lingue e il sistema SEO strutturale siano rimasti invariati.
+
+NON FARE DEPLOY.
+
+NON FARE PUBLISH.
+
+Al termine dammi un report breve con:
+
+file creati/modificati;
+route;
+contenuti/moduli unici;
+test responsive;
+build;
+eventuali problemi preesistenti;
+conferma no deploy/publish.

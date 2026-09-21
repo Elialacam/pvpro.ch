@@ -1,0 +1,290 @@
+16. Schwyz
+Cosa vale nel 2026
+
+Nel Canton Schwyz l'obbligo di produrre elettricità in proprio vale dal 1° maggio 2022 per nuovi edifici e costruzioni sostitutive. La regola di base è 10 W per m² di superficie di riferimento energetico, con un massimo richiesto di 30 kW. Il Cantone usa inoltre il proprio Solarkataster/WebGIS per stabilire dove l'obbligo si applica.
+
+Un punto molto particolare di Schwyz: gli edifici situati dove la radiazione globale è inferiore a 1'120 kWh/m² sono esentati. Anche determinate costruzioni Minergie rientrano nelle eccezioni previste dalla normativa.
+
+E soprattutto: Schwyz non prevede una Ersatzabgabe per “comprare” l'esenzione. Se l'edificio ricade nell'area soggetta all'obbligo, il requisito deve essere soddisfatto. Il Cantone lo dice esplicitamente.
+
+È possibile in determinate condizioni conteggiare anche una produzione già esistente sulla stessa proprietà o su una proprietà confinante. Il FAQ cantonale fa perfino l'esempio di un'abitazione da 200 m²: 200 × 10 W = 2 kWp richiesti.
+
+Permessi
+
+Per gli impianti sufficientemente integrati/adattati, il Cantone sfrutta ampiamente il Meldeverfahren invece della normale licenza edilizia. In zone industriali, commerciali e per edifici pubblici il regime è stato ulteriormente liberalizzato. Gli impianti su monumenti culturali o naturali d'importanza cantonale/nazionale restano invece soggetti a autorizzazione.
+
+Incentivi
+
+Per il fotovoltaico residenziale ordinario il Cantone non eroga un proprio contributo PV generale: il sostegno diretto arriva principalmente dalla Confederazione tramite Pronovo. Il programma cantonale distingue chiaramente il PV dalla solarthermie, che invece può essere sostenuta dal programma edilizio cantonale.
+
+Pagina PvPro consigliata
+
+H1:
+Solaranlage im Kanton Schwyz: Eigenstrompflicht, Solarkataster und Förderung 2026
+
+Elemento unico: un “Solarkataster-Pflichtcheck”:
+
+Neubau / Ersatzneubau → Standort im Solarkataster prüfen → ≥ / < 1'120 kWh/m² → Pflicht ja/nein → 10 W/m²
+
+È molto più utile di una generica tabella sugli incentivi.
+
+17. Solothurn
+
+Questo è uno dei cantoni dove era più facile fare un errore.
+
+NON c'è la nuova PV-Pflicht che compare in molti documenti
+
+La totalrevision dell'Energiegesetz prevedeva effettivamente 10 W/m² di Eigenstromerzeugung per i Neubauten, con eccezioni tecniche/economiche. Ma quella legge è stata respinta dalla popolazione il 9 febbraio 2025, con 43'977 No contro 32'479 Sì. Quindi quelle regole non sono legge vigente nel 2026.
+
+Questo è importante perché molti documenti ufficiali precedenti al voto descrivono la misura come se dovesse essere introdotta. Non dobbiamo copiarli nella pagina come diritto attuale.
+
+Il vigente Energiegesetz/Verordnung di Solothurn non contiene l'obbligo generale 10 W/m² che avrebbe introdotto la revisione respinta.
+
+Nel gennaio 2026 il Parlamento discuteva ancora un incarico per riprendere il tema della produzione propria nei nuovi edifici: ulteriore conferma che la misura respinta non era semplicemente entrata in vigore per un'altra strada.
+
+Permessi
+
+Qui abbiamo invece una regola molto chiara: gli impianti solari che secondo il diritto federale non necessitano di normale Baubewilligung devono essere segnalati almeno 30 giorni prima dell'inizio dei lavori. La documentazione comprende descrizione, planimetria e prospetto/facciata.
+
+La procedura viene gestita anche tramite eBauSO, che contiene espressamente il tipo di domanda “Meldung Solaranlage”.
+
+Incentivi
+
+Il programma edilizio cantonale finanzia soprattutto involucro, sistemi di riscaldamento rinnovabili, Minergie ecc. La produzione PV ordinaria non è una misura cantonale autonoma equivalente a Pronovo. Anche il FAQ Minergie chiarisce che una PV sostenuta attraverso la EIV può essere parte di un progetto Minergie, ma la produzione elettrica stessa non viene finanziata da quella misura cantonale.
+
+Quindi per il proprietario di casa: contributo PV diretto → soprattutto Pronovo.
+
+Pagina PvPro consigliata
+
+H1:
+Solaranlage im Kanton Solothurn: Was 2026 wirklich gilt
+
+Qui farei qualcosa che nessuno degli altri cantoni ha:
+
+“Was gilt – und was nicht?”
+
+Due colonne:
+
+Gilt 2026
+
+Meldeverfahren
+30 Tage vor Baubeginn
+Bundesförderung via Pronovo
+
+Gilt nicht
+
+keine allgemeine neue 10-W/m²-PV-Pflicht aus der abgelehnten Energierevision
+nicht die geplanten Regeln aus den Unterlagen 2024 als geltendes Recht darstellen
+
+Questo è ottimo sia per SEO che per AI, perché risolve una reale fonte di confusione.
+
+18. St. Gallen
+Eigenstrompflicht
+
+Qui la regola è vigente e chiarissima.
+
+I nuovi edifici devono produrre almeno:
+
+10 W per m² Energiebezugsfläche, fino a un massimo obbligatorio di 30 kW per edificio.
+
+Le piccole estensioni sono escluse se la nuova EBF:
+
+è inferiore a 50 m², oppure
+non supera il 20% dell'edificio esistente e contemporaneamente non supera 1'000 m².
+
+St. Gallen ha però una caratteristica molto interessante: se non viene realizzata la produzione propria richiesta, esistono alternative previste dalla normativa.
+
+Il Cantone indica tre possibilità:
+
+ridurre il fabbisogno energetico di ulteriori 5 kWh/m² all'anno;
+soddisfare il requisito tramite un raggruppamento per autoconsumo con edifici vicini;
+pagare una Ersatzabgabe.
+
+La Ersatzabgabe prevista dalla Energieverordnung è CHF 2'700 per kWp della potenza che avrebbe dovuto essere installata.
+
+Questa è una differenza enorme rispetto a Schwyz, dove non esiste questa via d'uscita.
+
+Permessi
+
+Gli impianti sufficientemente adattati su tetti e facciate generalmente non richiedono una normale Baubewilligung ma devono essere notificati. Per edifici protetti, Ortsbildschutz e alcune situazioni particolari può invece servire la normale autorizzazione.
+
+Il PBG prevede un termine di 30 giorni: se l'autorità non rinvia la pratica alla procedura ordinaria/semplificata o non la respinge, il progetto può procedere.
+
+Incentivi
+
+La pagina cantonale sul fotovoltaico rimanda direttamente a Pronovo per i contributi PV e invita a verificare eventuali contributi comunali separatamente.
+
+Questo è importante: non dobbiamo presentare il credito cantonale da 59 milioni per il programma energetico 2024–2030 come se fosse un fondo PV residenziale. Il credito finanzia un ventaglio molto più ampio di misure.
+
+Caso particolare: la città di St. Gallen ha un proprio incentivo PV fino a 100 kWp, ma è comunale, non cantonale. Attualmente corrisponde al 50% del Leistungsbeitrag della KLEIV in determinate condizioni. Questo può essere menzionato soltanto come esempio locale, chiarendo che non vale automaticamente per tutto il Cantone.
+
+Pagina PvPro consigliata
+
+H1:
+Solaranlage im Kanton St. Gallen: Eigenstrompflicht und Ersatzabgabe 2026
+
+Modulo unico: “4 Wege zur Erfüllung”
+
+PV installieren
+Energiebedarf zusätzlich senken
+gemeinsamer Eigenverbrauch
+Ersatzabgabe
+
+È un vero decision tool, non decorazione.
+
+19. Tessin / Ticino
+
+Qui la ricerca ha trovato due cose particolarmente importanti che avremmo rischiato di sbagliare.
+
+Regola base per nuovi edifici
+
+Il RUEn vigente prescrive per nuovi edifici, ampliamenti e trasformazioni equiparabili a una nuova costruzione:
+
+almeno 10 W per m² di nuova superficie di riferimento energetico, senza che sia mai richiesta una potenza pari o superiore a 30 kW.
+
+Se produrre l'elettricità risulta sproporzionato o difficile, il regolamento consente una compensazione attraverso una riduzione supplementare di 5 kWh/m² del fabbisogno energetico ponderato.
+
+Esenzioni importanti:
+
+ampliamenti <50 m²;
+oppure ampliamenti <20% dell'edificio esistente e ≤1'000 m²;
+edifici in determinati nuclei/ISOS;
+edifici protetti o nei relativi perimetri.
+ATTENZIONE alla regola dei 300 m²
+
+Il RUEn contiene anche una norma secondo cui edifici nuovi con superficie determinante >300 m² dovevano coprire almeno il 50% della superficie con impianti solari.
+
+Ma il testo ufficiale dice esplicitamente:
+
+“Fino al 31 dicembre 2025.”
+
+Quindi non dobbiamo presentare questa disposizione temporanea come un obbligo vigente nel 2026.
+
+Questa è esattamente una di quelle cose che una guida generata superficialmente avrebbe quasi certamente sbagliato.
+
+Permessi
+
+Per gli impianti solari che non richiedono licenza edilizia, l'annuncio deve essere inviato per iscritto al Municipio almeno 30 giorni prima dell'inizio dei lavori e deve includere planimetria, modello dei pannelli, potenza complessiva, pianta del tetto e sezioni.
+
+Da non confondere con la vecchia “notifica preliminare FER”: per gli impianti fotovoltaici questa procedura FER è stata abolita. La notifica della messa in esercizio resta invece richiesta e va presentata entro 12 mesi dall'allacciamento alla rete.
+
+Queste sono due procedure differenti e la pagina deve spiegarlo bene.
+
+Incentivi cantonali FER
+
+Il Ticino è molto diverso dagli altri quattro perché possiede un vero Fondo energie rinnovabili – FER cantonale che sostiene anche il fotovoltaico.
+
+Per gli impianti fotovoltaici, il RFER stabilisce un contributo unico cantonale calcolato in relazione alla remunerazione unica federale. Per impianti fino a 30 kW viene considerato il 50% della RU-CH; sopra 30 kW la formula combina il 50% fino a 30 kW e un terzo per la potenza restante. Esistono regole diverse per alcune categorie di impianto e un massimo di CHF 250'000 nella fattispecie prevista dal cpv. 2.
+
+Dal 1° gennaio 2026 c'è inoltre una novità molto interessante: una rimunerazione minima FER per gli impianti CU-FER inferiori a 150 kW.
+
+Per il 2026:
+
+<30 kW → 4.0 ct./kWh
+30–150 kW senza autoconsumo → 5.0 ct./kWh
+30–150 kW con autoconsumo → formula specifica per la categoria.
+
+Sempre dal 2026, gli impianti CU-FER possono partecipare sia a RCP sia a Comunità locali di energia elettrica (CLE); l'eccedenza resta soggetta alle condizioni FER/AET.
+
+Non ho trovato una base ufficiale sufficiente per affermare che nel 2026 esista un bonus cantonale residenziale standard per batterie domestiche. Quindi non lo metterei nella pagina come incentivo disponibile.
+
+Pagina PvPro consigliata
+
+H1:
+Solaranlage im Tessin: Förderung, Eigenstrompflicht und FER 2026
+
+Modulo unico: una timeline:
+
+Projekt → Gemeinde prüfen → Anlage bauen → Inbetriebnahme → FER melden → CU-FER → Rmin FER / Eigenverbrauch
+
+E un piccolo box:
+
+“Nicht verwechseln”
+
+baurechtliche Meldung an den Municipio
+FER-Verfahren
+Pronovo
+
+Questa pagina può diventare una delle migliori del sito.
+
+20. Thurgau
+
+Anche qui la situazione 2026 merita una pagina specifica.
+
+Eigenstrompflicht
+
+La vigente Energienutzungsverordnung pubblicata dal Cantone prevede per i nuovi edifici:
+
+30 W/m² Energiebezugsfläche.
+
+Se la produzione è inferiore:
+
+sotto 15 W/m² → il fabbisogno energetico deve essere ridotto ulteriormente di 10 kWh/m²/anno;
+tra 15 e <30 W/m² → riduzione supplementare di 5 kWh/m²/anno.
+Dachsanierung: la parte più interessante
+
+Per nuove costruzioni e interventi profondi di ristrutturazione deve essere utilizzato l'intero potenziale solare delle superfici di tetto idonee.
+
+Lo stesso vale per una umfassende Dachsanierung, cioè quando la copertura viene sostituita o risanata su larga scala. Le normali riparazioni/manutenzioni puntuali non fanno scattare questa regola.
+
+Il Cantone definisce come idonee le superfici con almeno 85% di Globalstrahlung. Sono escluse, ad esempio, determinate sovrastrutture e superfici fortemente ombreggiate che perdono più del 50% del rendimento annuo. Sono inoltre previste eccezioni per motivi tecnici, tutela monumentale/paesaggistica o costi sproporzionati.
+
+Permessi
+
+La normativa edilizia prevede per determinate installazioni solari prive di obbligo di autorizzazione una Meldepflicht 20 giorni prima dei lavori, in particolare secondo le condizioni e dimensioni definite dalla normativa cantonale/federale.
+
+Quindi attenzione: non copiare i 30 giorni degli altri cantoni su Thurgau.
+
+Cambiamenti legislativi 2026
+
+Il Grosser Rat ha concluso il 2 settembre 2026 la revisione dell'ENG. Il progetto deriva anche dal controprogetto alla “Thurgauer Solarinitiative” e riguarda, tra le altre cose, l'uso del potenziale solare di nuovi edifici e ristrutturazioni.
+
+La pagina PvPro però deve distinguere nettamente:
+
+norme già pubblicate e vigenti nella raccolta legislativa;
+revisione approvata dal Parlamento nel settembre 2026;
+eventuali disposizioni ancora soggette a procedura referendaria/entrata in vigore.
+
+Non scriverei una data di entrata in vigore della revisione del 2 settembre finché una fonte ufficiale non la conferma.
+
+Incentivi
+
+Esiste un Energieförderprogramm cantonale, ma non dobbiamo prendere un budget energetico generale e presentarlo come “PV-Förderung”. Le richieste si fanno attraverso il portale cantonale.
+
+Per il semplice impianto fotovoltaico la componente federale Pronovo rimane centrale. Esistono inoltre vantaggi fiscali per PV installato su edifici esistenti: l'amministrazione fiscale cantonale riconosce tali investimenti come misure energetiche/ambientali deducibili secondo le condizioni indicate; ciò non vale allo stesso modo per le nuove costruzioni.
+
+Pagina PvPro consigliata
+
+H1:
+Solaranlage im Thurgau: PV-Pflicht bei Neubau und Dachsanierung 2026
+
+Modulo unico: un Dachsanierungs-Check:
+
+Nur Reparatur? → keine umfassende Dachsanierung
+Dachhaut grossflächig erneuert? → Solarregel prüfen
+≥85 % Globalstrahlung? → geeignete Dachfläche
+technische / denkmalpflegerische Ausnahme? → separat prüfen
+
+È probabilmente il modulo più forte dei cinque.
+
+Base federale comune da usare con moderazione
+
+Per tutti e cinque i cantoni possiamo spiegare una volta, senza riempire ogni pagina di cifre:
+
+KLEIV: impianti <100 kW
+GREIV: ≥100 kW
+HEIV: per determinate installazioni senza autoconsumo
+dal 2024 il Grundbeitrag della normale EIV è CHF 0; la sovvenzione dipende soprattutto dal Leistungsbeitrag e dalle caratteristiche dell'impianto.
+esistono bonus federali, ad esempio per forte inclinazione; dal 2026 esiste inoltre un Winterstrombonus per determinate installazioni ≥100 kW che raggiungono la produzione invernale prevista dalla normativa.
+
+Non metterei una percentuale generica tipo “30% Förderung” in hero. Il contributo effettivo va calcolato caso per caso con il Tarifrechner Pronovo.
+
+Le 5 differenze editoriali forti
+Cantone	Tema che deve dominare la pagina
+Schwyz	Solarkataster + soglia 1'120 kWh/m² + nessuna Ersatzabgabe
+Solothurn	Cosa vale davvero dopo il NO alla legge energetica 2025
+St. Gallen	10 W/m² + alternative + Ersatzabgabe CHF 2'700/kWp
+Tessin	CU-FER + Rmin FER 2026 + distinzione procedure + regola 300 m² scaduta
+Thurgau	30 W/m² + obbligo legato alla Dachsanierung + soglia 85% Globalstrahlung
+
+Queste sono differenze sostanziali, non cosmetiche. È esattamente quello che vogliamo per evitare cinque pagine doorway quasi identiche.

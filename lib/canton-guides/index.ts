@@ -13,9 +13,14 @@ import { guide as neuenburg } from './neuenburg';
 import { guide as nidwalden } from './nidwalden';
 import { guide as obwalden } from './obwalden';
 import { guide as schaffhausen } from './schaffhausen';
+import { guide as schwyz } from './schwyz';
+import { guide as solothurn } from './solothurn';
+import { guide as stGallen } from './st-gallen';
+import { guide as tessin } from './tessin';
+import { guide as thurgau } from './thurgau';
 import type { CantonGuide } from './types';
 
-export const cantonGuides: CantonGuide[] = [aargau, ausserrhoden, innerrhoden, basel, bern, freiburg, genf, glarus, graubunden, jura, luzern, neuenburg, nidwalden, obwalden, schaffhausen];
+export const cantonGuides: CantonGuide[] = [aargau, ausserrhoden, innerrhoden, basel, bern, freiburg, genf, glarus, graubunden, jura, luzern, neuenburg, nidwalden, obwalden, schaffhausen, schwyz, solothurn, stGallen, tessin, thurgau];
 
 /** Deliberately limited to the commissioned German-language guides. */
 export function getCantonGuide(slug: string, language: string): CantonGuide | undefined {

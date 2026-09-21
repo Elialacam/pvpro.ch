@@ -8,6 +8,7 @@ import GuideHero from '@/components/canton-guides/GuideHero';
 import GuideStyles from '@/components/canton-guides/GuideStyles';
 import NextGuideProcess from '@/components/canton-guides/NextGuideProcess';
 import type { CantonGuide } from '@/lib/canton-guides/types';
+import { finalGuideIds } from '@/lib/canton-guides/types';
 
 interface CantonGuidePageProps {
   guide: CantonGuide;
@@ -42,7 +43,8 @@ function anchorLabel(id: string, title: string) {
 }
 
 export default function CantonGuidePage({ guide, mapSection }: CantonGuidePageProps) {
-  const isDossierGuide = ['luzern', 'neuenburg', 'nidwalden', 'obwalden', 'schaffhausen'].includes(guide.id);
+  const isFinalGuide = finalGuideIds.includes(guide.id);
+  const isDossierGuide = isFinalGuide || ['luzern', 'neuenburg', 'nidwalden', 'obwalden', 'schaffhausen'].includes(guide.id);
   const hasRefinedProcess = ['freiburg', 'genf', 'glarus', 'graubunden', 'jura'].includes(guide.id);
   const sourceLabel = (ids: string[]) => {
     if (!ids.length) return null;
@@ -108,7 +110,7 @@ export default function CantonGuidePage({ guide, mapSection }: CantonGuidePagePr
         );
       })}
 
-      {isDossierGuide ? null : hasRefinedProcess ? <NextGuideProcess /> : (
+      {isFinalGuide ? <NextGuideProcess /> : isDossierGuide ? null : hasRefinedProcess ? <NextGuideProcess /> : (
         <section className="guide-process">
           <div className="container-custom">
             <h2>So funktioniert der Vergleich über PvPro.ch</h2>
@@ -141,7 +143,7 @@ export default function CantonGuidePage({ guide, mapSection }: CantonGuidePagePr
       <section className="guide-sources">
         <div className="container-custom">
           <h2>Quellen &amp; Stand</h2>
-          <p className="guide-answer-first">{isDossierGuide ? 'Stand: 15. September 2026' : 'Stand: September 2026'}</p>
+          <p className="guide-answer-first">{isFinalGuide ? 'Stand: 21. September 2026' : isDossierGuide ? 'Stand: 15. September 2026' : 'Stand: September 2026'}</p>
           <ul>{guide.sources.map(source => (
             <li id={`quelle-${source.id}`} key={source.id} className="scroll-mt-24">
               <span><b>{source.authority}</b><span>{source.title}</span></span>

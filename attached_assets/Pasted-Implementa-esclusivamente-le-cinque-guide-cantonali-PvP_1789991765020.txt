@@ -1,0 +1,30 @@
+Implementa esclusivamente le cinque guide cantonali PvPro:
+/solaranlage-schwyz
+/solaranlage-solothurn
+/solaranlage-st-gallen
+/solaranlage-tessin
+/solaranlage-thurgau.
+
+Usa il dossier allegato come source of truth per tutti i dati, le regole, gli incentivi, le eccezioni e lo stato normativo. Non fare supposizioni e non aggiungere numeri o affermazioni non supportati dal dossier.
+
+Prima analizza le guide cantonali già approvate 1–15 e i componenti condivisi. Mantieni esattamente il design system PvPro già utilizzato, ma crea per ciascuno dei cinque cantoni una pagina realmente distinta per struttura editoriale, hero facts, FAQ e modulo visuale.
+
+Elementi distintivi obbligatori:
+
+Schwyz: Solarkataster-/Eigenstrompflicht-Check.
+Solothurn: modulo “Was gilt 2026 – und was nicht?” che distingua chiaramente il diritto vigente dalla revisione energetica respinta nel 2025.
+St. Gallen: decision tool sulle alternative per soddisfare l'Eigenstrompflicht, inclusa la Ersatzabgabe.
+Tessin: timeline che distingua procedura edilizia, FER e Pronovo, evidenziando le novità FER 2026.
+Thurgau: Dachsanierungs-/Solarpflicht-Check con soglia 85% Globalstrahlung.
+
+Scrivi per proprietari di casa senza conoscenze tecniche, in tedesco svizzero chiaro. Mantieni la profondità utile per SEO e AI, ma elimina ripetizioni e linguaggio burocratico. “Kurz gesagt” prima dei dettagli tecnici. Spiega ogni termine tecnico alla prima occorrenza.
+
+Fonti ufficiali vicine alle affermazioni importanti e sezione Quellen & Stand con stato settembre 2026.
+
+Non modificare le guide 1–15 salvo componenti condivisi strettamente necessari; in quel caso esegui regression check. Non modificare altre lingue, canonical, Open Graph, hreflang, sitemap o redirect.
+
+Mantieni CTA/processo/mappe esistenti. Nessuna testimonianza inventata, nessun costo/ROI/risparmio inventato e nessuna percentuale generica di incentivo.
+
+QA obbligatoria a circa 390, 768/1024 e 1440 px: nessun overflow, H1 corretto, FAQ visibili, source links funzionanti, CTA corrette, route HTTP 200 e build completata. Non mascherare problemi responsive con body { overflow-x: hidden }.
+
+Confronta inoltre il progetto prima/dopo e conferma che soltanto queste cinque guide — e gli eventuali componenti condivisi indispensabili — siano cambiate.

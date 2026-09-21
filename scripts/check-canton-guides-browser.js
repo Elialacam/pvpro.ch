@@ -5,6 +5,13 @@ const { chromium } = require('playwright');
 
 const ids = process.env.GUIDE_TEST_IDS?.split(',') || ['aargau', 'appenzell-ausserrhoden', 'appenzell-innerrhoden', 'basel', 'bern'];
 const widths = [390, 768, 1024, 1440];
+const finalCantons = {
+  schwyz: 'Schwyz',
+  solothurn: 'Solothurn',
+  'st-gallen': 'St. Gallen',
+  tessin: 'Tessin',
+  thurgau: 'Thurgau',
+};
 const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOMAIN}`;
 
 (async () => {
@@ -39,7 +46,7 @@ const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOM
       assert.deepEqual(faq.schema[0].mainEntity.map(item => item.acceptedAnswer.text), faq.answers);
       const isDossier = await article.evaluate(element => element.classList.contains('dossier-guide'));
       if (isDossier) {
-        assert.equal(faq.questions.length, 5, `${id}: exactly five dossier FAQs`);
+        assert.equal(faq.questions.length, id === 'tessin' ? 6 : 5, `${id}: dossier FAQ count`);
         assert.ok(await article.evaluate(element => {
           const middle = element.querySelector('.guide-cta-band');
           const final = element.querySelector('.guide-final');
@@ -49,6 +56,13 @@ const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOM
         }), `${id}: dossier CTA positions`);
       }
       for (const answer of await article.locator('[data-faq-answer]').all()) assert.ok(await answer.isVisible());
+      for (const source of await article.locator('.guide-sources a').all()) {
+        assert.match(await source.getAttribute('href'), /^https:\/\//, `${id}: official source link`);
+        assert.equal(await source.getAttribute('target'), '_blank');
+      }
+      for (const reference of await article.locator('a[href^="#quelle-"]').all()) {
+        assert.equal(await article.locator(await reference.getAttribute('href')).count(), 1, `${id}: source reference target`);
+      }
       const words = await article.evaluate(element => {
         const copy = element.cloneNode(true);
         copy.style.cssText = `position:absolute;left:-100000px;width:${element.getBoundingClientRect().width}px`;
@@ -65,6 +79,28 @@ const base = process.env.GUIDE_TEST_URL || `https://${process.env.REPLIT_DEV_DOM
       const modules = await article.locator('[data-guide-module]').evaluateAll(elements => elements.map(el => el.dataset.guideModule));
       for (const width of widths) {
         await page.setViewportSize({ width, height: 1000 });
+        if (finalCantons[id]) {
+          const map = await article.locator('iframe[title^="Karte"]').evaluate(frame => {
+            const box = frame.parentElement;
+            const badge = box.querySelector('.absolute');
+            const icon = badge.querySelector('svg');
+            return {
+              query: new URL(frame.src).searchParams.get('q'),
+              height: box.getBoundingClientRect().height,
+              iframeHeight: frame.getBoundingClientRect().height,
+              iconWidth: icon.getBoundingClientRect().width,
+              iconHeight: icon.getBoundingClientRect().height,
+              badgeHeight: badge.getBoundingClientRect().height,
+              bottom: getComputedStyle(badge).bottom,
+              left: getComputedStyle(badge).left,
+            };
+          });
+          assert.deepEqual(map, {
+            query: `${finalCantons[id]}, Schweiz`,
+            height: 500, iframeHeight: 500, iconWidth: 20, iconHeight: 20,
+            badgeHeight: 52, bottom: '24px', left: '24px',
+          }, `${id}: ${width}px standard map geometry and canton`);
+        }
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${id}: ${width}px horizontal overflow`);
         if (isDossier) {
           const clippedText = await article.evaluate(element => [...element.querySelectorAll('h1,h2,h3,h4,p,dt,dd,strong,span,a')]

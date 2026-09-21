@@ -5,6 +5,14 @@ import DossierGuideStyles from './DossierGuideStyles';
 
 type Fact = CantonGuide['quickFacts'][number];
 
+const finalLabels: Record<string, string> = {
+  schwyz: 'Solarkataster & Eigenstrom',
+  solothurn: 'Was 2026 wirklich gilt',
+  'st-gallen': 'Vier Wege zur Erfüllung',
+  tessin: 'Gemeinde, Pronovo & FER',
+  thurgau: 'Eigenstrom oder Effizienz',
+};
+
 function Sources({ guide, fact }: { guide: CantonGuide; fact: Fact }) {
   if (!fact.sourceIds.length) return null;
   return <small className="dossier-fact-sources">Quellen: {fact.sourceIds.map((id, index) => (
@@ -28,7 +36,7 @@ export default function DossierGuideHero({ guide }: { guide: CantonGuide }) {
           <p className="guide-microcopy">Kostenlos · Unverbindlich · Passende Fachbetriebe</p>
         </div>
         <aside className="dossier-fact-shelf" aria-label={`${guide.canton}: wichtige Eckwerte`}>
-          <p className="dossier-shelf-label">{label}</p>
+           <p className="dossier-shelf-label">{finalLabels[cantonId] ?? label}</p>
           <div className={`dossier-facts dossier-facts--${Math.min(guide.quickFacts.length, 4)}`}>
             {guide.quickFacts.slice(0, 4).map(fact => <article key={`${fact.value}-${fact.label}`}>
               <strong>{fact.value}</strong>

@@ -25,3 +25,9 @@ Responsive assertions must distinguish text overflow from intentionally overflow
 **Why:** Connectors between cards and clipped decorative shapes can increase a container's scroll width without breaking the layout; treating all container overflow as an error gives false failures.
 
 **How to apply:** Check viewport overflow and individual text bounds, then inspect decorative elements visually rather than requiring every container's scroll width to equal its client width.
+
+Keep the approved Jura map presentation unchanged when adding canton-guide layouts.
+
+**Why:** The user rejected dossier-specific map overrides. A broad class-substring selector also matched the map-pin icon and enlarged its badge; page-level overflow tests did not catch that regression.
+
+**How to apply:** Reuse the standard map without dossier overrides. Scope new CSS to the new modules, and verify the map frame, pin and badge geometry separately at every requested viewport size.
