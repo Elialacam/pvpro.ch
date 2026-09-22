@@ -4,7 +4,7 @@ generated = []
 [[outputs]]
 id = "dMAxJsChnV4M-qy8clRBE"
 uri = "file://reports/pvpro-route-title-report.html"
-type = "text"
+type = "html"
 title = "Elenco completo route e nuovi title"
 description = "334 route DE/IT/FR/EN con il title SEO finale di ciascuna."
 logical_id = "6a773212-d5af-4b6d-a61c-93eeee81cd46"
@@ -28,3 +28,17 @@ mtime_ms = 1788884064945
 storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:f53d4855-3247-438a-938a-8b3ba4e73521/f557ffe0-5bee-4f8c-9d16-762f18a70d96/040ed0e0-6a2b-476b-a3b7-31d5a4176b60"
 storage_version_token = "1788884119881355"
 content_type = "text/markdown"
+
+[[outputs]]
+id = "Xm0C8zpeum4Q_CwzLDjvj"
+uri = "file://reports/approvazione-metadati-cantoni.html"
+type = "html"
+title = "Tabella di approvazione — 25 guide cantonali"
+description = "Confronto completo a sei colonne: titoli e descrizioni attuali, proposte in tedesco e motivazione per ciascun cantone. Nessuna proposta è stata applicata."
+logical_id = "ef995035-3554-4df4-945e-9cd9ace6c508"
+content_hash = "sha256:2c482c68d814223cf9ab4d2bb895fceb93e6b2208b5efd49558b1af979d4843e"
+size = 25184
+mtime_ms = 1790069043347
+storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:f53d4855-3247-438a-938a-8b3ba4e73521/ef995035-3554-4df4-945e-9cd9ace6c508/235353fd-cedd-4677-ab56-a99c569adb6a"
+storage_version_token = "1790069044588154"
+content_type = "text/html"
