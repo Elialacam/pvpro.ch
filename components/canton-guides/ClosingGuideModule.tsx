@@ -3,10 +3,12 @@
 import type { ReactNode } from 'react';
 import type { GuideModule } from '@/lib/canton-guides/types';
 import ClosingGuideStyles from './ClosingGuideStyles';
+import { cantonGuideUi, type CantonGuideLanguage } from '@/lib/canton-guide-ui';
 
 interface Props {
   module: GuideModule;
   sourceLinks: (ids: string[]) => ReactNode;
+  lang?: CantonGuideLanguage;
 }
 
 type GuideItem = GuideModule['items'][number];
@@ -21,7 +23,7 @@ function ItemContent({ item, sourceLinks }: { item: GuideItem; sourceLinks: Prop
   </>;
 }
 
-function UriTransition({ module, sourceLinks }: Props) {
+function UriTransition({ module, sourceLinks, lang = 'de' }: Props) {
   const timeline = module.items.slice(0, 3);
   const branches = module.items.slice(3, 6);
   return <div className="closing-uri">
@@ -32,7 +34,7 @@ function UriTransition({ module, sourceLinks }: Props) {
       </li>)}
     </ol>
     {branches.length ? <div className="closing-uri-decisions">
-      <p className="closing-kicker">Ab 1. Oktober 2026: Fall prüfen</p>
+      <p className="closing-kicker">{cantonGuideUi[lang].module.closing.checkFromOctober}</p>
       <div>{branches.map(item => <article key={item.title}><ItemContent item={item} sourceLinks={sourceLinks} /></article>)}</div>
     </div> : null}
   </div>;
@@ -61,14 +63,15 @@ function Pathway({ module, sourceLinks, mini = false }: Props & { mini?: boolean
   </ol>;
 }
 
-function ZugPowerChoice({ module, sourceLinks }: Props) {
+function ZugPowerChoice({ module, sourceLinks, lang = 'de' }: Props) {
+  const ui = cantonGuideUi[lang].module.closing;
   return <div className="closing-zug-choice">
-    <div className="closing-formula" aria-label="Berechnungsformel">
-      <span>Eigenstromleistung</span><b>EBF × 10 W/m²</b>
+    <div className="closing-formula" aria-label={ui.formulaAria}>
+      <span>{ui.ownPower}</span><b>EBF × 10 W/m²</b>
     </div>
     <div className="closing-choice-cards">
       {module.items.map((item, index) => <article key={item.title} className={index === 0 ? 'closing-choice-card--solar' : 'closing-choice-card--fee'}>
-        <span className="closing-choice-no">Option {index + 1}</span><ItemContent item={item} sourceLinks={sourceLinks} />
+        <span className="closing-choice-no">{ui.option} {index + 1}</span><ItemContent item={item} sourceLinks={sourceLinks} />
       </article>)}
     </div>
   </div>;
@@ -89,18 +92,19 @@ function ModuleRows({ module, sourceLinks }: Props) {
   </dl>;
 }
 
-export default function ClosingGuideModule({ module, sourceLinks }: Props) {
+export default function ClosingGuideModule({ module, sourceLinks, lang = 'de' }: Props) {
   const kind = module.kind as string;
+  const ui = cantonGuideUi[lang].module.closing;
   let content: ReactNode;
 
-  if (kind === 'uri-transition') content = <UriTransition module={module} sourceLinks={sourceLinks} />;
-  else if (kind === 'vaud-transition') content = <SplitColumns module={module} sourceLinks={sourceLinks} className="closing-split--vaud" labels={['Bis 31. Dezember 2026', 'Ab 1. Januar 2027']} />;
+  if (kind === 'uri-transition') content = <UriTransition module={module} sourceLinks={sourceLinks} lang={lang} />;
+  else if (kind === 'vaud-transition') content = <SplitColumns module={module} sourceLinks={sourceLinks} className="closing-split--vaud" labels={ui.vaudColumns} />;
   else if (kind === 'valais-roof-check') content = <Pathway module={module} sourceLinks={sourceLinks} />;
   else if (kind === 'valais-large-roofs') content = <Pathway module={module} sourceLinks={sourceLinks} mini />;
-  else if (kind === 'zug-power-choice') content = <ZugPowerChoice module={module} sourceLinks={sourceLinks} />;
+  else if (kind === 'zug-power-choice') content = <ZugPowerChoice module={module} sourceLinks={sourceLinks} lang={lang} />;
   else if (kind === 'zug-renovation-bonus') content = <RenovationBonus module={module} sourceLinks={sourceLinks} />;
-  else if (kind === 'zurich-jurisdictions') content = <SplitColumns module={module} sourceLinks={sourceLinks} className="closing-split--jurisdictions" labels={['Kanton Zürich', 'Stadt Zürich']} />;
-  else if (kind === 'zurich-law-status') content = <SplitColumns module={module} sourceLinks={sourceLinks} className="closing-split--law" labels={['Heute geltendes Recht', 'Geplant']} />;
+  else if (kind === 'zurich-jurisdictions') content = <SplitColumns module={module} sourceLinks={sourceLinks} className="closing-split--jurisdictions" labels={ui.zurichJurisdictions} />;
+  else if (kind === 'zurich-law-status') content = <SplitColumns module={module} sourceLinks={sourceLinks} className="closing-split--law" labels={ui.zurichLaw} />;
   else content = <Pathway module={module} sourceLinks={sourceLinks} />;
 
   return <section className={`guide-module closing-guide-module closing-guide-module--${kind}`} data-guide-module={kind}>

@@ -1,10 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createHash } from 'crypto'
+import { leadContextFromValues, type LeadLocale } from '@/lib/leadContext'
 
 export const runtime = 'nodejs'
 
 const PIXEL_ID = '1848326999213371'
 const OPENAI_ADS_PIXEL_ID = '8NEq6ZtADcZQCEFa5sRNhY'
+
+const apiErrors: Record<LeadLocale, { invalid: string; failed: string; internal: string }> = {
+  de: { invalid: 'Bitte prüfen Sie Ihre Kontaktdaten und die Zustimmung.', failed: 'Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.', internal: 'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.' },
+  fr: { invalid: 'Veuillez vérifier vos coordonnées et votre consentement.', failed: 'Votre demande n’a pas pu être envoyée. Veuillez réessayer.', internal: 'Une erreur est survenue lors de l’envoi. Veuillez réessayer.' },
+  it: { invalid: 'Controlli i dati di contatto e il consenso.', failed: 'Non è stato possibile inviare la richiesta. Riprovi.', internal: 'Si è verificato un errore durante l’invio. Riprovi.' },
+  en: { invalid: 'Please check your contact details and consent.', failed: 'Your request could not be sent. Please try again.', internal: 'An error occurred while sending. Please try again.' },
+}
 
 function sha256(value: string): string {
   return createHash('sha256').update(value.trim().toLowerCase()).digest('hex')
@@ -171,8 +179,11 @@ function sanitizeSourceUrl(value: string): string {
 }
 
 export async function POST(request: NextRequest) {
+  let errorLocale: LeadLocale = 'de'
   try {
     const body = await request.json()
+    const context = leadContextFromValues(body.locale, body.canton, body.origin, body.source)
+    errorLocale = context.locale
 
     const rawName    = body['FULL NAME']        ?? body.name
     const rawPhone   = body['PHONE NUMBER']     ?? body.phone
@@ -188,13 +199,13 @@ export async function POST(request: NextRequest) {
     const installerSharingConsent = body.installer_sharing_consent === true
 
     if (!validName || !validEmail || !validPhone || !installerSharingConsent) {
-      return NextResponse.json({ error: 'Invalid contact data' }, { status: 400 })
+      return NextResponse.json({ error: apiErrors[context.locale].invalid, code: 'INVALID_CONTACT_DATA' }, { status: 400 })
     }
 
     const address    = body['COMPLETE ADDRESS'] ?? body.address    ?? ''
     const zip_code   = body.zip_code            ?? ''
     const utm_source = body.utm_source ?? ''
-    const source     = body.source     ?? ''
+    const source     = context.source ?? ''
     const fbclid     = body.fbclid     ?? ''
     const eventId    = body.event_id   ?? ''
     const marketingConsent = body.marketing_consent === true
@@ -226,6 +237,9 @@ export async function POST(request: NextRequest) {
           ...(zip_code ? { zip_code } : {}),
           utm_source: utm_source || 'organic',
           ...(source ? { source } : {}),
+          locale: context.locale,
+          ...(context.canton ? { canton: context.canton } : {}),
+          ...(context.origin ? { origin: context.origin } : {}),
           ...(fbclid ? { fbclid } : {}),
           installer_sharing_consent: true,
           installer_sharing_consent_at: installerSharingConsentAt,
@@ -246,7 +260,7 @@ export async function POST(request: NextRequest) {
     if (!leadsyncRes.ok) {
       const text = await leadsyncRes.text()
       console.error('LeadSync error:', leadsyncRes.status, text)
-      return NextResponse.json({ error: 'Submission failed' }, { status: 400 })
+      return NextResponse.json({ error: apiErrors[context.locale].failed, code: 'SUBMISSION_FAILED' }, { status: 400 })
     }
 
     await sendMetaCAPI({
@@ -266,6 +280,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true }, { status: 200 })
   } catch (error: any) {
     console.error('Anfrage error:', error)
-    return NextResponse.json({ error: 'Fehler beim Senden' }, { status: 500 })
+    return NextResponse.json({ error: apiErrors[errorLocale].internal, code: 'INTERNAL_ERROR' }, { status: 500 })
   }
 }

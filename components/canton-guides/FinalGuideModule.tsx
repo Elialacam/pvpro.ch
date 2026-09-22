@@ -3,10 +3,12 @@
 import type { ReactNode } from 'react';
 import type { GuideModule } from '@/lib/canton-guides/types';
 import FinalGuideStyles from './FinalGuideStyles';
+import { cantonGuideUi, type CantonGuideLanguage } from '@/lib/canton-guide-ui';
 
 interface Props {
   module: GuideModule;
   sourceLinks: (ids: string[]) => ReactNode;
+  lang?: CantonGuideLanguage;
 }
 
 type GuideItem = GuideModule['items'][number];
@@ -27,17 +29,18 @@ function SolarCadastreCheck({ module, sourceLinks }: Props) {
   </ol>;
 }
 
-function CurrentLawComparison({ module, sourceLinks }: Props) {
-  const applicable = module.items.filter(item => item.value === 'Gilt');
-  const rejected = module.items.filter(item => item.value === 'Gilt nicht');
-  const remainder = module.items.filter(item => item.value !== 'Gilt' && item.value !== 'Gilt nicht');
+function CurrentLawComparison({ module, sourceLinks, lang = 'de' }: Props) {
+  const ui = cantonGuideUi[lang].module.final;
+  const applicable = module.items.filter(item => item.value === ui.applies);
+  const rejected = module.items.filter(item => item.value === ui.doesNotApply);
+  const remainder = module.items.filter(item => item.value !== ui.applies && item.value !== ui.doesNotApply);
   return <div className="final-law-comparison">
-    <section className="final-law-column" aria-label="Geltendes Recht">
-      <h4>Gilt</h4>
+    <section className="final-law-column" aria-label={ui.currentLawAria}>
+      <h4>{ui.applies}</h4>
       <ul className="final-law-list">{applicable.map(item => <li key={item.title}><ItemContent item={item} sourceLinks={sourceLinks} /></li>)}</ul>
     </section>
-    <section className="final-law-column final-law-column--not" aria-label="Nicht geltende Revision">
-      <h4>Gilt nicht</h4>
+    <section className="final-law-column final-law-column--not" aria-label={ui.rejectedRevisionAria}>
+      <h4>{ui.doesNotApply}</h4>
       <ul className="final-law-list">{[...rejected, ...remainder].map(item => <li key={item.title}><ItemContent item={item} sourceLinks={sourceLinks} /></li>)}</ul>
     </section>
   </div>;
@@ -57,10 +60,10 @@ function FerProcedure({ module, sourceLinks }: Props) {
   </ol>;
 }
 
-function EfficiencyDecision({ module, sourceLinks }: Props) {
+function EfficiencyDecision({ module, sourceLinks, lang = 'de' }: Props) {
   return <div className="final-efficiency">
     {module.items.map(item => <article key={item.title}>
-      <span className="final-branch-status">{item.value?.includes('30 W/m²') && !item.value.includes('<') ? 'Erfüllt' : 'Reduktion'}</span>
+      <span className="final-branch-status">{item.value?.includes('30 W/m²') && !item.value.includes('<') ? cantonGuideUi[lang].module.final.fulfilled : cantonGuideUi[lang].module.final.reduction}</span>
       <ItemContent item={item} sourceLinks={sourceLinks} />
     </article>)}
   </div>;
@@ -73,14 +76,14 @@ function ModuleRows({ module, sourceLinks }: Props) {
   </div>)}</dl>;
 }
 
-export default function FinalGuideModule({ module, sourceLinks }: Props) {
+export default function FinalGuideModule({ module, sourceLinks, lang = 'de' }: Props) {
   const kind = module.kind as string;
   let content: ReactNode;
   if (kind === 'solar-cadastre-check') content = <SolarCadastreCheck module={module} sourceLinks={sourceLinks} />;
-  else if (kind === 'current-law-comparison') content = <CurrentLawComparison module={module} sourceLinks={sourceLinks} />;
+  else if (kind === 'current-law-comparison') content = <CurrentLawComparison module={module} sourceLinks={sourceLinks} lang={lang} />;
   else if (kind === 'compliance-options') content = <ComplianceOptions module={module} sourceLinks={sourceLinks} />;
   else if (kind === 'fer-procedure') content = <FerProcedure module={module} sourceLinks={sourceLinks} />;
-  else content = <EfficiencyDecision module={module} sourceLinks={sourceLinks} />;
+  else content = <EfficiencyDecision module={module} sourceLinks={sourceLinks} lang={lang} />;
 
   return <section className={`guide-module final-guide-module final-guide-module--${kind}`} data-guide-module={kind}>
     <FinalGuideStyles />

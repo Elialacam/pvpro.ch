@@ -37,8 +37,8 @@ export const guide: CantonGuide = {
   id: 'uri',
   path: '/solaranlage-uri',
   canton: 'Uri',
-  title: 'Solaranlage in Uri | PvPro.ch',
-  description: 'Vergleichen Sie bis zu drei kostenlose Offerten geprüfter Solarteure für Ihre Solaranlage in Uri.',
+  title: 'Solaranlage Uri: Neue Regeln ab 1. Oktober 2026 | PvPro.ch',
+  description: 'Ab 1. Oktober 2026 gelten in Uri neue Solarvorgaben: 40 W/m² für Neubauten ab 300 m² und 20 W/m² für erfasste Erweiterungen und Dachsanierungen.',
   h1: 'Solaranlage im Kanton Uri: Neue Solarregeln ab 1. Oktober 2026',
   intro: [
     'Uri befindet sich 2026 in einem Rechtswechsel. Die befristete kantonale Übergangsregel endete am 31. Dezember 2025; ab 1. Oktober 2026 gelten neue Urner Vorgaben für grosse Neubauten, Erweiterungen und eingreifende Dachsanierungen.',

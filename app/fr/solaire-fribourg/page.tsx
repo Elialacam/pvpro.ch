@@ -7,6 +7,7 @@ import { getCityBySlug } from '@/lib/cities';
 import { cityContents } from '@/lib/city-content';
 import { notFound } from 'next/navigation';
 import UniqueCityPage from '@/components/UniqueCityPage';
+import { requireCantonGuide } from '@/lib/canton-guides';
 
 const citySlug = 'fribourg';
 
@@ -27,7 +28,7 @@ export default function CityPage() {
   const city = getCityBySlug(citySlug);
   if (!city) notFound();
   const content = cityContents[citySlug] || cityContents['geneve'];
-  return <UniqueCityPage city={city} content={content} accentColor="blue" />;
+  return <UniqueCityPage city={city} content={content} accentColor="blue" guide={requireCantonGuide(citySlug, 'fr')} />;
 }
 
 export const metadata: Metadata = pageMetadata(baseMetadata, { path: '/fr/solaire-fribourg', locale: 'fr' });

@@ -18,7 +18,7 @@ import RelatedCities from '@/components/RelatedCities';
 import { Sun, MapPin, TrendingUp, CheckCircle, Zap, Euro, Award } from 'lucide-react';
 import Image from 'next/image';
 import CantonGuidePage from '@/components/CantonGuidePage';
-import { getCantonGuide } from '@/lib/canton-guides';
+import type { CantonGuide } from '@/lib/canton-guides/types';
 
 interface UniqueCityPageProps {
   city: City;
@@ -30,6 +30,7 @@ interface UniqueCityPageProps {
    * original city-page rendering.
    */
   suppressUnsupportedClaims?: boolean;
+  guide?: CantonGuide;
 }
 
 function t(lang: string, de: string, fr: string, it: string, en: string = de) {
@@ -51,6 +52,7 @@ export default function UniqueCityPage({
   content,
   accentColor = 'orange',
   suppressUnsupportedClaims = false,
+  guide,
 }: UniqueCityPageProps) {
   const lang = city.language;
   const factsLocale = lang === 'fr' || lang === 'it' || lang === 'en' ? lang : 'de';
@@ -120,7 +122,7 @@ export default function UniqueCityPage({
 
   const theme = colors[accentColor];
   const formUrl = getFormUrl(lang);
-  const mapCountry = suppressUnsupportedClaims || Boolean(audit)
+  const mapCountry = guide || suppressUnsupportedClaims || Boolean(audit)
     ? lang === 'fr'
       ? 'Suisse'
       : lang === 'it'
@@ -129,21 +131,20 @@ export default function UniqueCityPage({
           ? 'Switzerland'
           : 'Schweiz'
     : 'Schweiz';
-  const guide = lang === 'de' ? getCantonGuide(city.slug, lang) : undefined;
   const mapSection = (
     <section className="section-padding bg-white">
       <div className="container-custom max-w-6xl">
         <div className="text-center mb-8">
           <h2 className="text-2xl sm:text-3xl font-sans font-semibold tracking-tight text-gray-900 mb-3">
             {guide
-              ? `Solarprojekt in ${city.name}`
+              ? t(lang, `Solarprojekt in ${guide.canton}`, `Projet solaire en ${guide.canton}`, `Progetto solare in ${guide.canton}`, `Solar project in ${guide.canton}`)
               : suppressUnsupportedClaims
               ? t(lang, `Solarprojekte: ${city.name}`, `Projets solaires : ${city.name}`, `Progetti solari: ${city.name}`, `Solar projects: ${city.name}`)
               : t(lang, `Solarteure in ${city.name} und Umgebung`, `Installateurs solaires à ${city.name} et alentours`, `Installatori a ${city.name} e dintorni`, `Solar installers in and around ${city.name}`)}
           </h2>
           <p className="text-gray-600">
             {guide
-              ? `Karte und Orientierung für Ihr Solarprojekt in ${city.name}.`
+              ? t(lang, `Karte und Orientierung für Ihr Solarprojekt in ${guide.canton}.`, `Carte et repères pour votre projet solaire en ${guide.canton}.`, `Mappa e orientamento per il vostro progetto solare in ${guide.canton}.`, `Map and guidance for your solar project in ${guide.canton}.`)
               : suppressUnsupportedClaims
               ? t(lang, `Informationen zu Solarprojekten in ${city.name}.`, `Informations sur les projets solaires liés à ${city.name}.`, `Informazioni sui progetti solari legati a ${city.name}.`, `Information about solar projects related to ${city.name}.`)
               : t(lang, `Unser Netzwerk umfasst geprüfte Fachbetriebe in der gesamten Kanton ${city.canton}`, `Notre réseau comprend des entreprises certifiées dans toute le canton ${city.canton}`, `La nostra rete comprende ditte certificate in tutto il Canton ${city.canton}`, `Our network includes solar professionals across canton ${city.canton}`)}
@@ -151,15 +152,15 @@ export default function UniqueCityPage({
         </div>
         <div className="relative rounded-2xl overflow-hidden shadow-xl h-[500px]">
           {mounted && (
-            <iframe src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDQF_fL_qx_1QZVlvJFNRl5ETBhjcJOFAE&q=${encodeURIComponent(city.name + ', ' + mapCountry)}&zoom=10`} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title={t(lang, `Karte von ${city.name}`, `Carte de ${city.name}`, `Mappa di ${city.name}`, `Map of ${city.name}`)} />
+            <iframe src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''}&q=${encodeURIComponent((guide?.canton ?? city.name) + ', ' + mapCountry)}&zoom=10&language=${lang}`} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title={t(lang, `Karte von ${guide?.canton ?? city.name}`, `Carte de ${guide?.canton ?? city.name}`, `Mappa di ${guide?.canton ?? city.name}`, `Map of ${guide?.canton ?? city.name}`)} />
           )}
-          <div className="absolute bottom-6 left-6 bg-white px-6 py-3 rounded-lg shadow-lg"><div className="flex items-center gap-2"><MapPin className={`w-5 h-5 ${theme.icon}`} /><span className="font-sans font-bold text-gray-900 text-lg">{city.name}, {city.canton}</span></div></div>
+          <div className="absolute bottom-6 left-6 bg-white px-6 py-3 rounded-lg shadow-lg"><div className="flex items-center gap-2"><MapPin className={`w-5 h-5 ${theme.icon}`} /><span className="font-sans font-bold text-gray-900 text-lg">{guide?.canton ?? `${city.name}, ${city.canton}`}</span></div></div>
         </div>
       </div>
     </section>
   );
 
-  if (guide) return <CantonGuidePage guide={guide} mapSection={mapSection} />;
+  if (guide) return <CantonGuidePage guide={guide} mapSection={mapSection} lang={lang} />;
 
   return (
     <>

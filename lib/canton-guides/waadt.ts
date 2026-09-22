@@ -14,8 +14,8 @@ export const guide: CantonGuide = {
   id: 'waadt',
   path: '/solaranlage-waadt',
   canton: 'Waadt',
-  title: 'Solaranlage: Waadt | PvPro.ch',
-  description: 'Vergleichen Sie Solarofferten für Ihr Projekt: Waadt.',
+  title: 'Solaranlage Waadt: Neues Energierecht ab 2027 | PvPro.ch',
+  description: 'Bis Ende 2026 müssen Neubauten in der Waadt 20% ihres Elektrizitätsbedarfs erneuerbar decken. Am 1. Januar 2027 tritt neues Energierecht in Kraft.',
   h1: 'Solaranlage im Kanton Waadt: Was 2026 gilt – und was sich 2027 ändert',
   intro: [
     'Bis Ende 2026 gilt im Kanton Waadt noch das bisherige Energierecht: Neubauten müssen mindestens 20% ihres Elektrizitätsbedarfs mit erneuerbarer Energie decken. Photovoltaik ist dafür eine mögliche Lösung.',

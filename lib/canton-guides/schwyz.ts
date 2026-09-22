@@ -49,9 +49,9 @@ export const guide: CantonGuide = {
   id: 'schwyz',
   path: '/solaranlage-schwyz',
   canton: 'Schwyz',
-  title: 'Solaranlage in Schwyz | PvPro.ch',
+  title: 'Solaranlage Schwyz: Solarkataster und Eigenstrompflicht | PvPro.ch',
   description:
-    'Vergleichen Sie bis zu drei kostenlose Offerten geprüfter Solarteure für Ihre Solaranlage in Schwyz.',
+    'Bei Neubauten im Kanton Schwyz gelten grundsätzlich 10 W/m² Eigenstromleistung, höchstens 30 kW. Der kantonale Solarkataster zeigt mögliche Ausnahmen.',
   h1: 'Solaranlage im Kanton Schwyz: Eigenstrompflicht, Solarkataster und Förderung 2026',
   intro: [
     'Bei Neubauten und Ersatzneubauten im Kanton Schwyz gilt seit 1. Mai 2022 grundsätzlich eine Eigenstrompflicht. Ob sie für Ihr Gebäude greift, entscheidet sich aber erst nach der Prüfung des kantonalen Solarkatasters und der vorgesehenen Ausnahmen.',

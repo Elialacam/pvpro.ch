@@ -99,7 +99,7 @@ export default function LanguageSwitcher({ transparent = false }: Props) {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors ${triggerColor} ${triggerHover}`}
-        aria-label="Change language"
+        aria-label={{ de: 'Sprache wechseln', it: 'Cambia lingua', fr: 'Changer de langue', en: 'Change language' }[currentLocale]}
         aria-expanded={isOpen}
       >
         <Globe className="w-4 h-4" />

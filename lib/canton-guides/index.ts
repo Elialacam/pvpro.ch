@@ -24,16 +24,54 @@ import { guide as wallis } from './wallis';
 import { guide as zug } from './zug';
 import { guide as zurich } from './zurich';
 import type { CantonGuide } from './types';
+import type { CantonLocale } from '@/lib/cantons';
+import { cantonAreas } from '@/lib/cantons';
+import { cantonGuidesIt } from './it';
+import { cantonGuidesFr } from './fr';
+import { cantonGuidesEn } from './en';
 
 export const cantonGuides: CantonGuide[] = [aargau, ausserrhoden, innerrhoden, basel, bern, freiburg, genf, glarus, graubunden, jura, luzern, neuenburg, nidwalden, obwalden, schaffhausen, schwyz, solothurn, stGallen, tessin, thurgau, uri, waadt, wallis, zug, zurich];
 
-/** Deliberately limited to the commissioned German-language guides. */
+const guidesByLocale: Record<CantonLocale, CantonGuide[]> = {
+  de: cantonGuides,
+  it: cantonGuidesIt,
+  fr: cantonGuidesFr,
+  en: cantonGuidesEn,
+};
+
+function normalizedId(id: string) {
+  return id === 'zuerich' ? 'zurich' : id;
+}
+
+function slugify(value: string) {
+  return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
 export function getCantonGuide(slug: string, language: string): CantonGuide | undefined {
-  // The legacy city dataset uses "zuerich"; the public guide route uses "zurich".
-  const guideId = slug === 'zuerich' ? 'zurich' : slug;
-  return language === 'de' ? cantonGuides.find(guide => guide.id === guideId) : undefined;
+  if (!(language in guidesByLocale)) return undefined;
+  const locale = language as CantonLocale;
+  if (slug.startsWith('/')) return getCantonGuideByPath(slug, locale);
+  const cleanSlug = slug.replace(/^\/|\/$/g, '');
+  const area = cantonAreas.find((candidate) => {
+    const routeSlug = candidate.paths[locale].split('/').pop();
+    return normalizedId(candidate.id) === normalizedId(cleanSlug)
+      || routeSlug === cleanSlug
+      || slugify(candidate.names[locale]) === slugify(cleanSlug);
+  });
+  const guideId = normalizedId(area?.id ?? cleanSlug);
+  return guidesByLocale[locale].find(guide => guide.id === guideId);
 }
 
 export function getCantonGuideByPath(path: string, language: string): CantonGuide | undefined {
-  return language === 'de' ? cantonGuides.find(guide => guide.path === path) : undefined;
+  if (!(language in guidesByLocale)) return undefined;
+  const locale = language as CantonLocale;
+  const normalizedPath = path.length > 1 ? path.replace(/\/$/, '') : path;
+  return guidesByLocale[locale].find(guide => guide.path === normalizedPath);
+}
+
+export function requireCantonGuide(slug: string, language: CantonLocale): CantonGuide {
+  const guide = getCantonGuide(slug, language);
+  if (!guide) throw new Error(`Missing ${language} canton guide for "${slug}"`);
+  return guide;
 }

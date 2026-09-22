@@ -1,0 +1,76 @@
+import type { CantonGuide } from '../types';
+
+const sources = [
+  { id: 'be-solarpflicht', authority: 'Canton de Berne, Direction de l’économie, de l’énergie et de l’environnement', title: 'Informations sur l’obligation solaire dès 2026', url: 'https://www.weu.be.ch/de/start/themen/energie/solarpflicht.html' },
+  { id: 'be-keng', authority: 'Canton de Berne', title: 'Loi cantonale sur l’énergie, art. 39a–39e', url: 'https://www.belex.sites.be.ch/app/de/texts_of_law/741.1' },
+  { id: 'be-kenv', authority: 'Canton de Berne', title: 'Ordonnance cantonale sur l’énergie, art. 19a–19h', url: 'https://www.belex.sites.be.ch/app/de/texts_of_law/741.111' },
+  { id: 'be-vollzug', authority: 'Canton de Berne, Office de l’environnement et de l’énergie', title: 'Aide à l’exécution EN-Solar BE – obligation d’équipement solaire', url: 'https://www.weu.be.ch/content/dam/weu/dokumente/aue/de/energievorschriften-bauen/aue-EN-Solar_BE_Vollzugshilfe_de.pdf' },
+  { id: 'pronovo-eiv', authority: 'Pronovo AG sur mandat de la Confédération', title: 'Encouragement des installations photovoltaïques', url: 'https://pronovo.ch/de/foerderung/photovoltaik' },
+] as const;
+
+export const guide: CantonGuide = {
+  id: 'bern', path: '/fr/solaire-berne', canton: 'Berne',
+  title: 'Solaire à Berne : nouvelles règles 2026 | PvPro.ch',
+  description: 'Depuis 2026, de nouvelles règles solaires s’appliquent dans le canton de Berne aux constructions, agrandissements, rénovations de toiture et grands parkings.',
+  h1: 'Installation solaire dans le canton de Berne : les nouvelles règles depuis 2026',
+  intro: ['Depuis le 1er janvier 2026, de nouvelles règles s’appliquent dans le canton de Berne aux constructions, agrandissements et grands parkings. Lors d’une rénovation complète de toiture, vous devez annoncer si l’énergie solaire est possible, sans que cela entraîne automatiquement l’obligation de construire une installation solaire.'],
+  quickFacts: [
+    { value: '10 %', label: 'Part minimale de la surface de bâtiment déterminante pour certaines constructions et certains agrandissements', sourceIds: ['be-solarpflicht', 'be-keng'] },
+    { value: '60 %', label: 'De la surface de toiture bien adaptée, en principe pour les constructions et agrandissements', sourceIds: ['be-solarpflicht', 'be-kenv'] },
+    { value: '7 jours ouvrables', label: 'Délai minimal pour annoncer séparément une installation solaire dispensée d’autorisation', sourceIds: ['be-vollzug', 'be-kenv'] },
+    { value: 'Rénovation de toiture', label: 'Obligation d’annonce ≠ obligation photovoltaïque automatique', sourceIds: ['be-solarpflicht', 'be-vollzug'] },
+  ],
+  sections: [
+    { id: 'regeln', title: 'Les règles solaires bernoises depuis le 1er janvier 2026', paragraphs: [
+      'Depuis le 1er janvier 2026, les constructions et agrandissements doivent utiliser l’énergie solaire sur au moins 10 % de la surface de bâtiment déterminante pour le calcul (terme officiel : surface de bâtiment imputable). Les toitures bien adaptées recevant au moins 1 000 kWh d’énergie solaire par mètre carré et par an (1 000 kWh/m²a) doivent utiliser au moins 60 % de leur surface totale (surface brute de toiture) ; l’obligation peut être remplie en partie ou entièrement en façade.',
+      'Les 60 % ne signifient donc pas automatiquement 60 % de chaque toiture. Pour les petits bâtiments d’habitation neufs jusqu’à 300 m², il faut à la place produire au moins assez d’énergie solaire pour couvrir la moitié des besoins énergétiques normaux. Une dérogation pour une surface déterminante inférieure à 50 m² ne s’applique que s’il n’existe en même temps aucune surface de toiture d’un seul tenant adaptée d’au moins 50 m². Cette règle spéciale n’est pas la règle générale des 60 %.',
+    ], sourceIds: ['be-solarpflicht', 'be-keng', 'be-kenv'], module: { kind: 'regulatory-checklist', title: '2026 : quelle règle concerne mon projet ?', items: [
+      { title: 'Construction ou agrandissement', text: 'Prévoir l’énergie solaire sur au moins 10 % de la surface de bâtiment déterminante.', sourceIds: ['be-solarpflicht', 'be-keng'] },
+      { title: 'Petits bâtiments d’habitation', text: 'Pour les petits bâtiments d’habitation jusqu’à 300 m², l’énergie solaire doit couvrir au moins la moitié des besoins énergétiques normaux.', sourceIds: ['be-solarpflicht', 'be-kenv'] },
+      { title: 'Rénovation complète de toiture', text: 'Dès que 50 % de la surface brute de toiture est touchée, une annonce sur l’aptitude solaire est requise ; ce n’est pas une obligation automatique d’installation.', sourceIds: ['be-solarpflicht', 'be-vollzug'] },
+      { title: 'Nouveau grand parking', text: 'Les nouveaux parkings extérieurs dès 80 places accessibles au public et exploitées doivent être couverts de modules solaires si la surface s’y prête. Cela vaut aussi pour les nouveaux parcs-relais (P+R) de plus de 50 places.', sourceIds: ['be-solarpflicht', 'be-vollzug'] },
+    ] } },
+    { id: 'dachsanierung', title: 'Rénovation de toiture : l’annonce n’est pas automatiquement une obligation solaire', paragraphs: [
+      'Non. Dans le canton de Berne, une rénovation complète de toiture entraîne une obligation d’annonce, mais pas automatiquement celle d’installer un système photovoltaïque.',
+      'L’obligation d’annonce concerne les bâtiments existants lorsque 50 % au moins de la surface brute de toiture est recouverte ou étanchée à neuf. L’annonce via eBau documente l’aptitude à l’énergie solaire et les coûts d’installation estimés ; les surfaces de toiture inférieures à 20 m² sont exclues.',
+      'L’annonce apporte de la transparence. La construction, l’aptitude, le droit des constructions et la décision des propriétaires restent des questions distinctes.',
+    ], sourceIds: ['be-solarpflicht', 'be-vollzug', 'be-kenv'], module: { kind: 'roof-explainer', title: 'Ce que l’annonce de toiture déclenche réellement', items: [
+      { title: '1. Vérifier l’étendue', text: 'Vérifier si la nouvelle couverture ou l’étanchéité touche au moins 50 % de la surface brute de toiture.', sourceIds: ['be-solarpflicht', 'be-vollzug'] },
+      { title: '2. Indiquer l’aptitude et les coûts', text: 'L’annonce comprend l’aptitude à utiliser l’énergie solaire et les coûts d’installation estimés.', sourceIds: ['be-solarpflicht'] },
+      { title: '3. Annoncer à temps', text: 'Pour un projet dispensé d’autorisation, l’annonce doit être déposée au plus tard 7 jours ouvrables avant le début des travaux.', sourceIds: ['be-vollzug', 'be-kenv'] },
+      { title: '4. Décider séparément', text: 'L’aptitude et l’estimation des coûts ne déclenchent pas automatiquement l’obligation d’installer du photovoltaïque.', sourceIds: ['be-solarpflicht', 'be-vollzug'] },
+    ] }, notice: { title: 'Distinction importante', text: 'La rénovation complète de la toiture d’un bâtiment existant entraîne l’obligation d’annonce. L’obligation d’installation pour les constructions et agrandissements en est juridiquement distincte.', status: 'important' } },
+    { id: 'parkplaetze', title: 'Nouvelles règles pour les grands parkings', paragraphs: [
+      'Les nouveaux parkings extérieurs dès 80 places accessibles au public et payantes doivent être couverts de modules solaires si la surface s’y prête. Cela vaut aussi pour les nouveaux parcs-relais (P+R) extérieurs de plus de 50 places.',
+      'Sur une surface adaptée, au moins 50 % doivent être couverts de modules solaires ; des dérogations restent possibles. Les P+R existants doivent être équipés lors d’une rénovation complète, mais au plus tard le 31 décembre 2035.',
+      'Une dérogation peut être possible en dessous de 1 000 kWh d’énergie solaire par mètre carré et par an (1 000 kWh/m²a). Les autres parkings existants ne sont pas tous concernés.',
+    ], sourceIds: ['be-solarpflicht', 'be-vollzug', 'be-keng'] },
+    { id: 'foerderung', title: 'Subventions dans le canton de Berne', paragraphs: [
+      'Les subventions fédérales passent par Pronovo. La rétribution unique pour petites installations photovoltaïques (PRU) s’applique aux petites installations et l’encouragement correspondant aux grandes installations (GRU) aux plus grandes, selon les conditions fédérales ; il n’en découle aucune subvention cantonale forfaitaire en pourcentage pour chaque habitation.',
+      'Le canton soutient certaines rénovations globales et constructions énergétiquement efficaces, pour lesquelles le photovoltaïque ou le solaire thermique peut être pris en compte. Cette aide est distincte de la rétribution unique fédérale (RU) pour le photovoltaïque et ne constitue pas une subvention photovoltaïque générale. Il faut vérifier les conditions et le moment du dépôt avant de passer commande.',
+    ], sourceIds: ['pronovo-eiv', 'be-solarpflicht'] },
+    { id: 'bewilligung', title: 'Autorisation ou annonce ?', paragraphs: [
+      'Même une installation solaire dispensée de permis de construire peut devoir être annoncée. Pour l’annonce photovoltaïque autonome, le délai est fixé au plus tard à 7 jours ouvrables avant le début des travaux.',
+      'L’annonce séparée lors d’une rénovation complète de toiture passe par eBau. L’emplacement, la conception et les intérêts de protection déterminent si un permis de construire est requis. En présence d’un monument, d’un environnement protégé ou d’une installation non adaptée, impliquez tôt la commune ; la demande Pronovo et l’annonce ne remplacent pas l’examen du droit des constructions.',
+    ], sourceIds: ['be-vollzug', 'be-solarpflicht', 'pronovo-eiv'] },
+    { id: 'kosten', title: 'Combien coûte une installation solaire ici ?', paragraphs: [
+      'Le canton ne publie aucun prix photovoltaïque fixe. La toiture, la taille de l’installation et les équipements souhaités sont les principaux facteurs.',
+      'L’état du toit, l’accès, le compteur, le raccordement au réseau et les exigences de protection peuvent aussi modifier l’offre. Lors d’une rénovation de toiture, l’estimation des coûts fait partie de l’annonce, mais n’impose aucun investissement.',
+      'La comparaison la plus utile ne porte donc pas sur un prix forfaitaire en ligne, mais sur plusieurs offres pour le même projet. Comparez les postes, les démarches d’annonce et les garanties.',
+    ], bullets: ['Surface et forme du toit', 'Puissance de l’installation', 'Échafaudage', 'Travaux électriques', 'Batterie de stockage', 'Consommation propre', 'Onduleur', 'Installateur / étendue des prestations'], sourceIds: ['be-solarpflicht', 'be-vollzug'] },
+    { id: 'fuer-wen', title: 'À qui une installation solaire profite-t-elle particulièrement dans le canton de Berne ?', paragraphs: [
+      'Pour une construction ou un agrandissement, l’énergie solaire doit être intégrée tôt à la planification. Pour les petits bâtiments d’habitation jusqu’à 300 m², la règle de la moitié des besoins énergétiques normaux s’applique ; sinon, c’est la combinaison des 10 % et des surfaces de toiture adaptées. Lors d’une rénovation complète, l’aptitude et les coûts doivent être annoncés, sans obligation d’installation.',
+      'La pertinence d’une installation dépend du toit, de la consommation et de l’offre. Les grands parkings, objets protégés, façades et formes de toiture inhabituelles doivent être évalués tôt.',
+    ], sourceIds: ['be-solarpflicht', 'be-keng', 'be-vollzug'] },
+  ],
+  faqs: [
+    { question: 'Une obligation solaire s’applique-t-elle dans le canton de Berne depuis 2026 ?', answer: 'Oui, pour certains projets. Depuis le 1er janvier 2026, des règles concernent les constructions, agrandissements et certains grands parkings. Les constructions et agrandissements doivent utiliser au moins 10 % de la surface de bâtiment déterminante pour le calcul. Une rénovation complète de toiture entraîne en revanche en principe une annonce, pas automatiquement une obligation d’installation.', sourceIds: ['be-solarpflicht', 'be-keng'] },
+    { question: 'Quelle surface de toiture faut-il utiliser pour une construction ?', answer: 'Les toitures bien adaptées recevant au moins 1 000 kWh d’énergie solaire par mètre carré et par an (1 000 kWh/m²a) doivent utiliser au moins 60 % de leur surface totale. Une exemption peut s’appliquer si la surface de bâtiment déterminante est inférieure à 50 m² et qu’il n’existe aucune surface de toiture adaptée d’un seul tenant d’au moins 50 m². La façade est possible ; les petits bâtiments d’habitation jusqu’à 300 m² suivent la règle spéciale de la moitié des besoins énergétiques normaux.', sourceIds: ['be-solarpflicht', 'be-kenv'] },
+    { question: 'Une rénovation de toiture signifie-t-elle automatiquement que je dois installer du photovoltaïque ?', answer: 'Non. Si au moins 50 % de la surface de toiture (surface brute) est touchée, une annonce est requise. Elle documente l’aptitude solaire et les coûts estimés, mais n’impose pas automatiquement l’installation d’un système photovoltaïque.', sourceIds: ['be-solarpflicht', 'be-vollzug'] },
+    { question: 'Quand une rénovation de toiture est-elle considérée comme complète ?', answer: 'Elle est complète lorsqu’au moins 50 % de la surface totale de toiture (surface brute) est recouverte ou étanchée à neuf. Les surfaces inférieures à 20 m² sont exclues ; la délimitation concrète doit être vérifiée dans l’aide à l’exécution.', sourceIds: ['be-solarpflicht', 'be-vollzug', 'be-kenv'] },
+    { question: 'Quand dois-je déposer l’annonce ?', answer: 'Pour une procédure d’annonce photovoltaïque autonome dispensée d’autorisation, au plus tard 7 jours ouvrables avant le début des travaux. L’annonce séparée sur l’aptitude solaire lors d’une rénovation complète passe par eBau. Un permis de construire peut en plus être nécessaire pour des objets protégés ou dans tout autre cas soumis à autorisation.', sourceIds: ['be-vollzug', 'be-kenv'] },
+    { question: 'Quelles règles s’appliquent aux grands parkings ?', answer: 'Les nouveaux parkings extérieurs dès 80 places accessibles au public et payantes ainsi que les nouveaux parcs-relais (P+R) de plus de 50 places doivent être couverts de modules solaires si la surface s’y prête. Au moins 50 % de la surface adaptée doivent être couverts ; des dérogations sont possibles en dessous de 1 000 kWh d’énergie solaire par mètre carré et par an (1 000 kWh/m²a). Les P+R existants doivent être équipés lors d’une rénovation complète, mais au plus tard le 31 décembre 2035.', sourceIds: ['be-solarpflicht', 'be-vollzug'] },
+    { question: 'Quelles subventions photovoltaïques existent dans le canton de Berne ?', answer: 'Le photovoltaïque est principalement soutenu par la Confédération et Pronovo, notamment par la rétribution unique pour petites installations photovoltaïques (PRU) ou l’aide correspondante aux grandes installations (GRU). Le canton soutient par ailleurs certaines rénovations globales ou constructions énergétiquement efficaces où le photovoltaïque peut compter. Il n’en découle aucun taux cantonal général de subvention photovoltaïque.', sourceIds: ['pronovo-eiv', 'be-solarpflicht'] },
+  ],
+  sources: [...sources],
+};

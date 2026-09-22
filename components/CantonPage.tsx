@@ -4,6 +4,7 @@ import { CantonArea, CantonLocale } from '@/lib/cantons';
 import { getCantonContent } from '@/lib/canton-content';
 import { City } from '@/lib/cities';
 import { cantonAreaForPath } from '@/lib/canton-page';
+import { requireCantonGuide } from '@/lib/canton-guides';
 
 interface CantonPageProps {
   area: CantonArea;
@@ -11,6 +12,7 @@ interface CantonPageProps {
 }
 
 export default function CantonPage({ area, locale }: CantonPageProps) {
+  const guide = requireCantonGuide(area.id, locale);
   const city: City = {
     name: area.names[locale],
     slug: area.id,
@@ -24,6 +26,7 @@ export default function CantonPage({ area, locale }: CantonPageProps) {
       content={getCantonContent(area, locale)}
       accentColor="blue"
       suppressUnsupportedClaims
+      guide={guide}
     />
   );
 }

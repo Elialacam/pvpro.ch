@@ -20,7 +20,7 @@ export default function NextGuideStyles() {
     .next-module{max-width:100%}.next-module .guide-module-content{margin-top:1.2rem}
     .next-project-check{display:grid;gap:1rem;background:#eff4ec;border:1px solid #cddac9;border-radius:1rem;padding:1rem}
     .next-project-stage{position:relative;border-radius:.75rem;background:#fffdf7;padding:1rem}
-    .next-project-stage:not(:last-child):after{content:'Weiter';position:absolute;bottom:-1.55rem;left:50%;z-index:1;transform:translateX(-50%);border:1px solid var(--guide-line);border-radius:999px;background:#eff4ec;padding:.2rem .55rem;font-size:.68rem;font-weight:800;color:#786319}
+    .next-project-stage:not(:last-child):after{content:attr(data-next-label);position:absolute;bottom:-1.55rem;left:50%;z-index:1;transform:translateX(-50%);border:1px solid var(--guide-line);border-radius:999px;background:#eff4ec;padding:.2rem .55rem;font-size:.68rem;font-weight:800;color:#786319}
     .next-project-stage h4{font-size:1rem;font-weight:800}.next-project-options{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:.75rem}
     .next-project-option{border:1px solid var(--guide-line);border-radius:.6rem;padding:.8rem}.next-project-option b{display:block;font-size:.73rem;letter-spacing:.08em;color:#786319}.next-project-option p{margin-top:.4rem;font-size:.85rem;line-height:1.45;color:var(--guide-muted)}
     .next-trigger-dashboard{display:grid;gap:.7rem;grid-template-columns:repeat(3,1fr)}

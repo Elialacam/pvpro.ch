@@ -1,8 +1,8 @@
-const steps = [
+import { cantonGuideUi, type CantonGuideLanguage } from '@/lib/canton-guide-ui';
+
+const stepIcons = [
   {
     number: '01',
-    title: 'Projekt beschreiben',
-    text: 'Kurz Angaben zu Gebäude und Solarprojekt machen.',
     icon: (
       <svg viewBox="0 0 48 48" aria-hidden="true">
         <path d="M14 7h15l7 7v27H14z" />
@@ -12,8 +12,6 @@ const steps = [
   },
   {
     number: '02',
-    title: 'Bis zu 3 passende Fachbetriebe',
-    text: 'Wir prüfen Ihre Anfrage und leiten sie passend weiter.',
     icon: (
       <svg viewBox="0 0 48 48" aria-hidden="true">
         <path d="M24 24a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z" />
@@ -23,8 +21,6 @@ const steps = [
   },
   {
     number: '03',
-    title: 'Offerten vergleichen',
-    text: 'Leistung, Anlage und Preis in Ruhe vergleichen.',
     icon: (
       <svg viewBox="0 0 48 48" aria-hidden="true">
         <path d="M11 10h16v28H11zM27 15h10v23H21" />
@@ -34,24 +30,25 @@ const steps = [
   },
 ];
 
-export default function NextGuideProcess() {
+export default function NextGuideProcess({ lang = 'de' }: { lang?: CantonGuideLanguage }) {
+  const ui = cantonGuideUi[lang].process;
   return (
     <section className="next-guide-process" aria-labelledby="next-guide-process-title">
       <div className="container-custom next-guide-process__inner">
         <div className="next-guide-process__heading">
-          <span className="next-guide-process__eyebrow">In drei Schritten</span>
-          <h2 id="next-guide-process-title">So funktioniert der Vergleich über PvPro.ch</h2>
+          <span className="next-guide-process__eyebrow">{ui.eyebrow}</span>
+          <h2 id="next-guide-process-title">{ui.title}</h2>
         </div>
         <ol className="next-guide-process__list">
-          {steps.map((step, index) => (
-            <li key={step.number} className="next-guide-process__step">
+          {ui.steps.map((step, index) => (
+            <li key={step.title} className="next-guide-process__step">
               <div className="next-guide-process__topline">
-                <span className="next-guide-process__number">{step.number}</span>
-                <span className="next-guide-process__icon">{step.icon}</span>
+                <span className="next-guide-process__number">{stepIcons[index].number}</span>
+                <span className="next-guide-process__icon">{stepIcons[index].icon}</span>
               </div>
               <h3>{step.title}</h3>
               <p>{step.text}</p>
-              {index < steps.length - 1 && <span className="next-guide-process__connector" aria-hidden="true" />}
+              {index < ui.steps.length - 1 && <span className="next-guide-process__connector" aria-hidden="true" />}
             </li>
           ))}
         </ol>

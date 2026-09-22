@@ -92,14 +92,9 @@ for (const guide of cantonGuides) {
 }
 for (const area of cantonAreas) {
   for (const locale of ['de', 'fr', 'it', 'en']) {
-    const commissioned = locale === 'de' ? cantonGuides.find(guide => guide.path === area.paths.de) : undefined;
-    if (!commissioned) {
-      assert.equal(getCantonGuide(area.id, locale), undefined);
-      assert.equal(getCantonGuideByPath(area.paths[locale], locale), undefined);
-    } else {
-      assert.equal(getCantonGuideByPath(area.paths.de, 'de'), commissioned);
-      assert.equal(getCantonGuide(area.id, 'de'), commissioned);
-    }
+    const commissioned = getCantonGuideByPath(area.paths[locale], locale);
+    assert.ok(commissioned, `${area.id}/${locale}: localized guide required`);
+    assert.equal(getCantonGuide(area.id, locale), commissioned);
   }
 }
 console.table(report);

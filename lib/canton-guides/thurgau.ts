@@ -43,9 +43,9 @@ export const guide: CantonGuide = {
   id: 'thurgau',
   path: '/solaranlage-thurgau',
   canton: 'Thurgau',
-  title: 'Solaranlage in Thurgau | PvPro.ch',
+  title: 'Solaranlage Thurgau: 30 W/m² oder Effizienzlösung | PvPro.ch',
   description:
-    'Vergleichen Sie bis zu drei kostenlose Offerten geprüfter Solarteure für Ihre Solaranlage in Thurgau.',
+    'Für Neubauten im Thurgau gelten 30 W/m² Eigenstromleistung. Bei einer tieferen Leistung muss der Energiebedarf zusätzlich gesenkt werden.',
   h1: 'Solaranlage im Thurgau: Eigenstrompflicht und Regeln für Neubauten 2026',
   intro: [
     'Für einen Neubau im Thurgau sind grundsätzlich 30 W Eigenstromleistung pro m² Energiebezugsfläche einzuplanen. Die Energiebezugsfläche (EBF) ist die beheizte relevante Gebäudefläche.',

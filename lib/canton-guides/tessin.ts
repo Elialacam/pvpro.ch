@@ -43,8 +43,8 @@ export const guide: CantonGuide = {
   id: 'tessin',
   path: '/solaranlage-tessin',
   canton: 'Tessin',
-  title: 'Solaranlage: Tessin | PvPro.ch',
-  description: 'Vergleichen Sie Solarofferten für Ihr Projekt: Tessin.',
+  title: 'Solaranlage Tessin: Eigenstrompflicht und FER | PvPro.ch',
+  description: 'Für Neubauten im Tessin gelten 10 W/m² Eigenstromleistung. Die FER-Meldung muss innert 12 Monaten nach dem tatsächlichen Netzanschluss erfolgen.',
   h1: 'Solaranlage im Tessin: Förderung, Eigenstrompflicht und FER 2026',
   intro: [
     'Im Tessin müssen Neubauten und vergleichbare Vorhaben grundsätzlich erneuerbaren Strom erzeugen. Gleichzeitig gibt es neben der Bundesförderung von Pronovo den kantonalen CU-FV und seit 2026 neue FER-Regeln für die Einspeisung.',

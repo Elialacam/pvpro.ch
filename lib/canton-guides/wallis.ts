@@ -13,8 +13,8 @@ export const guide: CantonGuide = {
   id: 'wallis',
   path: '/solaranlage-wallis',
   canton: 'Wallis',
-  title: 'Solaranlage in Wallis | PvPro.ch',
-  description: 'Vergleichen Sie bis zu drei kostenlose Offerten geprüfter Solarteure für Ihre Solaranlage in Wallis.',
+  title: 'Solaranlage Wallis: Pflicht bei Dachsanierung | PvPro.ch',
+  description: 'Wird im Wallis die Dachdeckung entfernt, kann eine Solarpflicht von 20 W/m² entstehen. Für Dächer über 500 m² gilt zusätzlich eine 25-Jahres-Regel.',
   h1: 'Solaranlage im Wallis: PV-Pflicht bei Neubau und Dachsanierung 2026',
   intro: [
     'Die Walliser Energiegesetzgebung gilt seit 1. Januar 2025. Sie verlangt nicht nur bei Neubauten und bestimmten Erweiterungen Eigenstrom: Auch das Entfernen einer Dachdeckung kann bei einem bestehenden Gebäude eine Solarpflicht auslösen.',

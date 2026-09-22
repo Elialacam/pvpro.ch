@@ -1,32 +1,18 @@
 ---
-name: Floating contact widget (callback vs WhatsApp)
-description: The site has historically toggled its bottom-right floating widget between two implementations; how to switch and what to watch for
+name: Floating contact widget
+description: Historical widget choices and mobile/CSS pitfalls that are not apparent from the active implementation.
 ---
 
-# Floating widget — two implementations, mutually exclusive
+The callback assistant and WhatsApp button have historically been alternatives, not two simultaneous floating contact controls.
 
-- The bottom-right floating contact element is mounted ONCE in `app/layout.tsx` (root,
-  applies to every locale) and has flip-flopped between two components over time:
-  - `CallbackWidget.tsx` — interactive chat-style consultant assistant (default OPEN):
-    typing indicator → staged chat bubbles → inline conversational Rückruf ("call me back")
-    form; collapses to an animated avatar FAB (rotating solar ring + online dot + teaser).
-    Fields: Vorname, Nachname, Telefonnummer, E-Mail (NO address). German-only.
-    Submits to Web3Forms with combined `FULL NAME`, `PHONE NUMBER`, `EMAIL`, `TYPE`.
-    **Why default-open:** user wants it immediately visible; do NOT add a body scroll-lock
-    (it traps mobile users — this is a floating widget, not a full-screen modal).
-  - `WhatsAppFloating.tsx` — green round wa.me button (no form).
-- Both hide themselves on `/anfrage` via `usePathname()`.
-- The consultant photo `public/images/consultant.png` was deleted in a restore once and
-  had to be recovered from git history — if CallbackWidget shows a broken image, restore
-  the blob from an old commit (it is ~5MB PNG, a candidate for WebP optimization).
+Do not lock body scrolling for the floating callback assistant.
 
-# Gotcha: shared animation CSS
-- `LiveBar.tsx`'s live "ping" dot reused the WhatsApp badge's CSS class (`wa-online-ping`).
-  When removing the WhatsApp widget, that animation is now `status-ping`/`@keyframes
-  statusPing` in `globals.css`. **Why:** deleting "wa-*" CSS blindly broke an unrelated
-  status indicator. Always grep class names across the repo before deleting CSS.
+**Why:** A prior full-screen-style scroll lock trapped mobile visitors even though this widget is not a full-screen modal.
 
-## i18n (Jan 2027)
-- CallbackWidget is fully multilingual: locale from usePathname (`de` default, `/en`, `/fr`, `/it`), all strings in a `T` dictionary inside the component, incl. locale-specific privacy links.
-- Widget is hidden on the quote-form pages of ALL locales (`/anfrage`, `/en/get-solar-panel-quotes`, `/fr/demander-offre-panneau-solaire`, `/it/richiedere-preventivo-solare`).
-- Any new user-facing string in this widget must be added to all 4 locales in `T`.
+**How to apply:** Keep the underlying page scrollable when changing widget opening/closing behavior.
+
+Check shared animation selectors before removing widget CSS.
+
+**Why:** Removing WhatsApp-prefixed animation styles once broke an unrelated live-status indicator that reused them.
+
+**How to apply:** Search every class/keyframe reference before deleting styles, even when the naming appears specific to the removed widget.

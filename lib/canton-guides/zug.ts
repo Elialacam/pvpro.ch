@@ -12,8 +12,8 @@ export const guide: CantonGuide = {
   id: 'zug',
   path: '/solaranlage-zug',
   canton: 'Zug',
-  title: 'Solaranlage in Zug | PvPro.ch',
-  description: 'Vergleichen Sie bis zu drei kostenlose Offerten geprüfter Solarteure für Ihre Solaranlage in Zug.',
+  title: 'Solaranlage Zug: Eigenstrompflicht und Ersatzabgabe | PvPro.ch',
+  description: 'In Zug gelten für erfasste Neubauten und Erweiterungen 10 W/m² Eigenstromleistung. Für fehlende Pflichtleistung beträgt die Ersatzabgabe CHF 1’000 je kW.',
   h1: 'Solaranlage im Kanton Zug: Eigenstrompflicht, Ersatzabgabe und Förderung 2026',
   intro: [
     'Bei Neubauten sowie nicht geringfügigen Erweiterungen und Aufstockungen verlangt Zug 10 W Eigenstromleistung pro m² Energiebezugsfläche. Formel: Energiebezugsfläche × 10 W/m² = erforderliche Leistung; 30 kW oder mehr werden aus dieser Pflicht nie verlangt.',

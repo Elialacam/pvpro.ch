@@ -1,0 +1,67 @@
+import type { CantonGuide } from '../types';
+
+const sources = [
+  { id: 'ti-ruen', authority: 'Canton du Tessin', title: 'Règlement sur l’utilisation de l’énergie (RUEn), art. 14 et 36', url: 'https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/870' },
+  { id: 'ti-solar-meldeverfahren', authority: 'Canton du Tessin', title: 'Règlement d’application de la loi sur les constructions (RLE) : installations solaires', url: 'https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/407' },
+  { id: 'ti-rfer', authority: 'Canton du Tessin', title: 'Règlement du Fonds pour les énergies renouvelables (RFER), art. 24–25', url: 'https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/525' },
+  { id: 'ti-fer-2026', authority: 'Canton du Tessin / AET', title: 'RFER 2026 : rétribution minimale, RCP et CLE', url: 'https://www4.ti.ch/tich/area-media/comunicati/dettaglio-comunicato?NEWS_ID=256850' },
+  { id: 'pronovo-eiv', authority: 'Pronovo / Confédération', title: 'Rétribution unique (RU) pour les installations photovoltaïques', url: 'https://pronovo.ch/de/foerderung/photovoltaik' },
+  { id: 'pronovo-tariff-calculator', authority: 'Pronovo / Confédération', title: 'Calculateur tarifaire photovoltaïque', url: 'https://pronovo.ch/de/services/tarifrechner' },
+] as const;
+
+export const guide: CantonGuide = {
+  id: 'tessin', path: '/fr/solaire-tessin', canton: 'Tessin',
+  title: 'Installation photovoltaïque au Tessin | PvPro.ch', description: 'Comparez des offres solaires pour votre projet au Tessin en tenant compte du FER cantonal et des subventions fédérales.',
+  h1: 'Installation photovoltaïque au Tessin : subventions, autoproduction et FER 2026',
+  intro: ['Au Tessin, les constructions neuves et les projets assimilés doivent en principe produire de l’électricité renouvelable. Aux subventions fédérales de Pronovo s’ajoutent le CU-FV cantonal et, depuis 2026, de nouvelles règles FER pour l’injection.','Pour une planification rigoureuse, la commune, le raccordement au réseau, Pronovo et le FER doivent être traités séparément. Les étapes ci-dessous indiquent les compétences et les délais à respecter.'],
+  quickFacts: [
+    { value: '10 W/m² de nouvelle SRE', label: 'Prescription pour les constructions neuves et projets assimilés', sourceIds: ['ti-ruen'] },
+    { value: 'Obligation strictement <30 kW', label: 'Cette prescription n’exige jamais 30 kW ou plus', sourceIds: ['ti-ruen'] },
+    { value: '30 jours à l’avance', label: 'Annonce à la commune si aucun permis n’est requis', sourceIds: ['ti-solar-meldeverfahren'] },
+    { value: '12 mois', label: 'Annonce au FER dès le raccordement effectif au réseau', sourceIds: ['ti-rfer'] },
+  ],
+  ctaAfterSection: 'verfahren',
+  sections: [
+    { id: 'verfahren', title: 'Bien distinguer commune, Pronovo et FER', paragraphs: ['Commencez par clarifier la classification du projet auprès de la commune et traitez séparément les procédures de subvention. L’ordre présenté sert de repère ; il ne signifie pas que Pronovo et le FER doivent toujours être sollicités successivement.'], sourceIds: ['ti-solar-meldeverfahren','ti-rfer','pronovo-eiv'], module: { kind: 'fer-procedure', title: 'Commune, Pronovo et FER : trois procédures distinctes', intro: 'Ces six étapes montrent les compétences. Clarifiez les dates de dépôt avec les organismes concernés afin de gérer correctement tâches parallèles et délais.', items: [
+      { title: '1. Classer le projet', value: 'Projet de construction', text: 'Vérifier s’il s’agit d’une construction neuve, d’un agrandissement ou d’une transformation assimilée à une construction neuve, puis déterminer la nouvelle SRE et une éventuelle exemption.', detail: 'La SRE, ou surface de référence énergétique, est la surface chauffée déterminante du bâtiment.', sourceIds: ['ti-ruen'] },
+      { title: '2. Contacter la commune', value: 'Commune', text: 'Clarifier avec la commune si un permis est requis ou si la procédure d’annonce suffit.', detail: 'La procédure d’annonce consiste à notifier le projet au lieu de suivre une procédure ordinaire de permis.', sourceIds: ['ti-solar-meldeverfahren'] },
+      { title: '3. Installer et raccorder au réseau', value: 'Installation + réseau', text: 'Après la procédure de construction appropriée, installer le système et documenter le raccordement effectif au réseau.', detail: 'La date de raccordement déclenche le délai de douze mois pour annoncer la mise en service au FER.', sourceIds: ['ti-rfer'] },
+      { title: '4. Traiter les subventions fédérales', value: 'Pronovo', text: 'Examiner la rétribution unique fédérale de Pronovo comme une procédure distincte et déterminer la catégorie adaptée à l’installation.', detail: 'Pronovo et le CU-FV cantonal sont deux voies de subvention différentes.', sourceIds: ['pronovo-eiv','ti-rfer'] },
+      { title: '5. Annoncer séparément au FER', value: 'FER', text: 'Annoncer la mise en service au FER au plus tard douze mois après le raccordement effectif ; en photovoltaïque, une annonce tardive peut être exclue.', detail: 'L’annonce de construction à la commune ne remplace pas cette annonce au FER.', sourceIds: ['ti-rfer'] },
+      { title: '6. Définir consommation propre et excédent', value: 'RCP + CLE', text: 'Pour les installations CU-FER dès 2026, examiner l’intérêt d’un RCP ou d’une CLE et le traitement de l’excédent selon les conditions FER/AET.', detail: 'RCP désigne le regroupement dans le cadre de la consommation propre ; CLE une communauté électrique locale.', sourceIds: ['ti-fer-2026'] },
+    ] } },
+    { id: 'eigenstrom', title: 'Obligation d’autoproduction pour constructions neuves, agrandissements et transformations', paragraphs: [
+      'Pour une construction neuve, un agrandissement ou une transformation assimilée, prévoyez en principe 10 W de production électrique renouvelable par m² de nouvelle SRE. La SRE est la surface chauffée déterminante du bâtiment.',
+      'La puissance exigée reste strictement inférieure à 30 kW : cette disposition n’impose jamais 30 kW ou plus. C’est un plafond de l’obligation, non une limite à une installation volontairement plus grande.',
+      'Si la production électrique est difficile ou disproportionnée, les besoins énergétiques pondérés peuvent être réduits de 5 kWh supplémentaires par m² et par an. Si l’obligation est partiellement remplie, cette exigence d’efficacité diminue proportionnellement.',
+    ], bullets: ['Exemption pour un agrandissement avec moins de 50 m² de nouvelle SRE','Exemption pour un agrandissement inférieur à 20% de la partie existante et ne dépassant simultanément pas 1’000 m²','Exemptions pour certains sites et centres ISOS','Exemptions pour les biens culturels protégés et leur périmètre de protection'], sourceIds: ['ti-ruen'], notice: { title: 'L’ancienne règle des 300 m² a expiré', text: 'La disposition transitoire de l’art. 36 RUEn imposait, pour certaines constructions neuves de plus de 300 m² de surface déterminante, de l’énergie solaire sur 50% du toit ou de la façade. Expressément limitée au 31 décembre 2025, elle n’est plus une obligation en 2026.', status: 'important' } },
+    { id: 'meldung', title: 'Procédure d’annonce : informer la commune au moins 30 jours à l’avance', paragraphs: [
+      'Déposez auprès de la commune une installation solaire dispensée de permis au moins 30 jours avant les travaux. Dispensée de permis ne signifie pas dispensée de procédure : l’annonce remplace la procédure ordinaire de permis.',
+      'Préparez un dossier complet : nom et adresse du propriétaire, numéro de parcelle, plan de situation au 1:500 ou 1:1000, modèle des panneaux, puissance totale, vue du toit et coupes. La commune transmet le dossier à la SPAAS sous dix jours.',
+      'Ne confondez pas le délai de dix jours pour la transmission communale avec celui d’au moins 30 jours avant les travaux. Vérifiez d’abord auprès de la commune d’implantation si l’annonce suffit réellement.',
+    ], sourceIds: ['ti-solar-meldeverfahren'] },
+    { id: 'cu-fv', title: 'CU-FV cantonal en plus des subventions fédérales', paragraphs: [
+      'Examinez le CU-FV cantonal séparément de Pronovo. Pour les installations mises en service depuis le 1er avril 2022, la contribution jusqu’à 30 kW correspond à 50% de la référence RU-CH déterminante.',
+      'Au-delà de 30 kW, 50% de la RU-CH s’applique aux 30 premiers kW et un tiers à la puissance restante. La contribution cantonale est plafonnée à CHF 250’000.',
+      'Les bonus fédéraux d’inclinaison ou d’altitude et la RUE ne comptent pas dans le calcul cantonal. Aux conditions RFER, les contributions cantonales cumulées ne peuvent en outre dépasser 50% des coûts d’investissement reconnus.',
+      'Annoncez la mise en service au FER dans les douze mois suivant le raccordement effectif. En photovoltaïque, une annonce tardive peut entraîner le refus de la demande cantonale.',
+    ], sourceIds: ['ti-rfer'] },
+    { id: 'rmin', title: 'Rmin FER 2026 pour les installations CU-FER de moins de 150 kW', paragraphs: [
+      'Depuis le 1er janvier 2026, une rétribution minimale s’applique aux installations CU-FER de moins de 150 kW lorsque le prix de reprise AET est inférieur au minimum déterminant. Elle ne remplace donc pas automatiquement le prix AET.',
+      'Le minimum est de 4.0 ct./kWh sous 30 kW. Pour les installations de 30 à 150 kW sans consommation propre, il est de 5.0 ct./kWh.',
+      'Pour les installations de 30 à 150 kW avec consommation propre, une pondération s’applique : 4.0 ct./kWh pour la part des 30 premiers kW et 0.0 ct./kWh pour le reste. La valeur mixte propre à l’installation est pertinente pour la comparaison avec le prix de reprise AET.',
+    ], sourceIds: ['ti-fer-2026'] },
+    { id: 'rcp-cle', title: 'RCP et CLE avec CU-FER depuis 2026', paragraphs: ['Depuis le 1er janvier 2026, les installations CU-FER peuvent participer à un RCP ou une CLE. Un RCP est un regroupement dans le cadre de la consommation propre ; une CLE est une communauté électrique locale.','L’énergie consommée en interne n’est pas vendue à AET. Seul l’excédent reste soumis aux conditions FER/AET applicables. Clarifiez donc mesure, attribution interne et traitement des excédents avant la réalisation.'], sourceIds: ['ti-fer-2026'] },
+    { id: 'pronovo', title: 'Pronovo constitue la procédure fédérale distincte', paragraphs: ['Demandez ou examinez la rétribution unique fédérale indépendamment du FER cantonal. RU signifie rétribution unique : la PRU vaut sous 100 kW, la GRU dès 100 kW ; la RUE sans consommation propre n’est ouverte qu’aux catégories éligibles.','Depuis le 1er avril 2024, la contribution de base est de CHF 0. Le montant concret dépend du tarif individuel et des conditions ; ce n’est pas un pourcentage fixe garanti des coûts.'], sourceIds: ['pronovo-eiv','pronovo-tariff-calculator'] },
+    { id: 'batterie', title: 'Batterie sans contribution FER domestique distincte confirmée', paragraphs: ['Ne budgétez pas de bonus FER cantonal général pour une batterie solaire privée ordinaire. Le RFER ne confirme aucune contribution standard distincte pour une batterie domestique ajoutée à une installation solaire normale.','Toute offre communale devrait être prouvée séparément pour l’emplacement concret. Faites donc apparaître le stockage dans l’offre comme un poste distinct et clairement désigné.'], sourceIds: ['ti-rfer'] },
+    { id: 'kosten', title: 'Rendre coûts et planification comparables', paragraphs: ['Comparez les offres sur la même base technique et administrative. Elles devraient notamment indiquer la nouvelle SRE, la puissance prévue, les travaux de toiture et d’électricité, le raccordement, le concept de mesure et le stockage optionnel.','Présentez Pronovo, CU-FV et les hypothèses d’injection comme postes séparés. On voit ainsi quels montants appartiennent à l’offre et lesquels ne seront établis qu’après une procédure propre.','Avec PvPro.ch, les propriétaires peuvent comparer gratuitement et sans engagement jusqu’à trois offres solaires adaptées.'], bullets: ['Puissance et plan d’implantation sur la même base','Procédure communale et documents requis','Raccordement, compteur et concept de consommation propre','Pronovo et CU-FV indiqués séparément','Batterie comme option clairement identifiable'], sourceIds: ['ti-ruen','ti-solar-meldeverfahren','ti-rfer','pronovo-eiv'] },
+  ],
+  faqs: [
+    { question: 'Le Tessin impose-t-il une autoproduction aux constructions neuves ?', answer: 'Oui, en principe 10 W/m² de nouvelle surface de référence énergétique.', sourceIds: ['ti-ruen'] },
+    { question: 'L’ancienne règle des 300 m² s’applique-t-elle encore ?', answer: 'Non, l’art. 36 était expressément limité au 31.12.2025.', sourceIds: ['ti-ruen'] },
+    { question: 'Le canton du Tessin subventionne-t-il le photovoltaïque en plus de Pronovo ?', answer: 'Oui, par le CU-FV du FER aux conditions légales.', sourceIds: ['ti-rfer','pronovo-eiv'] },
+    { question: 'Quel est le montant de la contribution cantonale ?', answer: 'Jusqu’à 30 kW, en principe 50% de la RU-CH déterminante ; une formule échelonnée vaut pour les installations plus grandes.', sourceIds: ['ti-rfer'] },
+    { question: 'Quand faut-il annoncer la mise en service au FER ?', answer: 'Au plus tard douze mois après le raccordement au réseau.', sourceIds: ['ti-rfer'] },
+    { question: 'Une installation CU-FER peut-elle participer à une CLE ?', answer: 'Oui, depuis le 1er janvier 2026.', sourceIds: ['ti-fer-2026'] },
+  ], sources: [...sources],
+};

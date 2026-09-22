@@ -61,9 +61,9 @@ export const guide: CantonGuide = {
   id: 'st-gallen',
   path: '/solaranlage-st-gallen',
   canton: 'St. Gallen',
-  title: 'Solaranlage in St. Gallen | PvPro.ch',
+  title: 'Solaranlage St. Gallen: Eigenstrompflicht bei Neubauten | PvPro.ch',
   description:
-    'Vergleichen Sie bis zu drei kostenlose Offerten geprüfter Solarteure für Ihre Solaranlage in St. Gallen.',
+    'Neubauten erfüllen die St. Galler Eigenstrompflicht mit Photovoltaik, zusätzlicher Energieeffizienz, einer ZEV-Lösung oder einer Ersatzabgabe.',
   h1: 'Solaranlage im Kanton St. Gallen: Eigenstrompflicht und Ersatzabgabe 2026',
   intro: [
     'Für Neubauten im Kanton St. Gallen gilt seit 1. Juli 2021 eine Eigenstromvorgabe. Sie lässt sich mit Photovoltaik, zusätzlicher Energieeffizienz, einer gemeinsamen ZEV-Lösung oder einer Ersatzabgabe erfüllen.',

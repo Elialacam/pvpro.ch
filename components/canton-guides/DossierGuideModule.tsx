@@ -2,10 +2,12 @@
 
 import type { ReactNode } from 'react';
 import type { GuideModule } from '@/lib/canton-guides/types';
+import { cantonGuideUi, type CantonGuideLanguage } from '@/lib/canton-guide-ui';
 
 interface Props {
   module: GuideModule;
   sourceLinks: (ids: string[]) => ReactNode;
+  lang?: CantonGuideLanguage;
 }
 
 function ItemValue({ item }: { item: GuideModule['items'][number] }) {
@@ -17,12 +19,12 @@ function ItemSources({ item, sourceLinks }: { item: GuideModule['items'][number]
   return <>{item.detail && <p className="dossier-item-detail">{item.detail}</p>}{sourceLinks(item.sourceIds)}</>;
 }
 
-function RoofDuty({ module, sourceLinks }: Props) {
+function RoofDuty({ module, sourceLinks, lang = 'de' }: Props) {
   const paths = module.items.slice(0, 3);
   const outcomes = module.items.slice(3);
   return <div className="dossier-roof-tree"><ol className="dossier-roof-paths">{paths.map((item, index) => <li key={item.title}>
     <span className="dossier-step-no">0{index + 1}</span><div><ItemValue item={item} /><h4>{item.title}</h4><p>{item.text}</p><ItemSources item={item} sourceLinks={sourceLinks} /></div>
-  </li>)}</ol>{outcomes.length ? <div className="dossier-roof-outcomes"><h4>Danach prüfen</h4><div>{outcomes.map(item => <article key={item.title}><ItemValue item={item} /><h4>{item.title}</h4><p>{item.text}</p><ItemSources item={item} sourceLinks={sourceLinks} /></article>)}</div></div> : null}</div>;
+  </li>)}</ol>{outcomes.length ? <div className="dossier-roof-outcomes"><h4>{cantonGuideUi[lang].module.dossier.checkNext}</h4><div>{outcomes.map(item => <article key={item.title}><ItemValue item={item} /><h4>{item.title}</h4><p>{item.text}</p><ItemSources item={item} sourceLinks={sourceLinks} /></article>)}</div></div> : null}</div>;
 }
 
 function Battery({ module, sourceLinks }: Props) {
@@ -31,15 +33,16 @@ function Battery({ module, sourceLinks }: Props) {
   </article>)}</div></div>;
 }
 
-function OwnPower({ module, sourceLinks }: Props) {
-  return <ol className="dossier-power-steps">{module.items.map((item, index) => <li key={item.title}><span>Schritt {index + 1}</span><ItemValue item={item} /><h4>{item.title}</h4><p>{item.text}</p><ItemSources item={item} sourceLinks={sourceLinks} /></li>)}</ol>;
+function OwnPower({ module, sourceLinks, lang = 'de' }: Props) {
+  return <ol className="dossier-power-steps">{module.items.map((item, index) => <li key={item.title}><span>{cantonGuideUi[lang].module.step} {index + 1}</span><ItemValue item={item} /><h4>{item.title}</h4><p>{item.text}</p><ItemSources item={item} sourceLinks={sourceLinks} /></li>)}</ol>;
 }
 
-function WinterAngle({ module, sourceLinks }: Props) {
+function WinterAngle({ module, sourceLinks, lang = 'de' }: Props) {
+  const ui = cantonGuideUi[lang].module.dossier;
   return <div className="dossier-winter">
     <figure className="dossier-angle-figure">
       <svg viewBox="0 0 560 280" role="img" aria-labelledby="angle-title angle-desc">
-        <title id="angle-title">Neigungswinkel von 75 bis 90 Grad</title><desc id="angle-desc">Eine Solaranlage ist steil über einer horizontalen Grundlinie dargestellt. Der gelbe Bogen markiert den Bereich von 75 bis 90 Grad.</desc>
+        <title id="angle-title">{ui.angleTitle}</title><desc id="angle-desc">{ui.angleDescription}</desc>
         <path d="M48 230H512" className="dossier-svg-ground" />
         <path d="M160 230L160 118L300 230Z" className="dossier-svg-house" />
         <path d="M160 230L196 95A140 140 0 0 0 160 90Z" className="dossier-svg-wedge" />
@@ -51,32 +54,32 @@ function WinterAngle({ module, sourceLinks }: Props) {
         <path d="M196 95L185 99M160 90L171 90" className="dossier-svg-ticks" />
         <circle cx="158" cy="230" r="5" className="dossier-svg-pivot" />
         <text x="206" y="113" className="dossier-svg-label">75°</text><text x="128" y="82" className="dossier-svg-label">90°</text>
-        <text x="282" y="257" className="dossier-svg-caption">Horizontale</text>
+        <text x="282" y="257" className="dossier-svg-caption">{ui.horizontal}</text>
       </svg>
-      <figcaption>Förderbereich: steile Anlage mit 75° bis 90° Neigung</figcaption>
+      <figcaption>{ui.angleCaption}</figcaption>
     </figure>
     <div className="dossier-winter-facts">{module.items.map(item => <article key={item.title}><ItemValue item={item} /><h4>{item.title}</h4><p>{item.text}</p><ItemSources item={item} sourceLinks={sourceLinks} /></article>)}</div>
-    <div className="dossier-sequence" aria-label="Ablauf"><b>Gesuch</b><i>→</i><b>Eingangsbestätigung</b><i>→</i><b>Bau</b><i>→</i><b>Abschluss</b></div>
+    <div className="dossier-sequence" aria-label={ui.sequenceAria}><b>{ui.sequence[0]}</b><i>→</i><b>{ui.sequence[1]}</b><i>→</i><b>{ui.sequence[2]}</b><i>→</i><b>{ui.sequence[3]}</b></div>
   </div>;
 }
 
-function LawTimeline({ module, sourceLinks }: Props) {
+function LawTimeline({ module, sourceLinks, lang = 'de' }: Props) {
   return <div className="dossier-law-timeline">{module.items.map((item, index) => {
     const isTransition = /art\.\s*27|übergang/i.test(`${item.title} ${item.value ?? ''}`) || (index > 1 && /30\s*w/i.test(`${item.title} ${item.text} ${item.detail ?? ''}`));
     return <article key={item.title} className={isTransition ? 'dossier-law-transition' : 'dossier-law-now'}>
-    <span>{isTransition ? 'Übergang' : 'Ab 2026'}</span><ItemValue item={item} /><h4>{item.title}</h4><p>{item.text}</p><ItemSources item={item} sourceLinks={sourceLinks} />
+    <span>{isTransition ? cantonGuideUi[lang].module.dossier.transition : cantonGuideUi[lang].module.dossier.from2026}</span><ItemValue item={item} /><h4>{item.title}</h4><p>{item.text}</p><ItemSources item={item} sourceLinks={sourceLinks} />
   </article>;
   })}</div>;
 }
 
-export default function DossierGuideModule({ module, sourceLinks }: Props) {
+export default function DossierGuideModule({ module, sourceLinks, lang = 'de' }: Props) {
   const kind = module.kind as string;
   let content: ReactNode;
-  if (kind === 'roof-duty-check') content = <RoofDuty module={module} sourceLinks={sourceLinks} />;
+  if (kind === 'roof-duty-check') content = <RoofDuty module={module} sourceLinks={sourceLinks} lang={lang} />;
   else if (kind === 'battery-eligibility') content = <Battery module={module} sourceLinks={sourceLinks} />;
-  else if (kind === 'own-power-steps') content = <OwnPower module={module} sourceLinks={sourceLinks} />;
-  else if (kind === 'winter-angle') content = <WinterAngle module={module} sourceLinks={sourceLinks} />;
-  else content = <LawTimeline module={module} sourceLinks={sourceLinks} />;
+  else if (kind === 'own-power-steps') content = <OwnPower module={module} sourceLinks={sourceLinks} lang={lang} />;
+  else if (kind === 'winter-angle') content = <WinterAngle module={module} sourceLinks={sourceLinks} lang={lang} />;
+  else content = <LawTimeline module={module} sourceLinks={sourceLinks} lang={lang} />;
   return <section className={`guide-module dossier-module dossier-module--${kind}`} data-guide-module={kind}>
     <h3>{module.title}</h3>
     {kind !== 'battery-eligibility' && module.intro && <p className="guide-module-intro">{module.intro}</p>}

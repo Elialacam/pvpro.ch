@@ -55,9 +55,9 @@ export const guide: CantonGuide = {
   id: 'solothurn',
   path: '/solaranlage-solothurn',
   canton: 'Solothurn',
-  title: 'Solaranlage in Solothurn | PvPro.ch',
+  title: 'Solaranlage Solothurn: Keine neue Solarpflicht 2026 | PvPro.ch',
   description:
-    'Vergleichen Sie bis zu drei kostenlose Offerten geprüfter Solarteure für Ihre Solaranlage in Solothurn.',
+    'Die Energierevision wurde 2025 abgelehnt; eine neue 10-W/m²-Pflicht gilt in Solothurn nicht. Bewilligungsfreie Anlagen sind 30 Tage vor Baubeginn zu melden.',
   h1: 'Solaranlage im Kanton Solothurn: Was 2026 wirklich gilt',
   intro: [
     'Für Solaranlagen in Solothurn gilt 2026 keine neue allgemeine 10-W/m²-Pflicht aus der geplanten Totalrevision: Die Vorlage wurde am 9. Februar 2025 abgelehnt.',

@@ -1,6 +1,6 @@
 - [Image assets](image-assets.md) — content images can be WebP; og/social + logos/favicons must stay as-is; check openGraph refs before converting.
 - [Next.js v16 upgrade](nextjs-upgrade-v16.md) — forced upgrade from 14→16 (CVE block); removed eslint/swcMinify from config, deleted app/sitemap.ts conflict, added allowedDevOrigins.
-- [Floating contact widget](floating-widget.md) — bottom-right widget flips between CallbackWidget (callback form) and WhatsAppFloating; mount in app/layout.tsx; watch shared "wa-*" CSS used by LiveBar.
+- [Floating contact widget](floating-widget.md) — callback and WhatsApp are alternatives; avoid body scroll locking and check shared animation CSS before removing a widget.
 - [Lead submission flow](lead-flow.md) — slead.ch == LeadSync; all forms route via /api/anfrage; Web3Forms removed, never reintroduce.
 - [Blog image focal points](blog-image-focus.md) — object-position per image auto-computed via sharp attention; regen with `npm run generate:image-focus` when blog images change.
 - [Vercel lockfile registry](vercel-lockfile-registry.md) — npm installs on Replit can write package-firewall.replit.local URLs into package-lock.json, breaking Vercel builds; scrub before pushing.
@@ -11,3 +11,4 @@
 - [Approved service and tax claims](approved-claims.md) — free/100% free is valid for homeowners; tax deduction means taxable income on existing buildings, not new builds.
 - [Canton content boundaries](canton-content-boundaries.md) — expanded coverage uses neutral guidance; do not copy another Canton's local financial or installer claims.
 - [Incentive calculation boundaries](incentive-calculation-boundaries.md) — prefer gross estimates and official calculation over incomplete subsidy formulas; cumulative aid needs programme-specific evidence.
+- [Multilingual canton maintenance](multilingual-canton-maintenance.md) — German-only editorial source, full-depth translations, static locale roots, and the Webpack development tradeoff.

@@ -9,6 +9,7 @@ import { getCityBySlug } from '@/lib/cities';
 import { cityContents, CityContent } from '@/lib/city-content';
 import { notFound } from 'next/navigation';
 import UniqueCityPage from '@/components/UniqueCityPage';
+import { requireCantonGuide } from '@/lib/canton-guides';
 import { pageMetadata } from '@/lib/pageMetadata';
 
 // This is a template for the city pages.
@@ -23,5 +24,5 @@ export default function CityPage() {
   const city = getCityBySlug(citySlug);
   if (!city) notFound();
   const content = cityContents[citySlug] || cityContents['zurich'];
-  return <UniqueCityPage city={city} content={content} accentColor="blue" />;
+  return <UniqueCityPage city={city} content={content} accentColor="blue" guide={requireCantonGuide(citySlug, 'fr')} />;
 }

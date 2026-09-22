@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Check, ChevronDown, Send } from 'lucide-react';
+import { leadContextFromPath, leadContextFromValues } from '@/lib/leadContext';
 
 const GOLD = '#ffc812';
 const NAVY = '#1F2937';
@@ -38,6 +39,11 @@ const T: Record<Locale, {
   ariaOpen: string;
   ariaTeaserClose: string;
   alt: string;
+  requiredError: string;
+  emailError: string;
+  phoneError: string;
+  submitError: string;
+  consent: string;
 }> = {
   de: {
     online: 'Online · Antwortet sofort',
@@ -64,6 +70,11 @@ const T: Record<Locale, {
     ariaOpen: 'Beratung öffnen',
     ariaTeaserClose: 'Hinweis schliessen',
     alt: 'Solarberater',
+    requiredError: 'Bitte füllen Sie alle Pflichtfelder aus.',
+    emailError: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+    phoneError: 'Bitte geben Sie eine gültige Schweizer Telefonnummer ein.',
+    submitError: 'Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.',
+    consent: 'Ich bin einverstanden, dass PvPro.ch meine Angaben an bis zu 3 geprüfte Solarinstallateure weitergibt, damit diese mir eine Offerte erstellen.',
   },
   en: {
     online: 'Online · Replies instantly',
@@ -90,6 +101,11 @@ const T: Record<Locale, {
     ariaOpen: 'Open consultation',
     ariaTeaserClose: 'Dismiss hint',
     alt: 'Solar consultant',
+    requiredError: 'Please fill in all required fields.',
+    emailError: 'Please enter a valid email address.',
+    phoneError: 'Please enter a valid Swiss phone number.',
+    submitError: 'Your request could not be sent. Please try again.',
+    consent: 'I agree that PvPro.ch may share my information with up to 3 verified solar installers so that they can prepare a quote for me.',
   },
   fr: {
     online: 'En ligne · Répond immédiatement',
@@ -116,6 +132,11 @@ const T: Record<Locale, {
     ariaOpen: 'Ouvrir la consultation',
     ariaTeaserClose: 'Fermer l’info-bulle',
     alt: 'Conseiller solaire',
+    requiredError: 'Veuillez remplir tous les champs obligatoires.',
+    emailError: 'Veuillez saisir une adresse e-mail valide.',
+    phoneError: 'Veuillez saisir un numéro de téléphone suisse valide.',
+    submitError: 'Votre demande n’a pas pu être envoyée. Veuillez réessayer.',
+    consent: 'J’accepte que PvPro.ch transmette mes données à un maximum de 3 installateurs solaires vérifiés afin qu’ils puissent me préparer un devis.',
   },
   it: {
     online: 'Online · Risponde subito',
@@ -142,6 +163,11 @@ const T: Record<Locale, {
     ariaOpen: 'Apri la consulenza',
     ariaTeaserClose: 'Chiudi il suggerimento',
     alt: 'Consulente solare',
+    requiredError: 'Compili tutti i campi obbligatori.',
+    emailError: 'Inserisca un indirizzo e-mail valido.',
+    phoneError: 'Inserisca un numero di telefono svizzero valido.',
+    submitError: 'Non è stato possibile inviare la richiesta. Riprovi.',
+    consent: 'Acconsento che PvPro.ch trasmetta i miei dati a un massimo di 3 installatori verificati perché mi preparino un preventivo.',
   },
 };
 
@@ -155,7 +181,8 @@ function getLocale(pathname: string | null): Locale {
 
 export default function CallbackWidget() {
   const pathname = usePathname();
-  const t = T[getLocale(pathname)];
+  const locale = getLocale(pathname);
+  const t = T[locale];
 
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
@@ -163,9 +190,10 @@ export default function CallbackWidget() {
   const [revealed, setRevealed] = useState(false);
   const [teaser, setTeaser] = useState(false);
 
-  const [formData, setFormData] = useState({ firstName: '', lastName: '', phone: '', email: '' });
+  const [formData, setFormData] = useState({ firstName: '', lastName: '', phone: '', email: '', installerSharingConsent: false });
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, boolean>>({});
+  const [errorMsg, setErrorMsg] = useState('');
 
   /* Typing → messages reveal each time the chat opens (and not yet sent) */
   useEffect(() => {
@@ -200,17 +228,41 @@ export default function CallbackWidget() {
   };
 
   const handleSubmit = async () => {
+    setErrorMsg('');
     const errs: Record<string, boolean> = {};
     if (!formData.firstName.trim()) errs.firstName = true;
     if (!formData.lastName.trim()) errs.lastName = true;
     if (!formData.phone.trim()) errs.phone = true;
     if (!formData.email.trim()) errs.email = true;
+    if (!formData.installerSharingConsent) errs.installerSharingConsent = true;
     setErrors(errs);
-    if (Object.keys(errs).length > 0) return;
+    if (Object.keys(errs).length > 0) { setErrorMsg(t.requiredError); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      setErrors({ email: true });
+      setErrorMsg(t.emailError);
+      return;
+    }
+    const normalizedPhone = formatPhone(formData.phone).replace(/\D/g, '');
+    if (!/^0[1-9]\d{8}$/.test(normalizedPhone)) {
+      setErrors({ phone: true });
+      setErrorMsg(t.phoneError);
+      return;
+    }
     setSubmitting(true);
     try {
       const fullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
       const params = new URLSearchParams(window.location.search);
+      const pathContext = leadContextFromPath(pathname, locale);
+      const campaignSource =
+        params.get('source') ??
+        sessionStorage.getItem('pvpro_source') ??
+        '';
+      const context = leadContextFromValues(
+        locale,
+        pathContext.canton,
+        pathContext.origin,
+        campaignSource,
+      );
       const res = await fetch('/api/anfrage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -219,10 +271,16 @@ export default function CallbackWidget() {
           'PHONE NUMBER': formatPhone(formData.phone),
           EMAIL: formData.email.trim(),
           utm_source: params.get('utm_source') || 'rueckruf-widget',
+          installer_sharing_consent: formData.installerSharingConsent,
+          ...context,
           ...(params.get('fbclid') ? { fbclid: params.get('fbclid') } : {}),
         }),
       });
-      if (res.ok) setSent(true);
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) setSent(true);
+      else setErrorMsg(typeof data.error === 'string' ? data.error : t.submitError);
+    } catch {
+      setErrorMsg(t.submitError);
     } finally {
       setSubmitting(false);
     }
@@ -422,6 +480,23 @@ export default function CallbackWidget() {
                         value={formData.email}
                         onChange={(e) => { setFormData((p) => ({ ...p, email: e.target.value })); setErrors((p) => ({ ...p, email: false })); }}
                       />
+
+                      <label className={`mt-2.5 flex items-start gap-2 rounded-xl border p-2.5 text-[10px] leading-tight ${errors.installerSharingConsent ? 'border-red-400 text-red-700' : 'border-gray-200 text-gray-500'}`}>
+                        <input
+                          type="checkbox"
+                          checked={formData.installerSharingConsent}
+                          onChange={(e) => {
+                            setFormData((p) => ({ ...p, installerSharingConsent: e.target.checked }));
+                            setErrors((p) => ({ ...p, installerSharingConsent: false }));
+                          }}
+                          className="mt-0.5 h-3.5 w-3.5 shrink-0"
+                        />
+                        <span>{t.consent}</span>
+                      </label>
+
+                      {errorMsg && (
+                        <p role="alert" className="mt-2 text-center text-xs font-medium text-red-600">{errorMsg}</p>
+                      )}
 
                       <button
                         onClick={handleSubmit}

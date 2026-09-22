@@ -9,47 +9,56 @@ import GuideStyles from '@/components/canton-guides/GuideStyles';
 import NextGuideProcess from '@/components/canton-guides/NextGuideProcess';
 import type { CantonGuide } from '@/lib/canton-guides/types';
 import { finalGuideIds, closingGuideIds } from '@/lib/canton-guides/types';
+import {
+  cantonGuideRequestHref,
+  cantonGuideUi,
+  type CantonGuideLanguage,
+} from '@/lib/canton-guide-ui';
 
 interface CantonGuidePageProps {
   guide: CantonGuide;
   mapSection: ReactNode;
+  lang?: CantonGuideLanguage;
 }
 
-function OfferCta({ final = false }: { final?: boolean }) {
+function OfferCta({ guide, lang, final = false }: { guide: CantonGuide; lang: CantonGuideLanguage; final?: boolean }) {
+  const ui = cantonGuideUi[lang];
   return (
     <section className={final ? 'guide-final' : 'guide-cta-band'}>
       <div className="container-custom">
         <div className="guide-cta-box">
-          <h2>{final ? 'Ihr Solarprojekt konkret planen' : 'Offerten auf gleicher Grundlage vergleichen'}</h2>
-          <p>{final ? 'Starten Sie mit einer klaren Anfrage für Ihr konkretes Projekt.' : 'Der sinnvollste Vergleich: mehrere Offerten für dasselbe Projekt.'}</p>
-          <Link href="/anfrage" className="guide-button">Bis zu 3 Solarofferten vergleichen</Link>
-          <p className="guide-microcopy">Kostenlos · Unverbindlich · Passende Fachbetriebe</p>
+          <h2>{final ? ui.offer.finalTitle : ui.offer.compareTitle}</h2>
+          <p>{final ? ui.offer.finalText : ui.offer.compareText}</p>
+          <Link href={cantonGuideRequestHref(lang, guide)} className="guide-button">{ui.offer.button}</Link>
+          <p className="guide-microcopy">{ui.offer.microcopy}</p>
         </div>
       </div>
     </section>
   );
 }
 
-function anchorLabel(id: string, title: string) {
+function anchorLabel(id: string, title: string, lang: CantonGuideLanguage) {
+  const ui = cantonGuideUi[lang];
   const labels: Record<string, string> = {
-    kosten: 'Kosten',
-    foerderung: 'Förderung',
-    bewilligung: 'Bewilligung',
-    solarpflicht: 'Solarpflicht',
-    dachsanierung: 'Dachsanierung',
-    regelung: 'Regeln',
+    kosten: ui.anchors.costs,
+    foerderung: ui.anchors.funding,
+    bewilligung: ui.anchors.permit,
+    solarpflicht: ui.anchors.solarRequirement,
+    dachsanierung: ui.anchors.roofRenovation,
+    regelung: ui.anchors.rules,
   };
   return labels[id] ?? title.split(':')[0];
 }
 
-export default function CantonGuidePage({ guide, mapSection }: CantonGuidePageProps) {
+export default function CantonGuidePage({ guide, mapSection, lang = 'de' }: CantonGuidePageProps) {
+  const ui = cantonGuideUi[lang];
   const isFinalGuide = finalGuideIds.includes(guide.id) || closingGuideIds.includes(guide.id);
   const isDossierGuide = isFinalGuide || ['luzern', 'neuenburg', 'nidwalden', 'obwalden', 'schaffhausen'].includes(guide.id);
   const hasRefinedProcess = ['freiburg', 'genf', 'glarus', 'graubunden', 'jura'].includes(guide.id);
   const sourceLabel = (ids: string[]) => {
     if (!ids.length) return null;
-    return <small className="guide-source-links">Quellen: {ids.map((id, index) => (
-      <a key={id} href={`#quelle-${id}`} aria-label={`Quelle ${id}`}>
+    return <small className="guide-source-links">{ui.sources}: {ids.map((id, index) => (
+      <a key={id} href={`#quelle-${id}`} aria-label={ui.sourceAria(id)}>
         {guide.sources.findIndex(source => source.id === id) + 1}{index < ids.length - 1 ? ',' : ''}
       </a>
     ))}</small>;
@@ -58,12 +67,12 @@ export default function CantonGuidePage({ guide, mapSection }: CantonGuidePagePr
   return (
     <article data-canton-guide={guide.id} className={isDossierGuide ? 'dossier-guide' : undefined}>
       <GuideStyles />
-      <GuideHero guide={guide} />
+      <GuideHero guide={guide} lang={lang} />
 
-      <nav aria-label="Inhalt dieser Seite" className="guide-anchor-nav">
+      <nav aria-label={ui.navigationLabel} className="guide-anchor-nav">
         <div className="container-custom">
           {guide.sections.map(section => (
-            <a key={section.id} href={`#${section.id}`}>{anchorLabel(section.id, section.title)}</a>
+            <a key={section.id} href={`#${section.id}`}>{anchorLabel(section.id, section.title, lang)}</a>
           ))}
         </div>
       </nav>
@@ -86,7 +95,7 @@ export default function CantonGuidePage({ guide, mapSection }: CantonGuidePagePr
 
                 {section.module && (
                   <div className="guide-module-wrap">
-                    <GuideModule module={section.module} sourceLinks={sourceLabel} />
+                    <GuideModule module={section.module} sourceLinks={sourceLabel} lang={lang} />
                   </div>
                 )}
 
@@ -105,19 +114,19 @@ export default function CantonGuidePage({ guide, mapSection }: CantonGuidePagePr
                 {sourceLabel(section.sourceIds)}
               </div>
             </section>
-            {(isDossierGuide ? section.id === guide.ctaAfterSection : isCosts) && <OfferCta />}
+            {(isDossierGuide ? section.id === guide.ctaAfterSection : isCosts) && <OfferCta guide={guide} lang={lang} />}
           </div>
         );
       })}
 
-      {isFinalGuide ? <NextGuideProcess /> : isDossierGuide ? null : hasRefinedProcess ? <NextGuideProcess /> : (
+      {isFinalGuide ? <NextGuideProcess lang={lang} /> : isDossierGuide ? null : hasRefinedProcess ? <NextGuideProcess lang={lang} /> : (
         <section className="guide-process">
           <div className="container-custom">
-            <h2>So funktioniert der Vergleich über PvPro.ch</h2>
+            <h2>{ui.process.title}</h2>
             <ol className="guide-process-list">
-              <li><b>01</b><h3>Projekt beschreiben</h3><p>Kurz Angaben zu Gebäude und Solarprojekt machen.</p></li>
-              <li><b>02</b><h3>Bis zu 3 passende Fachbetriebe</h3><p>Wir prüfen Ihre Anfrage und leiten sie passend weiter.</p></li>
-              <li><b>03</b><h3>Offerten vergleichen</h3><p>Leistung, Anlage und Preis in Ruhe vergleichen.</p></li>
+              {ui.process.steps.map((step, index) => (
+                <li key={step.title}><b>{String(index + 1).padStart(2, '0')}</b><h3>{step.title}</h3><p>{step.text}</p></li>
+              ))}
             </ol>
           </div>
         </section>
@@ -127,7 +136,7 @@ export default function CantonGuidePage({ guide, mapSection }: CantonGuidePagePr
 
       <section className="guide-faq">
         <div className="container-custom">
-          <h2>Häufige Fragen</h2>
+          <h2>{ui.faqTitle}</h2>
           <dl>{guide.faqs.map(faq => (
             <div key={faq.question}>
               <dt data-faq-question>{faq.question}</dt>
@@ -138,22 +147,22 @@ export default function CantonGuidePage({ guide, mapSection }: CantonGuidePagePr
         </div>
       </section>
 
-      {isDossierGuide && <OfferCta final />}
+      {isDossierGuide && <OfferCta guide={guide} lang={lang} final />}
 
       <section className="guide-sources">
         <div className="container-custom">
-          <h2>Quellen &amp; Stand</h2>
-          <p className="guide-answer-first">{isFinalGuide ? 'Stand: 21. September 2026' : isDossierGuide ? 'Stand: 15. September 2026' : 'Stand: September 2026'}</p>
+          <h2>{ui.sourcesTitle}</h2>
+          <p className="guide-answer-first">{isFinalGuide ? ui.dates.final : isDossierGuide ? ui.dates.dossier : ui.dates.standard}</p>
           <ul>{guide.sources.map(source => (
             <li id={`quelle-${source.id}`} key={source.id} className="scroll-mt-24">
               <span><b>{source.authority}</b><span>{source.title}</span></span>
-              <a href={source.url} target="_blank" rel="noreferrer">Offizielle Quelle</a>
+              <a href={source.url} target="_blank" rel="noreferrer">{ui.officialSource}</a>
             </li>
           ))}</ul>
         </div>
       </section>
 
-      {!isDossierGuide && <OfferCta final />}
+      {!isDossierGuide && <OfferCta guide={guide} lang={lang} final />}
       <FaqSchema faqs={guide.faqs} />
     </article>
   );

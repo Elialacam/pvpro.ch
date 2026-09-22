@@ -139,7 +139,7 @@ for (const guide of guides) {
   const h1s = html.match(/<h1\b[^>]*>[\s\S]*?<\/h1>/g) || [];
   assert.equal(h1s.length, 1, `${guide.id}: one H1`);
   assert.equal(unescape(h1s[0].replace(/<[^>]+>/g, '')), spec.h1, `${guide.id}: rendered H1`);
-  assert.equal((html.match(/href="\/anfrage"/g) || []).length, 3, `${guide.id}: three /anfrage CTAs`);
+  assert.equal((html.match(/href="\/anfrage\?canton=/g) || []).length, 3, `${guide.id}: three context-aware /anfrage CTAs`);
   assert.equal((html.match(/>Bis zu 3 Solarofferten vergleichen<\/a>/g) || []).length, 3, `${guide.id}: CTA label`);
   assert.equal((html.match(/"@type":"FAQPage"/g) || []).length, 1, `${guide.id}: one FAQPage schema`);
 

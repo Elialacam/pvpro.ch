@@ -16,8 +16,8 @@ export const guide: CantonGuide = {
   id: 'zurich',
   path: '/solaranlage-zurich',
   canton: 'Zürich',
-  title: 'Solaranlage in Zürich | PvPro.ch',
-  description: 'Vergleichen Sie bis zu drei kostenlose Offerten geprüfter Solarteure für Ihre Solaranlage in Zürich.',
+  title: 'Solaranlage Zürich: Kantonale Pflicht, städtische Förderung | PvPro.ch',
+  description: 'Im Kanton Zürich gelten für Neubauten 10 W/m² Eigenstromleistung. Die erhöhten PV- und Batteriebeiträge ab August 2026 gelten nur in der Stadt Zürich.',
   h1: 'Solaranlage im Kanton Zürich: Pflicht, Meldeverfahren und Förderung 2026',
   intro: [
     'Im Kanton Zürich gilt 2026 für Neubauten weiterhin eine Eigenstromvorgabe von 10 W/m² Energiebezugsfläche. Die diskutierten 30 W/m² und eine stärkere Nutzung grosser Dächer sind geplant, aber noch nicht geltendes Recht.',

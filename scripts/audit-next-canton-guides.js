@@ -21,7 +21,7 @@ for (const guide of cantonGuides.filter(guide => required[guide.id])) {
   const html = renderToStaticMarkup(React.createElement(GuidePage, { guide, mapSection: null }));
   const body = html.replace(/<(style|script)\b[^>]*>[\s\S]*?<\/\1>/g, '');
   for (const fact of required[guide.id]) assert.ok(body.includes(escape(fact)), `${guide.id}: required fact missing in HTML: ${fact}`);
-  const hero = renderToStaticMarkup(React.createElement(GuideHero, { guide }));
+  const hero = renderToStaticMarkup(React.createElement(GuideHero, { guide })).replace(/\u00ad/g, '');
   for (const fact of guide.quickFacts) {
     assert.ok(hero.includes(escape(fact.value)), `${guide.id}: hero value`);
     assert.ok(hero.includes(escape(fact.label)), `${guide.id}: hero qualification`);
