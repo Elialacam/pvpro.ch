@@ -16,6 +16,7 @@ const locales = {
   en: { path: '/en/request', steps: ['Yes', 'Detached house', 'Pitched roof', 'Yes'], title: 'Roof analysis', analyze: 'Analyze roof', next: 'Next', back: 'Back', area: 'Roof area', yield: 'Annual output', orientation: 'Orientation', mixed: 'Mixed', multiple: 'Multiple', unavailable: 'Roof data is currently unavailable.', notFound: 'No roof faces were found' },
 };
 const coords = [8.5401, 47.3769];
+const summaryLabels = { de: 'Sehr gut', fr: 'Très bonne', it: 'Molto buona', en: 'Very good' };
 const face = (id, buildingId, area, annualKwh, orientation, suitability) => ({
   id, buildingId, area, annualKwh, orientation, suitability, slope: 30,
   geometry: { type: 'Polygon', coordinates: [[[coords[0], coords[1]], [coords[0] + .0001, coords[1]], [coords[0] + .0001, coords[1] + .0001], [coords[0], coords[1]]]] },
@@ -150,9 +151,10 @@ async function main() {
         await manual(t);
         await t.panel.getByText('70 m²').waitFor();
         assert.match(await t.panel.innerText(), /8[,.']?300 kWh/);
-        // Distinct NE and SW faces are NOT both "South"; mixed orientation/class.
+        // Orientations remain distinct; classes 3 and 5 average to class 4.
         assert.ok((await t.panel.innerText()).includes(t.config.multiple));
-        assert.ok((await t.panel.innerText()).includes(t.config.mixed));
+        assert.ok((await t.panel.innerText()).includes(summaryLabels.en));
+        assert.ok(!(await t.panel.innerText()).includes(t.config.mixed));
         assert.equal(await t.panel.locator('input[type=checkbox]:checked').count(), 2);
         await t.panel.getByRole('button', { name: 'Map roof 1' }).click();
         await t.panel.getByText('28 m²', { exact: true }).waitFor();
@@ -258,8 +260,9 @@ async function main() {
           await manual(t);
           await t.panel.getByText('70 m²').waitFor();
           const text = await t.panel.innerText();
-          for (const expected of [t.config.title, t.config.area, t.config.yield, t.config.orientation, t.config.multiple, t.config.mixed])
+          for (const expected of [t.config.title, t.config.area, t.config.yield, t.config.orientation, t.config.multiple, summaryLabels[locale]])
             assert.ok(text.includes(expected), `${locale}: expected "${expected}" in panel`);
+          assert.ok(!text.includes(t.config.mixed), `${locale}: mixed suitability must not appear`);
           assert.ok(await t.page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${locale}: horizontal overflow`);
           if (locale === 'en') await t.page.screenshot({ path: `${screenshotDir}/step5-mobile.png`, fullPage: true });
           assert.deepEqual(t.errors, []);

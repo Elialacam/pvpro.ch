@@ -229,12 +229,14 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
   const area = chosen.reduce((total, roof) => total + roof.area, 0);
   const annual = chosen.reduce((total, roof) => total + roof.annualKwh, 0);
   const orientations = [...new Set(chosen.map(roof => roof.slope === 0 ? t.flat : direction(roof.orientation, t)))];
-  const classes = [...new Set(chosen.map(roof => roof.suitability))];
+  const suitabilityClass = chosen.length
+    ? Math.ceil(chosen.reduce((total, roof) => total + roof.suitability, 0) / chosen.length)
+    : null;
   const number = (value: number) => new Intl.NumberFormat(locale === 'en' ? 'en-CH' : `${locale}-CH`, { maximumFractionDigits: 0 }).format(value);
   const stats = [
     [t.area, chosen.length ? `${number(area)} m²` : '—'],
     [t.orientation, chosen.length ? (orientations.length === 1 ? orientations[0] : t.multiple) : '—'],
-    [t.suitability, chosen.length ? (classes.length === 1 ? (t.classes[classes[0] - 1] ?? '—') : t.mixed) : '—'],
+    [t.suitability, suitabilityClass !== null ? t.classes[suitabilityClass - 1] : '—'],
     [t.yield, chosen.length ? `${number(annual)} kWh` : '—'],
   ];
 
