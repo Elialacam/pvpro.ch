@@ -18,6 +18,12 @@ const locales = {
 const coords = [8.5401, 47.3769];
 const summaryLabels = { de: 'Sehr gut', fr: 'Très bonne', it: 'Molto buona', en: 'Very good' };
 const orientationLabels = { de: 'SW / NO', fr: 'SO / NE', it: 'SO / NE', en: 'SW / NE' };
+const selectionInstructions = {
+  de: 'Wählen Sie auf der Karte die Dachflächen aus, die berücksichtigt werden sollen.',
+  it: 'Seleziona sulla mappa le falde che vuoi includere.',
+  fr: 'Sélectionnez sur la carte les surfaces de toit à prendre en compte.',
+  en: 'Select the roof areas you want to include on the map.',
+};
 const compareLabels = { de: 'Offerten vergleichen', fr: 'Comparer les offres', it: 'Confronta le offerte', en: 'Compare offers' };
 const notes = {
   de: 'Richtwerte basierend auf Daten des Bundesamts für Energie (BFE) und geo.admin.ch.',
@@ -160,7 +166,7 @@ async function run(name, fn) {
 async function main() {
   const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH || '/repl/tools/bin/chromium', args: ['--no-sandbox'], headless: true });
   try {
-    await run('manual fields, octants, map/list selection, totals, safe submission', async () => {
+    await run('manual fields, octants, map-only selection, totals, safe submission', async () => {
       const t = await setup(browser);
       try {
         await manual(t);
@@ -170,12 +176,20 @@ async function main() {
         assert.ok((await t.panel.innerText()).includes(orientationLabels.en));
         assert.ok((await t.panel.innerText()).includes(summaryLabels.en));
         assert.ok(!(await t.panel.innerText()).includes(t.config.mixed));
-        assert.equal(await t.panel.locator('input[type=checkbox]:checked').count(), 2);
+        assert.equal(await t.panel.locator('input[type=checkbox]').count(), 0);
+        await t.panel.locator('button[aria-label="Map roof 1"][data-fill="#fcb210"]').waitFor();
+        await t.panel.locator('button[aria-label="Map roof 2"][data-fill="#fcb210"]').waitFor();
         await t.panel.getByRole('button', { name: 'Map roof 1' }).click();
         await t.panel.getByText('28 m²', { exact: true }).waitFor();
-        assert.equal(await t.panel.locator('input[type=checkbox]:checked').count(), 1);
-        await t.panel.locator('input[type=checkbox]').nth(0).check();
+        await t.panel.locator('button[aria-label="Map roof 1"][data-fill="#ffffff"]').waitFor();
+        await t.panel.getByRole('button', { name: 'Map roof 2' }).click();
+        assert.equal(await t.panel.getByText('—', { exact: true }).count(), 4);
+        await t.panel.getByRole('button', { name: 'Map roof 1' }).click();
+        await t.panel.getByText('42 m²', { exact: true }).waitFor();
+        await t.panel.getByRole('button', { name: 'Map roof 2' }).click();
         await t.panel.getByText('70 m²').waitFor();
+        await t.panel.locator('button[aria-label="Map roof 1"][data-fill="#fcb210"]').waitFor();
+        await t.panel.locator('button[aria-label="Map roof 2"][data-fill="#fcb210"]').waitFor();
         await t.page.screenshot({ path: `${screenshotDir}/step5-desktop.png`, fullPage: true });
         assert.equal(t.state.queries.length, 1, 'complete manual address triggers one debounced lookup');
         assert.equal(t.state.queries[0].searchParams.get('address'), 'Bahnhofstrasse 10, 8001 Zürich');
@@ -208,7 +222,8 @@ async function main() {
         await t.panel.getByRole('button', { name: 'Building 2' }).click();
         await t.panel.getByText('35 m²', { exact: true }).waitFor();
         assert.equal(t.state.queries.at(-1).searchParams.get('buildingId'), '9002');
-        assert.equal(await t.panel.locator('input[type=checkbox]:checked').count(), 1);
+        assert.equal(await t.panel.locator('input[type=checkbox]').count(), 0);
+        await t.panel.locator('button[aria-label="Map roof 1"][data-fill="#fcb210"]').waitFor();
         assert.equal(Number(t.state.queries[0].searchParams.get('lat')), 47.3769);
         assert.deepEqual(t.errors, []);
       } finally { await t.context.close(); }
@@ -243,7 +258,7 @@ async function main() {
       try {
         await selectAddress(t);
         await t.panel.getByText('70 m²').waitFor();
-        assert.equal(await t.panel.locator('input[type=checkbox]').count(), 2);
+        assert.equal(await t.panel.locator('input[type=checkbox]').count(), 0);
         await t.page.locator('input[placeholder]').first().fill('Other address');
         await t.panel.waitFor({ state: 'detached' });
         await t.page.getByTestId('manual-address-toggle').click();
@@ -260,14 +275,14 @@ async function main() {
         assert.deepEqual(t.errors, []);
       } finally { await t.context.close(); }
     });
-    await run('blocked Google Maps keeps accessible roof list and manual fallback', async () => {
+    await run('blocked Google Maps remains nonblocking without a checkbox list', async () => {
       const t = await setup(browser, { maps: false });
       try {
         await manual(t);
         await t.panel.getByText('70 m²').waitFor();
         await t.panel.getByText('The satellite map is unavailable.', { exact: false }).waitFor({ timeout: 20000 });
-        await t.panel.locator('input[type=checkbox]').first().uncheck();
-        await t.panel.getByText('28 m²', { exact: true }).waitFor();
+        assert.equal(await t.panel.locator('input[type=checkbox]').count(), 0);
+        await t.panel.getByText('70 m²', { exact: true }).waitFor();
         await step6(t);
         assert.deepEqual(t.errors, []);
       } finally { await t.context.close(); }
@@ -279,6 +294,10 @@ async function main() {
           await manual(t);
           await t.panel.getByText('70 m²').waitFor();
           const text = await t.panel.innerText();
+          assert.equal(await t.panel.locator('input[type=checkbox]').count(), 0);
+          const instruction = t.panel.getByText(selectionInstructions[locale], { exact: true });
+          await instruction.waitFor();
+          assert.equal(await instruction.evaluate(el => el.nextElementSibling.children.length), 4);
           for (const expected of [t.config.title, t.config.area, t.config.yield, t.config.orientation, orientationLabels[locale], summaryLabels[locale]])
             assert.ok(text.includes(expected), `${locale}: expected "${expected}" in panel`);
           assert.ok(!text.includes(t.config.multiple), `${locale}: show actual orientations`);

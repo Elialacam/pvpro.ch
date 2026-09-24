@@ -1,7 +1,8 @@
 export const roofCopy = {
   de: {
     title: 'Dachanalyse', analyze: 'Dach analysieren', loading: 'Dachdaten werden geladen…',
-    mapLoading: 'Satellitenkarte wird geladen…', mapUnavailable: 'Die Satellitenkarte ist derzeit nicht verfügbar. Sie können die Dachflächen unten auswählen.',
+    mapLoading: 'Satellitenkarte wird geladen…', mapUnavailable: 'Die Satellitenkarte ist derzeit nicht verfügbar.',
+    selectRoofsInstruction: 'Wählen Sie auf der Karte die Dachflächen aus, die berücksichtigt werden sollen.',
     unavailable: 'Die Dachdaten sind derzeit nicht verfügbar. Sie können trotzdem fortfahren.',
     notFound: 'Für diese Adresse wurden keine Dachflächen gefunden. Sie können trotzdem fortfahren.',
     ambiguous: 'Die Zuordnung des Dachs ist nicht eindeutig. Prüfen Sie die Karte und wählen Sie Ihr Gebäude aus.',
@@ -15,7 +16,8 @@ export const roofCopy = {
   },
   fr: {
     title: 'Analyse du toit', analyze: 'Analyser le toit', loading: 'Chargement des données du toit…',
-    mapLoading: 'Chargement de la carte satellite…', mapUnavailable: 'La carte satellite est indisponible. Vous pouvez sélectionner les pans de toit ci-dessous.',
+    mapLoading: 'Chargement de la carte satellite…', mapUnavailable: 'La carte satellite est indisponible.',
+    selectRoofsInstruction: 'Sélectionnez sur la carte les surfaces de toit à prendre en compte.',
     unavailable: 'Les données du toit sont indisponibles pour le moment. Vous pouvez tout de même continuer.',
     notFound: 'Aucun pan de toit trouvé pour cette adresse. Vous pouvez tout de même continuer.',
     ambiguous: 'L’attribution du toit est incertaine. Vérifiez la carte et choisissez votre bâtiment.',
@@ -29,7 +31,8 @@ export const roofCopy = {
   },
   it: {
     title: 'Analisi del tetto', analyze: 'Analizza il tetto', loading: 'Caricamento dei dati del tetto…',
-    mapLoading: 'Caricamento della mappa satellitare…', mapUnavailable: 'La mappa satellitare non è disponibile. Puoi selezionare le falde qui sotto.',
+    mapLoading: 'Caricamento della mappa satellitare…', mapUnavailable: 'La mappa satellitare non è disponibile.',
+    selectRoofsInstruction: 'Seleziona sulla mappa le falde che vuoi includere.',
     unavailable: 'I dati del tetto non sono attualmente disponibili. Puoi comunque continuare.',
     notFound: 'Nessuna falda trovata per questo indirizzo. Puoi comunque continuare.',
     ambiguous: 'L’attribuzione del tetto è incerta. Controlla la mappa e seleziona il tuo edificio.',
@@ -43,7 +46,8 @@ export const roofCopy = {
   },
   en: {
     title: 'Roof analysis', analyze: 'Analyze roof', loading: 'Loading roof data…',
-    mapLoading: 'Loading satellite map…', mapUnavailable: 'The satellite map is unavailable. You can select roof faces below.',
+    mapLoading: 'Loading satellite map…', mapUnavailable: 'The satellite map is unavailable.',
+    selectRoofsInstruction: 'Select the roof areas you want to include on the map.',
     unavailable: 'Roof data is currently unavailable. You can still continue.',
     notFound: 'No roof faces were found for this address. You can still continue.',
     ambiguous: 'The roof-to-building match is uncertain. Check the map and choose your building.',

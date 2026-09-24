@@ -121,7 +121,7 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
   const showMap = roofs.length > 0 && !!center;
 
   // The Google key can be restricted to the production host. Never imply a map
-  // is available until the Maps API actually loads, and retain the accessible list.
+  // is available until the Maps API actually loads.
   useEffect(() => {
     if (!showMap || !mapElement.current) return;
     let cancelled = false;
@@ -286,19 +286,7 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
         </div>
       )}
       {result?.status === 'ok' && activeRoofs.length > 0 && (
-        <fieldset className="mb-3">
-          <legend className="text-sm font-semibold text-gray-800">{t.roofs}</legend>
-          <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {activeRoofs.map((roof, index) => (
-              <label key={roof.id} className="flex cursor-pointer items-center gap-2 rounded-xl border border-gray-200 p-2.5 text-sm text-gray-800">
-                <input type="checkbox" checked={selected.includes(roof.id)}
-                  onChange={() => setSelected(previous => previous.includes(roof.id) ? previous.filter(id => id !== roof.id) : [...previous, roof.id])}
-                  className="h-4 w-4 accent-amber-500" />
-                {t.roof} {index + 1} · {number(roof.area)} m²
-              </label>
-            ))}
-          </div>
-        </fieldset>
+        <p className="mb-3 text-xs leading-relaxed text-gray-500">{t.selectRoofsInstruction}</p>
       )}
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
         {stats.map(([label, value]) => (
