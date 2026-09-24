@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { getConsent } from '@/lib/cookieConsent';
 import { ECONOMIC_FACTS } from '@/lib/facts';
 import { leadContextFromValues } from '@/lib/leadContext';
+import RoofAnalysis from '@/components/RoofAnalysis';
 
 declare global {
   interface Window {
@@ -848,13 +849,6 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       );
       case 5: return (
         <StepWrapper title={t.step5Title} sub={t.step5Sub}>
-          {!isManualAddress && selectedPlaceCoords && (
-            <div className="w-full h-40 rounded-2xl overflow-hidden border border-gray-200 mb-4">
-              <iframe width="100%" height="100%" style={{ border: 0 }} loading="lazy"
-                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(formData.address)}&zoom=19&maptype=satellite`}
-              />
-            </div>
-          )}
           {isManualAddress ? (
             <div className="space-y-3">
               <p className="text-sm text-gray-500">{t.manualHelp}</p>
@@ -918,6 +912,17 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
               {addressSearchMessage && <p role="status" className="mt-2 text-sm text-amber-700">{addressSearchMessage}</p>}
             </>
           )}
+          <RoofAnalysis
+            key={`${isManualAddress ? 'manual' : 'automatic'}:${isManualAddress ? `${manualAddress.street}|${manualAddress.houseNumber}|${manualAddress.zipCode}|${manualAddress.city}` : selectedAddress ?? ''}`}
+            locale={locale}
+            manual={isManualAddress}
+            address={isManualAddress
+              ? (Object.values(manualAddressErrors(manualAddress)).some(Boolean)
+                ? null
+                : `${manualAddress.street.trim()} ${manualAddress.houseNumber.trim()}, ${manualAddress.zipCode.trim()} ${manualAddress.city.trim()}`)
+              : selectedAddress}
+            coords={isManualAddress ? null : selectedPlaceCoords}
+          />
           <button
             type="button"
             data-testid="manual-address-toggle"

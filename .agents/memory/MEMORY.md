@@ -12,3 +12,4 @@
 - [Canton content boundaries](canton-content-boundaries.md) — expanded coverage uses neutral guidance; do not copy another Canton's local financial or installer claims.
 - [Incentive calculation boundaries](incentive-calculation-boundaries.md) — prefer gross estimates and official calculation over incomplete subsidy formulas; cumulative aid needs programme-specific evidence.
 - [Multilingual canton maintenance](multilingual-canton-maintenance.md) — German-only editorial source, full-depth translations, static locale roots, and the Webpack development tradeoff.
+- [Roof analysis boundaries](roof-analysis-boundaries.md) — optional viewing aid, never lead enrichment; Google key intentionally restricted to production domains.
