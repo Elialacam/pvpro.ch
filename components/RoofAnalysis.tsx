@@ -237,7 +237,7 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
   const number = (value: number) => new Intl.NumberFormat(locale === 'en' ? 'en-CH' : `${locale}-CH`, { maximumFractionDigits: 0 }).format(value);
   const stats = [
     [t.area, chosen.length ? `${number(area)} m²` : '—'],
-    [t.orientation, chosen.length ? (orientations.length === 1 ? orientations[0] : t.multiple) : '—'],
+    [t.orientation, chosen.length ? orientations.join(' / ') : '—'],
     [t.suitability, suitabilityClass !== null ? t.classes[suitabilityClass - 1] : '—'],
     [t.yield, chosen.length ? `${number(annual)} kWh` : '—'],
   ];
@@ -249,6 +249,7 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
       : null;
   }
   return (
+    <>
     <section className="mt-4 rounded-2xl border border-gray-200 bg-white p-4 sm:p-5" aria-label={t.title}>
       <h2 className="text-base font-bold text-gray-900 mb-3">{t.title}</h2>
       {loading && <p role="status" className="mb-3 text-sm text-gray-600">{t.loading}</p>}
@@ -307,12 +308,10 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
           </div>
         ))}
       </div>
-      {roofs.length > 0 && (result?.status === 'ok' || isAmbiguous) && (
-        <p className="mt-3 text-xs leading-relaxed text-gray-500">
-          <a href="https://www.geo.admin.ch/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-700">{t.source}</a>
-          {' · '}{t.disclaimer}
-        </p>
-      )}
     </section>
+    {roofs.length > 0 && (result?.status === 'ok' || isAmbiguous) && (
+      <p className="mt-3 text-xs leading-relaxed text-gray-500">{t.disclaimer}</p>
+    )}
+    </>
   );
 }

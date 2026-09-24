@@ -121,6 +121,7 @@ const i18n = {
     submit: 'Kostenlose Offerten anfordern',
     submitting: 'Wird gesendet…',
     next: 'Weiter',
+    compareOffers: 'Offerten vergleichen',
     back: 'Zurück',
     loadingTitle: 'Wir suchen passende Angebote…',
     loadingStep1: 'Wir analysieren Ihre Angaben und Adresse',
@@ -175,6 +176,7 @@ const i18n = {
     submit: 'Demander des devis gratuits',
     submitting: 'Envoi en cours…',
     next: 'Suivant',
+    compareOffers: 'Comparer les offres',
     back: 'Retour',
     loadingTitle: 'Nous recherchons les meilleures offres…',
     loadingStep1: 'Nous analysons vos informations et votre adresse',
@@ -229,6 +231,7 @@ const i18n = {
     submit: 'Request free quotes',
     submitting: 'Sending…',
     next: 'Next',
+    compareOffers: 'Compare offers',
     back: 'Back',
     loadingTitle: 'Searching for matching offers…',
     loadingStep1: 'Analysing your details and address',
@@ -283,6 +286,7 @@ const i18n = {
     submit: 'Richiedi preventivi gratuiti',
     submitting: 'Invio in corso…',
     next: 'Avanti',
+    compareOffers: 'Confronta le offerte',
     back: 'Indietro',
     loadingTitle: 'Stiamo cercando le offerte migliori…',
     loadingStep1: 'Analizziamo le tue informazioni e l\'indirizzo',
@@ -935,7 +939,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
             onClick={() => goNext()}
             className={`w-full py-4 rounded-2xl font-bold text-base mt-4 transition-all ${isManualAddress || selectedAddress ? 'btn-primary' : 'bg-gray-100 text-gray-400'}`}
           >
-            {t.next}
+            {t.compareOffers}
           </button>
         </StepWrapper>
       );

@@ -17,6 +17,14 @@ const locales = {
 };
 const coords = [8.5401, 47.3769];
 const summaryLabels = { de: 'Sehr gut', fr: 'Très bonne', it: 'Molto buona', en: 'Very good' };
+const orientationLabels = { de: 'SW / NO', fr: 'SO / NE', it: 'SO / NE', en: 'SW / NE' };
+const compareLabels = { de: 'Offerten vergleichen', fr: 'Comparer les offres', it: 'Confronta le offerte', en: 'Compare offers' };
+const notes = {
+  de: 'Richtwerte basierend auf Daten des Bundesamts für Energie (BFE) und geo.admin.ch.',
+  it: 'Valori indicativi basati sui dati dell’Ufficio federale dell’energia (UFE) e di geo.admin.ch.',
+  fr: 'Valeurs indicatives basées sur les données de l’Office fédéral de l’énergie (OFEN) et de geo.admin.ch.',
+  en: 'Indicative values based on data from the Swiss Federal Office of Energy (SFOE) and geo.admin.ch.',
+};
 const face = (id, buildingId, area, annualKwh, orientation, suitability) => ({
   id, buildingId, area, annualKwh, orientation, suitability, slope: 30,
   geometry: { type: 'Polygon', coordinates: [[[coords[0], coords[1]], [coords[0] + .0001, coords[1]], [coords[0] + .0001, coords[1] + .0001], [coords[0], coords[1]]]] },
@@ -100,7 +108,7 @@ async function setup(browser, { locale = 'en', mobile = false, maps = true, reso
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
-  const config = locales[locale];
+  const config = { ...locales[locale], next: compareLabels[locale] };
   const response = await page.goto(origin + config.path, { waitUntil: 'domcontentloaded', timeout: 60000 });
   assert.equal(response.status(), 200, `${locale} form HTTP status`);
   // Next's streamed HTML can show controls well before hydration attaches event handlers.
@@ -159,7 +167,7 @@ async function main() {
         await t.panel.getByText('70 m²').waitFor();
         assert.match(await t.panel.innerText(), /8[,.']?300 kWh/);
         // Orientations remain distinct; classes 3 and 5 average to class 4.
-        assert.ok((await t.panel.innerText()).includes(t.config.multiple));
+        assert.ok((await t.panel.innerText()).includes(orientationLabels.en));
         assert.ok((await t.panel.innerText()).includes(summaryLabels.en));
         assert.ok(!(await t.panel.innerText()).includes(t.config.mixed));
         assert.equal(await t.panel.locator('input[type=checkbox]:checked').count(), 2);
@@ -271,8 +279,13 @@ async function main() {
           await manual(t);
           await t.panel.getByText('70 m²').waitFor();
           const text = await t.panel.innerText();
-          for (const expected of [t.config.title, t.config.area, t.config.yield, t.config.orientation, t.config.multiple, summaryLabels[locale]])
+          for (const expected of [t.config.title, t.config.area, t.config.yield, t.config.orientation, orientationLabels[locale], summaryLabels[locale]])
             assert.ok(text.includes(expected), `${locale}: expected "${expected}" in panel`);
+          assert.ok(!text.includes(t.config.multiple), `${locale}: show actual orientations`);
+          assert.equal(await t.panel.locator('a').count(), 0, 'no external source link');
+          await t.page.getByText(notes[locale], { exact: true }).waitFor();
+          assert.equal(await t.page.locator('a[href*="geo.admin.ch"]').count(), 0);
+          await t.page.getByRole('button', { name: compareLabels[locale], exact: true }).waitFor();
           assert.ok(!text.includes(t.config.mixed), `${locale}: mixed suitability must not appear`);
           assert.ok(await t.page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${locale}: horizontal overflow`);
           if (locale === 'en') await t.page.screenshot({ path: `${screenshotDir}/step5-mobile.png`, fullPage: true });
