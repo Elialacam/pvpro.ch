@@ -74,6 +74,19 @@ function formatSwissPhoneDisplay(raw: string): string {
   return [d.slice(0, 2), d.slice(2, 5), d.slice(5, 7), d.slice(7, 9), d.slice(9)].filter(Boolean).join(' ');
 }
 
+type ManualAddress = { street: string; houseNumber: string; zipCode: string; city: string };
+type ManualField = keyof ManualAddress;
+
+function manualAddressErrors(address: ManualAddress): Record<ManualField, boolean> {
+  const hasTwoLetters = (value: string) => (value.match(/\p{L}/gu) ?? []).length >= 2;
+  return {
+    street: !hasTwoLetters(address.street.trim()),
+    houseNumber: !/^\d+[a-zA-Z]?(?:[\s/-][a-zA-Z0-9]+)*$/.test(address.houseNumber.trim()),
+    zipCode: !/^[1-9]\d{3}$/.test(address.zipCode.trim()),
+    city: !hasTwoLetters(address.city.trim()),
+  };
+}
+
 const i18n = {
   de: {
     step1Title: 'Sind Sie Eigentümer der Liegenschaft?',
@@ -90,6 +103,13 @@ const i18n = {
     step6Sub: 'Geben Sie Ihre Kontaktdaten ein, um Ihre kostenlosen Offerten zu erhalten.',
     addressPlaceholder: 'z.B. Bahnhofstrasse 10, 8001 Zürich',
     addressError: 'Bitte wählen Sie eine Adresse aus der Liste aus.',
+    manualToggle: 'Adresse manuell eingeben',
+    automaticToggle: 'Zur Adresssuche zurückkehren',
+    manualHelp: 'Falls Ihre Adresse nicht gefunden wird, können Sie sie selbst eingeben.',
+    street: 'Strasse', houseNumber: 'Hausnummer', zipCode: 'Postleitzahl', city: 'Ort',
+    manualError: 'Bitte geben Sie eine gültige Strasse, Hausnummer, vierstellige Schweizer Postleitzahl und einen Ort ein.',
+    mapsUnavailable: 'Die Adresssuche ist derzeit nicht verfügbar. Bitte geben Sie Ihre Adresse manuell ein.',
+    noResults: 'Keine Adressen gefunden. Versuchen Sie eine andere Suche oder geben Sie Ihre Adresse manuell ein.',
     firstName: 'Vorname',
     lastName: 'Nachname',
     email: 'E-Mail',
@@ -137,6 +157,13 @@ const i18n = {
     step6Sub: 'Saisissez vos coordonnées pour recevoir vos devis gratuits.',
     addressPlaceholder: 'p.ex. Rue du Centre 10, 1003 Lausanne',
     addressError: 'Veuillez sélectionner une adresse dans la liste.',
+    manualToggle: 'Saisir l’adresse manuellement',
+    automaticToggle: 'Revenir à la recherche d’adresse',
+    manualHelp: 'Si votre adresse est introuvable, vous pouvez la saisir vous-même.',
+    street: 'Rue', houseNumber: 'Numéro', zipCode: 'Code postal', city: 'Localité',
+    manualError: 'Veuillez saisir une rue, un numéro, un code postal suisse à quatre chiffres et une localité valides.',
+    mapsUnavailable: 'La recherche d’adresse est indisponible. Veuillez saisir votre adresse manuellement.',
+    noResults: 'Aucune adresse trouvée. Essayez une autre recherche ou saisissez votre adresse manuellement.',
     firstName: 'Prénom',
     lastName: 'Nom',
     email: 'E-mail',
@@ -184,6 +211,13 @@ const i18n = {
     step6Sub: 'Enter your contact details to receive your free quotes.',
     addressPlaceholder: 'e.g. Bahnhofstrasse 10, 8001 Zürich',
     addressError: 'Please select an address from the list.',
+    manualToggle: 'Enter address manually',
+    automaticToggle: 'Return to address search',
+    manualHelp: 'If your address cannot be found, you can enter it yourself.',
+    street: 'Street', houseNumber: 'House number', zipCode: 'Postal code', city: 'City',
+    manualError: 'Please enter a valid street, house number, four-digit Swiss postal code and city.',
+    mapsUnavailable: 'Address search is unavailable. Please enter your address manually.',
+    noResults: 'No addresses found. Try another search or enter your address manually.',
     firstName: 'First name',
     lastName: 'Last name',
     email: 'E-mail',
@@ -231,6 +265,13 @@ const i18n = {
     step6Sub: 'Inserisci i tuoi dati di contatto per ricevere i preventivi gratuiti.',
     addressPlaceholder: 'es. Via Lugano 10, 6900 Lugano',
     addressError: 'Seleziona un indirizzo dalla lista.',
+    manualToggle: 'Inserisci l’indirizzo manualmente',
+    automaticToggle: 'Torna alla ricerca dell’indirizzo',
+    manualHelp: 'Se non trovi il tuo indirizzo, puoi inserirlo manualmente.',
+    street: 'Via', houseNumber: 'Numero civico', zipCode: 'Codice postale', city: 'Località',
+    manualError: 'Inserisci una via, un numero civico, un codice postale svizzero di quattro cifre e una località validi.',
+    mapsUnavailable: 'La ricerca dell’indirizzo non è disponibile. Inserisci l’indirizzo manualmente.',
+    noResults: 'Nessun indirizzo trovato. Prova un’altra ricerca o inseriscilo manualmente.',
     firstName: 'Nome',
     lastName: 'Cognome',
     email: 'E-mail',
@@ -344,11 +385,17 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState<string | null>(null);
   const [selectedPlaceCoords, setSelectedPlaceCoords] = useState<any>(null);
+  const [isManualAddress, setIsManualAddress] = useState(false);
+  const [manualAddress, setManualAddress] = useState<ManualAddress>({ street: '', houseNumber: '', zipCode: '', city: '' });
+  const [manualErrors, setManualErrors] = useState<Record<ManualField, boolean>>({ street: false, houseNumber: false, zipCode: false, city: false });
+  const [addressSearchMessage, setAddressSearchMessage] = useState<string | null>(null);
   const [validationErrors, setValidationErrors] = useState<Record<string, boolean>>({});
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const submitLockRef = useRef(false);
   const autocompleteService = useRef<any>(null);
   const placesService = useRef<any>(null);
+  const manualModeRef = useRef(false);
+  const addressRequestSeq = useRef(0);
 
   useEffect(() => {
     ALL_ICONS.forEach(src => { const img = new window.Image(); img.src = src; });
@@ -368,15 +415,23 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         autocompleteService.current = new window.google.maps.places.AutocompleteService();
         const div = document.createElement('div');
         placesService.current = new window.google.maps.places.PlacesService(div);
+        setAddressSearchMessage(null);
+      } else {
+        setAddressSearchMessage(t.mapsUnavailable);
       }
     };
 
     let cancelled = false;
     loadGoogleMaps()
       .then(() => { if (!cancelled) init(); })
-      .catch(() => { /* address autocomplete unavailable; manual input still works */ });
-    return () => { cancelled = true; };
-  }, [step]);
+      .catch(() => { if (!cancelled) setAddressSearchMessage(t.mapsUnavailable); });
+    return () => {
+      cancelled = true;
+      if (predictionTimer.current) clearTimeout(predictionTimer.current);
+      predictionSeq.current += 1;
+      addressRequestSeq.current += 1;
+    };
+  }, [step, t.mapsUnavailable]);
 
   const predictionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const predictionSeq = useRef(0);
@@ -384,51 +439,117 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     return () => {
       if (predictionTimer.current) clearTimeout(predictionTimer.current);
       predictionSeq.current += 1; // invalidate in-flight prediction callbacks
+      addressRequestSeq.current += 1; // invalidate in-flight place details
     };
   }, []);
   const handleAddressChange = (value: string) => {
-    setFormData((prev: any) => ({ ...prev, address: value }));
+    setFormData((prev: any) => ({ ...prev, address: value, zipCode: '' }));
     setSelectedAddress(null);
     setSelectedPlaceCoords(null);
+    setAddressSuggestions([]);
+    setAddressSearchMessage(null);
+    setErrorMsg(null);
+    addressRequestSeq.current += 1;
     if (predictionTimer.current) clearTimeout(predictionTimer.current);
     const seq = ++predictionSeq.current;
     if (value.length > 2 && autocompleteService.current) {
       predictionTimer.current = setTimeout(() => {
-        autocompleteService.current.getPlacePredictions(
-          { input: value, componentRestrictions: { country: 'ch' }, types: ['address'] },
-          (predictions: any, status: any) => {
-            if (seq !== predictionSeq.current) return;
-            if (status === 'OK' && predictions) { setAddressSuggestions(predictions); setShowSuggestions(true); }
-          }
-        );
+        if (seq !== predictionSeq.current || manualModeRef.current) return;
+        try {
+          autocompleteService.current.getPlacePredictions(
+            { input: value, componentRestrictions: { country: 'ch' }, types: ['address'] },
+            (predictions: any, status: any) => {
+              if (seq !== predictionSeq.current || manualModeRef.current) return;
+              if (status === 'OK' && predictions?.length) {
+                setAddressSuggestions(predictions);
+                setShowSuggestions(true);
+              } else {
+                setAddressSuggestions([]);
+                setShowSuggestions(false);
+                setAddressSearchMessage(status === 'ZERO_RESULTS' || status === 'OK' ? t.noResults : t.mapsUnavailable);
+              }
+            }
+          );
+        } catch {
+          if (seq !== predictionSeq.current || manualModeRef.current) return;
+          setAddressSuggestions([]);
+          setShowSuggestions(false);
+          setAddressSearchMessage(t.mapsUnavailable);
+        }
       }, 250);
-    } else { setShowSuggestions(false); }
+    } else {
+      setShowSuggestions(false);
+      if (value.length > 2) setAddressSearchMessage(t.mapsUnavailable);
+    }
   };
 
   const selectAddress = (prediction: any) => {
-    setFormData({ ...formData, address: prediction.description });
+    if (manualModeRef.current) return;
+    if (predictionTimer.current) clearTimeout(predictionTimer.current);
+    predictionSeq.current += 1;
+    const seq = ++addressRequestSeq.current;
+    setFormData((prev: any) => ({ ...prev, address: prediction.description, zipCode: '' }));
     setSelectedAddress(prediction.description);
+    setSelectedPlaceCoords(null);
+    setAddressSearchMessage(null);
     setShowSuggestions(false);
-    placesService.current?.getDetails(
-      { placeId: prediction.place_id, fields: ['geometry', 'address_components'] },
-      (place: any, status: any) => {
-        if (status !== 'OK') return;
-        const updates: any = {};
-        if (place?.geometry?.location) {
-          updates.lat = place.geometry.location.lat();
-          updates.lng = place.geometry.location.lng();
-          setSelectedPlaceCoords({ lat: updates.lat, lng: updates.lng });
+    if (!placesService.current) {
+      setAddressSearchMessage(t.mapsUnavailable);
+      return;
+    }
+    try {
+      placesService.current.getDetails(
+        { placeId: prediction.place_id, fields: ['geometry', 'address_components'] },
+        (place: any, status: any) => {
+          if (seq !== addressRequestSeq.current || manualModeRef.current) return;
+          if (status !== 'OK') { setAddressSearchMessage(t.mapsUnavailable); return; }
+          const updates: any = {};
+          if (place?.geometry?.location) {
+            updates.lat = place.geometry.location.lat();
+            updates.lng = place.geometry.location.lng();
+            setSelectedPlaceCoords({ lat: updates.lat, lng: updates.lng });
+          }
+          const postalComp = place?.address_components?.find(
+            (c: any) => c.types.includes('postal_code')
+          );
+          setFormData((prev: any) => ({
+            ...prev,
+            address: prediction.description,
+            zipCode: postalComp?.long_name ?? '',
+          }));
         }
-        const postalComp = place?.address_components?.find(
-          (c: any) => c.types.includes('postal_code')
-        );
-        setFormData((prev: any) => ({
-          ...prev,
-          address: prediction.description,
-          zipCode: postalComp?.long_name ?? '',
-        }));
+      );
+    } catch {
+      if (seq === addressRequestSeq.current && !manualModeRef.current) {
+        setAddressSearchMessage(t.mapsUnavailable);
       }
-    );
+    }
+  };
+
+  const toggleManualAddress = () => {
+    const nextManual = !manualModeRef.current;
+    manualModeRef.current = nextManual;
+    setIsManualAddress(nextManual);
+    if (predictionTimer.current) clearTimeout(predictionTimer.current);
+    predictionSeq.current += 1;
+    addressRequestSeq.current += 1;
+    setShowSuggestions(false);
+    setAddressSuggestions([]);
+    setSelectedAddress(null);
+    setSelectedPlaceCoords(null);
+    setAddressSearchMessage(null);
+    setErrorMsg(null);
+    setManualErrors({ street: false, houseNumber: false, zipCode: false, city: false });
+    setFormData((prev: any) => ({ ...prev, address: '', zipCode: '' }));
+  };
+
+  const handleManualChange = (field: ManualField, value: string) => {
+    addressRequestSeq.current += 1;
+    setManualAddress(prev => ({ ...prev, [field]: value }));
+    setManualErrors(prev => ({ ...prev, [field]: false }));
+    setFormData((prev: any) => ({ ...prev, address: '', zipCode: '' }));
+    setSelectedPlaceCoords(null);
+    setErrorMsg(null);
   };
 
   const trackStep = (n: number) => {
@@ -439,10 +560,22 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
 
   const goNext = async () => {
     if (step === 5) {
-      if (!selectedAddress) { setErrorMsg(t.addressError); return; }
-      setIsLoadingTransition(true);
-      for (let p = 1; p <= 3; p++) { setLoadingPhase(p); await new Promise(r => setTimeout(r, 1400)); }
-      setIsLoadingTransition(false);
+      if (isManualAddress) {
+        const errors = manualAddressErrors(manualAddress);
+        setManualErrors(errors);
+        if (Object.values(errors).some(Boolean)) { setErrorMsg(t.manualError); return; }
+        const { street, houseNumber, zipCode, city } = manualAddress;
+        setFormData((prev: any) => ({
+          ...prev,
+          address: `${street.trim()} ${houseNumber.trim()}, ${zipCode.trim()} ${city.trim()}`,
+          zipCode: zipCode.trim(),
+        }));
+      } else {
+        if (!selectedAddress) { setErrorMsg(t.addressError); return; }
+        setIsLoadingTransition(true);
+        for (let p = 1; p <= 3; p++) { setLoadingPhase(p); await new Promise(r => setTimeout(r, 1400)); }
+        setIsLoadingTransition(false);
+      }
     }
     trackStep(step);
     setDirection(1);
@@ -715,39 +848,87 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       );
       case 5: return (
         <StepWrapper title={t.step5Title} sub={t.step5Sub}>
-          {selectedPlaceCoords && (
+          {!isManualAddress && selectedPlaceCoords && (
             <div className="w-full h-40 rounded-2xl overflow-hidden border border-gray-200 mb-4">
               <iframe width="100%" height="100%" style={{ border: 0 }} loading="lazy"
                 src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(formData.address)}&zoom=19&maptype=satellite`}
               />
             </div>
           )}
-          <div className="relative">
-            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-              <Search className="w-5 h-5 text-gray-400" />
-            </div>
-            <input
-              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none text-base bg-white"
-              value={formData.address}
-              onChange={e => handleAddressChange(e.target.value)}
-              placeholder={t.addressPlaceholder}
-              autoFocus
-            />
-            {showSuggestions && addressSuggestions.length > 0 && (
-              <div className="absolute z-50 left-0 right-0 top-full mt-1 bg-white border border-gray-100 rounded-2xl shadow-2xl overflow-hidden">
-                {addressSuggestions.map(s => (
-                  <button key={s.place_id} onClick={() => selectAddress(s)}
-                    className="w-full p-4 text-left hover:bg-gray-50 flex items-center gap-3 border-b border-gray-100 last:border-0">
-                    <MapPin className="w-4 h-4 text-primary shrink-0" />
-                    <span className="text-sm text-gray-700">{s.description}</span>
-                  </button>
+          {isManualAddress ? (
+            <div className="space-y-3">
+              <p className="text-sm text-gray-500">{t.manualHelp}</p>
+              <div className="grid grid-cols-3 gap-3">
+                {(['street', 'houseNumber'] as const).map(field => (
+                  <label key={field} className={field === 'street' ? 'col-span-2' : ''}>
+                    <span className="block text-sm font-medium text-gray-700 mb-1">{t[field]} *</span>
+                    <input
+                      name={field}
+                      autoComplete={field === 'street' ? 'address-line1' : 'off'}
+                      value={manualAddress[field]}
+                      onChange={e => handleManualChange(field, e.target.value)}
+                      aria-invalid={manualErrors[field] || undefined}
+                      className={`w-full p-3 border-2 rounded-xl outline-none focus:border-primary bg-white ${manualErrors[field] ? 'border-red-400' : 'border-gray-200'}`}
+                    />
+                  </label>
                 ))}
               </div>
-            )}
-          </div>
+              <div className="grid grid-cols-3 gap-3">
+                {(['zipCode', 'city'] as const).map(field => (
+                  <label key={field} className={field === 'city' ? 'col-span-2' : ''}>
+                    <span className="block text-sm font-medium text-gray-700 mb-1">{t[field]} *</span>
+                    <input
+                      name={field}
+                      autoComplete={field === 'zipCode' ? 'postal-code' : 'address-level2'}
+                      inputMode={field === 'zipCode' ? 'numeric' : undefined}
+                      value={manualAddress[field]}
+                      onChange={e => handleManualChange(field, e.target.value)}
+                      aria-invalid={manualErrors[field] || undefined}
+                      className={`w-full p-3 border-2 rounded-xl outline-none focus:border-primary bg-white ${manualErrors[field] ? 'border-red-400' : 'border-gray-200'}`}
+                    />
+                  </label>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                  <Search className="w-5 h-5 text-gray-400" />
+                </div>
+                <input
+                  className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none text-base bg-white"
+                  value={formData.address}
+                  onChange={e => handleAddressChange(e.target.value)}
+                  placeholder={t.addressPlaceholder}
+                  autoFocus
+                />
+                {showSuggestions && addressSuggestions.length > 0 && (
+                  <div className="absolute z-50 left-0 right-0 top-full mt-1 bg-white border border-gray-100 rounded-2xl shadow-2xl overflow-hidden">
+                    {addressSuggestions.map(s => (
+                      <button key={s.place_id} onClick={() => selectAddress(s)}
+                        className="w-full p-4 text-left hover:bg-gray-50 flex items-center gap-3 border-b border-gray-100 last:border-0">
+                        <MapPin className="w-4 h-4 text-primary shrink-0" />
+                        <span className="text-sm text-gray-700">{s.description}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+              {addressSearchMessage && <p role="status" className="mt-2 text-sm text-amber-700">{addressSearchMessage}</p>}
+            </>
+          )}
+          <button
+            type="button"
+            data-testid="manual-address-toggle"
+            onClick={toggleManualAddress}
+            className="mt-3 text-sm font-semibold text-primary underline underline-offset-2 hover:text-orange-700"
+          >
+            {isManualAddress ? t.automaticToggle : t.manualToggle}
+          </button>
           <button
             onClick={() => goNext()}
-            className={`w-full py-4 rounded-2xl font-bold text-base mt-4 transition-all ${selectedAddress ? 'btn-primary' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
+            className={`w-full py-4 rounded-2xl font-bold text-base mt-4 transition-all ${isManualAddress || selectedAddress ? 'btn-primary' : 'bg-gray-100 text-gray-400'}`}
           >
             {t.next}
           </button>

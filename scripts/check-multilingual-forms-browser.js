@@ -113,11 +113,11 @@ async function installNetworkIsolation(context, state) {
   });
 }
 
-async function installGooglePlacesMock(page, address) {
-  await page.addInitScript(mockAddress => {
+async function installGooglePlacesMock(page, address, noResults = false) {
+  await page.addInitScript(({ mockAddress, noResults }) => {
     class AutocompleteService {
       getPlacePredictions(_request, callback) {
-        callback([{ place_id: 'browser-test-place', description: mockAddress }], 'OK');
+        callback(noResults ? [] : [{ place_id: 'browser-test-place', description: mockAddress }], noResults ? 'ZERO_RESULTS' : 'OK');
       }
     }
     class PlacesService {
@@ -129,10 +129,10 @@ async function installGooglePlacesMock(page, address) {
       }
     }
     window.google = { maps: { places: { AutocompleteService, PlacesService } } };
-  }, address);
+  }, { mockAddress: address, noResults });
 }
 
-async function runMainForm(browser, test) {
+async function runMainForm(browser, test, manualMode = false) {
   const context = await browser.newContext();
   const state = {
     leads: [], confirmations: [], blockedPosts: [],
@@ -140,7 +140,7 @@ async function runMainForm(browser, test) {
   };
   await installNetworkIsolation(context, state);
   const page = await context.newPage();
-  await installGooglePlacesMock(page, test.address);
+  if (manualMode !== 'blocked') await installGooglePlacesMock(page, test.address, manualMode === 'no-results');
   const browserErrors = [];
   page.on('pageerror', error => browserErrors.push(error.message));
 
@@ -156,16 +156,54 @@ async function runMainForm(browser, test) {
       await button.click();
       await page.waitForTimeout(250);
     }
-    const addressInput = page.locator('input[placeholder]').first();
-    // At step five the only text input is the localized address field.
-    await addressInput.fill(test.address.slice(0, 8));
-    await page.getByRole('button', { name: test.address, exact: true }).click();
-    await page.getByRole('button', { name: /^(Weiter|Suivant|Avanti|Next)$/ }).click();
+    const next = page.getByRole('button', { name: /^(Weiter|Suivant|Avanti|Next)$/ });
+    if (manualMode) {
+      await page.locator('input[placeholder]').first().fill('Via Esempio');
+      if (manualMode === 'no-results') {
+        await page.getByText('No addresses found. Try another search or enter your address manually.', { exact: true }).waitFor();
+      }
+      await page.getByTestId('manual-address-toggle').click();
+      await next.click();
+      assert.equal(await page.locator('input[type="email"]').count(), 0, 'Empty manual address cannot advance');
+      for (const [name, value] of Object.entries({ street: 'Via Esempio', houseNumber: '16a', zipCode: '123', city: 'Lugano' })) {
+        await page.locator(`input[name="${name}"]`).fill(value);
+      }
+      await next.click();
+      assert.equal(await page.locator('input[type="email"]').count(), 0, 'Invalid postcode cannot advance');
+      await page.locator('input[name="zipCode"]').fill('6900');
+      // Switching modes must keep the draft, but must not trust an old Google selection.
+      await page.getByTestId('manual-address-toggle').click();
+      await next.click();
+      assert.equal(await page.locator('input[type="email"]').count(), 0, 'Switching to autocomplete requires a new selection');
+      await page.getByTestId('manual-address-toggle').click();
+      assert.equal(await page.locator('input[name="zipCode"]').inputValue(), '6900');
+      if (test.locale === 'it') {
+        const fs = require('node:fs');
+        fs.mkdirSync('/tmp/manual-address-qa', { recursive: true });
+        for (const width of [390, 1440]) {
+          await page.setViewportSize({ width, height: 1000 });
+          assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), 'Manual fields must not overflow');
+          await page.screenshot({ path: `/tmp/manual-address-qa/it-${width}.png`, fullPage: true });
+        }
+      }
+    } else {
+      const addressInput = page.locator('input[placeholder]').first();
+      await addressInput.fill(test.address.slice(0, 8));
+      await page.getByRole('button', { name: test.address, exact: true }).click();
+    }
+    await next.click();
 
     await page.locator('input[type="email"]').waitFor({ state: 'visible', timeout: 15000 }).catch(async error => {
       const visibleText = (await page.locator('body').innerText()).slice(0, 1200);
       throw new Error(`${test.locale} did not reach contact step; url=${page.url()} body=${JSON.stringify(visibleText)}; ${error.message}`);
     });
+    if (manualMode) {
+      await page.getByRole('button', { name: /^(Zurück|Retour|Indietro|Back)$/ }).click();
+      await page.locator('input[name="street"]').waitFor();
+      assert.equal(await page.locator('input[name="street"]').inputValue(), 'Via Esempio');
+      await next.click();
+      await page.locator('input[type="email"]').waitFor();
+    }
     const submit = page.locator('button').filter({ hasText: exactText(test.mainSubmit) }).last();
     await submit.click();
     await page.getByText(test.required, { exact: true }).waitFor({ state: 'visible' });
@@ -188,6 +226,11 @@ async function runMainForm(browser, test) {
       throw new Error(`${test.locale} success did not navigate; url=${page.url()} confirmations=${state.confirmations.length} blockedPosts=${JSON.stringify(state.blockedPosts)} browserErrors=${JSON.stringify(browserErrors)}; ${error.message}`);
     });
     assertContext(state.leads[1], test, `${test.locale} main success payload`);
+    if (manualMode) {
+      assert.ok(state.leads[1]['COMPLETE ADDRESS'].includes('Via Esempio 16a'));
+      assert.ok(state.leads[1]['COMPLETE ADDRESS'].includes('6900 Lugano'));
+      assert.equal(state.leads[1].zip_code, '6900');
+    }
     await page.waitForTimeout(200);
     assert.equal(state.confirmations.length, 1, `${test.locale} confirmation request`);
     assert.equal(state.confirmations[0].locale, test.locale);
@@ -252,11 +295,16 @@ async function runCallback(browser, test) {
     args: ['--no-sandbox'],
   });
   try {
-    for (const test of cases) {
+    for (const test of process.env.ADDRESS_EXTRA_ONLY === '1' ? [] : cases) {
       await runMainForm(browser, test);
       await runCallback(browser, test);
+      await runMainForm(browser, test, 'blocked');
       console.log(`PASS ${test.locale.toUpperCase()}: main form and callback validation, mocked rejection, mocked success, localized context`);
     }
+    await runMainForm(browser, cases[3], 'no-results');
+    console.log(process.env.ADDRESS_EXTRA_ONLY === '1'
+      ? 'PASS: zero suggestions, mode switching and back navigation; manual address and postcode preserved in payload.'
+      : 'PASS: manual address works with Google blocked in all four languages and with zero suggestions; invalid fields blocked; mode switching and back navigation; manual address and postcode preserved in payload.');
     console.log('PASS: all POSTs were intercepted locally; no real lead or confirmation services were contacted.');
   } finally {
     await browser.close();
