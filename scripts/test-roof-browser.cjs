@@ -127,8 +127,15 @@ async function setup(browser, { locale = 'en', mobile = false, maps = true, reso
 }
 async function manual(test, values = { street: 'Bahnhofstrasse', houseNumber: '10', zipCode: '8001', city: 'Zürich' }) {
   await test.page.getByTestId('manual-address-toggle').click();
-  for (const [name, value] of Object.entries(values)) await test.page.locator(`input[name="${name}"]`).fill(value);
-  await test.panel.getByRole('button', { name: test.config.analyze }).click();
+  assert.equal(await test.panel.count(), 0, 'no empty manual analysis card');
+  for (const [name, value] of Object.entries(values)) {
+    await test.page.locator(`input[name="${name}"]`).fill(value);
+    if (name !== 'city') {
+      assert.equal(await test.panel.count(), 0, 'incomplete address has no analysis card');
+      assert.equal(test.state.queries.length, 0, 'incomplete address does not trigger analysis');
+    }
+  }
+  assert.equal(await test.page.getByRole('button', { name: test.config.analyze }).count(), 0);
 }
 async function selectAddress(test, text = 'Bahnhof') {
   await test.page.locator('input[placeholder]').first().fill(text);
@@ -162,7 +169,7 @@ async function main() {
         await t.panel.locator('input[type=checkbox]').nth(0).check();
         await t.panel.getByText('70 m²').waitFor();
         await t.page.screenshot({ path: `${screenshotDir}/step5-desktop.png`, fullPage: true });
-        assert.equal(t.state.queries.length, 1, 'manual lookup is explicit, not automatic');
+        assert.equal(t.state.queries.length, 1, 'complete manual address triggers one debounced lookup');
         assert.equal(t.state.queries[0].searchParams.get('address'), 'Bahnhofstrasse 10, 8001 Zürich');
         await step6(t);
         await t.page.locator('input[placeholder]').nth(0).fill('Browser');
@@ -207,11 +214,16 @@ async function main() {
             await t.page.getByTestId('manual-address-toggle').click();
             for (const [key, value] of Object.entries({ street: 'Bahnhofstrasse', houseNumber: '10', zipCode: '8001', city: 'Zürich' }))
               await t.page.locator(`input[name=${key}]`).fill(value);
-            await t.panel.getByRole('button', { name: t.config.analyze }).click();
-            await t.panel.getByText('Loading roof data…').waitFor();
+            await t.page.getByRole('status', { name: t.config.title }).waitFor();
+            assert.equal(await t.panel.count(), 0, 'loading is a compact status, not an empty card');
           } else {
+            const response = t.page.waitForResponse(url => url.url().includes('/api/roof-analysis'));
             await manual(t);
-            await t.panel.getByText(status === 'not_found' ? t.config.notFound : t.config.unavailable, { exact: false }).waitFor();
+            await response;
+            await t.page.getByRole('status', { name: t.config.title }).waitFor({ state: 'hidden' });
+            assert.equal(await t.panel.count(), 0, 'failed analysis stays out of the way');
+            assert.equal(await t.page.getByText(t.config.unavailable, { exact: false }).count(), 0);
+            assert.equal(await t.page.getByText(t.config.notFound, { exact: false }).count(), 0);
           }
           await step6(t);
           assert.deepEqual(t.errors, []);
@@ -228,16 +240,15 @@ async function main() {
         await t.panel.waitFor({ state: 'detached' });
         await t.page.getByTestId('manual-address-toggle').click();
         await manualFields(t);
-        await t.panel.getByRole('button', { name: t.config.analyze }).click();
         await t.panel.getByText('70 m²').waitFor();
         await t.page.locator('input[name=houseNumber]').fill('11');
         assert.equal(await t.panel.getByText('70 m²').count(), 0, 'editing manual address invalidates prior analysis');
-        await t.panel.getByRole('button', { name: t.config.analyze }).click();
         await t.panel.getByText('70 m²').waitFor();
         await step6(t);
+        const requestsBeforeBack = t.state.queries.length;
         await t.page.getByRole('button', { name: t.config.back }).click();
-        await t.panel.getByRole('button', { name: t.config.analyze }).waitFor();
-        assert.equal(await t.panel.getByText('70 m²').count(), 0, 'back remounts step 5 without stale result');
+        await t.panel.getByText('70 m²').waitFor();
+        assert.equal(t.state.queries.length, requestsBeforeBack + 1, 'back remounts step 5 and refreshes analysis automatically');
         assert.deepEqual(t.errors, []);
       } finally { await t.context.close(); }
     });

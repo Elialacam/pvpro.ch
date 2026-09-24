@@ -104,9 +104,11 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
     setLoading(false);
     setMapError(false);
     mapFailed.current = false;
+    // Wait briefly for manual typing to settle; edits cancel stale lookups.
+    const timer = address && manual ? setTimeout(() => { void fetchRoofs(); }, 700) : undefined;
     if (address && !manual) void fetchRoofs();
-    return () => { request.current?.abort(); };
-    // Address changes invalidate the entire analysis; manual searches are only explicit.
+    return () => { clearTimeout(timer); request.current?.abort(); };
+    // Address changes invalidate the entire analysis.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address, manual]);
 
@@ -240,16 +242,15 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
     [t.yield, chosen.length ? `${number(annual)} kWh` : '—'],
   ];
 
-  if (!address && !manual) return null;
+  if (!address) return null;
+  if (manual && roofs.length === 0) {
+    return loading
+      ? <p role="status" aria-label={t.title} className="mt-3 text-sm text-gray-600">{t.loading}</p>
+      : null;
+  }
   return (
     <section className="mt-4 rounded-2xl border border-gray-200 bg-white p-4 sm:p-5" aria-label={t.title}>
       <h2 className="text-base font-bold text-gray-900 mb-3">{t.title}</h2>
-      {manual && (
-        <button type="button" onClick={() => void fetchRoofs()} disabled={!address || loading}
-          className="mb-3 rounded-xl bg-[#fcb210] px-4 py-2.5 text-sm font-bold text-gray-900 disabled:opacity-50">
-          {t.analyze}
-        </button>
-      )}
       {loading && <p role="status" className="mb-3 text-sm text-gray-600">{t.loading}</p>}
       {result?.status === 'unavailable' && <p role="status" className="mb-3 text-sm text-amber-800">{t.unavailable}</p>}
       {result?.status === 'not_found' && <p role="status" className="mb-3 text-sm text-gray-600">{t.notFound}</p>}
