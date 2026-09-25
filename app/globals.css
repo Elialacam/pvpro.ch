@@ -66,6 +66,13 @@
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
+/* Keep mobile browser chrome from creating empty scroll space in the form.
+   Native scrolling remains available whenever the content is taller. */
+html:has(.request-form-page),
+body:has(.request-form-page) {
+  overscroll-behavior-y: none;
+}
+
 .section-padding {
   @apply py-12 md:py-20;
 }

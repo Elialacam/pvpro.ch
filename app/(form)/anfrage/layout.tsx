@@ -13,7 +13,7 @@ export default function AnfrageLayout({
   return (
     <RootDocument lang="de-CH">
       <LocaleProvider locale="de">
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-[100dvh]">{children}</main>
       </LocaleProvider>
     </RootDocument>
   );

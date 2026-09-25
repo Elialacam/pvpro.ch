@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, memo, useCallback } from 'react';
 import { loadGoogleMaps } from '@/lib/googleMapsLoader';
 import { useRouter } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
   Check, X, MapPin, Search, ChevronLeft,
   ScanSearch, Users, Award,
@@ -28,7 +28,6 @@ const TOTAL_STEPS = 6;
 const stepVariants = {
   enter: (d: number) => ({ opacity: 0, y: d > 0 ? 14 : -14 }),
   center: { opacity: 1, y: 0 },
-  exit: (d: number) => ({ opacity: 0, y: d > 0 ? -14 : 14 }),
 };
 
 const ALL_ICONS = [
@@ -42,6 +41,8 @@ const ALL_ICONS = [
   '/icons/icon-pultdach.webp',
   '/icons/icon-flachdach.webp',
 ];
+
+const formIconSrc = (src: string) => src.replace('/icons/', '/icons/form/');
 
 // Accepts any way of writing a Swiss number (+41, 0041, 41, 0, or none, with or
 // without spaces/symbols). Valid only when the significant part is exactly 9 digits
@@ -326,7 +327,7 @@ const OptionCard = memo(function OptionCard({ label, sublabel, isSelected, onCli
       whileHover={{ scale: 1.025, y: -2 }}
       whileTap={{ scale: 0.97 }}
       onClick={onClick}
-      className="relative flex flex-col items-center justify-center rounded-2xl px-4 py-4 sm:py-5 transition-all duration-150 bg-white w-full"
+      className="relative flex flex-col items-center justify-center rounded-2xl px-4 py-4 sm:py-5 transition-[background-color,border-color,box-shadow] duration-150 bg-white w-full"
       style={{
         border: isSelected ? '2.5px solid #fcb210' : '2px solid #e5e7eb',
         boxShadow: isSelected
@@ -336,7 +337,7 @@ const OptionCard = memo(function OptionCard({ label, sublabel, isSelected, onCli
       }}
     >
       <div className="flex items-center justify-center w-full h-16 sm:h-20">
-        <img src={imageSrc} alt={label} className="w-full h-full object-contain" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
+        <img src={formIconSrc(imageSrc)} alt={label} decoding="async" className="w-full h-full object-contain" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
       </div>
       <p className="text-sm sm:text-base font-bold text-gray-900 text-center leading-tight mt-2">
         {label}
@@ -378,6 +379,8 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [direction, setDirection] = useState(1);
+  const reduceMotion = useReducedMotion();
+  const selectionLockRef = useRef(false);
   const [formData, setFormData] = useState<any>({
     isOwner: null, propertyType: null, roofType: null, wantsBattery: null,
     address: '', zipCode: '', firstName: '', lastName: '', email: '', phone: '',
@@ -403,7 +406,15 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   const addressRequestSeq = useRef(0);
 
   useEffect(() => {
-    ALL_ICONS.forEach(src => { const img = new window.Image(); img.src = src; });
+    if (reduceMotion) selectionLockRef.current = false;
+  }, [step, reduceMotion]);
+
+  useEffect(() => {
+    ALL_ICONS.forEach(src => {
+      const img = new window.Image();
+      img.src = formIconSrc(src);
+      void img.decode().catch(() => {});
+    });
   }, []);
 
   useEffect(() => {
@@ -587,16 +598,16 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     setStep(s => s + 1);
   };
 
-  const goBack = () => { setDirection(-1); setStep(s => s - 1); };
+  const goBack = () => { selectionLockRef.current = false; setDirection(-1); setStep(s => s - 1); };
 
   const handleSelect = useCallback((field: string, value: any) => {
+    if (selectionLockRef.current) return;
     if (field === 'isOwner' && value === 'no') { setErrorMsg(t.renterError); return; }
+    selectionLockRef.current = true;
     setFormData((prev: any) => ({ ...prev, [field]: value }));
-    setTimeout(() => {
-      setDirection(1);
-      setStep(s => s + 1);
-      trackStep(step);
-    }, 160);
+    setDirection(1);
+    setStep(step + 1);
+    trackStep(step);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step, t.renterError]);
 
@@ -721,7 +732,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       { icon: <Award className="w-8 h-8" />, label: t.loadingStep3, phase: 3 },
     ];
     return (
-      <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6">
+      <div className="request-form-page min-h-[100dvh] bg-white flex flex-col items-center justify-center px-6">
         <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-10">
           <Image src="/logo-pvpro.png" alt="PvPro.ch" width={320} height={92} sizes="275px" className="h-20 w-auto" loading="lazy" />
         </motion.div>
@@ -1013,7 +1024,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafa] flex flex-col">
+    <div className="request-form-page min-h-[100dvh] bg-[#fafafa] flex flex-col">
       {/* Header */}
       <header className="w-full bg-white border-b border-gray-100 overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
@@ -1033,7 +1044,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
 
       {/* Progress bar */}
       <div className="w-full h-1.5 bg-gray-100">
-        <motion.div className="h-full" style={{ background: 'linear-gradient(90deg, #ffc812, #fcb210)' }} animate={{ width: `${progressPct}%` }} transition={{ duration: 0.4, ease: 'easeOut' }} />
+        <motion.div className="h-full w-full" style={{ background: 'linear-gradient(90deg, #ffc812, #fcb210)', transformOrigin: 'left' }} animate={{ scaleX: progressPct / 100 }} transition={{ duration: reduceMotion ? 0 : 0.2, ease: 'easeOut' }} />
       </div>
 
       {/* Step counter */}
@@ -1046,19 +1057,18 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       {/* Content */}
       <div className="flex-1 flex items-start justify-center px-4 py-3 sm:py-5">
         <div className="w-full max-w-md">
-          <AnimatePresence custom={direction} mode="popLayout">
             <motion.div
               key={step}
+              data-form-step={step}
               custom={direction}
               variants={stepVariants}
-              initial="enter"
+              initial={reduceMotion || step === 1 ? false : "enter"}
               animate="center"
-              exit="exit"
-              transition={{ opacity: { duration: 0.15 }, y: { duration: 0.2, ease: [0.4, 0, 0.2, 1] } }}
+              onAnimationComplete={() => { selectionLockRef.current = false; }}
+              transition={{ duration: reduceMotion ? 0 : 0.16, ease: [0.4, 0, 0.2, 1] }}
             >
               {renderStep()}
             </motion.div>
-          </AnimatePresence>
 
           {/* Error toast */}
           <AnimatePresence>

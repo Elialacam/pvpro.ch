@@ -9,7 +9,7 @@ export default function FormEnLayout({ children }: { children: React.ReactNode }
   return (
     <RootDocument lang="en-CH">
       <LocaleProvider locale="en">
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-[100dvh]">{children}</main>
       </LocaleProvider>
     </RootDocument>
   );

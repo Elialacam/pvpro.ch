@@ -9,7 +9,7 @@ export default function FormItLayout({ children }: { children: React.ReactNode }
   return (
     <RootDocument lang="it-CH">
       <LocaleProvider locale="it">
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-[100dvh]">{children}</main>
       </LocaleProvider>
     </RootDocument>
   );
