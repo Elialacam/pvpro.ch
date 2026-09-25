@@ -1060,6 +1060,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
             <motion.div
               key={step}
               data-form-step={step}
+              className={step === 5 ? 'pb-[calc(80px+env(safe-area-inset-bottom,0px))] sm:pb-0' : undefined}
               custom={direction}
               variants={stepVariants}
               initial={reduceMotion || step === 1 ? false : "enter"}

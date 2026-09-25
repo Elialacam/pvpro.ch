@@ -307,6 +307,16 @@ async function main() {
           await t.page.getByRole('button', { name: compareLabels[locale], exact: true }).waitFor();
           assert.ok(!text.includes(t.config.mixed), `${locale}: mixed suitability must not appear`);
           assert.ok(await t.page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${locale}: horizontal overflow`);
+          for (const height of [650, 844]) {
+            await t.page.setViewportSize({ width: 390, height });
+            await t.page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
+            const clearance = await t.page.getByRole('button', { name: compareLabels[locale], exact: true })
+              .evaluate(el => window.innerHeight - el.getBoundingClientRect().bottom);
+            assert.ok(clearance >= 79, `${locale}: button must clear the mobile bottom edge (${clearance}px)`);
+            const mapHeight = await t.panel.locator('div[aria-label]').evaluate(el => el.getBoundingClientRect().height);
+            assert.ok(mapHeight >= 200 && mapHeight <= 240, 'compact map retains a usable height');
+            assert.ok(await t.page.evaluate(() => document.documentElement.scrollHeight > innerHeight), 'long address step remains scrollable');
+          }
           if (locale === 'en') await t.page.screenshot({ path: `${screenshotDir}/step5-mobile.png`, fullPage: true });
           assert.deepEqual(t.errors, []);
         } finally { await t.context.close(); }
