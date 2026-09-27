@@ -250,7 +250,8 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
   }
   return (
     <>
-    <section className="mt-3 sm:mt-4 rounded-2xl border border-gray-200 bg-white p-3 sm:p-5" aria-label={t.title}>
+    <section className="roof-analysis mt-3 sm:mt-4 rounded-2xl border border-gray-200 bg-white p-3 sm:p-5" aria-label={t.title}>
+      <div className="roof-visual">
       <h2 className="text-base font-bold text-gray-900 mb-2 sm:mb-3">{t.title}</h2>
       {loading && <p role="status" className="mb-3 text-sm text-gray-600">{t.loading}</p>}
       {result?.status === 'unavailable' && <p role="status" className="mb-3 text-sm text-amber-800">{t.unavailable}</p>}
@@ -277,7 +278,7 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
       )}
       {showMap && (
         <div className="relative mb-2 sm:mb-3 overflow-hidden rounded-xl border border-gray-200">
-          <div ref={mapElement} className="h-[clamp(200px,30svh,240px)] w-full sm:h-[300px]" aria-label={t.title} />
+          <div ref={mapElement} className="roof-map h-[clamp(200px,30svh,240px)] w-full sm:h-[300px]" aria-label={t.title} />
           {!mapReady && (
             <p role="status" className="absolute inset-0 flex items-center justify-center bg-gray-100 px-4 text-center text-sm text-gray-700">
               {mapError ? t.mapUnavailable : t.mapLoading}
@@ -288,7 +289,8 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
       {result?.status === 'ok' && activeRoofs.length > 0 && (
         <p className="mb-2 sm:mb-3 text-xs leading-relaxed text-gray-500">{t.selectRoofsInstruction}</p>
       )}
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+      </div>
+      <div className="roof-stats grid grid-cols-2 gap-2 sm:grid-cols-4">
         {stats.map(([label, value]) => (
           <div key={label} className="rounded-xl bg-[#fff8e8] p-2.5 sm:p-3">
             <div className="text-xs text-gray-600">{label}</div>
@@ -298,7 +300,7 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
       </div>
     </section>
     {roofs.length > 0 && (result?.status === 'ok' || isAmbiguous) && (
-      <p className="mt-3 text-xs leading-relaxed text-gray-500">{t.disclaimer}</p>
+      <p className="roof-note mt-3 text-xs leading-relaxed text-gray-500">{t.disclaimer}</p>
     )}
     </>
   );

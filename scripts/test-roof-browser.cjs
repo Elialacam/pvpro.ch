@@ -288,6 +288,31 @@ async function main() {
       } finally { await t.context.close(); }
     });
     for (const locale of Object.keys(locales)) {
+      await run(`${locale} desktop address columns and short-window scrolling`, async () => {
+        const t = await setup(browser, { locale });
+        try {
+          await selectAddress(t);
+          await t.panel.getByText('70 m²').waitFor();
+          for (const [width, height] of [[1280, 720], [1024, 640]]) {
+            await t.page.setViewportSize({ width, height });
+            await t.page.waitForTimeout(300);
+            const layout = await t.page.evaluate(() => {
+              const rect = s => document.querySelector(s).getBoundingClientRect();
+              const stats = rect('.roof-stats'), visual = rect('.roof-visual');
+              const button = rect('.address-step > button:last-child');
+              return { separate: stats.right < visual.left, buttonBottom: button.bottom, page: document.documentElement.scrollHeight, height: innerHeight };
+            });
+            assert.ok(layout.separate, 'stats left, map right');
+            assert.ok(layout.buttonBottom <= height, 'desktop CTA visible without scrolling');
+            assert.ok(layout.page <= height + 1, `desktop content fits viewport: ${JSON.stringify({width, ...layout})}`);
+          }
+          if (locale === 'it') await t.page.screenshot({ path: `${screenshotDir}/step5-desktop-columns.png`, fullPage: true });
+          await t.page.setViewportSize({ width: 1024, height: 400 });
+          assert.ok(await t.page.evaluate(() => document.documentElement.scrollHeight > innerHeight), 'short windows can scroll');
+          await t.page.getByRole('button', { name: t.config.next, exact: true }).scrollIntoViewIfNeeded();
+          assert.deepEqual(t.errors, []);
+        } finally { await t.context.close(); }
+      });
       await run(`${locale} copy, manual analysis and mobile overflow`, async () => {
         const t = await setup(browser, { locale, mobile: true });
         try {
@@ -297,7 +322,7 @@ async function main() {
           assert.equal(await t.panel.locator('input[type=checkbox]').count(), 0);
           const instruction = t.panel.getByText(selectionInstructions[locale], { exact: true });
           await instruction.waitFor();
-          assert.equal(await instruction.evaluate(el => el.nextElementSibling.children.length), 4);
+          assert.equal(await t.panel.locator('.roof-stats > div').count(), 4);
           for (const expected of [t.config.title, t.config.area, t.config.yield, t.config.orientation, orientationLabels[locale], summaryLabels[locale]])
             assert.ok(text.includes(expected), `${locale}: expected "${expected}" in panel`);
           assert.ok(!text.includes(t.config.multiple), `${locale}: show actual orientations`);

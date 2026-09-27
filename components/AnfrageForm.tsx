@@ -359,9 +359,9 @@ const OptionCard = memo(function OptionCard({ label, sublabel, isSelected, onCli
 });
 
 /* ─── Step wrapper ────────────────────────────────────────────────────────── */
-function StepWrapper({ title, sub, children }: { title: string; sub: string; children: React.ReactNode }) {
+function StepWrapper({ title, sub, children, className }: { title: string; sub: string; children: React.ReactNode; className?: string }) {
   return (
-    <div>
+    <div className={className}>
       <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mb-1.5">{title}</h1>
       <p className="text-sm sm:text-base text-gray-500 mb-5 leading-relaxed">{sub}</p>
       {children}
@@ -863,7 +863,8 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         </StepWrapper>
       );
       case 5: return (
-        <StepWrapper title={t.step5Title} sub={t.step5Sub}>
+        <StepWrapper title={t.step5Title} sub={t.step5Sub} className="address-step">
+          <div className="address-fields">
           {isManualAddress ? (
             <div className="space-y-3">
               <p className="text-sm text-gray-500">{t.manualHelp}</p>
@@ -927,6 +928,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
               {addressSearchMessage && <p role="status" className="mt-2 text-sm text-amber-700">{addressSearchMessage}</p>}
             </>
           )}
+          </div>
           <RoofAnalysis
             key={`${isManualAddress ? 'manual' : 'automatic'}:${isManualAddress ? `${manualAddress.street}|${manualAddress.houseNumber}|${manualAddress.zipCode}|${manualAddress.city}` : selectedAddress ?? ''}`}
             locale={locale}
@@ -1056,7 +1058,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
 
       {/* Content */}
       <div className="flex-1 flex items-start justify-center px-4 py-3 sm:py-5">
-        <div className="w-full max-w-md">
+        <div className={`w-full ${step === 5 ? 'max-w-md lg:max-w-5xl' : 'max-w-md'}`}>
             <motion.div
               key={step}
               data-form-step={step}

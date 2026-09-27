@@ -20,3 +20,9 @@ The user restricted the existing Google browser key to pvpro.ch and www.pvpro.ch
 **Why:** The user intentionally limited referrers and specified that the final real-map test belongs on the PvPro domain.
 
 **How to apply:** Do not loosen key restrictions to make preview tests pass. Distinguish simulated interaction tests and live BFE checks from the remaining real Google-map verification on an authorized domain.
+
+Desktop fitting is a layout goal, not permission to lock scrolling or compress the mobile funnel.
+
+**Why:** The user approved a two-column address step only on desktop, while preserving mobile scrolling and button clearance from Safari's bottom controls. Small desktop windows and increased zoom must still expose all content.
+
+**How to apply:** Preserve the mobile arrangement when adjusting desktop density. Do not force a fixed-height, overflow-hidden form to satisfy a no-scroll desktop preview.
