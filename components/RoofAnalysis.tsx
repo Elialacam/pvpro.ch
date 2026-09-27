@@ -250,7 +250,8 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
   }
   return (
     <>
-    <section className="roof-analysis mt-3 sm:mt-4 rounded-2xl border border-gray-200 bg-white p-3 sm:p-5" aria-label={t.title}>
+    <section className="roof-analysis mt-3 sm:mt-4 rounded-2xl border border-gray-200 bg-white p-3 sm:p-5" aria-label={t.title}
+      data-roof-results={roofs.length > 0 && (result?.status === 'ok' || isAmbiguous)}>
       <div className="roof-visual">
       <h2 className="text-base font-bold text-gray-900 mb-2 sm:mb-3">{t.title}</h2>
       {loading && <p role="status" className="mb-3 text-sm text-gray-600">{t.loading}</p>}

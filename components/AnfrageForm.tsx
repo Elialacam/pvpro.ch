@@ -1058,7 +1058,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
 
       {/* Content */}
       <div className="flex-1 flex items-start justify-center px-4 py-3 sm:py-5">
-        <div className={`w-full ${step === 5 ? 'max-w-md lg:max-w-5xl' : 'max-w-md'}`}>
+        <div className={`w-full max-w-md ${step === 5 ? 'address-form-container' : ''}`}>
             <motion.div
               key={step}
               data-form-step={step}

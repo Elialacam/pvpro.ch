@@ -166,6 +166,41 @@ async function run(name, fn) {
 async function main() {
   const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH || '/repl/tools/bin/chromium', args: ['--no-sandbox'], headless: true });
   try {
+    await run('desktop stays centered until results and recenters on address edits', async () => {
+      for (const status of ['ok', 'not_found', 'unavailable']) {
+        let release;
+        const t = await setup(browser, { resolver: () => new Promise(resolve => { release = resolve; }) });
+        const assertCentered = async () => {
+          const bounds = await t.page.locator('.address-form-container').boundingBox();
+          assert.ok(bounds.width <= 448, 'compact width before results');
+          assert.ok(Math.abs(bounds.x + bounds.width / 2 - 720) <= 1, 'centered in viewport');
+          assert.equal(await t.page.locator('.address-step').evaluate(el => getComputedStyle(el).display), 'block');
+        };
+        try {
+          await assertCentered();
+          if (status === 'ok') await t.page.screenshot({ path: `${screenshotDir}/step5-centered.png`, fullPage: true });
+          const request = t.page.waitForRequest(req => req.url().includes('/api/roof-analysis'));
+          await selectAddress(t);
+          await request;
+          await t.page.waitForTimeout(100);
+          await assertCentered();
+          const response = t.page.waitForResponse(res => res.url().includes('/api/roof-analysis'));
+          release(status === 'ok' ? ok : { status, roofs: [] });
+          await response;
+          if (status === 'ok') {
+            await t.panel.getByText('70 m²').waitFor();
+            assert.ok((await t.page.locator('.address-form-container').boundingBox()).width > 448);
+            await t.page.locator('input[placeholder]').first().fill('Other address');
+            await t.panel.waitFor({ state: 'detached' });
+            await assertCentered();
+          } else {
+            await t.panel.getByText(t.config[status === 'not_found' ? 'notFound' : 'unavailable'], { exact: false }).waitFor();
+            await assertCentered();
+          }
+          assert.deepEqual(t.errors, []);
+        } finally { await t.context.close(); }
+      }
+    });
     await run('manual fields, octants, map-only selection, totals, safe submission', async () => {
       const t = await setup(browser);
       try {
