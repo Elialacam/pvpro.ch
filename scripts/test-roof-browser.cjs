@@ -114,7 +114,13 @@ async function setup(browser, { locale = 'en', mobile = false, maps = true, reso
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
-  const config = { ...locales[locale], next: compareLabels[locale] };
+  const notFoundCopy = {
+    de: 'Wir konnten Ihr Haus',
+    fr: 'Nous n’avons pas pu identifier votre maison',
+    it: 'Non abbiamo individuato la tua casa',
+    en: 'We could not identify your house',
+  };
+  const config = { ...locales[locale], notFound: notFoundCopy[locale], next: compareLabels[locale] };
   const response = await page.goto(origin + config.path, { waitUntil: 'domcontentloaded', timeout: 60000 });
   assert.equal(response.status(), 200, `${locale} form HTTP status`);
   // Next's streamed HTML can show controls well before hydration attaches event handlers.
@@ -274,6 +280,11 @@ async function main() {
               await t.page.locator(`input[name=${key}]`).fill(value);
             await t.page.getByRole('status', { name: t.config.title }).waitFor();
             assert.equal(await t.panel.count(), 0, 'loading is a compact status, not an empty card');
+          } else if (status === 'not_found') {
+            await manual(t);
+            await t.panel.getByText(t.config.notFound, { exact: false }).waitFor();
+            assert.equal(await t.panel.locator('.roof-stats').count(), 0);
+            assert.equal(await t.panel.locator('.roof-map').count(), 0, 'no invented map location');
           } else {
             const response = t.page.waitForResponse(url => url.url().includes('/api/roof-analysis'));
             await manual(t);
@@ -323,6 +334,26 @@ async function main() {
       } finally { await t.context.close(); }
     });
     for (const locale of Object.keys(locales)) {
+      await run(`${locale} missing house shows map without analysis, for automatic and manual addresses`, async () => {
+        for (const manualMode of [false, true]) {
+          const t = await setup(browser, { locale, mobile: true, resolver: () => ({ status: 'not_found', roofs: [], center: ok.center }) });
+          try {
+            if (manualMode) await manual(t); else await selectAddress(t);
+            await t.panel.getByText(t.config.notFound, { exact: false }).waitFor();
+            await t.panel.locator('.roof-map').waitFor();
+            await t.page.waitForFunction(() => !document.querySelector('.roof-map')?.nextElementSibling);
+            assert.equal(await t.panel.locator('.roof-stats').count(), 0);
+            assert.equal(await t.panel.locator('button[aria-label^="Map roof"]').count(), 0);
+            assert.equal(await t.panel.getAttribute('data-roof-results'), 'false');
+            if (locale === 'it' && !manualMode)
+              await t.page.screenshot({ path: `${screenshotDir}/step5-not-found.png`, fullPage: true });
+            if (manualMode) await t.page.locator('input[name=houseNumber]').fill('');
+            else await t.page.locator('input[placeholder]').first().fill('Other address');
+            await t.panel.waitFor({ state: 'detached' });
+            assert.deepEqual(t.errors, []);
+          } finally { await t.context.close(); }
+        }
+      });
       await run(`${locale} desktop address columns and short-window scrolling`, async () => {
         const t = await setup(browser, { locale });
         try {

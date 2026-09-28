@@ -26,3 +26,9 @@ Desktop fitting is a layout goal, not permission to lock scrolling or compress t
 **Why:** The user approved a two-column address step only on desktop, while preserving mobile scrolling and button clearance from Safari's bottom controls. Small desktop windows and increased zoom must still expose all content.
 
 **How to apply:** Preserve the mobile arrangement when adjusting desktop density. Do not force a fixed-height, overflow-hidden form to satisfy a no-scroll desktop preview.
+
+Missing roof data must not be presented as proof that the address is wrong.
+
+**Why:** The user wants the satellite view to help homeowners recognize and correct an address, but a valid address can lack official roof coverage.
+
+**How to apply:** For a missing house, use the available address coordinates for an unselected map, hide empty analysis statistics, and invite address checking. Never invent coordinates when the address cannot be located.

@@ -115,10 +115,11 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
   const roofs = result?.roofs ?? [];
   const buildings = useMemo(() => [...new Set(roofs.map(roof => roof.buildingId))], [roofs]);
   const isAmbiguous = result?.status === 'ambiguous';
+  const notFound = result?.status === 'not_found';
   const activeRoofs = result?.status === 'ok' ? roofs : [];
   const chosen = activeRoofs.filter(roof => selected.includes(roof.id));
   const center = result?.center ?? coords ?? roofCenter(roofs[0]);
-  const showMap = roofs.length > 0 && !!center;
+  const showMap = (roofs.length > 0 || notFound) && !!center;
 
   // The Google key can be restricted to the production host. Never imply a map
   // is available until the Maps API actually loads.
@@ -243,7 +244,7 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
   ];
 
   if (!address) return null;
-  if (manual && roofs.length === 0) {
+  if (manual && roofs.length === 0 && !notFound) {
     return loading
       ? <p role="status" aria-label={t.title} className="mt-3 text-sm text-gray-600">{t.loading}</p>
       : null;
@@ -291,14 +292,14 @@ export default function RoofAnalysis({ address, coords, manual, locale }: Props)
         <p className="mb-2 sm:mb-3 text-xs leading-relaxed text-gray-500">{t.selectRoofsInstruction}</p>
       )}
       </div>
-      <div className="roof-stats grid grid-cols-2 gap-2 sm:grid-cols-4">
+      {!notFound && <div className="roof-stats grid grid-cols-2 gap-2 sm:grid-cols-4">
         {stats.map(([label, value]) => (
           <div key={label} className="rounded-xl bg-[#fff8e8] p-2.5 sm:p-3">
             <div className="text-xs text-gray-600">{label}</div>
             <div className="mt-1 text-sm font-bold text-gray-900">{value}</div>
           </div>
         ))}
-      </div>
+      </div>}
     </section>
     {roofs.length > 0 && (result?.status === 'ok' || isAmbiguous) && (
       <p className="roof-note mt-3 text-xs leading-relaxed text-gray-500">{t.disclaimer}</p>
