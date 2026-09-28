@@ -115,10 +115,10 @@ async function setup(browser, { locale = 'en', mobile = false, maps = true, reso
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
   const notFoundCopy = {
-    de: 'Wir konnten Ihr Haus',
-    fr: 'Nous n’avons pas pu identifier votre maison',
-    it: 'Non abbiamo individuato la tua casa',
-    en: 'We could not identify your house',
+    de: 'Haus nicht gefunden.',
+    fr: 'Maison non identifiée.',
+    it: 'Casa non individuata.',
+    en: 'House not identified.',
   };
   const config = { ...locales[locale], notFound: notFoundCopy[locale], next: compareLabels[locale] };
   const response = await page.goto(origin + config.path, { waitUntil: 'domcontentloaded', timeout: 60000 });
