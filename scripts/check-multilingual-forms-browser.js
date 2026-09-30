@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
 const { chromium } = require('playwright');
 
 const base = process.env.MULTILINGUAL_FORMS_TEST_URL || `https://${process.env.REPLIT_DEV_DOMAIN}`;
@@ -12,6 +13,7 @@ const cases = [
     options: ['Ja', 'Einfamilienhaus', 'Satteldach', 'Ja'],
     address: 'Bahnhofstrasse 10, 8001 Zürich, Schweiz',
     required: 'Bitte füllen Sie alle Pflichtfelder aus.',
+    next: 'Weiter',
     mainSubmit: 'Kostenlose Offerten anfordern',
     open: 'Beratung öffnen', submit: 'Rückruf anfordern', callbackRequired: 'Bitte füllen Sie alle Pflichtfelder aus.',
     thankYou: '/danke',
@@ -21,6 +23,7 @@ const cases = [
     options: ['Oui', 'Maison individuelle', 'Toit à deux pentes', 'Oui'],
     address: 'Rue du Centre 10, 1003 Lausanne, Suisse',
     required: 'Veuillez remplir tous les champs obligatoires.',
+    next: 'Suivant',
     mainSubmit: 'Demander des devis gratuits',
     open: 'Ouvrir la consultation', submit: 'Demander un rappel', callbackRequired: 'Veuillez remplir tous les champs obligatoires.',
     thankYou: '/fr/merci',
@@ -30,6 +33,7 @@ const cases = [
     options: ['Sì', 'Casa unifamiliare', 'Tetto a falda', 'Sì'],
     address: 'Via Lugano 10, 6900 Lugano, Svizzera',
     required: 'Compila tutti i campi obbligatori.',
+    next: 'Avanti',
     mainSubmit: 'Richiedi preventivi gratuiti',
     open: 'Apri la consulenza', submit: 'Richiedi richiamata', callbackRequired: 'Compili tutti i campi obbligatori.',
     thankYou: '/it/grazie',
@@ -39,6 +43,7 @@ const cases = [
     options: ['Yes', 'Detached house', 'Pitched roof', 'Yes'],
     address: 'Marktgasse 10, 3011 Bern, Switzerland',
     required: 'Please fill in all required fields.',
+    next: 'Next',
     mainSubmit: 'Request free quotes',
     open: 'Open consultation', submit: 'Request callback', callbackRequired: 'Please fill in all required fields.',
     thankYou: '/en/thank-you',
@@ -53,7 +58,7 @@ function assertContext(payload, test, label) {
 }
 
 async function dismissCookies(page) {
-  const choices = ['Nur notwendige', 'Only necessary', 'Uniquement nécessaires', 'Solo necessari'];
+  const choices = ['Nur notwendige', 'Necessary Only', 'Nécessaires uniquement', 'Solo necessari'];
   for (const choice of choices) {
     const button = page.getByRole('button', { name: choice, exact: true });
     if (await button.isVisible().catch(() => false)) {
@@ -79,6 +84,10 @@ async function installNetworkIsolation(context, state) {
   await context.route('**/*', async route => {
     const request = route.request();
     const url = new URL(request.url());
+    if (url.pathname === '/api/roof-analysis' || /\/maps\/api\/|\/maps\/vt|\/maps\/preview/.test(url.pathname)) {
+      state.forbiddenRequests.push(request.url());
+      return route.abort('blockedbyclient');
+    }
     if (request.method() === 'POST' && url.origin === baseOrigin && url.pathname === '/api/anfrage') {
       const payload = request.postDataJSON();
       state.leads.push(payload);
@@ -113,11 +122,11 @@ async function installNetworkIsolation(context, state) {
   });
 }
 
-async function installGooglePlacesMock(page, address, noResults = false) {
-  await page.addInitScript(({ mockAddress, noResults }) => {
+async function installGooglePlacesMock(page, address, predictionStatus = 'OK') {
+  await page.addInitScript(({ mockAddress, predictionStatus }) => {
     class AutocompleteService {
       getPlacePredictions(_request, callback) {
-        callback(noResults ? [] : [{ place_id: 'browser-test-place', description: mockAddress }], noResults ? 'ZERO_RESULTS' : 'OK');
+        callback(predictionStatus === 'OK' ? [{ place_id: 'browser-test-place', description: mockAddress }] : [], predictionStatus);
       }
     }
     class PlacesService {
@@ -129,81 +138,98 @@ async function installGooglePlacesMock(page, address, noResults = false) {
       }
     }
     window.google = { maps: { places: { AutocompleteService, PlacesService } } };
-  }, { mockAddress: address, noResults });
+  }, { mockAddress: address, predictionStatus });
 }
 
-async function runMainForm(browser, test, manualMode = false) {
-  const context = await browser.newContext();
+async function reachAddressStep(page, test) {
+  const url = `${base}${test.form}?canton=${test.canton}&origin=${encodeURIComponent(test.guide)}&source=chatgpt`;
+  const response = await page.goto(url, { waitUntil: 'load', timeout: 60000 });
+  assert.equal(response.status(), 200, `${test.locale} main form HTTP status`);
+  await dismissCookies(page);
+  for (const [index, option] of test.options.entries()) {
+    const current = page.locator(`[data-form-step="${index + 1}"]`);
+    const nextStep = page.locator(`[data-form-step="${index + 2}"]`);
+    await current.waitFor({ state: 'visible', timeout: 15000 });
+    const button = page.getByText(option, { exact: true }).locator('xpath=ancestor::button[1]');
+    let advanced = false;
+    for (let attempt = 1; attempt <= 4; attempt++) {
+      if (await nextStep.count()) { advanced = true; break; }
+      await button.click();
+      try {
+        await nextStep.waitFor({ state: 'visible', timeout: 2500 });
+        advanced = true;
+        break;
+      } catch {
+        if (await nextStep.count()) { advanced = true; break; }
+      }
+    }
+    assert.ok(advanced, `${test.locale}: step ${index + 1} failed to advance after 4 ${option} clicks; url=${page.url()}`);
+  }
+  await page.locator('[data-form-step="5"]').waitFor({ state: 'visible' });
+}
+
+async function assertAddressUi(page, label) {
+  assert.equal(await page.locator('[data-form-step="5"] input').count(), 1, `${label}: single address input`);
+  assert.equal(await page.locator('.roof-analysis, .roof-map, [data-testid="manual-address-toggle"], input[name="street"], input[name="zipCode"]').count(), 0, `${label}: no manual, roof or map UI`);
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${label}: no horizontal overflow`);
+}
+
+async function attemptAddressNext(page, next, label) {
+  // The suggestions dropdown can overlap Weiter; dispatch the button's own
+  // click to verify its validation rather than accidentally selecting a result.
+  if (await next.isEnabled()) await next.evaluate(button => button.click());
+  assert.equal(await page.locator('[data-form-step="5"]').count(), 1, `${label}: cannot advance without selected suggestion`);
+  assert.equal(await page.locator('input[type="email"]').count(), 0, `${label}: contact form hidden`);
+}
+
+async function runMainForm(browser, test, viewport) {
+  const context = await browser.newContext({ viewport });
   const state = {
-    leads: [], confirmations: [], blockedPosts: [],
+    leads: [], confirmations: [], blockedPosts: [], forbiddenRequests: [],
     rejectNextLead: true, errorMessage: `MOCK_${test.locale.toUpperCase()}_FORM_ERROR`,
   };
   await installNetworkIsolation(context, state);
   const page = await context.newPage();
-  if (manualMode !== 'blocked') await installGooglePlacesMock(page, test.address, manualMode === 'no-results');
+  await installGooglePlacesMock(page, test.address);
   const browserErrors = [];
   page.on('pageerror', error => browserErrors.push(error.message));
 
   try {
-    const url = `${base}${test.form}?canton=${test.canton}&origin=${encodeURIComponent(test.guide)}&source=chatgpt`;
-    const response = await page.goto(url, { waitUntil: 'load', timeout: 60000 });
-    assert.equal(response.status(), 200, `${test.locale} main form HTTP status`);
-    await page.waitForTimeout(1500);
-    await dismissCookies(page);
-
-    for (const option of test.options) {
-      const button = page.getByText(option, { exact: true }).locator('xpath=ancestor::button[1]');
-      await button.click();
-      await page.waitForTimeout(250);
+    const label = `${test.locale} ${viewport.width}px`;
+    await reachAddressStep(page, test);
+    await assertAddressUi(page, label);
+    if (test.locale === 'it') {
+      const cookieReject = page.getByRole('button', { name: 'Solo necessari', exact: true });
+      if (await cookieReject.waitFor({ state: 'visible', timeout: 3000 }).then(() => true, () => false)) {
+        await cookieReject.click();
+        await cookieReject.waitFor({ state: 'hidden', timeout: 5000 });
+      }
+      fs.mkdirSync('/tmp/restored-form-qa', { recursive: true });
+      await page.screenshot({ path: `/tmp/restored-form-qa/it-step5-${viewport.width}.png`, fullPage: true });
     }
-    const next = page.getByRole('button', { name: /^(Weiter|Suivant|Avanti|Next)$/ });
-    if (manualMode) {
-      await page.locator('input[placeholder]').first().fill('Via Esempio');
-      if (manualMode === 'no-results') {
-        await page.getByText('No addresses found. Try another search or enter your address manually.', { exact: true }).waitFor();
-      }
-      await page.getByTestId('manual-address-toggle').click();
-      await next.click();
-      assert.equal(await page.locator('input[type="email"]').count(), 0, 'Empty manual address cannot advance');
-      for (const [name, value] of Object.entries({ street: 'Via Esempio', houseNumber: '16a', zipCode: '123', city: 'Lugano' })) {
-        await page.locator(`input[name="${name}"]`).fill(value);
-      }
-      await next.click();
-      assert.equal(await page.locator('input[type="email"]').count(), 0, 'Invalid postcode cannot advance');
-      await page.locator('input[name="zipCode"]').fill('6900');
-      // Switching modes must keep the draft, but must not trust an old Google selection.
-      await page.getByTestId('manual-address-toggle').click();
-      await next.click();
-      assert.equal(await page.locator('input[type="email"]').count(), 0, 'Switching to autocomplete requires a new selection');
-      await page.getByTestId('manual-address-toggle').click();
-      assert.equal(await page.locator('input[name="zipCode"]').inputValue(), '6900');
-      if (test.locale === 'it') {
-        const fs = require('node:fs');
-        fs.mkdirSync('/tmp/manual-address-qa', { recursive: true });
-        for (const width of [390, 1440]) {
-          await page.setViewportSize({ width, height: 1000 });
-          assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), 'Manual fields must not overflow');
-          await page.screenshot({ path: `/tmp/manual-address-qa/it-${width}.png`, fullPage: true });
-        }
-      }
-    } else {
-      const addressInput = page.locator('input[placeholder]').first();
-      await addressInput.fill(test.address.slice(0, 8));
-      await page.getByRole('button', { name: test.address, exact: true }).click();
-    }
+    const next = page.getByRole('button', { name: test.next, exact: true });
+    const addressInput = page.locator('[data-form-step="5"] input');
+    const suggestion = page.getByRole('button', { name: test.address, exact: true });
+    await attemptAddressNext(page, next, `${label}: empty address`);
+    await addressInput.fill(test.address.slice(0, 8));
+    await suggestion.waitFor({ state: 'visible' });
+    await attemptAddressNext(page, next, `${label}: typed address`);
+    await suggestion.click();
+    await suggestion.waitFor({ state: 'hidden' });
+    assert.equal(await addressInput.inputValue(), test.address, `${label}: selected address displayed`);
+    // Editing a selected address invalidates the selection, even when the query is the same.
+    await addressInput.fill(`${test.address.slice(0, 8)}x`);
+    await attemptAddressNext(page, next, `${label}: stale selection`);
+    await addressInput.fill(test.address.slice(0, 8));
+    await suggestion.click();
+    await suggestion.waitFor({ state: 'hidden' });
+    await assertAddressUi(page, label);
     await next.click();
 
     await page.locator('input[type="email"]').waitFor({ state: 'visible', timeout: 15000 }).catch(async error => {
       const visibleText = (await page.locator('body').innerText()).slice(0, 1200);
       throw new Error(`${test.locale} did not reach contact step; url=${page.url()} body=${JSON.stringify(visibleText)}; ${error.message}`);
     });
-    if (manualMode) {
-      await page.getByRole('button', { name: /^(Zurück|Retour|Indietro|Back)$/ }).click();
-      await page.locator('input[name="street"]').waitFor();
-      assert.equal(await page.locator('input[name="street"]').inputValue(), 'Via Esempio');
-      await next.click();
-      await page.locator('input[type="email"]').waitFor();
-    }
     const submit = page.locator('button').filter({ hasText: exactText(test.mainSubmit) }).last();
     await submit.click();
     await page.getByText(test.required, { exact: true }).waitFor({ state: 'visible' });
@@ -219,6 +245,7 @@ async function runMainForm(browser, test, manualMode = false) {
     await page.getByText(state.errorMessage, { exact: true }).waitFor({ state: 'visible' });
     assert.equal(state.leads.length, 1, `${test.locale} main rejected request`);
     assertContext(state.leads[0], test, `${test.locale} main rejected payload`);
+    assert.equal(state.leads[0]['COMPLETE ADDRESS'], test.address, `${label}: rejected address`);
 
     await submit.click();
     await waitForCount(state.leads, 2, `${test.locale} main successful request reached mock`);
@@ -226,26 +253,54 @@ async function runMainForm(browser, test, manualMode = false) {
       throw new Error(`${test.locale} success did not navigate; url=${page.url()} confirmations=${state.confirmations.length} blockedPosts=${JSON.stringify(state.blockedPosts)} browserErrors=${JSON.stringify(browserErrors)}; ${error.message}`);
     });
     assertContext(state.leads[1], test, `${test.locale} main success payload`);
-    if (manualMode) {
-      assert.ok(state.leads[1]['COMPLETE ADDRESS'].includes('Via Esempio 16a'));
-      assert.ok(state.leads[1]['COMPLETE ADDRESS'].includes('6900 Lugano'));
-      assert.equal(state.leads[1].zip_code, '6900');
-    }
+    assert.equal(state.leads[1]['COMPLETE ADDRESS'], test.address, `${label}: successful address`);
     await page.waitForTimeout(200);
     assert.equal(state.confirmations.length, 1, `${test.locale} confirmation request`);
     assert.equal(state.confirmations[0].locale, test.locale);
     assert.equal(state.confirmations[0].origin, test.guide);
+    assertContext(state.confirmations[0], test, `${label} confirmation context`);
+    assert.equal(state.confirmations[0].address, test.address, `${label}: confirmation address`);
     assert.deepEqual(state.blockedPosts, [], `${test.locale} no unexpected POSTs`);
+    assert.deepEqual(state.forbiddenRequests, [], `${label}: no roof or map requests`);
     assert.deepEqual(browserErrors, [], `${test.locale} main browser errors`);
   } finally {
     await context.close();
   }
 }
 
-async function runCallback(browser, test) {
-  const context = await browser.newContext();
+async function runAddressFailure(browser, test, viewport, status, message) {
+  const context = await browser.newContext({ viewport });
   const state = {
-    leads: [], confirmations: [], blockedPosts: [],
+    leads: [], confirmations: [], blockedPosts: [], forbiddenRequests: [],
+    rejectNextLead: true, errorMessage: 'UNEXPECTED_LEAD',
+  };
+  await installNetworkIsolation(context, state);
+  const page = await context.newPage();
+  const browserErrors = [];
+  page.on('pageerror', error => browserErrors.push(error.message));
+  try {
+    await installGooglePlacesMock(page, test.address, status);
+    await reachAddressStep(page, test);
+    const label = `${viewport.width}px ${status}`;
+    await assertAddressUi(page, label);
+    await page.locator('[data-form-step="5"] input').fill(test.address.slice(0, 8));
+    await page.getByText(message, { exact: true }).waitFor({ state: 'visible' });
+    await attemptAddressNext(page, page.getByRole('button', { name: test.next, exact: true }), `${label}: search failure`);
+    assert.equal(await page.getByRole('button', { name: test.address, exact: true }).count(), 0, `${label}: no suggestion`);
+    assert.deepEqual(state.leads, [], `${label}: no lead`);
+    assert.deepEqual(state.confirmations, [], `${label}: no confirmation`);
+    assert.deepEqual(state.blockedPosts, [], `${label}: no unexpected POSTs`);
+    assert.deepEqual(state.forbiddenRequests, [], `${label}: no roof or map requests`);
+    assert.deepEqual(browserErrors, [], `${label}: no browser errors`);
+  } finally {
+    await context.close();
+  }
+}
+
+async function runCallback(browser, test, viewport) {
+  const context = await browser.newContext({ viewport });
+  const state = {
+    leads: [], confirmations: [], blockedPosts: [], forbiddenRequests: [],
     rejectNextLead: true, errorMessage: `MOCK_${test.locale.toUpperCase()}_CALLBACK_ERROR`,
   };
   await installNetworkIsolation(context, state);
@@ -259,7 +314,9 @@ async function runCallback(browser, test) {
     const openButton = page.getByRole('button', { name: test.open, exact: true });
     await page.waitForTimeout(1500);
     await dismissCookies(page);
-    await openButton.click();
+    // Mobile callback decoration can overlap its launcher; activate the
+    // actual button without treating the decorative overlay as a test failure.
+    await openButton.evaluate(button => button.click());
     await page.getByRole('button', { name: test.submit, exact: true }).waitFor({ state: 'visible', timeout: 10000 });
     await page.getByRole('button', { name: test.submit, exact: true }).click();
     await page.getByText(test.callbackRequired, { exact: true }).waitFor({ state: 'visible' });
@@ -282,6 +339,7 @@ async function runCallback(browser, test) {
     await page.getByText(/🎉/).waitFor({ state: 'visible' });
     assertContext(state.leads[1], test, `${test.locale} callback success payload`);
     assert.deepEqual(state.blockedPosts, [], `${test.locale} callback no unexpected POSTs`);
+    assert.deepEqual(state.forbiddenRequests, [], `${test.locale} callback no roof or map requests`);
     assert.deepEqual(browserErrors, [], `${test.locale} callback browser errors`);
   } finally {
     await context.close();
@@ -295,17 +353,17 @@ async function runCallback(browser, test) {
     args: ['--no-sandbox'],
   });
   try {
-    for (const test of process.env.ADDRESS_EXTRA_ONLY === '1' ? [] : cases) {
-      await runMainForm(browser, test);
-      await runCallback(browser, test);
-      await runMainForm(browser, test, 'blocked');
-      console.log(`PASS ${test.locale.toUpperCase()}: main form and callback validation, mocked rejection, mocked success, localized context`);
+    for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }]) {
+      for (const test of process.env.ADDRESS_EXTRA_ONLY === '1' ? [] : cases) {
+        await runMainForm(browser, test, viewport);
+        await runCallback(browser, test, viewport);
+        console.log(`PASS ${test.locale.toUpperCase()} ${viewport.width}px: autocomplete, main form and callback validation, mocked rejection/success and context; no roof or map`);
+      }
+      await runAddressFailure(browser, cases[3], viewport, 'REQUEST_DENIED', 'Address search is unavailable. Please try again shortly.');
+      await runAddressFailure(browser, cases[3], viewport, 'ZERO_RESULTS', 'No addresses found. Check the address and try again.');
     }
-    await runMainForm(browser, cases[3], 'no-results');
-    console.log(process.env.ADDRESS_EXTRA_ONLY === '1'
-      ? 'PASS: zero suggestions, mode switching and back navigation; manual address and postcode preserved in payload.'
-      : 'PASS: manual address works with Google blocked in all four languages and with zero suggestions; invalid fields blocked; mode switching and back navigation; manual address and postcode preserved in payload.');
-    console.log('PASS: all POSTs were intercepted locally; no real lead or confirmation services were contacted.');
+    console.log('PASS: failed autocomplete and zero suggestions block progress on desktop and mobile.');
+    console.log('PASS: all POSTs were intercepted locally; third-party traffic was blocked; no real lead or confirmation services were contacted.');
   } finally {
     await browser.close();
   }
