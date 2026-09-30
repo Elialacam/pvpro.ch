@@ -21,6 +21,7 @@ export default function AddressSatelliteMap({ location, locale }: {
     setFailed(false);
     if (!location || !container.current) return;
     let map: google.maps.Map | undefined;
+    let marker: google.maps.Marker | undefined;
     try {
       if (!window.google?.maps?.Map) throw new Error('Maps unavailable');
       map = new window.google.maps.Map(container.current, {
@@ -33,10 +34,22 @@ export default function AddressSatelliteMap({ location, locale }: {
         gestureHandling: 'cooperative',
         keyboardShortcuts: false,
       });
+      marker = new window.google.maps.Marker({
+        map,
+        position: location,
+        draggable: true,
+      });
+      map.addListener('click', (event: google.maps.MapMouseEvent) => {
+        if (event.latLng) marker?.setPosition(event.latLng);
+      });
     } catch {
       setFailed(true);
     }
     return () => {
+      if (marker) {
+        window.google?.maps.event.clearInstanceListeners(marker);
+        marker.setMap(null);
+      }
       if (map) window.google?.maps.event.clearInstanceListeners(map);
     };
   }, [location]);
@@ -45,7 +58,6 @@ export default function AddressSatelliteMap({ location, locale }: {
 
   return (
     <div className="mt-4">
-      <p className="mb-2 text-sm text-gray-600">{t.label}</p>
       <div ref={container} data-testid="address-satellite-map" aria-label={t.label}
         className="h-56 sm:h-64 w-full rounded-2xl overflow-hidden border border-gray-200" />
     </div>

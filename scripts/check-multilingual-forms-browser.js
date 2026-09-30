@@ -139,11 +139,24 @@ async function installGooglePlacesMock(page, address, predictionStatus = 'OK') {
     }
     class Map {
       constructor(container, options) {
+        this.container = container;
         container.dataset.mapOptions = JSON.stringify(options);
         container.textContent = 'Mock satellite view';
       }
+      addListener(name, handler) {
+        if (name === 'click') this.container.onclick = () => handler({ latLng: { lat: 47.001, lng: 8.001 } });
+      }
     }
-    window.google = { maps: { Map, event: { clearInstanceListeners() {} }, places: { AutocompleteService, PlacesService } } };
+    class Marker {
+      constructor(options) {
+        this.container = options.map.container;
+        this.container.dataset.draggableMarker = String(options.draggable);
+        this.setPosition(options.position);
+      }
+      setPosition(position) { this.container.dataset.markerPosition = JSON.stringify(position); }
+      setMap() {}
+    }
+    window.google = { maps: { Map, Marker, event: { clearInstanceListeners() {} }, places: { AutocompleteService, PlacesService } } };
   }, { mockAddress: address, predictionStatus });
 }
 
@@ -229,6 +242,12 @@ async function runMainForm(browser, test, viewport) {
     assert.equal(mapOptions.mapTypeId, 'satellite', `${label}: satellite imagery`);
     assert.deepEqual(mapOptions.center, { lat: 47, lng: 8 }, `${label}: selected house coordinates`);
     assert.equal(mapOptions.zoom, 20, `${label}: house-level zoom`);
+    assert.equal(await satellite.locator('..').locator('p').count(), 0, `${label}: no redundant satellite heading`);
+    assert.equal(await satellite.getAttribute('data-draggable-marker'), 'true', `${label}: roof marker is draggable`);
+    assert.deepEqual(JSON.parse(await satellite.getAttribute('data-marker-position')), { lat: 47, lng: 8 }, `${label}: roof initially selected`);
+    await dismissCookies(page);
+    await satellite.click();
+    assert.deepEqual(JSON.parse(await satellite.getAttribute('data-marker-position')), { lat: 47.001, lng: 8.001 }, `${label}: clicking selects roof position`);
     // Editing a selected address invalidates the selection, even when the query is the same.
     await addressInput.fill(`${test.address.slice(0, 8)}x`);
     assert.equal(await satellite.count(), 0, `${label}: stale house preview cleared`);
