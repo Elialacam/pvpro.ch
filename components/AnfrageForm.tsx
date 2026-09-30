@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, memo, useCallback } from 'react';
 import { loadGoogleMaps } from '@/lib/googleMapsLoader';
+import AddressSatelliteMap from '@/components/AddressSatelliteMap';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
@@ -354,6 +355,8 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   const [addressSuggestions, setAddressSuggestions] = useState<any[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState<string | null>(null);
+  const [addressLocation, setAddressLocation] = useState<{ lat: number; lng: number } | null>(null);
+  const [addressDetailsPending, setAddressDetailsPending] = useState(false);
   const [addressSearchMessage, setAddressSearchMessage] = useState<string | null>(null);
   const [validationErrors, setValidationErrors] = useState<Record<string, boolean>>({});
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -418,6 +421,8 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   const handleAddressChange = (value: string) => {
     setFormData((prev: any) => ({ ...prev, address: value, zipCode: '' }));
     setSelectedAddress(null);
+    setAddressLocation(null);
+    setAddressDetailsPending(false);
     setAddressSuggestions([]);
     setAddressSearchMessage(null);
     setErrorMsg(null);
@@ -461,18 +466,28 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     const seq = ++addressRequestSeq.current;
     setFormData((prev: any) => ({ ...prev, address: prediction.description, zipCode: '' }));
     setSelectedAddress(prediction.description);
+    setAddressLocation(null);
+    setAddressDetailsPending(true);
     setAddressSearchMessage(null);
     setShowSuggestions(false);
     if (!placesService.current) {
+      setAddressDetailsPending(false);
       setAddressSearchMessage(t.mapsUnavailable);
       return;
     }
     try {
       placesService.current.getDetails(
-        { placeId: prediction.place_id, fields: ['address_components'] },
+        { placeId: prediction.place_id, fields: ['address_components', 'geometry'] },
         (place: any, status: any) => {
           if (seq !== addressRequestSeq.current) return;
+          setAddressDetailsPending(false);
           if (status !== 'OK') { setAddressSearchMessage(t.mapsUnavailable); return; }
+          const location = place?.geometry?.location;
+          if (location) {
+            const lat = location.lat();
+            const lng = location.lng();
+            if (Number.isFinite(lat) && Number.isFinite(lng)) setAddressLocation({ lat, lng });
+          }
           const postalComp = place?.address_components?.find(
             (c: any) => c.types.includes('postal_code')
           );
@@ -485,6 +500,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       );
     } catch {
       if (seq === addressRequestSeq.current) {
+        setAddressDetailsPending(false);
         setAddressSearchMessage(t.mapsUnavailable);
       }
     }
@@ -798,6 +814,9 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
             )}
           </div>
           {addressSearchMessage && <p role="status" className="mt-2 text-sm text-amber-700">{addressSearchMessage}</p>}
+          {selectedAddress && !addressDetailsPending && (
+            <AddressSatelliteMap location={addressLocation} locale={locale} />
+          )}
           <button
             onClick={() => goNext()}
             className={`w-full py-4 rounded-2xl font-bold text-base mt-4 transition-all ${selectedAddress ? 'btn-primary' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}

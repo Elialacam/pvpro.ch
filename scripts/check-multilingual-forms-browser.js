@@ -137,7 +137,13 @@ async function installGooglePlacesMock(page, address, predictionStatus = 'OK') {
         }, 'OK');
       }
     }
-    window.google = { maps: { places: { AutocompleteService, PlacesService } } };
+    class Map {
+      constructor(container, options) {
+        container.dataset.mapOptions = JSON.stringify(options);
+        container.textContent = 'Mock satellite view';
+      }
+    }
+    window.google = { maps: { Map, event: { clearInstanceListeners() {} }, places: { AutocompleteService, PlacesService } } };
   }, { mockAddress: address, predictionStatus });
 }
 
@@ -217,13 +223,22 @@ async function runMainForm(browser, test, viewport) {
     await suggestion.click();
     await suggestion.waitFor({ state: 'hidden' });
     assert.equal(await addressInput.inputValue(), test.address, `${label}: selected address displayed`);
+    const satellite = page.getByTestId('address-satellite-map');
+    await satellite.waitFor({ state: 'visible' });
+    const mapOptions = JSON.parse(await satellite.getAttribute('data-map-options'));
+    assert.equal(mapOptions.mapTypeId, 'satellite', `${label}: satellite imagery`);
+    assert.deepEqual(mapOptions.center, { lat: 47, lng: 8 }, `${label}: selected house coordinates`);
+    assert.equal(mapOptions.zoom, 20, `${label}: house-level zoom`);
     // Editing a selected address invalidates the selection, even when the query is the same.
     await addressInput.fill(`${test.address.slice(0, 8)}x`);
+    assert.equal(await satellite.count(), 0, `${label}: stale house preview cleared`);
     await attemptAddressNext(page, next, `${label}: stale selection`);
     await addressInput.fill(test.address.slice(0, 8));
     await suggestion.click();
     await suggestion.waitFor({ state: 'hidden' });
     await assertAddressUi(page, label);
+    await satellite.waitFor({ state: 'visible' });
+    await dismissCookies(page);
     await next.click();
 
     await page.locator('input[type="email"]').waitFor({ state: 'visible', timeout: 15000 }).catch(async error => {
@@ -354,10 +369,11 @@ async function runCallback(browser, test, viewport) {
   });
   try {
     for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }]) {
+      if (process.env.VIEWPORT_WIDTH && viewport.width !== Number(process.env.VIEWPORT_WIDTH)) continue;
       for (const test of process.env.ADDRESS_EXTRA_ONLY === '1' ? [] : cases) {
         await runMainForm(browser, test, viewport);
         await runCallback(browser, test, viewport);
-        console.log(`PASS ${test.locale.toUpperCase()} ${viewport.width}px: autocomplete, main form and callback validation, mocked rejection/success and context; no roof or map`);
+        console.log(`PASS ${test.locale.toUpperCase()} ${viewport.width}px: autocomplete, satellite preview, main form and callback validation, mocked rejection/success and context; no roof analysis`);
       }
       await runAddressFailure(browser, cases[3], viewport, 'REQUEST_DENIED', 'Address search is unavailable. Please try again shortly.');
       await runAddressFailure(browser, cases[3], viewport, 'ZERO_RESULTS', 'No addresses found. Check the address and try again.');

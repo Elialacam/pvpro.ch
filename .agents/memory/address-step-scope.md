@@ -3,7 +3,9 @@ name: Address step scope
 description: Why manual entry and roof analysis were withdrawn, and Google browser-key constraints.
 ---
 
-Keep the quote funnel's address step focused on selecting an autocomplete suggestion. Reintroducing manual address fields, roof analysis or a satellite map requires explicit approval.
+Keep the quote funnel's address step focused on selecting an autocomplete suggestion, followed by a satellite view of the selected house. Reintroducing manual address fields or roof analysis requires explicit approval.
+
+**Why:** On 2026-09-30 the user clarified that seeing the house after selecting the address is required, as in the earlier form. This approves the satellite preview only, not roof analysis or manual entry.
 
 **Why:** The user reported that leads had stopped after manual entry and roof analysis were introduced, and explicitly approved removing both rather than reverting unrelated improvements. The causal link was not established; do not claim those additions caused the decline.
 
