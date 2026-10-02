@@ -14,6 +14,7 @@ const legacyAliases: Record<string, string> = {
   '/solaranlage-baden': '/solaranlage-aargau',
   '/solaranlage-lugano': '/it/fotovoltaico-ticino',
   '/solaranlage-thun': '/solaranlage-bern',
+  '/solaranlage-biel': '/solaranlage-bern',
   '/solaranlage-chur': '/solaranlage-graubunden',
 };
 
