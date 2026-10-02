@@ -2,9 +2,8 @@
 
 import { useState, useRef, useEffect, memo, useCallback } from 'react';
 import { loadGoogleMaps } from '@/lib/googleMapsLoader';
-import AddressSatelliteMap from '@/components/AddressSatelliteMap';
 import { useRouter } from 'next/navigation';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Check, X, MapPin, Search, ChevronLeft,
   ScanSearch, Users, Award,
@@ -28,6 +27,7 @@ const TOTAL_STEPS = 6;
 const stepVariants = {
   enter: (d: number) => ({ opacity: 0, y: d > 0 ? 14 : -14 }),
   center: { opacity: 1, y: 0 },
+  exit: (d: number) => ({ opacity: 0, y: d > 0 ? -14 : 14 }),
 };
 
 const ALL_ICONS = [
@@ -41,8 +41,6 @@ const ALL_ICONS = [
   '/icons/icon-pultdach.webp',
   '/icons/icon-flachdach.webp',
 ];
-
-const formIconSrc = (src: string) => src.replace('/icons/', '/icons/form/');
 
 // Accepts any way of writing a Swiss number (+41, 0041, 41, 0, or none, with or
 // without spaces/symbols). Valid only when the significant part is exactly 9 digits
@@ -92,8 +90,6 @@ const i18n = {
     step6Sub: 'Geben Sie Ihre Kontaktdaten ein, um Ihre kostenlosen Offerten zu erhalten.',
     addressPlaceholder: 'z.B. Bahnhofstrasse 10, 8001 Zürich',
     addressError: 'Bitte wählen Sie eine Adresse aus der Liste aus.',
-    mapsUnavailable: 'Die Adresssuche ist derzeit nicht verfügbar. Bitte versuchen Sie es in Kürze erneut.',
-    noResults: 'Keine Adressen gefunden. Prüfen Sie die Adresse und versuchen Sie es erneut.',
     firstName: 'Vorname',
     lastName: 'Nachname',
     email: 'E-Mail',
@@ -141,8 +137,6 @@ const i18n = {
     step6Sub: 'Saisissez vos coordonnées pour recevoir vos devis gratuits.',
     addressPlaceholder: 'p.ex. Rue du Centre 10, 1003 Lausanne',
     addressError: 'Veuillez sélectionner une adresse dans la liste.',
-    mapsUnavailable: 'La recherche d’adresse est indisponible. Veuillez réessayer dans un instant.',
-    noResults: 'Aucune adresse trouvée. Vérifiez l’adresse et réessayez.',
     firstName: 'Prénom',
     lastName: 'Nom',
     email: 'E-mail',
@@ -190,8 +184,6 @@ const i18n = {
     step6Sub: 'Enter your contact details to receive your free quotes.',
     addressPlaceholder: 'e.g. Bahnhofstrasse 10, 8001 Zürich',
     addressError: 'Please select an address from the list.',
-    mapsUnavailable: 'Address search is unavailable. Please try again shortly.',
-    noResults: 'No addresses found. Check the address and try again.',
     firstName: 'First name',
     lastName: 'Last name',
     email: 'E-mail',
@@ -239,8 +231,6 @@ const i18n = {
     step6Sub: 'Inserisci i tuoi dati di contatto per ricevere i preventivi gratuiti.',
     addressPlaceholder: 'es. Via Lugano 10, 6900 Lugano',
     addressError: 'Seleziona un indirizzo dalla lista.',
-    mapsUnavailable: 'La ricerca dell’indirizzo non è disponibile. Riprova tra poco.',
-    noResults: 'Nessun indirizzo trovato. Verifica l’indirizzo e riprova.',
     firstName: 'Nome',
     lastName: 'Cognome',
     email: 'E-mail',
@@ -290,7 +280,7 @@ const OptionCard = memo(function OptionCard({ label, sublabel, isSelected, onCli
       whileHover={{ scale: 1.025, y: -2 }}
       whileTap={{ scale: 0.97 }}
       onClick={onClick}
-      className="relative flex flex-col items-center justify-center rounded-2xl px-4 py-4 sm:py-5 transition-[background-color,border-color,box-shadow] duration-150 bg-white w-full"
+      className="relative flex flex-col items-center justify-center rounded-2xl px-4 py-4 sm:py-5 transition-all duration-150 bg-white w-full"
       style={{
         border: isSelected ? '2.5px solid #fcb210' : '2px solid #e5e7eb',
         boxShadow: isSelected
@@ -300,7 +290,7 @@ const OptionCard = memo(function OptionCard({ label, sublabel, isSelected, onCli
       }}
     >
       <div className="flex items-center justify-center w-full h-16 sm:h-20">
-        <img src={formIconSrc(imageSrc)} alt={label} decoding="async" className="w-full h-full object-contain" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
+        <img src={imageSrc} alt={label} className="w-full h-full object-contain" style={{ filter: 'invert(1) brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(1500%) hue-rotate(346deg) brightness(105%)' }} />
       </div>
       <p className="text-sm sm:text-base font-bold text-gray-900 text-center leading-tight mt-2">
         {label}
@@ -342,8 +332,6 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [direction, setDirection] = useState(1);
-  const reduceMotion = useReducedMotion();
-  const selectionLockRef = useRef(false);
   const [formData, setFormData] = useState<any>({
     isOwner: null, propertyType: null, roofType: null, wantsBattery: null,
     address: '', zipCode: '', firstName: '', lastName: '', email: '', phone: '',
@@ -355,26 +343,15 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   const [addressSuggestions, setAddressSuggestions] = useState<any[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState<string | null>(null);
-  const [addressLocation, setAddressLocation] = useState<{ lat: number; lng: number } | null>(null);
-  const [addressDetailsPending, setAddressDetailsPending] = useState(false);
-  const [addressSearchMessage, setAddressSearchMessage] = useState<string | null>(null);
+  const [selectedPlaceCoords, setSelectedPlaceCoords] = useState<any>(null);
   const [validationErrors, setValidationErrors] = useState<Record<string, boolean>>({});
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const submitLockRef = useRef(false);
   const autocompleteService = useRef<any>(null);
   const placesService = useRef<any>(null);
-  const addressRequestSeq = useRef(0);
 
   useEffect(() => {
-    if (reduceMotion) selectionLockRef.current = false;
-  }, [step, reduceMotion]);
-
-  useEffect(() => {
-    ALL_ICONS.forEach(src => {
-      const img = new window.Image();
-      img.src = formIconSrc(src);
-      void img.decode().catch(() => {});
-    });
+    ALL_ICONS.forEach(src => { const img = new window.Image(); img.src = src; });
   }, []);
 
   useEffect(() => {
@@ -391,23 +368,15 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         autocompleteService.current = new window.google.maps.places.AutocompleteService();
         const div = document.createElement('div');
         placesService.current = new window.google.maps.places.PlacesService(div);
-        setAddressSearchMessage(null);
-      } else {
-        setAddressSearchMessage(t.mapsUnavailable);
       }
     };
 
     let cancelled = false;
     loadGoogleMaps()
       .then(() => { if (!cancelled) init(); })
-      .catch(() => { if (!cancelled) setAddressSearchMessage(t.mapsUnavailable); });
-    return () => {
-      cancelled = true;
-      if (predictionTimer.current) clearTimeout(predictionTimer.current);
-      predictionSeq.current += 1;
-      addressRequestSeq.current += 1;
-    };
-  }, [step, t.mapsUnavailable]);
+      .catch(() => { /* address autocomplete unavailable; manual input still works */ });
+    return () => { cancelled = true; };
+  }, [step]);
 
   const predictionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const predictionSeq = useRef(0);
@@ -415,95 +384,51 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     return () => {
       if (predictionTimer.current) clearTimeout(predictionTimer.current);
       predictionSeq.current += 1; // invalidate in-flight prediction callbacks
-      addressRequestSeq.current += 1; // invalidate in-flight place details
     };
   }, []);
   const handleAddressChange = (value: string) => {
-    setFormData((prev: any) => ({ ...prev, address: value, zipCode: '' }));
+    setFormData((prev: any) => ({ ...prev, address: value }));
     setSelectedAddress(null);
-    setAddressLocation(null);
-    setAddressDetailsPending(false);
-    setAddressSuggestions([]);
-    setAddressSearchMessage(null);
-    setErrorMsg(null);
-    addressRequestSeq.current += 1;
+    setSelectedPlaceCoords(null);
     if (predictionTimer.current) clearTimeout(predictionTimer.current);
     const seq = ++predictionSeq.current;
     if (value.length > 2 && autocompleteService.current) {
       predictionTimer.current = setTimeout(() => {
-        if (seq !== predictionSeq.current) return;
-        try {
-          autocompleteService.current.getPlacePredictions(
-            { input: value, componentRestrictions: { country: 'ch' }, types: ['address'] },
-            (predictions: any, status: any) => {
-              if (seq !== predictionSeq.current) return;
-              if (status === 'OK' && predictions?.length) {
-                setAddressSuggestions(predictions);
-                setShowSuggestions(true);
-              } else {
-                setAddressSuggestions([]);
-                setShowSuggestions(false);
-                setAddressSearchMessage(status === 'ZERO_RESULTS' || status === 'OK' ? t.noResults : t.mapsUnavailable);
-              }
-            }
-          );
-        } catch {
-          if (seq !== predictionSeq.current) return;
-          setAddressSuggestions([]);
-          setShowSuggestions(false);
-          setAddressSearchMessage(t.mapsUnavailable);
-        }
+        autocompleteService.current.getPlacePredictions(
+          { input: value, componentRestrictions: { country: 'ch' }, types: ['address'] },
+          (predictions: any, status: any) => {
+            if (seq !== predictionSeq.current) return;
+            if (status === 'OK' && predictions) { setAddressSuggestions(predictions); setShowSuggestions(true); }
+          }
+        );
       }, 250);
-    } else {
-      setShowSuggestions(false);
-      if (value.length > 2) setAddressSearchMessage(t.mapsUnavailable);
-    }
+    } else { setShowSuggestions(false); }
   };
 
   const selectAddress = (prediction: any) => {
-    if (predictionTimer.current) clearTimeout(predictionTimer.current);
-    predictionSeq.current += 1;
-    const seq = ++addressRequestSeq.current;
-    setFormData((prev: any) => ({ ...prev, address: prediction.description, zipCode: '' }));
+    setFormData({ ...formData, address: prediction.description });
     setSelectedAddress(prediction.description);
-    setAddressLocation(null);
-    setAddressDetailsPending(true);
-    setAddressSearchMessage(null);
     setShowSuggestions(false);
-    if (!placesService.current) {
-      setAddressDetailsPending(false);
-      setAddressSearchMessage(t.mapsUnavailable);
-      return;
-    }
-    try {
-      placesService.current.getDetails(
-        { placeId: prediction.place_id, fields: ['address_components', 'geometry'] },
-        (place: any, status: any) => {
-          if (seq !== addressRequestSeq.current) return;
-          setAddressDetailsPending(false);
-          if (status !== 'OK') { setAddressSearchMessage(t.mapsUnavailable); return; }
-          const location = place?.geometry?.location;
-          if (location) {
-            const lat = location.lat();
-            const lng = location.lng();
-            if (Number.isFinite(lat) && Number.isFinite(lng)) setAddressLocation({ lat, lng });
-          }
-          const postalComp = place?.address_components?.find(
-            (c: any) => c.types.includes('postal_code')
-          );
-          setFormData((prev: any) => ({
-            ...prev,
-            address: prediction.description,
-            zipCode: postalComp?.long_name ?? '',
-          }));
+    placesService.current?.getDetails(
+      { placeId: prediction.place_id, fields: ['geometry', 'address_components'] },
+      (place: any, status: any) => {
+        if (status !== 'OK') return;
+        const updates: any = {};
+        if (place?.geometry?.location) {
+          updates.lat = place.geometry.location.lat();
+          updates.lng = place.geometry.location.lng();
+          setSelectedPlaceCoords({ lat: updates.lat, lng: updates.lng });
         }
-      );
-    } catch {
-      if (seq === addressRequestSeq.current) {
-        setAddressDetailsPending(false);
-        setAddressSearchMessage(t.mapsUnavailable);
+        const postalComp = place?.address_components?.find(
+          (c: any) => c.types.includes('postal_code')
+        );
+        setFormData((prev: any) => ({
+          ...prev,
+          address: prediction.description,
+          zipCode: postalComp?.long_name ?? '',
+        }));
       }
-    }
+    );
   };
 
   const trackStep = (n: number) => {
@@ -524,16 +449,16 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
     setStep(s => s + 1);
   };
 
-  const goBack = () => { selectionLockRef.current = false; setDirection(-1); setStep(s => s - 1); };
+  const goBack = () => { setDirection(-1); setStep(s => s - 1); };
 
   const handleSelect = useCallback((field: string, value: any) => {
-    if (selectionLockRef.current) return;
     if (field === 'isOwner' && value === 'no') { setErrorMsg(t.renterError); return; }
-    selectionLockRef.current = true;
     setFormData((prev: any) => ({ ...prev, [field]: value }));
-    setDirection(1);
-    setStep(step + 1);
-    trackStep(step);
+    setTimeout(() => {
+      setDirection(1);
+      setStep(s => s + 1);
+      trackStep(step);
+    }, 160);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step, t.renterError]);
 
@@ -658,7 +583,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       { icon: <Award className="w-8 h-8" />, label: t.loadingStep3, phase: 3 },
     ];
     return (
-      <div className="request-form-page min-h-[100dvh] bg-white flex flex-col items-center justify-center px-6">
+      <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6">
         <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-10">
           <Image src="/logo-pvpro.png" alt="PvPro.ch" width={320} height={92} sizes="275px" className="h-20 w-auto" loading="lazy" />
         </motion.div>
@@ -790,6 +715,13 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       );
       case 5: return (
         <StepWrapper title={t.step5Title} sub={t.step5Sub}>
+          {selectedPlaceCoords && (
+            <div className="w-full h-40 rounded-2xl overflow-hidden border border-gray-200 mb-4">
+              <iframe width="100%" height="100%" style={{ border: 0 }} loading="lazy"
+                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(formData.address)}&zoom=19&maptype=satellite`}
+              />
+            </div>
+          )}
           <div className="relative">
             <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
               <Search className="w-5 h-5 text-gray-400" />
@@ -813,10 +745,6 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
               </div>
             )}
           </div>
-          {addressSearchMessage && <p role="status" className="mt-2 text-sm text-amber-700">{addressSearchMessage}</p>}
-          {selectedAddress && !addressDetailsPending && (
-            <AddressSatelliteMap location={addressLocation} locale={locale} />
-          )}
           <button
             onClick={() => goNext()}
             className={`w-full py-4 rounded-2xl font-bold text-base mt-4 transition-all ${selectedAddress ? 'btn-primary' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
@@ -895,7 +823,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
   };
 
   return (
-    <div className="request-form-page min-h-[100dvh] bg-[#fafafa] flex flex-col">
+    <div className="min-h-screen bg-[#fafafa] flex flex-col">
       {/* Header */}
       <header className="w-full bg-white border-b border-gray-100 overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
@@ -915,7 +843,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
 
       {/* Progress bar */}
       <div className="w-full h-1.5 bg-gray-100">
-        <motion.div className="h-full w-full" style={{ background: 'linear-gradient(90deg, #ffc812, #fcb210)', transformOrigin: 'left' }} animate={{ scaleX: progressPct / 100 }} transition={{ duration: reduceMotion ? 0 : 0.2, ease: 'easeOut' }} />
+        <motion.div className="h-full" style={{ background: 'linear-gradient(90deg, #ffc812, #fcb210)' }} animate={{ width: `${progressPct}%` }} transition={{ duration: 0.4, ease: 'easeOut' }} />
       </div>
 
       {/* Step counter */}
@@ -928,19 +856,19 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
       {/* Content */}
       <div className="flex-1 flex items-start justify-center px-4 py-3 sm:py-5">
         <div className="w-full max-w-md">
+          <AnimatePresence custom={direction} mode="popLayout">
             <motion.div
               key={step}
-              data-form-step={step}
-              className={step === 5 ? 'pb-[calc(80px+env(safe-area-inset-bottom,0px))] sm:pb-0' : undefined}
               custom={direction}
               variants={stepVariants}
-              initial={reduceMotion || step === 1 ? false : "enter"}
+              initial="enter"
               animate="center"
-              onAnimationComplete={() => { selectionLockRef.current = false; }}
-              transition={{ duration: reduceMotion ? 0 : 0.16, ease: [0.4, 0, 0.2, 1] }}
+              exit="exit"
+              transition={{ opacity: { duration: 0.15 }, y: { duration: 0.2, ease: [0.4, 0, 0.2, 1] } }}
             >
               {renderStep()}
             </motion.div>
+          </AnimatePresence>
 
           {/* Error toast */}
           <AnimatePresence>

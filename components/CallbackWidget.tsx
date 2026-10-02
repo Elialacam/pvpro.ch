@@ -213,12 +213,8 @@ export default function CallbackWidget() {
     setTeaser(false);
   }, [open, hidden]);
 
-  const hiddenPaths = [
-    '/anfrage', '/en/request', '/fr/demande', '/it/richiesta',
-    '/en/get-solar-panel-quotes', '/fr/demander-offre-panneau-solaire', '/it/richiedere-preventivo-solare',
-    '/danke', '/en/thank-you', '/fr/merci', '/it/grazie',
-  ];
-  if (pathname && hiddenPaths.includes(pathname.replace(/\/+$/, '') || '/')) return null;
+  const hiddenPaths = ['/anfrage', '/en/get-solar-panel-quotes', '/fr/demander-offre-panneau-solaire', '/it/richiedere-preventivo-solare', '/danke', '/en/thank-you', '/fr/merci', '/it/grazie'];
+  if (pathname && hiddenPaths.includes(pathname)) return null;
   if (hidden) return null;
 
   const formatPhone = (raw: string) => {
@@ -294,7 +290,7 @@ export default function CallbackWidget() {
     'w-full px-3.5 py-2.5 rounded-xl border text-sm outline-none transition-all bg-white text-gray-800 placeholder:text-gray-400';
 
   return (
-    <div data-testid="callback-widget" className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9998] flex flex-col items-end gap-3">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9998] flex flex-col items-end gap-3">
       {/* ════════════ EXPANDED CHAT ════════════ */}
       <AnimatePresence>
         {open && (

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 const assert = require('node:assert/strict');
-const fs = require('node:fs');
 const { chromium } = require('playwright');
 
 const base = process.env.MULTILINGUAL_FORMS_TEST_URL || `https://${process.env.REPLIT_DEV_DOMAIN}`;
@@ -13,7 +12,6 @@ const cases = [
     options: ['Ja', 'Einfamilienhaus', 'Satteldach', 'Ja'],
     address: 'Bahnhofstrasse 10, 8001 Zürich, Schweiz',
     required: 'Bitte füllen Sie alle Pflichtfelder aus.',
-    next: 'Weiter',
     mainSubmit: 'Kostenlose Offerten anfordern',
     open: 'Beratung öffnen', submit: 'Rückruf anfordern', callbackRequired: 'Bitte füllen Sie alle Pflichtfelder aus.',
     thankYou: '/danke',
@@ -23,7 +21,6 @@ const cases = [
     options: ['Oui', 'Maison individuelle', 'Toit à deux pentes', 'Oui'],
     address: 'Rue du Centre 10, 1003 Lausanne, Suisse',
     required: 'Veuillez remplir tous les champs obligatoires.',
-    next: 'Suivant',
     mainSubmit: 'Demander des devis gratuits',
     open: 'Ouvrir la consultation', submit: 'Demander un rappel', callbackRequired: 'Veuillez remplir tous les champs obligatoires.',
     thankYou: '/fr/merci',
@@ -33,7 +30,6 @@ const cases = [
     options: ['Sì', 'Casa unifamiliare', 'Tetto a falda', 'Sì'],
     address: 'Via Lugano 10, 6900 Lugano, Svizzera',
     required: 'Compila tutti i campi obbligatori.',
-    next: 'Avanti',
     mainSubmit: 'Richiedi preventivi gratuiti',
     open: 'Apri la consulenza', submit: 'Richiedi richiamata', callbackRequired: 'Compili tutti i campi obbligatori.',
     thankYou: '/it/grazie',
@@ -43,7 +39,6 @@ const cases = [
     options: ['Yes', 'Detached house', 'Pitched roof', 'Yes'],
     address: 'Marktgasse 10, 3011 Bern, Switzerland',
     required: 'Please fill in all required fields.',
-    next: 'Next',
     mainSubmit: 'Request free quotes',
     open: 'Open consultation', submit: 'Request callback', callbackRequired: 'Please fill in all required fields.',
     thankYou: '/en/thank-you',
@@ -58,7 +53,7 @@ function assertContext(payload, test, label) {
 }
 
 async function dismissCookies(page) {
-  const choices = ['Nur notwendige', 'Necessary Only', 'Nécessaires uniquement', 'Solo necessari'];
+  const choices = ['Nur notwendige', 'Only necessary', 'Uniquement nécessaires', 'Solo necessari'];
   for (const choice of choices) {
     const button = page.getByRole('button', { name: choice, exact: true });
     if (await button.isVisible().catch(() => false)) {
@@ -84,10 +79,6 @@ async function installNetworkIsolation(context, state) {
   await context.route('**/*', async route => {
     const request = route.request();
     const url = new URL(request.url());
-    if (url.pathname === '/api/roof-analysis' || /\/maps\/api\/|\/maps\/vt|\/maps\/preview/.test(url.pathname)) {
-      state.forbiddenRequests.push(request.url());
-      return route.abort('blockedbyclient');
-    }
     if (request.method() === 'POST' && url.origin === baseOrigin && url.pathname === '/api/anfrage') {
       const payload = request.postDataJSON();
       state.leads.push(payload);
@@ -122,11 +113,11 @@ async function installNetworkIsolation(context, state) {
   });
 }
 
-async function installGooglePlacesMock(page, address, predictionStatus = 'OK') {
-  await page.addInitScript(({ mockAddress, predictionStatus }) => {
+async function installGooglePlacesMock(page, address) {
+  await page.addInitScript(mockAddress => {
     class AutocompleteService {
       getPlacePredictions(_request, callback) {
-        callback(predictionStatus === 'OK' ? [{ place_id: 'browser-test-place', description: mockAddress }] : [], predictionStatus);
+        callback([{ place_id: 'browser-test-place', description: mockAddress }], 'OK');
       }
     }
     class PlacesService {
@@ -137,74 +128,14 @@ async function installGooglePlacesMock(page, address, predictionStatus = 'OK') {
         }, 'OK');
       }
     }
-    class Map {
-      constructor(container, options) {
-        this.container = container;
-        container.dataset.mapOptions = JSON.stringify(options);
-        container.textContent = 'Mock satellite view';
-      }
-      addListener(name, handler) {
-        if (name === 'click') this.container.onclick = () => handler({ latLng: { lat: 47.001, lng: 8.001 } });
-      }
-    }
-    class Marker {
-      constructor(options) {
-        this.container = options.map.container;
-        this.container.dataset.draggableMarker = String(options.draggable);
-        this.setPosition(options.position);
-      }
-      setPosition(position) { this.container.dataset.markerPosition = JSON.stringify(position); }
-      setMap() {}
-    }
-    window.google = { maps: { Map, Marker, event: { clearInstanceListeners() {} }, places: { AutocompleteService, PlacesService } } };
-  }, { mockAddress: address, predictionStatus });
+    window.google = { maps: { places: { AutocompleteService, PlacesService } } };
+  }, address);
 }
 
-async function reachAddressStep(page, test) {
-  const url = `${base}${test.form}?canton=${test.canton}&origin=${encodeURIComponent(test.guide)}&source=chatgpt`;
-  const response = await page.goto(url, { waitUntil: 'load', timeout: 60000 });
-  assert.equal(response.status(), 200, `${test.locale} main form HTTP status`);
-  await dismissCookies(page);
-  for (const [index, option] of test.options.entries()) {
-    const current = page.locator(`[data-form-step="${index + 1}"]`);
-    const nextStep = page.locator(`[data-form-step="${index + 2}"]`);
-    await current.waitFor({ state: 'visible', timeout: 15000 });
-    const button = page.getByText(option, { exact: true }).locator('xpath=ancestor::button[1]');
-    let advanced = false;
-    for (let attempt = 1; attempt <= 4; attempt++) {
-      if (await nextStep.count()) { advanced = true; break; }
-      await button.click();
-      try {
-        await nextStep.waitFor({ state: 'visible', timeout: 2500 });
-        advanced = true;
-        break;
-      } catch {
-        if (await nextStep.count()) { advanced = true; break; }
-      }
-    }
-    assert.ok(advanced, `${test.locale}: step ${index + 1} failed to advance after 4 ${option} clicks; url=${page.url()}`);
-  }
-  await page.locator('[data-form-step="5"]').waitFor({ state: 'visible' });
-}
-
-async function assertAddressUi(page, label) {
-  assert.equal(await page.locator('[data-form-step="5"] input').count(), 1, `${label}: single address input`);
-  assert.equal(await page.locator('.roof-analysis, .roof-map, [data-testid="manual-address-toggle"], input[name="street"], input[name="zipCode"]').count(), 0, `${label}: no manual, roof or map UI`);
-  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${label}: no horizontal overflow`);
-}
-
-async function attemptAddressNext(page, next, label) {
-  // The suggestions dropdown can overlap Weiter; dispatch the button's own
-  // click to verify its validation rather than accidentally selecting a result.
-  if (await next.isEnabled()) await next.evaluate(button => button.click());
-  assert.equal(await page.locator('[data-form-step="5"]').count(), 1, `${label}: cannot advance without selected suggestion`);
-  assert.equal(await page.locator('input[type="email"]').count(), 0, `${label}: contact form hidden`);
-}
-
-async function runMainForm(browser, test, viewport) {
-  const context = await browser.newContext({ viewport });
+async function runMainForm(browser, test) {
+  const context = await browser.newContext();
   const state = {
-    leads: [], confirmations: [], blockedPosts: [], forbiddenRequests: [],
+    leads: [], confirmations: [], blockedPosts: [],
     rejectNextLead: true, errorMessage: `MOCK_${test.locale.toUpperCase()}_FORM_ERROR`,
   };
   await installNetworkIsolation(context, state);
@@ -214,51 +145,22 @@ async function runMainForm(browser, test, viewport) {
   page.on('pageerror', error => browserErrors.push(error.message));
 
   try {
-    const label = `${test.locale} ${viewport.width}px`;
-    await reachAddressStep(page, test);
-    await assertAddressUi(page, label);
-    if (test.locale === 'it') {
-      const cookieReject = page.getByRole('button', { name: 'Solo necessari', exact: true });
-      if (await cookieReject.waitFor({ state: 'visible', timeout: 3000 }).then(() => true, () => false)) {
-        await cookieReject.click();
-        await cookieReject.waitFor({ state: 'hidden', timeout: 5000 });
-      }
-      fs.mkdirSync('/tmp/restored-form-qa', { recursive: true });
-      await page.screenshot({ path: `/tmp/restored-form-qa/it-step5-${viewport.width}.png`, fullPage: true });
+    const url = `${base}${test.form}?canton=${test.canton}&origin=${encodeURIComponent(test.guide)}&source=chatgpt`;
+    const response = await page.goto(url, { waitUntil: 'load', timeout: 60000 });
+    assert.equal(response.status(), 200, `${test.locale} main form HTTP status`);
+    await page.waitForTimeout(1500);
+    await dismissCookies(page);
+
+    for (const option of test.options) {
+      const button = page.getByText(option, { exact: true }).locator('xpath=ancestor::button[1]');
+      await button.click();
+      await page.waitForTimeout(250);
     }
-    const next = page.getByRole('button', { name: test.next, exact: true });
-    const addressInput = page.locator('[data-form-step="5"] input');
-    const suggestion = page.getByRole('button', { name: test.address, exact: true });
-    await attemptAddressNext(page, next, `${label}: empty address`);
+    const addressInput = page.locator('input[placeholder]').first();
+    // At step five the only text input is the localized address field.
     await addressInput.fill(test.address.slice(0, 8));
-    await suggestion.waitFor({ state: 'visible' });
-    await attemptAddressNext(page, next, `${label}: typed address`);
-    await suggestion.click();
-    await suggestion.waitFor({ state: 'hidden' });
-    assert.equal(await addressInput.inputValue(), test.address, `${label}: selected address displayed`);
-    const satellite = page.getByTestId('address-satellite-map');
-    await satellite.waitFor({ state: 'visible' });
-    const mapOptions = JSON.parse(await satellite.getAttribute('data-map-options'));
-    assert.equal(mapOptions.mapTypeId, 'satellite', `${label}: satellite imagery`);
-    assert.deepEqual(mapOptions.center, { lat: 47, lng: 8 }, `${label}: selected house coordinates`);
-    assert.equal(mapOptions.zoom, 20, `${label}: house-level zoom`);
-    assert.equal(await satellite.locator('..').locator('p').count(), 0, `${label}: no redundant satellite heading`);
-    assert.equal(await satellite.getAttribute('data-draggable-marker'), 'true', `${label}: roof marker is draggable`);
-    assert.deepEqual(JSON.parse(await satellite.getAttribute('data-marker-position')), { lat: 47, lng: 8 }, `${label}: roof initially selected`);
-    await dismissCookies(page);
-    await satellite.click();
-    assert.deepEqual(JSON.parse(await satellite.getAttribute('data-marker-position')), { lat: 47.001, lng: 8.001 }, `${label}: clicking selects roof position`);
-    // Editing a selected address invalidates the selection, even when the query is the same.
-    await addressInput.fill(`${test.address.slice(0, 8)}x`);
-    assert.equal(await satellite.count(), 0, `${label}: stale house preview cleared`);
-    await attemptAddressNext(page, next, `${label}: stale selection`);
-    await addressInput.fill(test.address.slice(0, 8));
-    await suggestion.click();
-    await suggestion.waitFor({ state: 'hidden' });
-    await assertAddressUi(page, label);
-    await satellite.waitFor({ state: 'visible' });
-    await dismissCookies(page);
-    await next.click();
+    await page.getByRole('button', { name: test.address, exact: true }).click();
+    await page.getByRole('button', { name: /^(Weiter|Suivant|Avanti|Next)$/ }).click();
 
     await page.locator('input[type="email"]').waitFor({ state: 'visible', timeout: 15000 }).catch(async error => {
       const visibleText = (await page.locator('body').innerText()).slice(0, 1200);
@@ -279,7 +181,6 @@ async function runMainForm(browser, test, viewport) {
     await page.getByText(state.errorMessage, { exact: true }).waitFor({ state: 'visible' });
     assert.equal(state.leads.length, 1, `${test.locale} main rejected request`);
     assertContext(state.leads[0], test, `${test.locale} main rejected payload`);
-    assert.equal(state.leads[0]['COMPLETE ADDRESS'], test.address, `${label}: rejected address`);
 
     await submit.click();
     await waitForCount(state.leads, 2, `${test.locale} main successful request reached mock`);
@@ -287,54 +188,21 @@ async function runMainForm(browser, test, viewport) {
       throw new Error(`${test.locale} success did not navigate; url=${page.url()} confirmations=${state.confirmations.length} blockedPosts=${JSON.stringify(state.blockedPosts)} browserErrors=${JSON.stringify(browserErrors)}; ${error.message}`);
     });
     assertContext(state.leads[1], test, `${test.locale} main success payload`);
-    assert.equal(state.leads[1]['COMPLETE ADDRESS'], test.address, `${label}: successful address`);
     await page.waitForTimeout(200);
     assert.equal(state.confirmations.length, 1, `${test.locale} confirmation request`);
     assert.equal(state.confirmations[0].locale, test.locale);
     assert.equal(state.confirmations[0].origin, test.guide);
-    assertContext(state.confirmations[0], test, `${label} confirmation context`);
-    assert.equal(state.confirmations[0].address, test.address, `${label}: confirmation address`);
     assert.deepEqual(state.blockedPosts, [], `${test.locale} no unexpected POSTs`);
-    assert.deepEqual(state.forbiddenRequests, [], `${label}: no roof or map requests`);
     assert.deepEqual(browserErrors, [], `${test.locale} main browser errors`);
   } finally {
     await context.close();
   }
 }
 
-async function runAddressFailure(browser, test, viewport, status, message) {
-  const context = await browser.newContext({ viewport });
+async function runCallback(browser, test) {
+  const context = await browser.newContext();
   const state = {
-    leads: [], confirmations: [], blockedPosts: [], forbiddenRequests: [],
-    rejectNextLead: true, errorMessage: 'UNEXPECTED_LEAD',
-  };
-  await installNetworkIsolation(context, state);
-  const page = await context.newPage();
-  const browserErrors = [];
-  page.on('pageerror', error => browserErrors.push(error.message));
-  try {
-    await installGooglePlacesMock(page, test.address, status);
-    await reachAddressStep(page, test);
-    const label = `${viewport.width}px ${status}`;
-    await assertAddressUi(page, label);
-    await page.locator('[data-form-step="5"] input').fill(test.address.slice(0, 8));
-    await page.getByText(message, { exact: true }).waitFor({ state: 'visible' });
-    await attemptAddressNext(page, page.getByRole('button', { name: test.next, exact: true }), `${label}: search failure`);
-    assert.equal(await page.getByRole('button', { name: test.address, exact: true }).count(), 0, `${label}: no suggestion`);
-    assert.deepEqual(state.leads, [], `${label}: no lead`);
-    assert.deepEqual(state.confirmations, [], `${label}: no confirmation`);
-    assert.deepEqual(state.blockedPosts, [], `${label}: no unexpected POSTs`);
-    assert.deepEqual(state.forbiddenRequests, [], `${label}: no roof or map requests`);
-    assert.deepEqual(browserErrors, [], `${label}: no browser errors`);
-  } finally {
-    await context.close();
-  }
-}
-
-async function runCallback(browser, test, viewport) {
-  const context = await browser.newContext({ viewport });
-  const state = {
-    leads: [], confirmations: [], blockedPosts: [], forbiddenRequests: [],
+    leads: [], confirmations: [], blockedPosts: [],
     rejectNextLead: true, errorMessage: `MOCK_${test.locale.toUpperCase()}_CALLBACK_ERROR`,
   };
   await installNetworkIsolation(context, state);
@@ -348,9 +216,7 @@ async function runCallback(browser, test, viewport) {
     const openButton = page.getByRole('button', { name: test.open, exact: true });
     await page.waitForTimeout(1500);
     await dismissCookies(page);
-    // Mobile callback decoration can overlap its launcher; activate the
-    // actual button without treating the decorative overlay as a test failure.
-    await openButton.evaluate(button => button.click());
+    await openButton.click();
     await page.getByRole('button', { name: test.submit, exact: true }).waitFor({ state: 'visible', timeout: 10000 });
     await page.getByRole('button', { name: test.submit, exact: true }).click();
     await page.getByText(test.callbackRequired, { exact: true }).waitFor({ state: 'visible' });
@@ -373,7 +239,6 @@ async function runCallback(browser, test, viewport) {
     await page.getByText(/🎉/).waitFor({ state: 'visible' });
     assertContext(state.leads[1], test, `${test.locale} callback success payload`);
     assert.deepEqual(state.blockedPosts, [], `${test.locale} callback no unexpected POSTs`);
-    assert.deepEqual(state.forbiddenRequests, [], `${test.locale} callback no roof or map requests`);
     assert.deepEqual(browserErrors, [], `${test.locale} callback browser errors`);
   } finally {
     await context.close();
@@ -387,18 +252,12 @@ async function runCallback(browser, test, viewport) {
     args: ['--no-sandbox'],
   });
   try {
-    for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }]) {
-      if (process.env.VIEWPORT_WIDTH && viewport.width !== Number(process.env.VIEWPORT_WIDTH)) continue;
-      for (const test of process.env.ADDRESS_EXTRA_ONLY === '1' ? [] : cases) {
-        await runMainForm(browser, test, viewport);
-        await runCallback(browser, test, viewport);
-        console.log(`PASS ${test.locale.toUpperCase()} ${viewport.width}px: autocomplete, satellite preview, main form and callback validation, mocked rejection/success and context; no roof analysis`);
-      }
-      await runAddressFailure(browser, cases[3], viewport, 'REQUEST_DENIED', 'Address search is unavailable. Please try again shortly.');
-      await runAddressFailure(browser, cases[3], viewport, 'ZERO_RESULTS', 'No addresses found. Check the address and try again.');
+    for (const test of cases) {
+      await runMainForm(browser, test);
+      await runCallback(browser, test);
+      console.log(`PASS ${test.locale.toUpperCase()}: main form and callback validation, mocked rejection, mocked success, localized context`);
     }
-    console.log('PASS: failed autocomplete and zero suggestions block progress on desktop and mobile.');
-    console.log('PASS: all POSTs were intercepted locally; third-party traffic was blocked; no real lead or confirmation services were contacted.');
+    console.log('PASS: all POSTs were intercepted locally; no real lead or confirmation services were contacted.');
   } finally {
     await browser.close();
   }
