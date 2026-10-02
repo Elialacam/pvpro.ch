@@ -12,7 +12,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getConsent } from '@/lib/cookieConsent';
 import { ECONOMIC_FACTS } from '@/lib/facts';
-import { leadContextFromValues } from '@/lib/leadContext';
 
 declare global {
   interface Window {
@@ -109,7 +108,6 @@ const i18n = {
     requiredFields: 'Bitte füllen Sie alle Pflichtfelder aus.',
     invalidEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
     invalidPhone: 'Bitte geben Sie eine gültige Schweizer Telefonnummer ein.',
-    submitError: 'Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.',
     yes: 'Ja',
     no: 'Nein',
     dontKnow: 'Weiss nicht',
@@ -156,7 +154,6 @@ const i18n = {
     requiredFields: 'Veuillez remplir tous les champs obligatoires.',
     invalidEmail: 'Veuillez saisir une adresse e-mail valide.',
     invalidPhone: 'Veuillez saisir un numéro de téléphone suisse valide.',
-    submitError: 'Votre demande n’a pas pu être envoyée. Veuillez réessayer.',
     yes: 'Oui',
     no: 'Non',
     dontKnow: 'Je ne sais pas',
@@ -203,7 +200,6 @@ const i18n = {
     requiredFields: 'Please fill in all required fields.',
     invalidEmail: 'Please enter a valid email address.',
     invalidPhone: 'Please enter a valid Swiss phone number.',
-    submitError: 'Your request could not be sent. Please try again.',
     yes: 'Yes',
     no: 'No',
     dontKnow: 'Not sure',
@@ -250,7 +246,6 @@ const i18n = {
     requiredFields: 'Compila tutti i campi obbligatori.',
     invalidEmail: 'Inserisci un indirizzo e-mail valido.',
     invalidPhone: 'Inserisci un numero di telefono svizzero valido.',
-    submitError: 'Non è stato possibile inviare la richiesta. Riprova.',
     yes: 'Sì',
     no: 'No',
     dontKnow: 'Non so',
@@ -504,9 +499,6 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         new URLSearchParams(window.location.search).get('source') ??
         sessionStorage.getItem('pvpro_source') ??
         '';
-      const canton = new URLSearchParams(window.location.search).get('canton') ?? '';
-      const origin = new URLSearchParams(window.location.search).get('origin') ?? '';
-      const context = leadContextFromValues(locale, canton, origin, source);
 
       const fbclid =
         new URLSearchParams(window.location.search).get('fbclid') ??
@@ -534,10 +526,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           'COMPLETE ADDRESS': formData.address,
           ...(formData.zipCode ? { zip_code: formData.zipCode } : {}),
           utm_source,
-          locale: context.locale,
-          ...(context.canton ? { canton: context.canton } : {}),
-          ...(context.origin ? { origin: context.origin } : {}),
-          ...(context.source ? { source: context.source } : {}),
+          ...(source === 'chatgpt' ? { source: 'chatgpt' } : {}),
           ...(fbclid ? { fbclid } : {}),
           event_id: eventId,
           marketing_consent: marketingConsent,
@@ -545,26 +534,18 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
           ...(openAiBrowserRef ? { openai_browser_ref: decodeURIComponent(openAiBrowserRef) } : {}),
         }),
       });
-      const data = await res.json().catch(() => ({}));
-      if (res.ok && data.success) {
+      const data = await res.json();
+      if (data.success) {
         trackStep(6);
         (window as any).fbq?.('track', 'Lead', { content_name: 'Solar Quote Request', value: 50.0, currency: 'CHF' }, { eventID: eventId });
         (window as any).gtag?.('event', 'conversion', { send_to: 'AW-17901154625/LyaGCIXE-fUbEMHi99dC', value: 1.0, currency: 'CHF' });
         if (marketingConsent) {
           window.oaiq?.('measure', 'lead_created', { type: 'customer_action' }, { event_id: eventId });
         }
-        fetch('/api/send-confirmation', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ...formData, ...context }),
-        }).catch(() => {});
+        fetch('/api/send-confirmation', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) }).catch(() => {});
         router.push(t.dankeUrl);
         submissionSucceeded = true;
-      } else {
-        setErrorMsg(typeof data.error === 'string' ? data.error : t.submitError);
       }
-    } catch {
-      setErrorMsg(t.submitError);
     } finally {
       if (!submissionSucceeded) {
         submitLockRef.current = false;

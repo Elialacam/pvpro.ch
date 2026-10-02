@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { cities } from '@/lib/cities';
 import { seoRouteGroup } from '@/lib/seoRoutes';
-import { getCantonGuideByPath } from '@/lib/canton-guides';
 
 const SITE_URL = 'https://www.pvpro.ch';
 
@@ -257,17 +256,13 @@ export function pageMetadata(
   const canonicalPath = normalizePath(path);
   const url = canonicalPath === '/' ? SITE_URL : `${SITE_URL}${canonicalPath}`;
   const canton = cantonMetadata(canonicalPath, locale);
-  const guide = getCantonGuideByPath(canonicalPath, locale);
-  const title = brandedTitle(guide?.title || canton?.title || editorialTitles[canonicalPath] || titleText(metadata.title));
-  const description = (guide?.description || canton?.description || editorialDescriptions[canonicalPath] || (typeof metadata.description === 'string' ? metadata.description : ''))
+  const title = brandedTitle(canton?.title || editorialTitles[canonicalPath] || titleText(metadata.title));
+  const description = (canton?.description || editorialDescriptions[canonicalPath] || (typeof metadata.description === 'string' ? metadata.description : ''))
     .replace(/PV\s*Pro(?:\.ch)?/gi, 'PvPro.ch')
     .replace(/\s+/g, ' ')
     .trim();
   const { keywords: _keywords, openGraph: sourceOpenGraph, twitter: sourceTwitter, ...metadataWithoutKeywords } = metadata;
   const routeGroup = seoRouteGroup(canonicalPath);
-  const authors = metadata.authors
-    ? Array.isArray(metadata.authors) ? metadata.authors : [metadata.authors]
-    : [];
   const languages = routeGroup ? {
     ...Object.fromEntries(Object.entries(routeGroup.paths).map(([language, route]) => [`${language}-CH`, `${SITE_URL}${route}`])),
     'x-default': `${SITE_URL}${routeGroup.paths.de ?? Object.values(routeGroup.paths)[0]}`,
@@ -275,7 +270,7 @@ export function pageMetadata(
 
   return {
     ...metadataWithoutKeywords,
-    authors: authors.length ? authors.map((author) => ({
+    authors: metadata.authors?.length ? metadata.authors.map((author) => ({
       ...author,
       name: author.name?.replace(/PV\s*Pro(?:\.ch)?/gi, 'PvPro.ch'),
     })) : [{ name: 'PvPro.ch' }],

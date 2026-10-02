@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { City } from '@/lib/cities';
 import { CityContent } from '@/lib/city-content';
-import { auditText, getCantonAuditPage } from '@/lib/canton-audit';
 import {
   ECONOMIC_FACTS,
   SYSTEM_PRICE_NOTES,
@@ -17,8 +16,6 @@ import FaqSchema from '@/components/FaqSchema';
 import RelatedCities from '@/components/RelatedCities';
 import { Sun, MapPin, TrendingUp, CheckCircle, Zap, Euro, Award } from 'lucide-react';
 import Image from 'next/image';
-import CantonGuidePage from '@/components/CantonGuidePage';
-import type { CantonGuide } from '@/lib/canton-guides/types';
 
 interface UniqueCityPageProps {
   city: City;
@@ -30,7 +27,6 @@ interface UniqueCityPageProps {
    * original city-page rendering.
    */
   suppressUnsupportedClaims?: boolean;
-  guide?: CantonGuide;
 }
 
 function t(lang: string, de: string, fr: string, it: string, en: string = de) {
@@ -52,13 +48,9 @@ export default function UniqueCityPage({
   content,
   accentColor = 'orange',
   suppressUnsupportedClaims = false,
-  guide,
 }: UniqueCityPageProps) {
   const lang = city.language;
   const factsLocale = lang === 'fr' || lang === 'it' || lang === 'en' ? lang : 'de';
-  const audit = getCantonAuditPage(city.slug, city.language);
-  const pageContent = audit ? { ...content, ...audit.content } : content;
-  const showGenericClaims = !suppressUnsupportedClaims && !audit;
   const systemCost = ECONOMIC_FACTS.systemCosts.bySize[5];
   const payback = city.canton === 'TI' || city.canton === 'VS'
     ? ECONOMIC_FACTS.systemPaybackYears.ticinoValais
@@ -122,7 +114,7 @@ export default function UniqueCityPage({
 
   const theme = colors[accentColor];
   const formUrl = getFormUrl(lang);
-  const mapCountry = guide || suppressUnsupportedClaims || Boolean(audit)
+  const mapCountry = suppressUnsupportedClaims
     ? lang === 'fr'
       ? 'Suisse'
       : lang === 'it'
@@ -131,36 +123,6 @@ export default function UniqueCityPage({
           ? 'Switzerland'
           : 'Schweiz'
     : 'Schweiz';
-  const mapSection = (
-    <section className="section-padding bg-white">
-      <div className="container-custom max-w-6xl">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl font-sans font-semibold tracking-tight text-gray-900 mb-3">
-            {guide
-              ? t(lang, `Solarprojekt in ${guide.canton}`, `Projet solaire en ${guide.canton}`, `Progetto solare in ${guide.canton}`, `Solar project in ${guide.canton}`)
-              : suppressUnsupportedClaims
-              ? t(lang, `Solarprojekte: ${city.name}`, `Projets solaires : ${city.name}`, `Progetti solari: ${city.name}`, `Solar projects: ${city.name}`)
-              : t(lang, `Solarteure in ${city.name} und Umgebung`, `Installateurs solaires à ${city.name} et alentours`, `Installatori a ${city.name} e dintorni`, `Solar installers in and around ${city.name}`)}
-          </h2>
-          <p className="text-gray-600">
-            {guide
-              ? t(lang, `Karte und Orientierung für Ihr Solarprojekt in ${guide.canton}.`, `Carte et repères pour votre projet solaire en ${guide.canton}.`, `Mappa e orientamento per il vostro progetto solare in ${guide.canton}.`, `Map and guidance for your solar project in ${guide.canton}.`)
-              : suppressUnsupportedClaims
-              ? t(lang, `Informationen zu Solarprojekten in ${city.name}.`, `Informations sur les projets solaires liés à ${city.name}.`, `Informazioni sui progetti solari legati a ${city.name}.`, `Information about solar projects related to ${city.name}.`)
-              : t(lang, `Unser Netzwerk umfasst geprüfte Fachbetriebe in der gesamten Kanton ${city.canton}`, `Notre réseau comprend des entreprises certifiées dans toute le canton ${city.canton}`, `La nostra rete comprende ditte certificate in tutto il Canton ${city.canton}`, `Our network includes solar professionals across canton ${city.canton}`)}
-          </p>
-        </div>
-        <div className="relative rounded-2xl overflow-hidden shadow-xl h-[500px]">
-          {mounted && (
-            <iframe src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''}&q=${encodeURIComponent((guide?.canton ?? city.name) + ', ' + mapCountry)}&zoom=10&language=${lang}`} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title={t(lang, `Karte von ${guide?.canton ?? city.name}`, `Carte de ${guide?.canton ?? city.name}`, `Mappa di ${guide?.canton ?? city.name}`, `Map of ${guide?.canton ?? city.name}`)} />
-          )}
-          <div className="absolute bottom-6 left-6 bg-white px-6 py-3 rounded-lg shadow-lg"><div className="flex items-center gap-2"><MapPin className={`w-5 h-5 ${theme.icon}`} /><span className="font-sans font-bold text-gray-900 text-lg">{guide?.canton ?? `${city.name}, ${city.canton}`}</span></div></div>
-        </div>
-      </div>
-    </section>
-  );
-
-  if (guide) return <CantonGuidePage guide={guide} mapSection={mapSection} lang={lang} />;
 
   return (
     <>
@@ -169,30 +131,30 @@ export default function UniqueCityPage({
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-semibold tracking-tight text-gray-900 mb-6 leading-tight">
-              {pageContent.heroHeadline} –{' '}
-              <span className={theme.heading}>{pageContent.heroSubheadline}</span>
+              {content.heroHeadline} –{' '}
+              <span className={theme.heading}>{content.heroSubheadline}</span>
             </h1>
 
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              {pageContent.heroDescription}
+              {content.heroDescription}
             </p>
 
             {/* City-specific Stats */}
-            {showGenericClaims && <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto">
+            {!suppressUnsupportedClaims && <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto">
               <div className="bg-white rounded-xl p-6 shadow-md">
                 <div className="text-3xl font-sans font-semibold tracking-tight text-green-600 mb-2">{paybackText}</div>
                 <div className="text-sm text-gray-600">{t(lang, 'Jahre Amortisation', "Ans d'amortissement", 'Anni di ammortamento', 'Payback period')}</div>
                 <div className="text-xs text-gray-500 mt-1">{t(lang, 'Schneller ROI', 'Retour rapide', 'ROI rapido', 'Faster ROI')}</div>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-3xl font-sans font-semibold tracking-tight text-primary mb-2">Pronovo</div>
-                <div className="text-sm text-gray-600">{t(lang, 'Bundesförderung prüfen', 'Vérifier l’aide fédérale', 'Verifica l’incentivo federale', 'Check federal support')}</div>
-                <div className="text-xs text-gray-500 mt-1">{t(lang, 'Projektabhängig', 'Selon le projet', 'In base al progetto', 'Project dependent')}</div>
+                <div className="text-3xl font-sans font-semibold tracking-tight text-primary mb-2">{formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}</div>
+                <div className="text-sm text-gray-600">{t(lang, 'Bundesförderung möglich', 'Aide fédérale possible', 'Incentivo federale possibile', 'Federal support may be available')}</div>
+                <div className="text-xs text-gray-500 mt-1">{t(lang, 'Bund + Kanton', 'Confédération + Canton', 'Confederazione + Cantone', 'Federal + cantonal')}</div>
               </div>
             </div>}
-            {showGenericClaims && <p className="mb-8 text-xs text-gray-500">{getSourceNote(factsLocale)}</p>}
+            {!suppressUnsupportedClaims && <p className="mb-8 text-xs text-gray-500">{getSourceNote(factsLocale)}</p>}
 
-            {showGenericClaims && <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            {!suppressUnsupportedClaims && <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
                 <span className="text-gray-700 font-medium">{t(lang, 'Geprüfte Fachbetriebe', 'Installateurs certifiés', 'Ditte certificate', 'Verified installers')}</span>
@@ -218,13 +180,13 @@ export default function UniqueCityPage({
       <section className="section-padding bg-gray-50">
         <div className="container-custom max-w-6xl">
           <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-4 text-center">
-            {pageContent.whySolarTitle}
+            {content.whySolarTitle}
           </h2>
           <p className="text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto">
-            {pageContent.whySolarIntro}
+            {content.whySolarIntro}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pageContent.whySolarReasons.map((reason, index) => (
+            {content.whySolarReasons.map((reason, index) => (
               <div key={index} className="card hover:shadow-xl transition-shadow bg-white">
                 <div className={`w-12 h-12 bg-${accentColor}-50 rounded-lg flex items-center justify-center mb-4`}>
                   {index === 0 && <Sun className={`w-6 h-6 ${theme.icon}`} />}
@@ -243,79 +205,8 @@ export default function UniqueCityPage({
         </div>
       </section>
 
-      {audit && (
-        <section className="section-padding bg-white" aria-labelledby="audited-canton-data">
-          <div className="container-custom max-w-6xl">
-            <div className="max-w-3xl mx-auto text-center mb-10">
-              <p className="text-sm font-semibold uppercase tracking-wider text-primary mb-3">
-                {t(lang, 'Geprüfte kantonale Angaben', 'Informations cantonales vérifiées', 'Dati cantonali verificati', 'Verified cantonal information')}
-              </p>
-              <h2 id="audited-canton-data" className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-4">
-                {t(lang, 'Förderung, Regeln und Zuständigkeit', 'Aides, règles et compétence', 'Incentivi, regole e competenze', 'Support, rules and responsibility')}
-              </h2>
-              <p className="text-gray-600">
-                {t(lang,
-                  'Die folgenden Angaben wurden am 11. September 2026 anhand offizieller Quellen geprüft. Beträge sind nur zusammen mit Zuständigkeit, Voraussetzungen und Zeitpunkt zu lesen.',
-                  'Les informations suivantes ont été vérifiées le 11 septembre 2026 auprès de sources officielles. Les montants doivent être lus avec leur compétence, leurs conditions et leur date.',
-                  'I dati seguenti sono stati verificati l’11 settembre 2026 su fonti ufficiali. Gli importi vanno letti insieme a competenza, requisiti e data.',
-                  'The following information was checked on 11 September 2026 against official sources. Amounts must be read together with the responsible authority, eligibility and timing.'
-                )}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {audit.records.map((record) => (
-                <article
-                  key={`${record.jurisdiction_name}-${record.name}-${record.effective_from}`}
-                  className={`rounded-2xl border p-6 ${record.future ? 'border-amber-200 bg-amber-50/60' : 'border-gray-200 bg-gray-50'}`}
-                >
-                  <div className="flex flex-wrap items-center gap-2 mb-3">
-                    <span className="text-xs font-semibold uppercase tracking-wide text-primary">
-                      {record.jurisdiction_name}
-                    </span>
-                    {record.future && (
-                      <span className="text-xs font-semibold rounded-full bg-amber-100 text-amber-800 px-2 py-1">
-                        {t(lang, 'Ab 2027', 'Dès 2027', 'Dal 2027', 'From 2027')}
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="text-xl font-sans font-semibold tracking-tight text-gray-900 mb-2">{record.name}</h3>
-                  <p className="text-gray-700 mb-4">{auditText(record.amount_label, lang)}</p>
-                  <dl className="space-y-2 text-sm text-gray-600">
-                    <div>
-                      <dt className="inline font-semibold text-gray-800">{t(lang, 'Voraussetzungen: ', 'Conditions : ', 'Requisiti: ', 'Eligibility: ')}</dt>
-                      <dd className="inline">{auditText(record.eligibility, lang)}</dd>
-                    </div>
-                    <div>
-                      <dt className="inline font-semibold text-gray-800">{t(lang, 'Zeitpunkt: ', 'Moment : ', 'Tempistica: ', 'Timing: ')}</dt>
-                      <dd className="inline">{auditText(record.timing, lang)}</dd>
-                    </div>
-                    <div>
-                      <dt className="inline font-semibold text-gray-800">{t(lang, 'Gültig ab: ', 'Valable dès : ', 'Valido dal: ', 'Effective from: ')}</dt>
-                      <dd className="inline">{record.effective_from}</dd>
-                    </div>
-                  </dl>
-                  <a
-                    href={record.source_url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex mt-4 text-sm font-semibold text-primary hover:underline"
-                  >
-                    {t(lang, 'Offizielle Quelle öffnen', 'Ouvrir la source officielle', 'Apri la fonte ufficiale', 'Open official source')}
-                  </a>
-                  <p className="text-xs text-gray-500 mt-2">
-                    {t(lang, 'Quelle geprüft am ', 'Source vérifiée le ', 'Fonte verificata il ', 'Source checked on ')}
-                    {record.source_checked_at}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Incentives Section */}
-      {showGenericClaims && <section className="section-padding bg-white">
+      {!suppressUnsupportedClaims && <section className="section-padding bg-white">
         <div className="container-custom max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -340,10 +231,10 @@ export default function UniqueCityPage({
                   <li className="flex gap-2">
                     <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
                     <span>{t(lang,
-                      'Einmalvergütung des Bundes über Pronovo – Berechnung und Voraussetzungen sind projektabhängig.',
-                      'Rétribution unique fédérale via Pronovo – calcul et conditions selon le projet.',
-                      'Rimunerazione unica federale tramite Pronovo – calcolo e requisiti dipendono dal progetto.',
-                      'Federal one-off payment via Pronovo – calculation and eligibility depend on the project.'
+                      `Abdeckung von ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)} der Investitionskosten ohne Speicher`,
+                      `Couverture de ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)} des coûts d'investissement sans stockage`,
+                      `Copertura dal ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)} dei costi di investimento senza accumulo`,
+                      `Coverage of ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)} of investment costs without storage`
                     )}</span>
                   </li>
                   <li className="flex gap-2">
@@ -386,22 +277,22 @@ export default function UniqueCityPage({
               <div className="space-y-4 relative">
                 <p className="text-lg text-gray-600 font-medium">
                    {t(lang,
-                     'Einmalvergütung prüfen',
-                     'Vérifier la rétribution unique',
-                     'Verifica la rimunerazione unica',
-                     'Check one-off support'
+                     `Die Bundesförderung deckt ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}`,
+                     `L’aide fédérale couvre ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}`,
+                     `L’incentivo federale copre dal ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}`,
+                     `Federal support covers ${formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}`
                    )}
                 </p>
                 <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-sans font-semibold tracking-tight text-sm">
                    {t(lang, 'Pronovo-EIV verfügbar', 'Pronovo RU disponible', 'Pronovo EIV Disponibile', 'Pronovo EIV available')}
                 </div>
-                 <p className="text-sm text-gray-500">
-                   {t(lang,
-                     'Betrag und Anspruch bei Pronovo anhand der aktuellen Projektdaten prüfen.',
-                     'Vérifiez le montant et le droit auprès de Pronovo avec les données actuelles du projet.',
-                     'Verifica importo e diritto presso Pronovo con i dati aggiornati del progetto.',
-                     'Check the amount and eligibility with Pronovo using current project details.'
-                   )}
+                <p className="text-sm text-gray-500">
+                  {t(lang,
+                    'Bundesförderung für Neuanlagen für das gesamte Jahr 2026 garantiert.',
+                    "Subvention fédérale pour nouvelles installations garantie pour toute l'année 2026.",
+                     'Incentivi federali per nuovi impianti garantiti per tutto il 2026.',
+                     'Federal support for new installations guaranteed throughout 2026.'
+                  )}
                 </p>
               </div>
             </div>
@@ -410,7 +301,7 @@ export default function UniqueCityPage({
       </section>}
 
       {/* Pricing Section - UNIQUE */}
-      {showGenericClaims && <section className="section-padding bg-gray-50">
+      {!suppressUnsupportedClaims && <section className="section-padding bg-gray-50">
         <div className="container-custom max-w-6xl">
           <h2 className="text-3xl sm:text-4xl font-sans font-semibold tracking-tight text-gray-900 mb-12 text-center">
             {t(lang,
@@ -440,7 +331,7 @@ export default function UniqueCityPage({
                     </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-primary h-2 rounded-full" style={{ width: '50%' }}></div>
+                    <div className="bg-primary h-2 rounded-full" style={{ width: '45%' }}></div>
                   </div>
                 </div>
                 <div>
@@ -518,10 +409,10 @@ export default function UniqueCityPage({
       </section>}
 
       {/* Unique Canton Image Section */}
-      {showGenericClaims && <section className="relative section-padding bg-gray-900 overflow-hidden">
+      {!suppressUnsupportedClaims && <section className="relative section-padding bg-gray-900 overflow-hidden">
         <div className="absolute inset-0">
            <Image
-            src={pageContent.image}
+            src={content.image}
              alt={t(lang, `Solaranlage Installation ${city.name}`, `Installation solaire ${city.name}`, `Impianto fotovoltaico ${city.name}`, `Solar installation ${city.name}`)}
             fill
             sizes="100vw"
@@ -551,7 +442,7 @@ export default function UniqueCityPage({
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
               <div className="group bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 hover:bg-white/20 hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <div className="text-4xl font-sans font-semibold tracking-tight text-white mb-2 drop-shadow-lg">Pronovo</div>
+                <div className="text-4xl font-sans font-semibold tracking-tight text-white mb-2 drop-shadow-lg">{formatRangeForLocale(ECONOMIC_FACTS.incentives.federalSharePercent, '%', factsLocale)}</div>
                 <div className="text-sm text-white/90 font-medium">
                    {t(lang, 'Bundesförderung', 'Aide fédérale', 'Incentivo federale', 'Federal support')}
                 </div>
@@ -567,14 +458,71 @@ export default function UniqueCityPage({
         </div>
       </section>}
 
-      {mapSection}
+      {/* Google Maps */}
+      <section className="section-padding bg-white">
+        <div className="container-custom max-w-6xl">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-sans font-semibold tracking-tight text-gray-900 mb-3">
+              {suppressUnsupportedClaims
+                ? t(lang,
+                  `Solarprojekte: ${city.name}`,
+                  `Projets solaires : ${city.name}`,
+                  `Progetti solari: ${city.name}`,
+                  `Solar projects: ${city.name}`
+                )
+                : t(lang,
+                  `Solarteure in ${city.name} und Umgebung`,
+                  `Installateurs solaires à ${city.name} et alentours`,
+                  `Installatori a ${city.name} e dintorni`,
+                  `Solar installers in and around ${city.name}`
+                )}
+            </h2>
+            <p className="text-gray-600">
+              {suppressUnsupportedClaims
+                ? t(lang,
+                  `Informationen zu Solarprojekten in ${city.name}.`,
+                  `Informations sur les projets solaires liés à ${city.name}.`,
+                  `Informazioni sui progetti solari legati a ${city.name}.`,
+                  `Information about solar projects related to ${city.name}.`
+                )
+                : t(lang,
+                  `Unser Netzwerk umfasst geprüfte Fachbetriebe in der gesamten Kanton ${city.canton}`,
+                  `Notre réseau comprend des entreprises certifiées dans toute le canton ${city.canton}`,
+                  `La nostra rete comprende ditte certificate in tutto il Canton ${city.canton}`,
+                  `Our network includes solar professionals across canton ${city.canton}`
+                )}
+            </p>
+          </div>
 
-       {showGenericClaims && <USPSection lang={lang} />}
+          <div className="relative rounded-2xl overflow-hidden shadow-xl h-[500px]">
+            {mounted && (
+              <iframe
+                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDQF_fL_qx_1QZVlvJFNRl5ETBhjcJOFAE&q=${encodeURIComponent(city.name + ', ' + mapCountry)}&zoom=10`}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title={t(lang, `Karte von ${city.name}`, `Carte de ${city.name}`, `Mappa di ${city.name}`, `Map of ${city.name}`)}
+              />
+            )}
+            <div className="absolute bottom-6 left-6 bg-white px-6 py-3 rounded-lg shadow-lg">
+              <div className="flex items-center gap-2">
+                <MapPin className={`w-5 h-5 ${theme.icon}`} />
+                <span className="font-sans font-bold text-gray-900 text-lg">{city.name}, {city.canton}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-       <FAQ items={pageContent.faqs} notes={!suppressUnsupportedClaims && !audit} />
-       <FaqSchema faqs={pageContent.faqs} />
+      {!suppressUnsupportedClaims && <USPSection lang={lang} />}
 
-       {showGenericClaims && <RelatedCities currentCitySlug={pageContent.slug} currentCanton={city.canton} lang={lang} />}
+      <FAQ items={content.faqs} notes={!suppressUnsupportedClaims} />
+      <FaqSchema faqs={content.faqs} />
+
+      {!suppressUnsupportedClaims && <RelatedCities currentCitySlug={content.slug} currentCanton={city.canton} lang={lang} />}
 
       {/* Final CTA */}
       <section className={`section-padding bg-gradient-to-r ${theme.cta} text-white`}>

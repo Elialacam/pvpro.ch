@@ -4,11 +4,8 @@ import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 import PageTransition from "@/components/PageTransition";
 import { LocaleProvider } from "@/lib/LocaleContext";
-import RootDocument from "@/app/RootDocument";
-import { baseMetadata } from "@/app/baseMetadata";
 
 export const metadata: Metadata = {
-  ...baseMetadata,
   title: {
     default: 'Solaranlagen vergleichen | PvPro.ch',
     template: '%s | PvPro.ch',
@@ -34,13 +31,12 @@ export default function GermanLayout({
   children: React.ReactNode;
 }) {
   return (
-    <RootDocument lang="de-CH">
-      <LocaleProvider locale="de">
-        <StructuredData />
-        <Header />
-        <main className="min-h-screen pt-20"><PageTransition>{children}</PageTransition></main>
-        <Footer />
-        <script
+    <LocaleProvider locale="de">
+      <StructuredData />
+      <Header />
+      <main className="min-h-screen pt-20"><PageTransition>{children}</PageTransition></main>
+      <Footer />
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -64,8 +60,7 @@ export default function GermanLayout({
             }
           })
         }}
-        />
-      </LocaleProvider>
-    </RootDocument>
+      />
+    </LocaleProvider>
   );
 }

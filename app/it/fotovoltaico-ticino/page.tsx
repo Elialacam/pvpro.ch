@@ -4,7 +4,6 @@ import { getCityBySlug } from '@/lib/cities';
 import { cityContents } from '@/lib/city-content';
 import { notFound } from 'next/navigation';
 import UniqueCityPage from '@/components/UniqueCityPage';
-import { requireCantonGuide } from '@/lib/canton-guides';
 
 const citySlug = 'ticino';
 
@@ -32,5 +31,5 @@ export default function CityPage() {
   const city = getCityBySlug(citySlug);
   if (!city) notFound();
   const content = cityContents[citySlug] || cityContents['zurich'];
-  return <UniqueCityPage city={city} content={content} accentColor="blue" guide={requireCantonGuide(citySlug, 'it')} />;
+  return <UniqueCityPage city={city} content={content} accentColor="blue" />;
 }

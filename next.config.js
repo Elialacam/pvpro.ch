@@ -1,13 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    webpackMemoryOptimizations: true,
-  },
-  onDemandEntries: {
-    maxInactiveAge: 15_000,
-    pagesBufferLength: 2,
-  },
   // Middleware owns slash canonicalization so every normalization is an
   // explicit 301 and can be combined with host and legacy aliases.
   skipTrailingSlashRedirect: true,

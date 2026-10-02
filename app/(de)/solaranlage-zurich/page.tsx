@@ -7,7 +7,6 @@ import { getCityBySlug } from '@/lib/cities';
 import { cityContents, CityContent } from '@/lib/city-content';
 import { notFound } from 'next/navigation';
 import UniqueCityPage from '@/components/UniqueCityPage';
-import { requireCantonGuide } from '@/lib/canton-guides';
 
 // This is a template for the city pages.
 const citySlug = 'zurich';
@@ -23,7 +22,7 @@ export default function CityPage() {
   const content = cityContents[citySlug] || cityContents['zurich'];
   return (
     <>
-      <UniqueCityPage city={city} content={content} accentColor="blue" guide={requireCantonGuide(citySlug, 'de')} />
+      <UniqueCityPage city={city} content={content} accentColor="blue" />
       <section className="py-8 bg-gray-50 border-t border-gray-100">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="flex flex-col gap-3 max-w-2xl">

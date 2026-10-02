@@ -3,11 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import { LocaleProvider } from "@/lib/LocaleContext";
-import RootDocument from "@/app/RootDocument";
-import { baseMetadata } from "@/app/baseMetadata";
 
 export const metadata: Metadata = {
-  ...baseMetadata,
   title: {
     default: 'Compare solar systems in Switzerland | PvPro.ch',
     template: '%s | PvPro.ch',
@@ -33,12 +30,11 @@ export default function EnglishLayout({
   children: React.ReactNode;
 }) {
   return (
-    <RootDocument lang="en-CH">
-      <LocaleProvider locale="en">
-        <Header />
-        <main className="min-h-screen pt-20"><PageTransition>{children}</PageTransition></main>
-        <Footer />
-        <script
+    <LocaleProvider locale="en">
+      <Header />
+      <main className="min-h-screen pt-20"><PageTransition>{children}</PageTransition></main>
+      <Footer />
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -86,8 +82,7 @@ export default function EnglishLayout({
             }
           })
         }}
-        />
-      </LocaleProvider>
-    </RootDocument>
+      />
+    </LocaleProvider>
   );
 }
