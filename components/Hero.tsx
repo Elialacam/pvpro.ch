@@ -10,7 +10,7 @@ import { Locale } from '@/lib/i18n';
 import HeroWidget from './HeroWidget';
 
 const slides = [
-  '/images/hero-pvpro-consultation.webp',
+  '/images/hero-family-solar.webp',
   '/images/hero-2.webp',
   '/images/hero-3.webp',
   '/images/hero-4.webp',
