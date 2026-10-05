@@ -35,6 +35,8 @@ export const staticSeoRouteGroups: SeoRouteGroup[] = [
   four('/solaranlagen-typen-vergleich', '/fr/comparaison-types-panneaux-solaires', '/en/solar-panel-types-comparison', '/it/confronto-tipi-impianti-solari'),
   four('/faq', '/fr/faq', '/en/faq', '/it/faq', .75),
   four('/ueber-uns', '/fr/a-propos', '/en/about-us', '/it/chi-siamo', .7),
+  four('/kontakt', '/fr/contact', '/en/contact', '/it/contatti', .6),
+  four('/team', '/fr/equipe', '/en/team', '/it/team', .6),
   four('/blog', '/fr/blog', '/en/blog', '/it/blog', .7),
   four('/balkonkraftwerk', '/fr/centrale-balcon', '/en/balcony-power-station', '/it/centrale-balcone', .7),
   four('/datenschutz', '/fr/protection-des-donnees', '/en/privacy', '/it/protezione-dati', .3),

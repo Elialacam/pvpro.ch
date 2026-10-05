@@ -262,6 +262,9 @@ export function pageMetadata(
     .replace(/\s+/g, ' ')
     .trim();
   const { keywords: _keywords, openGraph: sourceOpenGraph, twitter: sourceTwitter, ...metadataWithoutKeywords } = metadata;
+  const authors = Array.isArray(metadata.authors)
+    ? metadata.authors
+    : metadata.authors ? [metadata.authors] : [];
   const routeGroup = seoRouteGroup(canonicalPath);
   const languages = routeGroup ? {
     ...Object.fromEntries(Object.entries(routeGroup.paths).map(([language, route]) => [`${language}-CH`, `${SITE_URL}${route}`])),
@@ -270,7 +273,7 @@ export function pageMetadata(
 
   return {
     ...metadataWithoutKeywords,
-    authors: metadata.authors?.length ? metadata.authors.map((author) => ({
+    authors: authors.length ? authors.map((author) => ({
       ...author,
       name: author.name?.replace(/PV\s*Pro(?:\.ch)?/gi, 'PvPro.ch'),
     })) : [{ name: 'PvPro.ch' }],

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ChevronRight, Users, Shield, Star, MapPin, Phone, Mail } from 'lucide-react';
 import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/pageMetadata';
+import CompanyLinks from '@/components/company/CompanyLinks';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Über uns | PvPro.ch',
@@ -71,8 +72,8 @@ export default function UeberUnsPage() {
           </div>
           <div className="rounded-2xl overflow-hidden shadow-xl">
             <Image
-              src="/team-new.webp"
-              alt="Das PvPro.ch Team"
+              src="/images/solardaecher-quartier-see-schweiz.webp"
+              alt="Wohnquartier mit Solardächern an einem Schweizer See"
               width={800}
               height={500}
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -159,6 +160,7 @@ export default function UeberUnsPage() {
         </div>
 
         {/* Company info */}
+        <CompanyLinks locale="de" />
         <div className="rounded-2xl border border-gray-100 p-8 sm:p-12 mb-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">Kontakt</h2>
           <div className="flex flex-col gap-4 text-sm max-w-sm">

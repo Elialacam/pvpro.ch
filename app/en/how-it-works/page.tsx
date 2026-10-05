@@ -36,7 +36,7 @@ const steps = [
     number: '2',
     Icon: Search,
     title: 'We connect you with certified installers',
-    subtitle: 'Within 24–48 hours',
+    subtitle: 'Your request goes to suitable installers',
     description: 'Once we receive your request, we forward it to up to 3 certified solar installers in your canton. Every partner in our network has been pre-screened for certifications, references and quality.',
     details: [
       'Up to 3 independent quotes',
@@ -64,7 +64,7 @@ const benefits = [
   { Icon: Clock,       title: 'Time saving',      text: 'Instead of contacting multiple installers yourself, PvPro.ch handles the search for you — in less than 2 minutes.' },
   { Icon: ShieldCheck, title: 'Certified quality', text: 'Only installers with valid certifications, proof of insurance and positive references.' },
   { Icon: Euro,        title: 'Free of charge',   text: 'Our service is 100% free for homeowners. We are funded by installer commissions — no extra cost for you.' },
-  { Icon: Phone,       title: 'Personal support', text: 'If you have questions, our team is available by phone and email at any time.' },
+  { Icon: Phone,       title: 'Personal support', text: 'If you have questions, contact PvPro.ch by phone or email.' },
 ];
 
 export default function HowItWorksPage() {
@@ -95,7 +95,7 @@ export default function HowItWorksPage() {
           {steps.map((step, i) => {
             const Icon = step.Icon;
             return (
-              <div key={step.number} className="relative">
+              <div key={step.number} id={i === 0 ? 'request-quotes' : i === 1 ? 'receive-quotes' : 'compare-quotes'} className="relative scroll-mt-28">
                 {i < steps.length - 1 && (
                   <div className="absolute left-9 top-[88px] w-0.5 h-[calc(100%-40px)] bg-gradient-to-b from-orange-200 to-orange-100 hidden sm:block" />
                 )}
@@ -158,7 +158,7 @@ export default function HowItWorksPage() {
             {[
               { q: 'Is the service really free?', a: 'Yes, 100%. We are funded by installer commissions — at no extra cost to you.' },
               { q: 'Am I obliged to choose an offer?', a: 'No. You can decline all quotes without any consequences.' },
-              { q: 'How quickly will I receive quotes?', a: 'Usually within 24–48 hours of your request.' },
+              { q: 'How will I receive quotes?', a: 'Installers contact you directly. Timing depends on the installer and the details needed for your project.' },
               { q: 'Which cantons is PvPro.ch active in?', a: 'We operate throughout Switzerland, in all 26 cantons.' },
             ].map((faq) => (
               <div key={faq.q}>

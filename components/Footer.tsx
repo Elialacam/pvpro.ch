@@ -41,6 +41,8 @@ const footerContent: Record<string, {
         title: 'Über uns',
         links: [
           { label: 'Über uns',            href: '/ueber-uns' },
+          { label: 'Team',                href: '/team' },
+          { label: 'Kontakt',             href: '/kontakt' },
           { label: 'Wie es funktioniert', href: '/wie-es-funktioniert' },
           { label: 'FAQ',                  href: '/faq' },
           { label: 'Datenschutz',         href: '/datenschutz' },
@@ -77,6 +79,8 @@ const footerContent: Record<string, {
         title: 'À propos',
         links: [
           { label: 'À propos de nous',          href: '/fr/a-propos' },
+          { label: 'Équipe',                    href: '/fr/equipe' },
+          { label: 'Contact',                   href: '/fr/contact' },
           { label: 'Comment ça marche',         href: '/fr/comment-ca-marche' },
           { label: 'FAQ',                       href: '/fr/faq' },
           { label: 'Protection des données',    href: '/fr/protection-des-donnees' },
@@ -113,6 +117,8 @@ const footerContent: Record<string, {
         title: 'About us',
         links: [
           { label: 'About us',        href: '/en/about-us' },
+          { label: 'Team',            href: '/en/team' },
+          { label: 'Contact',         href: '/en/contact' },
           { label: 'How it works',    href: '/en/how-it-works' },
           { label: 'FAQ',             href: '/en/faq' },
           { label: 'Privacy policy',  href: '/en/privacy' },
@@ -149,6 +155,8 @@ const footerContent: Record<string, {
         title: 'Chi siamo',
         links: [
           { label: 'Chi siamo',         href: '/it/chi-siamo' },
+          { label: 'Team',              href: '/it/team' },
+          { label: 'Contatti',          href: '/it/contatti' },
           { label: 'Come funziona',     href: '/it/come-funziona' },
           { label: 'FAQ',               href: '/it/faq' },
           { label: 'Privacy',           href: '/it/protezione-dati' },

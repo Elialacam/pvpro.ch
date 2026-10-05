@@ -36,7 +36,7 @@ const steps = [
     number: '2',
     Icon: Search,
     title: 'Troviamo gli installatori certificati',
-    subtitle: 'Entro 24–48 ore',
+    subtitle: 'La richiesta agli installatori adatti',
     description: 'Appena riceviamo la tua richiesta, la inoltriamo a fino a 3 installatori solari certificati nel tuo Cantone. Ogni partner della nostra rete è stato verificato in anticipo: certificazioni, referenze e qualità.',
     details: [
       'Fino a 3 preventivi indipendenti',
@@ -95,7 +95,7 @@ export default function ComeFunzionaPage() {
           {steps.map((step, i) => {
             const Icon = step.Icon;
             return (
-              <div key={step.number} className="relative">
+              <div key={step.number} id={i === 0 ? 'request-quotes' : i === 1 ? 'receive-quotes' : 'compare-quotes'} className="relative scroll-mt-28">
                 {i < steps.length - 1 && (
                   <div className="absolute left-9 top-[88px] w-0.5 h-[calc(100%-40px)] bg-gradient-to-b from-orange-200 to-orange-100 hidden sm:block" />
                 )}
@@ -158,7 +158,7 @@ export default function ComeFunzionaPage() {
             {[
               { q: 'Il servizio è davvero gratuito?', a: "Sì, al 100%. Ci finanziamo con commissioni degli installatori — senza costi aggiuntivi per te." },
               { q: "Sono obbligato ad accettare un'offerta?", a: 'No. Puoi rifiutare tutti i preventivi senza alcuna conseguenza.' },
-              { q: 'Quanto tempo per ricevere i preventivi?', a: 'Di solito entro 24–48 ore dalla tua richiesta.' },
+              { q: 'Come riceverò i preventivi?', a: 'Gli installatori ti contattano direttamente. I tempi dipendono dall’impresa e dai dati necessari per il tuo progetto.' },
               { q: 'In quali zone opera PvPro.ch?', a: 'Siamo attivi in tutta la Svizzera, in tutti i 26 cantoni.' },
             ].map((faq) => (
               <div key={faq.q}>

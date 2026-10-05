@@ -80,7 +80,7 @@ export default function IncentiviSolariPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section id="federal-subsidy" className="py-20 bg-white scroll-mt-24">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -159,7 +159,7 @@ export default function IncentiviSolariPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <p className="text-sm font-semibold text-orange-400 uppercase tracking-widest mb-3">Incentivi aggiuntivi</p>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-5">Programmi cantonali</h2>
+              <h2 id="cantonal-subsidies" className="text-2xl sm:text-3xl font-bold text-white mb-5 scroll-mt-28">Programmi cantonali</h2>
               <p className="text-gray-400 leading-relaxed mb-6">
                 Oltre all'aiuto federale, molti cantoni offrono programmi aggiuntivi. Gli incentivi disponibili variano da cantone a cantone.
               </p>

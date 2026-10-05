@@ -36,7 +36,7 @@ const steps = [
     number: '2',
     Icon: Search,
     title: 'Nous trouvons les installateurs certifiés',
-    subtitle: 'Dans les 24 à 48 heures',
+    subtitle: 'Votre demande aux professionnels adaptés',
     description: "Dès réception de votre demande, nous la transmettons à jusqu'à 3 installateurs solaires certifiés de votre canton. Chaque partenaire a été vérifié au préalable : certifications, références et qualité.",
     details: [
       "Jusqu'à 3 devis indépendants",
@@ -95,7 +95,7 @@ export default function CommentCaMarchePage() {
           {steps.map((step, i) => {
             const Icon = step.Icon;
             return (
-              <div key={step.number} className="relative">
+              <div key={step.number} id={i === 0 ? 'request-quotes' : i === 1 ? 'receive-quotes' : 'compare-quotes'} className="relative scroll-mt-28">
                 {i < steps.length - 1 && (
                   <div className="absolute left-9 top-[88px] w-0.5 h-[calc(100%-40px)] bg-gradient-to-b from-orange-200 to-orange-100 hidden sm:block" />
                 )}
@@ -158,7 +158,7 @@ export default function CommentCaMarchePage() {
             {[
               { q: 'Le service est-il vraiment gratuit ?', a: "Oui, à 100%. Nous nous finançons par des commissions des installateurs — sans supplément pour vous." },
               { q: "Suis-je obligé d'accepter une offre ?", a: 'Non. Vous pouvez refuser toutes les offres sans aucune conséquence.' },
-              { q: 'Combien de temps pour recevoir les devis ?', a: "En général dans les 24 à 48 heures suivant votre demande." },
+              { q: 'Comment vais-je recevoir les offres ?', a: 'Les installateurs vous contactent directement. Le délai dépend de l’entreprise et des informations nécessaires pour votre projet.' },
               { q: 'Dans quelles zones PvPro.ch est-il actif ?', a: 'Nous sommes actifs dans toute la Suisse, dans les 26 cantons.' },
             ].map((faq) => (
               <div key={faq.q}>

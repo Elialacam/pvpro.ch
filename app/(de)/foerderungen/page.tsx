@@ -126,7 +126,7 @@ export default function FoerderungenPage() {
       </section>
 
       {/* ── EIV EXPLANATION ── */}
-      <section className="py-20 bg-white">
+      <section id="federal-subsidy" className="py-20 bg-white scroll-mt-24">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -279,7 +279,7 @@ export default function FoerderungenPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 
             {/* Kantonale Förderungen */}
-            <div>
+            <div id="cantonal-subsidies" className="scroll-mt-28">
               <p className="text-sm font-semibold text-orange-400 uppercase tracking-widest mb-3">Zusätzliche Förderungen</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-5">
                 Kantonale Förderprogramme

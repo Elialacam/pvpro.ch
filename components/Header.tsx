@@ -8,10 +8,12 @@ import { useLocale } from '@/lib/LocaleContext';
 import { usePathname } from 'next/navigation';
 import { getFormUrl } from '@/lib/i18n/formUrls';
 import { ECONOMIC_FACTS } from '@/lib/facts';
+import { articleLocalePaths } from '@/lib/articleSeoRoutes';
+import { companyRoutes, type CompanyLocale } from './company/content';
 import {
   ChevronDown, Sun, Zap, Star, ArrowRight,
   Home, BarChart2, Battery, Calculator, Layers,
-  Award, Percent, FileText, Users, Mail, HelpCircle, Shield, BookOpen
+  Award, Percent, FileText, Users, Mail, HelpCircle, Shield, BookOpen, Menu, X
 } from 'lucide-react';
 
 const HOME_PATHS = ['/', '/fr', '/en', '/it'];
@@ -41,7 +43,7 @@ function getNavItems(locale: string): NavItem[] {
         category: 'SO EINFACH GEHT ES',
         title: 'Kostenlos vergleichen',
         description: 'Unverbindlich · In 2 Minuten · Geprüfte Installateure',
-        viewAllHref: '/wie-funktioniert',
+        viewAllHref: '/wie-es-funktioniert',
         viewAllLabel: 'Mehr erfahren',
         items: [
           { icon: <FileText className="w-5 h-5" />, title: 'Formular ausfüllen', subtitle: 'Ihre Anforderungen angeben', href: '/anfrage' },
@@ -273,7 +275,41 @@ function getNavItems(locale: string): NavItem[] {
     ],
   };
 
-  return content[locale] || content.de;
+  const language: CompanyLocale = locale in companyRoutes ? locale as CompanyLocale : 'de';
+  const routes = companyRoutes[language];
+  const taxPaths = articleLocalePaths('solaranlage-steuerabzug-schweiz-2026', 'de');
+  const subtitles = {
+    de: { team: 'Aufgaben & Zuständigkeiten', federal: 'Einmaliger Beitrag des Bundes', tax: 'Bestehende Gebäude · steuerbares Einkommen' },
+    fr: { team: 'Rôles et responsabilités', federal: 'Contribution unique de la Confédération', tax: 'Bâtiments existants · revenu imposable' },
+    en: { team: 'Roles & responsibilities', federal: 'One-time federal contribution', tax: 'Existing buildings · taxable income' },
+    it: { team: 'Ruoli e responsabilità', federal: 'Contributo federale una tantum', tax: 'Edifici esistenti · reddito imponibile' },
+  }[language];
+  return (content[language]).map((item, index) => {
+    if (index === 0) return {
+      ...item, viewAllHref: routes.service,
+      items: item.items.map((sub, step) => ({
+        ...sub,
+        href: step === 0 ? routes.quote : `${routes.service}#${step === 1 ? 'receive-quotes' : 'compare-quotes'}`,
+      })),
+    };
+    if (index === 2) return {
+      ...item,
+      items: item.items.map((sub, entry) => ({
+        ...sub,
+        href: entry === 2 ? taxPaths[language] : `${routes.subsidy}#${entry === 0 ? 'federal-subsidy' : 'cantonal-subsidies'}`,
+        subtitle: entry === 0 ? subtitles.federal : entry === 2 ? subtitles.tax : sub.subtitle,
+      })),
+    };
+    if (index === 3) return {
+      ...item,
+      items: item.items.map((sub, entry) => ({
+        ...sub,
+        href: entry === 1 ? routes.team : entry === 2 ? routes.contact : sub.href,
+        subtitle: entry === 1 ? subtitles.team : sub.subtitle,
+      })),
+    };
+    return item;
+  });
 }
 
 const ctaLabels: Record<string, string> = {
@@ -290,9 +326,9 @@ const homeLinks: Record<string, string> = {
   it: '/it',
 };
 
-function DropdownPanel({ item, transparent }: { item: NavItem; transparent: boolean }) {
+function DropdownPanel({ item, id }: { item: NavItem; id: string }) {
   return (
-    <div className="absolute top-full mt-3 z-50 w-[600px]"
+    <div id={id} className="absolute top-full mt-3 z-50 w-[600px]"
       style={{ left: '50%', transform: 'translateX(-50%)' }}>
       <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden flex">
         <div className="w-[220px] flex-shrink-0 bg-gray-50 p-6 flex flex-col justify-between">
@@ -338,11 +374,36 @@ export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const mobileToggleRef = useRef<HTMLButtonElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
   const isHome = HOME_PATHS.includes(pathname);
-  const transparent = isHome && !scrolled;
+  const transparent = isHome && !scrolled && !mobileOpen;
   const navItems = getNavItems(locale);
+  const menuLabels = {
+    de: { open: 'Menü öffnen', close: 'Menü schliessen', navigation: 'Hauptnavigation' },
+    fr: { open: 'Ouvrir le menu', close: 'Fermer le menu', navigation: 'Navigation principale' },
+    en: { open: 'Open menu', close: 'Close menu', navigation: 'Main navigation' },
+    it: { open: 'Apri il menu', close: 'Chiudi il menu', navigation: 'Navigazione principale' },
+  }[locale] || { open: 'Menü öffnen', close: 'Menü schliessen', navigation: 'Hauptnavigation' };
+
+  useEffect(() => {
+    setMobileOpen(false);
+    setOpenIndex(null);
+  }, [pathname, locale]);
+
+  useEffect(() => {
+    const onEscape = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      if (mobileOpen) mobileToggleRef.current?.focus();
+      if (openIndex !== null) headerRef.current?.querySelector<HTMLButtonElement>(`[aria-controls="desktop-nav-${openIndex}"]`)?.focus();
+      setMobileOpen(false);
+      setOpenIndex(null);
+    };
+    document.addEventListener('keydown', onEscape);
+    return () => document.removeEventListener('keydown', onEscape);
+  }, [mobileOpen, openIndex]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -355,6 +416,7 @@ export default function Header() {
     const onClickOut = (e: MouseEvent) => {
       if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
         setOpenIndex(null);
+        setMobileOpen(false);
       }
     };
     document.addEventListener('mousedown', onClickOut);
@@ -371,7 +433,7 @@ export default function Header() {
       ref={headerRef}
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: transparent ? 'transparent' : 'rgba(255,255,255,0.97)',
+        background: transparent && !mobileOpen ? 'transparent' : 'rgba(255,255,255,0.97)',
         boxShadow: transparent ? 'none' : '0 1px 12px rgba(0,0,0,0.08)',
         backdropFilter: transparent ? 'none' : 'blur(8px)',
       }}
@@ -391,7 +453,8 @@ export default function Header() {
             />
           </Link>
 
-          <div className="hidden md:block absolute left-1/2 -translate-x-1/2">
+          <nav aria-label={menuLabels.navigation} className="hidden xl:block absolute left-1/2 -translate-x-1/2"
+            onClick={event => { if ((event.target as Element).closest('a')) setOpenIndex(null); }}>
             <div
               className="flex items-center rounded-full px-1 py-1"
               style={{
@@ -402,6 +465,9 @@ export default function Header() {
               {navItems.map((item, i) => (
                 <div key={i} className="relative">
                   <button
+                    type="button"
+                    aria-expanded={openIndex === i}
+                    aria-controls={`desktop-nav-${i}`}
                     onClick={() => setOpenIndex(openIndex === i ? null : i)}
                     className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-150 ${textColor} ${
                       openIndex === i
@@ -416,15 +482,15 @@ export default function Header() {
                   </button>
 
                   {openIndex === i && (
-                    <DropdownPanel item={item} transparent={transparent} />
+                    <DropdownPanel item={item} id={`desktop-nav-${i}`} />
                   )}
                 </div>
               ))}
             </div>
-          </div>
+          </nav>
 
           <div className="flex items-center gap-3 sm:gap-4 z-10">
-            <LanguageSwitcher transparent={transparent} />
+            <LanguageSwitcher transparent={transparent && !mobileOpen} />
             <Link
               href={formUrl}
               className="hidden sm:inline-flex items-center font-semibold text-sm px-5 py-2.5 rounded-full border-2 transition-all duration-200 whitespace-nowrap"
@@ -436,10 +502,51 @@ export default function Header() {
             >
               {cta}
             </Link>
+            <button
+              type="button"
+              ref={mobileToggleRef}
+              className={`xl:hidden inline-flex items-center justify-center w-10 h-10 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#3b5fd6] ${transparent && !mobileOpen ? 'text-white' : 'text-gray-800'}`}
+              aria-label={mobileOpen ? menuLabels.close : menuLabels.open}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setMobileOpen(value => !value)}
+            >
+              {mobileOpen ? <X size={23} aria-hidden="true" /> : <Menu size={23} aria-hidden="true" />}
+            </button>
           </div>
 
         </div>
       </div>
+      {mobileOpen && (
+        <nav
+          id="mobile-navigation"
+          aria-label={menuLabels.navigation}
+          className="xl:hidden bg-white border-t border-gray-100 px-6 pb-6 overflow-y-auto max-h-[calc(100dvh-72px)]"
+          onClick={event => {
+            if ((event.target as Element).closest('a')) {
+              setMobileOpen(false);
+              setOpenIndex(null);
+            }
+          }}
+        >
+          {navItems.map(item => (
+            <section key={item.label} className="py-5 border-b border-gray-100">
+              <Link href={item.viewAllHref} className="flex items-center justify-between font-bold text-gray-900 mb-3">
+                {item.label}<ArrowRight size={17} aria-hidden="true" />
+              </Link>
+              <ul className="flex flex-col gap-1">
+                {item.items.map(sub => <li key={sub.title}>
+                  <Link href={sub.href} className="flex items-start gap-3 rounded-xl py-3 px-2 hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#3b5fd6]">
+                    <span className="text-[#976200] mt-0.5" aria-hidden="true">{sub.icon}</span>
+                    <span><span className="block text-sm font-semibold text-gray-800">{sub.title}</span><span className="block text-xs text-gray-500 mt-1">{sub.subtitle}</span></span>
+                  </Link>
+                </li>)}
+              </ul>
+            </section>
+          ))}
+          <Link href={formUrl} className="inline-flex items-center gap-2 rounded-full bg-[#fcb210] text-gray-900 font-bold px-6 py-3 mt-6">{cta}<ArrowRight size={17} aria-hidden="true" /></Link>
+        </nav>
+      )}
     </header>
   );
 }

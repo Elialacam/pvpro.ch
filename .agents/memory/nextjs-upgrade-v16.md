@@ -18,3 +18,9 @@ description: Notes on the forced upgrade from 14.2.22 to 16.3.0 and breaking cha
 **How to apply:** If Next.js is reinstalled or upgraded, expect these same warnings. The fix is already in next.config.js and the sitemap files are removed.
 
 **Async params (Next 16):** in dynamic routes `params` is a Promise — sync access (`params.slug`) silently 404s any slug NOT prerendered by generateStaticParams (prerendered ones still work, masking the bug). All `[slug]` pages must `await params`. Symptom: new/dynamic content 404s while old content renders fine.
+
+Use Webpack for the development workflow when Turbopack stalls on this workspace.
+
+**Why:** On 2026-10-05, Turbopack opened the port but left ordinary page and sitemap requests timing out during compilation; the same project served successfully with Webpack.
+
+**How to apply:** A running port alone does not prove preview readiness. Check a real page response, and preserve the development workflow's explicit bundler choice unless retesting deliberately.
