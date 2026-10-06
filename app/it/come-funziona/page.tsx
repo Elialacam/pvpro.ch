@@ -91,15 +91,15 @@ export default function ComeFunzionaPage() {
         </div>
 
         {/* Steps */}
-        <div className="flex flex-col gap-0 mb-24">
+        <div className="grid grid-cols-1 gap-0 mb-24 lg:grid-cols-3 lg:gap-8">
           {steps.map((step, i) => {
             const Icon = step.Icon;
             return (
               <div key={step.number} id={i === 0 ? 'request-quotes' : i === 1 ? 'receive-quotes' : 'compare-quotes'} className="relative scroll-mt-28">
                 {i < steps.length - 1 && (
-                  <div className="absolute left-9 top-[88px] w-0.5 h-[calc(100%-40px)] bg-gradient-to-b from-orange-200 to-orange-100 hidden sm:block" />
+                  <div className="absolute left-9 top-[88px] w-0.5 h-[calc(100%-40px)] bg-gradient-to-b from-orange-200 to-orange-100 hidden sm:block lg:hidden" />
                 )}
-                <div className="flex flex-col sm:flex-row gap-8 pb-16">
+                <div className="flex flex-col sm:flex-row gap-8 pb-16 lg:flex-col lg:gap-5 lg:pb-0">
                   <div className="flex-shrink-0 flex flex-col items-center sm:items-start gap-0">
                     <div className="relative w-[72px] h-[72px] rounded-2xl flex items-center justify-center shadow-md" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
                       <Icon className="w-8 h-8 text-white" />

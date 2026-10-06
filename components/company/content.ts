@@ -1,10 +1,10 @@
 export type CompanyLocale = 'de' | 'fr' | 'en' | 'it';
 
 export const companyRoutes = {
-  de: { contact: '/kontakt', team: '/team', about: '/ueber-uns', quote: '/anfrage', service: '/wie-es-funktioniert', subsidy: '/foerderungen', faq: '/faq', legal: '/impressum' },
-  fr: { contact: '/fr/contact', team: '/fr/equipe', about: '/fr/a-propos', quote: '/fr/demande', service: '/fr/comment-ca-marche', subsidy: '/fr/subventions-solaires', faq: '/fr/faq', legal: '/fr/mentions-legales' },
-  en: { contact: '/en/contact', team: '/en/team', about: '/en/about-us', quote: '/en/request', service: '/en/how-it-works', subsidy: '/en/solar-subsidies', faq: '/en/faq', legal: '/en/imprint' },
-  it: { contact: '/it/contatti', team: '/it/team', about: '/it/chi-siamo', quote: '/it/richiesta', service: '/it/come-funziona', subsidy: '/it/incentivi-solari', faq: '/it/faq', legal: '/it/note-legali' },
+  de: { contact: '/kontakt', team: '/team', about: '/ueber-uns', quote: '/anfrage', service: '/wie-es-funktioniert', selection: '/besten-solar-anbieter-waehlen', subsidy: '/foerderungen', faq: '/faq', legal: '/impressum' },
+  fr: { contact: '/fr/contact', team: '/fr/equipe', about: '/fr/a-propos', quote: '/fr/demande', service: '/fr/comment-ca-marche', selection: '/fr/choisir-installateur-solaire', subsidy: '/fr/subventions-solaires', faq: '/fr/faq', legal: '/fr/mentions-legales' },
+  en: { contact: '/en/contact', team: '/en/team', about: '/en/about-us', quote: '/en/request', service: '/en/how-it-works', selection: '/en/choose-solar-installer', subsidy: '/en/solar-subsidies', faq: '/en/faq', legal: '/en/imprint' },
+  it: { contact: '/it/contatti', team: '/it/team', about: '/it/chi-siamo', quote: '/it/richiesta', service: '/it/come-funziona', selection: '/it/scegliere-installatore-solare', subsidy: '/it/incentivi-solari', faq: '/it/faq', legal: '/it/note-legali' },
 } as const;
 
 export const companyContent = {

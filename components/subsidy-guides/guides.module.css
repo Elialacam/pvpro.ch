@@ -1,0 +1,38 @@
+.calculator {
+  min-width: 0;
+  container-type: inline-size;
+}
+
+@container (max-width: 700px) {
+  .calculator :global(.grid-cols-3) {
+    grid-template-columns: 1fr;
+  }
+  .calculator :global(.flex.items-end) {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .calculator :global(.grid-cols-3) {
+    grid-template-columns: 1fr;
+  }
+  .calculator :global(.flex.items-end) {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .calculator :global(.px-8) {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+.root a:focus-visible,
+.root summary:focus-visible {
+  outline: 3px solid #fcb210;
+  outline-offset: 4px;
+}
+
+.root section[id] {
+  scroll-margin-top: 7rem;
+}

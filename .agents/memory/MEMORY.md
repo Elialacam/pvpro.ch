@@ -10,3 +10,5 @@
 - [Language selector fallbacks](language-selector-fallbacks.md) — use exact SEO equivalents when available; missing translations fall back to locale homes only in the UI, never in hreflang.
 - [Approved service and tax claims](approved-claims.md) — free/100% free is valid for homeowners; tax deduction means taxable income on existing buildings, not new builds.
 - [Canton content boundaries](canton-content-boundaries.md) — expanded coverage uses neutral guidance; do not copy another Canton's local financial or installer claims.
+- [Distinct informational pages](page-distinction.md) — requested topic pages need distinct content and presentation; a process-page anchor is not a dedicated installer-choice page.
+- [Screenshot hydration warnings](screenshot-hydration.md) — capture tooling may inject caret styles into inputs; verify in a clean browser before changing React code.

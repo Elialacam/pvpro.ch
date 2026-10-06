@@ -5,12 +5,18 @@ const { chromium } = require('playwright');
 
 const base = process.env.NAV_TEST_URL || `https://${process.env.REPLIT_DEV_DOMAIN}`;
 const locales = [
-  { locale: 'de', contact: '/kontakt', team: '/team', about: '/ueber-uns', form: '/anfrage', process: '/wie-es-funktioniert', subsidies: '/foerderungen' },
-  { locale: 'fr', contact: '/fr/contact', team: '/fr/equipe', about: '/fr/a-propos', form: '/fr/demande', process: '/fr/comment-ca-marche', subsidies: '/fr/subventions-solaires' },
-  { locale: 'en', contact: '/en/contact', team: '/en/team', about: '/en/about-us', form: '/en/request', process: '/en/how-it-works', subsidies: '/en/solar-subsidies' },
-  { locale: 'it', contact: '/it/contatti', team: '/it/team', about: '/it/chi-siamo', form: '/it/richiesta', process: '/it/come-funziona', subsidies: '/it/incentivi-solari' },
+  { locale: 'de', contact: '/kontakt', team: '/team', about: '/ueber-uns', form: '/anfrage', process: '/wie-es-funktioniert', selection: '/besten-solar-anbieter-waehlen', subsidies: '/foerderungen' },
+  { locale: 'fr', contact: '/fr/contact', team: '/fr/equipe', about: '/fr/a-propos', form: '/fr/demande', process: '/fr/comment-ca-marche', selection: '/fr/choisir-installateur-solaire', subsidies: '/fr/subventions-solaires' },
+  { locale: 'en', contact: '/en/contact', team: '/en/team', about: '/en/about-us', form: '/en/request', process: '/en/how-it-works', selection: '/en/choose-solar-installer', subsidies: '/en/solar-subsidies' },
+  { locale: 'it', contact: '/it/contatti', team: '/it/team', about: '/it/chi-siamo', form: '/it/richiesta', process: '/it/come-funziona', selection: '/it/scegliere-installatore-solare', subsidies: '/it/incentivi-solari' },
 ];
 const origin = new URL(base).origin;
+const subsidyPages = {
+  de: ['/einmalverguetung', '/kantonale-foerderung'],
+  fr: ['/fr/retribution-unique', '/fr/subventions-cantonales'],
+  en: ['/en/federal-solar-subsidy', '/en/cantonal-solar-subsidies'],
+  it: ['/it/remunerazione-unica', '/it/incentivi-cantonali'],
+};
 const checkedTargets = new Map();
 
 async function checkTarget(context, href) {
@@ -54,8 +60,8 @@ async function checkNavigation(page, context, current, width) {
   }
   for (const expected of [
     current.contact, current.team, current.process,
-    `${current.process}#receive-quotes`, `${current.process}#compare-quotes`,
-    `${current.subsidies}#federal-subsidy`, `${current.subsidies}#cantonal-subsidies`,
+    `${current.process}#receive-quotes`, current.selection,
+    ...subsidyPages[current.locale],
   ]) {
     assert.ok(destinations.includes(expected), `${current.locale}: menu contains ${expected}`);
     await checkTarget(context, expected);

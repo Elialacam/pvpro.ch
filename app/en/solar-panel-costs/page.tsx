@@ -3,7 +3,7 @@ import { pageMetadata } from '@/lib/pageMetadata';
 import CtaAnfrage from '@/components/CtaAnfrage';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank } from 'lucide-react';
+import { CheckCircle, Sun, Home, Building2, Battery, Calculator, TrendingUp, PiggyBank, ChevronRight, ArrowRight } from 'lucide-react';
 import FaqSchema from '@/components/FaqSchema';
 import { ECONOMIC_FACTS, SOURCE_NOTES, STORAGE_PRICE_NOTES, SYSTEM_PRICE_NOTES, formatChfForLocale, formatRangeForLocale, getSystemCostRange } from '@/lib/facts';
 
@@ -133,46 +133,65 @@ export default function SolarPanelCostsPage() {
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-b from-primary-50 to-white section-padding">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
-            <div className="text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl font-sans font-semibold tracking-normal text-gray-900 mb-6 leading-tight">
+      <section className="relative bg-[#0f1f3d] pt-28 pb-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 40%, #fcb210 0%, transparent 55%)' }} />
+        <div className="relative max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-white/40 mb-10">
+            <Link href="/en" className="hover:text-white/70 transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 flex-shrink-0" />
+            <span className="text-white/70">Solar panel costs</span>
+          </nav>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-flex items-center gap-2 bg-[#fcb210]/10 border border-[#fcb210]/20 text-[#fcb210] text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5">
+                <Sun className="w-3.5 h-3.5" /> Costs & subsidies
+              </span>
+              <h1 className="text-4xl sm:text-5xl font-sans font-bold text-white mb-6 leading-tight">
                 How much does a solar installation cost in Switzerland?
               </h1>
-              <p className="text-xl text-gray-600 mb-4">
+              <p className="text-white/70 text-lg leading-relaxed mb-6">
                 The costs depend primarily on the system size, the roof area and the components used.
               </p>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-white/70 text-lg leading-relaxed mb-8">
+                An average installation for a detached house has an output of approximately <strong className="text-white">8 to 10 kWp</strong>.
+              </p>
+              <Link href="#offerten" className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold text-white text-sm hover:opacity-90 transition-opacity shadow-lg" style={{ background: 'linear-gradient(135deg, #ffc812, #fcb210)' }}>
+                Request free quote <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="rounded-2xl bg-white/5 border border-white/10 p-6 sm:p-8">
+              <p className="text-white/70 text-lg leading-relaxed mb-6">
                 For a typical detached house, prices are usually between:
               </p>
-              <div className="inline-block bg-primary text-white rounded-2xl px-10 py-6 mb-8">
-                <div className="text-4xl sm:text-5xl font-bold mb-1">{formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')}</div>
-                <div className="text-primary-100 text-base">gross cost for 10 kWp</div>
+              <div className="text-white">
+                <div className="text-3xl sm:text-4xl font-bold text-[#fcb210] mb-3">{formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')}</div>
+                <div className="text-white/50 text-xs uppercase tracking-wide">gross cost for 10 kWp</div>
               </div>
-              <p className="text-gray-600">
-                An average installation for a detached house has an output of approximately <strong>8 to 10 kWp</strong>.
-              </p>
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="/images/asset-haus-luftbild-2.webp"
-                alt="Solar installation on a Swiss detached house – aerial view"
-                width={700}
-                height={500}
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="w-full h-auto object-cover"
-                priority
-              />
             </div>
           </div>
         </div>
       </section>
 
+      <section className="py-16 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+            <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-md">
+              <Image
+                src="/images/asset-haus-luftbild-2.webp"
+                alt="Solar installation on a Swiss detached house – aerial view"
+                width={700}
+                height={500}
+                sizes="(max-width: 1024px) 100vw, 896px"
+                className="w-full h-64 sm:h-80 object-cover"
+                loading="lazy"
+              />
+            </div>
+        </div>
+      </section>
+
       {/* Price table */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-4">
+      <section className="py-16 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <h2 className="text-3xl sm:text-4xl font-sans font-bold text-center text-gray-900 mb-4">
             Solar installation costs for a detached house
           </h2>
           <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
@@ -183,7 +202,7 @@ export default function SolarPanelCostsPage() {
           <div className="hidden md:block max-w-4xl mx-auto mb-10 overflow-hidden rounded-2xl border border-gray-200">
             <table className="w-full text-left">
               <thead>
-                <tr className="bg-primary text-white">
+                <tr className="bg-gray-50 text-gray-400 text-xs uppercase tracking-wider">
                   <th className="px-6 py-4 font-semibold">System size</th>
                   <th className="px-6 py-4 font-semibold">Annual electricity production</th>
                   <th className="px-6 py-4 font-semibold">Roof area (approx.)</th>
@@ -196,7 +215,7 @@ export default function SolarPanelCostsPage() {
                     <td className="px-6 py-4 font-semibold text-gray-900">{row.size}</td>
                     <td className="px-6 py-4 text-gray-700">{row.production}</td>
                     <td className="px-6 py-4 text-gray-700">{row.area}</td>
-                    <td className="px-6 py-4 font-bold text-primary">{row.price}</td>
+                    <td className="px-6 py-4 font-bold text-[#fcb210]">{row.price}</td>
                   </tr>
                 ))}
               </tbody>
@@ -206,15 +225,15 @@ export default function SolarPanelCostsPage() {
           {/* Mobile cards */}
           <div className="md:hidden space-y-4 mb-10">
             {costTable.map((row, i) => (
-              <div key={i} className={`rounded-2xl p-5 border-2 ${i === 1 ? 'border-primary bg-primary-50' : 'border-gray-200 bg-white'}`}>
+              <div key={i} className={`rounded-2xl p-5 border shadow-sm ${i === 1 ? 'border-[#fcb210]/30 bg-orange-50' : 'border-gray-100 bg-white'}`}>
                 {i === 1 && (
-                  <div className="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-3">
+                  <div className="bg-[#fcb210] text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">
                     Most popular size
                   </div>
                 )}
-                <div className="flex justify-between items-start mb-3">
+                <div className="flex flex-wrap justify-between items-start gap-2 mb-3">
                   <span className="text-xl font-bold text-gray-900">{row.size}</span>
-                  <span className="text-xl font-bold text-primary">{row.price}</span>
+                  <span className="text-xl font-bold text-[#fcb210]">{row.price}</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
                   <div><span className="font-medium">Production:</span> {row.production}</div>
@@ -232,18 +251,18 @@ export default function SolarPanelCostsPage() {
       </section>
 
       {/* Cost per kWp */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-sans font-semibold tracking-normal text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-sans font-bold text-gray-900 mb-4">
               Cost per kWp in Switzerland
             </h2>
             <p className="text-gray-600 mb-6">
               The cost of a photovoltaic system is often calculated per kWp (kilowatt peak).
               In Switzerland, average costs are:
             </p>
-            <div className="bg-white rounded-2xl border-2 border-primary p-8 text-center mb-6">
-               <div className="text-4xl font-bold text-primary mb-2">{formatRangeForLocale(ECONOMIC_FACTS.systemCosts.perKwp, 'CHF', 'en')} <span className="text-2xl">per kWp</span></div>
+            <div className="bg-white rounded-2xl border border-[#fcb210]/30 p-6 sm:p-8 text-center mb-6 shadow-sm">
+               <div className="text-3xl sm:text-4xl font-bold text-[#fcb210] mb-2">{formatRangeForLocale(ECONOMIC_FACTS.systemCosts.perKwp, 'CHF', 'en')} <span className="text-2xl">per kWp</span></div>
               <p className="text-gray-600 text-sm mt-2">
                 The price per kWp decreases for larger systems, as installation costs can be better distributed.
               </p>
@@ -253,31 +272,31 @@ export default function SolarPanelCostsPage() {
       </section>
 
       {/* 10 kW solar installation */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
+      <section className="py-16 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-sans font-semibold tracking-normal text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-sans font-bold text-gray-900 mb-4">
               How much does a 10 kW solar installation cost in Switzerland?
             </h2>
             <p className="text-gray-600 mb-6">
               A photovoltaic system with <strong>10 kWp output</strong> typically costs in Switzerland:
             </p>
-            <div className="bg-primary-50 rounded-2xl p-8 mb-6">
-               <div className="text-4xl font-bold text-primary mb-3">{formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')}</div>
+            <div className="bg-orange-50 border border-[#fcb210]/20 rounded-2xl p-6 sm:p-8 mb-6">
+               <div className="text-3xl sm:text-4xl font-bold text-[#fcb210] mb-3">{formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')}</div>
                <p className="text-gray-700 text-sm">gross cost before subsidies</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 mb-6">
               <div className="flex items-start gap-3">
-                <Sun className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
+                <Sun className="w-6 h-6 text-[#fcb210] flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-gray-900 mb-1">Annual electricity production</p>
                    <p className="text-gray-600">On the Swiss Plateau, a 10 kWp system produces <strong>{formatRangeForLocale({ min: ECONOMIC_FACTS.production.plateauKwhPerKwp.min * 10, max: ECONOMIC_FACTS.production.plateauKwhPerKwp.max * 10 }, 'kWh per year', 'en')}</strong>.</p>
                 </div>
               </div>
             </div>
-            <div className="flex items-start gap-3 p-5 bg-yellow-50 border border-yellow-200 rounded-xl">
-              <CheckCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-              <p className="text-yellow-800 text-sm">
+            <div className="flex items-start gap-3 p-5 bg-[#fcb210]/5 border border-[#fcb210]/20 rounded-2xl">
+              <CheckCircle className="w-5 h-5 text-[#fcb210] flex-shrink-0 mt-0.5" />
+              <p className="text-gray-700 text-sm">
                  For a 10 kWp system, allow approximately <strong>{ECONOMIC_FACTS.roofAreaM2PerKwp * 10} m² of roof area</strong>.
               </p>
             </div>
@@ -286,10 +305,10 @@ export default function SolarPanelCostsPage() {
       </section>
 
       {/* Solar installation with storage */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-sans font-semibold tracking-normal text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-sans font-bold text-gray-900 mb-4">
               How much does a solar installation with storage cost?
             </h2>
             <p className="text-gray-600 mb-6">
@@ -299,7 +318,7 @@ export default function SolarPanelCostsPage() {
             <div className="hidden md:block overflow-hidden rounded-2xl border border-gray-200 mb-6">
               <table className="w-full text-left">
                 <thead>
-                  <tr className="bg-gray-800 text-white">
+                  <tr className="bg-gray-100 text-gray-400 text-xs uppercase tracking-wider">
                     <th className="px-6 py-4 font-semibold">Storage capacity</th>
                     <th className="px-6 py-4 font-semibold">Cost (approx.)</th>
                   </tr>
@@ -308,9 +327,9 @@ export default function SolarPanelCostsPage() {
                   {storageTable.map((row, i) => (
                     <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                       <td className="px-6 py-4 font-semibold text-gray-900 flex items-center gap-2">
-                        <Battery className="w-4 h-4 text-primary" />{row.size}
+                        <Battery className="w-4 h-4 text-[#fcb210]" />{row.size}
                       </td>
-                      <td className="px-6 py-4 font-bold text-primary">{row.price}</td>
+                      <td className="px-6 py-4 font-bold text-[#fcb210]">{row.price}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -319,11 +338,11 @@ export default function SolarPanelCostsPage() {
 
             <div className="md:hidden space-y-3 mb-6">
               {storageTable.map((row, i) => (
-                <div key={i} className="flex justify-between items-center bg-white rounded-xl border border-gray-200 px-5 py-4">
+                <div key={i} className="flex flex-wrap gap-2 justify-between items-center bg-white rounded-2xl border border-gray-100 shadow-sm px-5 py-4">
                   <div className="flex items-center gap-2 font-semibold text-gray-900">
-                    <Battery className="w-4 h-4 text-primary" />{row.size}
+                    <Battery className="w-4 h-4 text-[#fcb210]" />{row.size}
                   </div>
-                  <span className="font-bold text-primary">{row.price}</span>
+                  <span className="font-bold text-[#fcb210]">{row.price}</span>
                 </div>
               ))}
             </div>
@@ -334,7 +353,7 @@ export default function SolarPanelCostsPage() {
             <p className="text-xs text-gray-500 mb-4">{STORAGE_PRICE_NOTES.en} {SOURCE_NOTES.en}</p>
             <Link
               href="/en/solar-with-battery"
-              className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
+              className="inline-flex items-center gap-2 text-[#fcb210] font-bold hover:underline"
             >
               → More information: Solar installation with battery storage
             </Link>
@@ -343,20 +362,20 @@ export default function SolarPanelCostsPage() {
       </section>
 
       {/* Cost factors */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-4">
+      <section className="py-16 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <h2 className="text-3xl sm:text-4xl font-sans font-bold text-center text-gray-900 mb-4">
             What factors influence the costs?
           </h2>
           <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
             The most important factors that determine the price of a solar installation in Switzerland
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {costFactors.map((f, i) => (
-              <div key={i} className="bg-gray-50 rounded-xl p-6">
-                <f.icon className="w-9 h-9 text-primary mb-4" />
-                <h3 className="text-lg font-sans font-semibold tracking-normal text-gray-900 mb-2">{f.title}</h3>
-                <p className="text-gray-600 text-sm">{f.text}</p>
+              <div key={i} className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6">
+                <f.icon className="w-10 h-10 p-2 rounded-xl bg-[#fcb210]/10 text-[#fcb210] mb-4" />
+                <h3 className="text-lg font-sans font-bold text-gray-900 mb-2">{f.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{f.text}</p>
               </div>
             ))}
           </div>
@@ -364,43 +383,43 @@ export default function SolarPanelCostsPage() {
       </section>
 
       {/* Subsidies */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-sans font-semibold tracking-normal text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-sans font-bold text-gray-900 mb-4">
               Subsidies for solar installations in Switzerland
             </h2>
             <p className="text-gray-600 mb-6">
               In Switzerland, the federal government supports photovoltaic systems with the <strong>one-time payment (OTP)</strong>.
               This subsidy noticeably reduces investment costs.
             </p>
-            <div className="bg-primary-50 rounded-2xl p-8 mb-6">
+            <div className="bg-orange-50 border border-[#fcb210]/20 rounded-2xl p-6 sm:p-8 mb-6">
               <div className="flex items-start gap-4">
-                <PiggyBank className="w-10 h-10 text-primary flex-shrink-0" />
+                <PiggyBank className="w-10 h-10 text-[#fcb210] flex-shrink-0" />
                 <div>
-                   <p className="text-2xl font-bold text-primary mb-1">{formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')} per kWp</p>
+                   <p className="text-2xl font-bold text-[#fcb210] mb-1">{formatChfForLocale(ECONOMIC_FACTS.incentives.pronovoPerKwpUpTo30, 'en')} per kWp</p>
                   <p className="text-gray-700">Typical federal subsidy amounts (OTP). The level depends on the system size.</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
               <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-primary" />
+                <TrendingUp className="w-5 h-5 text-[#fcb210]" />
                 Calculation example: 10 kWp system
               </h3>
               <div className="space-y-3">
-                <div className="flex justify-between">
+                <div className="flex flex-col sm:flex-row gap-2 justify-between">
                   <span className="text-gray-600">Gross cost</span>
                    <span className="font-medium">{formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')}</span>
                 </div>
-                <div className="flex justify-between text-primary">
+                <div className="flex flex-col sm:flex-row gap-2 justify-between text-green-600">
                    <span>– One-time payment OTP</span>
                    <span className="font-medium">– {formatChfForLocale(ECONOMIC_FACTS.incentives.tenKwpApprox, 'en')}</span>
                 </div>
-                <div className="border-t border-gray-200 pt-3 flex justify-between">
+                <div className="border-t border-gray-100 pt-3 flex flex-col sm:flex-row gap-2 justify-between">
                   <span className="font-semibold text-gray-900">Effective cost (example)</span>
-                   <span className="font-bold text-xl text-primary">{formatRangeForLocale({ min: getSystemCostRange(10).min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: getSystemCostRange(10).max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF', 'en')}</span>
+                   <span className="font-bold text-xl text-[#fcb210]">{formatRangeForLocale({ min: getSystemCostRange(10).min - ECONOMIC_FACTS.incentives.tenKwpApprox, max: getSystemCostRange(10).max - ECONOMIC_FACTS.incentives.tenKwpApprox }, 'CHF', 'en')}</span>
                 </div>
               </div>
               <p className="text-xs text-gray-400 mt-3">Reference value. Actual subsidies vary by canton and system size.</p>
@@ -410,17 +429,17 @@ export default function SolarPanelCostsPage() {
       </section>
 
       {/* Calculator CTA */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto bg-primary-50 rounded-2xl p-8 flex flex-col sm:flex-row items-center gap-6">
-            <Calculator className="w-14 h-14 text-primary flex-shrink-0" />
+      <section className="py-16 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="max-w-4xl mx-auto bg-orange-50 border border-[#fcb210]/20 rounded-3xl p-6 sm:p-8 flex flex-col lg:flex-row items-center gap-6">
+            <Calculator className="w-14 h-14 text-[#fcb210] flex-shrink-0" />
             <div className="flex-1 text-center sm:text-left">
               <h3 className="text-xl font-bold text-gray-900 mb-1">Solar Calculator: calculate costs</h3>
               <p className="text-gray-600 text-sm">
                 Estimate the costs of your solar installation based on your roof area and electricity consumption.
               </p>
             </div>
-            <Link href="/en/solar-calculator" className="btn-primary px-6 py-3 rounded-xl font-bold text-sm whitespace-nowrap flex-shrink-0">
+            <Link href="/en/solar-calculator" className="inline-flex items-center justify-center bg-gradient-to-br from-[#ffc812] to-[#fcb210] text-white px-6 py-3 rounded-full font-bold text-sm text-center hover:opacity-90 transition-opacity flex-shrink-0">
               Start Solar Calculator →
             </Link>
           </div>
@@ -428,8 +447,8 @@ export default function SolarPanelCostsPage() {
       </section>
 
       {/* CTA Quotes */}
-      <section className="section-padding bg-primary-50">
-        <div className="container-custom">
+      <section id="offerten" className="py-16 bg-gradient-to-r from-orange-50 to-amber-50 scroll-mt-24">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="max-w-2xl mx-auto">
             <CtaAnfrage
               title="Get free quotes now"
@@ -441,16 +460,16 @@ export default function SolarPanelCostsPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <h2 className="text-3xl font-sans font-semibold tracking-normal text-center text-gray-900 mb-4">
+      <section className="py-16 bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <h2 className="text-3xl sm:text-4xl font-sans font-bold text-center text-gray-900 mb-4">
             FAQ – Frequently asked questions about solar installation costs
           </h2>
           <p className="text-center text-gray-600 mb-10">Answers to the most common questions about the cost of a solar installation in Switzerland</p>
           <div className="max-w-3xl mx-auto space-y-4">
             {faqs.map((faq, i) => (
-              <div key={i} className="bg-gray-50 rounded-xl p-6">
-                <h3 className="font-sans font-semibold tracking-normal text-gray-900 mb-2">{faq.question}</h3>
+              <div key={i} className="bg-gray-50 border border-gray-100 rounded-2xl p-6">
+                <h3 className="font-sans font-bold text-gray-900 mb-2">{faq.question}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
               </div>
             ))}
@@ -459,12 +478,12 @@ export default function SolarPanelCostsPage() {
       </section>
 
       {/* In brief */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <div className="max-w-2xl mx-auto bg-white rounded-2xl border border-gray-200 p-8 text-center">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="max-w-2xl mx-auto bg-white rounded-3xl border border-[#fcb210]/20 shadow-sm p-6 sm:p-8 text-center">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">In brief</h2>
             <p className="text-gray-600 mb-4">A solar installation in Switzerland typically costs:</p>
-             <div className="text-4xl font-bold text-primary mb-3">{formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')}</div>
+             <div className="text-3xl sm:text-4xl font-bold text-[#fcb210] mb-3">{formatRangeForLocale(getSystemCostRange(10), 'CHF', 'en')}</div>
              <p className="text-gray-600 text-sm mb-6">gross cost for 10 kWp</p>
              <p className="text-xs text-gray-500 mb-4">{SYSTEM_PRICE_NOTES.en} {SOURCE_NOTES.en}</p>
             <p className="text-gray-500 text-sm">

@@ -10,10 +10,11 @@ import { getFormUrl } from '@/lib/i18n/formUrls';
 import { ECONOMIC_FACTS } from '@/lib/facts';
 import { articleLocalePaths } from '@/lib/articleSeoRoutes';
 import { companyRoutes, type CompanyLocale } from './company/content';
+import { subsidyRoutes } from '@/lib/subsidyRoutes';
 import {
   ChevronDown, Sun, Zap, Star, ArrowRight,
   Home, BarChart2, Battery, Calculator, Layers,
-  Award, Percent, FileText, Users, Mail, HelpCircle, Shield, BookOpen, Menu, X
+  Award, Percent, FileText, Users, Mail, HelpCircle, Menu, X
 } from 'lucide-react';
 
 const HOME_PATHS = ['/', '/fr', '/en', '/it'];
@@ -57,7 +58,7 @@ function getNavItems(locale: string): NavItem[] {
         title: 'Photovoltaik',
         description: 'Qualität · Effizienz · Nachhaltigkeit',
         viewAllHref: '/solaranlage-kosten',
-        viewAllLabel: 'Alle anzeigen',
+        viewAllLabel: 'Mehr erfahren',
         items: [
           { icon: <Home className="w-5 h-5" />, title: 'Einfamilienhaus', subtitle: 'Anlage für Ihr Haus', href: '/solaranlage-einfamilienhaus' },
           { icon: <Layers className="w-5 h-5" />, title: 'Mehrfamilienhaus', subtitle: 'Anlage für Wohngebäude', href: '/solaranlage-mehrfamilienhaus' },
@@ -85,14 +86,12 @@ function getNavItems(locale: string): NavItem[] {
         title: 'Unternehmen',
         description: 'Mission · Team · Kontakt',
         viewAllHref: '/ueber-uns',
-        viewAllLabel: 'Alle anzeigen',
+        viewAllLabel: 'Mehr erfahren',
         items: [
           { icon: <Sun className="w-5 h-5" />, title: 'Unser Ansatz', subtitle: 'Warum PvPro.ch?', href: '/ueber-uns' },
           { icon: <Users className="w-5 h-5" />, title: 'Team', subtitle: 'Unsere Experten', href: '/ueber-uns' },
           { icon: <Mail className="w-5 h-5" />, title: 'Kontakt', subtitle: 'Schreiben Sie uns', href: '/anfrage' },
           { icon: <HelpCircle className="w-5 h-5" />, title: 'FAQ', subtitle: 'Häufige Fragen', href: '/faq' },
-          { icon: <Shield className="w-5 h-5" />, title: 'Datenschutz', subtitle: 'DSGVO-konform', href: '/datenschutz' },
-          { icon: <BookOpen className="w-5 h-5" />, title: 'Impressum', subtitle: 'Rechtliche Informationen', href: '/impressum' },
         ],
       },
     ],
@@ -116,7 +115,7 @@ function getNavItems(locale: string): NavItem[] {
         title: 'Photovoltaïque',
         description: 'Qualité · Efficacité · Durabilité',
         viewAllHref: '/fr/cout-installation-solaire',
-        viewAllLabel: 'Voir tout',
+        viewAllLabel: 'En savoir plus',
         items: [
           { icon: <Home className="w-5 h-5" />, title: 'Maison individuelle', subtitle: 'Installation pour votre maison', href: '/fr/solaire-maison-individuelle' },
           { icon: <Layers className="w-5 h-5" />, title: 'Immeuble résidentiel', subtitle: 'Pour immeubles collectifs', href: '/fr/solaire-immeuble' },
@@ -144,14 +143,12 @@ function getNavItems(locale: string): NavItem[] {
         title: 'Entreprise',
         description: 'Mission · Équipe · Contact',
         viewAllHref: '/fr/a-propos',
-        viewAllLabel: 'Voir tout',
+        viewAllLabel: 'En savoir plus',
         items: [
           { icon: <Sun className="w-5 h-5" />, title: 'Notre approche', subtitle: 'Pourquoi PvPro.ch?', href: '/fr/a-propos' },
           { icon: <Users className="w-5 h-5" />, title: 'Équipe', subtitle: 'Nos experts', href: '/fr/a-propos' },
           { icon: <Mail className="w-5 h-5" />, title: 'Contact', subtitle: 'Écrivez-nous', href: '/fr/demande' },
           { icon: <HelpCircle className="w-5 h-5" />, title: 'FAQ', subtitle: 'Questions fréquentes', href: '/fr/faq' },
-          { icon: <Shield className="w-5 h-5" />, title: 'Protection des données', subtitle: 'Conforme RGPD', href: '/fr/protection-des-donnees' },
-          { icon: <BookOpen className="w-5 h-5" />, title: 'Mentions légales', subtitle: 'Informations légales', href: '/fr/mentions-legales' },
         ],
       },
     ],
@@ -175,7 +172,7 @@ function getNavItems(locale: string): NavItem[] {
         title: 'Photovoltaics',
         description: 'Quality · Efficiency · Sustainability',
         viewAllHref: '/en/solar-panel-costs',
-        viewAllLabel: 'View all',
+        viewAllLabel: 'Learn more',
         items: [
           { icon: <Home className="w-5 h-5" />, title: 'Detached house', subtitle: 'System for your home', href: '/en/solar-detached-house' },
           { icon: <Layers className="w-5 h-5" />, title: 'Apartment building', subtitle: 'For residential buildings', href: '/en/solar-apartment-building' },
@@ -203,14 +200,12 @@ function getNavItems(locale: string): NavItem[] {
         title: 'Company',
         description: 'Mission · Team · Contact',
         viewAllHref: '/en/about-us',
-        viewAllLabel: 'View all',
+        viewAllLabel: 'Learn more',
         items: [
           { icon: <Sun className="w-5 h-5" />, title: 'Our approach', subtitle: 'Why PvPro.ch?', href: '/en/about-us' },
           { icon: <Users className="w-5 h-5" />, title: 'Team', subtitle: 'Our experts', href: '/en/about-us' },
           { icon: <Mail className="w-5 h-5" />, title: 'Contact', subtitle: 'Write to us', href: '/en/request' },
           { icon: <HelpCircle className="w-5 h-5" />, title: 'FAQ', subtitle: 'Common questions', href: '/en/faq' },
-          { icon: <Shield className="w-5 h-5" />, title: 'Privacy policy', subtitle: 'GDPR compliant', href: '/en/privacy' },
-          { icon: <BookOpen className="w-5 h-5" />, title: 'Legal notice', subtitle: 'Legal information', href: '/en/imprint' },
         ],
       },
     ],
@@ -234,7 +229,7 @@ function getNavItems(locale: string): NavItem[] {
         title: 'Fotovoltaico',
         description: 'Qualità · Efficienza · Sostenibilità',
         viewAllHref: '/it/costi-impianto-solare',
-        viewAllLabel: 'Vedi tutto',
+        viewAllLabel: 'Scopri di più',
         items: [
           { icon: <Home className="w-5 h-5" />, title: 'Casa unifamiliare', subtitle: 'Impianto per la tua casa', href: '/it/solare-casa-unifamiliare' },
           { icon: <Layers className="w-5 h-5" />, title: 'Condominio', subtitle: 'Per edifici residenziali', href: '/it/solare-condominio' },
@@ -262,14 +257,12 @@ function getNavItems(locale: string): NavItem[] {
         title: 'Azienda',
         description: 'Missione · Team · Contatto',
         viewAllHref: '/it/chi-siamo',
-        viewAllLabel: 'Vedi tutto',
+        viewAllLabel: 'Scopri di più',
         items: [
           { icon: <Sun className="w-5 h-5" />, title: 'Il nostro approccio', subtitle: 'Perché PvPro.ch?', href: '/it/chi-siamo' },
           { icon: <Users className="w-5 h-5" />, title: 'Team', subtitle: 'I nostri esperti', href: '/it/chi-siamo' },
           { icon: <Mail className="w-5 h-5" />, title: 'Contatto', subtitle: 'Scrivici', href: '/it/richiesta' },
           { icon: <HelpCircle className="w-5 h-5" />, title: 'FAQ', subtitle: 'Domande frequenti', href: '/it/faq' },
-          { icon: <Shield className="w-5 h-5" />, title: 'Privacy', subtitle: 'Conforme GDPR', href: '/it/protezione-dati' },
-          { icon: <BookOpen className="w-5 h-5" />, title: 'Note legali', subtitle: 'Informazioni legali', href: '/it/note-legali' },
         ],
       },
     ],
@@ -289,14 +282,14 @@ function getNavItems(locale: string): NavItem[] {
       ...item, viewAllHref: routes.service,
       items: item.items.map((sub, step) => ({
         ...sub,
-        href: step === 0 ? routes.quote : `${routes.service}#${step === 1 ? 'receive-quotes' : 'compare-quotes'}`,
+        href: step === 0 ? routes.quote : step === 1 ? `${routes.service}#receive-quotes` : routes.selection,
       })),
     };
     if (index === 2) return {
       ...item,
       items: item.items.map((sub, entry) => ({
         ...sub,
-        href: entry === 2 ? taxPaths[language] : `${routes.subsidy}#${entry === 0 ? 'federal-subsidy' : 'cantonal-subsidies'}`,
+        href: entry === 2 ? taxPaths[language] : subsidyRoutes[language][entry === 0 ? 'federal' : 'cantonal'],
         subtitle: entry === 0 ? subtitles.federal : entry === 2 ? subtitles.tax : sub.subtitle,
       })),
     };
