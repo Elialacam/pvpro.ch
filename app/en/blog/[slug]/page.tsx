@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return pageMetadata({
     title: articleSeoTitle(article),
     description: articleMetaDescription(article.metaDescription, article.locale, article.slug),
-    authors: [{ name: 'Elia Alacam' }],
+    authors: [{ name: 'PvPro.ch' }],
     alternates: articleAlternates(slug, 'en'),
   }, { path: auto ? autoBlogPath(auto, 'en') : `/en/blog/${slug}`, locale: 'en', type: 'article' });
 }

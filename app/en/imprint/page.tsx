@@ -34,9 +34,6 @@ export default function ImprintPage() {
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Legal Form</h2>
           <p className="text-gray-600 mb-6">Limited Liability Company (GmbH / Sagl)</p>
 
-          <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Authorised Representative</h2>
-          <p className="text-gray-600 mb-6">Elia Alacam, Managing Director, with individual signatory authority</p>
-
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Commercial Register</h2>
           <p className="text-gray-600 mb-6">
             Registration number: CH-501.4.029.665-0<br />

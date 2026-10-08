@@ -34,9 +34,6 @@ export default function NoteLegaliPage() {
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Forma giuridica</h2>
           <p className="text-gray-600 mb-6">Società a garanzia limitata (Sagl / GmbH)</p>
 
-          <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Persona autorizzata a rappresentare</h2>
-          <p className="text-gray-600 mb-6">Elia Alacam, Gerente, con firma individuale</p>
-
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Registro di commercio</h2>
           <p className="text-gray-600 mb-6">
             Numero di iscrizione: CH-501.4.029.665-0<br />

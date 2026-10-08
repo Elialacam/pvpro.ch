@@ -11,7 +11,7 @@ import { articleDates } from '@/lib/blogUtils';
 const baseMetadata: Metadata = {
   title: 'Centrale solaire de balcon Suisse',
   description: "Découvrez les règles, coûts et la rentabilité d'une centrale de balcon en Suisse face à une installation solaire complète.",
-  authors: [{ name: 'Elia Alacam' }],
+  authors: [{ name: 'PvPro.ch' }],
   alternates: articleAlternates('centrale-balcon-suisse', 'fr'),
 };
 

@@ -11,7 +11,7 @@ import { articleDates } from '@/lib/blogUtils';
 export const metadata: Metadata = pageMetadata({
   title: 'Balcony solar Switzerland: rules & costs',
   description: 'Learn the rules, costs and value of balcony solar in Switzerland compared with a full solar installation.',
-  authors: [{ name: 'Elia Alacam' }],
+  authors: [{ name: 'PvPro.ch' }],
   alternates: articleAlternates('balcony-power-station-switzerland', 'en'),
 }, { path: '/en/blog/balcony-power-station-switzerland', locale: 'en', type: 'article' });
 

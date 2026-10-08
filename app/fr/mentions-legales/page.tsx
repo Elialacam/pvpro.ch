@@ -34,9 +34,6 @@ export default function MentionsLegalesPage() {
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Forme juridique</h2>
           <p className="text-gray-600 mb-6">Société à responsabilité limitée (Sàrl / Sagl)</p>
 
-          <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Personne autorisée à représenter</h2>
-          <p className="text-gray-600 mb-6">Elia Alacam, Gérant, avec signature individuelle</p>
-
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Registre du commerce</h2>
           <p className="text-gray-600 mb-6">
             Numéro d'inscription : CH-501.4.029.665-0<br />

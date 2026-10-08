@@ -114,10 +114,10 @@ export const AUTHOR_IMAGE_PATH: string | null = null;
 
 export function authorDetails(locale: BlogLocale) {
   const content = {
-    de: { role: 'Gründer PvPro.ch', bio: "Elia Alacam hat PvPro.ch in Lugano gegründet. Er hat seither über 1'000 Offertenanfragen an Schweizer Solarbetriebe vermittelt und schreibt hier über Kosten, Förderung und Offerten.", href: '/ueber-uns', label: 'Über Elia Alacam' },
-    it: { role: 'Fondatore di PvPro.ch', bio: "Elia Alacam ha fondato PvPro.ch a Lugano. Da allora ha trasmesso oltre 1'000 richieste di preventivo a ditte solari svizzere e qui scrive di costi, incentivi e preventivi.", href: '/it/chi-siamo', label: 'Su Elia Alacam' },
-    fr: { role: 'Fondateur de PvPro.ch', bio: 'Elia Alacam a fondé PvPro.ch à Lugano. Depuis, il a transmis plus de 1\'000 demandes d\'offres à des entreprises solaires suisses et écrit ici sur les coûts, les subventions et les offres.', href: '/fr/a-propos', label: 'À propos d’Elia Alacam' },
-    en: { role: 'Founder of PvPro.ch', bio: 'Elia Alacam founded PvPro.ch in Lugano. Since then, he has connected more than 1,000 quote requests with Swiss solar companies and writes here about costs, incentives and quotes.', href: '/en/about-us', label: 'About Elia Alacam' },
+    de: { role: 'Solar-Ratgeber', bio: 'Informationen von PvPro.ch zu Solaranlagen, Kosten, Förderung und dem Vergleich von Offerten in der Schweiz.', href: '/ueber-uns', label: 'Über PvPro.ch' },
+    it: { role: 'Guide sul fotovoltaico', bio: 'Informazioni di PvPro.ch su impianti solari, costi, incentivi e confronto dei preventivi in Svizzera.', href: '/it/chi-siamo', label: 'Informazioni su PvPro.ch' },
+    fr: { role: 'Guides photovoltaïques', bio: 'Informations de PvPro.ch sur les installations solaires, les coûts, les aides et la comparaison des offres en Suisse.', href: '/fr/a-propos', label: 'À propos de PvPro.ch' },
+    en: { role: 'Solar guides', bio: 'Information from PvPro.ch about solar installations, costs, subsidies and comparing quotes in Switzerland.', href: '/en/about-us', label: 'About PvPro.ch' },
   };
   return content[locale];
 }

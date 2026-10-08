@@ -34,9 +34,6 @@ export default function ImpressumPage() {
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Rechtsform</h2>
           <p className="text-gray-600 mb-6">Gesellschaft mit beschränkter Haftung (GmbH / Sagl)</p>
 
-          <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Vertretungsberechtigte Person</h2>
-          <p className="text-gray-600 mb-6">Elia Alacam, Geschäftsführer, mit Einzelunterschrift</p>
-
           <h2 className="text-2xl font-sans font-semibold tracking-normal text-gray-900 mt-8 mb-4">Handelsregister</h2>
           <p className="text-gray-600 mb-6">
             Handelsregister-Nummer: CH-501.4.029.665-0<br />

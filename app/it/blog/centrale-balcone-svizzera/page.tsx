@@ -11,7 +11,7 @@ import { articleDates } from '@/lib/blogUtils';
 export const metadata: Metadata = pageMetadata({
   title: 'Solare da balcone in Svizzera',
   description: 'Scopri regole, costi e convenienza del solare da balcone in Svizzera rispetto a un impianto fotovoltaico completo.',
-  authors: [{ name: 'Elia Alacam' }],
+  authors: [{ name: 'PvPro.ch' }],
   alternates: articleAlternates('centrale-balcone-svizzera', 'it'),
 }, { path: '/it/blog/centrale-balcone-svizzera', locale: 'it', type: 'article' });
 

@@ -13,7 +13,7 @@ import { articleAlternates } from '@/lib/articleSeoRoutes';
 export const metadata: Metadata = pageMetadata({
   title: 'Balkonkraftwerk Schweiz: Regeln & Kosten',
   description: 'Balkonkraftwerke in der Schweiz: Regeln, Kosten und ein ehrlicher Vergleich mit einer vollwertigen Solaranlage.',
-  authors: [{ name: 'Elia Alacam' }],
+  authors: [{ name: 'PvPro.ch' }],
   alternates: articleAlternates('balkonkraftwerk-schweiz', 'de'),
 }, { path: '/blog/balkonkraftwerk-schweiz', locale: 'de', type: 'article' });
 const articleDate = articleDates({ date: '17. März 2026', locale: 'de' });
