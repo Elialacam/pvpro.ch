@@ -14,8 +14,7 @@ export function ContactPage({ locale }: { locale: CompanyLocale }) {
   const c = localizedCompanyContent[locale];
   const contact = c.contact;
   const channels = [
-    {label:contact.general,href:'mailto:info@pvpro.ch',text:'info@pvpro.ch',Icon:Mail},
-    {label:contact.requests,href:'mailto:anfrage@pvpro.ch',text:'anfrage@pvpro.ch',Icon:Mail},
+    {label:'E-mail',href:'mailto:anfrage@pvpro.ch',text:'anfrage@pvpro.ch',Icon:Mail},
     {label:contact.phone,href:'tel:+41762703887',text:'+41 76 270 38 87',Icon:Phone},
     {label:'WhatsApp',href:'https://wa.me/41762703887',text:'+41 76 270 38 87',Icon:MessageCircle}
   ];
@@ -61,7 +60,7 @@ export function ContactPage({ locale }: { locale: CompanyLocale }) {
       <section className={styles.card}>
         <h2 className={styles.heading}>{contact.partnerTitle}</h2>
         <p className={styles.text}>{contact.partnerText}</p>
-        <a href="mailto:info@pvpro.ch" className={styles.link}>info@pvpro.ch</a>
+        <a href="mailto:anfrage@pvpro.ch" className={styles.link}>anfrage@pvpro.ch</a>
       </section>
       <CompanyQuote locale={locale} />
       <CompanyResources locale={locale} current="contact" />
