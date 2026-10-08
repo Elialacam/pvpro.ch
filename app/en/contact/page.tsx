@@ -1,6 +1,5 @@
 import { ContactPage } from '@/components/company/CompanyPages';
-import { companyContent } from '@/components/company/content';
-import { pageMetadata } from '@/lib/pageMetadata';
+import { companyPageMetadata } from '@/components/company/metadata';
 
-export const metadata = pageMetadata({ title: 'Contact', description: companyContent.en.contactMeta }, { path: '/en/contact', locale: 'en' });
+export const metadata = companyPageMetadata('en', 'contact');
 export default function Page() { return <ContactPage locale="en" />; }

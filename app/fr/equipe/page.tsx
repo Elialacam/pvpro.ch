@@ -1,6 +1,5 @@
 import { TeamPage } from '@/components/company/CompanyPages';
-import { companyContent } from '@/components/company/content';
-import { pageMetadata } from '@/lib/pageMetadata';
+import { companyPageMetadata } from '@/components/company/metadata';
 
-export const metadata = pageMetadata({ title: 'Équipe et responsabilités', description: companyContent.fr.teamMeta }, { path: '/fr/equipe', locale: 'fr' });
+export const metadata = companyPageMetadata('fr', 'team');
 export default function Page() { return <TeamPage locale="fr" />; }
