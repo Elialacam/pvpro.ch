@@ -173,6 +173,11 @@ function sanitizeSourceUrl(value: string): string {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
+    // Existing clients without the new field retain the default German locale.
+    const formLanguage = body.form_language ?? 'de'
+    if (!['de', 'it', 'en', 'fr'].includes(formLanguage)) {
+      return NextResponse.json({ error: 'Invalid form language' }, { status: 400 })
+    }
 
     const rawName    = body['FULL NAME']        ?? body.name
     const rawPhone   = body['PHONE NUMBER']     ?? body.phone
@@ -220,6 +225,7 @@ export async function POST(request: NextRequest) {
         },
         body: JSON.stringify({
           name,
+          form_language: formLanguage,
           phone,
           email,
           address,

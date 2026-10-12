@@ -1,0 +1,42 @@
+Voglio sincronizzare la lingua del form compilato su pvpro.ch con il CRM Slead, che riceve già i contatti tramite il webhook esistente.
+
+Lavora esclusivamente sull’invio dei contatti da pvpro.ch. Non cambiare endpoint, autenticazione, design dei form o comportamento delle campagne.
+
+Obiettivo:
+aggiungere al payload JSON inviato al webhook un campo:
+
+"form_language": "de" | "it" | "en" | "fr"
+
+Corrispondenza:
+- form nella versione tedesca, senza prefisso lingua: de
+- form nella versione /it: it
+- form nella versione /en: en
+- form nella versione /fr: fr
+
+Usa la lingua effettiva del form al momento dell’invio. Se esiste già un sistema di localizzazione, ricava il valore da quello. Se devi usare il percorso, considera anche eventuali sottopagine sotto ciascun prefisso.
+
+Non dedurre la lingua da browser, telefono, indirizzo, cantone o parametri pubblicitari.
+
+Controlla tutti i form che inviano contatti a Slead, compresi eventuali form in popup o condivisi tra le pagine. Se l’invio passa attraverso un backend intermedio, assicurati che form_language venga mantenuto fino al webhook finale.
+
+Mantieni invariati tutti i dati già trasmessi, in particolare:
+nome, email, telefono, indirizzo, CAP, messaggio e parametri di attribuzione pubblicitaria.
+
+Invia il codice lingua, non la bandiera. Slead userà successivamente questa corrispondenza:
+de → 🇩🇪
+it → 🇮🇹
+en → 🇬🇧
+fr → 🇫🇷
+
+Non inserire la bandiera nel nome del contatto e non modificare il messaggio scritto dalla persona.
+
+Verifica i payload delle quattro versioni senza inviare contatti reali al CRM, notifiche o email. Usa richieste intercettate o un ambiente di test.
+
+Prima di pubblicare, mostrami:
+1. i file modificati;
+2. come viene determinata la lingua;
+3. un esempio del payload per ciascuna lingua;
+4. i risultati delle verifiche.
+
+Nota di coordinamento:
+Slead deve ancora essere aggiornato separatamente per accettare e salvare form_language, mostrare la bandiera accanto al nome e costruire il titolo della notifica push. Non considerare completa la sincronizzazione finché entrambi i progetti non sono aggiornati e verificati.

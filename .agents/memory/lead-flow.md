@@ -10,3 +10,11 @@ description: Where PVPro form/callback leads actually go, and the user's naming 
 - Privacy policies (de/en/fr/it) no longer list a form processor — if the user wants slead.ch named there, ask for its legal entity + privacy URL first.
 
 **Why:** user stated "web3forms non esiste più, eliminalo completamente" and wants all leads in their lead system.
+
+## Form-language coordination
+
+The contact language must reflect the form's actual displayed language at submission, never browser settings, location, phone or advertising attribution. Send a language code, not a flag, and do not decorate the contact name or message.
+
+**Why:** The user wants Slead to use that language for flags and push notification titles without changing contact data or campaigns.
+
+**How to apply:** Treat PvPro submission and Slead acceptance/storage/display as separate work. Do not claim end-to-end synchronization until both projects are updated and verified. Tests must intercept outbound requests so no real CRM leads, notifications or emails are created.

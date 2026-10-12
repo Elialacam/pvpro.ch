@@ -520,6 +520,7 @@ export default function AnfrageForm({ locale = 'de' }: AnfrageFormProps) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          form_language: locale,
           'FULL NAME': fullName,
           'PHONE NUMBER': formatPhone(formData.phone),
           EMAIL: formData.email.trim(),

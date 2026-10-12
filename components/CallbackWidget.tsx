@@ -155,7 +155,8 @@ function getLocale(pathname: string | null): Locale {
 
 export default function CallbackWidget() {
   const pathname = usePathname();
-  const t = T[getLocale(pathname)];
+  const locale = getLocale(pathname);
+  const t = T[locale];
 
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
@@ -215,6 +216,7 @@ export default function CallbackWidget() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          form_language: locale,
           'FULL NAME': fullName,
           'PHONE NUMBER': formatPhone(formData.phone),
           EMAIL: formData.email.trim(),
