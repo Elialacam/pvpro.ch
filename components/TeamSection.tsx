@@ -101,7 +101,7 @@ export default function TeamSection() {
               src="/team-home.webp"
               alt={c.imageAlt}
               fill
-              className="object-cover"
+              className="object-cover object-[center_25%]"
               sizes="(max-width: 768px) 100vw, 50vw"
               loading="lazy"
             />
