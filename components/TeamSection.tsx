@@ -10,7 +10,6 @@ const teamContent: Record<Locale, {
   description: string;
   stats: { value: string; label: string }[];
   imageAlt: string;
-  image?: string;
 }> = {
   de: {
     eyebrow: 'Unser Netzwerk',
@@ -59,7 +58,6 @@ const teamContent: Record<Locale, {
       { value: '100%', label: 'Senza impegno' },
     ],
     imageAlt: 'Team PvPro.ch – Esperti solari in Ticino',
-    image: '/team-ticino.webp',
   },
 };
 
@@ -100,7 +98,7 @@ export default function TeamSection() {
           {/* Photo — square, no crop, no empty bands */}
           <div className="relative aspect-square w-full max-w-xs sm:max-w-sm mx-auto rounded-3xl overflow-hidden border border-orange-100 shadow-xl">
             <Image
-              src={c.image || '/team-new.webp'}
+              src="/team-home.webp"
               alt={c.imageAlt}
               fill
               className="object-cover"
